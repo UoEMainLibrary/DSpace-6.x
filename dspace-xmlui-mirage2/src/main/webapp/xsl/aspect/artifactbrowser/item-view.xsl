@@ -110,78 +110,82 @@
                 <div class="col-sm-4">
                     <div class="row">
                         <div class="col-xs-6 col-sm-12">
-                            <xsl:call-template name="itemSummaryView-DIM-thumbnail"/>
+                            <!--no thumbnails for HWU-->
+                            <!--div class="col-xs-6 col-sm-12">
+                                <xsl:call-template name="itemSummaryView-DIM-thumbnail"/>
+                            </div>
+                            </div>
+                        <div class="col-xs-6 col-sm-12">-->
+                            <div class="col-xs-12">
+                                <xsl:call-template name="itemSummaryView-DIM-file-section"/>
+                            </div>
                         </div>
-                        <div class="col-xs-6 col-sm-12">
-                            <xsl:call-template name="itemSummaryView-DIM-file-section"/>
-                        </div>
+                        <xsl:call-template name="itemSummaryView-DIM-date"/>
+                        <xsl:call-template name="itemSummaryView-DIM-authors"/>
+                        <xsl:if test="$ds_item_view_toggle_url != ''">
+                            <xsl:call-template name="itemSummaryView-show-full"/>
+                        </xsl:if>
                     </div>
-                    <xsl:call-template name="itemSummaryView-DIM-date"/>
-                    <xsl:call-template name="itemSummaryView-DIM-authors"/>
-                    <xsl:if test="$ds_item_view_toggle_url != ''">
-                        <xsl:call-template name="itemSummaryView-show-full"/>
-                    </xsl:if>
-                </div>
-                <div class="col-sm-8">
-                    <xsl:call-template name="itemSummaryView-DIM-abstract"/>
-                    <xsl:call-template name="itemSummaryView-DIM-URI"/>
-                    <xsl:call-template name="itemSummaryView-collections"/>
+                    <div class="col-sm-8">
+                        <xsl:call-template name="itemSummaryView-DIM-abstract"/>
+                        <xsl:call-template name="itemSummaryView-DIM-URI"/>
+                        <xsl:call-template name="itemSummaryView-collections"/>
+                    </div>
                 </div>
             </div>
-        </div>
-    </xsl:template>
+        </xsl:template>
 
-    <xsl:template name="itemSummaryView-DIM-title">
-        <xsl:choose>
-            <xsl:when test="count(dim:field[@element='title'][not(@qualifier)]) &gt; 1">
-                <h2 class="page-header first-page-header">
-                    <xsl:value-of select="dim:field[@element='title'][not(@qualifier)][1]/node()"/>
-                </h2>
-                <div class="simple-item-view-other">
-                    <p class="lead">
-                        <xsl:for-each select="dim:field[@element='title'][not(@qualifier)]">
-                            <xsl:if test="not(position() = 1)">
-                                <xsl:value-of select="./node()"/>
-                                <xsl:if test="count(following-sibling::dim:field[@element='title'][not(@qualifier)]) != 0">
-                                    <xsl:text>; </xsl:text>
-                                    <br/>
-                                </xsl:if>
-                            </xsl:if>
-
-                        </xsl:for-each>
-                    </p>
-                </div>
-            </xsl:when>
-            <xsl:when test="count(dim:field[@element='title'][not(@qualifier)]) = 1">
-                <h2 class="page-header first-page-header">
-                    <xsl:value-of select="dim:field[@element='title'][not(@qualifier)][1]/node()"/>
-                </h2>
-            </xsl:when>
-            <xsl:otherwise>
-                <h2 class="page-header first-page-header">
-                    <i18n:text>xmlui.dri2xhtml.METS-1.0.no-title</i18n:text>
-                </h2>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
-
-    <xsl:template name="itemSummaryView-DIM-thumbnail">
-        <div class="thumbnail">
+        <xsl:template name="itemSummaryView-DIM-title">
             <xsl:choose>
-                <xsl:when test="//mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']">
-                    <xsl:variable name="src">
-                        <xsl:choose>
-                            <xsl:when test="/mets:METS/mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']/mets:file[@GROUPID=../../mets:fileGrp[@USE='CONTENT']/mets:file[@GROUPID=../../mets:fileGrp[@USE='THUMBNAIL']/mets:file/@GROUPID][1]/@GROUPID]">
-                                <xsl:value-of
-                                        select="/mets:METS/mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']/mets:file[@GROUPID=../../mets:fileGrp[@USE='CONTENT']/mets:file[@GROUPID=../../mets:fileGrp[@USE='THUMBNAIL']/mets:file/@GROUPID][1]/@GROUPID]/mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:value-of
-                                        select="//mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']/mets:file/mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:variable>
-                    <!-- Checking if Thumbnail is restricted and if so, show a restricted image --> 
+                <xsl:when test="count(dim:field[@element='title'][not(@qualifier)]) &gt; 1">
+                    <h2 class="page-header first-page-header">
+                        <xsl:value-of select="dim:field[@element='title'][not(@qualifier)][1]/node()"/>
+                    </h2>
+                    <div class="simple-item-view-other">
+                        <p class="lead">
+                            <xsl:for-each select="dim:field[@element='title'][not(@qualifier)]">
+                                <xsl:if test="not(position() = 1)">
+                                    <xsl:value-of select="./node()"/>
+                                    <xsl:if test="count(following-sibling::dim:field[@element='title'][not(@qualifier)]) != 0">
+                                        <xsl:text>; </xsl:text>
+                                        <br/>
+                                    </xsl:if>
+                                </xsl:if>
+
+                            </xsl:for-each>
+                        </p>
+                    </div>
+                </xsl:when>
+                <xsl:when test="count(dim:field[@element='title'][not(@qualifier)]) = 1">
+                    <h2 class="page-header first-page-header">
+                        <xsl:value-of select="dim:field[@element='title'][not(@qualifier)][1]/node()"/>
+                    </h2>
+                </xsl:when>
+                <xsl:otherwise>
+                    <h2 class="page-header first-page-header">
+                        <i18n:text>xmlui.dri2xhtml.METS-1.0.no-title</i18n:text>
+                    </h2>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:template>
+
+        <xsl:template name="itemSummaryView-DIM-thumbnail">
+            <div class="thumbnail">
+                <xsl:choose>
+                    <xsl:when test="//mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']">
+                        <xsl:variable name="src">
+                            <xsl:choose>
+                                <xsl:when test="/mets:METS/mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']/mets:file[@GROUPID=../../mets:fileGrp[@USE='CONTENT']/mets:file[@GROUPID=../../mets:fileGrp[@USE='THUMBNAIL']/mets:file/@GROUPID][1]/@GROUPID]">
+                                    <xsl:value-of
+                                            select="/mets:METS/mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']/mets:file[@GROUPID=../../mets:fileGrp[@USE='CONTENT']/mets:file[@GROUPID=../../mets:fileGrp[@USE='THUMBNAIL']/mets:file/@GROUPID][1]/@GROUPID]/mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:value-of
+                                            select="//mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']/mets:file/mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </xsl:variable>
+                        <!-- Checking if Thumbnail is restricted and if so, show a restricted image -->
                     <xsl:choose>
                         <xsl:when test="contains($src,'isAllowed=n')"/>
                         <xsl:otherwise>

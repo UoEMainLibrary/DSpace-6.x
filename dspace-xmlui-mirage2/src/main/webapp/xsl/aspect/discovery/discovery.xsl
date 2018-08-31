@@ -155,37 +155,38 @@
         <xsl:variable name="metsDoc" select="document($externalMetadataUrl)"/>
 
         <div class="row ds-artifact-item ">
-
+            <!--No thumbnails for HWU -->
             <!--Generates thumbnails (if present)-->
-            <div class="col-sm-3 hidden-xs">
-                <xsl:apply-templates select="$metsDoc/mets:METS/mets:fileSec" mode="artifact-preview">
-                    <xsl:with-param name="href" select="concat($context-path, '/handle/', $handle)"/>
-                </xsl:apply-templates>
+            <!--<div class="col-sm-3 hidden-xs">
+               <xsl:apply-templates select="$metsDoc/mets:METS/mets:fileSec" mode="artifact-preview">
+                   <xsl:with-param name="href" select="concat($context-path, '/handle/', $handle)"/>
+               </xsl:apply-templates>
             </div>
 
 
-            <div class="col-sm-9 artifact-description">
-                <xsl:element name="a">
-                    <xsl:attribute name="href">
-                        <xsl:choose>
-                            <xsl:when test="$metsDoc/mets:METS/mets:dmdSec/mets:mdWrap/mets:xmlData/dim:dim/@withdrawn">
-                                <xsl:value-of select="$metsDoc/mets:METS/@OBJEDIT"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:value-of select="concat($context-path, '/handle/', $handle)"/>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:attribute>
-                    <h4>
-                        <xsl:choose>
-                            <xsl:when test="dri:list[@n=(concat($handle, ':dc.title'))]">
-                                <xsl:apply-templates select="dri:list[@n=(concat($handle, ':dc.title'))]/dri:item"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <i18n:text>xmlui.dri2xhtml.METS-1.0.no-title</i18n:text>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                        <!-- Generate COinS with empty content per spec but force Cocoon to not create a minified tag  -->
+            <div class="col-sm-9 artifact-description"-->
+            <div class="col-sm-12 artifact-description">
+               <xsl:element name="a">
+                   <xsl:attribute name="href">
+                       <xsl:choose>
+                           <xsl:when test="$metsDoc/mets:METS/mets:dmdSec/mets:mdWrap/mets:xmlData/dim:dim/@withdrawn">
+                               <xsl:value-of select="$metsDoc/mets:METS/@OBJEDIT"/>
+                           </xsl:when>
+                           <xsl:otherwise>
+                               <xsl:value-of select="concat($context-path, '/handle/', $handle)"/>
+                           </xsl:otherwise>
+                       </xsl:choose>
+                   </xsl:attribute>
+                   <h4>
+                       <xsl:choose>
+                           <xsl:when test="dri:list[@n=(concat($handle, ':dc.title'))]">
+                               <xsl:apply-templates select="dri:list[@n=(concat($handle, ':dc.title'))]/dri:item"/>
+                           </xsl:when>
+                           <xsl:otherwise>
+                               <i18n:text>xmlui.dri2xhtml.METS-1.0.no-title</i18n:text>
+                           </xsl:otherwise>
+                       </xsl:choose>
+                       <!-- Generate COinS with empty content per spec but force Cocoon to not create a minified tag  -->
                         <span class="Z3988">
                             <xsl:attribute name="title">
                                 <xsl:for-each select="$metsDoc/mets:METS/mets:dmdSec/mets:mdWrap/mets:xmlData/dim:dim">
@@ -247,7 +248,12 @@
                             <xsl:text>(</xsl:text>
                             <xsl:if test="dri:list[@n=(concat($handle, ':dc.publisher'))]">
                                 <span class="publisher">
-                                    <xsl:apply-templates select="dri:list[@n=(concat($handle, ':dc.publisher'))]/dri:item"/>
+                                    <xsl:for-each select="dri:list[@n=(concat($handle, ':dc.publisher'))]/dri:item">
+                                        <xsl:apply-templates select="."/>
+                                        <xsl:if test="count(following-sibling::dri:item) != 0">
+                                            <xsl:text> </xsl:text>
+                                        </xsl:if>
+                                    </xsl:for-each>
                                 </span>
                                 <xsl:text>, </xsl:text>
                             </xsl:if>

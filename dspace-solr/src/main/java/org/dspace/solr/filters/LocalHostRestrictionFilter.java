@@ -39,7 +39,8 @@ public class LocalHostRestrictionFilter implements Filter {
 			String localAddr = ia.getHostAddress();
 			String remoteAddr = request.getRemoteAddr();
 
-			if(!(localAddr.equals(remoteAddr) || remoteAddr.equals("127.0.0.1") || remoteAddr.startsWith("0:0:0:0:0:0:0:1")))
+			/*if(!(localAddr.equals(remoteAddr) || remoteAddr.equals("127.0.0.1") || remoteAddr.startsWith("0:0:0:0:0:0:0:1")))*/
+			if(!(localAddr.equals(remoteAddr) || remoteAddr.equals("127.0.0.1") || remoteAddr.equals("::1") || remoteAddr.startsWith("0:0:0:0:0:0:0:1")))
 			{
 				((HttpServletResponse)response).sendError(403);
 		                return;

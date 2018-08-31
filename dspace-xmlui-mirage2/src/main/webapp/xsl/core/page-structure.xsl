@@ -87,7 +87,7 @@
                         </xsl:when>
                         <xsl:otherwise>
                             <xsl:call-template name="buildHeader"/>
-                            <xsl:call-template name="buildTrail"/>
+                            <!--<xsl:call-template name="buildTrail"/>-->
                             <!--javascript-disabled warning, will be invisible if javascript is enabled-->
                             <div id="no-js-warning-wrapper" class="hidden">
                                 <div id="no-js-warning">
@@ -104,9 +104,6 @@
                                         <div class="col-xs-12 col-sm-12 col-md-9 main-content">
                                             <xsl:apply-templates select="*[not(self::dri:options)]"/>
 
-                                            <div class="visible-xs visible-sm">
-                                                <xsl:call-template name="buildFooter"/>
-                                            </div>
                                         </div>
                                         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
                                             <xsl:apply-templates select="dri:options"/>
@@ -115,13 +112,17 @@
                                     </div>
                                 </div>
 
-                                <!--
-                            The footer div, dropping whatever extra information is needed on the page. It will
-                            most likely be something similar in structure to the currently given example. -->
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="visible-xs visible-sm">
+                                <xsl:call-template name="buildFooter"/>
+                            </div>
+                            <!--
+                        The footer div, dropping whatever extra information is needed on the page. It will
+                        most likely be something similar in structure to the currently given example. -->
                             <div class="hidden-xs hidden-sm">
-                            <xsl:call-template name="buildFooter"/>
-                             </div>
-                         </div>
+                                <xsl:call-template name="buildFooter"/>
+                            </div>
 
 
                         </xsl:otherwise>
@@ -157,13 +158,13 @@
             <link rel="shortcut icon">
                 <xsl:attribute name="href">
                     <xsl:value-of select="$theme-path"/>
-                    <xsl:text>images/favicon.ico</xsl:text>
+                    <xsl:text>images/hwu-favicon.ico</xsl:text>
                 </xsl:attribute>
             </link>
             <link rel="apple-touch-icon">
                 <xsl:attribute name="href">
                     <xsl:value-of select="$theme-path"/>
-                    <xsl:text>images/apple-touch-icon.png</xsl:text>
+                    <xsl:text>lib/images/apple-touch-icon.png</xsl:text>
                 </xsl:attribute>
             </link>
 
@@ -226,7 +227,8 @@
                         <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='serverPort']"/>
                         <xsl:value-of select="$context-path"/>
                         <xsl:text>/</xsl:text>
-                        <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='opensearch'][@qualifier='autolink']"/>
+                        <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='opensearch'][@qualifier='context']"/>
+                        <xsl:text>description.xml</xsl:text>
                     </xsl:attribute>
                     <xsl:attribute name="title" >
                         <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='opensearch'][@qualifier='shortName']"/>
@@ -269,7 +271,7 @@
 
             <xsl:text disable-output-escaping="yes">&lt;!--[if lt IE 9]&gt;
                 &lt;script src="</xsl:text><xsl:value-of select="concat($theme-path, 'vendor/html5shiv/dist/html5shiv.js')"/><xsl:text disable-output-escaping="yes">"&gt;&#160;&lt;/script&gt;
-                &lt;script src="</xsl:text><xsl:value-of select="concat($theme-path, 'vendor/respond/dest/respond.min.js')"/><xsl:text disable-output-escaping="yes">"&gt;&#160;&lt;/script&gt;
+                &lt;script src="</xsl:text><xsl:value-of select="concat($theme-path, 'vendor/respond/respond.min.js')"/><xsl:text disable-output-escaping="yes">"&gt;&#160;&lt;/script&gt;
                 &lt;![endif]--&gt;</xsl:text>
 
             <!-- Modernizr enables HTML5 elements & feature detects -->
@@ -302,23 +304,6 @@
                 <meta name="{@element}" content="{.}"></meta>
             </xsl:for-each>
 
-            <!-- Add MathJAX JS library to render scientific formulas-->
-            <xsl:if test="confman:getProperty('webui.browse.render-scientific-formulas') = 'true'">
-                <script type="text/x-mathjax-config">
-                    MathJax.Hub.Config({
-                      tex2jax: {
-                        ignoreClass: "detail-field-data|detailtable|exception"
-                      },
-                      TeX: {
-                        Macros: {
-                          AA: '{\\mathring A}'
-                        }
-                      }
-                    });
-                </script>
-                <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">&#160;</script>
-            </xsl:if>
-
         </head>
     </xsl:template>
 
@@ -328,11 +313,29 @@
     <xsl:template name="buildHeader">
 
 
-        <header>
-            <div class="navbar navbar-default navbar-static-top" role="navigation">
-                <div class="container">
-                    <div class="navbar-header">
+        <header class="hwu-header">
+            <div class="container hwu-header-content">
+                <div class="row">
+                    <div class="col-xs-9 col-sm-10 header-title">
+                        <h1 class="hidden-xs hidden-sm">
+                            <a href="{$context-path}/">
+                                ROS Theses Repository
+                            </a>
+                        </h1>
+                    </div>
+                    <div class="col-xs-3 col-sm-2">
+                        <a id="logo" href="//www.hw.ac.uk" class="pull-right" title="Heriot-Watt University Home">
+                            <img src="{$theme-path}images/hwu-logo.png" />
+                        </a>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
 
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+            <div class="container hwu-navbar">
+                <div class="col-xs-9 col-sm-9 col-md-9 hwu-navbar-content">
+                    <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="offcanvas">
                             <span class="sr-only">
                                 <i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text>
@@ -341,115 +344,120 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-
-                        <a href="{$context-path}/" class="navbar-brand">
-                            <img src="{$theme-path}images/DSpace-logo-line.svg" />
-                        </a>
-
-
-                        <div class="navbar-header pull-right visible-xs hidden-sm hidden-md hidden-lg">
-                        <ul class="nav nav-pills pull-left ">
-
-                            <xsl:if test="count(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='supportedLocale']) &gt; 1">
-                                <li id="ds-language-selection-xs" class="dropdown">
-                                    <xsl:variable name="active-locale" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='currentLocale']"/>
-                                    <button id="language-dropdown-toggle-xs" href="#" role="button" class="dropdown-toggle navbar-toggle navbar-link" data-toggle="dropdown">
-                                        <b class="visible-xs glyphicon glyphicon-globe" aria-hidden="true"/>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="language-dropdown-toggle-xs" data-no-collapse="true">
-                                        <xsl:for-each
-                                                select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='supportedLocale']">
-                                            <xsl:variable name="locale" select="."/>
-                                            <li role="presentation">
-                                                <xsl:if test="$locale = $active-locale">
-                                                    <xsl:attribute name="class">
-                                                        <xsl:text>disabled</xsl:text>
-                                                    </xsl:attribute>
-                                                </xsl:if>
-                                                <a>
-                                                    <xsl:attribute name="href">
-                                                        <xsl:value-of select="$current-uri"/>
-                                                        <xsl:text>?locale-attribute=</xsl:text>
-                                                        <xsl:value-of select="$locale"/>
-                                                    </xsl:attribute>
-                                                    <xsl:value-of
-                                                            select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='supportedLocale'][@qualifier=$locale]"/>
-                                                </a>
-                                            </li>
-                                        </xsl:for-each>
-                                    </ul>
-                                </li>
-                            </xsl:if>
-
+                        <!-- breadcrumbs -->
+                        <div class="pull-left">
                             <xsl:choose>
-                                <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
-                                    <li class="dropdown">
-                                        <button class="dropdown-toggle navbar-toggle navbar-link" id="user-dropdown-toggle-xs" href="#" role="button"  data-toggle="dropdown">
-                                            <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
-                                        </button>
-                                        <ul class="dropdown-menu pull-right" role="menu"
-                                            aria-labelledby="user-dropdown-toggle-xs" data-no-collapse="true">
-                                            <li>
-                                                <a href="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='url']}">
-                                                    <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='logoutURL']}">
-                                                    <i18n:text>xmlui.dri2xhtml.structural.logout</i18n:text>
-                                                </a>
-                                            </li>
+                                <xsl:when test="count(/dri:document/dri:meta/dri:pageMeta/dri:trail) > 1">
+                                    <div class="breadcrumb dropdown visible-xs visible-sm">
+                                        <a id="trail-dropdown-toggle" href="#" role="button" class="dropdown-toggle"
+                                           data-toggle="dropdown">
+                                            <xsl:variable name="last-node"
+                                                          select="/dri:document/dri:meta/dri:pageMeta/dri:trail[last()]"/>
+                                            <xsl:choose>
+                                                <xsl:when test="$last-node/i18n:*">
+                                                    <xsl:apply-templates select="$last-node/*"/>
+                                                </xsl:when>
+                                                <xsl:otherwise>
+                                                    <xsl:apply-templates select="$last-node/text()"/>
+                                                </xsl:otherwise>
+                                            </xsl:choose>
+                                            <xsl:text>&#160;</xsl:text>
+
+                                                <b class="caret"/>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu" aria-labelledby="trail-dropdown-toggle">
+                                            <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"
+                                                                 mode="dropdown"/>
                                         </ul>
-                                    </li>
+                                    </div>
+                                    <div class="hwu-lg-breadcrumb visible-lg hidden-md hidden-xs hidden-sm">
+                                        <ul class="breadcrumb">
+                                            <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
+                                        </ul>
+                                    </div>
+                                    <div class="hwu-md-breadcrumb hidden-lg visible-md hidden-xs hidden-sm">
+                                        <ul class="breadcrumb">
+                                            <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
+                                        </ul>
+                                    </div>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <li>
-                                        <form style="display: inline" action="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='loginURL']}" method="get">
-                                            <button class="navbar-toggle navbar-link">
-                                            <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
-                                            </button>
-                                        </form>
-                                    </li>
+                                    <ul class="breadcrumb">
+                                        <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
+                                    </ul>
                                 </xsl:otherwise>
                             </xsl:choose>
-                        </ul>
-                              </div>
+                        </div>
+                        <!-- extra small screen size icons -->
+                        <div class="navbar-header pull-right visible-xs hidden-sm hidden-md hidden-lg">
+                            <ul class="nav nav-pills pull-right">
+                                <!--xsl:call-template name="languageSelection-xs"/-->
+                                <xsl:choose>
+                                <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
+                                <li class="dropdown">
+                                    <button class="dropdown-toggle navbar-toggle navbar-link" id="user-dropdown-toggle-xs" href="#" role="button"  data-toggle="dropdown">
+                                        <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="user-dropdown-toggle-xs" data-no-collapse="true">
+                                        <li>
+                                            <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='url']}">
+                                                <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='logoutURL']}">
+                                                <i18n:text>xmlui.dri2xhtml.structural.logout</i18n:text>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                            </li>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                            <li>
+                                                <form style="display: inline" action="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='loginURL']}" method="get">
+                                                    <button class="navbar-toggle navbar-link">
+                                                        <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
+                                                    </button>
+                                                </form>
+                                            </li>
+                                </xsl:otherwise>
+                                </xsl:choose>
+                            </ul>
+                        </div>
                     </div>
-
+                    <!-- all but extra small screen size dropdown -->
                     <div class="navbar-header pull-right hidden-xs">
-                        <ul class="nav navbar-nav pull-left">
-                              <xsl:call-template name="languageSelection"/>
-                        </ul>
-                        <ul class="nav navbar-nav pull-left">
+                        <button data-toggle="offcanvas" class="navbar-toggle visible-sm" type="button">
+                            <span class="sr-only"><i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!--ul class="nav navbar-nav pull-right">
+                            <xsl:call-template name="languageSelection"/>
+                        </ul-->
+                        <ul class="nav navbar-nav pull-right hwu-lg-dropdown">
                             <xsl:choose>
                                 <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
                                     <li class="dropdown">
                                         <a id="user-dropdown-toggle" href="#" role="button" class="dropdown-toggle"
                                            data-toggle="dropdown">
                                             <span class="hidden-xs">
-                                                <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='firstName']"/>
+                                                <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='firstName']"/>
                                                 <xsl:text> </xsl:text>
-                                                <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='lastName']"/>
+                                                <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='lastName']"/>
                                                 &#160;
                                                 <b class="caret"/>
                                             </span>
                                         </a>
-                                        <ul class="dropdown-menu pull-right" role="menu"
-                                            aria-labelledby="user-dropdown-toggle" data-no-collapse="true">
+                                        <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="user-dropdown-toggle" data-no-collapse="true">
                                             <li>
-                                                <a href="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='url']}">
+                                                <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='url']}">
                                                     <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='logoutURL']}">
+                                                <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='logoutURL']}">
                                                     <i18n:text>xmlui.dri2xhtml.structural.logout</i18n:text>
                                                 </a>
                                             </li>
@@ -458,8 +466,7 @@
                                 </xsl:when>
                                 <xsl:otherwise>
                                     <li>
-                                        <a href="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='loginURL']}">
+                                        <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='loginURL']}">
                                             <span class="hidden-xs">
                                                 <i18n:text>xmlui.dri2xhtml.structural.login</i18n:text>
                                             </span>
@@ -469,12 +476,7 @@
                             </xsl:choose>
                         </ul>
 
-                        <button data-toggle="offcanvas" class="navbar-toggle visible-sm" type="button">
-                            <span class="sr-only"><i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -487,14 +489,13 @@
     <!-- The header (distinct from the HTML head element) contains the title, subtitle, login box and various
         placeholders for header images -->
     <xsl:template name="buildTrail">
-        <div class="trail-wrapper hidden-print">
+        <div class="trail-wrapper">
             <div class="container">
                 <div class="row">
-                    <!--TODO-->
                     <div class="col-xs-12">
                         <xsl:choose>
                             <xsl:when test="count(/dri:document/dri:meta/dri:pageMeta/dri:trail) > 1">
-                                <div class="breadcrumb dropdown visible-xs">
+                                <div class="breadcrumb dropdown visible-xs visible-sm">
                                     <a id="trail-dropdown-toggle" href="#" role="button" class="dropdown-toggle"
                                        data-toggle="dropdown">
                                         <xsl:variable name="last-node"
@@ -515,7 +516,7 @@
                                                              mode="dropdown"/>
                                     </ul>
                                 </div>
-                                <ul class="breadcrumb hidden-xs">
+                                <ul class="breadcrumb hidden-xs hidden-sm">
                                     <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
                                 </ul>
                             </xsl:when>
@@ -622,18 +623,22 @@
 
         <xsl:if test="$ccLicenseName and $ccLicenseUri and contains($ccLicenseUri, 'creativecommons')">
             <div about="{$handleUri}" class="row">
-            <div class="col-sm-3 col-xs-12">
-                <a rel="license"
-                   href="{$ccLicenseUri}"
-                   alt="{$ccLicenseName}"
-                   title="{$ccLicenseName}"
-                        >
-                    <xsl:call-template name="cc-logo">
-                        <xsl:with-param name="ccLicenseName" select="$ccLicenseName"/>
-                        <xsl:with-param name="ccLicenseUri" select="$ccLicenseUri"/>
-                    </xsl:call-template>
-                </a>
-            </div> <div class="col-sm-8">
+                <div class="col-sm-3 col-xs-12">
+                    <a rel="license"
+                       href="{$ccLicenseUri}"
+                       alt="{$ccLicenseName}"
+                       title="{$ccLicenseName}"
+                            >
+                        <img class="img-responsive">
+                            <xsl:attribute name="src">
+                                <xsl:value-of select="concat($theme-path,'/images/cc-ship.gif')"/>
+                            </xsl:attribute>
+                            <xsl:attribute name="alt">
+                                <xsl:value-of select="$ccLicenseName"/>
+                            </xsl:attribute>
+                        </img>
+                    </a>
+                </div> <div class="col-sm-8">
                 <span>
                     <i18n:text>xmlui.dri2xhtml.METS-1.0.cc-license-text</i18n:text>
                     <xsl:value-of select="$ccLicenseName"/>
@@ -643,96 +648,49 @@
         </xsl:if>
     </xsl:template>
 
-    <xsl:template name="cc-logo">
-        <xsl:param name="ccLicenseName"/>
-        <xsl:param name="ccLicenseUri"/>
-        <xsl:variable name="ccLogo">
-             <xsl:choose>
-                  <xsl:when test="starts-with($ccLicenseUri,
-                                           'http://creativecommons.org/licenses/by/')">
-                       <xsl:value-of select="'cc-by.png'" />
-                  </xsl:when>
-                  <xsl:when test="starts-with($ccLicenseUri,
-                                           'http://creativecommons.org/licenses/by-sa/')">
-                       <xsl:value-of select="'cc-by-sa.png'" />
-                  </xsl:when>
-                  <xsl:when test="starts-with($ccLicenseUri,
-                                           'http://creativecommons.org/licenses/by-nd/')">
-                       <xsl:value-of select="'cc-by-nd.png'" />
-                  </xsl:when>
-                  <xsl:when test="starts-with($ccLicenseUri,
-                                           'http://creativecommons.org/licenses/by-nc/')">
-                       <xsl:value-of select="'cc-by-nc.png'" />
-                  </xsl:when>
-                  <xsl:when test="starts-with($ccLicenseUri,
-                                           'http://creativecommons.org/licenses/by-nc-sa/')">
-                       <xsl:value-of select="'cc-by-nc-sa.png'" />
-                  </xsl:when>
-                  <xsl:when test="starts-with($ccLicenseUri,
-                                           'http://creativecommons.org/licenses/by-nc-nd/')">
-                       <xsl:value-of select="'cc-by-nc-nd.png'" />
-                  </xsl:when>
-                  <xsl:when test="starts-with($ccLicenseUri,
-                                           'http://creativecommons.org/publicdomain/zero/')">
-                       <xsl:value-of select="'cc-zero.png'" />
-                  </xsl:when>
-                  <xsl:when test="starts-with($ccLicenseUri,
-                                           'http://creativecommons.org/publicdomain/mark/')">
-                       <xsl:value-of select="'cc-mark.png'" />
-                  </xsl:when>
-                  <xsl:otherwise>
-                       <xsl:value-of select="'cc-generic.png'" />
-                  </xsl:otherwise>
-             </xsl:choose>
-        </xsl:variable>
-        <img class="img-responsive">
-             <xsl:attribute name="src">
-                <xsl:value-of select="concat($theme-path,'/images/creativecommons/', $ccLogo)"/>
-             </xsl:attribute>
-             <xsl:attribute name="alt">
-                 <xsl:value-of select="$ccLicenseName"/>
-             </xsl:attribute>
-        </img>
-    </xsl:template>
-
     <!-- Like the header, the footer contains various miscellaneous text, links, and image placeholders -->
     <xsl:template name="buildFooter">
-        <footer>
+        <footer class="hwu-footer">
+            <div class="container hwu-footer-content">
                 <div class="row">
-                    <hr/>
-                    <div class="col-xs-7 col-sm-8">
-                        <div>
-                            <a href="http://www.dspace.org/" target="_blank">DSpace software</a> copyright&#160;&#169;&#160;2002-2016&#160; <a href="http://www.duraspace.org/" target="_blank">DuraSpace</a>
-                        </div>
-                        <div class="hidden-print">
-                            <a>
-                                <xsl:attribute name="href">
-                                    <xsl:value-of
-                                            select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
-                                    <xsl:text>/contact</xsl:text>
-                                </xsl:attribute>
-                                <i18n:text>xmlui.dri2xhtml.structural.contact-link</i18n:text>
-                            </a>
-                            <xsl:text> | </xsl:text>
-                            <a>
-                                <xsl:attribute name="href">
-                                    <xsl:value-of
-                                            select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
-                                    <xsl:text>/feedback</xsl:text>
-                                </xsl:attribute>
-                                <i18n:text>xmlui.dri2xhtml.structural.feedback-link</i18n:text>
-                            </a>
+                    <div class="col-xs-5 col-sm-5 footer-address">
+                        <div id="copyright-content">
+                            <address itemtype="http://schema.org/CollegeOrUniversity" itemscope="" id="footerOrg">
+                                <strong><xsl:text>&#169;</xsl:text> <span itemprop="name">Heriot-Watt University</span></strong>,
+                                <span itemtype="http://schema.org/PostalAddress" itemscope="" itemprop="address">
+                                    <span itemprop="addressLocality">Edinburgh</span>,
+                                    <span itemprop="addressRegion">Scotland</span>,
+                                    <span itemprop="addressCountry">UK</span><xsl:text>&#160;</xsl:text>
+                                    <span itemprop="postalCode">EH14 4AS</span>.<br/>
+                                    <p>
+                                        Maintained by the Library<br />
+                                        Tel: <span itemprop="telephone">+44 (0)131 451 3577</span><br />
+                                        Library Email: <a href="mailto:libhelp@hw.ac.uk" itemprop="email">libhelp@hw.ac.uk</a><br />
+                                        ROS Email: <a href="mailto:open.access@hw.ac.uk" itemprop="email">open.access@hw.ac.uk</a><br />
+                                    </p>
+                                </span>
+                            </address>
+                            <p>Scottish registered charity number: SC000278</p>
                         </div>
                     </div>
-                    <div class="col-xs-5 col-sm-4 hidden-print">
-                        <div class="pull-right">
-                            <span class="theme-by">Theme by&#160;</span>
-                            <br/>
-                            <a title="Atmire NV" target="_blank" href="http://atmire.com">
-                                <img alt="Atmire NV" src="{concat($theme-path, 'images/atmire-logo-small.svg')}"/>
-                            </a>
-                        </div>
 
+                    <div class="col-xs-7 col-sm-7 hidden-xs footer-links">
+                        <ul class="footer-links-list">
+                            <li><a rel="license" href="//www.hw.ac.uk/about/policies/terms-conditions.htm" target="_blank">Copyright</a></li>
+                            <li><a href="//www.hw.ac.uk/about/policies/accessibility.htm" target="_blank">Accessibility</a></li>
+                            <li><a href="//www.hw.ac.uk/about/policies.htm" target="_blank">Policies</a></li>
+                            <li><a href="//www.hw.ac.uk/about/policies/cookies.htm" target="_blank">Privacy &amp; Cookies</a></li>
+                            <li><a href="/feedback">Feedback</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-7 col-sm-7 visible-xs footer-links">
+                        <div class="small-footer-links">
+                            <a rel="license" href="//www.hw.ac.uk/about/policies/terms-conditions.htm" target="_blank">Copyright</a><br />
+                            <a href="//www.hw.ac.uk/about/policies/accessibility.htm" target="_blank">Accessibility</a><br />
+                            <a href="//www.hw.ac.uk/about/policies.htm" target="_blank">Policies</a><br />
+                            <a href="//www.hw.ac.uk/about/policies/cookies.htm" target="_blank">Privacy &amp; Cookies</a><br />
+                            <a href="//www.hw.ac.uk/is/contactvisit-us.htm" target="_blank">Feedback</a><br />
+                        </div>
                     </div>
                 </div>
                 <!--Invisible link to HTML sitemap (for search engines) -->
@@ -744,7 +702,7 @@
                     </xsl:attribute>
                     <xsl:text>&#160;</xsl:text>
                 </a>
-            <p>&#160;</p>
+            </div>
         </footer>
     </xsl:template>
 
@@ -773,8 +731,46 @@
             <xsl:choose>
                 <xsl:when test="starts-with($request-uri, 'page/about')">
                     <div class="hero-unit">
-                        <h1><i18n:text>xmlui.mirage2.page-structure.heroUnit.title</i18n:text></h1>
-                        <p><i18n:text>xmlui.mirage2.page-structure.heroUnit.content</i18n:text></p>
+                        <h2><i18n:text>xmlui.mirage2.page-structure.heroUnit.title</i18n:text></h2>
+                        <!--p><i18n:text>xmlui.mirage2.page-structure.heroUnit.content</i18n:text></p-->
+                        <h3><a name="what">What is ROS</a></h3>
+                        <p>ROS (The Research Output Service) contains full-text copies of all Heriot-Watt University PhD theses awarded from 2009 onwards.</p>
+                        <p>It is mandatory for any student who completes a doctoral thesis to submit a digital copy for inclusion in ROS.  In addition, the metadata-only records of older theses (previously held in the University Library catalogue) are included in ROS, with full text digital copies being sought on a voluntary basis.  If you have a digital copy of your thesis and you wish to store it in ROS, please <a href="/page/about#contact">contact us</a>.</p>
+                        <h3><a name="copyright">Copyright</a></h3>
+                        <p>ROS contributors can rest assured that, although their work can be publicly accessed, it is protected by a strict Copyright licence which prevents its misuse.  Copyright information is prominently displayed throughout ROS.</p>
+                        <p>The Creative Commons licence used by ROS states that you (the visitor to ROS) "are free to to copy, distribute, display, and perform the work under the following conditions:</p>
+                        <ul>
+                            <li><strong>Attribution</strong>. You must give the original author credit.</li>
+                            <li><strong>Non-Commercial</strong>. You may not use this work for commercial purposes.</li>
+                            <li><strong>No Derivative Works</strong>. You may not alter, transform, or build upon this work.</li>
+                        </ul>
+                        <p>In addition:</p>
+                        <ul>
+                            <li>For any reuse or distribution, you must make clear to others the licence terms of this work.</li>
+                            <li>Any of these conditions can be waived if you get permission from the copyright holder.</li>
+                            <li>Nothing in this license impairs or restricts the author's moral rights.</li>
+                        </ul>
+                        <p>The full licence (i.e. the legal code) is available <a href="https://creativecommons.org/licenses/by-nc-nd/2.5/scotland/legalcode" target="_blank">here</a>.</p>
+                        <h3><a name="deposit">Depositing your doctoral thesis</a></h3>
+                        <p>Where possible we have attempted to make use of pre-existing submissions processes.  As previously, students will submit bound copies of their final thesis to Academic Registry, in addition to a CD ROM containing an electronic version of the final thesis in a PDF format.  The digital version will be provided to the University Library for uploading into ROS. Where a student submits a request for limited access to their thesis, the full text of the eThesis will not be accessible, only the bibliographic record.</p>
+                        <p>For further details, please refer to the 'Guidelines on the Submission and Format of Thesis' on the <a href="http://www.hw.ac.uk/students/studies/examinations/thesis.htm" target="_blank">Academic Registry website</a>.</p>
+                        <h3><a name="organised">How is ROS organised?</a></h3>
+                        <p>The Institutional Repository part of ROS is organised in a hierarchical framework where communities represent the top level of an archive collection. Communities correspond to Schools and Institutes, with an additional community for Research Pools and another for University Support Services.  Research Pools is further divided into individual pools, and University Support Services into the different services.  Under the communities are one or more collections - Doctoral Theses and Staff Publications - which contain the actual items.</p>
+                        <p>ROS is highly flexible in the way that items and authors can be displayed.  For example, a single piece of work and its authors can be listed under a research pool and also the schools/institutes to which the authors are affiliated.</p>
+                        <h3><a name="search">Searching ROS</a></h3>
+                        <p>ROS provides flexible search capabilities.  You can:</p>
+                        <ul>
+                            <li>Browse (by title, author, or date).</li>
+                            <li>Perform general keyword searches.</li>
+                            <li>Perform more sophisticated searches on particular fields, using Boolean operators.</li>
+                        </ul>
+                        <p>All of the above can be performed across the whole repository, within a particular community, or even within a specific collection (see '<a href="/page/about#organised">How is ROS organised?</a>').</p>
+                        <h3><a name="contact">Contact us</a></h3>
+                        <p>For more information on ROS:</p>
+                        <ul>
+                            <li>If your enquiry is about depositing your doctoral thesis, please contact <a href="mailto:registry@hw.ac.uk">Academic Registry</a> or <a href="http://www.hw.ac.uk/registry/" target="_blank">view their website</a>.</li>
+                            <li>For all other enquiries, please email us at: <a href="mailto:open.access@hw.ac.uk">open.access@hw.ac.uk</a> or fill in the <a href="/feedback">online feedback form</a></li>
+                        </ul>
                     </div>
                 </xsl:when>
                 <!-- Otherwise use default handling of body -->
@@ -931,8 +927,41 @@
         </xsl:if>
     </xsl:template>
 
-    <!-- Builds the Query String part of the language URL. If there already is an existing query string
-like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it appends the locale parameter with the ampersand (&) symbol -->
+    <xsl:template name="languageSelection-xs">
+        <xsl:if test="count(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='supportedLocale']) &gt; 1">
+            <li id="ds-language-selection-xs" class="dropdown">
+                <xsl:variable name="active-locale" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='currentLocale']"/>
+                <button id="language-dropdown-toggle-xs" href="#" role="button" class="dropdown-toggle navbar-toggle navbar-link" data-toggle="dropdown">
+                    <b class="visible-xs glyphicon glyphicon-globe" aria-hidden="true"/>
+                </button>
+                <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="language-dropdown-toggle-xs" data-no-collapse="true">
+                    <xsl:for-each
+                            select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='supportedLocale']">
+                        <xsl:variable name="locale" select="."/>
+                        <li role="presentation">
+                            <xsl:if test="$locale = $active-locale">
+                                <xsl:attribute name="class">
+                                    <xsl:text>disabled</xsl:text>
+                                </xsl:attribute>
+                            </xsl:if>
+                            <a>
+                                <xsl:attribute name="href">
+                                    <xsl:value-of select="$current-uri"/>
+                                    <xsl:text>?locale-attribute=</xsl:text>
+                                    <xsl:value-of select="$locale"/>
+                                </xsl:attribute>
+                                <xsl:value-of
+                                        select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='supportedLocale'][@qualifier=$locale]"/>
+                            </a>
+                        </li>
+                    </xsl:for-each>
+                </ul>
+            </li>
+        </xsl:if>
+    </xsl:template>
+
+        <!-- Builds the Query String part of the language URL. If there already is an existing query string
+    like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it appends the locale parameter with the ampersand (&) symbol -->
     <xsl:template name="getLanguageURL">
         <xsl:variable name="queryString" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='queryString']"/>
         <xsl:choose>

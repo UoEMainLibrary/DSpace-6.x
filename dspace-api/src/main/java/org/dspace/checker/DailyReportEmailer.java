@@ -69,7 +69,7 @@ public class DailyReportEmailer
             email.setSubject("Checksum checker Report - " + numberOfBitstreams + " Bitstreams found with POSSIBLE issues on " + hostname);
             email.setContent("report is attached ...");
             email.addAttachment(attachment, "checksum_checker_report.txt");
-            email.addRecipient(ConfigurationManager.getProperty("mail.admin"));
+            email.addRecipient(ConfigurationManager.getProperty("alert.recipient"));
             email.send();
         }
     } 
