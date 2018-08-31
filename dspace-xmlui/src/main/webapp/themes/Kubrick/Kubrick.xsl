@@ -804,12 +804,17 @@
                 <xsl:text> </xsl:text>
                 <span class="publisher-date">
                     <xsl:text>(</xsl:text>
-                    <xsl:if test="dim:field[@element='publisher']">
+                    <xsl:when test="dim:field[@element='publisher']">
                         <span class="publisher">
-                            <xsl:copy-of select="dim:field[@element='publisher']/node()"/>
+                            <xsl:for-each select="dim:field[@element='publisher']">
+                                <xsl:copy-of select="node()"/>
+                                <xsl:if test="count(following-sibling::dim:field[@element='publisher']) != 0">
+                                    <xsl:text> </xsl:text>
+                                </xsl:if>
+                            </xsl:for-each>
                         </span>
                         <xsl:text>, </xsl:text>
-                    </xsl:if>
+                    </xsl:when>
                     
                     <span class="date">
 

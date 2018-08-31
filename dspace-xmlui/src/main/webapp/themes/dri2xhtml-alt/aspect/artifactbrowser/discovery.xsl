@@ -175,7 +175,23 @@
 
 
         <!--Generates thumbnails (if present)-->
-        <xsl:apply-templates select="$metsDoc/mets:METS/mets:fileSec" mode="artifact-preview"><xsl:with-param name="href" select="concat($context-path, '/handle/', $handle)"/></xsl:apply-templates>
+        <!--<xsl:apply-templates select="$metsDoc/mets:METS/mets:fileSec" mode="artifact-preview"><xsl:with-param name="href" select="concat($context-path, '/handle/', $handle)"/></xsl:apply-templates>-->
+        <div class="artifact-description">
+        <div class="artifact-title">
+        @@ -259,7 +259,12 @@
+        <xsl:text>(</xsl:text>
+        <xsl:if test="dri:list[@n=(concat($handle, ':dc.publisher'))]">
+            <span class="publisher">
+                <xsl:apply-templates select="dri:list[@n=(concat($handle, ':dc.publisher'))]/dri:item"/>
+                <xsl:for-each select="dri:list[@n=(concat($handle, ':dc.publisher'))]/dri:item">
+                    <xsl:apply-templates select="."/>
+                    <xsl:if test="count(following-sibling::dri:item) != 0">
+                        <xsl:text> </xsl:text>
+                    </xsl:if>
+                </xsl:for-each>
+            </span>
+            <xsl:text>, </xsl:text>
+        </xsl:if>
 
         <div class="artifact-description">
             <div class="artifact-title">

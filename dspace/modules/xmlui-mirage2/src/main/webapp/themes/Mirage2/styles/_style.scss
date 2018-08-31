@@ -13,49 +13,216 @@
 
 //example mixin to set the text-selection style
 @mixin selection {
-    ::-moz-selection { @content; }
-    ::selection { @content; }
+  ::-moz-selection { @content; }
+  ::selection { @content; }
 }
 
 @include selection {
+<<<<<<< HEAD
     color: white;
     background: cornflowerblue;
+=======
+  color: white;
+  background: #b1d7ff;
+>>>>>>> LUC656A-9 First HWU 6 commit
 }
-
-.publication-records-modal, .publication-records-modal ul {
+ // Our stuff - SDLC
+ body {
+  background-color: #f0f0f0;
+}
+ a:link, a:visited, a {
+  color: #8ca900;
+}
+ a:hover, a:focus {
+  text-decoration: none;
+  border-bottom: 1px dotted #8ca900;
+  color: #8ca900;
+}
+ h3 a:hover {
+  text-decoration: none;
+  border-bottom: none;
+}
+ .countriesMap  {
+  padding-top: 80px;
+}
+ .navbar {
+  z-index: 100;
+}
+ .hwu-header {
+  background-color: #b8cc00;
+}
+ .hwu-header h1 {
+  color: #444;
+  font-family: "Oswald",sans-serif;
+  font-size: 2.3em;
+  margin: 0;
+}
+ .hwu-header h1 a {
+  color: #524c44;
+  text-decoration: none;
+}
+ .hwu-header h1 a:hover {
+  text-decoration: none;
+  border-bottom: 1px dotted #ffffff;
+  color: #ffffff;
+}
+ #sidebar a:link,
+#sidebar a:visited,
+#sidebar a {
+  color: #524c44;
+}
+ .hwu-header-content {
+  background-color: #9cb920;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+ .hwu-navbar {
+  background-color: #716c66;
+  padding-left: 0;
+}
+ .hwu-navbar-content {
+  padding: 0;
+}
+ ul.hwu-lg-dropdown {
+  margin-right: -12px;
+}
+ ul.hwu-lg-dropdown li a:hover,
+ul.hwu-lg-dropdown li a:focus,
+li.dropdown a:hover,
+li.dropdown a:focus,
+.hwu-header-content a#logo {
+  border: 0 !important;
+}
+ .community-browse a:hover,
+.community-browse a:focus {
+  border-bottom: 1px solid #ccc;
+}
+ a#logo {
+  position: absolute;
+  z-index: 300;
+  right: 14px;
+  top: -15px;
+}
+ .header-title {
+  padding-top: 2px;
+  padding-bottom: 3px;
+}
+ .main-content {
+  position: relative;
+  z-index: -10;
+}
+ .hwu-lg-breadcrumb {
+  width: 680px;
+}
+ .hwu-md-breadcrumb {
+  width: 550px;
+}
+ .breadcrumb {
+  background-color: #716c66;
+  margin-bottom: 0;
+  padding: 15px;
+}
+ .breadcrumb a {
+  color: #b0b0b0;
+}
+ .breadcrumb li {
+  color: #fff;
+}
+ .breadcrumb a:hover {
+  text-decoration: none;
+  border-bottom: 1px dotted #8ca900;
+  color: #8ca900;
+}
+ .breadcrumb > .active {
+  color: #fff;
+}
+ .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+  background-color: #174998;
+  border-color: #174998;
+  color: #fff !important;
+  z-index: 2;
+}
+ a.list-group-item:hover,
+a.list-group-item:focus {
+  border-bottom: 1px solid #ddd;
+}
+ .hwu-footer {
+  background-color: #716c66;
+  color: #fff;
+  font-size: 0.9em;
+}
+ footer > .container {
+  border: none;
+  padding: 15px;
+  margin-top: 0;
+}
+ footer .row > div {
+  border: none;
+  padding-top: 0;
+}
+ .hwu-footer-content {
+  background-color: #625c54;
+}
+ #copyright-content {
+  padding-left: 15px;
+}
+ #copyright-content a {
+  color: #fff;
+}
+ #copyright-content a:hover {
+  text-decoration: none;
+  border-bottom: 1px dotted #8ca900;
+  color: #8ca900;
+}
+ .footer-links {
+  padding-left: 15px;
+  padding-right: 15px;
+  float: right;
+}
+ .footer-links ul.footer-links-list {
+  display: block;
   list-style-type: none;
-  padding-left: 0px;
+  margin: 0;
+  padding-left: 0;
+  padding-right: 15px;
+  float: right;
 }
-
-.publication-records-import-btn {
-  margin: 5px 0px 15px 0px;
+ .small-footer-links {
+  padding-right: 15px;
+  float: right;
 }
-
-.bold {
-  font-weight: bold;
+ ul.footer-links-list li {
+  display: inline;
+  padding-left: 8px;
 }
-
-.imported {
-  background-color: #E2E2E2;
+ ul.footer-links-list li a,
+.small-footer-links a {
+  color: #fff;
+  font-size: 1em;
+  text-decoration: none;
 }
-
-#aspect_submission_StepTransformer_div_StartSubmissionLookupStep {
-
-  #aspect_submission_StepTransformer_field_search {
-    width: 81%;
-    display: inline;
-  }
-
-  #aspect_submission_StepTransformer_field_lookup {
-    width:19%
-  }
-
-  .modal .modal-body {
-    max-height: 500px;
-    overflow-y: auto;
-  }
-
-  #aspect_submission_StepTransformer_item_publication-title{
-    margin-bottom:5px;
-  }
+ ul.footer-links-list li a:hover,
+.small-footer-links a:hover {
+  text-decoration: none;
+  border-bottom: 1px dotted #8ca900;
+  color: #8ca900;
+}
+ .btn-success {
+  background-color: #8ca900;
+  border-color: #9fb202;
+  color: #fff;
+}
+ .btn-success.disabled, .btn-success.disabled:hover, .btn-success.disabled:focus,
+.btn-success.disabled.focus, .btn-success.disabled:active, .btn-success.disabled.active,
+.btn-success[disabled], .btn-success[disabled]:hover, .btn-success[disabled]:focus,
+.btn-success.focus[disabled], .btn-success[disabled]:active, .btn-success.active[disabled],
+fieldset[disabled] .btn-success, fieldset[disabled] .btn-success:hover, fieldset[disabled] .btn-success:focus,
+fieldset[disabled] .btn-success.focus, fieldset[disabled] .btn-success:active, fieldset[disabled] .btn-success.active {
+  background-color: #8ca900;
+  border-color: #9fb202;
+}
+ a.btn-default,
+a.btn-default:link,
+a.btn-default:visited {
+  color: #333;
 }
