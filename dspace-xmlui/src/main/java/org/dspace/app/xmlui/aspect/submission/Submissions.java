@@ -348,7 +348,7 @@ public class Submissions extends AbstractDSpaceTransformer
             limit = -1;
         } else {
             //Set a default limit of 50
-            limit = 50;
+            limit = 5;
         }
         Iterator<Item> subs = itemService.findBySubmitterDateSorted(context, context.getCurrentUser(), limit);
 
@@ -380,7 +380,6 @@ public class Submissions extends AbstractDSpaceTransformer
         //(This is a saftey measure for Admins who may have submitted 
         // thousands of items under their account via bulk ingest tools, etc.)
         int count = 0;
-
         // Populate table
         Iterator<Item> i = subList.iterator();
         while(i.hasNext())
