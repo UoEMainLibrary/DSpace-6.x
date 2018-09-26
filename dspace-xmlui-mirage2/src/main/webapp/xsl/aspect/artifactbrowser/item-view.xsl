@@ -102,20 +102,25 @@
 
     </xsl:template>
 
-
+    <!--SR 06/09/2018: fixes for template calls to assemble simple item view -->
     <xsl:template match="dim:dim" mode="itemSummaryView-DIM">
         <div class="item-summary-view-metadata">
             <xsl:call-template name="itemSummaryView-DIM-title"/>
             <div class="row">
                 <div class="col-sm-4">
                     <div class="row">
-                        <div class="col-xs-6 col-sm-12">
+                    <!--no thumbnails for QMU-->
+                        <!--div class="col-xs-6 col-sm-12">
                             <xsl:call-template name="itemSummaryView-DIM-thumbnail"/>
                         </div>
-                        <div class="col-xs-6 col-sm-12">
+                        </div>
+                    <div class="col-xs-6 col-sm-12">-->
+                        <div class="col-xs-12">
                             <xsl:call-template name="itemSummaryView-DIM-file-section"/>
                         </div>
                     </div>
+                    <xsl:call-template name="itemSummaryView-DIM-embargoDate"/>
+
                     <xsl:call-template name="itemSummaryView-DIM-date"/>
                     <xsl:call-template name="itemSummaryView-DIM-authors"/>
                     <xsl:if test="$ds_item_view_toggle_url != ''">
@@ -123,6 +128,7 @@
                     </xsl:if>
                 </div>
                 <div class="col-sm-8">
+                    <xsl:call-template name="itemSummaryView-DIM-citation"/>
                     <xsl:call-template name="itemSummaryView-DIM-abstract"/>
                     <xsl:call-template name="itemSummaryView-DIM-URI"/>
                     <xsl:call-template name="itemSummaryView-collections"/>
@@ -232,6 +238,24 @@
         </xsl:if>
     </xsl:template>
 
+    <!--SR 06/09/2018: Add citation to simple item view -->
+    <xsl:template name="itemSummaryView-DIM-citation">
+        <xsl:if test="dim:field[@element='identifier' and @qualifier='citation']">
+            <div class="simple-item-view-description item-page-field-wrapper table">
+                <h5><i18n:text>xmlui.dri2xhtml.METS-1.0.item-citation</i18n:text></h5>
+                <div>
+                    <xsl:for-each select="dim:field[@element='identifier' and @qualifier='citation']">
+                        <xsl:choose>
+                            <xsl:when test="node()">
+                                <xsl:copy-of select="node()"/>
+                            </xsl:when>
+                        </xsl:choose>
+                    </xsl:for-each>
+                </div>
+            </div>
+        </xsl:if>
+    </xsl:template>
+
     <xsl:template name="itemSummaryView-DIM-authors">
         <xsl:if test="dim:field[@element='contributor'][@qualifier='author' and descendant::text()] or dim:field[@element='creator' and descendant::text()] or dim:field[@element='contributor' and descendant::text()]">
             <div class="simple-item-view-authors item-page-field-wrapper table">
@@ -269,24 +293,45 @@
         </div>
     </xsl:template>
 
+    <!--SR 06/09/2018: Change to URI processing- doi becomes officialURL  -->
     <xsl:template name="itemSummaryView-DIM-URI">
         <xsl:if test="dim:field[@element='identifier' and @qualifier='uri' and descendant::text()]">
-            <div class="simple-item-view-uri item-page-field-wrapper table">
-                <h5><i18n:text>xmlui.dri2xhtml.METS-1.0.item-uri</i18n:text></h5>
-                <span>
-                    <xsl:for-each select="dim:field[@element='identifier' and @qualifier='uri']">
-                        <a>
-                            <xsl:attribute name="href">
-                                <xsl:copy-of select="./node()"/>
-                            </xsl:attribute>
-                            <xsl:copy-of select="./node()"/>
-                        </a>
-                        <xsl:if test="count(following-sibling::dim:field[@element='identifier' and @qualifier='uri']) != 0">
-                            <br/>
-                        </xsl:if>
-                    </xsl:for-each>
-                </span>
-            </div>
+            <xsl:for-each select="dim:field[@element='identifier' and @qualifier='uri']">
+                <xsl:choose>
+                    <xsl:when test="contains(./node(), 'doi')">
+                        <div class="simple-item-view-uri item-page-field-wrapper table">
+                            <h5><i18n:text>xmlui.mirage2.itemSummaryView.OfficialURL</i18n:text></h5>
+                            <span>
+                                <a>
+                                    <xsl:attribute name="href">
+                                        <xsl:copy-of select="./node()"/>
+                                    </xsl:attribute>
+                                    <xsl:copy-of select="./node()"/>
+                                </a>
+                            </span>
+                            <xsl:if test="count(following-sibling::dim:field[@element='identifier' and @qualifier='uri']) != 0">
+                                <br/>
+                            </xsl:if>
+                        </div>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <div class="simple-item-view-uri item-page-field-wrapper table">
+                            <h5><i18n:text>xmlui.dri2xhtml.METS-1.0.item-uri</i18n:text></h5>
+                            <span>
+                                <a>
+                                    <xsl:attribute name="href">
+                                        <xsl:copy-of select="./node()"/>
+                                    </xsl:attribute>
+                                    <xsl:copy-of select="./node()"/>
+                                </a>
+                            </span>
+                            <xsl:if test="count(following-sibling::dim:field[@element='identifier' and @qualifier='uri']) != 0">
+                                <br/>
+                            </xsl:if>
+                        </div>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:for-each>
         </xsl:if>
     </xsl:template>
 
@@ -299,6 +344,22 @@
                 <xsl:for-each select="dim:field[@element='date' and @qualifier='issued']">
                     <xsl:copy-of select="substring(./node(),1,10)"/>
                     <xsl:if test="count(following-sibling::dim:field[@element='date' and @qualifier='issued']) != 0">
+                        <br/>
+                    </xsl:if>
+                </xsl:for-each>
+            </div>
+        </xsl:if>
+    </xsl:template>
+    <!--SR 06/09/2018: Add embargo date to simple item view- label as "file embargoed" -->
+    <xsl:template name="itemSummaryView-DIM-embargoDate">
+        <xsl:if test="dim:field[@mdschema = 'refterms' and @element='dateEmbargoEnd']">
+            <div class="simple-item-view-date word-break item-page-field-wrapper table">
+                <h5>
+                    <i18n:text>xmlui.mirage2.itemSummaryView.Embargoed</i18n:text>
+                </h5>
+                <xsl:for-each select="dim:field[@mdschema = 'refterms' and @element='dateEmbargoEnd']">
+                    <xsl:copy-of select="./node()"/>
+                    <xsl:if test="count(following-sibling::dim:field[@mdschema = 'refterms' and @element='dateEmbargoEnd']) != 0">
                         <br/>
                     </xsl:if>
                 </xsl:for-each>
