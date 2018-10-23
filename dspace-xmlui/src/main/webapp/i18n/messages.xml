@@ -24,7 +24,7 @@
 		-->
 
 	<!-- General keys -->
-	<message key="xmlui.general.dspace_home">Home</message>
+	<message key="xmlui.general.dspace_home">QMU Repositories</message>
 	<message key="xmlui.general.search">Search</message>
 	<message key="xmlui.general.go">Go</message>
 	<message key="xmlui.general.go_home">Go to DSpace home</message>
@@ -533,8 +533,8 @@
 	<!-- org.dspace.app.xmlui.eperson.LDAPLogin.java -->
 	<message key="xmlui.EPerson.LDAPLogin.title">Sign in</message>
 	<message key="xmlui.EPerson.LDAPLogin.trail">Sign in</message>
-	<message key="xmlui.EPerson.LDAPLogin.head1">Sign in to DSpace</message>
-	<message key="xmlui.EPerson.LDAPLogin.username">User Name</message>
+	<message key="xmlui.EPerson.LDAPLogin.head1">Sign on to QMU Repositories</message>
+	<message key="xmlui.EPerson.LDAPLogin.username">QMU Student Number/Staff Network ID</message>
 	<message key="xmlui.EPerson.LDAPLogin.error_bad_login">The user name and/or password supplied were not valid.</message>
 	<message key="xmlui.EPerson.LDAPLogin.password">Password</message>
 	<message key="xmlui.EPerson.LDAPLogin.submit">Sign in</message>
@@ -545,8 +545,8 @@
 	<message key="xmlui.EPerson.LoginChooser.head1">Choose a Login Method</message>
 	<message key="xmlui.EPerson.LoginChooser.para1">Log in via:</message>
 	<message key="org.dspace.authenticate.ShibAuthentication.title">Shibboleth Authentication</message>
-	<message key="org.dspace.eperson.LDAPAuthentication.title">LDAP Authentication</message>
-	<message key="org.dspace.eperson.PasswordAuthentication.title">Password Authentication</message>
+	<message key="org.dspace.eperson.LDAPAuthentication.title">QMU Student Number/Staff Network ID</message>
+	<message key="org.dspace.eperson.PasswordAuthentication.title">Admin login</message>
 	<message key="org.dspace.eperson.X509Authentication.title">Web Certificate Authentication</message>
 
 	<!-- org.dspace.app.xmlui.eperson.FailedAuthentication -->
