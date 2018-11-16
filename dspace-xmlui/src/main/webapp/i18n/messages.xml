@@ -24,10 +24,10 @@
 		-->
 
 	<!-- General keys -->
-	<message key="xmlui.general.dspace_home">DSpace Home</message>
+	<message key="xmlui.general.dspace_home">St Andrews Research Repository</message>
 	<message key="xmlui.general.search">Search</message>
 	<message key="xmlui.general.go">Go</message>
-	<message key="xmlui.general.go_home">Go to DSpace home</message>
+	<message key="xmlui.general.go_home">Go to Repository home</message>
 	<message key="xmlui.general.save">Save</message>
 	<message key="xmlui.general.cancel">Cancel</message>
 	<message key="xmlui.general.return">Return</message>
@@ -87,7 +87,7 @@
 	<!-- Note: As of DSpace 6.0, org.dspace.app.xmlui.aspect.artifactbrowser.AbstractSearch has been removed. -->
 	<!-- The following keys are still in use by Discovery's AbstractSearch -->
 	<message key="xmlui.ArtifactBrowser.AbstractSearch.no_results">Search produced no results.</message>
-	<message key="xmlui.ArtifactBrowser.AbstractSearch.all_of_dspace">All of DSpace</message>
+	<message key="xmlui.ArtifactBrowser.AbstractSearch.all_of_dspace">All of Repository</message>
 
     <!-- org.dspace.app.xmlui.artifactbrowser.AdvancedSearch.java -->
     <!-- Note: As of DSpace 6.0, org.dspace.app.xmlui.aspect.artifactbrowser.AdvancedSearch has been removed. -->
@@ -139,11 +139,16 @@
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.order.desc">descending</message>
 
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.author.column_heading">Authors Name</message>
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.name.column_heading">Authors Name</message>
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.subject.column_heading">Subject</message>
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.classification.column_heading">Classification</message>
 
-	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.metadata.author">Browsing {0} by Author {1}</message>
-	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.author">Browsing {0} by Author</message>
-
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.metadata.classification">Browsing {0} by Classification {1}</message>
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.classification">Browsing {0} by Classification</message>
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.metadata.names">Browsing {0} by Name {1}</message>
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.names">Browsing {0} by Name</message>
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.metadata.author">Browsing {0} by Name {1}</message>
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.author">Browsing {0} by Name</message>
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.metadata.subject">Browsing {0} by Subject {1}</message>
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.subject">Browsing {0} by Subject</message>
 
@@ -183,25 +188,27 @@
 	<message key="xmlui.ArtifactBrowser.CollectionViewer.full_text_search">Search within this collection:</message>
 	<message key="xmlui.ArtifactBrowser.CollectionViewer.head_browse">Browse by</message>
 	<message key="xmlui.ArtifactBrowser.CollectionViewer.browse_titles">Titles</message>
-	<message key="xmlui.ArtifactBrowser.CollectionViewer.browse_authors">Authors</message>
+	<message key="xmlui.ArtifactBrowser.CollectionViewer.browse_authors">Names</message>
 	<message key="xmlui.ArtifactBrowser.CollectionViewer.browse_dates">Dates</message>
+	<message key="xmlui.ArtifactBrowser.CollectionViewer.browse_classifications">Classifications</message>
 	<message key="xmlui.ArtifactBrowser.CollectionViewer.advanced_search_link">Advanced Search</message>
 	<message key="xmlui.ArtifactBrowser.CollectionViewer.head_recent_submissions">Recent Submissions</message>
 
 	<!-- org.dspace.app.xmlui.artifactbrowser.CommunityBrowser.java -->
 	<message key="xmlui.ArtifactBrowser.CommunityBrowser.title">Community List</message>
 	<message key="xmlui.ArtifactBrowser.CommunityBrowser.trail">Community List</message>
-	<message key="xmlui.ArtifactBrowser.CommunityBrowser.head">Communities in DSpace</message>
+	<message key="xmlui.ArtifactBrowser.CommunityBrowser.head">Communities in Repository</message>
 	<message key="xmlui.ArtifactBrowser.CommunityBrowser.select">Select a community to browse its collections.</message>
 
 	<!-- org.dspace.app.xmlui.artifactbrowser.CommunityViewer.java -->
 	<message key="xmlui.ArtifactBrowser.CommunityViewer.search_scope">Search Scope</message>
-	<message key="xmlui.ArtifactBrowser.CommunityViewer.all_of_dspace">All of DSpace</message>
+	<message key="xmlui.ArtifactBrowser.CommunityViewer.all_of_dspace">All of Repository</message>
 	<message key="xmlui.ArtifactBrowser.CommunityViewer.full_text_search">Search within this community and its collections:</message>
 	<message key="xmlui.ArtifactBrowser.CommunityViewer.head_browse">Browse by</message>
 	<message key="xmlui.ArtifactBrowser.CommunityViewer.browse_titles">Titles</message>
-	<message key="xmlui.ArtifactBrowser.CommunityViewer.browse_authors">Authors</message>
+	<message key="xmlui.ArtifactBrowser.CommunityViewer.browse_authors">Names</message>
 	<message key="xmlui.ArtifactBrowser.CommunityViewer.browse_dates">Dates</message>
+	<message key="xmlui.ArtifactBrowser.CommunityViewer.browse_classifications">Classifications</message>
 	<message key="xmlui.ArtifactBrowser.CommunityViewer.advanced_search_link">Advanced Search</message>
 	<message key="xmlui.ArtifactBrowser.CommunityViewer.head_sub_communities">Sub-communities within this community</message>
 	<message key="xmlui.ArtifactBrowser.CommunityViewer.head_sub_collections">Collections in this community</message>
@@ -221,7 +228,7 @@
 	<message key="xmlui.ArtifactBrowser.FeedbackForm.title">Give feedback</message>
 	<message key="xmlui.ArtifactBrowser.FeedbackForm.trail">Give feedback</message>
 	<message key="xmlui.ArtifactBrowser.FeedbackForm.head">Give feedback</message>
-	<message key="xmlui.ArtifactBrowser.FeedbackForm.para1">Thanks for sharing your feedback about the DSpace system. Your comments are appreciated!</message>
+	<message key="xmlui.ArtifactBrowser.FeedbackForm.para1">Thanks for sharing your feedback about the St Andrews Research Repository. Your comments are appreciated!</message>
 	<message key="xmlui.ArtifactBrowser.FeedbackForm.email">Your Email</message>
 	<message key="xmlui.ArtifactBrowser.FeedbackForm.email_help">This address will be used to follow up on your feedback.</message>
 	<message key="xmlui.ArtifactBrowser.FeedbackForm.comments">Comments</message>
@@ -246,10 +253,10 @@
 	<!-- The following i18n keys will be left as is as they're referenced by the Discovery's Navigation
 	 but in future, they should be refactored to a more relevant key prefix -->
 	<message key="xmlui.ArtifactBrowser.Navigation.head_browse">Browse</message>
-	<message key="xmlui.ArtifactBrowser.Navigation.head_all_of_dspace">All of DSpace</message>
+	<message key="xmlui.ArtifactBrowser.Navigation.head_all_of_dspace">All of Repository</message>
 	<message key="xmlui.ArtifactBrowser.Navigation.communities_and_collections">Communities &amp; Collections</message>
 	<message key="xmlui.ArtifactBrowser.Navigation.browse_title">Titles</message>
-	<message key="xmlui.ArtifactBrowser.Navigation.browse_author">Authors</message>
+	<message key="xmlui.ArtifactBrowser.Navigation.browse_author">Names</message>
 	<message key="xmlui.ArtifactBrowser.Navigation.browse_subject">Subjects</message>
 	<message key="xmlui.ArtifactBrowser.Navigation.browse_dateissued">By Issue Date</message>
 	<message key="xmlui.ArtifactBrowser.Navigation.browse_dateaccessioned">By Submit Date</message>
@@ -495,7 +502,7 @@
 	<!-- org.dspace.app.xmlui.eperson.PasswordLogin.java -->
 	<message key="xmlui.EPerson.PasswordLogin.title">Sign in</message>
 	<message key="xmlui.EPerson.PasswordLogin.trail">Sign in</message>
-	<message key="xmlui.EPerson.PasswordLogin.head1">Sign in to DSpace</message>
+	<message key="xmlui.EPerson.PasswordLogin.head1">Sign in to Repository</message>
 	<message key="xmlui.EPerson.PasswordLogin.email_address">E-Mail Address</message>
 	<message key="xmlui.EPerson.PasswordLogin.error_bad_login">The email address and/or password supplied were not valid.</message>
 	<message key="xmlui.EPerson.PasswordLogin.password">Password</message>
@@ -508,7 +515,7 @@
 	<!-- org.dspace.app.xmlui.eperson.LDAPLogin.java -->
 	<message key="xmlui.EPerson.LDAPLogin.title">Sign in</message>
 	<message key="xmlui.EPerson.LDAPLogin.trail">Sign in</message>
-	<message key="xmlui.EPerson.LDAPLogin.head1">Sign in to DSpace</message>
+	<message key="xmlui.EPerson.LDAPLogin.head1">Sign in to Repository</message>
 	<message key="xmlui.EPerson.LDAPLogin.username">User Name</message>
 	<message key="xmlui.EPerson.LDAPLogin.error_bad_login">The user name and/or password supplied were not valid.</message>
 	<message key="xmlui.EPerson.LDAPLogin.password">Password</message>
@@ -547,7 +554,7 @@
 	<!-- org.dspace.app.xmlui.eperson.RegistrationFinished.java -->
 	<message key="xmlui.EPerson.RegistrationFinished.title">Registration finished</message>
 	<message key="xmlui.EPerson.RegistrationFinished.head">Registration Finished</message>
-	<message key="xmlui.EPerson.RegistrationFinished.para1">You're now registered to use the DSpace system.  You can subscribe to collections to receive email updates about new items.</message>
+	<message key="xmlui.EPerson.RegistrationFinished.para1">You're now registered to use the St Andrews Research Repository. You can subscribe to collections to receive email updates about new items.</message>
 
 	<!-- org.dspace.app.xmlui.eperson.ResetPassword.java -->
 	<message key="xmlui.EPerson.ResetPassword.title">Reset password</message>
@@ -563,7 +570,7 @@
 	<!-- org.dspace.app.xmlui.eperson.StartForgotPassword.java -->
 	<message key="xmlui.EPerson.StartForgotPassword.title">Forgot Password</message>
 	<message key="xmlui.EPerson.StartForgotPassword.head">Forgot Password</message>
-	<message key="xmlui.EPerson.StartForgotPassword.para1">Enter the email address you provided when you registered with DSpace. An email will be sent to that address with further instructions.</message>
+	<message key="xmlui.EPerson.StartForgotPassword.para1">Enter the email address you provided when you registered with the St Andrews Research Repository. An email will be sent to that address with further instructions.</message>
 	<message key="xmlui.EPerson.StartForgotPassword.email_address">Email Address</message>
 	<message key="xmlui.EPerson.StartForgotPassword.email_address_help">Enter the same address used when registering.</message>
 	<message key="xmlui.EPerson.StartForgotPassword.error_not_found">Email address not found.</message>
@@ -605,8 +612,8 @@
 
 
 	<!-- general submission aspect messages -->
-	<message key="xmlui.Submission.general.mydspace_home">MyDSpace Home</message>
-	<message key="xmlui.Submission.general.go_mydspace">Go to MyDSpace Home</message>
+	<message key="xmlui.Submission.general.mydspace_home">MyRepository Home</message>
+	<message key="xmlui.Submission.general.go_mydspace">Go to MyRepository Home</message>
 	<message key="xmlui.Submission.general.submission.title">Item submission</message>
 	<message key="xmlui.Submission.general.submission.trail">Item submission</message>
 	<message key="xmlui.Submission.general.submission.head">Item submission</message>
@@ -684,7 +691,7 @@
 	<message key="xmlui.Submission.Submissions.status_unknown">Unknown state</message>
 	<!-- Same transformer, completed submissions section -->
 	<message key="xmlui.Submission.Submissions.completed.head">Archived Submissions</message>
-	<message key="xmlui.Submission.Submissions.completed.info">These are your completed submissions which have been accepted into DSpace.</message>
+	<message key="xmlui.Submission.Submissions.completed.info">These are your completed submissions which have been accepted into the St Andrews Research Repository.</message>
 	<message key="xmlui.Submission.Submissions.completed.column1">Date accepted</message>
 	<message key="xmlui.Submission.Submissions.completed.column2">Title</message>
 	<message key="xmlui.Submission.Submissions.completed.column3">Collection</message>
@@ -2167,13 +2174,13 @@
 	<message key="xmlui.dri2xhtml.structural.contact-link">Contact Us</message>
 	<message key="xmlui.dri2xhtml.structural.feedback-link">Send Feedback</message>
 
-	<message key="xmlui.dri2xhtml.structural.head-subtitle">DSpace Repository</message>
+	<message key="xmlui.dri2xhtml.structural.head-subtitle">St Andrews Research Repository</message>
 
 	<message key="xmlui.dri2xhtml.structural.profile">Profile: </message>
 	<message key="xmlui.dri2xhtml.structural.logout">Logout</message>
 	<message key="xmlui.dri2xhtml.structural.login">Login</message>
 
-	<message key="xmlui.dri2xhtml.structural.search">Search DSpace</message>
+	<message key="xmlui.dri2xhtml.structural.search">Search Repository</message>
 	<message key="xmlui.dri2xhtml.structural.search-advanced">Advanced Search</message>
 	<message key="xmlui.dri2xhtml.structural.search-in-community">This Community</message>
 	<message key="xmlui.dri2xhtml.structural.search-in-collection">This Collection</message>
@@ -2204,10 +2211,18 @@
 	<message key="xmlui.dri2xhtml.METS-1.0.item-author">Author</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-abstract">Abstract</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-description">Description</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-citation">Citation</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-version">Version</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-status">Status</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-uri">URI</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-doi">DOI</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-issn">ISSN</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-date">Date</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-publisher">Publisher</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-subject">Subject</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-type">Type</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-keywords">Keywords</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-rights">Rights</message>
 
 	<message key="xmlui.dri2xhtml.METS-1.0.item-files-head">Files in this item</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-files-file">Files</message>
@@ -2381,7 +2396,7 @@
 	<message key="xmlui.ChoiceLookupTransformer.field.dc_contributor_author.nonauthority">Local value "@1@" (not in Naming Authority)</message>
 
 	<!-- mobile theme -->
-	<message key="xmlui.mobile.home_mobile">DSpace Mobile</message>
+	<message key="xmlui.mobile.home_mobile">St Andrews Research Repository Mobile</message>
 	<message key="xmlui.mobile.search_all">Search ALL</message>
 	<message key="xmlui.mobile.browse_all">Browse ALL by</message>
 	<message key="xmlui.mobile.browse_date">Date</message>
