@@ -157,14 +157,15 @@
         <div class="row ds-artifact-item ">
 
             <!--Generates thumbnails (if present)-->
-            <div class="col-sm-3 hidden-xs">
+            <!--<div class="col-sm-3 hidden-xs">
                 <xsl:apply-templates select="$metsDoc/mets:METS/mets:fileSec" mode="artifact-preview">
                     <xsl:with-param name="href" select="concat($context-path, '/handle/', $handle)"/>
                 </xsl:apply-templates>
             </div>
 
 
-            <div class="col-sm-9 artifact-description">
+            <div class="col-sm-9 artifact-description">-->
+            <div class="col-sm-12 artifact-description">
                 <xsl:element name="a">
                     <xsl:attribute name="href">
                         <xsl:choose>
@@ -247,7 +248,12 @@
                             <xsl:text>(</xsl:text>
                             <xsl:if test="dri:list[@n=(concat($handle, ':dc.publisher'))]">
                                 <span class="publisher">
-                                    <xsl:apply-templates select="dri:list[@n=(concat($handle, ':dc.publisher'))]/dri:item"/>
+                                    <xsl:for-each select="dri:list[@n=(concat($handle, ':dc.publisher'))]/dri:item">
+                                        <xsl:apply-templates select="."/>
+                                        <xsl:if test="count(following-sibling::dri:item) != 0">
+                                            <xsl:text> </xsl:text>
+                                        </xsl:if>
+                                    </xsl:for-each>
                                 </span>
                                 <xsl:text>, </xsl:text>
                             </xsl:if>

@@ -87,7 +87,7 @@
                         </xsl:when>
                         <xsl:otherwise>
                             <xsl:call-template name="buildHeader"/>
-                            <xsl:call-template name="buildTrail"/>
+                            <!--<xsl:call-template name="buildTrail"/>-->
                             <!--javascript-disabled warning, will be invisible if javascript is enabled-->
                             <div id="no-js-warning-wrapper" class="hidden">
                                 <div id="no-js-warning">
@@ -104,9 +104,9 @@
                                         <div class="col-xs-12 col-sm-12 col-md-9 main-content">
                                             <xsl:apply-templates select="*[not(self::dri:options)]"/>
 
-                                            <div class="visible-xs visible-sm">
+                                            <!--<div class="visible-xs visible-sm">
                                                 <xsl:call-template name="buildFooter"/>
-                                            </div>
+                                            </div>-->
                                         </div>
                                         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
                                             <xsl:apply-templates select="dri:options"/>
@@ -115,13 +115,17 @@
                                     </div>
                                 </div>
 
-                                <!--
-                            The footer div, dropping whatever extra information is needed on the page. It will
-                            most likely be something similar in structure to the currently given example. -->
-                            <div class="hidden-xs hidden-sm">
-                            <xsl:call-template name="buildFooter"/>
-                             </div>
-                         </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <!--<div class="visible-xs visible-sm">
+                                <xsl:call-template name="buildFooter"/>
+                            </div>-->
+                            <!--
+                        The footer div, dropping whatever extra information is needed on the page. It will
+                        most likely be something similar in structure to the currently given example. -->
+                            <div class="visible-xs visible-sm visible-md visible-lg">
+                                <xsl:call-template name="buildFooter"/>
+                            </div>
 
 
                         </xsl:otherwise>
@@ -157,7 +161,7 @@
             <link rel="shortcut icon">
                 <xsl:attribute name="href">
                     <xsl:value-of select="$theme-path"/>
-                    <xsl:text>images/favicon.ico</xsl:text>
+                    <xsl:text>images/sta-favicon.ico</xsl:text>
                 </xsl:attribute>
             </link>
             <link rel="apple-touch-icon">
@@ -328,153 +332,175 @@
     <xsl:template name="buildHeader">
 
 
-        <header>
-            <div class="navbar navbar-default navbar-static-top" role="navigation">
-                <div class="container">
-                    <div class="navbar-header">
-
-                        <button type="button" class="navbar-toggle" data-toggle="offcanvas">
-                            <span class="sr-only">
-                                <i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text>
-                            </span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-
-                        <a href="{$context-path}/" class="navbar-brand">
-                            <img src="{$theme-path}images/DSpace-logo-line.svg" />
-                        </a>
-
-
-                        <div class="navbar-header pull-right visible-xs hidden-sm hidden-md hidden-lg">
-                        <ul class="nav nav-pills pull-left ">
-
-                            <xsl:if test="count(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='supportedLocale']) &gt; 1">
-                                <li id="ds-language-selection-xs" class="dropdown">
-                                    <xsl:variable name="active-locale" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='currentLocale']"/>
-                                    <button id="language-dropdown-toggle-xs" href="#" role="button" class="dropdown-toggle navbar-toggle navbar-link" data-toggle="dropdown">
-                                        <b class="visible-xs glyphicon glyphicon-globe" aria-hidden="true"/>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="language-dropdown-toggle-xs" data-no-collapse="true">
-                                        <xsl:for-each
-                                                select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='supportedLocale']">
-                                            <xsl:variable name="locale" select="."/>
-                                            <li role="presentation">
-                                                <xsl:if test="$locale = $active-locale">
-                                                    <xsl:attribute name="class">
-                                                        <xsl:text>disabled</xsl:text>
-                                                    </xsl:attribute>
-                                                </xsl:if>
-                                                <a>
-                                                    <xsl:attribute name="href">
-                                                        <xsl:value-of select="$current-uri"/>
-                                                        <xsl:text>?locale-attribute=</xsl:text>
-                                                        <xsl:value-of select="$locale"/>
-                                                    </xsl:attribute>
-                                                    <xsl:value-of
-                                                            select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='supportedLocale'][@qualifier=$locale]"/>
-                                                </a>
-                                            </li>
-                                        </xsl:for-each>
-                                    </ul>
-                                </li>
-                            </xsl:if>
-
-                            <xsl:choose>
-                                <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
-                                    <li class="dropdown">
-                                        <button class="dropdown-toggle navbar-toggle navbar-link" id="user-dropdown-toggle-xs" href="#" role="button"  data-toggle="dropdown">
-                                            <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
-                                        </button>
-                                        <ul class="dropdown-menu pull-right" role="menu"
-                                            aria-labelledby="user-dropdown-toggle-xs" data-no-collapse="true">
-                                            <li>
-                                                <a href="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='url']}">
-                                                    <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='logoutURL']}">
-                                                    <i18n:text>xmlui.dri2xhtml.structural.logout</i18n:text>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <li>
-                                        <form style="display: inline" action="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='loginURL']}" method="get">
-                                            <button class="navbar-toggle navbar-link">
-                                            <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
-                                            </button>
-                                        </form>
-                                    </li>
-                                </xsl:otherwise>
-                            </xsl:choose>
-                        </ul>
-                              </div>
+        <header class="sta-header">
+            <div class="container sta-header-content">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-md-9 sta-header-title">
+                        <h1 class="sta-title">
+                            <a href="{$context-path}/">
+                                St Andrews Research Repository <span class="oblique"></span>
+                            </a>
+                        </h1>
                     </div>
+                    <div class="col-sm-4 col-md-3 hidden-xs sta-header-logos">
+                        <a id="library-logo" href="//www.st-andrews.ac.uk" class="pull-right" title="St Andrews University Home">
+                            <img src="{$theme-path}images/sta-logo.png" alt="St Andrews University Home" />
+                        </a>
+                        <a id="logo" href="//www.st-andrews.ac.uk/library/" class="pull-right" title="St Andrews University Library">
+                            <img src="{$theme-path}images/sta-library-logo.png" alt="St Andrews University Library" />
+                        </a>
+                    </div>
+                </div>
 
-                    <div class="navbar-header pull-right hidden-xs">
-                        <ul class="nav navbar-nav pull-left">
-                              <xsl:call-template name="languageSelection"/>
-                        </ul>
-                        <ul class="nav navbar-nav pull-left">
-                            <xsl:choose>
-                                <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
-                                    <li class="dropdown">
-                                        <a id="user-dropdown-toggle" href="#" role="button" class="dropdown-toggle"
-                                           data-toggle="dropdown">
-                                            <span class="hidden-xs">
-                                                <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='firstName']"/>
-                                                <xsl:text> </xsl:text>
-                                                <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='lastName']"/>
-                                                &#160;
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="navbar navbar-default navbar-static-top" role="navigation">
+                <div class="container sta-navbar">
+                    <div class="col-xs-12 col-sm-12 col-md-12 sta-navbar-content">
+                        <div class="navbar-header col-md-10">
+
+                            <button type="button" class="navbar-toggle" data-toggle="offcanvas">
+                                <span class="sr-only">
+                                    <i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text>
+                                </span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <!-- breadcrumbs -->
+                            <div class="pull-left">
+                                <xsl:choose>
+                                    <xsl:when test="count(/dri:document/dri:meta/dri:pageMeta/dri:trail) > 1">
+                                        <div class="breadcrumb dropdown visible-xs visible-sm">
+                                            <a id="trail-dropdown-toggle" href="#" role="button" class="dropdown-toggle"
+                                               data-toggle="dropdown">
+                                                <xsl:variable name="last-node"
+                                                              select="/dri:document/dri:meta/dri:pageMeta/dri:trail[last()]"/>
+                                                <xsl:choose>
+                                                    <xsl:when test="$last-node/i18n:*">
+                                                        <xsl:apply-templates select="$last-node/*"/>
+                                                    </xsl:when>
+                                                    <xsl:otherwise>
+                                                        <xsl:apply-templates select="$last-node/text()"/>
+                                                    </xsl:otherwise>
+                                                </xsl:choose>
+                                                <xsl:text>&#160;</xsl:text>
                                                 <b class="caret"/>
-                                            </span>
-                                        </a>
-                                        <ul class="dropdown-menu pull-right" role="menu"
-                                            aria-labelledby="user-dropdown-toggle" data-no-collapse="true">
-                                            <li>
-                                                <a href="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='url']}">
-                                                    <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='logoutURL']}">
-                                                    <i18n:text>xmlui.dri2xhtml.structural.logout</i18n:text>
-                                                </a>
-                                            </li>
+                                            </a>
+                                            <ul class="dropdown-menu" role="menu" aria-labelledby="trail-dropdown-toggle">
+                                                <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"
+                                                                     mode="dropdown"/>
+                                            </ul>
+                                        </div>
+                                        <div class="sta-lg-breadcrumb visible-lg hidden-md hidden-xs hidden-sm">
+                                            <ul class="breadcrumb">
+                                                <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
+                                            </ul>
+                                        </div>
+                                        <div class="sta-md-breadcrumb hidden-lg visible-md hidden-xs hidden-sm">
+                                            <ul class="breadcrumb">
+                                                <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
+                                            </ul>
+                                        </div>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <ul class="breadcrumb">
+                                            <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
                                         </ul>
-                                    </li>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <li>
-                                        <a href="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='loginURL']}">
-                                            <span class="hidden-xs">
-                                                <i18n:text>xmlui.dri2xhtml.structural.login</i18n:text>
-                                            </span>
-                                        </a>
-                                    </li>
-                                </xsl:otherwise>
-                            </xsl:choose>
-                        </ul>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </div>
+                            <!-- extra small screen size icons -->
+                            <div class="navbar-header pull-right visible-xs hidden-sm hidden-md hidden-lg">
+                                <ul class="nav nav-pills pull-right">
+                                    <!--xsl:call-template name="languageSelection-xs"/-->
 
-                        <button data-toggle="offcanvas" class="navbar-toggle visible-sm" type="button">
-                            <span class="sr-only"><i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
+                                    <xsl:choose>
+                                        <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
+                                            <li class="dropdown">
+                                                <button class="dropdown-toggle navbar-toggle navbar-link" id="user-dropdown-toggle-xs" href="#" role="button"  data-toggle="dropdown">
+                                                    <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
+                                                </button>
+                                                <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="user-dropdown-toggle-xs" data-no-collapse="true">
+                                                    <li>
+                                                        <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='url']}">
+                                                            <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='logoutURL']}">
+                                                            <i18n:text>xmlui.dri2xhtml.structural.logout</i18n:text>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                            <li>
+                                                <form style="display: inline" action="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='loginURL']}" method="get">
+                                                    <button class="navbar-toggle navbar-link">
+                                                        <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
+                                                    </button>
+                                                </form>
+                                            </li>
+                                        </xsl:otherwise>
+                                    </xsl:choose>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- all but extra small screen size dropdown -->
+                        <div class="navbar-header pull-right hidden-xs">
+                            <button data-toggle="offcanvas" class="navbar-toggle visible-sm" type="button">
+                                <span class="sr-only"><i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <!--ul class="nav navbar-nav pull-right">
+                                <xsl:call-template name="languageSelection"/>
+                            </ul-->
+                            <ul class="nav navbar-nav pull-right sta-lg-dropdown">
+                                <xsl:choose>
+                                    <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
+                                        <li class="dropdown">
+                                            <a id="user-dropdown-toggle" href="#" role="button" class="dropdown-toggle"
+                                               data-toggle="dropdown">
+                                                <span class="hidden-xs">
+                                                    <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='firstName']"/>
+                                                    <xsl:text> </xsl:text>
+                                                    <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='lastName']"/>
+                                                    &#160;
+                                                    <b class="caret"/>
+                                                </span>
+                                            </a>
+                                            <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="user-dropdown-toggle" data-no-collapse="true">
+                                                <li>
+                                                    <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='url']}">
+                                                        <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='logoutURL']}">
+                                                        <i18n:text>xmlui.dri2xhtml.structural.logout</i18n:text>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <li>
+                                            <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='loginURL']}">
+                                                <span class="hidden-xs">
+                                                    <i18n:text>xmlui.dri2xhtml.structural.login</i18n:text>
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </ul>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -494,7 +520,7 @@
                     <div class="col-xs-12">
                         <xsl:choose>
                             <xsl:when test="count(/dri:document/dri:meta/dri:pageMeta/dri:trail) > 1">
-                                <div class="breadcrumb dropdown visible-xs">
+                                <div class="breadcrumb dropdown visible-xs visible-sm">
                                     <a id="trail-dropdown-toggle" href="#" role="button" class="dropdown-toggle"
                                        data-toggle="dropdown">
                                         <xsl:variable name="last-node"
@@ -515,7 +541,7 @@
                                                              mode="dropdown"/>
                                     </ul>
                                 </div>
-                                <ul class="breadcrumb hidden-xs">
+                                <ul class="breadcrumb hidden-xs hidden-sm">
                                     <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
                                 </ul>
                             </xsl:when>
@@ -622,18 +648,21 @@
 
         <xsl:if test="$ccLicenseName and $ccLicenseUri and contains($ccLicenseUri, 'creativecommons')">
             <div about="{$handleUri}" class="row">
-            <div class="col-sm-3 col-xs-12">
-                <a rel="license"
-                   href="{$ccLicenseUri}"
-                   alt="{$ccLicenseName}"
-                   title="{$ccLicenseName}"
-                        >
-                    <xsl:call-template name="cc-logo">
-                        <xsl:with-param name="ccLicenseName" select="$ccLicenseName"/>
-                        <xsl:with-param name="ccLicenseUri" select="$ccLicenseUri"/>
-                    </xsl:call-template>
-                </a>
-            </div> <div class="col-sm-8">
+                <div class="col-sm-3 col-xs-12">
+                    <a rel="license"
+                       href="{$ccLicenseUri}"
+                       alt="{$ccLicenseName}"
+                       title="{$ccLicenseName}">
+                        <img class="img-responsive">
+                            <xsl:attribute name="src">
+                                <xsl:value-of select="concat($theme-path,'/images/cc-ship.gif')"/>
+                            </xsl:attribute>
+                            <xsl:attribute name="alt">
+                                <xsl:value-of select="$ccLicenseName"/>
+                            </xsl:attribute>
+                        </img>
+                    </a>
+                </div> <div class="col-sm-8">
                 <span>
                     <i18n:text>xmlui.dri2xhtml.METS-1.0.cc-license-text</i18n:text>
                     <xsl:value-of select="$ccLicenseName"/>
@@ -697,41 +726,72 @@
 
     <!-- Like the header, the footer contains various miscellaneous text, links, and image placeholders -->
     <xsl:template name="buildFooter">
-        <footer>
-                <div class="row">
-                    <hr/>
-                    <div class="col-xs-7 col-sm-8">
-                        <div>
-                            <a href="http://www.dspace.org/" target="_blank">DSpace software</a> copyright&#160;&#169;&#160;2002-2016&#160; <a href="http://www.duraspace.org/" target="_blank">DuraSpace</a>
+        <footer class="sta-footer">
+            <div class="sta-footer-top-content">
+            <div class="container">
+                <div class="row sta-footer-top">
+                    <div class="col-md-3 footer-block">
+                        <h3>Open Access</h3>
+                        <p>To find out how you can benefit from open access to research, see our <a href="//www.st-andrews.ac.uk/library/services/researchsupport/openaccess/" target="_blank">library web pages</a> and <a href="//univstandrews-oaresearch.blogspot.co.uk/" target="_blank">Open Access blog</a>.</p>
+                        <a href="//www.openaccessweek.org/page/about" target="_blank"><img id="oaweek" src="{$theme-path}images/oaweek.png" /></a>
                         </div>
-                        <div class="hidden-print">
-                            <a>
-                                <xsl:attribute name="href">
-                                    <xsl:value-of
-                                            select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
-                                    <xsl:text>/contact</xsl:text>
-                                </xsl:attribute>
-                                <i18n:text>xmlui.dri2xhtml.structural.contact-link</i18n:text>
-                            </a>
-                            <xsl:text> | </xsl:text>
-                            <a>
-                                <xsl:attribute name="href">
-                                    <xsl:value-of
-                                            select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
-                                    <xsl:text>/feedback</xsl:text>
-                                </xsl:attribute>
-                                <i18n:text>xmlui.dri2xhtml.structural.feedback-link</i18n:text>
-                            </a>
+                    <div class="col-md-3 footer-block">
+                        <h3>How to submit research papers</h3>
+                        <p>The full text of research papers can be submitted to the repository via <a href="//www.st-andrews.ac.uk/staff/research/pure/" target="_blank">PURE</a>, the University's research information system. For help with using PURE, see the <a href="//www.st-andrews.ac.uk/staff/research/pure/faq/" target="_blank">FAQ</a>.</p>
+                        <h3>Electronic Thesis Deposit</h3>
+                        <p>Help with <a href="//www.st-andrews.ac.uk/library/resources/collections/theses/#Submitting" target="_blank">deposit</a>.</p>
+                    </div>
+                    <div class="col-md-3 footer-block">
+                        <h3>Cookie policy</h3>
+                        <p>We may use a cookie file which is stored on the hard drive of your computer to track how the Site is being used and to assess its usefulness. Personal information is not collected. <a href="//www.st-andrews.ac.uk/terms/cookies/" target="_blank">Terms and Conditions</a>.</p>
+                    </div>
+                    <div class="col-md-3 footer-block">
+                        <h3>Contact Us</h3>
+                        <p>
+                            University Library<br />
+                            University of St Andrews<br />
+                            St Andrews<br />
+                            KY16 9TR<br />
+                            <br />
+                            Tel: 01334 462331/2<br />
+                            <br />
+                            <a href="/feedback">Give Feedback</a>
+                        </p>
                         </div>
                     </div>
-                    <div class="col-xs-5 col-sm-4 hidden-print">
-                        <div class="pull-right">
-                            <span class="theme-by">Theme by&#160;</span>
-                            <br/>
-                            <a title="Atmire NV" target="_blank" href="http://atmire.com">
-                                <img alt="Atmire NV" src="{concat($theme-path, 'images/atmire-logo-small.svg')}"/>
+            </div>
+            </div>
+            <div class="sta-footer-bottom-content">
+            <div class="container">
+            <div class="row sta-footer-bottom">
+                <div class="col-md-9">
+                    <p id="footer-copyright"><xsl:text>&#169;</xsl:text> University of St Andrews Library</p>
+                    <p id="footer-charity">University of St Andrews is a charity registered in Scotland, No SC013532.</p>
+                    <ul id="footer-links">
+                        <li>
+                            <a href="//www.st-andrews.ac.uk/terms/cookies/" target="_blank">Privacy and cookies</a>
+                        </li>
+                        <li>
+                            <a href="//www.st-andrews.ac.uk/help/" target="_blank">Website help</a>
+                        </li>
+                        <li>
+                            <a href="//www.st-andrews.ac.uk/help/" target="_blank">Feedback</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul id="social">
+                        <li>
+                            <a href="https://www.facebook.com/uniofsta" target="_blank">
+                                <img style="width : -1px; height : -1px; border : ; padding : ; margin : ; float : ;" alt="Facebook" src="{$theme-path}images/facebook-logo-svg.svg" />
                             </a>
-                        </div>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/univofstandrews/" target="_blank">
+                                <img style="width : -1px; height : -1px; border : ; padding : ; margin : ; float : ;" alt="Twitter" src="{$theme-path}images/twitter-logo-svg.svg" />
+                            </a>
+                        </li>
+                    </ul>
 
                     </div>
                 </div>
@@ -744,7 +804,8 @@
                     </xsl:attribute>
                     <xsl:text>&#160;</xsl:text>
                 </a>
-            <p>&#160;</p>
+            </div>
+            </div>
         </footer>
     </xsl:template>
 
