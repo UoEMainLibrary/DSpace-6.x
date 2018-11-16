@@ -97,7 +97,7 @@
         <!--Which sidebar facets are to be displayed-->
         <property name="sidebarFacets">
             <list>
-                <ref bean="searchFilterAuthor" />
+                <ref bean="searchFilterName" />
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterIssued" />
 		        <ref bean="searchFilterContentInOriginalBundle"/>
@@ -109,9 +109,10 @@
         <property name="searchFilters">
             <list>
                 <ref bean="searchFilterTitle" />
-                <ref bean="searchFilterAuthor" />
+                <ref bean="searchFilterName" />
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterIssued" />
+                <ref bean="searchFilterClassification" />
 		        <ref bean="searchFilterContentInOriginalBundle"/>
                 <ref bean="searchFilterFileNameInOriginalBundle" />
                 <ref bean="searchFilterFileDescriptionInOriginalBundle" />
@@ -209,7 +210,7 @@
         <!--Which sidebar facets are to be displayed (same as defaultConfiguration above)-->
         <property name="sidebarFacets">
             <list>
-                <ref bean="searchFilterAuthor" />
+                <ref bean="searchFilterName" />
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterIssued" />
 		        <ref bean="searchFilterContentInOriginalBundle"/>
@@ -221,9 +222,10 @@
         <property name="searchFilters">
             <list>
                 <ref bean="searchFilterTitle" />
-                <ref bean="searchFilterAuthor" />
+                <ref bean="searchFilterName" />
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterIssued" />
+                <ref bean="searchFilterClassification" />
 		        <ref bean="searchFilterContentInOriginalBundle"/>
                 <ref bean="searchFilterFileNameInOriginalBundle" />
                 <ref bean="searchFilterFileDescriptionInOriginalBundle" />
@@ -399,11 +401,38 @@
         <property name="sortOrderFilterPage" value="COUNT"/>
     </bean>
 
+    <bean id="searchFilterName" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="author"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.contributor.author</value>
+                <value>dc.creator</value>
+            </list>
+        </property>
+        <property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+
     <bean id="searchFilterSubject" class="org.dspace.discovery.configuration.HierarchicalSidebarFacetConfiguration">
         <property name="indexFieldName" value="subject"/>
         <property name="metadataFields">
             <list>
-                <value>dc.subject.*</value>
+                <value>dc.subject</value>
+                <value>dc.subject.lcsh</value>
+            </list>
+        </property>
+        <property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+        <property name="splitter" value="::"/>
+    </bean>
+
+    <bean id="searchFilterClassification" class="org.dspace.discovery.configuration.HierarchicalSidebarFacetConfiguration">
+        <property name="indexFieldName" value="subject"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.subject.lcc</value>
             </list>
         </property>
         <property name="facetLimit" value="10"/>
