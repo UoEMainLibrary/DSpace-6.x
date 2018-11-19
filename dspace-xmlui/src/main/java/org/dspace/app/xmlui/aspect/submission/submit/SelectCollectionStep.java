@@ -112,7 +112,8 @@ public class SelectCollectionStep extends AbstractSubmissionStep
 	    CollectionDropDown.CollectionPathEntry[] collectionPaths = CollectionDropDown.annotateWithPaths(context, collections);
         for (CollectionDropDown.CollectionPathEntry entry : collectionPaths)
         {
-            select.addOption(entry.collection.getHandle(), entry.path);
+            //select.addOption(entry.collection.getHandle(), entry.path);
+            select.addOption(entry.collection.getHandle(), entry.collection.getName());
         }
         
         Button submit = list.addItem().addButton("submit");

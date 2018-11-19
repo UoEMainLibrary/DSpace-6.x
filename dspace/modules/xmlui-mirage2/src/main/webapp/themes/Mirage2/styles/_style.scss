@@ -285,6 +285,10 @@ div.ds-search-link {
   margin-top: -25px;
 }
 
+#aspect_eperson_LoginChooser_list_ldap-login .control-label.required::after,
+#aspect_eperson_LoginChooser_div_login_header .control-label.required::after{
+    content: "";
+}
 
 /* responsiveness */
  @media (max-width: 575px) {
