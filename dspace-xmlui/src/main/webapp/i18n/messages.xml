@@ -453,6 +453,7 @@
 	<message key="xmlui.EPerson.EditProfile.email_address">Email Address</message>
 	<message key="xmlui.EPerson.EditProfile.first_name">First Name</message>
 	<message key="xmlui.EPerson.EditProfile.last_name">Last Name</message>
+	<message key="xmlui.EPerson.EditProfile.net_id">LDAP NetID</message>
 	<message key="xmlui.EPerson.EditProfile.telephone">Contact Telephone</message>
 	<message key="xmlui.EPerson.EditProfile.Language">Language</message>
 	<message key="xmlui.EPerson.EditProfile.subscriptions">Subscriptions</message>
@@ -1079,6 +1080,7 @@
 	<message key="xmlui.administrative.eperson.AddEPersonForm.error_email">Email address is required</message>
 	<message key="xmlui.administrative.eperson.AddEPersonForm.error_fname">First name is required</message>
 	<message key="xmlui.administrative.eperson.AddEPersonForm.error_lname">Last name is required</message>
+	<message key="xmlui.administrative.eperson.AddEPersonForm.error_netid">LDAP NetID is required</message>
 	<message key="xmlui.administrative.eperson.AddEPersonForm.req_certs">Require Certificate</message>
 	<message key="xmlui.administrative.eperson.AddEPersonForm.can_log_in">Can Log In</message>
 	<message key="xmlui.administrative.eperson.AddEPersonForm.submit_create">Create E-Person</message>
@@ -1093,6 +1095,7 @@
 	<message key="xmlui.administrative.eperson.EditEPersonForm.error_email">Email address is required</message>
 	<message key="xmlui.administrative.eperson.EditEPersonForm.error_fname">First name is required</message>
 	<message key="xmlui.administrative.eperson.EditEPersonForm.error_lname">Last name is required</message>
+	<message key="xmlui.administrative.eperson.EditEPersonForm.error_netid">LDAP NetID is required</message>
 	<message key="xmlui.administrative.eperson.EditEPersonForm.req_certs">Require Certificate</message>
 	<message key="xmlui.administrative.eperson.EditEPersonForm.can_log_in">Can Log In</message>
 	<message key="xmlui.administrative.eperson.EditEPersonForm.submit_reset_password">Reset Password</message>
