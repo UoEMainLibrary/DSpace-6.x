@@ -111,8 +111,10 @@
                 <ref bean="searchFilterTitle" />
                 <ref bean="searchFilterName" />
                 <ref bean="searchFilterSubject" />
+                <ref bean="searchFilterType" />
                 <ref bean="searchFilterIssued" />
                 <ref bean="searchFilterClassification" />
+                <ref bean="searchFilterSponsor" />
 		        <ref bean="searchFilterContentInOriginalBundle"/>
                 <ref bean="searchFilterFileNameInOriginalBundle" />
                 <ref bean="searchFilterFileDescriptionInOriginalBundle" />
@@ -144,7 +146,7 @@
             <bean class="org.dspace.discovery.configuration.DiscoveryRecentSubmissionsConfiguration">
                 <property name="metadataSortField" value="dc.date.accessioned" />
                 <property name="type" value="date"/>
-                <property name="max" value="20"/>
+                <property name="max" value="5"/>
                 <!-- If enabled the collection home page will not display metadata but show a pageable list of recent submissions -->
                 <property name="useAsHomePage" value="false"/>
             </bean>
@@ -188,8 +190,10 @@
                     <list>
                         <value>dc.title</value>
                         <value>dc.contributor.author</value>
+                        <value>dc.contributor.sponsor</value>
                         <value>dc.creator</value>
                         <value>dc.subject</value>
+                        <value>dc.type</value>
                     </list>
                 </property>
                 <!--The minimum number of matching terms across the metadata fields above before an item is found as related -->
@@ -212,6 +216,7 @@
             <list>
                 <ref bean="searchFilterName" />
                 <ref bean="searchFilterSubject" />
+                <ref bean="searchFilterType" />
                 <ref bean="searchFilterIssued" />
 		        <ref bean="searchFilterContentInOriginalBundle"/>
             </list>
@@ -224,8 +229,10 @@
                 <ref bean="searchFilterTitle" />
                 <ref bean="searchFilterName" />
                 <ref bean="searchFilterSubject" />
+                <ref bean="searchFilterType" />
                 <ref bean="searchFilterIssued" />
                 <ref bean="searchFilterClassification" />
+                <ref bean="searchFilterSponsor" />
 		        <ref bean="searchFilterContentInOriginalBundle"/>
                 <ref bean="searchFilterFileNameInOriginalBundle" />
                 <ref bean="searchFilterFileDescriptionInOriginalBundle" />
@@ -396,7 +403,7 @@
                 <value>dc.creator</value>
             </list>
         </property>
-        <property name="facetLimit" value="10"/>
+        <property name="facetLimit" value="5"/>
         <property name="sortOrderSidebar" value="COUNT"/>
         <property name="sortOrderFilterPage" value="COUNT"/>
     </bean>
@@ -406,10 +413,23 @@
         <property name="metadataFields">
             <list>
                 <value>dc.contributor.author</value>
+                <value>dc.contributor.advisor</value>
                 <value>dc.creator</value>
             </list>
         </property>
-        <property name="facetLimit" value="10"/>
+        <property name="facetLimit" value="5"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+
+    <bean id="searchFilterSponsor" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="sponsor"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.contributor.sponsor</value>
+            </list>
+        </property>
+        <property name="facetLimit" value="5"/>
         <property name="sortOrderSidebar" value="COUNT"/>
         <property name="sortOrderFilterPage" value="COUNT"/>
     </bean>
@@ -435,10 +455,22 @@
                 <value>dc.subject.lcc</value>
             </list>
         </property>
-        <property name="facetLimit" value="10"/>
+        <property name="facetLimit" value="5"/>
         <property name="sortOrderSidebar" value="COUNT"/>
         <property name="sortOrderFilterPage" value="COUNT"/>
         <property name="splitter" value="::"/>
+    </bean>
+
+    <bean id="searchFilterType" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="type"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.type</value>
+            </list>
+        </property>
+        <property name="facetLimit" value="5"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
     </bean>
 
     <bean id="searchFilterIssued" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
