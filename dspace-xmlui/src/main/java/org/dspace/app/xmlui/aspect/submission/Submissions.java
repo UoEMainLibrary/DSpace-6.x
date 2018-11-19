@@ -348,7 +348,8 @@ public class Submissions extends AbstractDSpaceTransformer
             limit = -1;
         } else {
             //Set a default limit of 50
-            limit = 50;
+            // limit set to 5, St Andrews customisation
+            limit = 5;
         }
         Iterator<Item> subs = itemService.findBySubmitterDateSorted(context, context.getCurrentUser(), limit);
 
