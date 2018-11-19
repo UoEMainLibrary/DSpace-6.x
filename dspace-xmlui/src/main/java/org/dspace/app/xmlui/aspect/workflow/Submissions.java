@@ -128,9 +128,9 @@ public class Submissions extends AbstractDSpaceTransformer
         div.setHead(T_head);
 
         this.addWorkflowTasks(div);
-//        this.addUnfinishedSubmissions(div);
+        this.addUnfinishedSubmissions(div);
         this.addSubmissionsInWorkflow(div);
-//        this.addPreviousSubmissions(div);
+        this.addPreviousSubmissions(div);
     }
 
 
@@ -177,7 +177,7 @@ public class Submissions extends AbstractDSpaceTransformer
         	for (BasicWorkflowItem owned : ownedItems)
         	{
         		int workflowItemID = owned.getID();
-        		String collectionUrl = contextPath + "/handle/" + owned.getCollection().getHandle();
+        		//String collectionUrl = contextPath + "/handle/" + owned.getCollection().getHandle();
         		String ownedWorkflowItemUrl = contextPath + "/handle/" + owned.getCollection().getHandle() + "/workflow?workflowID=" + workflowItemID;
         		String title = owned.getItem().getName();
         		String collectionName = owned.getCollection().getName();
@@ -194,7 +194,8 @@ public class Submissions extends AbstractDSpaceTransformer
 	        	remove.addOption(workflowItemID);
 
         		// The task description
-	        	row.addCell().addXref(ownedWorkflowItemUrl, state);
+	        	//row.addCell().addXref(ownedWorkflowItemUrl, state);
+                row.addCell().addContent(state);
 
         		// The item description
         		if (StringUtils.isNotBlank(title))
@@ -212,7 +213,8 @@ public class Submissions extends AbstractDSpaceTransformer
                 }
 
         		// Submitted too
-        		row.addCell().addXref(collectionUrl, collectionName);
+        		//row.addCell().addXref(collectionUrl, collectionName);
+                row.addCell().addContent(collectionName);
 
         		// Submitted by
 	        	Cell cell = row.addCell();
@@ -250,7 +252,7 @@ public class Submissions extends AbstractDSpaceTransformer
         	for (BasicWorkflowItem pooled : pooledItems)
         	{
         		int workflowItemID = pooled.getID();
-        		String collectionUrl = contextPath + "/handle/" + pooled.getCollection().getHandle();
+        		//String collectionUrl = contextPath + "/handle/" + pooled.getCollection().getHandle();
         		String pooledItemUrl = contextPath + "/handle/" + pooled.getCollection().getHandle() + "/workflow?workflowID=" + workflowItemID;
         		String title = pooled.getItem().getName();
         		String collectionName = pooled.getCollection().getName();
@@ -268,7 +270,8 @@ public class Submissions extends AbstractDSpaceTransformer
 	        	remove.addOption(workflowItemID);
 
         		// The task description
-	        	row.addCell().addXref(pooledItemUrl, state);
+	        	//row.addCell().addXref(pooledItemUrl, state);
+                row.addCell().addContent(state);
 
         		// The item description
         		if (StringUtils.isNotBlank(title))
@@ -287,7 +290,8 @@ public class Submissions extends AbstractDSpaceTransformer
                 }
 
         		// Submitted too
-        		row.addCell().addXref(collectionUrl, collectionName);
+        		//row.addCell().addXref(collectionUrl, collectionName);
+                row.addCell().addContent(collectionName);
 
         		// Submitted by
         		Cell cell = row.addCell();

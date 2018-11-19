@@ -141,9 +141,9 @@ public class Submissions extends AbstractDSpaceTransformer
         Division div = body.addInteractiveDivision("submissions", contextPath+"/submissions", Division.METHOD_POST,"primary");
         div.setHead(T_head);
 
-//        this.addWorkflowTasksDiv(div);
+        this.addWorkflowTasksDiv(div);
         this.addUnfinishedSubmissions(div);
-//        this.addSubmissionsInWorkflowDiv(div);
+        this.addSubmissionsInWorkflowDiv(div);
         this.addPreviousSubmissions(div, displayAll);
 
         context.setMode(originalMode);
@@ -254,7 +254,8 @@ public class Submissions extends AbstractDSpaceTransformer
                 }
                 else
                     row.addCell().addXref(url,T_untitled);
-                row.addCell().addXref(url,collectionName);
+                //row.addCell().addXref(url,collectionName);
+                row.addCell().addContent(collectionName);
                 Cell cell = row.addCell();
                 cell.addContent(T_email);
                 cell.addXref("mailto:"+submitterEmail,submitterName);
@@ -301,7 +302,8 @@ public class Submissions extends AbstractDSpaceTransformer
             {
                 row.addCell().addXref(url, T_untitled);
             }
-            row.addCell().addXref(url,collectionName);
+            //row.addCell().addXref(url,collectionName);
+            row.addCell().addContent(collectionName);
             Cell cell = row.addCell();
             cell.addContent(T_email);
             cell.addXref("mailto:"+submitterEmail,submitterName);
@@ -378,7 +380,7 @@ public class Submissions extends AbstractDSpaceTransformer
         header.addCellContent(T_c_column3); // COLLECTION NAME (LINKED)
 
         //Limit to showing just 50 archived submissions, unless overridden
-        //(This is a saftey measure for Admins who may have submitted 
+        //(This is a safety measure for Admins who may have submitted
         // thousands of items under their account via bulk ingest tools, etc.)
         int count = 0;
 
@@ -392,7 +394,7 @@ public class Submissions extends AbstractDSpaceTransformer
                 break;
 
             Item published = i.next();
-            String collUrl = contextPath+"/handle/"+published.getOwningCollection().getHandle();
+            //String collUrl = contextPath+"/handle/"+published.getOwningCollection().getHandle();
             String itemUrl = contextPath+"/handle/"+published.getHandle();
             java.util.List<MetadataValue> titles = itemService.getMetadata(published, "dc", "title", null, Item.ANY);
             String collectionName = published.getOwningCollection().getName();
@@ -424,7 +426,8 @@ public class Submissions extends AbstractDSpaceTransformer
                 row.addCell().addXref(itemUrl,T_untitled);
 
             // Owning Collection
-            row.addCell().addXref(collUrl,collectionName);
+            //row.addCell().addXref(collUrl,collectionName);
+            row.addCell().addContent(collectionName);
         }//end while
 
         //Display limit text & link to allow user to override this default limit

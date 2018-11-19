@@ -713,39 +713,42 @@
         <div>
             <a>
                 <xsl:attribute name="href">
-                    <xsl:value-of select="$href"/>
+                    <xsl:value-of select="mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
+                </xsl:attribute>
+                <xsl:attribute name="title">
+                    <xsl:value-of select="mets:FLocat[@LOCTYPE='URL']/@xlink:label"/>
                 </xsl:attribute>
                 <xsl:call-template name="getFileIcon">
                     <xsl:with-param name="mimetype">
-                        <xsl:value-of select="substring-before($mimetype,'/')"/>
+                        <xsl:value-of select="substring-before(@MIMETYPE,'/')"/>
                         <xsl:text>/</xsl:text>
-                        <xsl:value-of select="substring-after($mimetype,'/')"/>
+                        <xsl:value-of select="substring-after(@MIMETYPE,'/')"/>
                     </xsl:with-param>
                 </xsl:call-template>
                 <xsl:choose>
-                    <xsl:when test="contains($label-1, 'label') and string-length($label)!=0">
-                        <xsl:value-of select="$label"/>
+                    <xsl:when test="contains($label-1, 'label') and mets:FLocat[@LOCTYPE='URL']/@xlink:label">
+                        <xsl:value-of select="mets:FLocat[@LOCTYPE='URL']/@xlink:label"/>
                     </xsl:when>
-                    <xsl:when test="contains($label-1, 'title') and string-length($title)!=0">
-                        <xsl:value-of select="$title"/>
+                    <xsl:when test="contains($label-1, 'title') and mets:FLocat[@LOCTYPE='URL']/@xlink:title">
+                        <xsl:value-of select="mets:FLocat[@LOCTYPE='URL']/@xlink:title"/>
                     </xsl:when>
-                    <xsl:when test="contains($label-2, 'label') and string-length($label)!=0">
-                        <xsl:value-of select="$label"/>
+                    <xsl:when test="contains($label-2, 'label') and mets:FLocat[@LOCTYPE='URL']/@xlink:label">
+                        <xsl:value-of select="mets:FLocat[@LOCTYPE='URL']/@xlink:label"/>
                     </xsl:when>
-                    <xsl:when test="contains($label-2, 'title') and string-length($title)!=0">
-                        <xsl:value-of select="$title"/>
+                    <xsl:when test="contains($label-2, 'title') and mets:FLocat[@LOCTYPE='URL']/@xlink:title">
+                        <xsl:value-of select="mets:FLocat[@LOCTYPE='URL']/@xlink:title"/>
                     </xsl:when>
                     <xsl:otherwise>
                         <xsl:call-template name="getFileTypeDesc">
                             <xsl:with-param name="mimetype">
-                                <xsl:value-of select="substring-before($mimetype,'/')"/>
+                                <xsl:value-of select="substring-before(@MIMETYPE,'/')"/>
                                 <xsl:text>/</xsl:text>
                                 <xsl:choose>
-                                    <xsl:when test="contains($mimetype,';')">
-                                        <xsl:value-of select="substring-before(substring-after($mimetype,'/'),';')"/>
+                                    <xsl:when test="contains(@MIMETYPE,';')">
+                                        <xsl:value-of select="substring-before(substring-after(@MIMETYPE,'/'),';')"/>
                                     </xsl:when>
                                     <xsl:otherwise>
-                                        <xsl:value-of select="substring-after($mimetype,'/')"/>
+                                        <xsl:value-of select="substring-after(@MIMETYPE,'/')"/>
                                     </xsl:otherwise>
                                 </xsl:choose>
                             </xsl:with-param>
@@ -754,20 +757,20 @@
                 </xsl:choose>
                 <xsl:text> (</xsl:text>
                 <xsl:choose>
-                    <xsl:when test="$size &lt; 1024">
-                        <xsl:value-of select="$size"/>
+                    <xsl:when test="@SIZE &lt; 1024">
+                        <xsl:value-of select="@SIZE"/>
                         <i18n:text>xmlui.dri2xhtml.METS-1.0.size-bytes</i18n:text>
                     </xsl:when>
-                    <xsl:when test="$size &lt; 1024 * 1024">
-                        <xsl:value-of select="substring(string($size div 1024),1,5)"/>
+                    <xsl:when test="@SIZE &lt; 1024 * 1024">
+                        <xsl:value-of select="substring(string(@SIZE div 1024),1,5)"/>
                         <i18n:text>xmlui.dri2xhtml.METS-1.0.size-kilobytes</i18n:text>
                     </xsl:when>
-                    <xsl:when test="$size &lt; 1024 * 1024 * 1024">
-                        <xsl:value-of select="substring(string($size div (1024 * 1024)),1,5)"/>
+                    <xsl:when test="@SIZE &lt; 1024 * 1024 * 1024">
+                        <xsl:value-of select="substring(string(@SIZE div (1024 * 1024)),1,5)"/>
                         <i18n:text>xmlui.dri2xhtml.METS-1.0.size-megabytes</i18n:text>
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:value-of select="substring(string($size div (1024 * 1024 * 1024)),1,5)"/>
+                        <xsl:value-of select="substring(string(@SIZE div (1024 * 1024 * 1024)),1,5)"/>
                         <i18n:text>xmlui.dri2xhtml.METS-1.0.size-gigabytes</i18n:text>
                     </xsl:otherwise>
                 </xsl:choose>
@@ -902,7 +905,7 @@
                                 <xsl:attribute name="title">
                                     <xsl:value-of select="mets:FLocat[@LOCTYPE='URL']/@xlink:title"/>
                                 </xsl:attribute>
-                                <xsl:value-of select="util:shortenString(mets:FLocat[@LOCTYPE='URL']/@xlink:title, 30, 5)"/>
+                                <xsl:value-of select="util:shortenString(mets:FLocat[@LOCTYPE='URL']/@xlink:title, 50, 5)"/>
                             </dd>
                             <!-- File size always comes in bytes and thus needs conversion -->
                             <dt>
@@ -964,7 +967,7 @@
                                     <xsl:attribute name="title">
                                         <xsl:value-of select="mets:FLocat[@LOCTYPE='URL']/@xlink:label"/>
                                     </xsl:attribute>
-                                    <xsl:value-of select="util:shortenString(mets:FLocat[@LOCTYPE='URL']/@xlink:label, 30, 5)"/>
+                                    <xsl:value-of select="util:shortenString(mets:FLocat[@LOCTYPE='URL']/@xlink:label, 50, 5)"/>
                                 </dd>
                             </xsl:if>
                         </dl>
@@ -996,7 +999,7 @@
                                 <xsl:attribute name="title">
                                     <xsl:value-of select="mets:FLocat[@LOCTYPE='URL']/@xlink:title"/>
                                 </xsl:attribute>
-                                <xsl:value-of select="util:shortenString(mets:FLocat[@LOCTYPE='URL']/@xlink:title, 30, 5)"/>
+                                <xsl:value-of select="util:shortenString(mets:FLocat[@LOCTYPE='URL']/@xlink:title, 50, 5)"/>
                             </dd>
                             <!-- File size always comes in bytes and thus needs conversion -->
                             <dt>
@@ -1058,7 +1061,7 @@
                                     <xsl:attribute name="title">
                                         <xsl:value-of select="mets:FLocat[@LOCTYPE='URL']/@xlink:label"/>
                                     </xsl:attribute>
-                                    <xsl:value-of select="util:shortenString(mets:FLocat[@LOCTYPE='URL']/@xlink:label, 30, 5)"/>
+                                    <xsl:value-of select="util:shortenString(mets:FLocat[@LOCTYPE='URL']/@xlink:label, 50, 5)"/>
                                 </dd>
                             </xsl:if>
                         </dl>
