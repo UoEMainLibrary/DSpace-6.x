@@ -310,7 +310,6 @@
         </xsl:if>
     </xsl:template>
 
-<!-- Current point -->
     <xsl:template name="itemSummaryView-DIM-URI">
         <xsl:if test="dim:field[@element='identifier' and @qualifier='uri' and descendant::text()]">
             <div class="simple-item-view-uri item-page-field-wrapper table">
