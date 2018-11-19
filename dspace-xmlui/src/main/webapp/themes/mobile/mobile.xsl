@@ -241,7 +241,7 @@
             <a>
                 <xsl:attribute name="href">
                 <xsl:value-of select="$mobile-url"/>
-                <xsl:text>/browse?type=author</xsl:text>
+                <xsl:text>/browse?type=names</xsl:text>
                 </xsl:attribute>
                 <xsl:attribute name="data-role">
                 <xsl:text>button</xsl:text>
