@@ -85,6 +85,7 @@ public class EPersonConsumer implements Consumer
                             adminEmail.addArgument(ConfigurationManager.getProperty("dspace.name"));
                             adminEmail.addArgument(ConfigurationManager.getProperty("dspace.url"));
                             adminEmail.addArgument(eperson.getFirstName() + " " + eperson.getLastName()); // Name
+                            adminEmail.addArgument(eperson.getNetid());
                             adminEmail.addArgument(eperson.getEmail());
                             adminEmail.addArgument(new Date());
 

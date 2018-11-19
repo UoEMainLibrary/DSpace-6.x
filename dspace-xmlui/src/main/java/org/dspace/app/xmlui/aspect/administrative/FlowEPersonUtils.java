@@ -80,6 +80,7 @@ public class FlowEPersonUtils {
 		String email = request.getParameter("email_address").trim();
 		String first = request.getParameter("first_name").trim();
 		String last  = request.getParameter("last_name").trim();
+		String netID = request.getParameter("net_id").trim();
 		String phone = request.getParameter("phone").trim();
 		boolean login = (request.getParameter("can_log_in") != null) ? true : false;
 		boolean certificate = (request.getParameter("certificate") != null) ? true : false;
@@ -97,6 +98,10 @@ public class FlowEPersonUtils {
         {
             result.addError("last_name");
         }
+		if (StringUtils.isEmpty(netID))
+		{
+			result.addError("net_id");
+		}
 	    
 	    
 		// Check if the email address is already being used.	        		
@@ -114,6 +119,7 @@ public class FlowEPersonUtils {
     		
     		newPerson.setFirstName(context, first);
             newPerson.setLastName(context, last);
+			newPerson.setNetid(netID);
             ePersonService.setMetadata(context, newPerson, "phone", phone);
             newPerson.setCanLogIn(login);
             newPerson.setRequireCertificate(certificate);
@@ -156,6 +162,7 @@ public class FlowEPersonUtils {
 		String email = request.getParameter("email_address");
 		String first = request.getParameter("first_name");
 		String last  = request.getParameter("last_name");
+		String netID = request.getParameter("net_id");
 		String phone = request.getParameter("phone");
 		boolean login = (request.getParameter("can_log_in") != null) ? true : false;
 		boolean certificate = (request.getParameter("certificate") != null) ? true : false;
@@ -174,6 +181,10 @@ public class FlowEPersonUtils {
         {
             result.addError("last_name");
         }
+		if (StringUtils.isEmpty(netID))
+		{
+			result.addError("net_id");
+		}
 		
 		
 	    // No errors, so we edit the EPerson with the data provided
@@ -207,6 +218,10 @@ public class FlowEPersonUtils {
             if (originalLastName == null || !originalLastName.equals(last)) {
         		personModified.setLastName(context, last);
         	}
+			String originalNetID = personModified.getNetid();
+			if (originalNetID == null || !originalNetID.equals(netID)) {
+				personModified.setNetid(netID);
+			}
         	String originalPhone = ePersonService.getMetadata(personModified, "phone");
             if (originalPhone == null || !originalPhone.equals(phone)) {
 				ePersonService.setMetadata(context, personModified, "phone", phone);

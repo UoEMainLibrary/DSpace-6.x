@@ -75,6 +75,9 @@ public class AddEPersonForm extends AbstractDSpaceTransformer
 	private static final Message T_req_certs =
 		message("xmlui.administrative.eperson.AddEPersonForm.req_certs");
 
+	private static final Message T_error_netid =
+		message("xmlui.administrative.eperson.AddEPersonForm.error_netid");
+
 	private static final Message T_can_log_in =
 		message("xmlui.administrative.eperson.AddEPersonForm.can_log_in");
 
@@ -95,6 +98,9 @@ public class AddEPersonForm extends AbstractDSpaceTransformer
     
     private static final Message T_last_name = 
         message("xmlui.EPerson.EditProfile.last_name");
+
+	private static final Message T_net_id =
+		message("xmlui.EPerson.EditProfile.net_id");
     
     private static final Message T_telephone =
         message("xmlui.EPerson.EditProfile.telephone");
@@ -127,6 +133,7 @@ public class AddEPersonForm extends AbstractDSpaceTransformer
 		String emailValue = request.getParameter("email_address");
 		String firstValue = request.getParameter("first_name");
 		String lastValue  = request.getParameter("last_name");
+		String netIDValue = request.getParameter("net_id");
 		String phoneValue = request.getParameter("phone");
 		boolean canLogInValue    = (request.getParameter("can_log_in") == null)  ? false : true;
 		boolean certificateValue = (request.getParameter("certificate") == null) ? false : true;
@@ -173,6 +180,14 @@ public class AddEPersonForm extends AbstractDSpaceTransformer
         if (errors.contains("last_name")) {
         	lastName.addError(T_error_lname);
         }
+
+		Text netID = identity.addItem().addText("net_id");
+		netID.setRequired();
+		netID.setLabel(T_net_id);
+		netID.setValue(netIDValue);
+		if (errors.contains("net_id")) {
+			netID.addError(T_error_netid);
+		}
         
         Text phone = identity.addItem().addText("phone");
         phone.setLabel(T_telephone);
