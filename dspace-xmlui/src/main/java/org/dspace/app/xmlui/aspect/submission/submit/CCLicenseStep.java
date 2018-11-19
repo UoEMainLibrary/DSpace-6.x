@@ -152,27 +152,27 @@ public class CCLicenseStep extends AbstractSubmissionStep
 	    	} 
 	    	else 
 	    	{
-		    Iterator outerIterator = cclookup.getLicenseFields(selectedLicense, ccLocale).iterator();
-		    while (outerIterator.hasNext()) 
-		    {
-			CCLicenseField cclicensefield = (CCLicenseField)outerIterator.next();
-			if (cclicensefield.getId().equals("jurisdiction"))  
-			    continue;
-			    List edit = div.addList("selectlist", List.TYPE_SIMPLE, "horizontalVanilla");
-			    edit.addItem(cclicensefield.getLabel());
-			    edit.addItem().addFigure(contextPath + "/themes/Reference/images/information.png", "javascript:void(0)", cclicensefield.getDescription(), "information");
-			    List subList = div.addList("sublist", List.TYPE_SIMPLE, "horizontalVanilla");
-			    Radio radio  = subList.addItem().addRadio(cclicensefield.getId() + "_chooser");
-			    radio.setRequired();
-			    Iterator fieldMapIterator = cclicensefield.getEnum().entrySet().iterator();
-			    while (fieldMapIterator.hasNext()) 
-			    {
-			        Map.Entry pairs = (Map.Entry)fieldMapIterator.next();
-				String key      = (String) pairs.getKey();
-				String value 	= (String) pairs.getValue();
-				radio.addOption(key, value);
-			    }
-				div.addSimpleHTMLFragment(true, "&#160;");
+				Iterator outerIterator = cclookup.getLicenseFields(selectedLicense, ccLocale).iterator();
+				while (outerIterator.hasNext())
+				{
+					CCLicenseField cclicensefield = (CCLicenseField)outerIterator.next();
+					if (cclicensefield.getId().equals("jurisdiction"))
+						continue;
+					List edit = div.addList("selectlist", List.TYPE_SIMPLE, "horizontalVanilla");
+					edit.addItem(cclicensefield.getLabel());
+					edit.addItem().addFigure(contextPath + "/themes/Reference/images/information.png", "javascript:void(0)", cclicensefield.getDescription(), "information");
+					List subList = div.addList("sublist", List.TYPE_SIMPLE, "horizontalVanilla");
+					Radio radio  = subList.addItem().addRadio(cclicensefield.getId() + "_chooser");
+					radio.setRequired();
+					Iterator fieldMapIterator = cclicensefield.getEnum().entrySet().iterator();
+					while (fieldMapIterator.hasNext())
+					{
+						Map.Entry pairs = (Map.Entry)fieldMapIterator.next();
+						String key      = (String) pairs.getKey();
+						String value 	= (String) pairs.getValue();
+						radio.addOption(key, value);
+					}
+					div.addSimpleHTMLFragment(true, "&#160;");
 			}
 		    }
         	}    

@@ -275,6 +275,16 @@ p.copyright-text {
   font-style: italic;
 }
 
+// next two from https://github.com/J4bbi/DSpace-sdlc/commit/51a3418d702cdf135346eaaab4ca22c66007ae36
+
+div.ds-search-link {
+  text-align: right;
+  margin-top: 2px;
+}
+ div.simple-item-view-rights-uri {
+  margin-top: -25px;
+}
+
 
 /* responsiveness */
  @media (max-width: 575px) {

@@ -100,6 +100,10 @@ public class AccessStepUtil extends AbstractDSpaceTransformer {
     }
 
     public void addReason(String reason_, List form, int errorFlag) throws WingException {
+        /*
+         DO NOT WANT EMBARGO YET
+
+
         TextArea reason = form.addItem("reason", null).addTextArea("reason");
         reason.setLabel(T_reason);
 	    reason.setHelp(T_reason_help);
@@ -111,7 +115,7 @@ public class AccessStepUtil extends AbstractDSpaceTransformer {
         else{
             if(reason_!=null && errorFlag != org.dspace.submit.step.AccessStep.STATUS_COMPLETE)
                 reason.setValue(reason_);
-        }
+        }*/
     }
 
     public void addListGroups(String groupID, List form, int errorFlag, Collection owningCollection) throws WingException, SQLException {

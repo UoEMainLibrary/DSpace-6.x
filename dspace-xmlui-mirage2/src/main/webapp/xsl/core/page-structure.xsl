@@ -774,9 +774,6 @@
                         <li>
                             <a href="//www.st-andrews.ac.uk/help/" target="_blank">Website help</a>
                         </li>
-                        <li>
-                            <a href="//www.st-andrews.ac.uk/help/" target="_blank">Feedback</a>
-                        </li>
                     </ul>
                 </div>
                 <div class="col-md-3">
