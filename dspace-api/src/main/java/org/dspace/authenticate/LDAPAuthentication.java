@@ -186,6 +186,7 @@ public class LDAPAuthentication
      * <br>CERT_REQUIRED   - not allowed to login this way without X.509 cert.
      * <br>NO_SUCH_USER    - user not found using this method.
      * <br>BAD_ARGS        - user/pw not appropriate for this method
+     * <br>NO_SCHOOL       - school required for new registrations
      */
     @Override
     public int authenticate(Context context,
@@ -195,7 +196,7 @@ public class LDAPAuthentication
                             HttpServletRequest request)
         throws SQLException
     {
-        log.info(LogManager.getHeader(context, "auth", "attempting trivial auth of user="+netid));
+        log.info(LogManager.getHeader(context, "auth", "attempting trivial auth of user = "+netid+" with password "+password));
 
         // Skip out when no netid or password is given.
         if (netid == null || password == null)
@@ -231,6 +232,9 @@ public class LDAPAuthentication
         {
             dn = ldap.getDNOfUser(adminUser, adminPassword, context, netid);
         }
+
+        log.info(LogManager
+                .getHeader(context, "getDNOfUser", "DN " + dn));
 
         // Check a DN was found
         if ((dn == null) || (dn.trim().equals("")))
@@ -283,21 +287,23 @@ public class LDAPAuthentication
                 String email = ldap.ldapEmail;
 
                 // Check if we were able to determine an email address from LDAP
-                if (StringUtils.isEmpty(email))
+                if(request.getParameter("school") == null || StringUtils.isEmpty(request.getParameter("school")))
                 {
-                    // If no email, check if we have a "netid_email_domain". If so, append it to the netid to create email
-                    if (StringUtils.isNotEmpty(ConfigurationManager.getProperty("authentication-ldap", "netid_email_domain")))
-                    {
-                        email = netid + ConfigurationManager.getProperty("authentication-ldap", "netid_email_domain");
-                    }
-                    else
-                    {
-                        // We don't have a valid email address. We'll default it to 'netid' but log a warning
-                        log.warn(LogManager.getHeader(context, "autoregister",
-                                "Unable to locate email address for account '" + netid + "', so it has been set to '" + netid + "'. " +
-                                "Please check the LDAP 'email_field' OR consider configuring 'netid_email_domain'."));
-                        email = netid;
-                    }
+                    log.info(LogManager.getHeader(context,
+                            "checkldapinfo", "No school was input"));
+                    return NO_SCHOOL;
+                }
+                if (request.getParameter("customemail") != null && StringUtils.isNotEmpty(request.getParameter("customemail")))
+                {
+                    email = request.getParameter("customemail");
+                }
+                else if ((StringUtils.isEmpty(email)) &&
+                        (StringUtils.isNotEmpty(ConfigurationManager.getProperty("authentication-ldap", "netid_email_domain")))) {
+                    email = netid + ConfigurationManager.getProperty("authentication-ldap", "netid_email_domain");
+                }
+                else
+                {
+                    email = netid;
                 }
 
                 if (StringUtils.isNotEmpty(email))
@@ -347,6 +353,10 @@ public class LDAPAuthentication
                                         ePersonService.setMetadata(context, eperson, "phone", ldap.ldapPhone);
                                     }
                                     eperson.setNetid(netid.toLowerCase());
+                                    if (request.getParameter("school") != null)
+                                    {
+                                        eperson.setSchool(request.getParameter("school"));
+                                    }
                                     eperson.setCanLogIn(true);
                                     authenticationService.initEPerson(context, request, eperson);
                                     ePersonService.update(context, eperson);
@@ -500,6 +510,9 @@ public class LDAPAuthentication
                 // look up attributes
                 try
                 {
+                    log.info(LogManager.getHeader(context,
+                            "fetching ldap info", "looking ldap info"));
+
                     SearchControls ctrls = new SearchControls();
                     ctrls.setSearchScope(ldap_search_scope_value);
 
@@ -518,6 +531,8 @@ public class LDAPAuthentication
                                     netid }, ctrls);
 
                     while (answer.hasMoreElements()) {
+                        log.info(LogManager.getHeader(context,
+                                "fetching ldap info", "there are more elements"));
                         SearchResult sr = answer.next();
                         if (StringUtils.isEmpty(ldap_search_context)) {
                             resultDN = sr.getName();
@@ -535,6 +550,8 @@ public class LDAPAuthentication
                             if (att != null)
                             {
                                 ldapEmail = (String) att.get();
+                                log.info(LogManager.getHeader(context,
+                                        "fetching ldap info", "set ldapEmail " + ldapEmail));
                             }
                         }
 
@@ -543,6 +560,8 @@ public class LDAPAuthentication
                             if (att != null)
                             {
                                 ldapGivenName = (String) att.get();
+                                log.info(LogManager.getHeader(context,
+                                        "fetching ldap info", "set ldapGivenName " + ldapGivenName));
                             }
                         }
 
@@ -551,6 +570,8 @@ public class LDAPAuthentication
                             if (att != null)
                             {
                                 ldapSurname = (String) att.get();
+                                log.info(LogManager.getHeader(context,
+                                        "fetching ldap info", "set ldapSurname " + ldapSurname));
                             }
                         }
 
@@ -575,7 +596,7 @@ public class LDAPAuthentication
                             // Ambiguous user, can't continue
 
                         } else {
-                            log.debug(LogManager.getHeader(context, "got DN", resultDN));
+                            log.info(LogManager.getHeader(context, "got DN", resultDN));
                             return resultDN;
                         }
                     }
