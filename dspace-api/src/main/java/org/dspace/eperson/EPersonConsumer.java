@@ -88,6 +88,7 @@ public class EPersonConsumer implements Consumer
                             adminEmail.addArgument(eperson.getNetid());
                             adminEmail.addArgument(eperson.getEmail());
                             adminEmail.addArgument(new Date());
+                            adminEmail.addArgument(eperson.getSchool());
 
                             adminEmail.setReplyTo(eperson.getEmail());
 
