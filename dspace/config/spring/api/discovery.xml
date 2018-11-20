@@ -98,7 +98,7 @@
         <property name="sidebarFacets">
             <list>
                 <ref bean="searchFilterName" />
-                <ref bean="searchFilterSubject" />
+                <!--<ref bean="searchFilterSubject" />-->
                 <ref bean="searchFilterIssued" />
 		        <ref bean="searchFilterContentInOriginalBundle"/>
             </list>
@@ -110,7 +110,7 @@
             <list>
                 <ref bean="searchFilterTitle" />
                 <ref bean="searchFilterName" />
-                <ref bean="searchFilterSubject" />
+                <!--<ref bean="searchFilterSubject" />-->
                 <ref bean="searchFilterType" />
                 <ref bean="searchFilterIssued" />
                 <ref bean="searchFilterClassification" />
@@ -215,7 +215,7 @@
         <property name="sidebarFacets">
             <list>
                 <ref bean="searchFilterName" />
-                <ref bean="searchFilterSubject" />
+                <!--<ref bean="searchFilterSubject" />-->
                 <ref bean="searchFilterType" />
                 <ref bean="searchFilterIssued" />
 		        <ref bean="searchFilterContentInOriginalBundle"/>
@@ -228,7 +228,7 @@
             <list>
                 <ref bean="searchFilterTitle" />
                 <ref bean="searchFilterName" />
-                <ref bean="searchFilterSubject" />
+                <!--<ref bean="searchFilterSubject" />-->
                 <ref bean="searchFilterType" />
                 <ref bean="searchFilterIssued" />
                 <ref bean="searchFilterClassification" />
@@ -297,25 +297,25 @@
     <!--TagCloud configuration bean for homepage discovery configuration-->
     <bean id="homepageTagCloudFacetConfiguration" class="org.dspace.discovery.configuration.TagCloudFacetConfiguration">
         <!-- Actual configuration of the tagcloud (colors, sorting, etc.) -->
-        <property name="tagCloudConfiguration" ref="tagCloudConfiguration"/>
+        <!--<property name="tagCloudConfiguration" ref="tagCloudConfiguration"/>-->
         <!-- List of tagclouds to appear, one for every search filter, one after the other -->
-        <property name="tagCloudFacets">
+        <!--<property name="tagCloudFacets">
             <list>
                 <ref bean="searchFilterSubject" />
             </list>
-        </property>
+        </property>-->
     </bean>
     
      <!--TagCloud configuration bean for default discovery configuration-->
     <bean id="defaultTagCloudFacetConfiguration" class="org.dspace.discovery.configuration.TagCloudFacetConfiguration">
         <!-- Actual configuration of the tagcloud (colors, sorting, etc.) -->
-        <property name="tagCloudConfiguration" ref="tagCloudConfiguration"/>
+        <!--<property name="tagCloudConfiguration" ref="tagCloudConfiguration"/>-->
         <!-- List of tagclouds to appear, one for every search filter, one after the other -->
-        <property name="tagCloudFacets">
+        <!--<property name="tagCloudFacets">
             <list>
                 <ref bean="searchFilterSubject" />
             </list>
-        </property>
+        </property>-->
     </bean>
     
     <bean id="tagCloudConfiguration" class="org.dspace.discovery.configuration.TagCloudConfiguration">
@@ -434,7 +434,7 @@
         <property name="sortOrderFilterPage" value="COUNT"/>
     </bean>
 
-    <bean id="searchFilterSubject" class="org.dspace.discovery.configuration.HierarchicalSidebarFacetConfiguration">
+    <!--<bean id="searchFilterSubject" class="org.dspace.discovery.configuration.HierarchicalSidebarFacetConfiguration">
         <property name="indexFieldName" value="subject"/>
         <property name="metadataFields">
             <list>
@@ -446,7 +446,7 @@
         <property name="sortOrderSidebar" value="COUNT"/>
         <property name="sortOrderFilterPage" value="COUNT"/>
         <property name="splitter" value="::"/>
-    </bean>
+    </bean>-->
 
     <bean id="searchFilterClassification" class="org.dspace.discovery.configuration.HierarchicalSidebarFacetConfiguration">
         <property name="indexFieldName" value="subject"/>
