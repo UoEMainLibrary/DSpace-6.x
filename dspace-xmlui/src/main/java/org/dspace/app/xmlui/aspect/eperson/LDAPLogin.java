@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.cocoon.caching.CacheableProcessingComponent;
 import org.apache.cocoon.environment.ObjectModelHelper;
 import org.apache.cocoon.environment.Request;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.excalibur.source.SourceValidity;
 import org.apache.excalibur.source.impl.validity.NOPValidity;
 import org.dspace.app.xmlui.cocoon.AbstractDSpaceTransformer;
@@ -49,6 +50,10 @@ public class LDAPLogin extends AbstractDSpaceTransformer implements
 
 	public static final Message T_head1 = message("xmlui.EPerson.LDAPLogin.head1");
 
+	public static final Message T_head2 = message("xmlui.EPerson.LDAPLogin.head2");
+
+	public static final Message T_para1 = message("xmlui.EPerson.LDAPLogin.para1");
+
 	public static final Message T_userName = message("xmlui.EPerson.LDAPLogin.username");
 
 	public static final Message T_error_bad_login = message("xmlui.EPerson.LDAPLogin.error_bad_login");
@@ -56,6 +61,27 @@ public class LDAPLogin extends AbstractDSpaceTransformer implements
 	public static final Message T_password = message("xmlui.EPerson.LDAPLogin.password");
 
 	public static final Message T_submit = message("xmlui.EPerson.LDAPLogin.submit");
+
+	public static final Message T_head3 = message("xmlui.EPerson.LDAPLogin.head3");
+
+	public static final Message T_para2 = message("xmlui.EPerson.LDAPLogin.para2");
+
+	public static final Message T_para3 = message("xmlui.EPerson.LDAPLogin.para3");
+
+	public static final Message T_para4 = message("xmlui.EPerson.LDAPLogin.para4");
+
+	public static final Message T_para5 = message("xmlui.EPerson.LDAPLogin.para5");
+
+	public static final Message T_email = message("xmlui.EPerson.LDAPLogin.email");
+
+	public static final Message T_school = message("xmlui.EPerson.LDAPLogin.school");
+
+	public static final Message T_error_no_school = message("xmlui.EPerson.LDAPLogin.error_no_school");
+
+	public static final Message T_register = message("xmlui.EPerson.LDAPLogin.register");
+
+	public static final Message T_para6 = message("xmlui.EPerson.LDAPLogin.para6");
+
 
 	/**
 	 * Generate the unique caching key. This key must be unique inside the space
@@ -135,12 +161,17 @@ public class LDAPLogin extends AbstractDSpaceTransformer implements
 	 */
 	public void addBody(Body body) throws SQLException, SAXException,
 			WingException {
-		// Check if the user has previously attempted to login.
+		// Check if the user has previously attempted to login or register.
 		Request request = ObjectModelHelper.getRequest(objectModel);
 		HttpSession session = request.getSession();
 		String previousUserName = request.getParameter("username");
+        String previousSubmit = request.getParameter("submit_save");
+        String previousRegister = request.getParameter("submit_register");
+        String previousSchool = request.getParameter("school");
+        String previousCustomEmail = request.getParameter("customemail");
 
-		// Get any message parameters
+
+        // Get any message parameters
 		String header = (String) session
 				.getAttribute(AuthenticationUtil.REQUEST_INTERRUPTED_HEADER);
 		String message = (String) session
@@ -176,6 +207,10 @@ public class LDAPLogin extends AbstractDSpaceTransformer implements
 				+ "/ldap-login", Division.METHOD_POST, "primary");
 		login.setHead(T_head1);
 
+        Division loginHeader = login.addDivision("login_header");
+        loginHeader.setHead(T_head2);
+        loginHeader.addPara().addContent(T_para1);
+
 		List list = login.addList("ldap-login", List.TYPE_FORM);
 
 		Text email = list.addItem().addText("username");
@@ -184,7 +219,18 @@ public class LDAPLogin extends AbstractDSpaceTransformer implements
 		email.setLabel(T_userName);
 		if (previousUserName != null) {
 			email.setValue(previousUserName);
-			email.addError(T_error_bad_login);
+
+			if(previousSubmit != null) {
+                // if it was the Log In button then show the error
+                if (previousSubmit != null) {
+                    email.addError(T_error_bad_login);
+                }
+                // else if it was the Register button then only show the error
+                // if the school has been input
+                else if (previousRegister != null && previousSchool != null) {
+                    email.addError(T_error_bad_login);
+                }
+            }
 		}
 
 		Item item = list.addItem();
@@ -194,7 +240,35 @@ public class LDAPLogin extends AbstractDSpaceTransformer implements
 
 		list.addLabel();
 		Item submit = list.addItem("login-in", null);
-		submit.addButton("submit").setValue(T_submit);
+        submit.addButton("submit_save").setValue(T_submit);
+        Division registerHeader = login.addDivision("register_header");
+        registerHeader.setHead(T_head3);
+        registerHeader.addPara().addContent(T_para2);
+        registerHeader.addPara().addContent(T_para3);
+        registerHeader.addPara().addContent(T_para4);
+        registerHeader.addPara().addContent(T_para5);
+        List list2 = login.addList("registration", List.TYPE_FORM);
+        Text customemail = list2.addItem().addText("customemail");
+        customemail.setAutofocus("autofocus");
+        customemail.setLabel(T_email);
+        if(previousCustomEmail != null){
+            customemail.setValue(previousCustomEmail);
+        }
+        Item item2 = list2.addItem();
+        Text school = item2.addText("school");
+        school.setLabel(T_school);
+        // only give an error about the school missing if the register
+        // button was clicked
+        if (previousRegister != null && StringUtils.isEmpty(previousSchool)) {
+            school.addError(T_error_no_school);
+        }
+        else if(StringUtils.isNotEmpty(previousSchool)) {
+            school.setValue(previousSchool);
+        }
+        list2.addLabel();
+        Item register = list2.addItem("register", null);
+        register.addButton("submit_register").setValue(T_register);
+        login.addPara().addContent(T_para6);
 
 	}
 }

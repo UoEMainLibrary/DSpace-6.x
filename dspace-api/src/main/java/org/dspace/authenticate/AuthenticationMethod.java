@@ -59,6 +59,9 @@ public interface AuthenticationMethod {
     /** User or password is not appropriate for this method. */
     public static final int BAD_ARGS = 5;
 
+    /** School required for new registrations. */
+    public static final int NO_SCHOOL = 6;
+
 
     /**
      * Predicate, whether to allow new EPerson to be created.
