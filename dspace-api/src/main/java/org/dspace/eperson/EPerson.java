@@ -86,6 +86,10 @@ public class EPerson extends DSpaceObject implements DSpaceObjectLegacySupport
     /** The e-mail field (for sorting) */
     public static final int LANGUAGE = 5;
 
+    /** School for registration notify email */
+    @Transient
+    private String school;
+
     @Transient
     protected transient EPersonService ePersonService;
 
@@ -421,4 +425,12 @@ public class EPerson extends DSpaceObject implements DSpaceObjectLegacySupport
         }
         return ePersonService;
     }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
+    public String getSchool() {
+        return school;
+    }
+
 }

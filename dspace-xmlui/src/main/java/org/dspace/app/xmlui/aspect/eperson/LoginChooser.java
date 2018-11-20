@@ -25,11 +25,7 @@ import org.dspace.app.xmlui.cocoon.AbstractDSpaceTransformer;
 import org.dspace.app.xmlui.utils.AuthenticationUtil;
 import org.dspace.app.xmlui.wing.Message;
 import org.dspace.app.xmlui.wing.WingException;
-import org.dspace.app.xmlui.wing.element.Body;
-import org.dspace.app.xmlui.wing.element.Division;
-import org.dspace.app.xmlui.wing.element.Item;
-import org.dspace.app.xmlui.wing.element.List;
-import org.dspace.app.xmlui.wing.element.PageMeta;
+import org.dspace.app.xmlui.wing.element.*;
 import org.dspace.authenticate.AuthenticationMethod;
 import org.dspace.authenticate.factory.AuthenticateServiceFactory;
 import org.dspace.authenticate.service.AuthenticationService;
@@ -38,7 +34,7 @@ import org.xml.sax.SAXException;
 
 /**
  * Displays a list of authentication methods. This page is displayed if more
- * than one AuthenticationMethod is defined in the dpace config file.
+ * than one AuthenticationMethod is defined in the dspace config file.
  * 
  * @author Jay Paz
  * 
@@ -54,7 +50,35 @@ public class LoginChooser extends AbstractDSpaceTransformer implements
 
 	public static final Message T_head1 = message("xmlui.EPerson.LoginChooser.head1");
 
+	public static final Message T_head2 = message("xmlui.EPerson.LoginChooser.head2");
+
 	public static final Message T_para1 = message("xmlui.EPerson.LoginChooser.para1");
+
+	public static final Message T_userName = message("xmlui.EPerson.LoginChooser.username");
+
+	public static final Message T_error_bad_login = message("xmlui.EPerson.LoginChooser.error_bad_login");
+
+	public static final Message T_password = message("xmlui.EPerson.LoginChooser.password");
+
+	public static final Message T_submit = message("xmlui.EPerson.LoginChooser.submit");
+
+	public static final Message T_head3 = message("xmlui.EPerson.LoginChooser.head3");
+
+	public static final Message T_para2 = message("xmlui.EPerson.LoginChooser.para2");
+
+	public static final Message T_para3 = message("xmlui.EPerson.LoginChooser.para3");
+
+	public static final Message T_para4 = message("xmlui.EPerson.LoginChooser.para4");
+
+	public static final Message T_para5 = message("xmlui.EPerson.LoginChooser.para5");
+
+	public static final Message T_email = message("xmlui.EPerson.LoginChooser.email");
+
+	public static final Message T_school = message("xmlui.EPerson.LoginChooser.school");
+
+	public static final Message T_register = message("xmlui.EPerson.LoginChooser.register");
+
+	public static final Message T_para6 = message("xmlui.EPerson.LoginChooser.para6");
 
 	protected AuthenticationService authenticationService = AuthenticateServiceFactory.getInstance().getAuthenticationService();
 	/**
@@ -139,6 +163,7 @@ public class LoginChooser extends AbstractDSpaceTransformer implements
 				.authenticationMethodIterator();
 		Request request = ObjectModelHelper.getRequest(objectModel);
 		HttpSession session = request.getSession();
+		String previousUserName = request.getParameter("username");
 
 		// Get any message parameters
 		String header = (String) session
@@ -174,48 +199,58 @@ public class LoginChooser extends AbstractDSpaceTransformer implements
 			}
 		}
 
-		Division loginChooser = body.addDivision("login-chooser");
-		loginChooser.setHead(T_head1);
-		loginChooser.addPara().addContent(T_para1);
+		Division login = body.addInteractiveDivision("login", contextPath
+				+ "/ldap-login", Division.METHOD_POST, "primary");
+		login.setHead(T_head1);
 
-		List list = loginChooser.addList("login-options", List.TYPE_SIMPLE);
+		Division loginHeader = login.addDivision("login_header");
+		loginHeader.setHead(T_head2);
+		loginHeader.addPara().addContent(T_para1);
 
-		while (authMethods.hasNext()) {
-			final AuthenticationMethod authMethod = (AuthenticationMethod) authMethods
-					.next();
+		List list = login.addList("ldap-login", List.TYPE_FORM);
 
-            HttpServletRequest hreq = (HttpServletRequest) this.objectModel
-                    .get(HttpEnvironment.HTTP_REQUEST_OBJECT);
-
-            HttpServletResponse hresp = (HttpServletResponse) this.objectModel
-                    .get(HttpEnvironment.HTTP_RESPONSE_OBJECT);
-            
-            String loginURL = authMethod.loginPageURL(context, hreq, hresp);
-
-            String authTitle = authMethod.loginPageTitle(context);
-
-            if (loginURL != null && authTitle != null)
-            {
-
-                if (DSpaceServicesFactory.getInstance().getConfigurationService().getBooleanProperty("xmlui.force.ssl")
-                        && !request.isSecure())
-                {
-                    StringBuffer location = new StringBuffer("https://");
-                    location
-                            .append(
-                                    DSpaceServicesFactory.getInstance().getConfigurationService()
-                                            .getProperty("dspace.hostname"))
-                            .append(loginURL).append(
-                                    request.getQueryString() == null ? ""
-                                            : ("?" + request.getQueryString()));
-                    loginURL = location.toString();
-                }
-
-                final Item item = list.addItem();
-                item.addXref(loginURL, message(authTitle));
-            }
-
+		Text email = list.addItem().addText("username");
+		email.setRequired();
+		email.setAutofocus("autofocus");
+		email.setLabel(T_userName);
+		if (previousUserName != null) {
+			email.setValue(previousUserName);
+			email.addError(T_error_bad_login);
 		}
+
+		Item item = list.addItem();
+		Password password = item.addPassword("ldap_password");
+		password.setRequired();
+		password.setLabel(T_password);
+
+		list.addLabel();
+		Item submit = list.addItem("login-in", null);
+		submit.addButton("submit_save").setValue(T_submit);
+
+		Division registerHeader = login.addDivision("register_header");
+		registerHeader.setHead(T_head3);
+		registerHeader.addPara().addContent(T_para2);
+		registerHeader.addPara().addContent(T_para3);
+		registerHeader.addPara().addContent(T_para4);
+		registerHeader.addPara().addContent(T_para5);
+
+		List list2 = login.addList("registration", List.TYPE_FORM);
+
+		Text customemail = list2.addItem().addText("customemail");
+		//customemail.setRequired();
+		customemail.setAutofocus("autofocus");
+		customemail.setLabel(T_email);
+
+		Item item2 = list2.addItem();
+		Text school = item2.addText("school");
+		//school.setRequired();
+		school.setLabel(T_school);
+
+		list2.addLabel();
+		Item register = list2.addItem("register", null);
+		register.addButton("submit_register").setValue(T_register);
+
+		login.addPara().addContent(T_para6);
 	}
 
 }

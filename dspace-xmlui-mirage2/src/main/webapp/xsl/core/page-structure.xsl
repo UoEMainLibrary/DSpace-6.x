@@ -358,7 +358,7 @@
             <div class="navbar navbar-default navbar-static-top" role="navigation">
                 <div class="container sta-navbar">
                     <div class="col-xs-12 col-sm-12 col-md-12 sta-navbar-content">
-                        <div class="navbar-header col-md-10">
+                        <div class="navbar-header col-md-9">
 
                             <button type="button" class="navbar-toggle" data-toggle="offcanvas">
                                 <span class="sr-only">
