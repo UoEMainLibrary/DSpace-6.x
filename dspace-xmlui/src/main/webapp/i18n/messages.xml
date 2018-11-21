@@ -503,7 +503,7 @@
 	<!-- org.dspace.app.xmlui.eperson.PasswordLogin.java -->
 	<message key="xmlui.EPerson.PasswordLogin.title">Sign in</message>
 	<message key="xmlui.EPerson.PasswordLogin.trail">Sign in</message>
-	<message key="xmlui.EPerson.PasswordLogin.head1">Sign in to Repository</message>
+	<message key="xmlui.EPerson.PasswordLogin.head1">Sign in to St Andrews Research Repository</message>
 	<message key="xmlui.EPerson.PasswordLogin.email_address">E-Mail Address</message>
 	<message key="xmlui.EPerson.PasswordLogin.error_bad_login">The email address and/or password supplied were not valid.</message>
 	<message key="xmlui.EPerson.PasswordLogin.password">Password</message>
@@ -516,21 +516,43 @@
 	<!-- org.dspace.app.xmlui.eperson.LDAPLogin.java -->
 	<message key="xmlui.EPerson.LDAPLogin.title">Sign in</message>
 	<message key="xmlui.EPerson.LDAPLogin.trail">Sign in</message>
-	<message key="xmlui.EPerson.LDAPLogin.head1">Sign in to Repository</message>
+	<message key="xmlui.EPerson.LDAPLogin.head1">Sign in to St Andrews Research Repository</message>
+	<message key="xmlui.EPerson.LDAPLogin.head2">Registered Users</message>
+	<message key="xmlui.EPerson.LDAPLogin.para1">Enter your St Andrews Username and Password to make a new submission or complete a partial submission. Then click on the Sign in button.</message>
 	<message key="xmlui.EPerson.LDAPLogin.username">User Name</message>
 	<message key="xmlui.EPerson.LDAPLogin.error_bad_login">The user name and/or password supplied were not valid.</message>
 	<message key="xmlui.EPerson.LDAPLogin.password">Password</message>
 	<message key="xmlui.EPerson.LDAPLogin.submit">Sign in</message>
+	<message key="xmlui.EPerson.LDAPLogin.head3">New Registrations Only</message>
+	<message key="xmlui.EPerson.LDAPLogin.para2"><strong>To register</strong> with the St Andrews Research Repository to submit an electronic thesis please enter your St Andrews Username and give any preferred current contact email address and details of your school and department in the fields below.</message>
+	<message key="xmlui.EPerson.LDAPLogin.para3"><strong>Please click on the Register button</strong> which will send your registration details to the Repository Administrator. We will complete your registration and send confirmation to you as soon as we can. We will send the confirmation to your St Andrews email address unless you indicate a preferred contact email.</message>
+	<message key="xmlui.EPerson.LDAPLogin.para4">Please note that you will not be able to make a submission until you receive this confirmation, so please log out of the St Andrews Research Repository after you have completed this initial registration.</message>
+	<message key="xmlui.EPerson.LDAPLogin.para5"><strong>Once you have received acknowledgement</strong> of your registration you can login again using your St Andrews Username and Password to make your submission.</message>
+	<message key="xmlui.EPerson.LDAPLogin.email">Preferred contact email(Optional)</message>
+	<message key="xmlui.EPerson.LDAPLogin.school">School and/or Department(Mandatory)</message>
+	<message key="xmlui.EPerson.LDAPLogin.error_no_school">You must supply a department and/or school.</message>
+	<message key="xmlui.EPerson.LDAPLogin.register">Register</message>
+	<message key="xmlui.EPerson.LDAPLogin.para6"><br />Please note that, currently, only registrations from St Andrews postgraduates are permitted.</message>
 
 	<!-- org.dspace.app.xmlui.eperson.LoginChooser.java -->
-	<message key="xmlui.EPerson.LoginChooser.title">Choose a Login Method</message>
-	<message key="xmlui.EPerson.LoginChooser.trail">Choose Login</message>
-	<message key="xmlui.EPerson.LoginChooser.head1">Choose a Login Method</message>
-	<message key="xmlui.EPerson.LoginChooser.para1">Log in via:</message>
-	<message key="org.dspace.authenticate.ShibAuthentication.title">Shibboleth Authentication</message>
-	<message key="org.dspace.eperson.LDAPAuthentication.title">LDAP Authentication</message>
-	<message key="org.dspace.eperson.PasswordAuthentication.title">Password Authentication</message>
-	<message key="org.dspace.eperson.X509Authentication.title">Web Certificate Authentication</message>
+	<message key="xmlui.EPerson.LoginChooser.title">Sign in</message>
+	<message key="xmlui.EPerson.LoginChooser.trail">Sign in</message>
+	<message key="xmlui.EPerson.LoginChooser.head1">Sign in to St Andrews Research Repository</message>
+	<message key="xmlui.EPerson.LoginChooser.head2">Registered Users</message>
+	<message key="xmlui.EPerson.LoginChooser.para1">Enter your St Andrews Username and Password to make a new submission or complete a partial submission. Then click on the Sign in button.</message>
+	<message key="xmlui.EPerson.LoginChooser.username">User Name</message>
+	<message key="xmlui.EPerson.LoginChooser.error_bad_login">The user name and/or password supplied were not valid.</message>
+	<message key="xmlui.EPerson.LoginChooser.password">Password</message>
+	<message key="xmlui.EPerson.LoginChooser.submit">Sign in</message>
+	<message key="xmlui.EPerson.LoginChooser.head3">New Registrations Only</message>
+	<message key="xmlui.EPerson.LoginChooser.para2"><strong>To register</strong> with the St Andrews Research Repository to submit an electronic thesis please enter your St Andrews Username and give any preferred current contact email address and details of your school and department in the fields below.</message>
+	<message key="xmlui.EPerson.LoginChooser.para3"><strong>Please click on the Register button</strong> which will send your registration details to the Repository Administrator. We will complete your registration and send confirmation to you as soon as we can. We will send the confirmation to your St Andrews email address unless you indicate a preferred contact email.</message>
+	<message key="xmlui.EPerson.LoginChooser.para4">Please note that you will not be able to make a submission until you receive this confirmation, so please log out of the St Andrews Research Repository after you have completed this initial registration.</message>
+	<message key="xmlui.EPerson.LoginChooser.para5"><strong>Once you have received acknowledgement</strong> of your registration you can login again using your St Andrews Username and Password to make your submission.</message>
+	<message key="xmlui.EPerson.LoginChooser.email">Preferred contact email(Optional)</message>
+	<message key="xmlui.EPerson.LoginChooser.school">School and/or Department(Mandatory)</message>
+	<message key="xmlui.EPerson.LoginChooser.register">Register</message>
+	<message key="xmlui.EPerson.LoginChooser.para6"><br />Please note that, currently, only registrations from St Andrews postgraduates are permitted.</message>
 
 	<!-- org.dspace.app.xmlui.eperson.FailedAuthentication -->
 	<message key="xmlui.EPerson.FailedAuthentication.BadCreds">The credentials provided are invalid.</message>
