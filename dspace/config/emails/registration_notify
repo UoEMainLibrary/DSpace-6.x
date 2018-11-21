@@ -5,6 +5,7 @@
 #             {2} Name:
 #             {3} Email:
 #             {4} Registration Date:
+#             {5} Users Department and/or School:
 #
 # See org.dspace.core.Email for information on the format of this file.
 #
@@ -12,6 +13,10 @@ Subject: Repository: Registration Notification
 
 A new user has registered on {0} at {1}:
 
-Name:                   {2}
-Email:                  {3}
-Date:                   {4}
+Name:                           {2}
+NetID:                          {3}
+Email:                          {4}
+Date:                           {5}
+Users Department and/or School: {6}
+
+Repository Team
