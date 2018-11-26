@@ -264,6 +264,18 @@
                             <xsl:text>)</xsl:text>
                             </small></span>
                     </xsl:if>
+                    <xsl:if test="dri:list[@n=(concat($handle, ':dc.type'))]">
+                        <xsl:text> - </xsl:text>
+                        <span class="publication-type"><small>
+                            <xsl:for-each select="dri:list[@n=(concat($handle, ':dc.type'))]/dri:item">
+                                <xsl:apply-templates select="."/>
+                                <xsl:if test="count(following-sibling::dri:item) != 0">
+                                    <xsl:text> </xsl:text>
+                                </xsl:if>
+                            </xsl:for-each>
+                        </small></span>
+                        <xsl:text>, </xsl:text>
+                    </xsl:if>
                     <xsl:choose>
                         <xsl:when test="dri:list[@n=(concat($handle, ':dc.description.abstract'))]/dri:item/dri:hi">
                             <div class="abstract">
@@ -296,7 +308,8 @@
     </xsl:template>
 
     <xsl:template match="dri:div[@id='aspect.discovery.SimpleSearch.div.discovery-filters-wrapper']/dri:head">
-        <h3 class="ds-div-head discovery-filters-wrapper-head hidden">
+        <!--<h3 class="ds-div-head discovery-filters-wrapper-head hidden">-->
+        <h3 class="ds-div-head discovery-filters-wrapper-head">
             <xsl:apply-templates/>
         </h3>
     </xsl:template>

@@ -193,7 +193,7 @@ public class EditProfile extends AbstractDSpaceTransformer
         
         this.email = parameters.getParameter("email","unknown");
         this.registering = parameters.getParameterAsBoolean("registering",false);
-        this.allowSetPassword = parameters.getParameterAsBoolean("allowSetPassword",false);
+        this.allowSetPassword = false; //parameters.getParameterAsBoolean("allowSetPassword",false);
         
         String errors = parameters.getParameter("errors","");
         if (errors.length() > 0)

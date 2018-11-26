@@ -290,6 +290,31 @@ div.ds-search-link {
     content: "";
 }
 
+#aspect_discovery_SimpleSearch_div_search-results .ds-artifact-item {
+    margin-bottom: 30px;
+}
+ #aspect_discovery_SimpleSearch_div_search-results .ds-artifact-item .publication-type	{
+    color: #999
+}
+ .ds-artifact-item {
+  margin-bottom: 20px;
+}
+
+.word-wrap {
+  word-wrap: break-word;
+}
+ .detailtable {
+    margin-bottom: 0px !important;
+}
+ .pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
+    background-color: #005580;
+    border-color: #005580;
+}
+ .cc-license-new {
+    margin-bottom: 15px;
+}
+
+
 /* responsiveness */
  @media (max-width: 575px) {
   .sta-title a {

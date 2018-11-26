@@ -322,7 +322,7 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
             registries.addItemXref(contextPath+"/admin/metadata-registry",T_administrative_metadata);
             registries.addItemXref(contextPath+"/admin/format-registry",T_administrative_format);
 
-            admin.addItemXref(contextPath+"/statistics", T_statistics);
+            //admin.addItemXref(contextPath+"/statistics", T_statistics);
             admin.addItemXref(contextPath+ "/admin/curate", T_administrative_curation);
         }
     }
