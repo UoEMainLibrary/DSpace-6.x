@@ -131,17 +131,19 @@
 
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.etal.all">All</message>
 
-	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.sort_by.title">title</message>
-	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.sort_by.dateissued">issue date</message>
-	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.sort_by.dateaccessioned">submit date</message>
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.sort_by.title">Title</message>
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.sort_by.dateissued">Issue date</message>
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.sort_by.dateaccessioned">Submit date</message>
 
-	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.order.asc">ascending</message>
-	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.order.desc">descending</message>
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.order.asc">Ascending</message>
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.order.desc">Descending</message>
 
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.author.column_heading">Authors Name</message>
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.name.column_heading">Authors Name</message>
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.names.column_heading">Authors Name</message>
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.subject.column_heading">Subject</message>
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.classification.column_heading">Classification</message>
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.sponsor.column_heading">Sponsor</message>
 
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.metadata.classification">Browsing {0} by Classification {1}</message>
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.classification">Browsing {0} by Classification</message>
@@ -2215,7 +2217,7 @@
 	<message key="xmlui.dri2xhtml.structural.pagination-next">Next Page</message>
 
 	<message key="xmlui.dri2xhtml.structural.link_cc">Creative Commons</message>
-	<message key="xmlui.dri2xhtml.structural.link_original_license">Original License</message>
+	<message key="xmlui.dri2xhtml.structural.link_original_license">Deposit License</message>
 
 
 	<!-- DS-METS-1.0-MODS.xsl -->
@@ -2234,6 +2236,7 @@
 	<message key="xmlui.dri2xhtml.METS-1.0.item-preview">Preview</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-title">Title</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-author">Author</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-sponsor">Sponsor</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-abstract">Abstract</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-description">Description</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-citation">Citation</message>
@@ -2249,6 +2252,7 @@
 	<message key="xmlui.dri2xhtml.METS-1.0.item-keywords">Keywords</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-rights">Rights</message>
 
+	<message key="xmlui.dri2xhtml.METS-1.0.item-metadata-head">Item metadata</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-files-head">Files in this item</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-files-file">Files</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-files-name">Name</message>
@@ -2509,8 +2513,9 @@
 
     <message key="xmlui.mirage2.itemSummaryView.MetaData">Metadata</message>
     <message key="xmlui.mirage2.itemSummaryView.Collections">Collections</message>
+	<message key="xmlui.mirage2.itemSummaryView.Copyright">Items in the St Andrews Research Repository are protected by copyright, with all rights reserved, unless otherwise indicated.</message>
 
-    <message key="xmlui.mirage2.discovery.reset">Reset</message>
+    <message key="xmlui.mirage2.discovery.reset">Clear</message>
     <message key="xmlui.mirage2.discovery.newFilter">Add New Filter</message>
     <message key="xmlui.mirage2.discovery.showAdvancedFilters">Show Advanced Filters</message>
     <message key="xmlui.mirage2.discovery.hideAdvancedFilters">Hide Advanced Filters</message>
