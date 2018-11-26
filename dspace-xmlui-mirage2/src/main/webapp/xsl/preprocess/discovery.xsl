@@ -93,7 +93,7 @@
             <xsl:call-template name="copy-attributes"/>
             <xsl:attribute name="rend">
                 <xsl:value-of select="@rend"/>
-                <xsl:text> hidden</xsl:text>
+                <xsl:text></xsl:text>
             </xsl:attribute>
             <xsl:apply-templates/>
         </div>

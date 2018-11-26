@@ -169,6 +169,17 @@
 	                    <xsl:text>)</xsl:text>
                         </small></span>
                 </xsl:if>
+                <xsl:if test="dim:field[@element='type'][not(@qualifier)]">
+                    <span class="publication-type h4"><small>
+                        <xsl:text> - </xsl:text>
+                        <xsl:for-each select="dim:field[@element='type'][not(@qualifier)]">
+                            <xsl:copy-of select="node()"/>
+                            <xsl:if test="count(following-sibling::dim:field[@element='type'][not(@qualifier)]) != 0">
+                                <xsl:text> </xsl:text>
+                            </xsl:if>
+                        </xsl:for-each>
+                    </small></span>
+                </xsl:if>
             </div>
             <xsl:if test="dim:field[@element = 'description' and @qualifier='abstract']">
                 <xsl:variable name="abstract" select="dim:field[@element = 'description' and @qualifier='abstract']/node()"/>
@@ -328,6 +339,17 @@
                             </span>
                             <xsl:text>)</xsl:text>
                         </span>
+                    </xsl:if>
+                    <xsl:if test="dim:field[@element='type'][not(@qualifier)]">
+                        <span class="publication-type h4"><small>
+                            <xsl:text> - </xsl:text>
+                            <xsl:for-each select="dim:field[@element='type'][not(@qualifier)]">
+                                <xsl:copy-of select="node()"/>
+                                <xsl:if test="count(following-sibling::dim:field[@element='type'][not(@qualifier)]) != 0">
+                                    <xsl:text> </xsl:text>
+                                </xsl:if>
+                            </xsl:for-each>
+                        </small></span>
                     </xsl:if>
                 </div>
             </div>
