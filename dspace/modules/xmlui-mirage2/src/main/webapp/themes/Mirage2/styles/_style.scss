@@ -293,17 +293,20 @@ div.ds-search-link {
 #aspect_discovery_SimpleSearch_div_search-results .ds-artifact-item {
     margin-bottom: 30px;
 }
- #aspect_discovery_SimpleSearch_div_search-results .ds-artifact-item .publication-type	{
+
+#aspect_discovery_SimpleSearch_div_search-results .ds-artifact-item .publication-type	{
     color: #999
 }
- .ds-artifact-item {
+
+.ds-artifact-item {
   margin-bottom: 20px;
 }
 
 .word-wrap {
   word-wrap: break-word;
 }
- .detailtable {
+
+.detailtable {
     margin-bottom: 0px !important;
 }
  .pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
@@ -314,14 +317,24 @@ div.ds-search-link {
     margin-bottom: 15px;
 }
 
+.cc-item {
+    margin-top: 10px;
+}
+
+.publication-type small {
+    font-size: 13.5px;
+}
+
 
 /* responsiveness */
- @media (max-width: 575px) {
+
+@media (max-width: 575px) {
   .sta-title a {
     font-size: 24px;
   }
 }
- @media (max-width: 400px) {
+
+@media (max-width: 400px) {
   .sta-title a {
     font-size: 18px;
   }
