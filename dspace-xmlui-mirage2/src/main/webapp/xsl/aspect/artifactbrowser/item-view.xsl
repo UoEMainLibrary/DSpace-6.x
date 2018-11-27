@@ -47,15 +47,21 @@
         <xsl:copy-of select="$SFXLink" />
 
         <!-- Generate the Creative Commons license information from the file section (DSpace deposit license hidden by default)-->
-        <!--<xsl:if test="./mets:fileSec/mets:fileGrp[@USE='CC-LICENSE' or @USE='LICENSE']">-->
-        <xsl:if test="./mets:fileSec/mets:fileGrp[@USE='LICENSE']/mets:file/mets:FLocat[@xlink:title='license.txt']">
+        <!--<xsl:if test="./mets:fileSec/mets:fileGrp[@USE='LICENSE']/mets:file/mets:FLocat[@xlink:title='license.txt']">-->
+        <xsl:if test="./mets:fileSec/mets:fileGrp[@USE='LICENSE' or @USE='CC-LICENSE']">
             <div class="license-info table">
                 <p>
                     <i18n:text>xmlui.dri2xhtml.METS-1.0.license-text</i18n:text>
                 </p>
                 <ul class="list-unstyled">
                     <!--<xsl:apply-templates select="./mets:fileSec/mets:fileGrp[@USE='CC-LICENSE' or @USE='LICENSE']" mode="simple"/>-->
-                    <xsl:apply-templates select="./mets:fileSec/mets:fileGrp[@USE='LICENSE']" mode="simple"/>
+                    <!--<xsl:apply-templates select="./mets:fileSec/mets:fileGrp[@USE='LICENSE']" mode="simple"/>-->
+                    <xsl:if test="./mets:fileSec/mets:fileGrp[@USE='LICENSE']/mets:file/mets:FLocat[@xlink:title='license.txt']">
+                        <xsl:apply-templates select="./mets:fileSec/mets:fileGrp[@USE='LICENSE']" mode="simple"/>
+                    </xsl:if>
+                    <xsl:if test="./mets:fileSec/mets:fileGrp[@USE='CC-LICENSE']/mets:file/mets:FLocat[@xlink:title='license_text']">
+                        <xsl:apply-templates select="./mets:fileSec/mets:fileGrp[@USE='CC-LICENSE']" mode="simple"/>
+                    </xsl:if>
                 </ul>
             </div>
         </xsl:if>
@@ -108,14 +114,19 @@
                              mode="itemDetailView-DIM"/>
 
         <!-- Generate the Creative Commons license information from the file section (DSpace deposit license hidden by default)-->
-        <!--xsl:if test="./mets:fileSec/mets:fileGrp[@USE='CC-LICENSE' or @USE='LICENSE']"-->
-        <xsl:if test="./mets:fileSec/mets:fileGrp[@USE='LICENSE']/mets:file/mets:FLocat[@xlink:title='license.txt']">
+        <!--xsl:if test="./mets:fileSec/mets:fileGrp[@USE='LICENSE']/mets:file/mets:FLocat[@xlink:title='license.txt']"-->
+        <xsl:if test="./mets:fileSec/mets:fileGrp[@USE='CC-LICENSE' or @USE='LICENSE']">
             <div class="license-info table">
                 <p>
                     <i18n:text>xmlui.dri2xhtml.METS-1.0.license-text</i18n:text>
                 </p>
                 <ul class="list-unstyled">
-                    <xsl:apply-templates select="./mets:fileSec/mets:fileGrp[@USE='CC-LICENSE' or @USE='LICENSE']" mode="simple"/>
+                    <xsl:if test="./mets:fileSec/mets:fileGrp[@USE='LICENSE']/mets:file/mets:FLocat[@xlink:title='license.txt']">
+                        <xsl:apply-templates select="./mets:fileSec/mets:fileGrp[@USE='LICENSE']" mode="simple"/>
+                    </xsl:if>
+                    <xsl:if test="./mets:fileSec/mets:fileGrp[@USE='CC-LICENSE']/mets:file/mets:FLocat[@xlink:title='license_text']">
+                        <xsl:apply-templates select="./mets:fileSec/mets:fileGrp[@USE='CC-LICENSE']" mode="simple"/>
+                    </xsl:if>
                 </ul>
             </div>
         </xsl:if>
@@ -1204,8 +1215,26 @@
         <!-- Display old cc licenses as the logo and link off -->
         <!-- Not consistent with the new version of the license -->
         <!--li><a href="{mets:file/mets:FLocat[@xlink:title='license_url']/@xlink:href}"><i18n:text>xmlui.dri2xhtml.structural.link_cc</i18n:text></a></li-->
-        <li>
-            <a href="{mets:file/mets:FLocat[@xlink:title='license_text']/@xlink:href}">
+        <!--xsl:variable name="urlfilepath" select=
+                      "mets:file/mets:FLocat[@xlink:title='license_url']/@xlink:href" /-->
+        <!--li><xsl:text>urlfilepath: </xsl:text><xsl:value-of select="$urlfilepath" /></li-->
+        <!--xsl:variable name="theserver">
+           <xsl:value-of select="$pagemeta/dri:metadata[@element='request'][@qualifier='scheme']"/>
+           <xsl:text>://</xsl:text>
+           <xsl:value-of select="$pagemeta/dri:metadata[@element='request'][@qualifier='serverName']"/>
+       </xsl:variable-->
+        <!--xsl:variable name="theurl"><xsl:value-of select='concat($theserver, $urlfilepath)'/></xsl:variable>
+       <li><xsl:text>theurl: </xsl:text><xsl:value-of select='$theurl' /></li-->
+        <li class="cc-item">
+            <a>
+                <!--a href="{mets:file/mets:FLocat[@xlink:title='license_text']/@xlink:href}"-->
+                <xsl:attribute name="id">
+                    <xsl:text>cc-item-link</xsl:text>
+                </xsl:attribute>
+                <xsl:attribute name="href">
+                    <xsl:text></xsl:text>
+                </xsl:attribute>
+                <xsl:attribute name="target">_blank</xsl:attribute>
                 <img class="img-responsive">
                     <xsl:attribute name="src">
                         <xsl:value-of select="concat($theme-path,'/images/cc-ship.gif')"/>
@@ -1218,7 +1247,9 @@
 
     <!-- Generate the license information from the file section -->
     <xsl:template match="mets:fileGrp[@USE='LICENSE']" mode="simple">
-        <li><a href="{mets:file/mets:FLocat[@xlink:title='license.txt']/@xlink:href}"><i18n:text>xmlui.dri2xhtml.structural.link_original_license</i18n:text></a></li>
+        <li>
+            <a href="{mets:file/mets:FLocat[@xlink:title='license.txt']/@xlink:href}"><i18n:text>xmlui.dri2xhtml.structural.link_original_license</i18n:text></a>
+        </li>
     </xsl:template>
 
     <!--
