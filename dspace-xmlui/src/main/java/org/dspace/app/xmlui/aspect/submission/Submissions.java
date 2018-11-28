@@ -71,7 +71,9 @@ public class Submissions extends AbstractDSpaceTransformer
     protected static final Message T_s_info2b = 
         message("xmlui.Submission.Submissions.submit_info2b"); 
     protected static final Message T_s_info2c = 
-        message("xmlui.Submission.Submissions.submit_info2c"); 
+        message("xmlui.Submission.Submissions.submit_info2c");
+    protected static final Message T_s_info2d =
+        message("xmlui.Submission.Submissions.submit_info2d");
     protected static final Message T_s_column1 = 
         message("xmlui.Submission.Submissions.submit_column1"); 
     protected static final Message T_s_column2 = 
@@ -141,6 +143,7 @@ public class Submissions extends AbstractDSpaceTransformer
         Division div = body.addInteractiveDivision("submissions", contextPath+"/submissions", Division.METHOD_POST,"primary");
         div.setHead(T_head);
 
+        this.addNewSubmissionButtonDiv(div);
         this.addWorkflowTasksDiv(div);
         this.addUnfinishedSubmissions(div);
         this.addSubmissionsInWorkflowDiv(div);
@@ -160,6 +163,20 @@ public class Submissions extends AbstractDSpaceTransformer
     private void addWorkflowTasksDiv(Division division) throws SQLException, WingException, AuthorizeException, IOException {
     	division.addDivision("workflow-tasks");
         }
+
+    /**
+     * If the user has any workflow tasks, either assigned to them or in an
+     * available pool of tasks, then build two tables listing each of these queues.
+     *
+     * If the user doesn't have any workflows then don't do anything.
+     *
+     * @param division The division to add the two queues too.
+     */
+    private void addNewSubmissionButtonDiv(Division division) throws SQLException, WingException, AuthorizeException, IOException {
+        Division newsubmission = division.addDivision("new-submission");
+        Para p = newsubmission.addPara();
+        p.addXref(contextPath+"/submit",T_s_info1b);
+    }
 
     /**
      * There are two options:  the user has some unfinished submissions 
