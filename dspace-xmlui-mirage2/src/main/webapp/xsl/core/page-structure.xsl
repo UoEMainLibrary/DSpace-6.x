@@ -747,41 +747,25 @@
                         <p>The full text of research papers can be submitted to the repository via <a href="//www.st-andrews.ac.uk/staff/research/pure/" target="_blank">PURE</a>, the University's research information system. For help with using PURE, see the <a href="//www.st-andrews.ac.uk/staff/research/pure/faq/" target="_blank">FAQ</a>.</p>
                     </div>
                     <div class="col-md-3 footer-block">
-                        <h3>Electronic Thesis Deposit</h3>
+                        <h3>Electronic thesis deposit</h3>
                         <p>Help with <a href="//www.st-andrews.ac.uk/library/resources/collections/theses/#Submitting" target="_blank">deposit</a>.</p>
+                        <h3>Repository help</h3>
+                        <p>For repository help contact: <a href="mailto:Digital-Repository@st-andrews.ac.uk">Digital-Repository@st-andrews.ac.uk</a>.</p>
+                        <p><a href="/feedback">Give Feedback</a></p>
+                    </div>
+                    <div class="col-md-3 footer-block">
                         <h3>Cookie policy</h3>
                         <p>We may use a cookie file which is stored on the hard drive of your computer to track how the Site is being used and to assess its usefulness. Personal information is not collected. <a href="//www.st-andrews.ac.uk/terms/cookies/" target="_blank">Terms and Conditions</a>.</p>
                     </div>
-                    <div class="col-md-3 footer-block">
-                        <h3>Contact Us</h3>
-                        <p>
-                            University Library<br />
-                            University of St Andrews<br />
-                            St Andrews<br />
-                            KY16 9TR<br />
-                            <br />
-                            Tel: 01334 462331/2<br />
-                            <br />
-                            <a href="/feedback">Give Feedback</a>
-                        </p>
-                        </div>
-                    </div>
+                </div>
             </div>
             </div>
             <div class="sta-footer-bottom-content">
             <div class="container">
             <div class="row sta-footer-bottom">
                 <div class="col-md-9">
-                    <p id="footer-copyright">For repository help contact: <a href="mailto:Digital-Repository@st-andrews.ac.uk">Digital-Repository@st-andrews.ac.uk</a> | <xsl:text>&#169;</xsl:text> University of St Andrews Library</p>
+                    <p id="footer-copyright"><xsl:text>&#169;</xsl:text> University of St Andrews Library</p>
                     <p id="footer-charity">University of St Andrews is a charity registered in Scotland, No SC013532.</p>
-                    <ul id="footer-links">
-                        <li>
-                            <a href="//www.st-andrews.ac.uk/terms/cookies/" target="_blank">Privacy and cookies</a>
-                        </li>
-                        <li>
-                            <a href="//www.st-andrews.ac.uk/help/" target="_blank">Website help</a>
-                        </li>
-                    </ul>
                 </div>
                 <div class="col-md-3">
                     <ul id="social">

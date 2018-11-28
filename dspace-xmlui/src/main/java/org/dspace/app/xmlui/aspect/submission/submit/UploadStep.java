@@ -347,12 +347,12 @@ public class UploadStep extends AbstractSubmissionStep
                 Button edit = row.addCell().addButton("submit_edit_"+id);
                 edit.setValue(T_submit_edit);
 
-                Row checksumRow = summary.addRow();
+                /*Row checksumRow = summary.addRow();
                 checksumRow.addCell();
                 Cell checksumCell = checksumRow.addCell(null, null, 0, 6, null);
                 checksumCell.addHighlight("bold").addContent(T_checksum);
                 checksumCell.addContent(" ");
-                checksumCell.addContent(algorithm + ":" + checksum);
+                checksumCell.addContent(algorithm + ":" + checksum);*/
             }
 
             if (!disableFileEditing)

@@ -325,6 +325,30 @@ div.ds-search-link {
     font-size: 13.5px;
 }
 
+#aspect_submission_Submissions_div_new-submission a {
+    -moz-user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857;
+    margin-bottom: 0;
+    padding: 6px 12px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    background-color: #005580;
+    border-color: #ccc;
+    color: #fff;
+}
+
+ .thumbnail {
+    float: left;
+    padding-left: 15px;
+}
 
 /* responsiveness */
 

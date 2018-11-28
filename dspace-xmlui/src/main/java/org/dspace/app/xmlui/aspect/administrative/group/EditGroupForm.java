@@ -314,7 +314,7 @@ public class EditGroupForm extends AbstractDSpaceTransformer
         {
         	// If this group is associated with a collection or community then it is special,
         	// thus they shouldn't be able to update it.
-        	groupText.setDisabled();
+        	//groupText.setDisabled();
         	groupText.setHelp(T_label_instructions);
         }
         else if (errors.contains("group_name") || errors.contains("group_name_duplicate"))

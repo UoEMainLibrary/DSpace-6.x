@@ -6,12 +6,24 @@
  * http://www.dspace.org/license/
  */
      $(document).ready(function(){
-         var protocol = $(location).attr('protocol');
+        var protocol = $(location).attr('protocol');
         var hostname = $(location).attr('hostname');
         var pathname = $(location).attr('pathname');
-         var url = protocol + "//" + hostname + "/bitstream" + pathname + "/license_url?sequence=2&isAllowed=y";
-         var cclink;
+        var url = protocol + "//" + hostname + "/bitstream" + pathname + "/license_url?sequence=2&isAllowed=y";
+        var cclink;
+
         $.get(url, function (response) {
             $("#cc-item-link").attr("href", response);
         });
+
+        var delay = 2700000;   // 45 minutes in milliseconds
+        var loginurl = protocol + "//" + hostname + "/login";
+
+        // refresh to login screen after 45 minutes
+        setTimeout(function(){ window.location = loginurl; }, delay);
+
+        $('.page-header').each(function() {
+            $(this).insertBefore($(this).parent().find('.file-heading'));
+        });
+
      });
