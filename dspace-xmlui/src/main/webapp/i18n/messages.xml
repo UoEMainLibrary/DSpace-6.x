@@ -527,7 +527,7 @@
 	<message key="xmlui.EPerson.LDAPLogin.password">Password</message>
 	<message key="xmlui.EPerson.LDAPLogin.submit">Sign in</message>
 	<message key="xmlui.EPerson.LDAPLogin.head3">New Registrations Only</message>
-	<message key="xmlui.EPerson.LDAPLogin.para2"><strong>To register</strong> with the St Andrews Research Repository to submit an electronic thesis please enter your St Andrews Username and give any preferred current contact email address and details of your school and department in the fields below.</message>
+	<message key="xmlui.EPerson.LDAPLogin.para2"><strong>To register</strong> with the St Andrews Research Repository to submit an electronic thesis please enter your St Andrews Username and Password in the boxes above and give any preferred current contact email address and details of your school and department in the boxes below.</message>
 	<message key="xmlui.EPerson.LDAPLogin.para3"><strong>Please click on the Register button</strong> which will send your registration details to the Repository Administrator. We will complete your registration and send confirmation to you as soon as we can. We will send the confirmation to your St Andrews email address unless you indicate a preferred contact email.</message>
 	<message key="xmlui.EPerson.LDAPLogin.para4">Please note that you will not be able to make a submission until you receive this confirmation, so please log out of the St Andrews Research Repository after you have completed this initial registration.</message>
 	<message key="xmlui.EPerson.LDAPLogin.para5"><strong>Once you have received acknowledgement</strong> of your registration you can login again using your St Andrews Username and Password to make your submission.</message>
@@ -691,6 +691,7 @@
 	<message key="xmlui.Submission.Submissions.submit_info2a">These are incomplete item submissions. You may also </message>
 	<message key="xmlui.Submission.Submissions.submit_info2b">start another submission</message>
 	<message key="xmlui.Submission.Submissions.submit_info2c">.</message>
+	<message key="xmlui.Submission.Submissions.submit_info2d">Start new submission</message>
 	<message key="xmlui.Submission.Submissions.submit_column1"></message>
 	<message key="xmlui.Submission.Submissions.submit_column2">Title</message>
 	<message key="xmlui.Submission.Submissions.submit_column3">Collection</message>
@@ -2252,6 +2253,8 @@
 	<message key="xmlui.dri2xhtml.METS-1.0.item-type">Type</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-keywords">Keywords</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-rights">Rights</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-rights-embargodate">Embargo Date</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-rights-embargoreason">Embargo Reason</message>
 
 	<message key="xmlui.dri2xhtml.METS-1.0.item-metadata-head">Item metadata</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-files-head">Files in this item</message>
@@ -2270,7 +2273,7 @@
 	<message key="xmlui.dri2xhtml.METS-1.0.size-gigabytes">Gb</message>
 
 	<message key="xmlui.dri2xhtml.METS-1.0.license-text">The following license files are associated with this item:</message>
-    <message key="xmlui.dri2xhtml.METS-1.0.cc-license-text">Except where otherwise noted, this item's license is described as </message>
+    <message key="xmlui.dri2xhtml.METS-1.0.cc-license-text">Except where otherwise noted within the work, this item's license for re-use is described as </message>
 
 	<message key="xmlui.dri2xhtml.METS-1.0.collection-not-implemented">
 		The summaryView of a collection is not currently used or implemented. This can be fixed
