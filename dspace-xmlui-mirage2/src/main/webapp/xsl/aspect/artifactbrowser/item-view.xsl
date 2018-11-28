@@ -119,6 +119,7 @@
                             <xsl:call-template name="itemSummaryView-DIM-file-section"/>
                         </div>
                     </div>
+                    <xsl:call-template name="itemSummaryView-DIM-accessRights"/>
                     <xsl:call-template name="itemSummaryView-DIM-embargoDate"/>
 
                     <xsl:call-template name="itemSummaryView-DIM-date"/>
@@ -130,6 +131,7 @@
                 <div class="col-sm-8">
                     <xsl:call-template name="itemSummaryView-DIM-citation"/>
                     <xsl:call-template name="itemSummaryView-DIM-abstract"/>
+                    <xsl:call-template name="itemSummaryView-DIM-type"/>
                     <xsl:call-template name="itemSummaryView-DIM-URI"/>
                     <xsl:call-template name="itemSummaryView-collections"/>
                 </div>
@@ -215,7 +217,7 @@
     <xsl:template name="itemSummaryView-DIM-abstract">
         <xsl:if test="dim:field[@element='description' and @qualifier='abstract']">
             <div class="simple-item-view-description item-page-field-wrapper table">
-                <h5 class="visible-xs"><i18n:text>xmlui.dri2xhtml.METS-1.0.item-abstract</i18n:text></h5>
+                <h5><i18n:text>xmlui.dri2xhtml.METS-1.0.item-abstract</i18n:text></h5>
                 <div>
                     <xsl:for-each select="dim:field[@element='description' and @qualifier='abstract']">
                         <xsl:choose>
@@ -233,6 +235,42 @@
                     <xsl:if test="count(dim:field[@element='description' and @qualifier='abstract']) &gt; 1">
                         <div class="spacer">&#160;</div>
                     </xsl:if>
+                </div>
+            </div>
+        </xsl:if>
+    </xsl:template>
+
+    <!--RT 27/11/2018: Add type to simple item view -->
+    <xsl:template name="itemSummaryView-DIM-type">
+        <xsl:if test="dim:field[@mdschema='dc' and @element='type' and not(@qualifier='qualificationlevel') and not(@qualifier='qualificationname')]">
+            <div class="simple-item-view-description item-page-field-wrapper table">
+                <h5><i18n:text>xmlui.dri2xhtml.METS-1.0.item-type</i18n:text></h5>
+                <div>
+                    <xsl:for-each select="dim:field[@mdschema='dc' and @element='type' and not(@qualifier='qualificationlevel') and not(@qualifier='qualificationname')]">
+                        <xsl:choose>
+                            <xsl:when test="node()">
+                                <xsl:copy-of select="node()"/>
+                            </xsl:when>
+                        </xsl:choose>
+                    </xsl:for-each>
+                </div>
+            </div>
+        </xsl:if>
+    </xsl:template>
+
+    <!--RT 27/11/2018: Add access rights to simple item view -->
+    <xsl:template name="itemSummaryView-DIM-accessRights">
+        <xsl:if test="dim:field[@element='accessRights']">
+            <div class="simple-item-view-description item-page-field-wrapper table">
+                <h5><i18n:text>xmlui.dri2xhtml.METS-1.0.item-accessRights</i18n:text></h5>
+                <div>
+                    <xsl:for-each select="dim:field[@element='accessRights']">
+                        <xsl:choose>
+                            <xsl:when test="node()">
+                                <xsl:copy-of select="node()"/>
+                            </xsl:when>
+                        </xsl:choose>
+                    </xsl:for-each>
                 </div>
             </div>
         </xsl:if>
@@ -550,7 +588,9 @@
             <td class="word-break">
               <xsl:copy-of select="./node()"/>
             </td>
+                <!-- RT: QMU asked for the language to be hidden
                 <td><xsl:value-of select="./@language"/></td>
+                -->
             </tr>
     </xsl:template>
 
