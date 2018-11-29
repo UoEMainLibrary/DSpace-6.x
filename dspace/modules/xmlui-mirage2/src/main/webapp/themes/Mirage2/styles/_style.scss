@@ -345,9 +345,17 @@ div.ds-search-link {
     color: #fff;
 }
 
- .thumbnail {
+div #aspect_submission_Submissions_div_new-submission p a:last-child {
+    float: right;
+}
+
+.thumbnail {
     float: left;
     padding-left: 15px;
+}
+
+.file-list {
+  margin-bottom: 15px;
 }
 
 /* responsiveness */

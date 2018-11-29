@@ -42,7 +42,7 @@
     <script src="scripts/forms.js">&#160;</script>
     <script src="scripts/vendor-extensions.js">&#160;</script>
     <script src="scripts/google-stats-dates.js">&#160;</script>
-    <script src="scripts/script.js">&#160;</script>
+    <!--<script src="scripts/script.js">&#160;</script>-->
     <script src="scripts/templates.js">&#160;</script>
 
     <!-- authorLookup and its dependencies -->

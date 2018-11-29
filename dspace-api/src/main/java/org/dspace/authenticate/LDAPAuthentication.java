@@ -196,7 +196,7 @@ public class LDAPAuthentication
                             HttpServletRequest request)
         throws SQLException
     {
-        log.info(LogManager.getHeader(context, "auth", "attempting trivial auth of user = "+netid+" with password "+password));
+        log.info(LogManager.getHeader(context, "auth", "attempting trivial auth of user = "+netid));
 
         // Skip out when no netid or password is given.
         if (netid == null || password == null)

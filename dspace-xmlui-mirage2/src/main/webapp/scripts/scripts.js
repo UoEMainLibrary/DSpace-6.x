@@ -5,14 +5,17 @@
  *
  * http://www.dspace.org/license/
  */
+
+ // Note - this script is no longer used and should be deleted at some stage. Robin 1/3/16.
+
      $(document).ready(function(){
-        var protocol = $(location).attr('protocol');
+        /*var protocol = $(location).attr('protocol');
         var hostname = $(location).attr('hostname');
         var pathname = $(location).attr('pathname');
         var url = protocol + "//" + hostname + "/bitstream" + pathname + "/license_url?sequence=2&isAllowed=y";
-        var cclink;
+        var cclink;*/
 
-        $.get(url, function (response) {
+        $.get($("#cc-item-link").attr("href"), function (response) {
             $("#cc-item-link").attr("href", response);
         });
 
