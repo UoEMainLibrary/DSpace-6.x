@@ -35,34 +35,23 @@
     xmlns:jstring="java.lang.String"
     xmlns:rights="http://cosimo.stanford.edu/sdr/metsrights/"
     xmlns:confman="org.dspace.core.ConfigurationManager"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:cc="http://creativecommons.org/ns#"
+    xmlns:sxl="http://www.w3.org/1999/XSL/Transform"
     exclude-result-prefixes="xalan encoder i18n dri mets dim xlink xsl util jstring rights confman">
 
     <xsl:output indent="yes"/>
 
     <xsl:template name="itemSummaryView-DIM">
         <!-- Generate the info about the item from the metadata section -->
-        <xsl:apply-templates select="./mets:dmdSec/mets:mdWrap[@OTHERMDTYPE='DIM']/mets:xmlData/dim:dim"
-        mode="itemSummaryView-DIM"/>
+        <xsl:apply-templates select="./mets:dmdSec/mets:mdWrap[@OTHERMDTYPE='DIM']/mets:xmlData/dim:dim" mode="itemSummaryView-DIM"/>
 
         <xsl:copy-of select="$SFXLink" />
 
-        <!-- Generate the Creative Commons license information from the file section (DSpace deposit license hidden by default)-->
-        <!--<xsl:if test="./mets:fileSec/mets:fileGrp[@USE='LICENSE']/mets:file/mets:FLocat[@xlink:title='license.txt']">-->
-        <!--xsl:if test="./mets:fileSec/mets:fileGrp[@USE='LICENSE' or @USE='CC-LICENSE']"-->
-        <xsl:if test="./mets:fileSec/mets:fileGrp[@USE='CC-LICENSE']">
+        <xsl:if test="./mets:fileSec/mets:fileGrp[@USE='CC-LICENSE']/mets:file/mets:FLocat[@xlink:title='license_text']">
             <div class="license-info table">
-                <!--<p>
-                    <i18n:text>xmlui.dri2xhtml.METS-1.0.license-text</i18n:text>
-                </p>-->
                 <ul class="list-unstyled">
-                    <!--<xsl:apply-templates select="./mets:fileSec/mets:fileGrp[@USE='CC-LICENSE' or @USE='LICENSE']" mode="simple"/>-->
-                    <!--<xsl:apply-templates select="./mets:fileSec/mets:fileGrp[@USE='LICENSE']" mode="simple"/>-->
-                    <!--<xsl:if test="./mets:fileSec/mets:fileGrp[@USE='LICENSE']/mets:file/mets:FLocat[@xlink:title='license.txt']">
-                        <xsl:apply-templates select="./mets:fileSec/mets:fileGrp[@USE='LICENSE']" mode="simple"/>
-                    </xsl:if>-->
-                    <xsl:if test="./mets:fileSec/mets:fileGrp[@USE='CC-LICENSE']/mets:file/mets:FLocat[@xlink:title='license_text']">
-                        <xsl:apply-templates select="./mets:fileSec/mets:fileGrp[@USE='CC-LICENSE']" mode="simple"/>
-                    </xsl:if>
+                    <xsl:apply-templates select="./mets:fileSec/mets:fileGrp[@USE='CC-LICENSE']" mode="simple"/>
                 </ul>
             </div>
         </xsl:if>
@@ -230,19 +219,21 @@
                         </xsl:variable>
 
                         <xsl:variable name="shortenedsrc">
-                            <xsl:choose>
+                            <!--<xsl:choose>
                                 <xsl:when test="contains($src, '?')">
                                     <xsl:value-of select="substring($src, 1, string-length(substring-before($src,'?')) - 4)"/>
                                 </xsl:when>
                                 <xsl:otherwise>
                                     <xsl:value-of select="substring($src, 1, string-length($src) - 4)"/>
                                 </xsl:otherwise>
-                            </xsl:choose>
+                            </xsl:choose>-->
+                            <xsl:value-of select="concat(substring-before($src,'.jpg'), '.jpg')"/>
                         </xsl:variable>
                         <a>
                         <xsl:attribute name="href">
                             <!--xsl:value-of select="$shortenedsrc"/-->
-                            <xsl:value-of select="mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
+                            <!--<xsl:value-of select="mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>-->
+                            <xsl:value-of select="$shortenedsrc"/>
                         </xsl:attribute>
 
                         <!-- Checking if Thumbnail is restricted and if so, show a restricted image -->
@@ -538,7 +529,8 @@
                             </xsl:if>
                         </xsl:for-each>
                         <xsl:if test="count(dim:field[@element='rights'][not(@qualifier)]) &gt; 1">
-                            <div class="spacer">&#160;</div>
+                            <!--<div class="spacer">&#160;</div>-->
+                            <br/>
                         </xsl:if>
                     </div>
                 </xsl:if>
@@ -558,7 +550,7 @@
                     </span>
                 </xsl:if>
                 <xsl:if test="dim:field[@element='rights' and @qualifier='embargodate' and descendant::text()]">
-                    <span>
+                    <div>
                         <i18n:text>xmlui.dri2xhtml.METS-1.0.item-rights-embargodate</i18n:text><xsl:text>: </xsl:text>
                         <xsl:for-each select="dim:field[@element='rights' and @qualifier='embargodate']">
                             <xsl:choose>
@@ -570,13 +562,14 @@
                                 </xsl:otherwise>
                             </xsl:choose>
                             <xsl:if test="count(following-sibling::dim:field[@element='rights' and @qualifier='embargodate']) != 0">
-                                <div class="spacer">&#160;</div>
+                                <!--<div class="spacer">&#160;</div>-->
+                                <br/>
                             </xsl:if>
                         </xsl:for-each>
-                    </span>
+                    </div>
                 </xsl:if>
                 <xsl:if test="dim:field[@element='rights' and @qualifier='embargoreason' and descendant::text()]">
-                    <span>
+                    <div>
                         <i18n:text>xmlui.dri2xhtml.METS-1.0.item-rights-embargoreason</i18n:text><xsl:text>: </xsl:text>
                         <xsl:for-each select="dim:field[@element='rights' and @qualifier='embargoreason']">
                             <xsl:choose>
@@ -588,10 +581,11 @@
                                 </xsl:otherwise>
                             </xsl:choose>
                             <xsl:if test="count(following-sibling::dim:field[@element='rights' and @qualifier='embargoreason']) != 0">
-                                <div class="spacer">&#160;</div>
+                                <!--<div class="spacer">&#160;</div>-->
+                                <br/>
                             </xsl:if>
                         </xsl:for-each>
-                    </span>
+                    </div>
                 </xsl:if>
             </div>
         </xsl:if>
@@ -977,6 +971,7 @@
 
     <xsl:template match="mets:file">
         <xsl:param name="context" select="."/>
+        <xsl:variable select="mets:FLocat[@LOCTYPE='URL']/@xlink:href" name="imageURL"/>
         <div class="file-wrapper row">
 
             <xsl:choose>
@@ -987,16 +982,27 @@
                     <div class="col-xs-6 col-sm-3">
                         <div class="thumbnail">
                             <a class="image-link">
-                                <xsl:attribute name="href">
+                                <!--<xsl:attribute name="href">
                                     <xsl:value-of select="mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
-                                </xsl:attribute>
+                                </xsl:attribute>-->
                                 <xsl:choose>
                                     <xsl:when test="$context/mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']/
                                 mets:file[@GROUPID=current()/@GROUPID]">
+                                        <xsl:variable name="src">
+                                            <xsl:value-of select="$context/mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']/
+                                            mets:file[@GROUPID=current()/@GROUPID]/mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
+                                        </xsl:variable>
+                                        <xsl:variable name="shortenedsrc">
+                                            <xsl:value-of select="concat(substring-before($src,'.jpg'), '.jpg')"/>
+                                        </xsl:variable>
+                                        <xsl:attribute name="href">
+                                            <xsl:value-of select="$shortenedsrc"/>
+                                        </xsl:attribute>
                                         <img alt="Thumbnail">
                                             <xsl:attribute name="src">
-                                                <xsl:value-of select="$context/mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']/
-                                            mets:file[@GROUPID=current()/@GROUPID]/mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
+                                                <!--<xsl:value-of select="$context/mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']/
+                                            mets:file[@GROUPID=current()/@GROUPID]/mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>-->
+                                                <xsl:value-of select="$src"/>
                                             </xsl:attribute>
                                         </img>
                                     </xsl:when>
@@ -1271,39 +1277,44 @@
         <xsl:text> </xsl:text>
     </xsl:template>
 
-    <!-- Generate the license information from the file section -->
+    <!-- Note:- this section deals with CC licenses for legacy items, that is to say, items that have the license stuff in files rather than in metadata. -->
     <xsl:template match="mets:fileGrp[@USE='CC-LICENSE']" mode="simple">
-        <!-- Display old cc licenses as the logo and link off -->
-        <!-- Not consistent with the new version of the license -->
-        <!--li><a href="{mets:file/mets:FLocat[@xlink:title='license_url']/@xlink:href}"><i18n:text>xmlui.dri2xhtml.structural.link_cc</i18n:text></a></li-->
-        <!--xsl:variable name="urlfilepath" select=
-                      "mets:file/mets:FLocat[@xlink:title='license_url']/@xlink:href" /-->
-        <!--li><xsl:text>urlfilepath: </xsl:text><xsl:value-of select="$urlfilepath" /></li-->
-        <!--xsl:variable name="theserver">
-           <xsl:value-of select="$pagemeta/dri:metadata[@element='request'][@qualifier='scheme']"/>
-           <xsl:text>://</xsl:text>
-           <xsl:value-of select="$pagemeta/dri:metadata[@element='request'][@qualifier='serverName']"/>
-       </xsl:variable-->
-        <!--xsl:variable name="theurl"><xsl:value-of select='concat($theserver, $urlfilepath)'/></xsl:variable>
-       <li><xsl:text>theurl: </xsl:text><xsl:value-of select='$theurl' /></li-->
-        <li class="cc-item">
-            <a>
-                <!--a href="{mets:file/mets:FLocat[@xlink:title='license_text']/@xlink:href}"-->
-                <xsl:attribute name="id">
-                    <xsl:text>cc-item-link</xsl:text>
-                </xsl:attribute>
-                <xsl:attribute name="href">
-                    <xsl:text></xsl:text>
-                </xsl:attribute>
-                <xsl:attribute name="target">_blank</xsl:attribute>
-                <img class="img-responsive">
-                    <xsl:attribute name="src">
-                        <xsl:value-of select="concat($theme-path,'/images/cc-ship.gif')"/>
-                    </xsl:attribute>
-                    <xsl:attribute name="alt">Creative Commons</xsl:attribute>
-                </img>
-            </a>
-        </li>
+        <xsl:choose>
+            <!-- Change for St A for legacy items - If a license_rdf file is present, which it should be, dig out and display a link to the CC website. This mimics the JSPUI behaviour. -->
+            <xsl:when test="./mets:file/mets:FLocat[@xlink:title='license_rdf']">
+                <xsl:variable name="ccLicenseRdf">
+                    <xsl:text>cocoon:/</xsl:text>
+                    <xsl:value-of select="./mets:file/mets:FLocat[@xlink:title='license_rdf']/@xlink:href"/>
+                </xsl:variable>
+                <li>
+                    <a>
+                        <xsl:attribute name="href">
+                            <xsl:value-of select="document($ccLicenseRdf)//cc:license/@rdf:resource" />
+                        </xsl:attribute>
+                        <img class="img-responsive">
+                            <xsl:attribute name="src">
+                                <xsl:value-of select="concat($theme-path,'/images/cc-ship.gif')"/>
+                            </xsl:attribute>
+                            <!-- "Why is this a hard coded value?!" I hear you cry. Because you can't put an i18n element inside an xsl:attribute element. Any suggestions welcome. Robin. -->
+                            <xsl:attribute name="alt">Creative Commons</xsl:attribute>
+                        </img>
+                    </a>
+                </li>
+            </xsl:when>
+            <xsl:otherwise>
+                <li>
+                    <a href="{mets:file/mets:FLocat[@xlink:title='license_text']/@xlink:href}">
+                        <img class="img-responsive">
+                            <xsl:attribute name="src">
+                                <xsl:value-of select="concat($theme-path,'/images/cc-ship.gif')"/>
+                            </xsl:attribute>
+                            <!-- "Why is this a hard coded value?!" I hear you cry. Because you can't put an i18n element inside an xsl:attribute element. Any suggestions welcome. Robin. -->
+                            <xsl:attribute name="alt">Creative Commons</xsl:attribute>
+                        </img>
+                    </a>
+                </li>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <!-- Generate the license information from the file section -->
