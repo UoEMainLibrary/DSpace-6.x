@@ -72,8 +72,8 @@ public class Submissions extends AbstractDSpaceTransformer
         message("xmlui.Submission.Submissions.submit_info2b"); 
     protected static final Message T_s_info2c = 
         message("xmlui.Submission.Submissions.submit_info2c");
-    protected static final Message T_s_info2d =
-        message("xmlui.Submission.Submissions.submit_info2d");
+    protected static final Message T_s_help =
+        message("xmlui.Submission.Submissions.submit_help");
     protected static final Message T_s_column1 = 
         message("xmlui.Submission.Submissions.submit_column1"); 
     protected static final Message T_s_column2 = 
@@ -120,8 +120,8 @@ public class Submissions extends AbstractDSpaceTransformer
         pageMeta.addMetadata("title").addContent(T_title);
         pageMeta.addMetadata("javascript", "static").addContent("static/js/workflow-multiSelect.js");
 
-            pageMeta.addTrailLink(contextPath + "/",T_dspace_home);
-            pageMeta.addTrailLink(null,T_trail);
+            pageMeta.addTrailLink(contextPath + "/", T_dspace_home);
+            pageMeta.addTrailLink(null, T_trail);
 	}
 
     @Override
@@ -158,7 +158,7 @@ public class Submissions extends AbstractDSpaceTransformer
      * 
      * If the user doesn't have any workflows then don't do anything.
      * 
-     * @param division The division to add the two queues too.
+     * @param division The division to add the two queues to.
      */
     private void addWorkflowTasksDiv(Division division) throws SQLException, WingException, AuthorizeException, IOException {
     	division.addDivision("workflow-tasks");
@@ -170,12 +170,13 @@ public class Submissions extends AbstractDSpaceTransformer
      *
      * If the user doesn't have any workflows then don't do anything.
      *
-     * @param division The division to add the two queues too.
+     * @param division The division to add the new button to.
      */
     private void addNewSubmissionButtonDiv(Division division) throws SQLException, WingException, AuthorizeException, IOException {
         Division newsubmission = division.addDivision("new-submission");
         Para p = newsubmission.addPara();
         p.addXref(contextPath+"/submit",T_s_info1b);
+        p.addXref(contextPath+"/themes/Mirage2/images/Depositing an electronic thesis - Gradskills March 2015.pptx",T_s_help);
     }
 
     /**

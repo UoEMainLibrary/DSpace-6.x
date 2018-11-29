@@ -739,12 +739,12 @@
                 <div class="row sta-footer-top">
                     <div class="col-md-3 footer-block">
                         <h3>Open Access</h3>
-                        <p>To find out how you can benefit from open access to research, see our <a href="//www.st-andrews.ac.uk/library/services/researchsupport/openaccess/" target="_blank">library web pages</a> and <a href="//univstandrews-oaresearch.blogspot.co.uk/" target="_blank">Open Access blog</a>.</p>
+                        <p>To find out how you can benefit from open access to research, see our <a href="//www.st-andrews.ac.uk/library/services/researchsupport/openaccess/" target="_blank">library web pages</a> and <a href="//univstandrews-oaresearch.blogspot.co.uk/" target="_blank">Open Access blog</a>. For open access help contact: <a href="mailto:openaccess@st-andrews.ac.uk">openaccess@st-andrews.ac.uk</a>.</p>
                         <a href="//www.openaccessweek.org/page/about" target="_blank"><img id="oaweek" src="{$theme-path}images/oaweek.png" /></a>
                         </div>
                     <div class="col-md-3 footer-block">
                         <h3>How to submit research papers</h3>
-                        <p>The full text of research papers can be submitted to the repository via <a href="//www.st-andrews.ac.uk/staff/research/pure/" target="_blank">PURE</a>, the University's research information system. For help with using PURE, see the <a href="//www.st-andrews.ac.uk/staff/research/pure/faq/" target="_blank">FAQ</a>.</p>
+                        <p>The full text of research papers can be submitted to the repository via <a href="//www.st-andrews.ac.uk/staff/research/pure/" target="_blank">PURE</a>, the University's research information system. For help see our guide: <a href="http://www.st-andrews.ac.uk/library/services/researchsupport/openaccess/deposit/" target="_blank">How to deposit in Pure</a>.</p>
                     </div>
                     <div class="col-md-3 footer-block">
                         <h3>Electronic thesis deposit</h3>
@@ -755,7 +755,7 @@
                     </div>
                     <div class="col-md-3 footer-block">
                         <h3>Cookie policy</h3>
-                        <p>We may use a cookie file which is stored on the hard drive of your computer to track how the Site is being used and to assess its usefulness. Personal information is not collected. <a href="//www.st-andrews.ac.uk/terms/cookies/" target="_blank">Terms and Conditions</a>.</p>
+                        <p>We may use a cookie file which is stored on the hard drive of your computer to track how the Site is being used and to assess its usefulness. Personal information is not collected. <a href="//www.st-andrews.ac.uk/terms/" target="_blank">Terms and Conditions</a>.</p>
                     </div>
                 </div>
             </div>

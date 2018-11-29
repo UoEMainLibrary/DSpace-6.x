@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.cocoon.environment.ObjectModelHelper;
 import org.apache.cocoon.environment.Request;
+import org.apache.log4j.Logger;
 import org.dspace.app.xmlui.utils.UIException;
 import org.dspace.app.xmlui.aspect.submission.AbstractSubmissionStep;
 import org.dspace.app.xmlui.wing.Message;
@@ -57,6 +58,8 @@ import org.xml.sax.SAXException;
  */
 public class CCLicenseStep extends AbstractSubmissionStep
 {
+	/** log4j logger */
+	private static Logger log = Logger.getLogger(CCLicenseStep.class);
 	/** Language Strings **/
     protected static final Message T_head = 
         message("xmlui.Submission.submit.CCLicenseStep.head");
@@ -120,6 +123,9 @@ public class CCLicenseStep extends AbstractSubmissionStep
         
 	    // output the license selection options
 	    String selectedLicense = request.getParameter("licenseclass_chooser");
+
+		log.debug("Selected license is " + selectedLicense);
+
 	    List list = div.addList("licenseclasslist", List.TYPE_FORM);
 	    list.addItem(T_info1);
 	    list.setHead(T_head);
@@ -130,6 +136,13 @@ public class CCLicenseStep extends AbstractSubmissionStep
 	    Iterator<CCLicense> iterator = cclookup.getLicenses(ccLocale).iterator();
 	    // build select List - first choice always 'choose a license', last always 'No license'
 	    selectList.addOption(T_select_change.getKey(), T_select_change);
+
+		// If the user selects 'no license' then make sure it is flagged as 'selected' in the html
+		if (selectedLicense != null && selectedLicense.equals(T_no_license.getKey()))
+		{
+			selectList.setOptionSelected(T_no_license.getKey());
+		}
+
 	    if(T_select_change.getKey().equals(selectedLicense)) {
 	    	selectList.setOptionSelected(T_select_change.getKey());
 	    }
