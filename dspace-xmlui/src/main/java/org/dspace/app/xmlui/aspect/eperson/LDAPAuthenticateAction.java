@@ -21,6 +21,7 @@ import org.apache.cocoon.environment.Request;
 import org.apache.cocoon.environment.SourceResolver;
 import org.apache.cocoon.environment.http.HttpEnvironment;
 import org.apache.cocoon.sitemap.PatternException;
+import org.apache.commons.lang.StringUtils;
 import org.dspace.app.xmlui.utils.AuthenticationUtil;
 import org.dspace.services.factory.DSpaceServicesFactory;
 import org.dspace.core.Context;
@@ -79,6 +80,13 @@ public class LDAPAuthenticateAction extends AbstractAction {
         {
             return null;
         }
+
+		// Skip out if they didn't enter a school but want to register as a new user.
+		if (request.getParameter("submit_register") != null) {
+			if (StringUtils.isEmpty(request.getParameter("school"))) {
+				return null;
+			}
+		}
 		
 		try {
 			Context context = AuthenticationUtil.authenticate(objectModel,username, password, realm);
