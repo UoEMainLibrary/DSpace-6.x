@@ -635,6 +635,12 @@
                             </map:read>
                     </map:match>
 
+                    <!-- Temporary block -->
+                    <!-- Internally redirect all vulnerable URLs to /error (which doesn't exist and throws a 404) -->
+                    <map:match pattern="themes/**:**">
+                        <map:redirect-to uri="{request:contextPath}/error" permanent="yes"/>
+                    </map:match>
+
                     <!-- Redirect / block for DS-3094 (security issue) for custom themes -->
                     <!-- This ensures any custom themes are not affected by DS-3094 by redirecting
                          vulnerable URL paths to /error (which returns a 404 File Not Found).

@@ -755,7 +755,9 @@
                     </div>
                     <div class="col-md-3 footer-block">
                         <h3>Cookie policy</h3>
-                        <p>We may use a cookie file which is stored on the hard drive of your computer to track how the Site is being used and to assess its usefulness. Personal information is not collected. <a href="//www.st-andrews.ac.uk/terms/" target="_blank">Terms and Conditions</a>.</p>
+                        <p>This site may use cookies. Please see <a href="//www.st-andrews.ac.uk/terms/" target="_blank">Terms and Conditions</a>.</p>
+                        <h3>Usage statistics</h3>
+                        <p>COUNTER-compliant statistics on downloads from the repository are available from the <a href="http://irus.mimas.ac.uk/">IRUS-UK Service</a>. <a href="mailto:openaccess@st-andrews.ac.uk?subject=Enquiry%20about%20IRUS-UK%20statistics">Contact us</a> for information.</p>
                     </div>
                 </div>
             </div>
