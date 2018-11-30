@@ -2245,7 +2245,7 @@
 	<message key="xmlui.dri2xhtml.METS-1.0.item-citation">Citation</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-version">Version</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-status">Status</message>
-	<message key="xmlui.dri2xhtml.METS-1.0.item-uri">URI</message>
+	<!--<message key="xmlui.dri2xhtml.METS-1.0.item-uri">URI</message>-->
 	<message key="xmlui.dri2xhtml.METS-1.0.item-doi">DOI</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-issn">ISSN</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-date">Date</message>
@@ -2256,6 +2256,11 @@
 	<message key="xmlui.dri2xhtml.METS-1.0.item-rights">Rights</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-rights-embargodate">Embargo Date</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-rights-embargoreason">Embargo Reason</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-relation-uri">Related resources</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-relation-generic">Related resources</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-relation">Description of related resources</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-uri">URI</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-publisher-uri">Publisher link</message>
 
 	<message key="xmlui.dri2xhtml.METS-1.0.item-metadata-head">Item metadata</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-files-head">Files in this item</message>
