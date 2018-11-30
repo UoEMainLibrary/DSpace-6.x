@@ -147,10 +147,9 @@
                 <div class="col-sm-8">
                     <xsl:call-template name="itemSummaryView-DIM-abstract"/>
                     <xsl:call-template name="itemSummaryView-DIM-citation"/>
-                    <xsl:call-template name="itemSummaryView-DIM-version"/>
+                    <!--<xsl:call-template name="itemSummaryView-DIM-version"/>-->
                     <xsl:call-template name="itemSummaryView-DIM-publication"/>
                     <xsl:call-template name="itemSummaryView-DIM-status"/>
-                    <xsl:call-template name="itemSummaryView-DIM-URI"/>
                     <xsl:call-template name="itemSummaryView-DIM-DOI"/>
                     <xsl:call-template name="itemSummaryView-DIM-ISSN"/>
                     <xsl:call-template name="itemSummaryView-DIM-type"/>
@@ -158,6 +157,8 @@
                     <xsl:call-template name="itemSummaryView-DIM-description"/>
                     <!--<xsl:call-template name="itemSummaryView-DIM-rightsURI"/>-->
                     <xsl:call-template name="itemSummaryView-collections"/>
+                    <xsl:call-template name="itemSummaryView-DIM-relation"/>
+                    <xsl:call-template name="itemSummaryView-DIM-URI"/>
                 </div>
             </div>
         </div>
@@ -509,6 +510,69 @@
         </xsl:if>
     </xsl:template>
 
+    <xsl:template name="itemSummaryView-DIM-description">
+        <xsl:if test="dim:field[@element='description'][not(@qualifier)]">
+            <div class="simple-item-view-uri item-page-field-wrapper table">
+                <h5><i18n:text>xmlui.dri2xhtml.METS-1.0.item-description</i18n:text></h5>
+                <span>
+                    <xsl:for-each select="dim:field[@element='description'][not(@qualifier)]">
+                        <xsl:copy-of select="./node()"/>
+                        <xsl:if test="count(following-sibling::dim:field[@element='description'][not(@qualifier)]) != 0">
+                            <br/>
+                        </xsl:if>
+                    </xsl:for-each>
+                </span>
+            </div>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template name="itemSummaryView-DIM-relation">
+        <!--<xsl:choose>  -->
+        <xsl:if test="dim:field[@element='relation'][not(@qualifier)]">
+            <div class="simple-item-view-uri item-page-field-wrapper table">
+                <h5><i18n:text>xmlui.dri2xhtml.METS-1.0.item-relation</i18n:text></h5>
+                <span>
+                    <xsl:for-each select="dim:field[@element='relation'][not(@qualifier)]">
+                        <xsl:copy-of select="./node()"/>
+                        <xsl:if test="count(following-sibling::dim:field[@element='relation']) != 0">
+                            <br/>
+                        </xsl:if>
+                    </xsl:for-each>
+                </span>
+            </div>
+        </xsl:if>
+        <xsl:if test="dim:field[@element='relation' and @qualifier='uri' and descendant::text()]">
+            <div class="simple-item-view-uri item-page-field-wrapper table">
+                <h5><i18n:text>xmlui.dri2xhtml.METS-1.0.item-relation-uri</i18n:text></h5>
+                <span>
+                    <xsl:for-each select="dim:field[@element='relation' and @qualifier = 'uri']">
+                        <a>
+                            <xsl:attribute name="href">
+                                <xsl:copy-of select="./node()"/>
+                            </xsl:attribute>
+                            <xsl:copy-of select="./node()"/>
+                        </a>
+                        <xsl:if test="count(following-sibling::dim:field[@element='relation' and @qualifier = 'uri']) != 0">
+                            <br/>
+                        </xsl:if>
+                    </xsl:for-each>
+                </span>
+            </div>
+        </xsl:if>
+        <!--<xsl:if test="dim:field[@element='relation' and @qualifier!='uri']">
+            <div class="simple-item-view-uri item-page-field-wrapper table">
+                <h5><i18n:text>xmlui.dri2xhtml.METS-1.0.item-relation-generic</i18n:text></h5>
+                <span>
+                    <xsl:for-each select="dim:field[@element='relation' and @qualifier!='uri']">
+                        <xsl:copy-of select="./node()"/>
+                        <xsl:if test="count(following-sibling::dim:field[@element='relation']) != 0">
+                            <br/>
+                        </xsl:if>
+                    </xsl:for-each>
+                </span>
+            </div>
+        </xsl:if>   -->
+    </xsl:template>
+
     <xsl:template name="itemSummaryView-DIM-rights">
         <xsl:if test="dim:field[@element='rights']">
             <div class="simple-item-view-rights item-page-field-wrapper table">
@@ -637,7 +701,7 @@
         </xsl:if>
     </xsl:template>
 
-    <xsl:template name="itemSummaryView-DIM-description">
+    <!--<xsl:template name="itemSummaryView-DIM-description">
         <xsl:if test="dim:field[@element='decription'][not(@qualifier)]">
             <div class="simple-item-view-description item-page-field-wrapper table">
                 <h5><i18n:text>xmlui.dri2xhtml.METS-1.0.item-description</i18n:text></h5>
@@ -661,9 +725,9 @@
                 </div>
             </div>
         </xsl:if>
-    </xsl:template>
+    </xsl:template>-->
 
-    <xsl:template name="itemSummaryView-DIM-version">
+    <!--<xsl:template name="itemSummaryView-DIM-version">
         <xsl:if test="dim:field[@element='description' and @qualifier='version']">
             <div class="simple-item-view-relation item-page-field-wrapper table">
                 <h5><i18n:text>xmlui.dri2xhtml.METS-1.0.item-version</i18n:text></h5>
@@ -687,7 +751,7 @@
                 </div>
             </div>
         </xsl:if>
-    </xsl:template>
+    </xsl:template>-->
 
     <xsl:template name="itemSummaryView-DIM-status">
         <xsl:if test="dim:field[@element='description' and @qualifier='status']">
