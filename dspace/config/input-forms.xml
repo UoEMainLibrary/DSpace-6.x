@@ -14,18 +14,19 @@
     <!-- the mapping for handle "default".                                    -->
 
     <form-map>
-      <name-map collection-handle="default" form-name="traditional" />
-      <name-map collection-handle="20.500.12289/7184" form-name="thesis" />
-      <name-map collection-handle="20.500.12289/7185" form-name="thesis" />
-      <name-map collection-handle="20.500.12289/7186" form-name="thesis" />
-      <name-map collection-handle="20.500.12289/7187" form-name="thesis" />
-      <name-map collection-handle="20.500.12289/7188" form-name="thesis" />
-      <name-map collection-handle="20.500.12289/7189" form-name="thesis" />
-      <name-map collection-handle="20.500.12289/7190" form-name="thesis" />
-      <name-map collection-handle="20.500.12289/7191" form-name="thesis" />
-      <name-map collection-handle="20.500.12289/7192" form-name="thesis" />
-      <name-map collection-handle="20.500.12289/7193" form-name="thesis" />
-      <name-map collection-handle="20.500.12289/7300" form-name="thesis" />
+        <name-map collection-handle="default" form-name="traditional" />
+        <name-map collection-handle="20.500.12289/7184" form-name="thesis" />
+        <name-map collection-handle="20.500.12289/7185" form-name="thesis" />
+        <name-map collection-handle="20.500.12289/7186" form-name="thesis" />
+        <name-map collection-handle="20.500.12289/7187" form-name="thesis" />
+        <name-map collection-handle="20.500.12289/7188" form-name="thesis" />
+        <name-map collection-handle="20.500.12289/7189" form-name="thesis" />
+        <name-map collection-handle="20.500.12289/7190" form-name="thesis" />
+        <name-map collection-handle="20.500.12289/7191" form-name="thesis" />
+        <name-map collection-handle="20.500.12289/7192" form-name="thesis" />
+        <name-map collection-handle="20.500.12289/7193" form-name="thesis" />
+        <name-map collection-handle="20.500.12289/7300" form-name="thesis" />
+        <name-map collection-handle="20.500.12289/8901" form-name="data" />
     </form-map>
 
 
@@ -596,6 +597,69 @@
                 <hint>The date until which an item is embargoed.</hint>
                 <required></required>
               </field>
+
+            </page>
+        </form>
+
+        <form name="data">
+            <page number="1">
+
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>type</dc-element>
+                    <dc-qualifier></dc-qualifier>
+                    <repeatable>true</repeatable>
+                    <label>Type</label>
+                    <input-type value-pairs-name="common_types">dropdown</input-type>
+                    <hint>Select the type(s) of content of the item. To select more than one value in the list, you may have to hold down the "CTRL" or "Shift" key.</hint>
+                    <required></required>
+                </field>
+
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>title</dc-element>
+                    <dc-qualifier></dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Title</label>
+                    <input-type>onebox</input-type>
+                    <hint>Enter the main title of the item.</hint>
+                    <required>You must enter a main title for this item.</required>
+                </field>
+
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>description</dc-element>
+                    <dc-qualifier>abstract</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Abstract</label>
+                    <input-type>textarea</input-type>
+                    <hint>Enter the abstract of the item. </hint>
+                    <required></required>
+                </field>
+
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>contributor</dc-element>
+                    <dc-qualifier>author</dc-qualifier>
+                    <repeatable>true</repeatable>
+                    <label>Authors</label>
+                    <input-type>onebox</input-type>
+                    <hint>Enter the names of the authors of this item.</hint>
+                    <required></required>
+                </field>
+
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>date</dc-element>
+                    <dc-qualifier>issued</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Date of Issue</label>
+                    <input-type>date</input-type>
+                    <hint>Please give the date of previous publication or public distribution.
+                        You can leave out the day and/or month if they aren't
+                        applicable.</hint>
+                    <required>You must enter at least the year.</required>
+                </field>
 
             </page>
         </form>
