@@ -587,17 +587,6 @@
                 <required>You must enter at least the year.</required>
               </field>
 
-              <field>
-                <dc-schema>dc</dc-schema>
-                <dc-element>rights</dc-element>
-                <dc-qualifier>embargodate</dc-qualifier>
-                <repeatable>false</repeatable>
-                <label>Date of Embargo</label>
-                <input-type>date</input-type>
-                <hint>The date until which an item is embargoed.</hint>
-                <required></required>
-              </field>
-
             </page>
         </form>
 
