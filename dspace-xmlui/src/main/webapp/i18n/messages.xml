@@ -2255,7 +2255,9 @@
 	<message key="xmlui.dri2xhtml.METS-1.0.item-issn">ISSN</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-date">Date</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-publisher">Publisher</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-publication">Publication</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-subject">Subject</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-supervisor">Supervisor</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-type">Type</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-keywords">Keywords</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-rights">Rights</message>
