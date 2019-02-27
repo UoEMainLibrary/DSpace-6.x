@@ -145,6 +145,7 @@
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.names.column_heading">Authors Name</message>
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.subject.column_heading">Subject</message>
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.classification.column_heading">Classification</message>
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.type.column_heading">Type</message>
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.sponsor.column_heading">Funder</message>
 
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.metadata.classification">Browsing {0} by Classification {1}</message>
@@ -158,6 +159,11 @@
 
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.item.title">Browsing {0} by Title {1}</message>
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.item.title">Browsing {0} by Title</message>
+
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.item.type">Browsing {0} by Type {1}</message>
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.item.type">Browsing {0} by Type</message>
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.metadata.type">Browsing {0} by Type {1}</message>
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.type">Browsing {0} by Type</message>
 
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.item.dateissued">Browsing {0} by Issue Date {1}</message>
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.item.dateissued">Browsing {0} by Issue Date</message>
@@ -280,6 +286,8 @@
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.head">Search</message>
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.search_scope">Search Scope</message>
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.full_text_search">Full Text Search</message>
+	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.type">Type</message>
+	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.sponsor">Funder</message>
 
 	<!-- org.dspace.app.xmlui.artifactbrowser.RestrictedItem.java -->
 	<message key="xmlui.ArtifactBrowser.RestrictedItem.title">This resource is restricted</message>
