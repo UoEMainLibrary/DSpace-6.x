@@ -274,7 +274,7 @@
                                 </xsl:if>
                             </xsl:for-each>
                         </small></span>
-                        <xsl:text>, </xsl:text>
+                        <!--<xsl:text>, </xsl:text>-->
                     </xsl:if>
                     <xsl:choose>
                         <xsl:when test="dri:list[@n=(concat($handle, ':dc.description.abstract'))]/dri:item/dri:hi">
