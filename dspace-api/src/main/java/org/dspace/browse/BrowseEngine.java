@@ -216,6 +216,18 @@ public class BrowseEngine
             String rawValue = null;
             if (scope.hasFilterValue() && scope.isSecondLevel())
             {
+                String browseIndexName = browseIndex.getName();
+
+                if(scope.getSortOrder() == null && (browseIndexName.equals("author") ||
+                        browseIndexName.equals("qmuauthor") || browseIndexName.equals("qmucentre")))
+                {
+                    // If we're at second tier and a parameter is not provided with a sort order
+                    // preference and browsing author, qmuauthor or qmucentre
+                    // then overwrite sort to be descending.
+                    dao.setAscending(false);
+                    scope.setOrder("desc");
+                }
+
                 String value = scope.getFilterValue();
                 rawValue = value;
 
