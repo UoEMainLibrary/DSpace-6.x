@@ -670,7 +670,9 @@ public class ConfigurableBrowse extends AbstractDSpaceTransformer implements
         params.year = request.getParameter(BrowseParams.YEAR);
         params.etAl = RequestUtils.getIntParameter(request, BrowseParams.ETAL);
 
-        params.scope = new BrowserScope(context);
+        // Browserscope constructor modified in order to pass the sort order param
+        // Hrafn 06/03/2019
+        params.scope = new BrowserScope(context, request.getParameter(BrowseParams.ORDER));
 
         // Are we in a community or collection?
         DSpaceObject dso = HandleUtil.obtainHandle(objectModel);
