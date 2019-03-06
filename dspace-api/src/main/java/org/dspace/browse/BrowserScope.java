@@ -80,6 +80,8 @@ public class BrowserScope
 
     private String authority = null;
 
+    private String sortOrder = null;
+
     /**
      * Construct a new BrowserScope using the given Context
      *
@@ -88,6 +90,19 @@ public class BrowserScope
     public BrowserScope(Context context)
     {
         this.context = context;
+    }
+
+    // Browserscope constructor modified in order to pass the sort order param
+    // Hrafn 06/03/2019
+
+    public BrowserScope(Context context, String sortOrder)
+    {
+        this.context = context;
+        this.sortOrder = sortOrder;
+    }
+
+    public String getSortOrder() {
+        return this.sortOrder;
     }
 
     /**
