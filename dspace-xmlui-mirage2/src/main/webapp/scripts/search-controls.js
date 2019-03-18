@@ -83,7 +83,12 @@
             query: query
         };
         replaceFilter(filter);
-        showFilters();
+        // 12-03-19
+        // Showfilters is a function added way back to toggle 'advanced filters's visibility
+        // Here, in updateFilterValue it gets called whenever onchange in the text input is fired
+        // this meant that every time the value is changed the display animation is reenacted
+        // updateFilterValues is only called on text input change so I don't understand why it's here to begin with
+        // showFilters();
     }
 
     function replaceFilter(filter) {
