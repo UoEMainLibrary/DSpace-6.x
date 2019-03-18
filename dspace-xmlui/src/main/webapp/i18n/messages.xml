@@ -724,13 +724,13 @@
 	<message key="xmlui.Submission.Submissions.progress_column3">Status</message>
 	<!-- Same transformer, workflow status -->
 	<message key="xmlui.Submission.Submissions.status_0">Submitted</message>
-	<message key="xmlui.Submission.Submissions.status_1">Awaiting reviewer's attention</message>
-	<message key="xmlui.Submission.Submissions.status_2">Submission being reviewed</message>
-	<message key="xmlui.Submission.Submissions.status_3">Awaiting editor's attention</message>
-	<message key="xmlui.Submission.Submissions.status_4">Submission being edited</message>
-	<message key="xmlui.Submission.Submissions.status_5">Awaiting final editor's attention</message>
-	<message key="xmlui.Submission.Submissions.status_6">Submission being edited</message>
-	<message key="xmlui.Submission.Submissions.status_7">Submission has been archived</message>
+	<message key="xmlui.Submission.Submissions.status_1">To Review</message>
+	<message key="xmlui.Submission.Submissions.status_2">Being Reviewed</message>
+	<message key="xmlui.Submission.Submissions.status_3">To Edit</message>
+	<message key="xmlui.Submission.Submissions.status_4">Being Edited</message>
+	<message key="xmlui.Submission.Submissions.status_5">Awaiting Final Edit</message>
+	<message key="xmlui.Submission.Submissions.status_6">Being Edited</message>
+	<message key="xmlui.Submission.Submissions.status_7">Archived</message>
 	<message key="xmlui.Submission.Submissions.status_unknown">Unknown state</message>
 	<!-- Same transformer, completed submissions section -->
 	<message key="xmlui.Submission.Submissions.completed.head">Archived Submissions</message>
