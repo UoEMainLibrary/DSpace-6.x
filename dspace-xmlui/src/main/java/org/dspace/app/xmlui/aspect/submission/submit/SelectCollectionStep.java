@@ -109,11 +109,24 @@ public class SelectCollectionStep extends AbstractSubmissionStep
         select.setHelp(T_collection_help);
         
         select.addOption("",T_collection_default);
-	    CollectionDropDown.CollectionPathEntry[] collectionPaths = CollectionDropDown.annotateWithPaths(context, collections);
+
+        // Hrafn - March 19th 2019
+        // The following loop created CollectionPathEntries, essentially wrappers around
+        // collections that included it's path, Community - Sub-Community - Collection
+        // for sorting purposes.
+        // Just omitting that and instead iterating over the collections which are in
+        // alphabetical ignore case order
+
+        /*CollectionDropDown.CollectionPathEntry[] collectionPaths = CollectionDropDown.annotateWithPaths(context, collections);
         for (CollectionDropDown.CollectionPathEntry entry : collectionPaths)
         {
             //select.addOption(entry.collection.getHandle(), entry.path);
             select.addOption(entry.collection.getHandle(), entry.collection.getName());
+        }*/
+
+	    for (Collection c : collections)
+        {
+            select.addOption(c.getHandle(), c.getName());
         }
         
         Button submit = list.addItem().addButton("submit");
