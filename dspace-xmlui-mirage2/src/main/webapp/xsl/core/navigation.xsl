@@ -122,9 +122,29 @@
                     </form>
                     <!-- Added customisation -->
                     <div id="ds-search-link" class="ds-search-link">
-                        <a href="./discover">
-                            <i18n:text>xmlui.dri2xhtml.structural.search-advanced</i18n:text>
-                        </a>
+                        <!--<span><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='containerType']/text()"/></span>
+                        <a>-->
+                            <!--
+                            For some reason, string comparison for either 'type:community' or 'type:collection' would evaluate true for 'type:item'
+                            therefore 'type:item' is checked first.
+                            -->
+                            <!--<xsl:attribute name="href">
+                                <xsl:choose>
+                                    <xsl:when test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='containerType']/text() = 'type:item'">
+                                        <xsl:text>/discover</xsl:text>
+                                    </xsl:when>
+                                    <xsl:when
+                                            test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='containerType']/text() = 'type:community' or
+                                          /dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='containerType']/text() = 'type:collection'">
+                                        <xsl:value-of
+                                                select="concat('/', /dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI'], '/discover')"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:text>/discover</xsl:text>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </xsl:attribute>-->
+                            <a href="/discover"><i18n:text>xmlui.dri2xhtml.structural.search-advanced</i18n:text></a>
                     </div>
                 </div>
             </xsl:if>
