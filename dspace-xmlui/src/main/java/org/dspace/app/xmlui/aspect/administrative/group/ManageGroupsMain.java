@@ -119,8 +119,9 @@ public class ManageGroupsMain
         int page = parameters.getParameterAsInteger("page", 0);
         String highlightID = parameters.getParameter("highlightID", null);
         int resultCount = groupService.searchResultCount(context, query);
-        java.util.List<Group> groups = groupService.search(context, query, page * PAGE_SIZE,
+        java.util.List<Group> groups = groupService.searchManage(context, query, page * PAGE_SIZE,
                 PAGE_SIZE);
+        System.out.println("Groups: " + groups);
 
 
 

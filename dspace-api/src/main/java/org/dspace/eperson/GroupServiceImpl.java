@@ -367,6 +367,26 @@ public class GroupServiceImpl extends DSpaceObjectServiceImpl<Group> implements 
     }
 
     @Override
+    public List<Group> searchManage(Context context, String groupIdentifier, int offset, int limit) throws SQLException
+    {
+        List<Group> groups = new ArrayList<>();
+        UUID uuid = UUIDUtils.fromString(groupIdentifier);
+        if(uuid == null) {
+            //Search by group name
+            groups = groupDAO.findByNameLikeManage(context, groupIdentifier, offset, limit);
+        } else {
+            //Search by group id
+            Group group = find(context, uuid);
+            if(group != null)
+            {
+                groups.add(group);
+            }
+        }
+
+        return groups;
+    }
+
+    @Override
     public int searchResultCount(Context context, String groupIdentifier) throws SQLException {
         int result = 0;
         UUID uuid = UUIDUtils.fromString(groupIdentifier);
