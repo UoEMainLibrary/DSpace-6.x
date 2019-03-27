@@ -142,6 +142,26 @@ public class GroupDAOImpl extends AbstractHibernateDSODAO<Group> implements Grou
             query.setMaxResults(limit);
         }
 
+
+        return list(query);
+    }
+
+    @Override
+    public List<Group> findByNameLikeManage(final Context context, final String groupName, final int offset, final int limit) throws SQLException {
+        Query query = createQuery(context,
+                "SELECT g FROM Group g WHERE lower(g.name) LIKE lower(:name) ORDER BY g.name ASC");
+        query.setParameter("name", "%" + StringUtils.trimToEmpty(groupName) + "%");
+
+        if(0 <= offset)
+        {
+            query.setFirstResult(offset);
+        }
+        if(0 <= limit)
+        {
+            query.setMaxResults(limit);
+        }
+
+
         return list(query);
     }
 
