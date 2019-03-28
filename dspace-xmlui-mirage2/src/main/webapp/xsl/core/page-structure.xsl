@@ -740,7 +740,6 @@
                     <div class="col-md-3 footer-block">
                         <h3>Open Access</h3>
                         <p>To find out how you can benefit from open access to research, see our <a href="//www.st-andrews.ac.uk/library/services/researchsupport/openaccess/" target="_blank">library web pages</a> and <a href="//univstandrews-oaresearch.blogspot.co.uk/" target="_blank">Open Access blog</a>. For open access help contact: <a href="mailto:openaccess@st-andrews.ac.uk">openaccess@st-andrews.ac.uk</a>.</p>
-                        <a href="//www.openaccessweek.org/page/about" target="_blank"><img id="oaweek" src="{$theme-path}images/oaweek.png" /></a>
                         </div>
                     <div class="col-md-3 footer-block">
                         <h3>How to submit research papers</h3>
