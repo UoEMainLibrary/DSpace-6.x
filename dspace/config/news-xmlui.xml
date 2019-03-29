@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <document xmlns="http://di.tamu.edu/DRI/1.0/" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" version="1.1">
-<body>
-<div id="file.news.div.news" n="news" rend="primary">
-<head>Welcome to the St Andrews Research Repository</head>
-<p>This is a digital repository of research output from the University of St Andrews. Since 2006 the University has required theses to be submitted to the repository. The full text of research papers can be submitted to the Repository via PURE. PURE and the repository integrate services to provide an easy submission process for the full text of research publications. The <xref target="//risweb.st-andrews.ac.uk/portal/">St Andrews Research Portal</xref> provides links to the full text of research publications which are stored in this Repository.</p>
-<p>Contact the ETheses team: <xref target="mailto:Digital-Repository@st-andrews.ac.uk">Digital-Repository@st-andrews.ac.uk</xref>, or the Open Access and Research Publications Support team: <xref target="mailto:openaccess@st-andrews.ac.uk">openaccess@st-andrews.ac.uk</xref> for further information,  or see our web pages about <xref target="//www.st-andrews.ac.uk/library/services/researchsupport/fulltext/">related services</xref>.</p>
-</div>
-</body>
-<options/>
-<meta>
-<userMeta/>
-<pageMeta/>
-<repositoryMeta/>
-</meta>
+    <body>
+        <div id="file.news.div.news" n="news" rend="primary">
+            <head>Welcome to the St Andrews Research Repository</head>
+
+            <p>This is the official institutional research repository for the University of St Andrews. The repository contains electronic theses and research publications including articles, conference proceedings, working papers and some research monographs. It also contains material and publications affiliated to the University and arising from specific projects.  Full text content is provided for all research publications in the repository, and wherever possible (following embargoes) for electronic theses.</p>
+
+            <p>The University requires submission of an electronic version of theses. For help with electronic thesis deposit see Library webpages on <xref target="https://www.st-andrews.ac.uk/library/resources/collections/theses/">how to submit your electronic copy</xref> or contact <xref target="mailto:Digital-Repository@st-andrews.ac.uk">Digital-Repository@st-andrews.ac.uk</xref>.</p>
+
+            <p>The full text of research papers can be submitted to the repository via <xref target="https://www.st-andrews.ac.uk/staff/research/pure/">Pure</xref>, the University's research information system. For help see our guide: <xref target="https://www.st-andrews.ac.uk/library/services/researchsupport/openaccess/deposit/">How to deposit in Pure</xref> or contact the Open Access team at <xref target="mailto:openaccess@st-andrews.ac.uk">openaccess@st-andrews.ac.uk</xref>.</p>
+
+        </div>
+    </body>
+    <options/>
+    <meta>
+        <userMeta/>
+        <pageMeta/>
+        <repositoryMeta/>
+    </meta>
 </document>
