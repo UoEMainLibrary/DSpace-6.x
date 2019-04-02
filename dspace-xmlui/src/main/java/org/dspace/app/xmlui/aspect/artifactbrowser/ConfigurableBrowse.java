@@ -121,7 +121,8 @@ public class ConfigurableBrowse extends AbstractDSpaceTransformer implements
     private Message titleMessage = null;
     private Message trailMessage = null;
 
-    protected ChoiceAuthorityService choicheAuthorityService = ContentAuthorityServiceFactory.getInstance().getChoiceAuthorityService();
+
+    protected ChoiceAuthorityService choiceAuthorityService = ContentAuthorityServiceFactory.getInstance().getChoiceAuthorityService();
 
     @Override
     public void setup(SourceResolver resolver, Map objectModel, String src, Parameters parameters) throws ProcessingException, SAXException, IOException {
@@ -308,10 +309,10 @@ public class ConfigurableBrowse extends AbstractDSpaceTransformer implements
 
         if (itemsTotal > 0)
         {
-            //results.setSimplePagination(itemsTotal, firstItemIndex, lastItemIndex, previousPage, nextPage)
+            //results.setSimplePagination(itemsTotal, firstItemIndex, lastItemIndex, previousPage, nextPage, startsWith)
             results.setSimplePagination(itemsTotal, browseInfo.getOverallPosition() + 1,
-                    browseInfo.getOverallPosition() + browseInfo.getResultCount(), getPreviousPageURL(
-                            params, info), getNextPageURL(params, info));
+                    browseInfo.getOverallPosition() + browseInfo.getResultCount(),
+                    getPreviousPageURL(params, info), getNextPageURL(params, info), params.scope.getStartsWith());
 
             // Reference all the browsed items
             ReferenceSet referenceSet = results.addReferenceSet("browse-by-" + type,
@@ -611,6 +612,14 @@ public class ConfigurableBrowse extends AbstractDSpaceTransformer implements
         parameters.putAll(params.getCommonParametersEncoded());
         parameters.putAll(params.getControlParameters());
 
+        //String browseType = info.getBrowseIndex().getName();
+
+        // do not add starts_with parameter if jumping along the index
+        if(info.getBrowseIndex().isItemIndex()) {
+            parameters.remove(BrowseParams.STARTS_WITH);
+        }
+
+
         if (info.hasPrevPage())
         {
             parameters.put(BrowseParams.OFFSET, encodeForURL(String.valueOf(info.getPrevOffset())));
@@ -638,6 +647,14 @@ public class ConfigurableBrowse extends AbstractDSpaceTransformer implements
         Map<String, String> parameters = new HashMap<String, String>();
         parameters.putAll(params.getCommonParametersEncoded());
         parameters.putAll(params.getControlParameters());
+
+        //String browseType = info.getBrowseIndex().getName();
+
+        // do not add starts_with parameter if jumping along the index
+        if(info.getBrowseIndex().isItemIndex()) {
+            parameters.remove(BrowseParams.STARTS_WITH);
+        }
+
 
         if (info.hasNextPage())
         {
@@ -686,7 +703,7 @@ public class ConfigurableBrowse extends AbstractDSpaceTransformer implements
         try
         {
             String type   = request.getParameter(BrowseParams.TYPE);
-            int    sortBy = RequestUtils.getIntParameter(request, BrowseParams.SORT_BY);
+            int sortBy = RequestUtils.getIntParameter(request, BrowseParams.SORT_BY);
 
             if(!request.getParameters().containsKey("type"))
             {
@@ -927,7 +944,7 @@ public class ConfigurableBrowse extends AbstractDSpaceTransformer implements
                 if (bix.isAuthorityIndex())
                 {
                     String fk = bix.getMetadata(0).replace(".", "_");
-                    value = "\""+choicheAuthorityService.getLabel(fk, info.getValue(), null)+"\"";
+                    value = "\""+ choiceAuthorityService.getLabel(fk, info.getValue(), null)+"\"";
                 }
                 else
                 {
