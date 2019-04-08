@@ -418,8 +418,8 @@
                                     <ul class="nav nav-pills pull-right">
                                         <!--xsl:call-template name="languageSelection-xs"/-->
 
-                                        <xsl:choose>
-                                            <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
+                                        <!--<xsl:choose>-->
+                                            <xsl:if test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
                                                 <li class="dropdown">
                                                     <button class="dropdown-toggle navbar-toggle navbar-link" id="user-dropdown-toggle-xs" href="#" role="button"  data-toggle="dropdown">
                                                         <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
@@ -437,8 +437,8 @@
                                                         </li>
                                                     </ul>
                                                 </li>
-                                            </xsl:when>
-                                            <xsl:otherwise>
+                                            </xsl:if>
+                                            <!--<xsl:otherwise>
                                                 <li>
                                                     <form style="display: inline" action="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='loginURL']}" method="get">
                                                         <button class="navbar-toggle navbar-link">
@@ -447,7 +447,7 @@
                                                     </form>
                                                 </li>
                                             </xsl:otherwise>
-                                        </xsl:choose>
+                                        </xsl:choose>-->
                                     </ul>
                                 </div>
                             </div>
@@ -463,8 +463,8 @@
                                     <xsl:call-template name="languageSelection"/>
                                 </ul-->
                                 <ul class="nav navbar-nav pull-right abe-lg-dropdown">
-                                    <xsl:choose>
-                                        <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
+                                    <!--<xsl:choose>-->
+                                        <xsl:if test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
                                             <li class="dropdown">
                                                 <a id="user-dropdown-toggle" href="#" role="button" class="dropdown-toggle"
                                                    data-toggle="dropdown">
@@ -489,8 +489,8 @@
                                                     </li>
                                                 </ul>
                                             </li>
-                                        </xsl:when>
-                                        <xsl:otherwise>
+                                        </xsl:if>
+                                        <!--<xsl:otherwise>
                                             <li>
                                                 <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='loginURL']}">
                                                     <span class="hidden-xs">
@@ -499,7 +499,7 @@
                                                 </a>
                                             </li>
                                         </xsl:otherwise>
-                                    </xsl:choose>
+                                    </xsl:choose>-->
                                 </ul>
 
                             </div>
