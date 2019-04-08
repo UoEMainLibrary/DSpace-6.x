@@ -193,27 +193,37 @@
         </div>
     </xsl:template>
 
-    <xsl:template match="dri:options//dri:item[dri:xref]">
-        <a href="{dri:xref/@target}">
-            <xsl:call-template name="standardAttributes">
-                <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
-            </xsl:call-template>
-            <xsl:choose>
-                <xsl:when test="dri:xref/node()">
-                    <xsl:apply-templates select="dri:xref/node()"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:value-of select="dri:xref"/>
-                </xsl:otherwise>
-            </xsl:choose>
+    <!--
+    Hrafn - 08/04/2019
+    Added condition to templates item link and head (priority 3, whatever that means) to not
+    print Login nor Register under My account in the navigation sidebar
+    -->
 
-        </a>
+    <xsl:template match="dri:options//dri:item[dri:xref]">
+        <xsl:if test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes' or not(../@n = 'account')">
+            <a href="{dri:xref/@target}">
+                <xsl:call-template name="standardAttributes">
+                    <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                </xsl:call-template>
+                <xsl:choose>
+                    <xsl:when test="dri:xref/node()">
+                        <xsl:apply-templates select="dri:xref/node()"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="dri:xref"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+
+            </a>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template match="dri:options/dri:list/dri:head" priority="3">
-        <xsl:call-template name="renderHead">
-            <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
-        </xsl:call-template>
+        <xsl:if test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes' or not(../@n = 'account')">
+            <xsl:call-template name="renderHead">
+                <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
+            </xsl:call-template>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template match="dri:options/dri:list//dri:list/dri:head" priority="3">
