@@ -197,10 +197,18 @@
     Hrafn - 08/04/2019
     Added condition to templates item link and head (priority 3, whatever that means) to not
     print Login nor Register under My account in the navigation sidebar
+
+
+    Hrafn - 10/04/2019
+    Second condition not to display link to statistics. Did that here in stead of in Navigation.java for
+    consistency:
+    https://github.com/UoEMainLibrary/DSpace-sdlc/commit/0c915c3ac956bceb3fb25dcd0508501c83733760#diff-bf4b62df2224636cbebb2bfca6677c7b
+
     -->
 
     <xsl:template match="dri:options//dri:item[dri:xref]">
-        <xsl:if test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes' or not(../@n = 'account')">
+        <xsl:if test="(/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes' or not(../@n = 'account')) and not(dri:xref/node() = 'xmlui.administrative.Navigation.statistics')">
+            <xsl:comment><xsl:value-of select="dri:xref/@target"/></xsl:comment>
             <a href="{dri:xref/@target}">
                 <xsl:call-template name="standardAttributes">
                     <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
@@ -215,6 +223,7 @@
                 </xsl:choose>
 
             </a>
+            <xsl:comment><xsl:value-of select="dri:xref/node()"/></xsl:comment>
         </xsl:if>
     </xsl:template>
 
