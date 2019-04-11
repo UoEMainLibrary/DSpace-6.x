@@ -807,7 +807,7 @@
                                             <xsl:attribute name="href"><xsl:text>http://aberdeenunilib.wordpress.com</xsl:text></xsl:attribute>
                                             <img src="{$theme-path}images/wordpress_32.png" alt="Wordpress" class="png" />
                                         </a>
-                                        <a>
+                                        <!--<a>
                                             <xsl:attribute name="href"><xsl:text>https://www.abdn.ac.uk/library/rss-feeds/</xsl:text></xsl:attribute>
                                             <img src="{$theme-path}images/rss_32.png" alt="RSS" class="png" />
                                         </a>
@@ -818,7 +818,7 @@
                                         <a>
                                             <xsl:attribute name="href"><xsl:text>http://www.youtube.com/user/UoALibrary/</xsl:text></xsl:attribute>
                                             <img src="{$theme-path}images/youtube_32.png" alt="YouTube" class="png" />
-                                        </a>
+                                        </a>-->
                                     </p>
                                 </div>
                             </div>
