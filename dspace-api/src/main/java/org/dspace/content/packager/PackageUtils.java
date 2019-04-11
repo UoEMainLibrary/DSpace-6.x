@@ -178,6 +178,11 @@ public class PackageUtils
             lb = bundles.get(0);
         }
 
+        // dont add default license if there already is licenses in the license collection
+        if(lb.getBitstreams().size() > 0 && license == null) {
+            return;
+        }
+
         //Create the License bitstream
         Bitstream lbs = bitstreamService.create(context, lb, lis);
         lis.close();
