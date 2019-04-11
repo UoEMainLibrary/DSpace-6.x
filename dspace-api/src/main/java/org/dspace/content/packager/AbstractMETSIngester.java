@@ -814,6 +814,7 @@ public abstract class AbstractMETSIngester extends AbstractPackageIngester
             // Create the bitstream in the bundle & initialize its name
             Bitstream bitstream = bitstreamService.create(context, bundle, fileStream);
             bitstream.setName(context, path);
+            bitstream.setSource(context, path);
 
              // Set bitstream sequence id, if known
             String seqID = mfile.getAttributeValue("SEQ");
