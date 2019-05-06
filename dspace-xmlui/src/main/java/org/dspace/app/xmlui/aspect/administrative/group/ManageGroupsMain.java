@@ -121,7 +121,6 @@ public class ManageGroupsMain
         int resultCount = groupService.searchResultCount(context, query);
         java.util.List<Group> groups = groupService.searchManage(context, query, page * PAGE_SIZE,
                 PAGE_SIZE);
-        System.out.println("Groups: " + groups);
 
 
 
