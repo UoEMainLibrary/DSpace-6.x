@@ -200,6 +200,8 @@
 
     <xsl:template name="itemSummaryView-DIM-thumbnail">
 
+        <xsl:variable name="primaryBitstream" select="//mets:structMap[@TYPE='LOGICAL']/mets:div[@TYPE='DSpace Item']/mets:fptr/@FILEID"/>
+
         <!-- Only display thumbnail stuff is a thumbnail exists. -->
         <xsl:if test="/mets:METS/mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']/mets:file[@GROUPID=../../mets:fileGrp[@USE='CONTENT']/mets:file[@GROUPID=../../mets:fileGrp[@USE='THUMBNAIL']/mets:file/@GROUPID][1]/@GROUPID]">
 
@@ -234,7 +236,14 @@
                         <xsl:attribute name="href">
                             <!--xsl:value-of select="$shortenedsrc"/-->
                             <!--<xsl:value-of select="mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>-->
-                            <xsl:value-of select="$shortenedsrc"/>
+                            <xsl:choose>
+                                <xsl:when test="$primaryBitstream != ''">
+                                    <xsl:value-of select="//mets:fileSec/mets:fileGrp[@USE='CONTENT' or @USE='ORIGINAL']/mets:file[@ID=$primaryBitstream]/mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                        <xsl:value-of select="//mets:fileSec/mets:fileGrp[@USE='CONTENT' or @USE='ORIGINAL']/mets:file/mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
                         </xsl:attribute>
 
                         <!-- Checking if Thumbnail is restricted and if so, show a restricted image -->
