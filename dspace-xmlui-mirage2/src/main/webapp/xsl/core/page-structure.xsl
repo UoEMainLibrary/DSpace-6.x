@@ -627,7 +627,7 @@
         </xsl:variable>
 
         <xsl:variable name="ccLicenseName"
-                      select="document($externalMetadataURL)//dim:field[@element='rights']"
+                      select="document($externalMetadataURL)//dim:field[@element='rights' and contains(., 'Attribution')]"
                 />
         <xsl:variable name="ccLicenseUri"
                       select="document($externalMetadataURL)//dim:field[@element='rights'][@qualifier='uri']"
