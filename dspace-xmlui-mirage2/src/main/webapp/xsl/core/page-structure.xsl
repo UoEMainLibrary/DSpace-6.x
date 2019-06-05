@@ -81,8 +81,7 @@
                    chromium.org/developers/how-tos/chrome-frame-getting-started -->
                     <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
                     <xsl:choose>
-                        <xsl:when
-                                test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='framing'][@qualifier='popup']">
+                        <xsl:when test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='framing'][@qualifier='popup']">
                             <xsl:apply-templates select="dri:body/*"/>
                         </xsl:when>
                         <xsl:otherwise>
@@ -98,33 +97,158 @@
                             </div>
 
                             <div id="main-container" class="container">
-
+        
                                 <div class="row row-offcanvas row-offcanvas-right">
                                     <div class="horizontal-slider clearfix">
                                         <div class="col-xs-12 col-sm-12 col-md-9 main-content">
+
+                                            <!-- Add searchbar to body of HTML pages -->
+                                            <div class="body-search">
+                                                <form id="ds-search-form" class="" method="post">
+                                                    <xsl:attribute name="action">
+                                                        <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath']"/>
+                                                        <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='search'][@qualifier='simpleURL']"/>
+                                                    </xsl:attribute>
+                                                    <fieldset id="main-search">
+                                                        <div class="input-group">
+                                                            <input id="body-input" class="ds-text-field form-control" type="text" placeholder="xmlui.general.search"
+                                                                i18n:attr="placeholder">
+                                                                <xsl:attribute name="name">
+                                                                    <xsl:value-of
+                                                                            select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='search'][@qualifier='queryField']"/>
+                                                                </xsl:attribute>
+                                                            </input>
+                                                            <span class="input-group-btn">
+                                                                <button id="search-button" class="ds-button-field btn btn-primary" title="xmlui.general.go" i18n:attr="title">
+                                                                    <span class="glyphicon glyphicon-search" aria-hidden="true"/>
+                                                                    <xsl:attribute name="onclick">
+                                                                                <xsl:text>
+                                                                                    var radio = document.getElementById(&quot;ds-search-form-scope-container&quot;);
+                                                                                    if (radio != undefined &amp;&amp; radio.checked)
+                                                                                    {
+                                                                                    var form = document.getElementById(&quot;ds-search-form&quot;);
+                                                                                    form.action=
+                                                                                </xsl:text>
+                                                                        <xsl:text>&quot;</xsl:text>
+                                                                        <xsl:value-of
+                                                                                select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath']"/>
+                                                                        <xsl:text>/handle/&quot; + radio.value + &quot;</xsl:text>
+                                                                        <xsl:value-of
+                                                                                select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='search'][@qualifier='simpleURL']"/>
+                                                                        <xsl:text>&quot; ; </xsl:text>
+                                                                                <xsl:text>
+                                                                                    }
+                                                                                </xsl:text>
+                                                                    </xsl:attribute>
+                                                                </button>
+                                                            </span>
+                                                        </div>
+                                                    </fieldset>
+                                                </form>
+                                                <!--<xsl:element name="a">
+                                                    <xsl:attribute name="href">
+                                                        <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath']"/>
+                                                    </xsl:attribute>
+                                                    <xsl:attribute name="id">
+                                                        <xsl:value-of select="search-reset"/>
+                                                    </xsl:attribute>
+                                                    Reset Search
+                                                </xsl:element>-->
+                                                <xsl:variable name="clean-search" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath']"/>
+                                                <a id="search-reset" href="{$clean-search}/discover">Reset Search</a>
+                                            </div>
+
                                             <xsl:apply-templates select="*[not(self::dri:options)]"/>
 
                                             <div class="visible-xs visible-sm">
                                                 <xsl:call-template name="buildFooter"/>
                                             </div>
+
+                                            <!-- The footer div, dropping whatever extra information is needed on the page. It 
+                                            will most likely be something similar in structure to the currently given example. -->
+                                            <div class="hidden-xs hidden-sm">
+                                                <xsl:call-template name="buildFooter"/>
+                                            </div>
                                         </div>
-                                        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-                                            <xsl:apply-templates select="dri:options"/>
-                                        </div>
+                                        
+
+                                    <!-- CREATE STATIC SIDEBAR FOR STATIC PAGES -->
+                                    <!-- Very ugly solution but works for these purposes -->
+                                    <!-- * MUST BE UPDATED MANUALLY! * -->
+                                    <xsl:variable name="root-url" select="/dri:document/dri:meta/dri:pageMeta/dri:trail[@target][last()]/@target"/>
+                                    <xsl:choose>
+                                        <xsl:when test="contains($request-uri, 'about') or contains($request-uri, 'help') or contains($request-uri, 'feedback') or contains($request-uri, 'faq') or contains($request-uri, 'unavailable')">
+                                            <div role="navigation" id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
+                                                <div id="aspect_viewArtifacts_Navigation_list_discovery" class="list-group">
+                                                    <a class="list-group-item active"><span class="h5 list-group-item-heading  h5">Browse by School</span></a>
+
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Biological+Sciences%2C+School+of" 
+                                                        class="list-group-item ds-option">Biological Sciences, School of</a>
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Biomedical+Sciences%2C+Deanery+of" 
+                                                        class="list-group-item ds-option">Biomedical Sciences, Deanery of</a>
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Business+School" 
+                                                        class="list-group-item ds-option">Business School</a>
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Chemistry%2C+School+of" 
+                                                        class="list-group-item ds-option">Chemistry, School of</a>
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Clinical+Sciences%2C+Deanery+of" 
+                                                        class="list-group-item ds-option">Clinical Sciences, Deanery of</a>
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Divinity%2C+School+of" 
+                                                        class="list-group-item ds-option">Divinity, School of</a>
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Economics%2C+School+of" 
+                                                        class="list-group-item ds-option">Economics, School of</a>
+                                                    <a href="${$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Edinburgh+College+of+Art" 
+                                                        class="list-group-item ds-option">Edinburgh College of Art</a>
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Education%2C+The+Moray+House+School+of" 
+                                                        class="list-group-item ds-option">Education, The Moray House School of</a>
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Engineering%2C+School+of" 
+                                                        class="list-group-item ds-option">Engineering, School of</a>
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Geosciences%2C+School+of" 
+                                                        class="list-group-item ds-option">Geosciences, School of</a>
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Health+in+Social+Science%2C+School+of" 
+                                                        class="list-group-item ds-option">Health in Social Science, School of</a>
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=History%2C+Classics+and+Archaeology%2C+School+of" 
+                                                        class="list-group-item ds-option">History, Classics and Archaeology, School of</a>
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Informatics%2C+School+of" 
+                                                        class="list-group-item ds-option">Informatics, School of</a>
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Law%2C+School+of" 
+                                                        class="list-group-item ds-option">Law, School of</a>
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Life+Long+Learning" 
+                                                        class="list-group-item ds-option">Life Long Learning</a>
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Literatures%2C+Languages+%26+Cultures%2C+School+of" 
+                                                        class="list-group-item ds-option">Literatures, Languages &amp; Cultures, School of</a>
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Mathematics%2C+School+of" 
+                                                        class="list-group-item ds-option">Mathematics, School of</a>
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=MBChB+%28Papers+unavailable+at+request+of+College%29" 
+                                                        class="list-group-item ds-option">MBChB (Papers unavailable at request of College)</a>
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Molecular%2C+Genetic+and+Population+Health+Sciences%2C+Deanery+of" 
+                                                        class="list-group-item ds-option">Molecular, Genetic and Population Health Sciences, Deanery of</a>
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Philosophy%2C+Psychology+%26+Language+Sciences%2C+School+of" 
+                                                        class="list-group-item ds-option">Philosophy, Psychology &amp; Language Sciences, School of</a>
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Physics+and+Astronomy%2C+School+of" 
+                                                        class="list-group-item ds-option">Physics and Astronomy, School of</a>
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Social+%26+Political+Science%2C+School+of" 
+                                                        class="list-group-item ds-option">Social &amp; Political Science, School of</a>
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Veterinary+Studies%2C+Royal+%28Dick%29+School+of" 
+                                                        class="list-group-item ds-option">Veterinary Studies, Royal (Dick) School of</a>
+                                                </div>   
+                                            </div>
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                            <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+                                                <xsl:apply-templates select="dri:options"/>
+                                            </div>
+                                        </xsl:otherwise>
+                                    </xsl:choose>
 
                                     </div>
                                 </div>
 
-                                <!--
-                            The footer div, dropping whatever extra information is needed on the page. It will
-                            most likely be something similar in structure to the currently given example. -->
-                            <div class="hidden-xs hidden-sm">
-                            <xsl:call-template name="buildFooter"/>
-                             </div>
-                         </div>
-
+                                
+                            
+                        </div>
 
                         </xsl:otherwise>
+
                     </xsl:choose>
                     <!-- Javascript at the bottom for fast page loading -->
                     <xsl:call-template name="addJavascript"/>
@@ -282,6 +406,23 @@
                     <xsl:when test="starts-with($request-uri, 'page/about')">
                         <i18n:text>xmlui.mirage2.page-structure.aboutThisRepository</i18n:text>
                     </xsl:when>
+
+                    <!-- Add static page Titles to tabs -->
+                    <xsl:when test="starts-with($request-uri, 'exam-papers/about')">
+                        <i18n:text>About</i18n:text>
+                    </xsl:when>
+                    <xsl:when test="starts-with($request-uri, 'exam-papers/help')">
+                        <i18n:text>Help</i18n:text>
+                    </xsl:when>
+                    <xsl:when test="starts-with($request-uri, 'exam-papers/feedback')">
+                        <i18n:text>Feedback</i18n:text>
+                    </xsl:when>
+                    <xsl:when test="starts-with($request-uri, 'exam-papers/faqs')">
+                        <i18n:text>FAQs</i18n:text>
+                    </xsl:when>
+                    <xsl:when test="starts-with($request-uri, 'exam-papers/unavailable')">
+                        <i18n:text>Paper Unavailable</i18n:text>
+                    </xsl:when>
                     <xsl:when test="not($page_title)">
                         <xsl:text>  </xsl:text>
                     </xsl:when>
@@ -328,157 +469,189 @@
     <xsl:template name="buildHeader">
 
 
-        <header>
-            <div class="navbar navbar-default navbar-static-top" role="navigation">
-                <div class="container">
-                    <div class="navbar-header">
+        <header class="exam-header">
 
-                        <button type="button" class="navbar-toggle" data-toggle="offcanvas">
-                            <span class="sr-only">
-                                <i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text>
-                            </span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
+            <div class="container" id="navbar-container">
 
-                        <a href="{$context-path}/" class="navbar-brand">
-                            <img src="{$theme-path}images/DSpace-logo-line.svg" />
-                        </a>
+                <div class="navbar navbar-default navbar-static-top" role="navigation">
+                    <div class="container">
+                        <div class="navbar-header">
+
+                            <button type="button" class="navbar-toggle" data-toggle="offcanvas">
+                                <span class="sr-only">
+                                    <i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text>
+                                </span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
 
 
-                        <div class="navbar-header pull-right visible-xs hidden-sm hidden-md hidden-lg">
-                        <ul class="nav nav-pills pull-left ">
+                            <div class="navbar-header pull-right visible-xs hidden-sm hidden-md hidden-lg">
+                            <ul class="nav nav-pills pull-left ">
 
-                            <xsl:if test="count(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='supportedLocale']) &gt; 1">
-                                <li id="ds-language-selection-xs" class="dropdown">
-                                    <xsl:variable name="active-locale" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='currentLocale']"/>
-                                    <button id="language-dropdown-toggle-xs" href="#" role="button" class="dropdown-toggle navbar-toggle navbar-link" data-toggle="dropdown">
-                                        <b class="visible-xs glyphicon glyphicon-globe" aria-hidden="true"/>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="language-dropdown-toggle-xs" data-no-collapse="true">
-                                        <xsl:for-each
-                                                select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='supportedLocale']">
-                                            <xsl:variable name="locale" select="."/>
-                                            <li role="presentation">
-                                                <xsl:if test="$locale = $active-locale">
-                                                    <xsl:attribute name="class">
-                                                        <xsl:text>disabled</xsl:text>
-                                                    </xsl:attribute>
-                                                </xsl:if>
-                                                <a>
-                                                    <xsl:attribute name="href">
-                                                        <xsl:value-of select="$current-uri"/>
-                                                        <xsl:text>?locale-attribute=</xsl:text>
-                                                        <xsl:value-of select="$locale"/>
-                                                    </xsl:attribute>
-                                                    <xsl:value-of
-                                                            select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='supportedLocale'][@qualifier=$locale]"/>
-                                                </a>
-                                            </li>
-                                        </xsl:for-each>
-                                    </ul>
-                                </li>
-                            </xsl:if>
-
-                            <xsl:choose>
-                                <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
-                                    <li class="dropdown">
-                                        <button class="dropdown-toggle navbar-toggle navbar-link" id="user-dropdown-toggle-xs" href="#" role="button"  data-toggle="dropdown">
-                                            <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
+                                <xsl:if test="count(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='supportedLocale']) &gt; 1">
+                                    <li id="ds-language-selection-xs" class="dropdown">
+                                        <xsl:variable name="active-locale" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='currentLocale']"/>
+                                        <button id="language-dropdown-toggle-xs" href="#" role="button" class="dropdown-toggle navbar-toggle navbar-link" data-toggle="dropdown">
+                                            <b class="visible-xs glyphicon glyphicon-globe" aria-hidden="true"/>
                                         </button>
-                                        <ul class="dropdown-menu pull-right" role="menu"
-                                            aria-labelledby="user-dropdown-toggle-xs" data-no-collapse="true">
-                                            <li>
-                                                <a href="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='url']}">
-                                                    <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='logoutURL']}">
-                                                    <i18n:text>xmlui.dri2xhtml.structural.logout</i18n:text>
-                                                </a>
-                                            </li>
+                                        <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="language-dropdown-toggle-xs" data-no-collapse="true">
+                                            <xsl:for-each
+                                                    select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='supportedLocale']">
+                                                <xsl:variable name="locale" select="."/>
+                                                <li role="presentation">
+                                                    <xsl:if test="$locale = $active-locale">
+                                                        <xsl:attribute name="class">
+                                                            <xsl:text>disabled</xsl:text>
+                                                        </xsl:attribute>
+                                                    </xsl:if>
+                                                    <a>
+                                                        <xsl:attribute name="href">
+                                                            <xsl:value-of select="$current-uri"/>
+                                                            <xsl:text>?locale-attribute=</xsl:text>
+                                                            <xsl:value-of select="$locale"/>
+                                                        </xsl:attribute>
+                                                        <xsl:value-of
+                                                                select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='supportedLocale'][@qualifier=$locale]"/>
+                                                    </a>
+                                                </li>
+                                            </xsl:for-each>
                                         </ul>
                                     </li>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <li>
-                                        <form style="display: inline" action="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='loginURL']}" method="get">
-                                            <button class="navbar-toggle navbar-link">
-                                            <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
+                                </xsl:if>
+
+                                <xsl:choose>
+                                    <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
+                                        <li class="dropdown">
+                                            <button class="dropdown-toggle navbar-toggle navbar-link" id="user-dropdown-toggle-xs" href="#" role="button"  data-toggle="dropdown">
+                                                <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
                                             </button>
-                                        </form>
-                                    </li>
-                                </xsl:otherwise>
-                            </xsl:choose>
-                        </ul>
-                              </div>
-                    </div>
+                                            <ul class="dropdown-menu pull-right" role="menu"
+                                                aria-labelledby="user-dropdown-toggle-xs" data-no-collapse="true">
+                                                <li>
+                                                    <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='url']}">
+                                                        <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='logoutURL']}">
+                                                        <i18n:text>xmlui.dri2xhtml.structural.logout</i18n:text>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <li>
+                                            <form style="display: inline" action="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='loginURL']}" method="get">
+                                                <button class="navbar-toggle navbar-link">
+                                                <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
+                                                </button>
+                                            </form>
+                                        </li>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </ul>
+                                </div>
+                        </div>
 
-                    <div class="navbar-header pull-right hidden-xs">
-                        <ul class="nav navbar-nav pull-left">
-                              <xsl:call-template name="languageSelection"/>
-                        </ul>
-                        <ul class="nav navbar-nav pull-left">
-                            <xsl:choose>
-                                <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
-                                    <li class="dropdown">
-                                        <a id="user-dropdown-toggle" href="#" role="button" class="dropdown-toggle"
-                                           data-toggle="dropdown">
-                                            <span class="hidden-xs">
-                                                <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='firstName']"/>
-                                                <xsl:text> </xsl:text>
-                                                <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='lastName']"/>
-                                                &#160;
-                                                <b class="caret"/>
-                                            </span>
-                                        </a>
-                                        <ul class="dropdown-menu pull-right" role="menu"
-                                            aria-labelledby="user-dropdown-toggle" data-no-collapse="true">
-                                            <li>
-                                                <a href="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='url']}">
-                                                    <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='logoutURL']}">
-                                                    <i18n:text>xmlui.dri2xhtml.structural.logout</i18n:text>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <li>
-                                        <a href="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='loginURL']}">
-                                            <span class="hidden-xs">
-                                                <i18n:text>xmlui.dri2xhtml.structural.login</i18n:text>
-                                            </span>
-                                        </a>
-                                    </li>
-                                </xsl:otherwise>
-                            </xsl:choose>
-                        </ul>
+                        <div class="navbar-header pull-right hidden-xs">
+                            <ul class="nav navbar-nav pull-left">
+                                <xsl:call-template name="languageSelection"/>
+                            </ul>
+                            <ul class="nav navbar-nav pull-left">
+                                <xsl:choose>
+                                    <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
+                                        <li class="dropdown">
+                                            <a id="user-dropdown-toggle" href="#" role="button" class="dropdown-toggle"
+                                            data-toggle="dropdown">
+                                                <span class="hidden-xs">
+                                                    <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/
+                                dri:metadata[@element='identifier' and @qualifier='firstName']"/>
+                                                    <xsl:text> </xsl:text>
+                                                    <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/
+                                dri:metadata[@element='identifier' and @qualifier='lastName']"/>
+                                                    &#160;
+                                                    <b class="caret"/>
+                                                </span>
+                                            </a>
+                                            <ul class="dropdown-menu pull-right" role="menu"
+                                                aria-labelledby="user-dropdown-toggle" data-no-collapse="true">
+                                                <li>
+                                                    <a href="{/dri:document/dri:meta/dri:userMeta/
+                                dri:metadata[@element='identifier' and @qualifier='url']}">
+                                                        <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
+                                                    </a>
+                                                </li>
+                                                <!--<li>
+                                                    <a href="{/dri:document/dri:meta/dri:userMeta/
+                                dri:metadata[@element='identifier' and @qualifier='logoutURL']}">
+                                                        <i18n:text>xmlui.dri2xhtml.structural.logout</i18n:text>
+                                                    </a>
+                                                </li>-->
+                                            </ul>
+                                        </li>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <!--<li>
+                                            <a href="{/dri:document/dri:meta/dri:userMeta/
+                                dri:metadata[@element='identifier' and @qualifier='loginURL']}">
+                                                <span class="hidden-xs">
+                                                    <i18n:text>xmlui.dri2xhtml.structural.login</i18n:text>
+                                                </span>
+                                            </a>
+                                        </li>-->
 
-                        <button data-toggle="offcanvas" class="navbar-toggle visible-sm" type="button">
-                            <span class="sr-only"><i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
+                                        <!-- Add static pages to navbar -->
+                                        <li>
+                                            <a href="{$context-path}/">Home</a>
+                                        </li>
+                                        <li>
+                                            <a href="{$context-path}/exam-papers/about">About</a>
+                                        </li>
+                                        <li>
+                                            <a href="{$context-path}/exam-papers/help">Help</a>
+                                        </li>
+                                        <li>
+                                            <a href="{$context-path}/exam-papers/feedback">Feedback</a>
+                                        </li>
+                                        <li>
+                                            <a href="{$context-path}/exam-papers/faqs">FAQs</a>
+                                        </li>
+
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </ul>
+
+                            <button data-toggle="offcanvas" class="navbar-toggle visible-sm" type="button">
+                                <span class="sr-only"><i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
                     </div>
                 </div>
+
             </div>
 
+            <div class="container" id="header-container">
+                <div id="container-header">
+                    <div class="uofe-logo">
+                        <a href="https://www.ed.ac.uk/">
+                            <img src="{$theme-path}images/uni-logo-black.png" alt="University of Edinburgh Logo"></img>
+                        </a>
+                    </div>
+                    <div class="exam-banner" href="{$context-path}/">   
+                        <a class="exam-banner-click" href="{$context-path}/"> 
+                            <img src="{$theme-path}images/exampapersbanner.png" alt="University of Edinburgh Exam Papers Banner" href="{$context-path}/"></img>
+                            <h1>EXAM PAPERS ONLINE</h1>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
         </header>
 
     </xsl:template>
@@ -487,44 +660,94 @@
     <!-- The header (distinct from the HTML head element) contains the title, subtitle, login box and various
         placeholders for header images -->
     <xsl:template name="buildTrail">
-        <div class="trail-wrapper hidden-print">
-            <div class="container">
-                <div class="row">
-                    <!--TODO-->
-                    <div class="col-xs-12">
-                        <xsl:choose>
-                            <xsl:when test="count(/dri:document/dri:meta/dri:pageMeta/dri:trail) > 1">
-                                <div class="breadcrumb dropdown visible-xs">
-                                    <a id="trail-dropdown-toggle" href="#" role="button" class="dropdown-toggle"
-                                       data-toggle="dropdown">
-                                        <xsl:variable name="last-node"
-                                                      select="/dri:document/dri:meta/dri:pageMeta/dri:trail[last()]"/>
-                                        <xsl:choose>
-                                            <xsl:when test="$last-node/i18n:*">
-                                                <xsl:apply-templates select="$last-node/*"/>
-                                            </xsl:when>
-                                            <xsl:otherwise>
-                                                <xsl:apply-templates select="$last-node/text()"/>
-                                            </xsl:otherwise>
-                                        </xsl:choose>
-                                        <xsl:text>&#160;</xsl:text>
-                                        <b class="caret"/>
-                                    </a>
-                                    <ul class="dropdown-menu" role="menu" aria-labelledby="trail-dropdown-toggle">
-                                        <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"
-                                                             mode="dropdown"/>
+        <div class="container" id="trail-container">
+            <div class="trail-wrapper hidden-print">
+                <div class="container">
+                    <div class="row">
+                        <!--TODO-->
+                        <div class="col-xs-12">
+                            <xsl:choose>
+                                <xsl:when test="count(/dri:document/dri:meta/dri:pageMeta/dri:trail) > 1">
+                                    <div class="breadcrumb dropdown visible-xs">
+                                        <a id="trail-dropdown-toggle" href="#" role="button" class="dropdown-toggle"
+                                        data-toggle="dropdown">
+                                            <xsl:variable name="last-node"
+                                                        select="/dri:document/dri:meta/dri:pageMeta/dri:trail[last()]"/>
+                                            <xsl:choose>
+                                                <xsl:when test="$last-node/i18n:*">
+                                                    <xsl:apply-templates select="$last-node/*"/>
+                                                </xsl:when>
+                                                <xsl:otherwise>
+                                                    <xsl:apply-templates select="$last-node/text()"/>
+                                                </xsl:otherwise>
+                                            </xsl:choose>
+                                            <xsl:text>&#160;</xsl:text>
+                                            <b class="caret"/>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu" aria-labelledby="trail-dropdown-toggle">
+                                            <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"
+                                                                mode="dropdown"/>
+                                        </ul>
+                                    </div>
+                                    <ul class="breadcrumb hidden-xs">
+                                        <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
                                     </ul>
-                                </div>
-                                <ul class="breadcrumb hidden-xs">
-                                    <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
-                                </ul>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <ul class="breadcrumb">
-                                    <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
-                                </ul>
-                            </xsl:otherwise>
-                        </xsl:choose>
+                                </xsl:when>
+
+                                <!-- Add static page breadcrumbs -->
+                                    <xsl:when test="starts-with($request-uri, 'exam-papers/about')">
+                                        <ul class="breadcrumb">
+                                            <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
+                                            <li class="breadcrumb">
+                                                <xsl:text>About</xsl:text>
+                                            </li>
+                                        </ul>
+                                        
+                                    </xsl:when>
+                                    <xsl:when test="starts-with($request-uri, 'exam-papers/help')">
+                                        <ul class="breadcrumb">
+                                            <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
+                                            <li class="breadcrumb">
+                                                <xsl:text>Help</xsl:text>
+                                            </li>
+                                        </ul>
+                                        
+                                    </xsl:when>
+                                    <xsl:when test="starts-with($request-uri, 'exam-papers/feedback')">
+                                        <ul class="breadcrumb">
+                                            <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
+                                            <li class="breadcrumb">
+                                                <xsl:text>Feedback</xsl:text>
+                                            </li>
+                                        </ul>
+                                        
+                                    </xsl:when>
+                                    <xsl:when test="starts-with($request-uri, 'exam-papers/faqs')">
+                                        <ul class="breadcrumb">
+                                            <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
+                                            <li class="breadcrumb">
+                                                <xsl:text>FAQs</xsl:text>
+                                            </li>
+                                        </ul>
+                                        
+                                    </xsl:when> 
+                                    <xsl:when test="starts-with($request-uri, 'exam-papers/unavailable')">
+                                        <ul class="breadcrumb">
+                                            <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
+                                            <li class="breadcrumb">
+                                                <xsl:text>Paper Unavailable</xsl:text>
+                                            </li>
+                                        </ul>
+                                        
+                                    </xsl:when>   
+
+                                <xsl:otherwise>
+                                    <ul class="breadcrumb">
+                                        <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
+                                    </ul>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -701,30 +924,62 @@
                 <div class="row">
                     <hr/>
                     <div class="col-xs-7 col-sm-8">
-                        <div>
+                        <!--<div>
                             <a href="http://www.dspace.org/" target="_blank">DSpace software</a> copyright&#160;&#169;&#160;2002-2016&#160; <a href="http://www.duraspace.org/" target="_blank">DuraSpace</a>
-                        </div>
+                        </div>-->
                         <div class="hidden-print">
                             <a>
                                 <xsl:attribute name="href">
                                     <xsl:value-of
                                             select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
                                     <xsl:text>/contact</xsl:text>
+
+                                    <!-- Add static page URK paths -->
+                                    <!-- * may require changes before deployment * -->
+                                    <xsl:text>/exam-papers/about</xsl:text>
+                                    <xsl:text>/exam-papers/help</xsl:text>
+                                    <xsl:text>/exam-papers/feedback</xsl:text>
+                                    <xsl:text>/exam-papers/faqs</xsl:text>
+                                    <xsl:text>/exam-papers/unavailable</xsl:text>
                                 </xsl:attribute>
-                                <i18n:text>xmlui.dri2xhtml.structural.contact-link</i18n:text>
+
+                                <!--<i18n:text>xmlui.dri2xhtml.structural.contact-link</i18n:text>-->
                             </a>
-                            <xsl:text> | </xsl:text>
+                            <!--<xsl:text> | </xsl:text>--> 
                             <a>
-                                <xsl:attribute name="href">
+                                <!--<xsl:attribute name="href">
                                     <xsl:value-of
                                             select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
                                     <xsl:text>/feedback</xsl:text>
                                 </xsl:attribute>
-                                <i18n:text>xmlui.dri2xhtml.structural.feedback-link</i18n:text>
+                                <i18n:text>xmlui.dri2xhtml.structural.feedback-link</i18n:text>-->
                             </a>
+                            <div class="footer-disclaimer">
+                                <div class="footer-policies">
+                                    <p>
+                                        <a class="footer-policies-a" href="http://www.ed.ac.uk/about/website/privacy" title="Privacy and Cookies Link" target="_blank">Privacy &amp; Cookies </a> 
+                                        <a class="footer-policies-a" href="/takedown" title="Takedown Policy Link">Takedown Policy </a> 
+                                        <a class="footer-policies-a" href="http://www.ed.ac.uk/about/website/accessibility" title="Website Accessibility Link" target="_blank">Accessibility </a> 
+                                    </p>
+                                </div>
+                                <div class="footer-disclaimer">
+                                    <p>
+                                        The University of Edinburgh is a charitable body, registered in Scotland, with registration number SC005336, VAT Registration Number GB 592 9507 00, and is acknowledged by the UK authorities as a <a href="https://www.gov.uk/recognised-uk-degrees" title="UK Government Recognised Degrees Link" target="_blank">“Recognised Body”</a> which has been granted degree awarding powers.
+                                    </p>
+                                    <p></p>
+                                    <p>
+                                        Unless explicitly stated otherwise, all material is copyright © 2019 <a href="http://www.ed.ac.uk" title="University of Edinburgh Home" target="_blank">University of Edinburgh</a>.
+                                    </p>
+                                </div>
+                                <div class="is-logo">
+                                    <a href="http://www.is.ed.ac.uk" target="_blank" class="islogo" title="University of Edinburgh Information Services Home"></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-xs-5 col-sm-4 hidden-print">
+
+                    <!-- REMOVED THEME LOGO -->
+                    <!--<div class="col-xs-5 col-sm-4 hidden-print">
                         <div class="pull-right">
                             <span class="theme-by">Theme by&#160;</span>
                             <br/>
@@ -733,7 +988,8 @@
                             </a>
                         </div>
 
-                    </div>
+                    </div>-->
+
                 </div>
                 <!--Invisible link to HTML sitemap (for search engines) -->
                 <a class="hidden">
@@ -755,7 +1011,6 @@
 
 
 
-
     <!--
         The template to handle the dri:body element. It simply creates the ds-body div and applies
         templates of the body's child elements (which consists entirely of dri:div tags).
@@ -770,13 +1025,174 @@
             </xsl:if>
 
             <!-- Check for the custom pages -->
+            <!-- STATIC PAGES ADDED BELOW -->
+            <!-- * may require some changes before deployment * -->
             <xsl:choose>
-                <xsl:when test="starts-with($request-uri, 'page/about')">
+            <!-- Conditionals to determin URL path and serve up corrisponding static page -->
+
+                <!-- ABOUT PAGE -->
+                <xsl:when test="starts-with($request-uri, 'exam-papers/about')">
                     <div class="hero-unit">
-                        <h1><i18n:text>xmlui.mirage2.page-structure.heroUnit.title</i18n:text></h1>
-                        <p><i18n:text>xmlui.mirage2.page-structure.heroUnit.content</i18n:text></p>
+                        <div class="content">
+
+                            <p></p>
+
+                            <h3>Edinburgh University Exam Papers Online</h3>
+                            <p>
+                                Exam Papers Online is a service provided by University of Edinburgh Library and University Collections for students and staff of The University of Edinburgh.
+                            </p>
+                            <p>
+                                These pages will be updated periodically, as more papers become available.
+                                If you cannot find the paper you are looking for, please email <a href="mailto:exam.papers@ed.ac.uk" title="Link to email the exam paper team at the University of Edinburgh about a specific exam paper">exam.papers@ed.ac.uk</a>, or try visiting again at a later date.
+                            </p>
+                            <p>
+                                These pages are part of the collected Degree Examination Papers of the University of Edinburgh and are provided for use by its students as a study aid. No other use is permitted.
+                            </p>
+                            <p>
+                                Bound volumes of older sets - up to academic year 2004/2005 - have now been removed to the Library Annexe and may be retrieved upon request.
+                                Further information on accessing material stored in the Library Annexe is available here:
+                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery/using-library/lib-locate/library-annexe/library-annexe-access" target="_blank" title="Link to details about accessing the Library Annexe materials">Accessing material in the Library Annexe</a>
+                            </p>
+                        </div>
+                    </div>
+
+                </xsl:when>
+
+                <!-- HELP PAGE -->
+                <xsl:when test="starts-with($request-uri, 'exam-papers/help')">
+                    <div class="hero-unit">
+                        <div class="content">
+
+                            <p></p>
+
+                            <h3>Exam Papers Online Help</h3>
+
+                            <p>
+                                Please contact <a href="mailto:exam.papers@ed.ac.uk" title="Link to email the exam paper team at the University of Edinburgh with any queries">exam.papers@ed.ac.uk</a> with any queries concerning past exam papers or use the <a href="./feedback/" title="Link to the University of Edinburgh's exam papers feedback form">Feedback form</a> for comments or suggestions on the web pages.
+                            </p>
+                            <p>
+                                All exam paper downloads on this site are in PDF format. Your browser should automatically display the PDF but if this is not possible, there will be a link for downloading the PDF. If you do not have a PDF reader installed, download Adobe Acrobat Reader <a href="http://get.adobe.com/uk/reader/" title="Link to download and install Adobe Acrobat PDF Reader" class="bold">here</a>.
+                            </p>
+                            <p>
+                                Users who wish to use assisted software are advised to use Internet Explorer.
+                            </p>
+                        </div>
                     </div>
                 </xsl:when>
+
+                <!-- FEEDBACK PAGE -->
+                <xsl:when test="starts-with($request-uri, 'exam-papers/feedback')">
+                    <div class="hero-unit">
+                        <div class="content">
+
+                            <p></p>
+
+                            <h3>Feedback</h3>
+
+                            <p>
+                                Please contact us with your suggestions or questions at <a href="mailto:exam.papers@ed.ac.uk" title="Link to email the exam paper team at the University of Edinburgh with feedback and suggestions">exam.papers@ed.ac.uk</a>.
+                            </p>
+
+
+                            <h3>Privacy Statement </h3>
+                            <p>
+                                Information about you: how we use it and with whom we share it
+                            </p>
+                            <p>
+                                The information you provide in this form will be used only for purposes of your enquiry. We will not share your personal information with any third party or use it for any other purpose.
+                                We are using information about you because it is necessary to contact you regarding your enquiry. By providing your personal data when submitting an enquiry to us, consent for your personal data to be used in this way is implied.
+                            </p>
+                            <p>
+                                For digitisation orders, your personal data is necessary for the performance of our contract to provide you with services that charge a fee.
+                            </p>
+                            <p>
+                                We will hold the personal data you provided us for 6 years. We do not use profiling or automated decision-making processes.
+                            </p>
+                            <p>
+                                If you have any questions, please contact: <a href="mailto:exam.papers@ed.ac.uk" title="Link to email the exam paper team at the University of Edinburgh with any questions">exam.papers@ed.ac.uk</a>
+                            </p>
+                            <p><a href="https://www.ed.ac.uk/records-management/notice" target="_blank" title="Link to the University of Edinburgh's privacy statement">University privacy statement</a></p>
+                        </div>
+                    </div>
+                </xsl:when>
+
+                <!-- FAQ PAGE -->
+                <xsl:when test="starts-with($request-uri, 'exam-papers/faqs')">
+                    <div class="hero-unit">
+                        <div class="content">
+
+                            <div class="content byEditor about">
+                                <h3>FAQs</h3>
+                                <h4>...For Students</h4>
+                                <h5> I can’t find my paper. Why?</h5>
+                                <p>
+                                    If you have tried all of the search tips and cannot find an entry for your paper it might be missing for one of the following reasons:
+                                </p>
+                                <ul>
+                                    <li>We have not been sent the paper by the department. While we do our best to collect all papers there will inevitably be gaps in our records.</li>
+                                    <li>The department does not want it made available online. It is at the discretion of teaching staff as to whether a past exam paper is made available online. Some departments ask that none of the papers are placed on Exam Papers Online, others may only want the most recent papers to be available.</li>
+                                    <li>We have recently received the paper. The paper may have recently been sent to us by a department and is awaiting processing by us. Please try again later.</li>
+                                    <li>This is the first year the course has run. If this is the first year a course has run then there will not be any record of the course on Exam Papers Online, as no past examinations have been sat.</li>
+                                    <li>The course hasn’t run every year. Not all courses run every year so there may be gaps in our holdings. If there is no record for a paper it is because it wasn’t sat that year.</li>
+                                    <li>It is not the type of exam paper we hold. We only hold digitised copies of print degree examination papers. We do not hold computer-based, class or practical examinations.</li>
+                                    <li>If you require more information as to why a paper isn’t available online please email us.</li>
+                                </ul>
+                                <p></p>
+
+                                <h5>Do you hold the answers to exam papers?</h5>
+                                <p>
+                                    No, we only hold the examination papers that have been sat in past years, not the solutions.
+                                </p>
+
+                                <h5>A section has been removed from my paper. Why?</h5>
+                                <p>
+                                    Some sections, such as multiple choice questions, may have been removed from papers by the department, or others may be have been removed due to copyright restrictions.
+                                </p>
+
+                                <h5>Where can I find pre-2004 exam papers?</h5>
+                                <p id="faq-div-p">
+                                    We hold some digitised exam papers from 1995 to 2004 in our archive. Please email us if you require older papers. Original print copies of papers further back are held at the Library Annexe.
+                                </p>
+
+                                <h4>...For Administrative &amp; Teaching Staff</h4>
+                                <h5>How do I submit an exam paper to go online?</h5>
+                                <p>
+                                    Once the examination period is over papers can be emailed to us at any time, in Word or pdf format. We send out email reminders out 3 times a year, after each examination diet. If you wish to be included in the mailing list please contact us.
+                                </p>
+                                <h5>Can you tell me what exam papers are missing from my subject?</h5>
+                                <p>
+                                    Yes, please email us with the details of the subject you are responsible for and we can provide a list of the papers not currently held.
+                                </p>
+                                <h5>How can I have a paper taken down?</h5>
+                                <p>
+                                    Please email us with the details of the paper you wish removed.
+                                </p>
+                                <p>
+                                    If you have any other questions please email us at <strong><a href="mailto:exam.papers@ed.ac.uk" title="Link to email the exam paper team at the University of Edinburgh about any other queries">exam.papers@ed.ac.uk</a></strong>
+                                </p>
+                            </div>
+                        </div>        
+                    </div>
+                </xsl:when>
+
+                <!-- PAPER UNAVAILABLE PAGE -->
+                <xsl:when test="starts-with($request-uri, 'exam-papers/unavailable')">
+                    <div class="hero-unit">
+                        <div class="content">
+
+                            <h3>This exam paper is unavailable at present</h3>
+                            <p></p>
+
+                            <h5 class="unavailable-list">This may be due to one of the following reasons:</h5>
+                            <ol class="unavailable-list">
+                                <li>The paper has not yet been supplied by the School.</li>
+                                <li>The School does not wish this paper to be published online.</li>
+                                <li>The paper contains copyright material which means it cannot be published online.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </xsl:when>
+                
                 <!-- Otherwise use default handling of body -->
                 <xsl:otherwise>
                     <xsl:apply-templates />

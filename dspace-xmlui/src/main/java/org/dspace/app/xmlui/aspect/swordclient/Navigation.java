@@ -64,6 +64,10 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
         // todo : I don't understand what they do.
 
         List context = options.addList("context");
+        options.addList("discovery");
+        options.addList("browse");
+        options.addList("account");
+        options.addList("administrative");
 
         // Context Administrative options
         DSpaceObject dso = HandleUtil.obtainHandle(objectModel);

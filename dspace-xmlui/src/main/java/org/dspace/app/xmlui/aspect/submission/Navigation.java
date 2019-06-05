@@ -63,6 +63,8 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
         List account = options.addList("account");
         options.addList("context");
         options.addList("administrative");
+        options.addList("discovery");
+
     	
 //      This doesn't flow very well, lets remove it and see if anyone misses it.  
 //    	DSpaceObject dso = HandleUtil.obtainHandle(objectModel);	

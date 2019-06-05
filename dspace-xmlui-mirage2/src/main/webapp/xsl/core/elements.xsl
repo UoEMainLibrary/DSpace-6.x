@@ -578,6 +578,10 @@
         <xsl:apply-templates select="@pagination">
             <xsl:with-param name="position">top</xsl:with-param>
         </xsl:apply-templates>
+
+
+        <!-- REMOVED SECONDARY SEARCH BAR -->
+        <!--For Item Submission process, disable ability to submit a form by pressing 'Enter'-->
         <form>
             <xsl:call-template name="standardAttributes">
                 <xsl:with-param name="class">ds-interactive-div</xsl:with-param>
@@ -592,7 +596,6 @@
                 <xsl:attribute name="enctype">multipart/form-data</xsl:attribute>
             </xsl:if>
             <xsl:attribute name="onsubmit">javascript:tSubmit(this);</xsl:attribute>
-            <!--For Item Submission process, disable ability to submit a form by pressing 'Enter'-->
             <xsl:if test="starts-with(@n,'submit')">
                 <xsl:attribute name="onkeydown">javascript:return disableEnterKey(event);</xsl:attribute>
             </xsl:if>
@@ -601,6 +604,8 @@
             <xsl:apply-templates select="*[not(name()='head')]"/>
 
         </form>
+
+        
         <!-- JS to scroll form to DIV parent of "Add" button if jump-to -->
         <xsl:if test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='jumpTo']">
             <script type="text/javascript">

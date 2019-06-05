@@ -59,13 +59,15 @@
         <xsl:choose>
             <xsl:when test="'file' = $emphasis">
 
-
+                
                 <div class="item-wrapper row">
-                    <div class="col-sm-3 hidden-xs">
+
+                    <!-- REMOVED THUMBNAIL DIV WRAPPER -->
+                    <!--<div class="col-sm-3 hidden-xs">
                         <xsl:apply-templates select="./mets:fileSec" mode="artifact-preview">
                             <xsl:with-param name="href" select="$href"/>
                         </xsl:apply-templates>
-                    </div>
+                    </div>-->
 
                     <div class="col-sm-9">
                         <xsl:apply-templates select="./mets:dmdSec/mets:mdWrap[@OTHERMDTYPE='DIM']/mets:xmlData/dim:dim"
@@ -178,14 +180,70 @@
         <xsl:call-template name="itemSummaryList-DIM"/>
     </xsl:template>
 
+    <xsl:template name="itemSummaryView-DIM-file-section">
+        <xsl:choose>
+            <xsl:when test="//mets:fileSec/mets:fileGrp[@USE='CONTENT' or @USE='ORIGINAL' or @USE='LICENSE']/mets:file">
+                <div class="item-page-field-wrapper table word-break">
+                    <h5>
+                        <i18n:text>xmlui.dri2xhtml.METS-1.0.item-files-viewOpen</i18n:text>
+                    </h5>
 
-    <xsl:template match="mets:fileSec" mode="artifact-preview">
+                    <div class="item-detail">
+                    <xsl:variable name="label-1">
+                            <xsl:choose>
+                                <xsl:when test="confman:getProperty('mirage2.item-view.bitstream.href.label.1')">
+                                    <!--<xsl:value-of select="confman:getProperty('mirage2.item-view.bitstream.href.label.1')"/>-->
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:text>label</xsl:text>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                            
+                    </xsl:variable>
+
+                    <xsl:variable name="label-2">
+                            <xsl:choose>
+                                <xsl:when test="confman:getProperty('mirage2.item-view.bitstream.href.label.2')">
+                                    <!-- <xsl:value-of select="confman:getProperty('mirage2.item-view.bitstream.href.label.2')"/>-->
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:text>title</xsl:text>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                            <!--<xsl:text>Paper</xsl:text>-->
+                    </xsl:variable>
+
+                    <xsl:for-each select="//mets:fileSec/mets:fileGrp[@USE='CONTENT' or @USE='ORIGINAL' or @USE='LICENSE']/mets:file">
+                        <xsl:call-template name="itemSummaryView-DIM-file-section-entry">
+                            <xsl:with-param name="href" select="mets:FLocat[@LOCTYPE='URL']/@xlink:href" />
+                            <xsl:with-param name="mimetype" select="@MIMETYPE" />
+                            <xsl:with-param name="label-1" select="$label-1" />
+                            <xsl:with-param name="label-2" select="$label-2" />
+                            <xsl:with-param name="title" select="mets:FLocat[@LOCTYPE='URL']/@xlink:title" />
+                            <xsl:with-param name="label" select="mets:FLocat[@LOCTYPE='URL']/@xlink:label" />
+                            <xsl:with-param name="size" select="@SIZE" />
+                        </xsl:call-template>
+                    </xsl:for-each>
+                    </div>
+                </div>
+            </xsl:when>
+            <!-- Special case for handling ORE resource maps stored as DSpace bitstreams -->
+            <xsl:when test="//mets:fileSec/mets:fileGrp[@USE='ORE']">
+                <xsl:apply-templates select="//mets:fileSec/mets:fileGrp[@USE='ORE']" mode="itemSummaryView-DIM" />
+            </xsl:when>
+        </xsl:choose>
+    </xsl:template>
+
+
+    <!-- REMOVED THUMBNAIL TEMPLATE -->
+    <!-- Checking if Thumbnail is restricted and if so, show a restricted image --> 
+    <!--<xsl:template match="mets:fileSec" mode="artifact-preview">
         <xsl:param name="href"/>
         <div class="thumbnail artifact-preview">
             <a class="image-link" href="{$href}">
                 <xsl:choose>
                     <xsl:when test="mets:fileGrp[@USE='THUMBNAIL']">
-                        <!-- Checking if Thumbnail is restricted and if so, show a restricted image --> 
+                        
                         <xsl:variable name="src">
                             <xsl:value-of select="mets:fileGrp[@USE='THUMBNAIL']/mets:file/mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
                         </xsl:variable>
@@ -216,7 +274,7 @@
                 </xsl:choose>
             </a>
         </div>
-    </xsl:template>
+    </xsl:template>-->
 
 
 

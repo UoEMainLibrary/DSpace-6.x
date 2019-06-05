@@ -44,11 +44,13 @@
     <!-- TODO: figure out why i18n tags break the go button -->
     <xsl:template match="dri:options">
         <div id="ds-options" class="word-break hidden-print">
-            <xsl:if test="not(contains(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI'], 'discover'))">
+
+            <!-- CONDITION REMOVED TO DISPLAY NAVIGATION ON ALL PAGES -->
+            <!--<xsl:if test="not(contains(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI'], 'discover'))">-->
                 <div id="ds-search-option" class="ds-option-set">
-                    <!-- The form, complete with a text box and a button, all built from attributes referenced
-                 from under pageMeta. -->
-                    <form id="ds-search-form" class="" method="post">
+
+                    <!-- SEARCH BAR, COLLECTION, & DSPACE CHECKBOXES REVOVED -->
+                    <!--<form id="ds-search-form" class="" method="post">
                         <xsl:attribute name="action">
                             <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath']"/>
                             <xsl:value-of
@@ -87,9 +89,9 @@
                                         </xsl:attribute>
                                     </button>
                                 </span>
-                            </div>
+                            </div>-->
 
-                            <xsl:if test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='container']">
+                            <!--<xsl:if test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='container']">
                                 <div class="radio">
                                     <label>
                                         <input id="ds-search-form-scope-all" type="radio" name="scope" value=""
@@ -118,13 +120,18 @@
                                     </label>
                                 </div>
                             </xsl:if>
+
                         </fieldset>
-                    </form>
+                    </form>-->
                 </div>
-            </xsl:if>
+            <!--</xsl:if>-->
+            <xsl:apply-templates select="dri:list[@n='author']"/>
+            <xsl:apply-templates select="dri:list[@n='subject']"/>
             <xsl:apply-templates/>
+
+            <!-- RSS FEED REVOVED -->
             <!-- DS-984 Add RSS Links to Options Box -->
-            <xsl:if test="count(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='feed']) != 0">
+            <!--<xsl:if test="count(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='feed']) != 0">
                 <div>
                     <h2 class="ds-option-set-head h6">
                         <i18n:text>xmlui.feed.header</i18n:text>
@@ -134,12 +141,14 @@
                     </div>
                 </div>
 
-            </xsl:if>
+            </xsl:if>-->
+
         </div>
     </xsl:template>
 
+    <!-- RSS FEED REVOVED -->
     <!-- Add each RSS feed from meta to a list -->
-    <xsl:template name="addRSSLinks">
+    <!--<xsl:template name="addRSSLinks">
         <xsl:for-each select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='feed']">
             <a class="list-group-item">
                 <xsl:attribute name="href">
@@ -164,7 +173,7 @@
                 </xsl:choose>
             </a>
         </xsl:for-each>
-    </xsl:template>
+    </xsl:template>-->
 
     <xsl:template match="dri:options//dri:list">
         <xsl:apply-templates select="dri:head"/>
@@ -172,64 +181,161 @@
         <xsl:apply-templates select="dri:list"/>
     </xsl:template>
 
+    <!-- URL variables to be used in template conditionals -->
+    <!--> Supress 'Subject' in navigation bar if $doc-url equal to $doc-root (i.e. only display 'Subject' on collection pages) -->
+    <xsl:variable name="doc-root" select="translate(/dri:document/dri:meta/dri:pageMeta/dri:trail[@target][last()]/@target, '/', '')"/>
+    <xsl:variable name="doc-url" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI']"/>
+
+    <!-- ALL SIDEBAR NAVIGATION ELEMENTS CHECKED TO SEE IF THEY RELATE TO SCHOOLS AND SERVED ACCORDINGLY (I.E. ONLY DISPLAY SCHOOLS) -->
+    <!-- 'SUBJECT' NAVIGATION ELEMENTS SUPRESSED ON HOME PAGE -->
     <xsl:template match="dri:options/dri:list" priority="3">
-        <xsl:apply-templates select="dri:head"/>
-        <div>
-            <xsl:call-template name="standardAttributes">
-                <xsl:with-param name="class">list-group</xsl:with-param>
-            </xsl:call-template>
-            <xsl:apply-templates select="dri:item"/>
-            <xsl:apply-templates select="dri:list"/>
-        </div>
+        <xsl:choose>
+            <xsl:when test="$doc-url = $doc-root">
+                <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'context') and not(../@n = 'subject')">
+                    <div>
+                        <xsl:call-template name="standardAttributes">
+                            <xsl:with-param name="class">list-group</xsl:with-param>
+                        </xsl:call-template>
+                        <xsl:apply-templates select="dri:item"/>
+                        <xsl:apply-templates select="dri:list"/>
+                    </div>
+                </xsl:if>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'context')">
+                    <div>
+                        <xsl:call-template name="standardAttributes">
+                            <xsl:with-param name="class">list-group</xsl:with-param>
+                        </xsl:call-template>
+                        <xsl:apply-templates select="dri:item"/>
+                        <xsl:apply-templates select="dri:list"/>
+                    </div>
+                </xsl:if>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
 
     <xsl:template match="dri:options//dri:item">
-        <div>
-            <xsl:call-template name="standardAttributes">
-                <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
-            </xsl:call-template>
-            <xsl:apply-templates />
-        </div>
+        <xsl:choose>
+            <xsl:when test="$doc-url = $doc-root">
+                <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'context') and not(../@n = 'subject')">
+                    <div>
+                        <xsl:call-template name="standardAttributes">
+                            <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                        </xsl:call-template>
+                        <xsl:apply-templates/>
+                    </div>
+                </xsl:if>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'context')">
+                    <div>
+                        <xsl:call-template name="standardAttributes">
+                            <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                        </xsl:call-template>
+                        <xsl:apply-templates/>
+                    </div>
+                </xsl:if>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <xsl:template match="dri:options//dri:item[dri:xref]">
-        <a href="{dri:xref/@target}">
-            <xsl:call-template name="standardAttributes">
-                <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
-            </xsl:call-template>
-            <xsl:choose>
-                <xsl:when test="dri:xref/node()">
-                    <xsl:apply-templates select="dri:xref/node()"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:value-of select="dri:xref"/>
-                </xsl:otherwise>
-            </xsl:choose>
-
-        </a>
+        <xsl:choose>
+            <xsl:when test="$doc-url = $doc-root">
+                <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'context') and not(../@n = 'subject')">
+                    <a href="{dri:xref/@target}">
+                        <xsl:call-template name="standardAttributes">
+                            <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                        </xsl:call-template>
+                        <xsl:choose>
+                            <xsl:when test="dri:xref/node()">
+                                <xsl:apply-templates select="dri:xref/node()"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="dri:xref"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </a>
+                </xsl:if>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'context')">
+                    <a href="{dri:xref/@target}">
+                        <xsl:call-template name="standardAttributes">
+                            <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                        </xsl:call-template>
+                        <xsl:choose>
+                            <xsl:when test="dri:xref/node()">
+                                <xsl:apply-templates select="dri:xref/node()"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="dri:xref"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </a>
+                </xsl:if>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <xsl:template match="dri:options/dri:list/dri:head" priority="3">
-        <xsl:call-template name="renderHead">
-            <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
-        </xsl:call-template>
+    <xsl:choose>
+            <xsl:when test="$doc-url = $doc-root">
+                <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'context') and not(../@n = 'subject')">
+                    <xsl:call-template name="renderHead">
+                        <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
+                    </xsl:call-template>
+                </xsl:if>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'context')">
+                    <xsl:call-template name="renderHead">
+                        <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
+                    </xsl:call-template>
+                </xsl:if>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <xsl:template match="dri:options/dri:list//dri:list/dri:head" priority="3">
-        <a class="list-group-item active">
-            <span>
-                <xsl:call-template name="standardAttributes">
-                    <xsl:with-param name="class">
-                        <xsl:value-of select="@rend"/>
-                        <xsl:text> list-group-item-heading</xsl:text>
-                    </xsl:with-param>
-                </xsl:call-template>
-                <xsl:apply-templates/>
-            </span>
-        </a>
+        <xsl:choose>
+            <xsl:when test="$doc-url = $doc-root">
+                <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'context') and not(../@n = 'subject')">
+                    <a class="list-group-item active">
+                        <span>
+                            <xsl:call-template name="standardAttributes">
+                                <xsl:with-param name="class">
+                                    <xsl:value-of select="@rend"/>
+                                    <xsl:text> list-group-item-heading</xsl:text>
+                                </xsl:with-param>
+                            </xsl:call-template>
+                            <xsl:apply-templates/>
+                        </span>
+                    </a>
+                </xsl:if>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'context')">
+                    <a class="list-group-item active">
+                        <span>
+                            <xsl:call-template name="standardAttributes">
+                                <xsl:with-param name="class">
+                                    <xsl:value-of select="@rend"/>
+                                    <xsl:text> list-group-item-heading</xsl:text>
+                                </xsl:with-param>
+                            </xsl:call-template>
+                            <xsl:apply-templates/>
+                        </span>
+                    </a>
+                </xsl:if>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
-    <xsl:template match="dri:list[count(child::*)=0]"/>
+    <xsl:template match="dri:list[count(child::*)=0]"/> 
+
+    
 
 </xsl:stylesheet>

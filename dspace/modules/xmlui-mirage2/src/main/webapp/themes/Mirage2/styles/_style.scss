@@ -18,8 +18,20 @@
 }
 
 @include selection {
-    color: white;
-    background: hotpink;
+  color: white;
+  background: #186599;
+}
+
+a {
+  color: #186599;
+}
+a:hover {
+  color: #103d5c;
+  text-decoration: underline;
+}
+
+span {
+  color: #186599;
 }
 
 .publication-records-modal, .publication-records-modal ul {
@@ -59,3 +71,318 @@
     margin-bottom:5px;
   }
 }
+
+.navbar {
+  background: #186599;
+}
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, span {
+  color: #186599;
+}
+
+h3 {
+  font-size: 30;
+  font-style: bold;
+  margin-bottom:  20px; 
+}
+h4, h5 {
+  margin-top: 20px;
+}
+
+.ds-paragraph p {
+  margin-bottom: 15px;
+}
+
+/* Hide DSpace communities block */
+.ds-div-head {
+  display: none;
+}
+#aspect_artifactbrowser_CommunityBrowser_div_comunity-browser {
+  display: none;
+}
+#aspect_discovery_SiteRecentSubmissions_div_site-home {
+  display: none;
+}
+
+/* CUSTOM STYLES */
+
+/* Header */
+#header-container {
+  padding: 0px;
+}
+#main-container span {
+  margin-bottom: 5px;
+  color: #186599;
+}
+#main-container .horizontal-slider {
+  background: #FFFFFF;
+}
+/* Header Images */
+.container-header { 
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #FFFFFF;
+}
+.uofe-logo {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.uofe-logo img {
+  width: 40%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.exam-banner {
+  background-color: #ddf5fb;
+}
+.exam-banner img {
+  position: relative;
+  width: 100%;
+}
+.exam-banner h1 {
+  position: absolute;
+  top: 175px;
+  margin-left: 25px;
+  font-size: 50px;
+  text-shadow: 0 0 10px #FFF, 0 0 10px #FFF;
+}
+.exam-banner :hover h1 {
+  color: #FFFFFF;
+  position: absolute;
+  top: 175px;
+  margin-left: 25px;
+  font-size: 50px;
+  text-shadow: 0 0 5px #FFF, 0 0 5px #FFF;
+}
+.exam-banner :hover img {
+  opacity: 0.7;
+}
+
+/* Breadcrumbs */
+#trail-container {
+  padding: 0px;
+}
+.trail-wrapper {
+  background-color: #FFFFFF;
+  border: none;
+}
+.breadcrumb {
+  padding: 10px;
+  margin: 10 0;
+}
+
+/* Navbar */
+#navbar-container {
+  background: #176599;
+}
+header .navbar-default {
+  background-color: #186599;
+}
+header .navbar-default a :hover {
+  text-decoration: underline;
+}
+.navbar-nav li {
+  float: left;
+  background-color: #186599;
+}
+.navbar-nav a :hover {
+  background-color: #186599;
+  text-decoration: underline;
+}
+#main-container #sidebar {
+  background-color: #ffffff;
+}
+.btn-primary {
+  background-color: #186599;
+  border-color: #566b81;
+}
+.btn-primary span {
+  color: #FFFFFF;
+}
+.list-group-item {
+  background-color: #ddf5fb;
+  padding: 2px 15px;
+  border: none;
+}
+a.list-group-item {
+  background-color: #ddf5fb;
+  padding: 2px 15px;
+}
+a.list-group-item :hover{
+  background-color: #ddf5fb;
+  text-decoration: underline;
+}
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+  z-index: 2;
+  background-color: #186599;
+  border-color: #186599;
+}
+#sidebar span {
+  color: #FFFFFF;
+}
+#search-tip-box {
+  background: #ddf5fb;
+  padding: 10px;
+  border-radius: 10px;
+}
+#ds-options {
+  padding: 0px;
+}
+
+/* Searchbar */
+.body-search {
+  display: inline-flex;
+  margin-bottom: 25px;
+}
+#body-input {
+  width: 780%;
+}
+.input-group {
+  width: 100%;
+}
+fieldset {
+  width: 50%;
+}
+#search-button {
+  width: 200%;
+  left: 450px;
+}
+#search-button span{
+  color: #FFFFFF;
+}
+#search-reset {
+  margin-left: 400px;
+  padding-top: 8px;
+  text-transform: uppercase;
+  text-decoration: bold;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+/* Footer */
+.ds-static-div span {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.bold {
+  color: #186599
+}
+.footer-policies a {
+  margin-right: 20px;
+}
+.col-sm-8 {
+  width: auto; 
+  padding-left: none;
+  margin-left: 20px;
+}
+
+/* Item View page */
+.col-sm-4 {
+  width: 100%;
+}
+.item-detail {
+  margin-bottom: 10px;
+}
+.item-page-field-wrapper {
+  border-bottom: dashed #e0ded2 1px;
+}
+.return-button button{
+  background: #176599;
+  color: #FFFFFF;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-bottom: 25px;
+}
+.pdf-viewer {
+  margin: 20px 0px;
+}
+
+/* Search results/discovery page */
+.artifact-info{
+  margin-bottom: 20px;
+}
+#aspect_discovery_SimpleSearch_div_search-results .ds-artifact-item {
+  margin: 10px 1px;
+  border-bottom: dashed #566b81 1px;
+}
+#aspect_discovery_SimpleSearch_div_search-results .ds-artifact-item h4 {
+  display: inherit;
+}
+.col-sm-9 .artifact-description{
+  padding: 0px;
+  width: 100%;
+}
+.col-sm-9{
+  width: 100%;
+}
+.course-detail {
+  margin-right: 20px;
+}
+.school-name span {
+  background: #ddf5fb;
+  padding: 0px 5px;
+  border-radius: 5px;
+}
+.course-code span {
+  background: #ddf5fb;
+  padding: 0px 5px;
+  border-radius: 5px;
+}
+.pdf-download a {
+  color: #FFFFFF;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+.pdf-download {
+  background: #186599;
+  padding: 5px 10px 7px;
+  border-radius: 5px;
+  float: right;
+}
+.pdf-unavailable {
+  float: right;
+  margin-right: 10px;
+}
+.pdf-unavailable span {
+  background: #ddf5fb;
+  padding: 0px 5px;
+  border-radius: 5px;
+}
+.publisher {
+  margin-left: 5px;
+}
+.divider-span {
+  visibility: hidden;
+  margin-right: 10px;
+}
+.divider-span-2 {
+  visibility: hidden;
+  margin-right: 50px;
+}
+#aspect_discovery_SimpleSearch_div_general-query {
+  display: none;
+}
+
+/* Unavailable Page */
+.unavailable-list{
+  margin-bottom: 25px;
+}
+.unavailable-list li{
+  margin-bottom: 10px;
+}
+
+/* FAQ page */
+#faq-div-p {
+  margin-bottom: 40px;
+}
+
+.emphasis span:hover {
+  text-decoration: none;
+} 
