@@ -324,18 +324,24 @@
 
                     <span class="divider-span-2"></span> 
 
+                    <xsl:variable name="context-url" select="concat($context-path, '/bitstream/handle/', $handle)"/>
+                    <xsl:variable name="pdf-filename" select="substring-after(substring-before($metsDoc, '.pdf'), '##')"/>
+                    <xsl:variable name="sequence-num" select="substring-before(substring-after($metsDoc, concat($handle, '##')), '##')"/>
+                    
                     <!-- Conditional to check if exam paper pdf available and display download link if true -->
                     <xsl:choose>
                         <!-- Checks if the returned $metsDoc string contains 'pdf' and serves up download link if true -->
-                        <xsl:when test="contains($metsDoc, 'pdf') = 'true'">
+                        <xsl:when test="contains($metsDoc, '.pdf') = 'true'">
+                        <!-- and contains($metsDoc, '.txt') = 'false'-->
                             <span class="pdf-download">
                                 <small>
                                     <xsl:element name="a">
                                         <xsl:attribute name="href">
                                             <!-- Generates download link by concatinating item handle and pdf file name onto search string -->
                                             <!-- A little bit ugly but functions without having to dig deep into the mets data path -->
-                                            <xsl:value-of select="concat(concat($context-path, '/bitstream/handle/', $handle), 
-                                                                    concat('/', substring-after(substring-before($metsDoc, '.pdf'), '##')), '.pdf?sequence=1&amp;isAllowed=y')"/>
+                                            <xsl:value-of select="concat(concat($context-url, '/', $pdf-filename),
+                                                                    concat('.pdf?sequence=', $sequence-num,  '&amp;isAllowed=y'))"/>
+                                            <!--<xsl:value-of select="$sequence-num"/>-->
                                         </xsl:attribute>
                                         DOWNLOAD PAPER ▼
                                     </xsl:element>
