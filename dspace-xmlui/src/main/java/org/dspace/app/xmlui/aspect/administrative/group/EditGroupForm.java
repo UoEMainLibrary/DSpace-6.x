@@ -374,7 +374,8 @@ public class EditGroupForm extends AbstractDSpaceTransformer
 	private void addEPeopleSearch(Division div, String query, int page, Group group, List<UUID> memberEPeopleIDs) throws SQLException, WingException
 	{
 		int resultCount = ePersonService.searchResultCount(context, query);
-        java.util.List<EPerson> epeople = ePersonService.search(context, query, page*RESULTS_PER_PAGE, RESULTS_PER_PAGE);
+        //java.util.List<EPerson> epeople = ePersonService.search(context, query, page*RESULTS_PER_PAGE, RESULTS_PER_PAGE);
+		java.util.List<EPerson> epeople = ePersonService.searchOrderByLastActive(context, query, page*RESULTS_PER_PAGE, RESULTS_PER_PAGE);
 		
 		Division results = div.addDivision("results");
 		
