@@ -48,13 +48,13 @@
 
         <xsl:copy-of select="$SFXLink" />
 
-        <xsl:if test="./mets:fileSec/mets:fileGrp[@USE='CC-LICENSE']/mets:file/mets:FLocat[@xlink:title='license_text']">
+        <!--<xsl:if test="./mets:fileSec/mets:fileGrp[@USE='CC-LICENSE']/mets:file/mets:FLocat[@xlink:title='license_text']">
             <div class="license-info table">
                 <ul class="list-unstyled">
                     <xsl:apply-templates select="./mets:fileSec/mets:fileGrp[@USE='CC-LICENSE']" mode="simple"/>
                 </ul>
             </div>
-        </xsl:if>
+        </xsl:if>-->
 
 
     </xsl:template>
