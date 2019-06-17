@@ -78,6 +78,26 @@ public class EPersonDAOImpl extends AbstractHibernateDSODAO<EPerson> implements 
     }
 
     @Override
+    public List<EPerson> searchOrderByLastActive(Context context, String query, List<MetadataField> queryFields, List<MetadataField> sortFields, int offset, int limit) throws SQLException
+    {
+        String queryString = "SELECT " + EPerson.class.getSimpleName().toLowerCase() + " FROM EPerson as " + EPerson.class.getSimpleName().toLowerCase() + " ";
+        if(query != null) query= "%"+query.toLowerCase()+"%";
+        sortFields = Collections.emptyList();
+
+        Query hibernateQuery = getSearchQuerySortByLastActive(context, queryString, query, queryFields, sortFields, "last_active");
+
+        if(0 <= offset)
+        {
+            hibernateQuery.setFirstResult(offset);
+        }
+        if(0 <= limit)
+        {
+            hibernateQuery.setMaxResults(limit);
+        }
+        return list(hibernateQuery);
+    }
+
+    @Override
     public int searchResultCount(Context context, String query, List<MetadataField> queryFields) throws SQLException
     {
         String queryString = "SELECT count(*) FROM EPerson as " + EPerson.class.getSimpleName().toLowerCase();
@@ -151,6 +171,35 @@ public class EPersonDAOImpl extends AbstractHibernateDSODAO<EPerson> implements 
         }
         if(!CollectionUtils.isEmpty(sortFields)) {
             addMetadataSortQuery(queryBuilder, sortFields, Collections.singletonList(sortField));
+        }
+
+        Query query = createQuery(context, queryBuilder.toString());
+        if(StringUtils.isNotBlank(queryParam)) {
+            query.setParameter("queryParam", "%"+queryParam.toLowerCase()+"%");
+        }
+        for (MetadataField metadataField : metadataFieldsToJoin) {
+            query.setParameter(metadataField.toString(), metadataField.getID());
+        }
+
+        return query;
+    }
+
+    protected Query getSearchQuerySortByLastActive(Context context, String queryString, String queryParam, List<MetadataField> queryFields, List<MetadataField> sortFields, String sortField) throws SQLException {
+
+        StringBuilder queryBuilder = new StringBuilder();
+        queryBuilder.append(queryString);
+        Set<MetadataField> metadataFieldsToJoin = new LinkedHashSet<>();
+        metadataFieldsToJoin.addAll(queryFields);
+        metadataFieldsToJoin.addAll(sortFields);
+
+        if(!CollectionUtils.isEmpty(metadataFieldsToJoin)) {
+            addMetadataLeftJoin(queryBuilder, EPerson.class.getSimpleName().toLowerCase(), metadataFieldsToJoin);
+        }
+        if(queryParam != null) {
+            addMetadataValueWhereQuery(queryBuilder, queryFields, "like", EPerson.class.getSimpleName().toLowerCase() + ".email like :queryParam");
+        }
+        if(!CollectionUtils.isEmpty(sortFields) || sortField != null) {
+            addMetadataSortQuery(queryBuilder, sortFields, Collections.singletonList(sortField), Collections.singletonList("DESC NULLS LAST"));
         }
 
         Query query = createQuery(context, queryBuilder.toString());

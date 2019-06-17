@@ -34,6 +34,8 @@ public interface EPersonDAO extends DSpaceObjectDAO<EPerson>, DSpaceObjectLegacy
 
     public List<EPerson> search(Context context, String query, List<MetadataField> queryFields, List<MetadataField> sortFields, int offset, int limit) throws SQLException;
 
+    public List<EPerson> searchOrderByLastActive(Context context, String query, List<MetadataField> queryFields, List<MetadataField> sortFields, int offset, int limit) throws SQLException;
+
     public int searchResultCount(Context context, String query, List<MetadataField> queryFields) throws SQLException;
 
     public List<EPerson> findByGroups(Context context, Set<Group> groups) throws SQLException;
