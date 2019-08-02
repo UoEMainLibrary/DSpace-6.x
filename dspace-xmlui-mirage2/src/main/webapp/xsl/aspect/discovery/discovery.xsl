@@ -156,7 +156,8 @@
         <xsl:variable name="metsDoc" select="document($externalMetadataUrl)"/>
 
         <!-- search path -->
-        <xsl:variable name="search-url">/discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=</xsl:variable>
+        <xsl:variable name="title-search-url">/discover?filtertype=title&amp;filter_relational_operator=equals&amp;filter=</xsl:variable>
+        <xsl:variable name="id-search-url">/discover?filtertype=identifier&amp;filter_relational_operator=equals&amp;filter=</xsl:variable>
 
         <div class="row ds-artifact-item ">
 
@@ -169,57 +170,56 @@
 
 
             <div class="col-sm-9 artifact-description">
-                <xsl:element name="a">
-                    <xsl:attribute name="href">
-                        <xsl:choose>
-                            <xsl:when test="$metsDoc/mets:METS/mets:dmdSec/mets:mdWrap/mets:xmlData/dim:dim/@withdrawn">
-                                <xsl:value-of select="$metsDoc/mets:METS/@OBJEDIT"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:value-of select="concat($context-path, '/handle/', $handle)"/>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:attribute>
-                    <h4>
-                        <xsl:choose>
-                            <xsl:when test="dri:list[@n=(concat($handle, ':dc.title'))]">
-                                <xsl:apply-templates select="dri:list[@n=(concat($handle, ':dc.title'))]/dri:item"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <i18n:text>xmlui.dri2xhtml.METS-1.0.no-title</i18n:text>
-                            </xsl:otherwise>
-                        </xsl:choose>
-
-                        <!-- Generate COinS with empty content per spec but force Cocoon to not create a minified tag  -->
-                        <!--<span class="Z3988">
-                            <xsl:attribute name="title">
-                                <xsl:for-each select="$metsDoc/mets:METS/mets:dmdSec/mets:mdWrap/mets:xmlData/dim:dim">
-                                    <xsl:call-template name="renderCOinS"/>
-                                </xsl:for-each>
-                            </xsl:attribute>
-                            <xsl:text>&#160;</xsl:text>
-                            
-                        </span>-->
-                        <!-- non-breaking space to force separating the end tag -->
-
-                    <span class="divider-span"></span>   
-
-                    <!-- Add exam paper year next to title -->
-                    <xsl:if test="dri:list[@n=(concat($handle, ':dc.coverage.temporal'))]">
-                        <span class="publisher-date h4">   <small>
-                            <xsl:if test="dri:list[@n=(concat($handle, ':dc.coverage.temporal'))]">
-                                <span class="publisher">
+                <div class="title-container">
+                    <xsl:element name="a">
+                        <xsl:attribute name="href">
+                            <xsl:choose>
+                                <xsl:when test="$metsDoc/mets:METS/mets:dmdSec/mets:mdWrap/mets:xmlData/dim:dim/@withdrawn">
+                                    <xsl:value-of select="$metsDoc/mets:METS/@OBJEDIT"/>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:value-of select="concat($context-path, '/handle/', $handle)"/>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </xsl:attribute>
+                        <h4>
+                            <xsl:choose>
+                                <xsl:when test="dri:list[@n=(concat($handle, ':dc.title'))]">
+                                    <xsl:apply-templates select="dri:list[@n=(concat($handle, ':dc.title'))]/dri:item"/>
+                                    <xsl:text> (</xsl:text>
                                     <xsl:apply-templates select="dri:list[@n=(concat($handle, ':dc.coverage.temporal'))]/dri:item"/>
-                                </span>
-                            </xsl:if>
-                            </small></span>
+                                    <xsl:text>)</xsl:text>
+                                </xsl:when>
+
+                                <xsl:otherwise>
+                                    <i18n:text>xmlui.dri2xhtml.METS-1.0.no-title </i18n:text>
+                                </xsl:otherwise>
+                            </xsl:choose>
+
+                            <!-- Generate COinS with empty content per spec but force Cocoon to not create a minified tag  -->
+                            <!--<span class="Z3988">
+                                <xsl:attribute name="title">
+                                    <xsl:for-each select="$metsDoc/mets:METS/mets:dmdSec/mets:mdWrap/mets:xmlData/dim:dim">
+                                        <xsl:call-template name="renderCOinS"/>
+                                    </xsl:for-each>
+                                </xsl:attribute>
+                                <xsl:text>&#160;</xsl:text>
+                                
+                            </span>-->
+                            <!-- non-breaking space to force separating the end tag -->
+
+                        </h4>
+
+                    </xsl:element>
+
+                    <xsl:if test="dri:list[@n=(concat($handle, ':dc.description.version'))]='Resit'">
+                        <p class="exam-version">   
+                            <xsl:apply-templates select="dri:list[@n=(concat($handle, ':dc.description.version'))]/dri:item"/>
+                        </p>
                     </xsl:if>
+                
+                </div>
 
-
-                    </h4>
-
-
-                </xsl:element>
                 <div class="artifact-info">
 
                     <!-- Remove standard author text from display -->
@@ -286,16 +286,16 @@
                             </small></span>
                     </xsl:if>-->
 
-                    <xsl:if test="dri:list[@n=(concat($handle, ':dc.creator'))]">
+                    <xsl:if test="dri:list[@n=(concat($handle, ':dc.title'))]">
                             <span class="school-name">   
                                 <small>
                                     <xsl:element name="a">
                                         <xsl:attribute name="href">
-                                            <xsl:value-of select="concat($context-path, $search-url, translate(dri:list[@n=(concat($handle, ':dc.creator'))], ' ', '+'))"/>
+                                            <xsl:value-of select="concat($context-path, $title-search-url, translate(dri:list[@n=(concat($handle, ':dc.title'))], ' ', '+'))"/>
                                         </xsl:attribute>
-                                        <xsl:if test="dri:list[@n=(concat($handle, ':dc.creator'))]">
-                                            <span class="school-name">More from the 
-                                                <xsl:apply-templates select="dri:list[@n=(concat($handle, ':dc.creator'))]/dri:item"/>
+                                        <xsl:if test="dri:list[@n=(concat($handle, ':dc.title'))]">
+                                            <span class="school-name">All papers from this course title
+                                                <!--<xsl:apply-templates select="dri:list[@n=(concat($handle, ':dc.title'))]/dri:item"/>-->
                                             </span>
                                         </xsl:if>
                                     </xsl:element>
@@ -310,7 +310,7 @@
                                 <small>
                                     <xsl:element name="a">
                                         <xsl:attribute name="href">
-                                            <xsl:value-of select="concat($context-path, $search-url, translate(dri:list[@n=(concat($handle, ':dc.identifier'))], ' ', '+'))"/>
+                                            <xsl:value-of select="concat($context-path, $id-search-url, translate(dri:list[@n=(concat($handle, ':dc.identifier'))], ' ', '+'))"/>
                                         </xsl:attribute>
                                         <xsl:if test="dri:list[@n=(concat($handle, ':dc.identifier'))]">
                                             <span class="coursecode">
@@ -343,7 +343,7 @@
                                                                     concat('.pdf?sequence=', $sequence-num,  '&amp;isAllowed=y'))"/>
                                             <!--<xsl:value-of select="$sequence-num"/>-->
                                         </xsl:attribute>
-                                        DOWNLOAD PAPER ▼
+                                        DOWNLOAD PAPER <i aria-hidden="true" class="glyphicon glyphicon-download-alt" id="download-icon"></i>
                                     </xsl:element>
                                 </small>
                             </span>

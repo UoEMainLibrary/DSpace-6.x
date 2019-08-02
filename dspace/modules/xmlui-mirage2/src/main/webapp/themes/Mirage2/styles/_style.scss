@@ -107,6 +107,11 @@ h4, h5 {
   display: none;
 }
 
+/* Hide advanced filters block */
+#aspect_discovery_SimpleSearch_div_search-filters {
+  display: none;
+}
+
 /* CUSTOM STYLES */
 
 /* Header */
@@ -176,6 +181,9 @@ h4, h5 {
   padding: 10px;
   margin: 10 0;
 }
+#trail-icon {
+  margin-right: 5px;
+}
 
 /* Navbar */
 #navbar-container {
@@ -234,6 +242,26 @@ a.list-group-item :hover{
 #ds-options {
   padding: 0px;
 }
+#ds-options .ds-option-set-head {
+  display: none;
+}
+.list-group-item.ds-option.selected {
+  border: solid #3aaaf4 5px;
+  display: flex;
+}
+#facet-back-link {
+  background: #3aaaf4;
+  margin-left: 10px;
+  color: #fff;
+  border-radius: 5px;
+  float: right;
+  width: 25px;
+  height: 25px;
+}
+#facet-back-link:hover {
+  text-decoration: none;
+  background: #103d5c;
+}
 
 /* Searchbar */
 .body-search {
@@ -241,7 +269,7 @@ a.list-group-item :hover{
   margin-bottom: 25px;
 }
 #body-input {
-  width: 780%;
+  width: 1100%;
 }
 .input-group {
   width: 100%;
@@ -252,15 +280,18 @@ fieldset {
 #search-button {
   width: 200%;
   left: 450px;
+  position: relative;
+  z-index: 10000;
 }
 #search-button span{
   color: #FFFFFF;
+  text-transform: uppercase;
 }
 #search-reset {
-  margin-left: 400px;
+  position: relative;
+  margin-left: 425px;
   padding-top: 8px;
   text-transform: uppercase;
-  text-decoration: bold;
   letter-spacing: 1px;
   font-weight: bold;
 }
@@ -281,16 +312,36 @@ fieldset {
   padding-left: none;
   margin-left: 20px;
 }
+#footer-left {
+  float: left;
+}
+#footer-right {
+  float: right;
+}
+
 
 /* Item View page */
 .col-sm-4 {
   width: 100%;
+}
+#item-title-h {
+  margin: 0;
+  padding-bottom: 5px 0;
+}
+.item-meta-p {
+  margin: 0;
 }
 .item-detail {
   margin-bottom: 10px;
 }
 .item-page-field-wrapper {
   border-bottom: dashed #e0ded2 1px;
+  margin: 0;
+  padding: 5px 0;
+}
+.item-page-field-wrapper h5 {
+  margin: 0;
+  font-weight: bold;
 }
 .return-button button{
   background: #176599;
@@ -298,13 +349,24 @@ fieldset {
   letter-spacing: 1px;
   border-radius: 5px;
   padding: 5px 10px;
-  margin-bottom: 25px;
+  margin: 25px 0;
 }
 .pdf-viewer {
   margin: 20px 0px;
 }
 
 /* Search results/discovery page */
+#filter-btn {
+    text-transform: uppercase;
+    color: #186599;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+#filter-span {
+  font-size: 14px;
+  margin-right: 5px;
+  margin-bottom: 0;
+}
 .artifact-info{
   margin-bottom: 20px;
 }
@@ -321,6 +383,15 @@ fieldset {
 }
 .col-sm-9{
   width: 100%;
+}
+.title-container {
+  display: -webkit-inline-box;
+  margin-bottom: 10px;
+}
+.exam-version {
+  padding-left: 20px;
+  font-weight: bold;
+  color: #186599;
 }
 .course-detail {
   margin-right: 20px;
@@ -367,6 +438,9 @@ fieldset {
   margin-right: 50px;
 }
 #aspect_discovery_SimpleSearch_div_general-query {
+  display: none;
+}
+#aspect_discovery_SimpleSearch_item_relevance {
   display: none;
 }
 

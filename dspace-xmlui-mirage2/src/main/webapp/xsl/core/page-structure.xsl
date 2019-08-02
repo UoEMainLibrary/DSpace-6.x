@@ -103,6 +103,7 @@
                                         <div class="col-xs-12 col-sm-12 col-md-9 main-content">
 
                                             <!-- Add searchbar to body of HTML pages -->
+                                            <!-- * code lifted from sidebar/navigation.xsl  -->
                                             <div class="body-search">
                                                 <form id="ds-search-form" class="" method="post">
                                                     <xsl:attribute name="action">
@@ -111,8 +112,7 @@
                                                     </xsl:attribute>
                                                     <fieldset id="main-search">
                                                         <div class="input-group">
-                                                            <input id="body-input" class="ds-text-field form-control" type="text" placeholder="xmlui.general.search"
-                                                                i18n:attr="placeholder">
+                                                            <input id="body-input" class="ds-text-field form-control" type="text" placeholder="Course Title / Course Code" >
                                                                 <xsl:attribute name="name">
                                                                     <xsl:value-of
                                                                             select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='search'][@qualifier='queryField']"/>
@@ -120,7 +120,7 @@
                                                             </input>
                                                             <span class="input-group-btn">
                                                                 <button id="search-button" class="ds-button-field btn btn-primary" title="xmlui.general.go" i18n:attr="title">
-                                                                    <span class="glyphicon glyphicon-search" aria-hidden="true"/>
+                                                                    <span>Search</span> 
                                                                     <xsl:attribute name="onclick">
                                                                                 <xsl:text>
                                                                                     var radio = document.getElementById(&quot;ds-search-form-scope-container&quot;);
@@ -145,15 +145,8 @@
                                                         </div>
                                                     </fieldset>
                                                 </form>
-                                                <!--<xsl:element name="a">
-                                                    <xsl:attribute name="href">
-                                                        <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath']"/>
-                                                    </xsl:attribute>
-                                                    <xsl:attribute name="id">
-                                                        <xsl:value-of select="search-reset"/>
-                                                    </xsl:attribute>
-                                                    Reset Search
-                                                </xsl:element>-->
+                                                
+                                                <!-- Reset search button added, clears seach filters and returns to default discovery page -->
                                                 <xsl:variable name="clean-search" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath']"/>
                                                 <a id="search-reset" href="{$clean-search}/discover">Reset Search</a>
                                             </div>
@@ -407,7 +400,8 @@
                         <i18n:text>xmlui.mirage2.page-structure.aboutThisRepository</i18n:text>
                     </xsl:when>
 
-                    <!-- Add static page Titles to tabs -->
+                    <!-- Add static page titles to tabs -->
+                    <!-- * urls will need to be updated if static page urls are changed on live release -->
                     <xsl:when test="starts-with($request-uri, 'exam-papers/about')">
                         <i18n:text>About</i18n:text>
                     </xsl:when>
@@ -466,8 +460,8 @@
 
     <!-- The header (distinct from the HTML head element) contains the title, subtitle, login box and various
         placeholders for header images -->
+    <!-- * Login has been moved to footer for this custom implementation -->
     <xsl:template name="buildHeader">
-
 
         <header class="exam-header">
 
@@ -567,11 +561,9 @@
                                             <a id="user-dropdown-toggle" href="#" role="button" class="dropdown-toggle"
                                             data-toggle="dropdown">
                                                 <span class="hidden-xs">
-                                                    <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/
-                                dri:metadata[@element='identifier' and @qualifier='firstName']"/>
+                                                    <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='firstName']"/>
                                                     <xsl:text> </xsl:text>
-                                                    <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/
-                                dri:metadata[@element='identifier' and @qualifier='lastName']"/>
+                                                    <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='lastName']"/>
                                                     &#160;
                                                     <b class="caret"/>
                                                 </span>
@@ -579,14 +571,13 @@
                                             <ul class="dropdown-menu pull-right" role="menu"
                                                 aria-labelledby="user-dropdown-toggle" data-no-collapse="true">
                                                 <li>
-                                                    <a href="{/dri:document/dri:meta/dri:userMeta/
-                                dri:metadata[@element='identifier' and @qualifier='url']}">
+                                                    <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='url']}">
                                                         <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
                                                     </a>
                                                 </li>
                                                 <!--<li>
                                                     <a href="{/dri:document/dri:meta/dri:userMeta/
-                                dri:metadata[@element='identifier' and @qualifier='logoutURL']}">
+                                                                dri:metadata[@element='identifier' and @qualifier='logoutURL']}">
                                                         <i18n:text>xmlui.dri2xhtml.structural.logout</i18n:text>
                                                     </a>
                                                 </li>-->
@@ -596,7 +587,7 @@
                                     <xsl:otherwise>
                                         <!--<li>
                                             <a href="{/dri:document/dri:meta/dri:userMeta/
-                                dri:metadata[@element='identifier' and @qualifier='loginURL']}">
+                                                                dri:metadata[@element='identifier' and @qualifier='loginURL']}">
                                                 <span class="hidden-xs">
                                                     <i18n:text>xmlui.dri2xhtml.structural.login</i18n:text>
                                                 </span>
@@ -604,20 +595,21 @@
                                         </li>-->
 
                                         <!-- Add static pages to navbar -->
+                                        <!-- * urls will need to be updated if static urls are changed for live release -->
                                         <li>
-                                            <a href="{$context-path}/">Home</a>
+                                            <a href="{$context-path}/" alt="naviagtion link to home page">Home</a>
                                         </li>
                                         <li>
-                                            <a href="{$context-path}/exam-papers/about">About</a>
+                                            <a href="{$context-path}/exam-papers/about" alt="naviagtion link to about page">About</a>
                                         </li>
                                         <li>
-                                            <a href="{$context-path}/exam-papers/help">Help</a>
+                                            <a href="{$context-path}/exam-papers/help" alt="naviagtion link to help page">Help</a>
                                         </li>
                                         <li>
-                                            <a href="{$context-path}/exam-papers/feedback">Feedback</a>
+                                            <a href="{$context-path}/exam-papers/feedback" alt="naviagtion link to feedback page">Feedback</a>
                                         </li>
                                         <li>
-                                            <a href="{$context-path}/exam-papers/faqs">FAQs</a>
+                                            <a href="{$context-path}/exam-papers/faqs" alt="naviagtion link to frequently asked questions page">FAQs</a>
                                         </li>
 
                                     </xsl:otherwise>
@@ -636,15 +628,16 @@
 
             </div>
 
+            <!-- Header container for UofE & Exam Papers banners -->
             <div class="container" id="header-container">
                 <div id="container-header">
                     <div class="uofe-logo">
-                        <a href="https://www.ed.ac.uk/">
+                        <a href="https://www.ed.ac.uk/" alt="image link to the univeristy of edinburgh's home page">
                             <img src="{$theme-path}images/uni-logo-black.png" alt="University of Edinburgh Logo"></img>
                         </a>
                     </div>
                     <div class="exam-banner" href="{$context-path}/">   
-                        <a class="exam-banner-click" href="{$context-path}/"> 
+                        <a class="exam-banner-click" href="{$context-path}/" alt="image link to the univeristy of edinburgh's exam papers home page"> 
                             <img src="{$theme-path}images/exampapersbanner.png" alt="University of Edinburgh Exam Papers Banner" href="{$context-path}/"></img>
                             <h1>EXAM PAPERS ONLINE</h1>
                         </a>
@@ -667,7 +660,9 @@
                         <!--TODO-->
                         <div class="col-xs-12">
                             <xsl:choose>
-                                <xsl:when test="count(/dri:document/dri:meta/dri:pageMeta/dri:trail) > 1">
+
+                                <!-- REMOVED DYNAMIC BREADCRUMBS -->
+                                <!--<xsl:when test="count(/dri:document/dri:meta/dri:pageMeta/dri:trail) > 1">
                                     <div class="breadcrumb dropdown visible-xs">
                                         <a id="trail-dropdown-toggle" href="#" role="button" class="dropdown-toggle"
                                         data-toggle="dropdown">
@@ -692,12 +687,31 @@
                                     <ul class="breadcrumb hidden-xs">
                                         <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
                                     </ul>
-                                </xsl:when>
-
-                                <!-- Add static page breadcrumbs -->
+                                </xsl:when>-->
+                                
+                                <!-- OVERRIDE BREADCRUMBS -->
+                                <!-- Add static page breadcrumbs based on url conditional -->
+                                <!-- * lengthy and ugly but avoids end-users being able to access default dspace discovery & collection pages 
+                                        (stops students seeing dspace admin interface etc -->
                                     <xsl:when test="starts-with($request-uri, 'exam-papers/about')">
                                         <ul class="breadcrumb">
-                                            <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
+                                            <!--<xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail[@target][last()]"/>-->
+                                            <li>
+                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home">University Homepage</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments">Schools &amp; Departments</a>
+                                            </li> 
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services">Information Services</a>
+                                            </li>                                          
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials">Library Essentials</a>
+                                            </li>
+                                            <li>
+                                                <!--<i aria-hidden="true" class="glyphicon glyphicon-home" id="trail-icon"></i>-->
+                                                <a href="/">Exam Papers</a>
+                                            </li>
                                             <li class="breadcrumb">
                                                 <xsl:text>About</xsl:text>
                                             </li>
@@ -706,7 +720,22 @@
                                     </xsl:when>
                                     <xsl:when test="starts-with($request-uri, 'exam-papers/help')">
                                         <ul class="breadcrumb">
-                                            <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
+                                            <!--<xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail[@target][last()]"/>-->
+                                            <li>
+                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home">University Homepage</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments">Schools &amp; Departments</a>
+                                            </li> 
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services">Information Services</a>
+                                            </li>                                          
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials">Library Essentials</a>
+                                            </li>
+                                            <li>
+                                                <a href="/">Exam Papers</a>
+                                            </li>
                                             <li class="breadcrumb">
                                                 <xsl:text>Help</xsl:text>
                                             </li>
@@ -715,7 +744,23 @@
                                     </xsl:when>
                                     <xsl:when test="starts-with($request-uri, 'exam-papers/feedback')">
                                         <ul class="breadcrumb">
-                                            <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
+                                            <!--<xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail[@target][last()]"/>-->
+                                            <li>
+                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home">University Homepage</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments">Schools &amp; Departments</a>
+                                            </li> 
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services">Information Services</a>
+                                            </li>                                          
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials">Library Essentials</a>
+                                            </li>
+                                            <li>
+                                                <!--<i aria-hidden="true" class="glyphicon glyphicon-home" id="trail-icon"></i>-->
+                                                <a href="/">Exam Papers</a>
+                                            </li>
                                             <li class="breadcrumb">
                                                 <xsl:text>Feedback</xsl:text>
                                             </li>
@@ -724,28 +769,124 @@
                                     </xsl:when>
                                     <xsl:when test="starts-with($request-uri, 'exam-papers/faqs')">
                                         <ul class="breadcrumb">
-                                            <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
+                                            <!--<xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail[@target][last()]"/>-->
+                                            <li>
+                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home">University Homepage</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments">Schools &amp; Departments</a>
+                                            </li> 
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services">Information Services</a>
+                                            </li>                                          
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials">Library Essentials</a>
+                                            </li>
+                                            <li>
+                                                <!--<i aria-hidden="true" class="glyphicon glyphicon-home" id="trail-icon"></i>-->
+                                                <a href="/">Exam Papers</a>
+                                            </li>
                                             <li class="breadcrumb">
                                                 <xsl:text>FAQs</xsl:text>
                                             </li>
                                         </ul>
-                                        
-                                    </xsl:when> 
+                                    </xsl:when>
+
                                     <xsl:when test="starts-with($request-uri, 'exam-papers/unavailable')">
                                         <ul class="breadcrumb">
-                                            <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
+                                            <!--<xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail[@target][last()]"/>-->
+                                            <li>
+                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home">University Homepage</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments">Schools &amp; Departments</a>
+                                            </li> 
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services">Information Services</a>
+                                            </li>                                          
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials">Library Essentials</a>
+                                            </li>
+                                            <li>
+                                                <!--<i aria-hidden="true" class="glyphicon glyphicon-home" id="trail-icon"></i>-->
+                                                <a href="/">Exam Papers</a>
+                                            </li>
                                             <li class="breadcrumb">
                                                 <xsl:text>Paper Unavailable</xsl:text>
                                             </li>
                                         </ul>
-                                        
-                                    </xsl:when>   
+                                    </xsl:when> 
 
-                                <xsl:otherwise>
-                                    <ul class="breadcrumb">
-                                        <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
-                                    </ul>
-                                </xsl:otherwise>
+                                    <xsl:when test="starts-with($request-uri, 'handle')">
+                                        <ul class="breadcrumb">
+                                            <!--<xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail[@target][last()]"/>-->
+                                            <li>
+                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home">University Homepage</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments">Schools &amp; Departments</a>
+                                            </li> 
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services">Information Services</a>
+                                            </li>                                          
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials">Library Essentials</a>
+                                            </li>
+                                            <li>
+                                                <!--<i aria-hidden="true" class="glyphicon glyphicon-home" id="trail-icon"></i>-->
+                                                <a href="/">Exam Papers</a>
+                                            </li>
+                                            <li class="breadcrumb">
+                                                <xsl:text>View Item</xsl:text>
+                                            </li>
+                                        </ul>   
+                                    </xsl:when>
+
+                                    <xsl:when test="starts-with($request-uri, 'discover')">
+                                        <ul class="breadcrumb">
+                                            <!--<xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail[@target][last()]"/>-->
+                                            <li>
+                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home">University Homepage</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments">Schools &amp; Departments</a>
+                                            </li> 
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services">Information Services</a>
+                                            </li>                                          
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials">Library Essentials</a>
+                                            </li>
+                                            <li>
+                                                <!--<i aria-hidden="true" class="glyphicon glyphicon-home" id="trail-icon"></i>-->
+                                                <a href="/">Exam Papers</a>
+                                            </li>
+                                            <li class="breadcrumb">
+                                                <xsl:text>Search</xsl:text>
+                                            </li>
+                                        </ul>      
+                                    </xsl:when>     
+
+                                    <xsl:otherwise>
+                                        <ul class="breadcrumb">
+                                            <!--<xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>-->
+                                            <li>
+                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home">University Homepage</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments">Schools &amp; Departments</a>
+                                            </li> 
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services">Information Services</a>
+                                            </li>                                          
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials">Library Essentials</a>
+                                            </li>
+                                            <li class="breadcrumb">
+                                                <xsl:text>Exam Papers</xsl:text>
+                                            </li>
+                                        </ul>
+                                    </xsl:otherwise>
                             </xsl:choose>
                         </div>
                     </div>
@@ -956,13 +1097,15 @@
                             </a>
                             <div class="footer-disclaimer">
                                 <div class="footer-policies">
-                                    <p>
+                                    <p id="footer-left">
                                         <a class="footer-policies-a" href="http://www.ed.ac.uk/about/website/privacy" title="Privacy and Cookies Link" target="_blank">Privacy &amp; Cookies </a> 
-                                        <a class="footer-policies-a" href="/takedown" title="Takedown Policy Link">Takedown Policy </a> 
+                                        <a class="footer-policies-a" href="https://www.ed.ac.uk/files/atoms/files/uoe_academic_blogging_notice_and_takedown_policy_v1.0.pdf" title="Takedown Policy Link">Takedown Policy </a> 
                                         <a class="footer-policies-a" href="http://www.ed.ac.uk/about/website/accessibility" title="Website Accessibility Link" target="_blank">Accessibility </a> 
                                     </p>
+                                    <p id="footer-right"><a href="/login">Admin Login <i aria-hidden="true" class="glyphicon glyphicon glyphicon-log-in" id="admin-login-icon"></i></a>
+                                    </p>
                                 </div>
-                                <div class="footer-disclaimer">
+                                <div id="footer-left" class="footer-disclaimer">
                                     <p>
                                         The University of Edinburgh is a charitable body, registered in Scotland, with registration number SC005336, VAT Registration Number GB 592 9507 00, and is acknowledged by the UK authorities as a <a href="https://www.gov.uk/recognised-uk-degrees" title="UK Government Recognised Degrees Link" target="_blank">“Recognised Body”</a> which has been granted degree awarding powers.
                                     </p>
@@ -971,9 +1114,12 @@
                                         Unless explicitly stated otherwise, all material is copyright © 2019 <a href="http://www.ed.ac.uk" title="University of Edinburgh Home" target="_blank">University of Edinburgh</a>.
                                     </p>
                                 </div>
-                                <div class="is-logo">
-                                    <a href="http://www.is.ed.ac.uk" target="_blank" class="islogo" title="University of Edinburgh Information Services Home"></a>
-                                </div>
+                                <!-- Commented out for now but can be added back in if required -->
+                                <!--<div class="is-logo">
+                                    <a href="http://www.is.ed.ac.uk" target="_blank" class="islogo" title="University of Edinburgh Information Services Home">
+                                        <img src="{$theme-path}images/is_logo.jpg" href="http://www.is.ed.ac.uk"/>
+                                    </a>
+                                </div>-->
                             </div>
                         </div>
                     </div>
@@ -1026,7 +1172,7 @@
 
             <!-- Check for the custom pages -->
             <!-- STATIC PAGES ADDED BELOW -->
-            <!-- * may require some changes before deployment * -->
+            <!-- * may require some changes before deployment if urls are updated * -->
             <xsl:choose>
             <!-- Conditionals to determin URL path and serve up corrisponding static page -->
 
@@ -1049,10 +1195,13 @@
                                 These pages are part of the collected Degree Examination Papers of the University of Edinburgh and are provided for use by its students as a study aid. No other use is permitted.
                             </p>
                             <p>
-                                Bound volumes of older sets - up to academic year 2004/2005 - have now been removed to the Library Annexe and may be retrieved upon request.
-                                Further information on accessing material stored in the Library Annexe is available here:
-                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery/using-library/lib-locate/library-annexe/library-annexe-access" target="_blank" title="Link to details about accessing the Library Annexe materials">Accessing material in the Library Annexe</a>
+                                Bound volumes of older sets - up to academic year 2004/2005 - have now been moved to the University Collections Facility and may be retrieved upon request.
+                                Further information on accessing materials stored in the university are available from: 
+                                <a href="https://www.ed.ac.uk/information-services/library-museum-gallery/using-library/lib-locate/university-collections-facility" 
+                                    target="_blank" title="Link to details about accessing the University Collections Facility materials">University Collections Facility. 
+                                </a>
                             </p>
+                            <br></br>
                         </div>
                     </div>
 
@@ -1076,6 +1225,7 @@
                             <p>
                                 Users who wish to use assisted software are advised to use Internet Explorer.
                             </p>
+                            <br></br>
                         </div>
                     </div>
                 </xsl:when>
@@ -1112,6 +1262,7 @@
                                 If you have any questions, please contact: <a href="mailto:exam.papers@ed.ac.uk" title="Link to email the exam paper team at the University of Edinburgh with any questions">exam.papers@ed.ac.uk</a>
                             </p>
                             <p><a href="https://www.ed.ac.uk/records-management/notice" target="_blank" title="Link to the University of Edinburgh's privacy statement">University privacy statement</a></p>
+                            <br></br>
                         </div>
                     </div>
                 </xsl:when>
@@ -1123,6 +1274,7 @@
 
                             <div class="content byEditor about">
                                 <h3>FAQs</h3>
+                                <br></br>
                                 <h4>...For Students</h4>
                                 <h5> I can’t find my paper. Why?</h5>
                                 <p>
@@ -1151,9 +1303,13 @@
 
                                 <h5>Where can I find pre-2004 exam papers?</h5>
                                 <p id="faq-div-p">
-                                    We hold some digitised exam papers from 1995 to 2004 in our archive. Please email us if you require older papers. Original print copies of papers further back are held at the Library Annexe.
+                                    We hold some digitised exam papers from 1995 to 2004 in our archive. Please email us if you require older papers. Original print copies of papers further back are held at the 
+                                    <a href="https://www.ed.ac.uk/information-services/library-museum-gallery/using-library/lib-locate/university-collections-facility" 
+                                    target="_blank" title="Link to details about accessing the University Collections Facility materials">University Collections Facility.
+                                    </a>
                                 </p>
 
+                                <br></br>
                                 <h4>...For Administrative &amp; Teaching Staff</h4>
                                 <h5>How do I submit an exam paper to go online?</h5>
                                 <p>
@@ -1167,9 +1323,12 @@
                                 <p>
                                     Please email us with the details of the paper you wish removed.
                                 </p>
+                                <br></br>
+                                <br></br>
                                 <p>
                                     If you have any other questions please email us at <strong><a href="mailto:exam.papers@ed.ac.uk" title="Link to email the exam paper team at the University of Edinburgh about any other queries">exam.papers@ed.ac.uk</a></strong>
                                 </p>
+                                <br></br>
                             </div>
                         </div>        
                     </div>
@@ -1189,6 +1348,10 @@
                                 <li>The School does not wish this paper to be published online.</li>
                                 <li>The paper contains copyright material which means it cannot be published online.</li>
                             </ol>
+                            <p></p>
+
+                            <p>If you need for further information please contact <a href="mailto:exam.papers@ed.ac.uk">exam.papers@ed.ac.uk</a></p>
+                            <br></br>
                         </div>
                     </div>
                 </xsl:when>

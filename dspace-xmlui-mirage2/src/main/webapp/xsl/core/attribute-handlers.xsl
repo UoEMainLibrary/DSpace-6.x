@@ -142,7 +142,7 @@
                                     </p>
                                 </div>
                                 <div class="col-xs-2">
-                                    <xsl:call-template name="renderSortOptionsMenu"/>
+                                    <xsl:call-template name="renderSortOptionsMenu"></xsl:call-template>
                                 </div>
                             </div>
                         </xsl:when>
@@ -241,6 +241,16 @@
                                             </i18n:param>
                                         </i18n:translate>
                                     </p>
+                                    <xsl:variable name="browse" select="//dri:div[@id='aspect.artifactbrowser.ConfigurableBrowse.div.browse-controls']"/>
+                                    <p class="pagination-info">
+                                        <xsl:value-of select="$browse"/>
+                                    </p>
+                                    
+
+
+                                </div>
+                                <div>
+                                    <xsl:apply-templates select="sortOptionsTemplate"/>
                                 </div>
                                 <div class="col-xs-3">
                                     <xsl:apply-templates select="$gear"/>
@@ -423,7 +433,8 @@
                         <xsl:apply-templates select="preceding-sibling::i18n:text[1]"/>
                     </li>
                     <xsl:for-each select="dri:option">
-                        <li>
+                        <!--<xsl:if test="not contains(dri:option[@value], 'Relevance')">-->
+                        <li>                            
                             <a href="#" data-returnvalue="{@returnValue}" data-name="{../@n}">
                                 <span aria-hidden="true">
                                     <xsl:attribute name="class">
@@ -446,10 +457,9 @@
                                         <xsl:value-of select="."/>
                                     </xsl:otherwise>
                                 </xsl:choose>
-
-
                             </a>
                         </li>
+                        <!--</xsl:if>-->
                     </xsl:for-each>
                 </xsl:for-each>
             </ul>
@@ -457,9 +467,56 @@
     </xsl:template>
 
     <xsl:template name="renderGearButton">
-        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-            <span class="glyphicon glyphicon-cog" aria-hidden="true"/>
+        <button class="btn btn-default dropdown-toggle" id="filter-btn" data-toggle="dropdown">
+            <span class="glyphicon glyphicon-cog" id="filter-span" aria-hidden="true"></span>Sort By:
         </button>
+    </xsl:template>
+
+
+
+
+    <xsl:template name="sortOptionsTemplate">
+        <ul class="dropdown-menu pull-right" role="menu">
+            <xsl:for-each
+                    select="//dri:div[@id='aspect.artifactbrowser.ConfigurableBrowse.div.browse-controls'
+                    or @id='aspect.administrative.WithdrawnItems.div.browse-controls'
+                    or @id='aspect.administrative.PrivateItems.div.browse-controls'
+                    or @id='aspect.discovery.SearchFacetFilter.div.browse-controls']//dri:field[@type='select']">
+                <xsl:if test="position() > 1">
+                    <li class="divider"/>
+                </xsl:if>
+                <li class="dropdown-header">
+                    <xsl:apply-templates select="preceding-sibling::i18n:text[1]"/>
+                </li>
+                <xsl:for-each select="dri:option">
+                    <li>
+                        <a href="#" data-returnvalue="{@returnValue}" data-name="{../@n}">
+                            <span aria-hidden="true">
+                                <xsl:attribute name="class">
+                                    <xsl:text>glyphicon glyphicon-ok btn-xs</xsl:text>
+                                    <xsl:choose>
+                                        <xsl:when test="@returnValue = ../dri:value/@option">
+                                            <xsl:text> active</xsl:text>
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                            <xsl:text> invisible</xsl:text>
+                                        </xsl:otherwise>
+                                    </xsl:choose>
+                                </xsl:attribute>
+                            </span>
+                            <xsl:choose>
+                                <xsl:when test="i18n:text">
+                                    <xsl:apply-templates select="i18n:text"/>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:value-of select="."/>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </a>
+                    </li>
+                </xsl:for-each>
+            </xsl:for-each>
+        </ul>
     </xsl:template>
 
 </xsl:stylesheet>

@@ -152,7 +152,7 @@
     <xsl:template name="itemSummaryView-DIM-title">
         <xsl:choose>
             <xsl:when test="count(dim:field[@element='title'][not(@qualifier)]) &gt; 1">
-                <h2 class="page-header first-page-header">
+                <h2 class="page-header first-page-header" id="item-title-h">
                     <xsl:value-of select="dim:field[@element='title'][not(@qualifier)][1]/node()"/>
                 </h2>
                 <div class="simple-item-view-other">
@@ -351,7 +351,7 @@
         
         <!-- generic variables to be used in URL paths for template links -->
         <xsl:variable name="search-url" select="$document//dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"></xsl:variable><!-- root path -->
-        <xsl:variable name="search-url-2">/discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=</xsl:variable><!-- search path -->
+        <xsl:variable name="search-url-2">/discover?filtertype=subject&amp;filter_relational_operator=equals&amp;filter=</xsl:variable><!-- search path -->
 
         <xsl:if test="dim:field[@element='subject']">
             <div class="simple-item-view-date word-break item-page-field-wrapper table">
@@ -378,7 +378,7 @@
         
         <!-- generic variables to be used in URL paths for template links -->
         <xsl:variable name="search-url" select="$document//dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"></xsl:variable><!-- root path -->
-        <xsl:variable name="search-url-2">/discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=</xsl:variable><!-- search path -->
+        <xsl:variable name="search-url-2">/discover?filtertype=title&amp;filter_relational_operator=equals&amp;filter=</xsl:variable><!-- search path -->
 
         <xsl:if test="dim:field[@element='title']">
             <div class="simple-item-view-date word-break item-page-field-wrapper table">
@@ -402,20 +402,29 @@
     </xsl:template>
 
     <xsl:template name="itemSummaryView-coursecode">
-        <xsl:if test="dim:field[@element='identifier' and @qualifier='']">
+
+        <xsl:variable name="search-url" select="$document//dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"></xsl:variable><!-- root path -->
+        <xsl:variable name="search-url-2">/discover?filtertype=identifier&amp;filter_relational_operator=equals&amp;filter=</xsl:variable><!-- search path -->
+
+        <xsl:if test="dim:field[@element='identifier']">
             <div class="simple-item-view-isbn word-break item-page-field-wrapper table">
                 <h5>
                     <i18n:text>xmlui.dri2xhtml.METS-1.0.item-coursecode</i18n:text>
                 </h5>
                 <xsl:for-each select="dim:field[@element='identifier']">
-                    <div class="item-detail">
-                        <xsl:if test="not(dim:field[@element='identifier' and @qualifier='uri'])">
-                                <xsl:copy-of select="./node()"/>
-                        </xsl:if>
-                        <xsl:if test="count(following-sibling::dim:field[@element='description' and @qualifier='version']) != 0">
-                            <br/>
-                        </xsl:if>
-                    </div>
+                    <xsl:if test="not(dim:field[@element='identifier' and @qualifier='version'])">
+                            <xsl:if test="not(contains(./node(), 'http'))">
+                                <a>
+                                    <xsl:attribute name="href">
+                                        <xsl:copy-of select="concat($search-url, $search-url-2, translate(./node(), ' ', '+'))"/>
+                                    </xsl:attribute>
+                                    <xsl:copy-of select="./node()"/>
+                                </a>
+                            </xsl:if>
+                    </xsl:if>
+                    <!--<xsl:if test="count(following-sibling::dim:field[@element='description' and @qualifier='version']) != 0">
+                        <br/>
+                    </xsl:if>-->
                 </xsl:for-each>
             </div>
         </xsl:if>
@@ -428,12 +437,12 @@
                     <i18n:text>xmlui.dri2xhtml.METS-1.0.item-version</i18n:text>
                 </h5>
                 <xsl:for-each select="dim:field[@element='description' and @qualifier='version']">
-                <div class="item-detail">
+                <p class="item-meta-p">
                     <xsl:copy-of select="./node()"/>
                     <xsl:if test="count(following-sibling::dim:field[@element='description' and @qualifier='version']) != 0">
                         <br/>
                     </xsl:if>
-                </div>
+                </p>
                 </xsl:for-each>
             </div>
         </xsl:if>
@@ -446,12 +455,12 @@
                     <i18n:text>xmlui.dri2xhtml.METS-1.0.item-year</i18n:text>
                 </h5>
                 <xsl:for-each select="dim:field[@element='coverage' and @qualifier='temporal']">
-                <div class="item-detail">
+                <p class="item-meta-p">
                     <xsl:copy-of select="./node()"/>
                     <xsl:if test="count(following-sibling::dim:field[@element='coverage' and @qualifier='temporal']) != 0">
                         <br/>
                     </xsl:if>
-                </div>
+                </p>
                 </xsl:for-each>
             </div>
         </xsl:if>

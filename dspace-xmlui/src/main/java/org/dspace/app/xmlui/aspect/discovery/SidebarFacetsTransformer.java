@@ -232,9 +232,9 @@ public class SidebarFacetsTransformer extends AbstractDSpaceTransformer implemen
                             if (!iter.hasNext())
                             {
                                 //When we have an hierarchical facet always show the "view more" they may want to filter the children of the top nodes
-                                if(field.getType().equals(DiscoveryConfigurationParameters.TYPE_HIERARCHICAL)){
+                                /*if(field.getType().equals(DiscoveryConfigurationParameters.TYPE_HIERARCHICAL)){
                                     addViewMoreUrl(filterValsList, dso, request, field);
-                                }
+                                }*/
                                 break;
                             }
 
