@@ -182,7 +182,7 @@
                                 </xsl:otherwise>
                             </xsl:choose>
                         </xsl:attribute>
-                        <h4>
+                        <h4 alt="paper title and year">
                             <xsl:choose>
                                 <xsl:when test="dri:list[@n=(concat($handle, ':dc.title'))]">
                                     <xsl:apply-templates select="dri:list[@n=(concat($handle, ':dc.title'))]/dri:item"/>
@@ -213,7 +213,7 @@
                     </xsl:element>
 
                     <xsl:if test="dri:list[@n=(concat($handle, ':dc.description.version'))]='Resit'">
-                        <p class="exam-version">   
+                        <p class="exam-version" alt="paper version">   
                             <xsl:apply-templates select="dri:list[@n=(concat($handle, ':dc.description.version'))]/dri:item"/>
                         </p>
                     </xsl:if>
