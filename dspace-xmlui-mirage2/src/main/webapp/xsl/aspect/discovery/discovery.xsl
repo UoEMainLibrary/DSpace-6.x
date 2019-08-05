@@ -294,8 +294,7 @@
                                             <xsl:value-of select="concat($context-path, $title-search-url, translate(dri:list[@n=(concat($handle, ':dc.title'))], ' ', '+'))"/>
                                         </xsl:attribute>
                                         <xsl:if test="dri:list[@n=(concat($handle, ':dc.title'))]">
-                                            <span class="school-name">All papers from this course title
-                                                <!--<xsl:apply-templates select="dri:list[@n=(concat($handle, ':dc.title'))]/dri:item"/>-->
+                                            <span class="school-name" alt="link to view all papers with the same course title">All papers from this course title
                                             </span>
                                         </xsl:if>
                                     </xsl:element>
@@ -313,7 +312,7 @@
                                             <xsl:value-of select="concat($context-path, $id-search-url, translate(dri:list[@n=(concat($handle, ':dc.identifier'))], ' ', '+'))"/>
                                         </xsl:attribute>
                                         <xsl:if test="dri:list[@n=(concat($handle, ':dc.identifier'))]">
-                                            <span class="coursecode">
+                                            <span class="coursecode" alt="link to view all papers with the same course code">
                                                 <xsl:apply-templates select="dri:list[@n=(concat($handle, ':dc.identifier'))]/dri:item"/>
                                             </span>
                                         </xsl:if>
@@ -341,7 +340,6 @@
                                             <!-- A little bit ugly but functions without having to dig deep into the mets data path -->
                                             <xsl:value-of select="concat(concat($context-url, '/', $pdf-filename),
                                                                     concat('.pdf?sequence=', $sequence-num,  '&amp;isAllowed=y'))"/>
-                                            <!--<xsl:value-of select="$sequence-num"/>-->
                                         </xsl:attribute>
                                         DOWNLOAD PAPER <i aria-hidden="true" class="glyphicon glyphicon-download-alt" id="download-icon"></i>
                                     </xsl:element>
@@ -353,7 +351,7 @@
                                 <small>
                                     <xsl:element name="a">
                                         <xsl:attribute name="href">
-                                            <xsl:value-of select="concat($context-path, '/exam-papers', '/unavailable')"/>
+                                            <xsl:value-of select="concat($context-path, '/exam-papers', '/unavailable')" />
                                         </xsl:attribute>
                                         PAPER UNAVAILABLE
                                     </xsl:element>

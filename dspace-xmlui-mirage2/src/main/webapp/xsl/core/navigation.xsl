@@ -250,11 +250,7 @@
                             <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
                         </xsl:call-template>
                         <xsl:apply-templates/>
-
                         <input id="facet-back-link" action="action" onclick="window.history.go(-1); return false;" type="button" value="x" />
-
-                        <!--<xsl:variable name="facet-back-link" select="/dri:document/dri:meta/dri:pageMeta/dri:trail[@target][last()]/@target"/>
-                        <a id="facet-back-link" href="{$facet-back-link}">⨉</a>-->
                     </div>
                 </xsl:if>
             </xsl:when>

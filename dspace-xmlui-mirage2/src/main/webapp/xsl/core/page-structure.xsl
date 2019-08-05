@@ -104,7 +104,7 @@
 
                                             <!-- Add searchbar to body of HTML pages -->
                                             <!-- * code lifted from sidebar/navigation.xsl  -->
-                                            <div class="body-search">
+                                            <div class="body-search" alt="seach for exam papers using either the course name or course code. if neither is known you can also search for keywords">
                                                 <form id="ds-search-form" class="" method="post">
                                                     <xsl:attribute name="action">
                                                         <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath']"/>
@@ -148,7 +148,7 @@
                                                 
                                                 <!-- Reset search button added, clears seach filters and returns to default discovery page -->
                                                 <xsl:variable name="clean-search" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath']"/>
-                                                <a id="search-reset" href="{$clean-search}/discover">Reset Search</a>
+                                                <a id="search-reset" href="{$clean-search}/discover" alt="clear all seach filters">Reset Search</a>
                                             </div>
 
                                             <xsl:apply-templates select="*[not(self::dri:options)]"/>
@@ -170,62 +170,116 @@
                                     <!-- * MUST BE UPDATED MANUALLY! * -->
                                     <xsl:variable name="root-url" select="/dri:document/dri:meta/dri:pageMeta/dri:trail[@target][last()]/@target"/>
                                     <xsl:choose>
-                                        <xsl:when test="contains($request-uri, 'about') or contains($request-uri, 'help') or contains($request-uri, 'feedback') or contains($request-uri, 'faq') or contains($request-uri, 'unavailable')">
+                                        <!-- Conditional to determine if current URL is a static page and serve up static sidebar accordingly -->
+                                        <xsl:when test="contains($request-uri, 'about') or contains($request-uri, 'help') or contains($request-uri, 'feedback') 
+                                                        or contains($request-uri, 'faq') or contains($request-uri, 'unavailable')">
                                             <div role="navigation" id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
                                                 <div id="aspect_viewArtifacts_Navigation_list_discovery" class="list-group">
-                                                    <a class="list-group-item active"><span class="h5 list-group-item-heading  h5">Browse by School</span></a>
-
+                                                    <a class="list-group-item active" alt="sidebar category">
+                                                        <span class="h5 list-group-item-heading h5">
+                                                            Browse by School
+                                                        </span>
+                                                    </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Biological+Sciences%2C+School+of" 
-                                                        class="list-group-item ds-option">Biological Sciences, School of</a>
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        Biological Sciences, School of
+                                                    </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Biomedical+Sciences%2C+Deanery+of" 
-                                                        class="list-group-item ds-option">Biomedical Sciences, Deanery of</a>
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        Biomedical Sciences, Deanery of
+                                                    </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Business+School" 
-                                                        class="list-group-item ds-option">Business School</a>
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        Business School
+                                                    </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Chemistry%2C+School+of" 
-                                                        class="list-group-item ds-option">Chemistry, School of</a>
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        Chemistry, School of
+                                                    </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Clinical+Sciences%2C+Deanery+of" 
-                                                        class="list-group-item ds-option">Clinical Sciences, Deanery of</a>
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        Clinical Sciences, Deanery of
+                                                    </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Divinity%2C+School+of" 
-                                                        class="list-group-item ds-option">Divinity, School of</a>
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        Divinity, School of
+                                                    </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Economics%2C+School+of" 
-                                                        class="list-group-item ds-option">Economics, School of</a>
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        Economics, School of
+                                                    </a>
                                                     <a href="${$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Edinburgh+College+of+Art" 
-                                                        class="list-group-item ds-option">Edinburgh College of Art</a>
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        Edinburgh College of Art
+                                                    </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Education%2C+The+Moray+House+School+of" 
-                                                        class="list-group-item ds-option">Education, The Moray House School of</a>
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        Education, The Moray House School of
+                                                    </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Engineering%2C+School+of" 
-                                                        class="list-group-item ds-option">Engineering, School of</a>
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        Engineering, School of
+                                                    </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Geosciences%2C+School+of" 
-                                                        class="list-group-item ds-option">Geosciences, School of</a>
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        Geosciences, School of
+                                                    </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Health+in+Social+Science%2C+School+of" 
-                                                        class="list-group-item ds-option">Health in Social Science, School of</a>
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        Health in Social Science, School of
+                                                    </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=History%2C+Classics+and+Archaeology%2C+School+of" 
-                                                        class="list-group-item ds-option">History, Classics and Archaeology, School of</a>
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        History, Classics and Archaeology, School of
+                                                    </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Informatics%2C+School+of" 
-                                                        class="list-group-item ds-option">Informatics, School of</a>
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        Informatics, School of
+                                                    </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Law%2C+School+of" 
-                                                        class="list-group-item ds-option">Law, School of</a>
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        Law, School of
+                                                    </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Life+Long+Learning" 
-                                                        class="list-group-item ds-option">Life Long Learning</a>
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        Life Long Learning
+                                                    </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Literatures%2C+Languages+%26+Cultures%2C+School+of" 
-                                                        class="list-group-item ds-option">Literatures, Languages &amp; Cultures, School of</a>
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        Literatures, Languages &amp; Cultures, School of
+                                                    </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Mathematics%2C+School+of" 
-                                                        class="list-group-item ds-option">Mathematics, School of</a>
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        Mathematics, School of
+                                                    </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=MBChB+%28Papers+unavailable+at+request+of+College%29" 
-                                                        class="list-group-item ds-option">MBChB (Papers unavailable at request of College)</a>
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        MBChB (Papers unavailable at request of College)
+                                                    </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Molecular%2C+Genetic+and+Population+Health+Sciences%2C+Deanery+of" 
-                                                        class="list-group-item ds-option">Molecular, Genetic and Population Health Sciences, Deanery of</a>
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        Molecular, Genetic and Population Health Sciences, Deanery of
+                                                    </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Philosophy%2C+Psychology+%26+Language+Sciences%2C+School+of" 
-                                                        class="list-group-item ds-option">Philosophy, Psychology &amp; Language Sciences, School of</a>
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        Philosophy, Psychology &amp; Language Sciences, School of
+                                                    </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Physics+and+Astronomy%2C+School+of" 
-                                                        class="list-group-item ds-option">Physics and Astronomy, School of</a>
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        Physics and Astronomy, School of
+                                                    </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Social+%26+Political+Science%2C+School+of" 
-                                                        class="list-group-item ds-option">Social &amp; Political Science, School of</a>
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        Social &amp; Political Science, School of
+                                                    </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Veterinary+Studies%2C+Royal+%28Dick%29+School+of" 
-                                                        class="list-group-item ds-option">Veterinary Studies, Royal (Dick) School of</a>
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        Veterinary Studies, Royal (Dick) School of
+                                                    </a>
                                                 </div>   
                                             </div>
                                         </xsl:when>
+                                        <!-- Serve up dynamic sidebar on all other pages -->
                                         <xsl:otherwise>
                                             <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
                                                 <xsl:apply-templates select="dri:options"/>
@@ -234,14 +288,9 @@
                                     </xsl:choose>
 
                                     </div>
-                                </div>
-
-                                
-                            
+                                </div>   
                         </div>
-
                         </xsl:otherwise>
-
                     </xsl:choose>
                     <!-- Javascript at the bottom for fast page loading -->
                     <xsl:call-template name="addJavascript"/>
@@ -465,7 +514,7 @@
 
         <header class="exam-header">
 
-            <div class="container" id="navbar-container">
+            <div class="container" id="navbar-container" alt="naviagtion bar">
 
                 <div class="navbar navbar-default navbar-static-top" role="navigation">
                     <div class="container">
@@ -575,6 +624,8 @@
                                                         <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
                                                     </a>
                                                 </li>
+                                                <!-- Supress logout button in navigation -->
+                                                <!-- * has been moved to footer for admin use only -->
                                                 <!--<li>
                                                     <a href="{/dri:document/dri:meta/dri:userMeta/
                                                                 dri:metadata[@element='identifier' and @qualifier='logoutURL']}">
@@ -585,6 +636,8 @@
                                         </li>
                                     </xsl:when>
                                     <xsl:otherwise>
+                                        <!-- Supress login button in navigation -->
+                                        <!-- * has been moved to footer for admin use only -->
                                         <!--<li>
                                             <a href="{/dri:document/dri:meta/dri:userMeta/
                                                                 dri:metadata[@element='identifier' and @qualifier='loginURL']}">
@@ -694,195 +747,255 @@
                                 <!-- * lengthy and ugly but avoids end-users being able to access default dspace discovery & collection pages 
                                         (stops students seeing dspace admin interface etc -->
                                     <xsl:when test="starts-with($request-uri, 'exam-papers/about')">
-                                        <ul class="breadcrumb">
-                                            <!--<xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail[@target][last()]"/>-->
+                                        <ul class="breadcrumb" alt="breadcrumb trail for current page">
                                             <li>
-                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home">University Homepage</a>
+                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home" alt="breadcrumb link to university homapge">
+                                                    University Homepage
+                                                </a>
                                             </li>
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments">Schools &amp; Departments</a>
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments" alt="breadcrumb link to university schools and departments">
+                                                    Schools &amp; Departments
+                                                </a>
                                             </li> 
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services">Information Services</a>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services" alt="breadcrumb link to university information services">
+                                                    Information Services
+                                                </a>
                                             </li>                                          
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials">Library Essentials</a>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials" alt="breadcrumb link to university library information page">
+                                                    Library Essentials
+                                                </a>
                                             </li>
                                             <li>
-                                                <!--<i aria-hidden="true" class="glyphicon glyphicon-home" id="trail-icon"></i>-->
-                                                <a href="/">Exam Papers</a>
+                                                <a href="/" alt="breadcrumb link to exam papers homapge">
+                                                    Exam Papers
+                                                </a>
                                             </li>
-                                            <li class="breadcrumb">
+                                            <li class="breadcrumb" alt="breadcrumb for current page">
                                                 <xsl:text>About</xsl:text>
                                             </li>
                                         </ul>
                                         
                                     </xsl:when>
                                     <xsl:when test="starts-with($request-uri, 'exam-papers/help')">
-                                        <ul class="breadcrumb">
-                                            <!--<xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail[@target][last()]"/>-->
+                                        <ul class="breadcrumb" alt="breadcrumb trail for current page">
                                             <li>
-                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home">University Homepage</a>
+                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home" alt="breadcrumb link to university homapge">
+                                                    University Homepage
+                                                </a>
                                             </li>
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments">Schools &amp; Departments</a>
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments" alt="breadcrumb link to university schools and departments">
+                                                    Schools &amp; Departments
+                                                </a>
                                             </li> 
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services">Information Services</a>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services" alt="breadcrumb link to university information services">
+                                                    Information Services
+                                                </a>
                                             </li>                                          
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials">Library Essentials</a>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials" alt="breadcrumb link to university library information page">
+                                                    Library Essentials
+                                                </a>
                                             </li>
                                             <li>
-                                                <a href="/">Exam Papers</a>
+                                                <a href="/" alt="breadcrumb link to exam papers homapge">Exam Papers</a>
                                             </li>
-                                            <li class="breadcrumb">
+                                            <li class="breadcrumb" alt="breadcrumb for current page">
                                                 <xsl:text>Help</xsl:text>
                                             </li>
                                         </ul>
                                         
                                     </xsl:when>
                                     <xsl:when test="starts-with($request-uri, 'exam-papers/feedback')">
-                                        <ul class="breadcrumb">
-                                            <!--<xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail[@target][last()]"/>-->
+                                        <ul class="breadcrumb" alt="breadcrumb trail for current page">
                                             <li>
-                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home">University Homepage</a>
+                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home" alt="breadcrumb link to university homapge">
+                                                    University Homepage
+                                                </a>
                                             </li>
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments">Schools &amp; Departments</a>
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments" alt="breadcrumb link to university schools and departments">
+                                                    Schools &amp; Departments
+                                                </a>
                                             </li> 
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services">Information Services</a>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services" alt="breadcrumb link to university information services">
+                                                    Information Services
+                                                </a>
                                             </li>                                          
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials">Library Essentials</a>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials" alt="breadcrumb link to university library information page">
+                                                    Library Essentials
+                                                </a>
                                             </li>
                                             <li>
-                                                <!--<i aria-hidden="true" class="glyphicon glyphicon-home" id="trail-icon"></i>-->
-                                                <a href="/">Exam Papers</a>
+                                                <a href="/" alt="breadcrumb link to exam papers homapge">
+                                                    Exam Papers
+                                                </a>
                                             </li>
-                                            <li class="breadcrumb">
+                                            <li class="breadcrumb" alt="breadcrumb for current page">
                                                 <xsl:text>Feedback</xsl:text>
                                             </li>
                                         </ul>
                                         
                                     </xsl:when>
                                     <xsl:when test="starts-with($request-uri, 'exam-papers/faqs')">
-                                        <ul class="breadcrumb">
-                                            <!--<xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail[@target][last()]"/>-->
+                                        <ul class="breadcrumb" alt="breadcrumb trail for current page">
                                             <li>
-                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home">University Homepage</a>
+                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home" alt="breadcrumb link to university homapge">
+                                                    University Homepage
+                                                </a>
                                             </li>
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments">Schools &amp; Departments</a>
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments" alt="breadcrumb link to university schools and departments">
+                                                    Schools &amp; Departments
+                                                </a>
                                             </li> 
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services">Information Services</a>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services" alt="breadcrumb link to university information services">
+                                                    Information Services
+                                                </a>
                                             </li>                                          
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials">Library Essentials</a>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials" alt="breadcrumb link to university library information page">
+                                                    Library Essentials
+                                                </a>
                                             </li>
                                             <li>
-                                                <!--<i aria-hidden="true" class="glyphicon glyphicon-home" id="trail-icon"></i>-->
-                                                <a href="/">Exam Papers</a>
+                                                <a href="/" alt="breadcrumb link to exam papers homapge">
+                                                    Exam Papers
+                                                </a>
                                             </li>
-                                            <li class="breadcrumb">
+                                            <li class="breadcrumb" alt="breadcrumb for current page">
                                                 <xsl:text>FAQs</xsl:text>
                                             </li>
                                         </ul>
                                     </xsl:when>
 
                                     <xsl:when test="starts-with($request-uri, 'exam-papers/unavailable')">
-                                        <ul class="breadcrumb">
-                                            <!--<xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail[@target][last()]"/>-->
+                                        <ul class="breadcrumb" alt="breadcrumb trail for current page">
                                             <li>
-                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home">University Homepage</a>
+                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home" alt="breadcrumb link to university homapge">
+                                                    University Homepage
+                                                </a>
                                             </li>
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments">Schools &amp; Departments</a>
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments" alt="breadcrumb link to university schools and departments">
+                                                    Schools &amp; Departments
+                                                </a>
                                             </li> 
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services">Information Services</a>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services" alt="breadcrumb link to university information services">
+                                                    Information Services
+                                                </a>
                                             </li>                                          
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials">Library Essentials</a>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials" alt="breadcrumb link to university library information page">
+                                                    Library Essentials
+                                                </a>
                                             </li>
                                             <li>
-                                                <!--<i aria-hidden="true" class="glyphicon glyphicon-home" id="trail-icon"></i>-->
-                                                <a href="/">Exam Papers</a>
+                                                <a href="/" alt="breadcrumb link to exam papers homapge">
+                                                    Exam Papers
+                                                </a>
                                             </li>
-                                            <li class="breadcrumb">
+                                            <li class="breadcrumb" alt="breadcrumb for current page">
                                                 <xsl:text>Paper Unavailable</xsl:text>
                                             </li>
                                         </ul>
                                     </xsl:when> 
 
                                     <xsl:when test="starts-with($request-uri, 'handle')">
-                                        <ul class="breadcrumb">
-                                            <!--<xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail[@target][last()]"/>-->
+                                        <ul class="breadcrumb" alt="breadcrumb trail for current page">
                                             <li>
-                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home">University Homepage</a>
+                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home" alt="breadcrumb link to university homapge">
+                                                    University Homepage
+                                                </a>
                                             </li>
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments">Schools &amp; Departments</a>
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments" alt="breadcrumb link to university schools and departments">
+                                                    Schools &amp; Departments
+                                                </a>
                                             </li> 
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services">Information Services</a>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services" alt="breadcrumb link to university information services">
+                                                    Information Services
+                                                </a>
                                             </li>                                          
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials">Library Essentials</a>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials" alt="breadcrumb link to university library information page">Library Essentials</a>
                                             </li>
                                             <li>
-                                                <!--<i aria-hidden="true" class="glyphicon glyphicon-home" id="trail-icon"></i>-->
-                                                <a href="/">Exam Papers</a>
+                                                <a href="/" alt="breadcrumb link to exam papers homapge">
+                                                    Exam Papers
+                                                </a>
                                             </li>
-                                            <li class="breadcrumb">
+                                            <li class="breadcrumb" alt="breadcrumb for current page">
                                                 <xsl:text>View Item</xsl:text>
                                             </li>
                                         </ul>   
                                     </xsl:when>
 
                                     <xsl:when test="starts-with($request-uri, 'discover')">
-                                        <ul class="breadcrumb">
-                                            <!--<xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail[@target][last()]"/>-->
+                                        <ul class="breadcrumb" alt="breadcrumb trail for current page">
                                             <li>
-                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home">University Homepage</a>
+                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home" alt="breadcrumb link to university homapge">
+                                                    University Homepage
+                                                </a>
                                             </li>
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments">Schools &amp; Departments</a>
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments" alt="breadcrumb link to university schools and departments">
+                                                    Schools &amp; Departments
+                                                </a>
                                             </li> 
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services">Information Services</a>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services" alt="breadcrumb link to university information services">
+                                                    Information Services
+                                                </a>
                                             </li>                                          
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials">Library Essentials</a>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials" alt="breadcrumb link to university library information page">
+                                                    Library Essentials
+                                                </a>
                                             </li>
                                             <li>
-                                                <!--<i aria-hidden="true" class="glyphicon glyphicon-home" id="trail-icon"></i>-->
-                                                <a href="/">Exam Papers</a>
+                                                <a href="/" alt="breadcrumb link to exam papers homapge">
+                                                    Exam Papers
+                                                </a>
                                             </li>
-                                            <li class="breadcrumb">
+                                            <li class="breadcrumb" alt="breadcrumb for current page">
                                                 <xsl:text>Search</xsl:text>
                                             </li>
                                         </ul>      
                                     </xsl:when>     
 
                                     <xsl:otherwise>
-                                        <ul class="breadcrumb">
-                                            <!--<xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>-->
+                                        <ul class="breadcrumb" alt="breadcrumb trail for current page">
                                             <li>
-                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home">University Homepage</a>
+                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home" alt="breadcrumb link to university homapge">
+                                                    University Homepage
+                                                </a>
                                             </li>
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments">Schools &amp; Departments</a>
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments" alt="breadcrumb link to university schools and departments">
+                                                    Schools &amp; Departments
+                                                </a>
                                             </li> 
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services">Information Services</a>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services" alt="breadcrumb link to university information services">
+                                                    Information Services
+                                                </a>
                                             </li>                                          
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials">Library Essentials</a>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials" alt="breadcrumb link to university library information page">
+                                                    Library Essentials
+                                                </a>
                                             </li>
-                                            <li class="breadcrumb">
+                                            <li class="breadcrumb" alt="breadcrumb for current page">
                                                 <xsl:text>Exam Papers</xsl:text>
                                             </li>
                                         </ul>
@@ -965,11 +1078,9 @@
         </xsl:variable>
 
         <xsl:variable name="ccLicenseName"
-                      select="document($externalMetadataURL)//dim:field[@element='rights']"
-                />
+                      select="document($externalMetadataURL)//dim:field[@element='rights']" />
         <xsl:variable name="ccLicenseUri"
-                      select="document($externalMetadataURL)//dim:field[@element='rights'][@qualifier='uri']"
-                />
+                      select="document($externalMetadataURL)//dim:field[@element='rights'][@qualifier='uri']" />
         <xsl:variable name="handleUri">
             <xsl:for-each select="document($externalMetadataURL)//dim:field[@element='identifier' and @qualifier='uri']">
                 <a>
@@ -1012,36 +1123,28 @@
         <xsl:param name="ccLicenseUri"/>
         <xsl:variable name="ccLogo">
              <xsl:choose>
-                  <xsl:when test="starts-with($ccLicenseUri,
-                                           'http://creativecommons.org/licenses/by/')">
+                  <xsl:when test="starts-with($ccLicenseUri, 'http://creativecommons.org/licenses/by/')">
                        <xsl:value-of select="'cc-by.png'" />
                   </xsl:when>
-                  <xsl:when test="starts-with($ccLicenseUri,
-                                           'http://creativecommons.org/licenses/by-sa/')">
+                  <xsl:when test="starts-with($ccLicenseUri, 'http://creativecommons.org/licenses/by-sa/')">
                        <xsl:value-of select="'cc-by-sa.png'" />
                   </xsl:when>
-                  <xsl:when test="starts-with($ccLicenseUri,
-                                           'http://creativecommons.org/licenses/by-nd/')">
+                  <xsl:when test="starts-with($ccLicenseUri, 'http://creativecommons.org/licenses/by-nd/')">
                        <xsl:value-of select="'cc-by-nd.png'" />
                   </xsl:when>
-                  <xsl:when test="starts-with($ccLicenseUri,
-                                           'http://creativecommons.org/licenses/by-nc/')">
+                  <xsl:when test="starts-with($ccLicenseUri, 'http://creativecommons.org/licenses/by-nc/')">
                        <xsl:value-of select="'cc-by-nc.png'" />
                   </xsl:when>
-                  <xsl:when test="starts-with($ccLicenseUri,
-                                           'http://creativecommons.org/licenses/by-nc-sa/')">
+                  <xsl:when test="starts-with($ccLicenseUri, 'http://creativecommons.org/licenses/by-nc-sa/')">
                        <xsl:value-of select="'cc-by-nc-sa.png'" />
                   </xsl:when>
-                  <xsl:when test="starts-with($ccLicenseUri,
-                                           'http://creativecommons.org/licenses/by-nc-nd/')">
+                  <xsl:when test="starts-with($ccLicenseUri, 'http://creativecommons.org/licenses/by-nc-nd/')">
                        <xsl:value-of select="'cc-by-nc-nd.png'" />
                   </xsl:when>
-                  <xsl:when test="starts-with($ccLicenseUri,
-                                           'http://creativecommons.org/publicdomain/zero/')">
+                  <xsl:when test="starts-with($ccLicenseUri, 'http://creativecommons.org/publicdomain/zero/')">
                        <xsl:value-of select="'cc-zero.png'" />
                   </xsl:when>
-                  <xsl:when test="starts-with($ccLicenseUri,
-                                           'http://creativecommons.org/publicdomain/mark/')">
+                  <xsl:when test="starts-with($ccLicenseUri, 'http://creativecommons.org/publicdomain/mark/')">
                        <xsl:value-of select="'cc-mark.png'" />
                   </xsl:when>
                   <xsl:otherwise>
@@ -1061,10 +1164,12 @@
 
     <!-- Like the header, the footer contains various miscellaneous text, links, and image placeholders -->
     <xsl:template name="buildFooter">
-        <footer>
+        <footer alt="site footer">
                 <div class="row">
                     <hr/>
                     <div class="col-xs-7 col-sm-8">
+
+                        <!-- Supress links to DSpace and DuraSpace sites -->
                         <!--<div>
                             <a href="http://www.dspace.org/" target="_blank">DSpace software</a> copyright&#160;&#169;&#160;2002-2016&#160; <a href="http://www.duraspace.org/" target="_blank">DuraSpace</a>
                         </div>-->
@@ -1088,6 +1193,7 @@
                             </a>
                             <!--<xsl:text> | </xsl:text>--> 
                             <a>
+                                <!-- Supress default feedback page link -->
                                 <!--<xsl:attribute name="href">
                                     <xsl:value-of
                                             select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
@@ -1096,22 +1202,36 @@
                                 <i18n:text>xmlui.dri2xhtml.structural.feedback-link</i18n:text>-->
                             </a>
                             <div class="footer-disclaimer">
-                                <div class="footer-policies">
+                                <div class="footer-policies" alt="site privacy and accessibility policy links">
                                     <p id="footer-left">
-                                        <a class="footer-policies-a" href="http://www.ed.ac.uk/about/website/privacy" title="Privacy and Cookies Link" target="_blank">Privacy &amp; Cookies </a> 
-                                        <a class="footer-policies-a" href="https://www.ed.ac.uk/files/atoms/files/uoe_academic_blogging_notice_and_takedown_policy_v1.0.pdf" title="Takedown Policy Link">Takedown Policy </a> 
-                                        <a class="footer-policies-a" href="http://www.ed.ac.uk/about/website/accessibility" title="Website Accessibility Link" target="_blank">Accessibility </a> 
+                                        <a class="footer-policies-a" href="http://www.ed.ac.uk/about/website/privacy" title="Privacy and Cookies Link" target="_blank" alt="link to univeristy privacy and coookie policies">
+                                            Privacy &amp; Cookies 
+                                        </a> 
+                                        <a class="footer-policies-a" href="https://www.ed.ac.uk/files/atoms/files/uoe_academic_blogging_notice_and_takedown_policy_v1.0.pdf" title="Takedown Policy Link" alt="link to univeristy take down policy">
+                                            Takedown Policy 
+                                        </a> 
+                                        <a class="footer-policies-a" href="http://www.ed.ac.uk/about/website/accessibility" title="Website Accessibility Link" target="_blank" alt="link to univeristy accessibilty policy">
+                                            Accessibility 
+                                        </a> 
                                     </p>
-                                    <p id="footer-right"><a href="/login">Admin Login <i aria-hidden="true" class="glyphicon glyphicon glyphicon-log-in" id="admin-login-icon"></i></a>
+                                    <p id="footer-right">
+                                        <a href="/login" alt="admin login link">
+                                            Admin Login <i aria-hidden="true" class="glyphicon glyphicon glyphicon-log-in" id="admin-login-icon"></i>
+                                        </a>
                                     </p>
                                 </div>
-                                <div id="footer-left" class="footer-disclaimer">
+                                <div id="footer-left" class="footer-disclaimer" alt="site disclaimer">
                                     <p>
-                                        The University of Edinburgh is a charitable body, registered in Scotland, with registration number SC005336, VAT Registration Number GB 592 9507 00, and is acknowledged by the UK authorities as a <a href="https://www.gov.uk/recognised-uk-degrees" title="UK Government Recognised Degrees Link" target="_blank">“Recognised Body”</a> which has been granted degree awarding powers.
+                                        The University of Edinburgh is a charitable body, registered in Scotland, with registration number SC005336, VAT Registration Number GB 592 9507 00, 
+                                        and is acknowledged by the UK authorities as a <a href="https://www.gov.uk/recognised-uk-degrees" title="UK Government Recognised Degrees Link" target="_blank"
+                                        alt="link to UK government recognised university charitable body check site"> “Recognised Body”</a> which has been granted degree awarding powers.
                                     </p>
                                     <p></p>
                                     <p>
-                                        Unless explicitly stated otherwise, all material is copyright © 2019 <a href="http://www.ed.ac.uk" title="University of Edinburgh Home" target="_blank">University of Edinburgh</a>.
+                                        Unless explicitly stated otherwise, all material is copyright © 2019 <a href="http://www.ed.ac.uk" title="University of Edinburgh Home" 
+                                        alt="link to univeristy of edinburgh homepage
+                                        .
+                                        " target="_blank">University of Edinburgh</a>.
                                     </p>
                                 </div>
                                 <!-- Commented out for now but can be added back in if required -->
@@ -1180,25 +1300,26 @@
                 <xsl:when test="starts-with($request-uri, 'exam-papers/about')">
                     <div class="hero-unit">
                         <div class="content">
-
                             <p></p>
-
-                            <h3>Edinburgh University Exam Papers Online</h3>
-                            <p>
+                            <h3 alt="page title">Edinburgh University Exam Papers Online</h3>
+                            <p alt="information about the universities exam papers site">
                                 Exam Papers Online is a service provided by University of Edinburgh Library and University Collections for students and staff of The University of Edinburgh.
                             </p>
                             <p>
-                                These pages will be updated periodically, as more papers become available.
-                                If you cannot find the paper you are looking for, please email <a href="mailto:exam.papers@ed.ac.uk" title="Link to email the exam paper team at the University of Edinburgh about a specific exam paper">exam.papers@ed.ac.uk</a>, or try visiting again at a later date.
+                                These pages will be updated periodically, as more papers become available. If you cannot find the paper you are looking for, please email 
+                                <a href="mailto:exam.papers@ed.ac.uk" title="Link to email the exam paper team at the University of Edinburgh about a specific exam paper"
+                                alt="link to exam papers email address">exam.papers@ed.ac.uk</a>, or try visiting again at a later date.
                             </p>
                             <p>
-                                These pages are part of the collected Degree Examination Papers of the University of Edinburgh and are provided for use by its students as a study aid. No other use is permitted.
+                                These pages are part of the collected Degree Examination Papers of the University of Edinburgh and are provided for use by its students as a study aid. 
+                                No other use is permitted.
                             </p>
                             <p>
                                 Bound volumes of older sets - up to academic year 2004/2005 - have now been moved to the University Collections Facility and may be retrieved upon request.
                                 Further information on accessing materials stored in the university are available from: 
                                 <a href="https://www.ed.ac.uk/information-services/library-museum-gallery/using-library/lib-locate/university-collections-facility" 
-                                    target="_blank" title="Link to details about accessing the University Collections Facility materials">University Collections Facility. 
+                                target="_blank" title="Link to details about accessing the University Collections Facility materials" alt="link to the univeristy collections
+                                facility website">University Collections Facility. 
                                 </a>
                             </p>
                             <br></br>
@@ -1211,16 +1332,18 @@
                 <xsl:when test="starts-with($request-uri, 'exam-papers/help')">
                     <div class="hero-unit">
                         <div class="content">
-
                             <p></p>
-
-                            <h3>Exam Papers Online Help</h3>
-
-                            <p>
-                                Please contact <a href="mailto:exam.papers@ed.ac.uk" title="Link to email the exam paper team at the University of Edinburgh with any queries">exam.papers@ed.ac.uk</a> with any queries concerning past exam papers or use the <a href="./feedback/" title="Link to the University of Edinburgh's exam papers feedback form">Feedback form</a> for comments or suggestions on the web pages.
+                            <h3 alt="page title">Exam Papers Online Help</h3>
+                            <p alt=" helpful information about using the universities exam papers site">
+                                Please contact <a href="mailto:exam.papers@ed.ac.uk" title="Link to email the exam paper team at the University of Edinburgh with any queries"
+                                alt="link to exam papers email address">exam.papers@ed.ac.uk</a> with any queries concerning past exam papers or use the 
+                                <a href="./feedback/" title="Link to the University of Edinburgh's exam papers feedback form" alt="link to exam papers feedback form">Feedback form</a> 
+                                for comments or suggestions on the web pages.
                             </p>
                             <p>
-                                All exam paper downloads on this site are in PDF format. Your browser should automatically display the PDF but if this is not possible, there will be a link for downloading the PDF. If you do not have a PDF reader installed, download Adobe Acrobat Reader <a href="http://get.adobe.com/uk/reader/" title="Link to download and install Adobe Acrobat PDF Reader" class="bold">here</a>.
+                                All exam paper downloads on this site are in PDF format. Your browser should automatically display the PDF but if this is not possible, 
+                                there will be a link for downloading the PDF. If you do not have a PDF reader installed, <a href="http://get.adobe.com/uk/reader/" 
+                                title="Link to download and install Adobe Acrobat PDF Reader" class="bold" alt="link to adobe acrobat reader download page">download Adobe Acrobat Reader here</a>.
                             </p>
                             <p>
                                 Users who wish to use assisted software are advised to use Internet Explorer.
@@ -1234,23 +1357,20 @@
                 <xsl:when test="starts-with($request-uri, 'exam-papers/feedback')">
                     <div class="hero-unit">
                         <div class="content">
-
                             <p></p>
-
-                            <h3>Feedback</h3>
-
-                            <p>
-                                Please contact us with your suggestions or questions at <a href="mailto:exam.papers@ed.ac.uk" title="Link to email the exam paper team at the University of Edinburgh with feedback and suggestions">exam.papers@ed.ac.uk</a>.
+                            <h3 alt="page title">Feedback</h3>
+                            <p alt="feedabck information">
+                                Please contact us with your suggestions or questions at <a href="mailto:exam.papers@ed.ac.uk" 
+                                title="Link to email the exam paper team at the University of Edinburgh with feedback and suggestions" alt="link to exam papers email address">exam.papers@ed.ac.uk</a>.
                             </p>
-
-
-                            <h3>Privacy Statement </h3>
-                            <p>
+                            <h3 alt="section title">Privacy Statement </h3>
+                            <p alt="privacy statement deatils">
                                 Information about you: how we use it and with whom we share it
                             </p>
                             <p>
-                                The information you provide in this form will be used only for purposes of your enquiry. We will not share your personal information with any third party or use it for any other purpose.
-                                We are using information about you because it is necessary to contact you regarding your enquiry. By providing your personal data when submitting an enquiry to us, consent for your personal data to be used in this way is implied.
+                                The information you provide in this form will be used only for purposes of your enquiry. We will not share your personal information with any third party or use it 
+                                for any other purpose. We are using information about you because it is necessary to contact you regarding your enquiry. By providing your personal data when submitting 
+                                an enquiry to us, consent for your personal data to be used in this way is implied.
                             </p>
                             <p>
                                 For digitisation orders, your personal data is necessary for the performance of our contract to provide you with services that charge a fee.
@@ -1259,9 +1379,14 @@
                                 We will hold the personal data you provided us for 6 years. We do not use profiling or automated decision-making processes.
                             </p>
                             <p>
-                                If you have any questions, please contact: <a href="mailto:exam.papers@ed.ac.uk" title="Link to email the exam paper team at the University of Edinburgh with any questions">exam.papers@ed.ac.uk</a>
+                                If you have any questions, please contact: <a href="mailto:exam.papers@ed.ac.uk" 
+                                title="Link to email the exam paper team at the University of Edinburgh with any questions" alt="link to exam papers email address">exam.papers@ed.ac.uk</a>
                             </p>
-                            <p><a href="https://www.ed.ac.uk/records-management/notice" target="_blank" title="Link to the University of Edinburgh's privacy statement">University privacy statement</a></p>
+                            <p>
+                                <a href="https://www.ed.ac.uk/records-management/notice" target="_blank" title="Link to the University of Edinburgh's privacy statement" alt="link to university privacy statement">
+                                    University privacy statement
+                                </a>
+                            </p>
                             <br></br>
                         </div>
                     </div>
@@ -1271,16 +1396,15 @@
                 <xsl:when test="starts-with($request-uri, 'exam-papers/faqs')">
                     <div class="hero-unit">
                         <div class="content">
-
                             <div class="content byEditor about">
-                                <h3>FAQs</h3>
+                                <h3 alt="page title">FAQs</h3>
                                 <br></br>
-                                <h4>...For Students</h4>
-                                <h5> I can’t find my paper. Why?</h5>
-                                <p>
+                                <h4 alt="subsection title">...For Students</h4>
+                                <h5 alt="frequently asked question"> I can’t find my paper. Why?</h5>
+                                <p alt="answer to frequently asked question">
                                     If you have tried all of the search tips and cannot find an entry for your paper it might be missing for one of the following reasons:
                                 </p>
-                                <ul>
+                                <ul alt="list of possible reasons for exclution of desired exam paper">
                                     <li>We have not been sent the paper by the department. While we do our best to collect all papers there will inevitably be gaps in our records.</li>
                                     <li>The department does not want it made available online. It is at the discretion of teaching staff as to whether a past exam paper is made available online. Some departments ask that none of the papers are placed on Exam Papers Online, others may only want the most recent papers to be available.</li>
                                     <li>We have recently received the paper. The paper may have recently been sent to us by a department and is awaiting processing by us. Please try again later.</li>
@@ -1290,43 +1414,42 @@
                                     <li>If you require more information as to why a paper isn’t available online please email us.</li>
                                 </ul>
                                 <p></p>
-
-                                <h5>Do you hold the answers to exam papers?</h5>
-                                <p>
+                                <h5 alt="frequently asked question">Do you hold the answers to exam papers?</h5>
+                                <p alt="answer to frequently asked question">
                                     No, we only hold the examination papers that have been sat in past years, not the solutions.
                                 </p>
-
-                                <h5>A section has been removed from my paper. Why?</h5>
-                                <p>
+                                <h5 alt="frequently asked question">A section has been removed from my paper. Why?</h5>
+                                <p alt="answer to frequently asked question">
                                     Some sections, such as multiple choice questions, may have been removed from papers by the department, or others may be have been removed due to copyright restrictions.
                                 </p>
-
-                                <h5>Where can I find pre-2004 exam papers?</h5>
-                                <p id="faq-div-p">
+                                <h5 alt="frequently asked question">Where can I find pre-2004 exam papers?</h5>
+                                <p id="faq-div-p" alt="answer to frequently asked question">
                                     We hold some digitised exam papers from 1995 to 2004 in our archive. Please email us if you require older papers. Original print copies of papers further back are held at the 
-                                    <a href="https://www.ed.ac.uk/information-services/library-museum-gallery/using-library/lib-locate/university-collections-facility" 
-                                    target="_blank" title="Link to details about accessing the University Collections Facility materials">University Collections Facility.
+                                    <a href="https://www.ed.ac.uk/information-services/library-museum-gallery/using-library/lib-locate/university-collections-facility" target="_blank" 
+                                    title="Link to details about accessing the University Collections Facility materials" alt="link to the univeristy's collection facility wbsite">University Collections Facility.
                                     </a>
                                 </p>
-
                                 <br></br>
-                                <h4>...For Administrative &amp; Teaching Staff</h4>
-                                <h5>How do I submit an exam paper to go online?</h5>
-                                <p>
-                                    Once the examination period is over papers can be emailed to us at any time, in Word or pdf format. We send out email reminders out 3 times a year, after each examination diet. If you wish to be included in the mailing list please contact us.
+                                <h4 alt="subsection title">...For Administrative &amp; Teaching Staff</h4>
+                                <h5 alt="frequently asked question">How do I submit an exam paper to go online?</h5>
+                                <p alt="answer to frequently asked question">
+                                    Once the examination period is over papers can be emailed to us at any time, in Word or pdf format. We send out email reminders out 3 times a year, 
+                                    after each examination diet. If you wish to be included in the mailing list please contact us.
                                 </p>
-                                <h5>Can you tell me what exam papers are missing from my subject?</h5>
-                                <p>
+                                <h5 alt="frequently asked question">Can you tell me what exam papers are missing from my subject?</h5>
+                                <p alt="answer to frequently asked question">
                                     Yes, please email us with the details of the subject you are responsible for and we can provide a list of the papers not currently held.
                                 </p>
                                 <h5>How can I have a paper taken down?</h5>
-                                <p>
+                                <p alt="answer to frequently asked question">
                                     Please email us with the details of the paper you wish removed.
                                 </p>
                                 <br></br>
                                 <br></br>
                                 <p>
-                                    If you have any other questions please email us at <strong><a href="mailto:exam.papers@ed.ac.uk" title="Link to email the exam paper team at the University of Edinburgh about any other queries">exam.papers@ed.ac.uk</a></strong>
+                                    If you have any other questions please email us at <strong><a href="mailto:exam.papers@ed.ac.uk" 
+                                    title="Link to email the exam paper team at the University of Edinburgh about any other queries" alt="link to exam papers email address">
+                                    exam.papers@ed.ac.uk</a></strong>
                                 </p>
                                 <br></br>
                             </div>
@@ -1338,19 +1461,16 @@
                 <xsl:when test="starts-with($request-uri, 'exam-papers/unavailable')">
                     <div class="hero-unit">
                         <div class="content">
-
-                            <h3>This exam paper is unavailable at present</h3>
+                            <h3 alt="page title">This exam paper is unavailable at present</h3>
                             <p></p>
-
                             <h5 class="unavailable-list">This may be due to one of the following reasons:</h5>
-                            <ol class="unavailable-list">
+                            <ol class="unavailable-list" alt="list of possible reasons the paper is not available">
                                 <li>The paper has not yet been supplied by the School.</li>
                                 <li>The School does not wish this paper to be published online.</li>
                                 <li>The paper contains copyright material which means it cannot be published online.</li>
                             </ol>
                             <p></p>
-
-                            <p>If you need for further information please contact <a href="mailto:exam.papers@ed.ac.uk">exam.papers@ed.ac.uk</a></p>
+                            <p>If you need for further information please contact <a href="mailto:exam.papers@ed.ac.uk" alt="link to exam papers email address">exam.papers@ed.ac.uk</a></p>
                             <br></br>
                         </div>
                     </div>

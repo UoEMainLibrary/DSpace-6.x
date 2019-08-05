@@ -108,7 +108,9 @@
             <xsl:call-template name="itemSummaryView-DIM-title"/>
             <div class="row">
                 <div class="col-sm-4">
-                   <!-- <div class="row">
+
+                    <!-- Supress thumbnail -->
+                    <!-- <div class="row">
                         <div class="col-xs-6 col-sm-12">
                             <xsl:call-template name="itemSummaryView-DIM-thumbnail"/>
                         </div>
@@ -116,6 +118,8 @@
                             <xsl:call-template name="itemSummaryView-DIM-file-section"/>
                         </div>
                     </div> -->
+
+                    <!-- LIST OF ALL METADATA CATEGORIES TO BE DISPLAYED -->
                     <xsl:call-template name="itemSummaryView-school"/>
                     <xsl:call-template name="itemSummaryView-subject"/>
                     <xsl:call-template name="itemSummaryView-titlesml"/>
@@ -123,6 +127,8 @@
                     <xsl:call-template name="itemSummaryView-version"/>
                     <xsl:call-template name="itemSummaryView-year"/>
                     <xsl:call-template name="itemSummaryView-DIM-file-section"/>
+
+                    <!-- Supressed link to full item view -->
                     <!-- <xsl:if test="$ds_item_view_toggle_url != ''">
                         <xsl:call-template name="itemSummaryView-show-full"/>
                     </xsl:if> -->
@@ -135,16 +141,20 @@
             </div>
             
             <!-- generate variable for passing pdf to object viewer -->
-            <xsl:variable name="pdf-link" select="//mets:fileSec/mets:fileGrp[@USE='CONTENT' or @USE='ORIGINAL']/mets:file/mets:FLocat[@LOCTYPE='URL']/@xlink:href"></xsl:variable>
+            <xsl:variable name="pdf-link" select="//mets:fileSec/mets:fileGrp[@USE='CONTENT' or @USE='ORIGINAL']/mets:file/mets:FLocat[@LOCTYPE='URL']/@xlink:href" />
             <xsl:if test="normalize-space($pdf-link)">
                 <div class="pdf-viewer">
                     <object class="pdf-viewer" data="{$pdf-link}" type="application/pdf" width="100%" height="928"><xsl:value-of select="$pdf-link"></xsl:value-of></object>
                 </div>
             </xsl:if>
             <!-- generate url variable for return button -->
-            <xsl:variable name="return-url" select="$document//dri:meta/dri:pageMeta/dri:trail[@target][last()]/@target"></xsl:variable>       
+            <xsl:variable name="return-url" select="$document//dri:meta/dri:pageMeta/dri:trail[@target][last()]/@target" />       
             <div class="return-button">
-                <a href="{$return-url}"><button>BACK TO SEARCH RESULTS</button></a>
+                <a href="{$return-url}">
+                    <button alt="button to return to search results">
+                        BACK TO SEARCH RESULTS
+                    </button>
+                </a>
             </div>
         </div>
     </xsl:template>
@@ -152,7 +162,7 @@
     <xsl:template name="itemSummaryView-DIM-title">
         <xsl:choose>
             <xsl:when test="count(dim:field[@element='title'][not(@qualifier)]) &gt; 1">
-                <h2 class="page-header first-page-header" id="item-title-h">
+                <h2 class="page-header first-page-header" id="item-title-h" alt="paper title">
                     <xsl:value-of select="dim:field[@element='title'][not(@qualifier)][1]/node()"/>
                 </h2>
                 <div class="simple-item-view-other">
@@ -171,12 +181,12 @@
                 </div>
             </xsl:when>
             <xsl:when test="count(dim:field[@element='title'][not(@qualifier)]) = 1">
-                <h2 class="page-header first-page-header">
+                <h2 class="page-header first-page-header" alt="paper title">
                     <xsl:value-of select="dim:field[@element='title'][not(@qualifier)][1]/node()"/>
                 </h2>
             </xsl:when>
             <xsl:otherwise>
-                <h2 class="page-header first-page-header">
+                <h2 class="page-header first-page-header" alt="paper title">
                     <i18n:text>xmlui.dri2xhtml.METS-1.0.no-title</i18n:text>
                 </h2>
             </xsl:otherwise>
@@ -326,12 +336,12 @@
 
         <xsl:if test="dim:field[@element='creator']">
             <div class="simple-item-view-isbn word-break item-page-field-wrapper table">
-                <h5>
+                <h5 alt="paper school">
                     <i18n:text>xmlui.dri2xhtml.METS-1.0.item-school</i18n:text>
                 </h5>
                 <xsl:for-each select="dim:field[@element='creator']">
                     
-                    <a>
+                    <a alt="click to see all papers from this school">
                         <xsl:attribute name="href">
                             <!-- concatanate search url from 'url' variables and element children(s) -->
                             <xsl:copy-of select="concat($search-url, $search-url-2, translate(./node(), ' ', '+'))"/>
@@ -355,11 +365,11 @@
 
         <xsl:if test="dim:field[@element='subject']">
             <div class="simple-item-view-date word-break item-page-field-wrapper table">
-                <h5>
+                <h5 alt="paper subject">
                     <i18n:text>xmlui.dri2xhtml.METS-1.0.item-subject</i18n:text>
                 </h5>
                     <xsl:for-each select="dim:field[@element='subject']">
-                        <a>
+                        <a alt="click to see all papers from this subject">
                             <xsl:attribute name="href">
                                 <!-- concatanate search url from 'url' variables and element children(s) -->
                                 <xsl:copy-of select="concat($search-url, $search-url-2, translate(./node(), ' ', '+'))"/>
@@ -382,11 +392,11 @@
 
         <xsl:if test="dim:field[@element='title']">
             <div class="simple-item-view-date word-break item-page-field-wrapper table">
-                <h5>
+                <h5 alt="paper title">
                     <i18n:text>xmlui.dri2xhtml.METS-1.0.item-titlesml</i18n:text>
                 </h5>
                     <xsl:for-each select="dim:field[@element='title']">
-                        <a>
+                        <a alt="click to see all papers with this title">
                             <xsl:attribute name="href">
                                 <!-- concatanate search url from 'url' variables and element children(s) -->
                                 <xsl:copy-of select="concat($search-url, $search-url-2, translate(./node(), ' ', '+'))"/>
@@ -408,13 +418,13 @@
 
         <xsl:if test="dim:field[@element='identifier']">
             <div class="simple-item-view-isbn word-break item-page-field-wrapper table">
-                <h5>
+                <h5 alt="paper course code">
                     <i18n:text>xmlui.dri2xhtml.METS-1.0.item-coursecode</i18n:text>
                 </h5>
                 <xsl:for-each select="dim:field[@element='identifier']">
                     <xsl:if test="not(dim:field[@element='identifier' and @qualifier='version'])">
                             <xsl:if test="not(contains(./node(), 'http'))">
-                                <a>
+                                <a alt="click to see all papers with this course code">
                                     <xsl:attribute name="href">
                                         <xsl:copy-of select="concat($search-url, $search-url-2, translate(./node(), ' ', '+'))"/>
                                     </xsl:attribute>
@@ -422,9 +432,6 @@
                                 </a>
                             </xsl:if>
                     </xsl:if>
-                    <!--<xsl:if test="count(following-sibling::dim:field[@element='description' and @qualifier='version']) != 0">
-                        <br/>
-                    </xsl:if>-->
                 </xsl:for-each>
             </div>
         </xsl:if>
@@ -433,11 +440,11 @@
     <xsl:template name="itemSummaryView-version">
         <xsl:if test="dim:field[@element='description' and @qualifier='version' and descendant::text()]">
             <div class="simple-item-view-isbn word-break item-page-field-wrapper table">
-                <h5>
+                <h5 alt="paper version">
                     <i18n:text>xmlui.dri2xhtml.METS-1.0.item-version</i18n:text>
                 </h5>
                 <xsl:for-each select="dim:field[@element='description' and @qualifier='version']">
-                <p class="item-meta-p">
+                <p class="item-meta-p" alt="paper version">
                     <xsl:copy-of select="./node()"/>
                     <xsl:if test="count(following-sibling::dim:field[@element='description' and @qualifier='version']) != 0">
                         <br/>
@@ -451,11 +458,11 @@
     <xsl:template name="itemSummaryView-year">
         <xsl:if test="dim:field[@element='coverage' and @qualifier='temporal' and descendant::text()]">
             <div class="simple-item-view-isbn word-break item-page-field-wrapper table">
-                <h5>
+                <h5 alt="paper year">
                     <i18n:text>xmlui.dri2xhtml.METS-1.0.item-year</i18n:text>
                 </h5>
                 <xsl:for-each select="dim:field[@element='coverage' and @qualifier='temporal']">
-                <p class="item-meta-p">
+                <p class="item-meta-p" alt="paper year">
                     <xsl:copy-of select="./node()"/>
                     <xsl:if test="count(following-sibling::dim:field[@element='coverage' and @qualifier='temporal']) != 0">
                         <br/>
@@ -742,12 +749,10 @@
                             <xsl:value-of select="mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
                         </xsl:attribute>
                         <xsl:choose>
-                            <xsl:when test="$context/mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']/
-                        mets:file[@GROUPID=current()/@GROUPID]">
+                            <xsl:when test="$context/mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']/ mets:file[@GROUPID=current()/@GROUPID]">
                                 <img class="img-thumbnail" alt="Thumbnail">
                                     <xsl:attribute name="src">
-                                        <xsl:value-of select="$context/mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']/
-                                    mets:file[@GROUPID=current()/@GROUPID]/mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
+                                        <xsl:value-of select="$context/mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']/ mets:file[@GROUPID=current()/@GROUPID]/mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
                                     </xsl:attribute>
                                 </img>
                             </xsl:when>
