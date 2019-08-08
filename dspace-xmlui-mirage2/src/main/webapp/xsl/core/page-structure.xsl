@@ -343,7 +343,7 @@
                         </button>
 
                         <a href="{$context-path}/" class="navbar-brand">
-                            <img src="{$theme-path}images/DSpace-logo-line.svg" />
+                            <img src="{$theme-path}images/era-logo.gif" />
                         </a>
 
 
@@ -494,7 +494,7 @@
                     <div class="col-xs-12">
                         <xsl:choose>
                             <xsl:when test="count(/dri:document/dri:meta/dri:pageMeta/dri:trail) > 1">
-                                <div class="breadcrumb dropdown visible-xs">
+                                <div class="breadcrumb dropdown visible-xs visible-sm">
                                     <a id="trail-dropdown-toggle" href="#" role="button" class="dropdown-toggle"
                                        data-toggle="dropdown">
                                         <xsl:variable name="last-node"
@@ -515,7 +515,7 @@
                                                              mode="dropdown"/>
                                     </ul>
                                 </div>
-                                <ul class="breadcrumb hidden-xs">
+                                <ul class="breadcrumb hidden-xs hidden-sm">
                                     <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
                                 </ul>
                             </xsl:when>
