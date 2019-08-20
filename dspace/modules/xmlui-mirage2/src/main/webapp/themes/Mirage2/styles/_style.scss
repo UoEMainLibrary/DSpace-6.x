@@ -59,3 +59,233 @@
     margin-bottom:5px;
   }
 }
+
+
+// SDLC //
+.countriesMap  {
+  padding-top: 80px;
+}
+
+
+// ERA //
+// GLOBAL STYLES //
+// TEXT //
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: 300;
+}
+h1 {
+  font-size: 60px
+}
+h2 {
+  font-size: 50px;
+}
+p {
+  font-size: 18px;
+  font-weight: 200;
+  text-align: justify;
+}
+.era-header span, li {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 300px;
+}
+#sidebar a {
+  font-size: 16px;
+  position: relative;
+  z-index: 999;
+}
+// GLOBAL CONTAINER STYLES //
+.container {
+  width: 90%;
+}
+#main-content {
+  padding-right: 40px;
+}
+// GLOBAL BACKGROUND IMAGES //
+#background-globe {
+  //background-image: url('themes/Mirage2/images/globe-png-icon.png');
+  position: absolute;
+  z-index: 1;
+  right: 10%;
+  top: -50px;
+  overflow: hidden;
+}
+#background-dandy {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  opacity: 0.5;
+  width: 70%;
+}
+// GLOBAL :HOVER ANIMATIONS // 
+// NAVIGATION BAR // 
+header .navbar-default a:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 4px;
+  left: 50%;
+  bottom: -4px;
+  position: absolute;
+  background: #fff;
+  transition: width 0.6s ease 0s, left 0.6s ease 0s;
+  width: 0;
+}
+header .navbar-default a:hover:after {
+  width: 100%; 
+  left: 0; 
+}
+// COMMUNITIES LIST //
+.ds-static-div.row.community-browser-row a, a:visited {
+  text-decoration: none;
+  font-size: 22px;
+  position: relative;
+  z-index: 999;
+}
+.ds-static-div.col-xs-10.col-sm-12.col-sm-offset-0.list-mode a:after, a:visited:after {
+  content: '';
+  height: 2.5px;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  color: #415262;
+  background: #415262;
+  transition: 0.6s;
+}
+.ds-static-div.col-xs-10.col-sm-12.col-sm-offset-0.list-mode a:hover:after, a:visited:hover:after {
+  width: 100%;
+}
+// ARTICLE LIST //
+.artifact-title a, a:visited {
+  position: relative;
+}
+.artifact-title a:hover {
+  text-decoration: none;
+}
+.artifact-title a:after, a:visited:after {
+  content: '';
+  height: 2.5px;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  background: #415262;
+  transition: 0.6s;
+}
+.artifact-title a:hover:after, a:visited:hover:after {
+  width: 100%;
+}
+// GLOBAL HEADER STYLES //
+.page-header {
+  color: #2b466b;
+  font-weight: 400;
+  border-bottom: solid 5.5px;
+}
+.page-header-underline {
+  background: #2b466b;
+  height: 8px;
+  width: 100%;
+  margin-bottom: 40px;
+}
+.era-header {
+  background-color: #2b466b;
+}
+.era-logos {
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+.breadcrumb {
+  background-color: #aab8c6;
+  margin-bottom: 0px;
+  padding: 18px 15px;
+}
+.header-title {
+  text-align: center;
+  color: white;
+}
+// GLOBAL NAVBAR STYLES //
+.nav>li>a {
+  position: relative;
+  display: initial;
+  padding: 0;
+}
+header .navbar-default {
+  background-color: #aab8c6;
+  font-weight: 300;
+}
+header .navbar-default:hover, 
+header .navbar-default .navbar-toggle:hover,  
+header .navbar-default .navbar-toggle:focus,
+header .navbar-default .navbar-toggle:focus {
+  background-color: #aab8c6;
+}
+header .navbar-default .navbar-toggle, 
+header .navbar-default .navbar-nav {
+  margin-bottom: 0px;
+  padding: 18px 15px;
+}
+// GLOBAL FOOTER STYLES //
+.footer-links {
+  text-align: center;
+}
+.dl-horizontal dt {
+text-align: left;
+}
+// GLOBAL LIST STYLES //
+.community-browser-row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.community-browser-row a[name='community-browser-link'] {
+font-size: 26px;
+  font-weight: 300;
+  color: #2b466b;
+}
+.artifact-abstract {
+  font-weight: 300;
+}
+.ds-artifact-item {
+  margin: 8px 0px;
+  text-align: justify;
+}
+// GLOBAL SIDEBAR STYLES//
+#main-container #sidebar {
+  background-color: #f7f7f7;
+  position: relative;
+  z-index: 999;
+}
+a.list-group-item.active span {
+  font-size: 18px;
+}
+// PAGE STYLES //
+// INDEX // 
+#file_news_div_news {
+  margin-top: 40px;
+}
+// COMMUNITIES LIST // 
+.ds-artifact-list .artifact-title a {
+  margin-bottom: 5px;
+  font-size: 26px;
+  position: relative;
+  z-index: 999;
+}
+.community-browser-row {
+  width: 200%;
+} 
+// suppress unwanted elements
+h2.ds-div-head.page-header.first-page-header, div#aspect_artifactbrowser_CommunityBrowser_div_comunity-browser p {
+  display: none;
+}
+// RECENT LIST //
+.artifact-abstract {
+  font-weight: 300;
+  color: #333;
+  font-size: 20px;
+}
+.ds-artifact-item {
+  margin: 20px 0px;
+}

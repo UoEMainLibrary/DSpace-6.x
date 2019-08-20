@@ -66,14 +66,14 @@
             ref="org.dspace.identifier.doi.DOIConnector" />
     </bean>
     
-    <bean id="org.dspace.identifier.DOIIdentifierProvider"
+    <!--<bean id="org.dspace.identifier.DOIIdentifierProvider"
         class="org.dspace.identifier.VersionedDOIIdentifierProvider"
         scope="singleton">
         <property name="configurationService"
             ref="org.dspace.services.ConfigurationService" />
         <property name="DOIConnector"
             ref="org.dspace.identifier.doi.DOIConnector" />
-    </bean>
+    </bean>-->
     
     <!-- The DOIConnector will handle the API calls to your DOI registration
          agency for the DOIIdentifierProvider. If your registration agency
