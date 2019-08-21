@@ -273,14 +273,18 @@
         <xsl:if test="dim:field[@element='identifier' and @qualifier='uri' and descendant::text()]">
             <div class="simple-item-view-uri item-page-field-wrapper table">
                 <h5><i18n:text>xmlui.dri2xhtml.METS-1.0.item-uri</i18n:text></h5>
-                <span>
+                <span class="artifact-h-link">
                     <xsl:for-each select="dim:field[@element='identifier' and @qualifier='uri']">
-                        <a>
-                            <xsl:attribute name="href">
-                                <xsl:copy-of select="./node()"/>
-                            </xsl:attribute>
-                            <xsl:copy-of select="./node()"/>
-                        </a>
+                        <div class="artifact-h-link">
+                            <div>
+                                <a class="artifact-h-link">
+                                    <xsl:attribute name="href">
+                                        <xsl:copy-of select="./node()"/>
+                                    </xsl:attribute>
+                                    <xsl:copy-of select="./node()"/>
+                                </a>
+                            </div>
+                        </div>
                         <xsl:if test="count(following-sibling::dim:field[@element='identifier' and @qualifier='uri']) != 0">
                             <br/>
                         </xsl:if>
@@ -311,10 +315,13 @@
             <h5>
                 <i18n:text>xmlui.mirage2.itemSummaryView.MetaData</i18n:text>
             </h5>
-            <a>
-                <xsl:attribute name="href"><xsl:value-of select="$ds_item_view_toggle_url"/></xsl:attribute>
-                <i18n:text>xmlui.ArtifactBrowser.ItemViewer.show_full</i18n:text>
-            </a>
+            <div class="articfact-h-link">
+                <span>
+                    <a href="{$ds_item_view_toggle_url}">
+                        <i18n:text>xmlui.ArtifactBrowser.ItemViewer.show_full</i18n:text>
+                    </a>
+                </span>
+            </div>
         </div>
     </xsl:template>
 
@@ -324,7 +331,9 @@
                 <h5>
                     <i18n:text>xmlui.mirage2.itemSummaryView.Collections</i18n:text>
                 </h5>
+                <div class="artifact-h-link">
                 <xsl:apply-templates select="$document//dri:referenceSet[@id='aspect.artifactbrowser.ItemViewer.referenceSet.collection-viewer']/dri:reference"/>
+                </div>
             </div>
         </xsl:if>
     </xsl:template>
@@ -337,6 +346,7 @@
                         <i18n:text>xmlui.dri2xhtml.METS-1.0.item-files-viewOpen</i18n:text>
                     </h5>
 
+                    <div class="artifact-h-link">
                     <xsl:variable name="label-1">
                             <xsl:choose>
                                 <xsl:when test="confman:getProperty('mirage2.item-view.bitstream.href.label.1')">
@@ -358,6 +368,7 @@
                                 </xsl:otherwise>
                             </xsl:choose>
                     </xsl:variable>
+                    
 
                     <xsl:for-each select="//mets:fileSec/mets:fileGrp[@USE='CONTENT' or @USE='ORIGINAL' or @USE='LICENSE']/mets:file">
                         <xsl:call-template name="itemSummaryView-DIM-file-section-entry">
@@ -370,6 +381,7 @@
                             <xsl:with-param name="size" select="@SIZE" />
                         </xsl:call-template>
                     </xsl:for-each>
+                    </div>
                 </div>
             </xsl:when>
             <!-- Special case for handling ORE resource maps stored as DSpace bitstreams -->
