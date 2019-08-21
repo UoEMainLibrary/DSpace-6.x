@@ -415,10 +415,7 @@
 
                     <div class="navbar-header pull-right hidden-xs">
 
-                       <ul class="nav navbar-nav pull-left">
-                              <xsl:call-template name="languageSelection"/>
-                        </ul>
-                        <ul class="nav navbar-nav pull-left">
+                        <ul class="nav navbar-nav pull-left" id="era-nav">
                             <xsl:choose>
                                 <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
                                     <li class="dropdown">
