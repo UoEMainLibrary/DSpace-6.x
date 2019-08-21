@@ -176,25 +176,28 @@
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:attribute>
-                    <h4>
-                        <xsl:choose>
-                            <xsl:when test="dri:list[@n=(concat($handle, ':dc.title'))]">
-                                <xsl:apply-templates select="dri:list[@n=(concat($handle, ':dc.title'))]/dri:item"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <i18n:text>xmlui.dri2xhtml.METS-1.0.no-title</i18n:text>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                        <!-- Generate COinS with empty content per spec but force Cocoon to not create a minified tag  -->
-                        <span class="Z3988">
-                            <xsl:attribute name="title">
-                                <xsl:for-each select="$metsDoc/mets:METS/mets:dmdSec/mets:mdWrap/mets:xmlData/dim:dim">
-                                    <xsl:call-template name="renderCOinS"/>
-                                </xsl:for-each>
-                            </xsl:attribute>
-                            <xsl:text>&#160;</xsl:text>
-                            <!-- non-breaking space to force separating the end tag -->
-                        </span>
+                    <h4 class="artifact-h-link">
+                        <xsl:variable name="artifact-url" select="concat($context-path, '/handle/', $handle)" />
+                        <a href="{$artifact-url}">
+                            <xsl:choose>
+                                <xsl:when test="dri:list[@n=(concat($handle, ':dc.title'))]">
+                                    <xsl:apply-templates select="dri:list[@n=(concat($handle, ':dc.title'))]/dri:item"/>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <i18n:text>xmlui.dri2xhtml.METS-1.0.no-title</i18n:text>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                            <!-- Generate COinS with empty content per spec but force Cocoon to not create a minified tag  -->
+                            <span class="Z3988">
+                                <xsl:attribute name="title">
+                                    <xsl:for-each select="$metsDoc/mets:METS/mets:dmdSec/mets:mdWrap/mets:xmlData/dim:dim">
+                                        <xsl:call-template name="renderCOinS"/>
+                                    </xsl:for-each>
+                                </xsl:attribute>
+                                <xsl:text>&#160;</xsl:text>
+                                <!-- non-breaking space to force separating the end tag -->
+                            </span>
+                        </a>
                     </h4>
                 </xsl:element>
                 <div class="artifact-info">

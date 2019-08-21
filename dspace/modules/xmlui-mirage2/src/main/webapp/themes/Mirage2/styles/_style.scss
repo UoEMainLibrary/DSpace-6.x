@@ -109,6 +109,7 @@ p {
   right: 10%;
   top: -50px;
   overflow: hidden;
+  width: 40%;
 }
 #background-dandy {
   position: absolute;
@@ -117,27 +118,45 @@ p {
   bottom: 0;
   overflow: hidden;
   opacity: 0.5;
-  width: 70%;
+  width: 50%;
 }
-// GLOBAL :HOVER ANIMATIONS // 
-// NAVIGATION BAR // 
-header .navbar-default a:after {
+// GLOBAL :HOVER ANIMATIONS \\ 
+// NAVIGATION BAR \\
+/*header .navbar-default a:after, .navbar-header a:after {
   background: none repeat scroll 0 0 transparent;
   bottom: 0;
   content: "";
   display: block;
   height: 4px;
   left: 50%;
-  bottom: -4px;
+  bottom: -8px;
   position: absolute;
   background: #fff;
   transition: width 0.6s ease 0s, left 0.6s ease 0s;
   width: 0;
 }
-header .navbar-default a:hover:after {
+header .navbar-default a:hover:after, .navbar-header a:hover:after {
   width: 100%; 
   left: 0; 
 }
+header .breadcrumb.hidden-xs.hidden-sm a:after, .breadcrumb.hidden-xs.hidden-sm a:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 4px;
+  left: 50%;
+  bottom: -8px;
+  position: absolute;
+  background: #fff;
+  transition: width 0.6s ease 0s, left 0.6s ease 0s;
+  width: 0;
+}
+header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidden-sm a:hover:after {
+  width: 100%; 
+  left: 0; 
+  text-decoration: none;
+}*/
 // COMMUNITIES LIST //
 .ds-static-div.row.community-browser-row a, a:visited {
   text-decoration: none;
@@ -159,14 +178,31 @@ header .navbar-default a:hover:after {
 .ds-static-div.col-xs-10.col-sm-12.col-sm-offset-0.list-mode a:hover:after, a:visited:hover:after {
   width: 100%;
 }
-// ARTICLE LIST //
-.artifact-title a, a:visited {
+// ARTICLE LIST \\
+.artifact-title a, a:visited, 
+.artifact-h-link a, a:visited,
+.simple-item-view-show-full.item-page-field-wrapper a, a:visited,
+.item-view-toggle a, a:visited,
+.ds-paragraph.ds-referenceSet-list a, a:visited,
+.navbar-header a, a:visited,
+.footer-links a, a:visited {
   position: relative;
 }
-.artifact-title a:hover {
+.artifact-title a:hover, 
+.artifact-h-link a:hover,
+.simple-item-view-show-full.item-page-field-wrapper a:hover,
+.ds-paragraph.item-view-toggle a:hover,
+.ds-referenceSet-list a:hover,
+.navbar-header a:hover,
+.footer-links a:hover {
   text-decoration: none;
 }
-.artifact-title a:after, a:visited:after {
+.artifact-title a:after, a:visited:after, 
+.artifact-h-link a:after, a:visited:after,
+.simple-item-view-show-full.item-page-field-wrapper a:after, a:visited:after,
+.ds-paragraph.item-view-toggle a:after, a:visited::after,
+.ds-referenceSet-list a::after, a:visited::after,
+.footer-links a::after, a:visited::after {
   content: '';
   height: 2.5px;
   position: absolute;
@@ -176,8 +212,41 @@ header .navbar-default a:hover:after {
   background: #415262;
   transition: 0.6s;
 }
-.artifact-title a:hover:after, a:visited:hover:after {
+.artifact-title a:hover:after, a:visited:hover:after, 
+.artifact-h-link a:hover:after, a:visited:hover:after,
+.simple-item-view-show-full.item-page-field-wrapper a:hover:after, a:visited:hover:after,
+.ds-paragraph.item-view-toggle a:hover::after, a:visited:hover::after,
+.ds-referenceSet-list a:hover::after, a:visited:hover::after,
+.footer-links a:hover::after, a:visited:hover::after {
   width: 100%;
+}
+.navbar-header a::after, a:visited::after {
+  content: '';
+  height: 2.5px;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  background: #fff;
+  //transition: width 0.6s ease 0s, left 0.6s ease 0s;
+  width: 0;
+}
+.footer-links a::after, a:visited::after {
+  background: none repeat scroll 0 0 transparent;
+  content: '';
+  height: 2.5px;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  background: #415262;
+  transition: width 0.6s ease 0s, left 0.6s ease 0s;
+  width: 0;
+}
+.navbar-header a:hover::after, a:visited:hover::after,
+.footer-links a:hover::after, a:visited:hover::after {
+  width: 100%;
+  left: 0;
 }
 // GLOBAL HEADER STYLES //
 .page-header {
@@ -228,9 +297,19 @@ header .navbar-default .navbar-nav {
   margin-bottom: 0px;
   padding: 18px 15px;
 }
+// GLOBAL NAVBAR/BREADCRUMB STYLES // 
+.navbar-header a, .active li, .breadcrumb>.active {
+  color: #fff;
+}
+.active {
+  font-weight: 400;
+}
+
+
 // GLOBAL FOOTER STYLES //
 .footer-links {
   text-align: center;
+  font-size: 18px;
 }
 .dl-horizontal dt {
 text-align: left;
@@ -247,10 +326,13 @@ font-size: 26px;
 }
 .artifact-abstract {
   font-weight: 300;
+  font-size: 18px;
 }
 .ds-artifact-item {
   margin: 8px 0px;
   text-align: justify;
+  position: relative;
+  z-index: 999;
 }
 // GLOBAL SIDEBAR STYLES//
 #main-container #sidebar {
@@ -269,7 +351,7 @@ a.list-group-item.active span {
 // COMMUNITIES LIST // 
 .ds-artifact-list .artifact-title a {
   margin-bottom: 5px;
-  font-size: 26px;
+  font-size: 22px;
   position: relative;
   z-index: 999;
 }
@@ -288,4 +370,29 @@ h2.ds-div-head.page-header.first-page-header, div#aspect_artifactbrowser_Communi
 }
 .ds-artifact-item {
   margin: 20px 0px;
+}
+
+// DISCOVERY \\
+.artifact-description h4 {
+  font-size: 22px;
+}
+.artifact-description h4:hover {
+  text-decoration: none;
+}
+.abstract {
+  font-size: 18px;
+  font-weight: 300;
+}
+.discoverySearchBox {
+  position: relative;
+  z-index: 999;
+}
+
+// ITEM VIEW \\
+.item-summary-view-metadata, .ds-static-div.primary {
+  position: relative;
+  z-index: 999;
+}
+.ds-table-row.odd {
+  opacity: 0.7;
 }
