@@ -277,7 +277,7 @@
                     <xsl:for-each select="dim:field[@element='identifier' and @qualifier='uri']">
                         <div class="artifact-h-link">
                             <div>
-                                <a class="artifact-h-link">
+                                <a class="artifact-h-link" id="artifact-detail">
                                     <xsl:attribute name="href">
                                         <xsl:copy-of select="./node()"/>
                                     </xsl:attribute>
