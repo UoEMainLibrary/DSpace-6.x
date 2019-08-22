@@ -438,6 +438,7 @@
                                             <li>
                                                 <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='logoutURL']}">
                                                     <i18n:text>xmlui.dri2xhtml.structural.logout</i18n:text>
+                                                    <i class="glyphicon glyphicon-log-out open-icon hidden" aria-hidden="true"/>
                                                 </a>
                                             </li>
                                         </ul>
@@ -446,8 +447,9 @@
                                 <xsl:otherwise>
                                     <li>
                                         <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='loginURL']}">
-                                            <span class="hidden-xs">
+                                            <span class="hidden-xs">    
                                                 <i18n:text>xmlui.dri2xhtml.structural.login</i18n:text>
+                                                <i class="glyphicon glyphicon-log-in open-icon hidden" aria-hidden="true"/>
                                             </span>
                                         </a>
                                     </li>

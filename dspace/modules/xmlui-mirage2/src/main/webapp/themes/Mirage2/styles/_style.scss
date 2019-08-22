@@ -122,41 +122,23 @@ p {
 }
 // GLOBAL :HOVER ANIMATIONS \\ 
 // NAVIGATION BAR \\
-/*header .navbar-default a:after, .navbar-header a:after {
-  background: none repeat scroll 0 0 transparent;
-  bottom: 0;
-  content: "";
-  display: block;
-  height: 4px;
-  left: 50%;
-  bottom: -8px;
-  position: absolute;
-  background: #fff;
-  transition: width 0.6s ease 0s, left 0.6s ease 0s;
-  width: 0;
-}
-header .navbar-default a:hover:after, .navbar-header a:hover:after {
-  width: 100%; 
-  left: 0; 
-}
+header .navbar-default a:after, .navbar-header a:after,
 header .breadcrumb.hidden-xs.hidden-sm a:after, .breadcrumb.hidden-xs.hidden-sm a:after {
-  background: none repeat scroll 0 0 transparent;
-  bottom: 0;
-  content: "";
-  display: block;
-  height: 4px;
-  left: 50%;
-  bottom: -8px;
+  content: '';
+  height: 2.5px;
   position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  color: #fff;
   background: #fff;
-  transition: width 0.6s ease 0s, left 0.6s ease 0s;
-  width: 0;
+  transition: 0.6s;
 }
+header .navbar-default a:hover:after, .navbar-header a:hover:after,
 header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidden-sm a:hover:after {
   width: 100%; 
   left: 0; 
-  text-decoration: none;
-}*/
+}
 // COMMUNITIES LIST //
 .ds-static-div.row.community-browser-row a, a:visited {
   text-decoration: none;
@@ -201,8 +183,7 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 .artifact-h-link a:after, a:visited:after,
 .simple-item-view-show-full.item-page-field-wrapper a:after, a:visited:after,
 .ds-paragraph.item-view-toggle a:after, a:visited::after,
-.ds-referenceSet-list a::after, a:visited::after,
-.footer-links a::after, a:visited::after {
+.ds-referenceSet-list a::after, a:visited::after {
   content: '';
   height: 2.5px;
   position: absolute;
@@ -219,17 +200,6 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 .ds-referenceSet-list a:hover::after, a:visited:hover::after,
 .footer-links a:hover::after, a:visited:hover::after {
   width: 100%;
-}
-.navbar-header a::after, a:visited::after {
-  content: '';
-  height: 2.5px;
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0%;
-  background: #fff;
-  //transition: width 0.6s ease 0s, left 0.6s ease 0s;
-  width: 0;
 }
 .footer-links a::after, a:visited::after {
   background: none repeat scroll 0 0 transparent;
@@ -286,16 +256,22 @@ header .navbar-default {
   background-color: #aab8c6;
   font-weight: 300;
 }
-header .navbar-default:hover, 
-header .navbar-default .navbar-toggle:hover,  
+header .navbar-default .navbar-toggle:hover, 
 header .navbar-default .navbar-toggle:focus,
-header .navbar-default .navbar-toggle:focus {
+header .navbar-default .navbar-nav:hover, 
+header .navbar-default .navbar-nav:focus {
   background-color: #aab8c6;
 }
 header .navbar-default .navbar-toggle, 
 header .navbar-default .navbar-nav {
   margin-bottom: 0px;
   padding: 18px 15px;
+}
+header .navbar-default .navbar-toggle>li>a:hover, 
+header .navbar-default .navbar-toggle>li>a:focus, 
+header .navbar-default .navbar-nav>li>a:hover, 
+header .navbar-default .navbar-nav>li>a:focus {
+  background-color: #aab8c6;
 }
 // GLOBAL NAVBAR/BREADCRUMB STYLES // 
 .navbar-header a, .active li, .breadcrumb>.active {
@@ -395,4 +371,8 @@ h2.ds-div-head.page-header.first-page-header, div#aspect_artifactbrowser_Communi
 }
 .ds-table-row.odd {
   opacity: 0.7;
+}
+.visible-xs div, .artifact-h-link a, div {
+  font-weight: 300;
+  font-size: 18px;
 }
