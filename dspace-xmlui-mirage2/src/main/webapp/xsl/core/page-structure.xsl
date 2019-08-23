@@ -306,6 +306,7 @@
         <header class="era-header">
 
             <div class="container era-logos">
+                <img src="{$theme-path}images/dandy-png-icon-white.png" id="dandy-white" />
                 <div class="row">
                     <div class="col-xs-3 col-sm-2">
                         <a href="{$context-path}/">
@@ -641,10 +642,13 @@
         <footer>
             <div class="row">
                 <hr/>
-                <div class="col-xs-3 col-sm-2">
-                    <div>
-                            <a href="http://www.ed.ac.uk/schools-departments/information-services/about/organisation/library-and-collections" target="_blank" title="Library &amp; University Collections Home">
+                <div class="col-xs-3 col-sm-2" id="footer-logo-cont">
+                    <div id="footer-img-cont">
+                        <a href="http://www.ed.ac.uk/schools-departments/information-services/about/organisation/library-and-collections" target="_blank" title="Library &amp; University Collections Home">
                             <img src="{$theme-path}images/CollectionsLUCLogo.png" />
+                        </a>
+                        <a href="http://www.is.ed.ac.uk" target="_blank" title="University of Edinburgh Information Services Home" class="pull-right">
+                            <img src="{$theme-path}images/islogo.gif"/>
                         </a>
                     </div>
                 </div>
@@ -671,13 +675,13 @@
                     </div>
                 </div>
 
-                <div class="col-xs-3 col-sm-2">
+                <!--<div class="col-xs-3 col-sm-2">
                     <div class="pull-right">
                         <a href="http://www.is.ed.ac.uk" target="_blank" title="University of Edinburgh Information Services Home" class="pull-right">
                             <img src="{$theme-path}images/islogo.gif"/>
                         </a>
                     </div>
-                </div>
+                </div>-->
             </div>
 
             <!--Invisible link to HTML sitemap (for search engines) -->

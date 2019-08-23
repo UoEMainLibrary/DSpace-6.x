@@ -95,6 +95,10 @@ p {
   z-index: 999;
 }
 // GLOBAL CONTAINER STYLES //
+.main-content, #main-container .row-offcanvas {
+  z-index: 999;
+  background-color: transparent;
+}
 .container {
   width: 90%;
 }
@@ -167,7 +171,10 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 .item-view-toggle a, a:visited,
 .ds-paragraph.ds-referenceSet-list a, a:visited,
 .navbar-header a, a:visited,
-.footer-links a, a:visited {
+.footer-links a, a:visited,
+.ds-table-row a, .ds-table-row a:visited,
+.control-group.col-sm-12 a, a:visited,
+#aspect_eperson_PasswordLogin_div_register a, a:visited {
   position: relative;
 }
 .artifact-title a:hover, 
@@ -176,14 +183,20 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 .ds-paragraph.item-view-toggle a:hover,
 .ds-referenceSet-list a:hover,
 .navbar-header a:hover,
-.footer-links a:hover {
+.footer-links a:hover,
+.ds-table-row a:hover,
+.control-group.col-sm-12 a:hover,
+#aspect_eperson_PasswordLogin_div_register a:hover {
   text-decoration: none;
 }
 .artifact-title a:after, a:visited:after, 
 .artifact-h-link a:after, a:visited:after,
 .simple-item-view-show-full.item-page-field-wrapper a:after, a:visited:after,
 .ds-paragraph.item-view-toggle a:after, a:visited::after,
-.ds-referenceSet-list a::after, a:visited::after {
+.ds-referenceSet-list a::after, a:visited::after,
+.ds-table-row a::after, a:visited::after,
+.control-group.col-sm-12 a::after, a:visited::after,
+#aspect_eperson_PasswordLogin_div_register a::after, a:visited::after {
   content: '';
   height: 2.5px;
   position: absolute;
@@ -198,7 +211,10 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 .simple-item-view-show-full.item-page-field-wrapper a:hover:after, a:visited:hover:after,
 .ds-paragraph.item-view-toggle a:hover::after, a:visited:hover::after,
 .ds-referenceSet-list a:hover::after, a:visited:hover::after,
-.footer-links a:hover::after, a:visited:hover::after {
+.footer-links a:hover::after, a:visited:hover::after,
+.ds-table-row a:hover::after, a:visited:hover::after,
+.control-group.col-sm-12 a:hover::after, a:visited:hover::after,
+#aspect_eperson_PasswordLogin_div_register a:hover::after, a:visited:hover::after {
   width: 100%;
 }
 .footer-links a::after, a:visited::after {
@@ -246,6 +262,14 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
   text-align: center;
   color: white;
 }
+#dandy-white {
+  position: absolute;
+    z-index: 1;
+    left: 25%;
+    top: 0;
+    overflow: hidden;
+    width: 11%;
+}
 // GLOBAL NAVBAR STYLES //
 .nav>li>a {
   position: relative;
@@ -290,6 +314,12 @@ header .navbar-default .navbar-nav>li>a:focus {
 .dl-horizontal dt {
 text-align: left;
 }
+#footer-img-cont {
+  display: flex;
+}
+#footer-img-cont img {
+  margin-right: 20px;
+}
 // GLOBAL LIST STYLES //
 .community-browser-row {
   padding-top: 8px;
@@ -311,13 +341,17 @@ font-size: 26px;
   z-index: 999;
 }
 // GLOBAL SIDEBAR STYLES//
-#main-container #sidebar {
+#sidebar {
   background-color: #f7f7f7;
   position: relative;
   z-index: 999;
 }
 a.list-group-item.active span {
   font-size: 18px;
+}
+// collapsible sidebar css
+#ds-options div.gu-hide, #dspace-options div.gu-hide {
+  display: none;
 }
 // PAGE STYLES //
 // INDEX // 
@@ -375,4 +409,9 @@ h2.ds-div-head.page-header.first-page-header, div#aspect_artifactbrowser_Communi
 .visible-xs div, .artifact-h-link a, div {
   font-weight: 300;
   font-size: 18px;
+}
+
+// LOGIN STYLES \\
+#aspect_eperson_PasswordLogin_item_login-in {
+  margin-top: 15px;
 }
