@@ -22,3 +22,8 @@ jQuery("#ds-options h3,#dspace-options h3").click(function(){
         });
     });
 })(jQuery);
+
+(function() {
+    $('.btn-primary, .list-group-item.active').click(document.getElementById('list-group-item.ds-option').display = 'block')
+    }
+);
