@@ -306,7 +306,7 @@
         <header class="era-header">
 
             <div class="container era-logos">
-                <img src="{$theme-path}images/dandy-png-icon-white.png" id="dandy-white" />
+                <!--<img src="{$theme-path}images/dandy-png-icon-white.png" id="dandy-white" />-->
                 <div class="row">
                     <div class="col-xs-3 col-sm-2">
                         <a href="{$context-path}/">
@@ -682,6 +682,23 @@
                         </a>
                     </div>
                 </div>-->
+                
+                <xsl:if test="count(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='feed']) >= 0">
+                    <div class="col-xs-3 col-sm-2" id="rss-dropdown">
+                        <div class="footer-links" id="footer-rss">
+                            <img src="{concat($context-path, '/static/icons/feed.png')}" class="btn-xs" alt="xmlui.mirage2.navigation.rss.feed" i18n:attr="alt"/>
+                            <a class="rss-dropdownbtn">
+                                RSS Feeds 
+                            </a>
+                        </div>
+                        <div class="rss-content">
+                            <div class="rss-block">
+                                <xsl:call-template name="addRSSLinks"/>
+                            </div>
+                        </div>
+                    </div>
+                </xsl:if>
+                
             </div>
 
             <!--Invisible link to HTML sitemap (for search engines) -->
@@ -696,6 +713,34 @@
             <p>&#160;</p>
 
         </footer>
+    </xsl:template>
+
+    <!-- RSS code taken from sidebar -->
+    <xsl:template name="addRSSLinks">
+        <xsl:for-each select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='feed']">
+            <a class="list-group-item" id="rss-item">
+                <xsl:attribute name="href">
+                    <xsl:value-of select="."/>
+                </xsl:attribute>
+
+                <img src="{concat($context-path, '/static/icons/feed.png')}" class="btn-xs" alt="xmlui.mirage2.navigation.rss.feed" i18n:attr="alt"/>
+
+                <xsl:choose>
+                    <xsl:when test="contains(., 'rss_1.0')">
+                        <xsl:text>1.0</xsl:text>
+                    </xsl:when>
+                    <xsl:when test="contains(., 'rss_2.0')">
+                        <xsl:text>2.0</xsl:text>
+                    </xsl:when>
+                    <xsl:when test="contains(., 'atom_1.0')">
+                        <xsl:text>Atom</xsl:text>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="@qualifier"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </a>
+        </xsl:for-each>
     </xsl:template>
 
 
@@ -759,6 +804,7 @@
         <script>
             <xsl:text>if(!window.DSpace){window.DSpace={};}window.DSpace.context_path='</xsl:text><xsl:value-of select="$context-path"/><xsl:text>';window.DSpace.theme_path='</xsl:text><xsl:value-of select="$theme-path"/><xsl:text>';</xsl:text>
         </script>
+        
 
         <!--inject scripts.html containing all the theme specific javascript references
         that can be minified and concatinated in to a single file or separate and untouched

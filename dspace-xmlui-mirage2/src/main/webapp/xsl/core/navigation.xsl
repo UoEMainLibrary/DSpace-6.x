@@ -55,7 +55,7 @@
                                     select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='search'][@qualifier='simpleURL']"/>
                         </xsl:attribute>
                         <fieldset>
-                            <div class="input-group">
+                            <div class="input-group" is="era-search-form">
                                 <input class="ds-text-field form-control" type="text" placeholder="xmlui.general.search"
                                        i18n:attr="placeholder">
                                     <xsl:attribute name="name">
@@ -64,7 +64,7 @@
                                     </xsl:attribute>
                                 </input>
                                 <span class="input-group-btn">
-                                    <button class="ds-button-field btn btn-primary" title="xmlui.general.go" i18n:attr="title">
+                                    <button class="ds-button-field btn btn-primary" id="era-search" title="xmlui.general.go" i18n:attr="title">
                                         <span class="glyphicon glyphicon-search" aria-hidden="true"/>
                                         <xsl:attribute name="onclick">
                                                     <xsl:text>
@@ -124,7 +124,7 @@
             </xsl:if>
             <xsl:apply-templates/>
             <!-- DS-984 Add RSS Links to Options Box -->
-            <xsl:if test="count(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='feed']) != 0">
+            <!--<xsl:if test="count(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='feed']) != 0">
                 <div>
                     <h2 class="ds-option-set-head h6">
                         <i18n:text>xmlui.feed.header</i18n:text>
@@ -134,14 +134,14 @@
                     </div>
                 </div>
 
-            </xsl:if>
+            </xsl:if>-->
         </div>
     </xsl:template>
 
     <!-- Add each RSS feed from meta to a list -->
     <xsl:template name="addRSSLinks">
         <xsl:for-each select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='feed']">
-            <a class="list-group-item">
+            <a class="list-group-item" id="rss-item">
                 <xsl:attribute name="href">
                     <xsl:value-of select="."/>
                 </xsl:attribute>
@@ -150,10 +150,10 @@
 
                 <xsl:choose>
                     <xsl:when test="contains(., 'rss_1.0')">
-                        <xsl:text>RSS 1.0</xsl:text>
+                        <xsl:text>1.0</xsl:text>
                     </xsl:when>
                     <xsl:when test="contains(., 'rss_2.0')">
-                        <xsl:text>RSS 2.0</xsl:text>
+                        <xsl:text>2.0</xsl:text>
                     </xsl:when>
                     <xsl:when test="contains(., 'atom_1.0')">
                         <xsl:text>Atom</xsl:text>
@@ -185,7 +185,7 @@
 
 
     <xsl:template match="dri:options//dri:item">
-        <div>
+        <div class="sidebar-dropdown">
             <xsl:call-template name="standardAttributes">
                 <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
             </xsl:call-template>
