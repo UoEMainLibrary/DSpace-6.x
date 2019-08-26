@@ -127,7 +127,8 @@ p {
 // GLOBAL :HOVER ANIMATIONS \\ 
 // NAVIGATION BAR \\
 header .navbar-default a:after, .navbar-header a:after,
-header .breadcrumb.hidden-xs.hidden-sm a:after, .breadcrumb.hidden-xs.hidden-sm a:after {
+header .breadcrumb.hidden-xs.hidden-sm a:after, .breadcrumb.hidden-xs.hidden-sm a:after,
+.input-group-btn span::after {
   content: '';
   height: 2.5px;
   position: absolute;
@@ -139,7 +140,8 @@ header .breadcrumb.hidden-xs.hidden-sm a:after, .breadcrumb.hidden-xs.hidden-sm 
   transition: 0.6s;
 }
 header .navbar-default a:hover:after, .navbar-header a:hover:after,
-header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidden-sm a:hover:after {
+header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidden-sm a:hover:after,
+.input-group-btn span:hover::after, .input-group-btn span:visited:hover::after {
   width: 100%; 
   left: 0; 
 }
@@ -174,7 +176,8 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 .footer-links a, a:visited,
 .ds-table-row a, .ds-table-row a:visited,
 .control-group.col-sm-12 a, a:visited,
-#aspect_eperson_PasswordLogin_div_register a, a:visited {
+#aspect_eperson_PasswordLogin_div_register a, a:visited,
+.input-group-btn span, span:visited {
   position: relative;
 }
 .artifact-title a:hover, 
@@ -186,7 +189,8 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 .footer-links a:hover,
 .ds-table-row a:hover,
 .control-group.col-sm-12 a:hover,
-#aspect_eperson_PasswordLogin_div_register a:hover {
+#aspect_eperson_PasswordLogin_div_register a:hover,
+.input-group-btn span:hover {
   text-decoration: none;
 }
 .artifact-title a:after, a:visited:after, 
@@ -320,6 +324,39 @@ text-align: left;
 #footer-img-cont img {
   margin-right: 20px;
 }
+// RSS FEED POP-UP MENU \\
+#footer-rss {
+  display: table-caption;
+}
+#footer-rss a {
+  white-space: nowrap;
+}
+#rss-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.rss-content {
+  display: none;
+  position: absolute;
+  text-align: center;
+  border: solid #2b466b;
+}
+.rss-block {
+  display: flex;
+}
+#rss-item {
+  background-color: #f0f8ff;
+  border: none;
+  height: 68px;
+}
+#rss-dropdown:hover .rss-content {
+  display: block;
+  bottom: 100%;
+}
+a#rss-item:hover {
+  background-color: #d6eafc;
+}
+
 // GLOBAL LIST STYLES //
 .community-browser-row {
   padding-top: 8px;
@@ -341,14 +378,71 @@ font-size: 26px;
   z-index: 999;
 }
 // GLOBAL SIDEBAR STYLES//
-#sidebar {
-  background-color: #f7f7f7;
+#main-container #sidebar {
+  background-color: transparent;
   position: relative;
   z-index: 999;
+  padding: 0;
 }
 a.list-group-item.active span {
   font-size: 18px;
 }
+#ds-options .ds-option-set-head,
+#aspect_viewArtifacts_Navigation_list_context,
+#aspect_viewArtifacts_Navigation_list_administrative {
+  display: none;
+}
+.list-group, .input-group {
+  margin-bottom:   20px;
+  padding-left: 0;
+  border: solid #2b466b;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px
+}
+.input-group {
+  border-radius: 5px;
+}
+.ds-text-field.form-control{
+  border-color: #ccc;
+}
+.ds-button-field.btn.btn-primary {
+  height: 35px;
+}
+.ds-button-field.btn.btn-primary,
+.ds-text-field.form-control {
+  border: 0;
+  border-radius: 0;
+}
+/*.btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open>.btn-primary.dropdown-toggle:hover {
+  background-color: #396196;
+  border-color: #396196;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open>.btn-primary.dropdown-toggle:hover #era-seach-form {
+  border-color: #396196;
+}*/
+.list-group-item:first-child {
+  border-radius: 0;
+}
+
+.btn-primary, .list-group-item.active {
+  background-color: #2b466b;
+  border-color: #2b466b;
+}
+.list-group-item.active:hover {
+  background-color: #2b466b;
+  border-color: #2b466b;
+}
+.list-group-item.ds-option {
+  display: none;
+}
+.list-group-item.ds-option:hover {
+  background-color: #d6eafc;
+}
+.sidebar-dropdown:hover .list-group-item.ds-option,
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus, .list-group-item.ds-option {
+  display: block;
+}
+
 // collapsible sidebar css
 #ds-options div.gu-hide, #dspace-options div.gu-hide {
   display: none;
@@ -396,6 +490,9 @@ h2.ds-div-head.page-header.first-page-header, div#aspect_artifactbrowser_Communi
 .discoverySearchBox {
   position: relative;
   z-index: 999;
+}
+.col-sm-9.input-group{
+  border: none;
 }
 
 // ITEM VIEW \\
