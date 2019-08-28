@@ -34,6 +34,7 @@
         Specifically, adding a static page will need to override the DRI, to directly add content.
     -->
     <xsl:variable name="request-uri" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI']"/>
+    <xsl:variable name="full-uri" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request']"/>
 
     <!--
         The starting point of any XSL processing is matching the root element. In DRI the root element is document,
@@ -683,7 +684,7 @@
                     </div>
                 </div>-->
                 
-                <xsl:if test="count(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='feed']) >= 0">
+                
                     <div class="col-xs-3 col-sm-2" id="rss-dropdown">
                         <div class="footer-links" id="footer-rss">
                             <img src="{concat($context-path, '/static/icons/feed.png')}" class="btn-xs" alt="xmlui.mirage2.navigation.rss.feed" i18n:attr="alt"/>
@@ -693,11 +694,21 @@
                         </div>
                         <div class="rss-content">
                             <div class="rss-block">
-                                <xsl:call-template name="addRSSLinks"/>
+                                <xsl:choose>
+                                    <xsl:when test="not($request-uri = 'discover') and not($request-uri = 'browse') and not(contains($request-uri, 'handle'))">
+                                            <xsl:call-template name="addRSSLinks"/>
+                                    </xsl:when>
+                                    <!--<xsl:when test="contains($request-uri, 'handle')">
+                                        <p class="rss-p">RSS Feed not available for this page</p>  
+                                    </xsl:when>-->
+                                    <xsl:otherwise>
+                                        <p class="rss-p">RSS Feed not available for this page</p>                 
+                                    </xsl:otherwise>
+                                </xsl:choose>
                             </div>
                         </div>
                     </div>
-                </xsl:if>
+                
                 
             </div>
 
