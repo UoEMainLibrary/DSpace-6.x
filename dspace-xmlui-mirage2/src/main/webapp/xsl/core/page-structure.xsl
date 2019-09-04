@@ -35,6 +35,7 @@
     -->
     <xsl:variable name="request-uri" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI']"/>
     <xsl:variable name="full-uri" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request']"/>
+    <xsl:variable name="trail-test" select="/dri:document/dri:meta/dri:pageMeta/dri:trail[last()]" />
 
     <!--
         The starting point of any XSL processing is matching the root element. In DRI the root element is document,
@@ -101,6 +102,21 @@
                                         <img id="background-globe" src="{$theme-path}/images/globe-png-icon.png" />
 
                                         <div class="col-xs-12 col-sm-12 col-md-9 main-content" id="main-content">
+
+                                            <!--<p><xsl:value-of select="$trail-test" /></p>-->
+
+                                            <xsl:if test="$trail-test = xmlui.ArtifactBrowser.ItemViewer.trail">
+                                                <script type="text/javascript">
+                                                    <xsl:text>
+                                                        $(window).on('load', function() {
+                                                            document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
+                                                            console.log('All assets are loaded')
+                                                        }); 
+                                                    </xsl:text>
+                                                </script>   
+                                                <div id="aspect_discovery_Navigation_list_discovery" class="list-group" style="display: none;"></div>
+                                            </xsl:if>
+
                                             <xsl:apply-templates select="*[not(self::dri:options)]"/>
 
                                             <div class="visible-xs visible-sm">
@@ -319,7 +335,7 @@
                     </div>
                     <div class="col-xs-3 col-sm-2">
                         <a href="{$context-path}/" class="pull-right">
-                            <img src="{$theme-path}images/homecrest.gif" />
+                            <img id="crest-head" src="{$theme-path}images/homecrest.png" />
                         </a>
                     </div>
                 </div>
