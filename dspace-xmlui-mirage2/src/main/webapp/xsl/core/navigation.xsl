@@ -32,6 +32,9 @@
 
     <xsl:output indent="yes"/>
 
+    <xsl:variable name="trail-test" select="/dri:document/dri:meta/dri:pageMeta/dri:trail[last()]" />
+    <xsl:variable name="trail-string">xmlui.ArtifactBrowser.ItemViewer.trail</xsl:variable>
+
     <!--
         The template to handle dri:options. Since it contains only dri:list tags (which carry the actual
         information), the only things than need to be done is creating the ds-options div and applying
@@ -173,63 +176,147 @@
     </xsl:template>
 
     <xsl:template match="dri:options/dri:list" priority="3">
-        <xsl:apply-templates select="dri:head"/>
-        <div>
-            <xsl:call-template name="standardAttributes">
-                <xsl:with-param name="class">list-group</xsl:with-param>
-            </xsl:call-template>
-            <xsl:apply-templates select="dri:item"/>
-            <xsl:apply-templates select="dri:list"/>
-        </div>
+        <xsl:choose>
+            <xsl:when test="$trail-test = $trail-string">
+                <xsl:choose>
+                    <xsl:when test="position() >= 3">
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <div>
+                            <xsl:call-template name="standardAttributes">
+                                <xsl:with-param name="class">list-group</xsl:with-param>
+                            </xsl:call-template>
+                            <xsl:apply-templates select="dri:item"/>
+                            <xsl:apply-templates select="dri:list"/>
+                        </div>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:when>
+            <xsl:otherwise>
+                <div>
+                    <xsl:call-template name="standardAttributes">
+                        <xsl:with-param name="class">list-group</xsl:with-param>
+                    </xsl:call-template>
+                    <xsl:apply-templates select="dri:item"/>
+                    <xsl:apply-templates select="dri:list"/>
+                </div>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
 
     <xsl:template match="dri:options//dri:item">
-        <div class="sidebar-dropdown">
-            <xsl:call-template name="standardAttributes">
-                <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
-            </xsl:call-template>
-            <xsl:apply-templates />
-        </div>
+        <xsl:choose>
+            <xsl:when test="$trail-test = $trail-string">
+                <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
+                    <div class="sidebar-dropdown">
+                        <xsl:call-template name="standardAttributes">
+                            <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                        </xsl:call-template>
+                        <xsl:apply-templates />
+                    </div>
+                </xsl:if>
+            </xsl:when>
+            <xsl:otherwise>
+                <div class="sidebar-dropdown">
+                    <xsl:call-template name="standardAttributes">
+                        <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                    </xsl:call-template>
+                    <xsl:apply-templates />
+                </div>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <xsl:template match="dri:options//dri:item[dri:xref]">
-        <a href="{dri:xref/@target}">
-            <xsl:call-template name="standardAttributes">
-                <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
-            </xsl:call-template>
-            <xsl:choose>
-                <xsl:when test="dri:xref/node()">
-                    <xsl:apply-templates select="dri:xref/node()"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:value-of select="dri:xref"/>
-                </xsl:otherwise>
-            </xsl:choose>
+        <xsl:choose>
+            <xsl:when test="$trail-test = $trail-string">
+                <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
+                    <a href="{dri:xref/@target}">
+                        <xsl:call-template name="standardAttributes">
+                            <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                        </xsl:call-template>
+                        <xsl:choose>
+                            <xsl:when test="dri:xref/node()">
+                                <xsl:apply-templates select="dri:xref/node()"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="dri:xref"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
 
-        </a>
+                    </a>
+                </xsl:if>
+            </xsl:when>
+            <xsl:otherwise>
+                <a href="{dri:xref/@target}">
+                    <xsl:call-template name="standardAttributes">
+                        <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                    </xsl:call-template>
+                    <xsl:choose>
+                        <xsl:when test="dri:xref/node()">
+                            <xsl:apply-templates select="dri:xref/node()"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="dri:xref"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+
+                </a>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <xsl:template match="dri:options/dri:list/dri:head" priority="3">
-        <xsl:call-template name="renderHead">
-            <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
-        </xsl:call-template>
+        <xsl:choose>
+            <xsl:when test="$trail-test = $trail-string">
+                <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
+                    <xsl:call-template name="renderHead">
+                        <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
+                    </xsl:call-template>
+                </xsl:if>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:call-template name="renderHead">
+                    <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
+                </xsl:call-template>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <xsl:template match="dri:options/dri:list//dri:list/dri:head" priority="3">
-        <a class="list-group-item active">
-            <span>
-                <xsl:call-template name="standardAttributes">
-                    <xsl:with-param name="class">
-                        <xsl:value-of select="@rend"/>
-                        <xsl:text> list-group-item-heading</xsl:text>
-                    </xsl:with-param>
-                </xsl:call-template>
-                <xsl:apply-templates/>
-            </span>
-        </a>
+        <xsl:choose>
+            <xsl:when test="$trail-test = $trail-string">
+                <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
+                    <a class="list-group-item active">
+                        <span>
+                            <xsl:call-template name="standardAttributes">
+                                <xsl:with-param name="class">
+                                    <xsl:value-of select="@rend"/>
+                                    <xsl:text> list-group-item-heading</xsl:text>
+                                </xsl:with-param>
+                            </xsl:call-template>
+                            <xsl:apply-templates/>
+                        </span>
+                    </a>
+                </xsl:if>
+            </xsl:when>
+            <xsl:otherwise>
+                <a class="list-group-item active">
+                    <span>
+                        <xsl:call-template name="standardAttributes">
+                            <xsl:with-param name="class">
+                                <xsl:value-of select="@rend"/>
+                                <xsl:text> list-group-item-heading</xsl:text>
+                            </xsl:with-param>
+                        </xsl:call-template>
+                        <xsl:apply-templates/>
+                    </span>
+                </a>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
-    <xsl:template match="dri:list[count(child::*)=0]"/>
+    <!--<xsl:template match="dri:list[count(child::*)=0]"/>-->
 
 </xsl:stylesheet>

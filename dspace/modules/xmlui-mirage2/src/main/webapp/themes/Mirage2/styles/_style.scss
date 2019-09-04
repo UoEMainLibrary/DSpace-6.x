@@ -264,11 +264,15 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 }
 #dandy-white {
   position: absolute;
-    z-index: 1;
-    left: 25%;
-    top: 0;
-    overflow: hidden;
-    width: 11%;
+  z-index: 1;
+  left: 25%;
+  top: 0;
+  overflow: hidden;
+  width: 11%;
+}
+#crest-head {
+  width: 50%;
+  float: right;
 }
 // GLOBAL NAVBAR STYLES //
 .nav>li>a {
@@ -396,14 +400,23 @@ a.list-group-item.active span {
 #aspect_viewArtifacts_Navigation_list_administrative {
   display: none;
 }
-.list-group, .input-group, 
-#aspect_discovery_SimpleSearch_field_scope {
+.list-group, .input-group {
   margin-bottom:   20px;
   padding-left: 0;
   border: solid #2b466b 2px;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px
 }
+/*#ds-options div {
+  margin-bottom:   20px;
+  padding-left: 0;
+  border: solid #2b466b 2px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px
+}
+#ds-search-option {
+  border: none;
+}*/
 .input-group, #aspect_viewArtifacts_Navigation_list_account, 
 #aspect_discovery_SimpleSearch_field_scope {
   border-radius: 5px;
