@@ -176,7 +176,9 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 .control-group.col-sm-12 a, a:visited,
 #aspect_eperson_PasswordLogin_div_register a, a:visited,
 .file-link a, a:visited,
-.era-h-link a, a:visited {
+.era-h-link a, a:visited,
+.detail-view a, a:visited,
+#aspect_discovery_CommunityRecentSubmissions_p_recent-submission-view-more a, a:visited {
   position: relative;
 }
 .artifact-title a:hover, 
@@ -190,7 +192,9 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 .control-group.col-sm-12 a:hover,
 #aspect_eperson_PasswordLogin_div_register a:hover,
 .file-link a:hover,
-.era-h-link a:hover {
+.era-h-link a:hover,
+.detail-view a:hover,
+#aspect_discovery_CommunityRecentSubmissions_p_recent-submission-view-more a:hover {
   text-decoration: none;
 }
 .artifact-title a:after, a:visited:after, 
@@ -202,7 +206,9 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 .control-group.col-sm-12 a::after, a:visited::after,
 #aspect_eperson_PasswordLogin_div_register a::after, a:visited::after,
 .file-link a::after, a:visited::after,
-.era-h-link a::after, a:visited::after {
+.era-h-link a::after, a:visited::after,
+.detail-view a::after, a:visited::after,
+#aspect_discovery_CommunityRecentSubmissions_p_recent-submission-view-more a::after, a:visited::after {
   content: '';
   height: 2.5px;
   position: absolute;
@@ -222,7 +228,9 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 .control-group.col-sm-12 a:hover::after, a:visited:hover::after,
 #aspect_eperson_PasswordLogin_div_register a:hover::after, a:visited:hover::after,
 .file-link a:hover::after, a:visited:hover::after,
-.era-h-link a:hover::after, a:visited:hover::after {
+.era-h-link a:hover::after, a:visited:hover::after,
+.detail-view a:hover::after, a:visited:hover::after,
+#aspect_discovery_CommunityRecentSubmissions_p_recent-submission-view-more a:hover::after, a:visited:hover::after {
   width: 100%;
 }
 .footer-links a::after, a:visited::after {
@@ -310,6 +318,9 @@ header .navbar-default .navbar-nav>li>a:focus {
   background-color: #aab8c6;
 }
 // GLOBAL NAVBAR/BREADCRUMB STYLES // 
+.breadcrumb .hidden-xs .hidden-sm {
+  width: 90%;
+}
 .navbar-header a, .active li, .breadcrumb>.active {
   color: #fff;
 }
@@ -328,10 +339,11 @@ text-align: left;
 }
 #footer-img-cont {
   display: flex;
+  padding-left: 100px;
 }
 #footer-img-cont img {
   margin-right: 30px;
-  width: 50%;
+  width: 60%;
 }
 // RSS FEED POP-UP MENU \\
 #footer-rss {
@@ -402,6 +414,9 @@ font-size: 26px;
 }
 a.list-group-item.active span {
   font-size: 18px;
+}
+.radio label {
+  font-weight: 300;
 }
 #ds-options .ds-option-set-head,
 #aspect_viewArtifacts_Navigation_list_context,
@@ -562,6 +577,7 @@ div#aspect_artifactbrowser_CommunityBrowser_div_comunity-browser p {
 }
 .era-h-link {
   margin-left: -28px;
+  margin-bottom: 50px;
 }
 
 // LOGIN STYLES \\
