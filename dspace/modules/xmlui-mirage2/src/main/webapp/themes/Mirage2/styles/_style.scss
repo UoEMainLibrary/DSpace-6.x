@@ -183,22 +183,22 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 .ds-static-div.col-xs-10.col-sm-11 a, a:visited {
   position: relative;
 }
-.artifact-title a:hover, 
-.artifact-h-link a:hover,
-.simple-item-view-show-full.item-page-field-wrapper a:hover,
-.ds-paragraph.item-view-toggle a:hover,
-.ds-referenceSet-list a:hover,
-.navbar-header a:hover,
-.footer-links a:hover,
-.ds-table-row a:hover,
-.control-group.col-sm-12 a:hover,
-#aspect_eperson_PasswordLogin_div_register a:hover,
-.file-link a:hover,
-.era-h-link a:hover,
-.detail-view a:hover,
-#aspect_discovery_CommunityRecentSubmissions_p_recent-submission-view-more a:hover,
-#aspect_discovery_SiteRecentSubmissions_p_recent-submission-view-more a:hover,
-.ds-static-div.col-xs-10.col-sm-11 a:hover {
+.artifact-title a:hover, a:focus, 
+.artifact-h-link a:hover, a:focus,
+.simple-item-view-show-full.item-page-field-wrapper a:hover, a:focus,
+.ds-paragraph.item-view-toggle a:hover, a:focus,
+.ds-referenceSet-list a:hover, a:focus,
+.navbar-header a:hover, a:focus,
+.footer-links a:hover, a:focus,
+.ds-table-row a:hover, a:focus,
+.control-group.col-sm-12 a:hover, a:focus,
+#aspect_eperson_PasswordLogin_div_register a:hover, a:focus,
+.file-link a:hover, a:focus,
+.era-h-link a:hover, a:focus,
+.detail-view a:hover, a:focus,
+#aspect_discovery_CommunityRecentSubmissions_p_recent-submission-view-more a:hover, a:focus,
+#aspect_discovery_SiteRecentSubmissions_p_recent-submission-view-more a:hover, a:focus,
+.ds-static-div.col-xs-10.col-sm-11 a:hover,  a:focus {
   text-decoration: none;
 }
 .artifact-title a:after, a:visited:after, 
