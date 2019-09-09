@@ -424,7 +424,8 @@ a#rss-item:hover {
   position: relative;
   z-index: 999;
 }
-#aspect_browseArtifacts_CommunityBrowse_div_community-browse h3 {
+#aspect_browseArtifacts_CommunityBrowse_div_community-browse h3,
+#aspect_browseArtifacts_CollectionBrowse_div_collection-browse h3 {
   border: none;
   font-weight: 300;
 }
