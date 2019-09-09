@@ -331,10 +331,12 @@
                         </a>
                     </div>
                     <div class="col-xs-6 col-sm-8 header-title">
-                        <h1 class="hidden-xs hidden-sm">Edinburgh Research Archive</h1>
+                        <a href="{$context-path}/" id="era-title">
+                            <h1 class="hidden-xs hidden-sm">Edinburgh Research Archive</h1>
+                        </a>
                     </div>
                     <div class="col-xs-3 col-sm-2">
-                        <a href="{$context-path}/" class="pull-right">
+                        <a href="https://www.ed.ac.uk/" class="pull-right">
                             <img id="crest-head" src="{$theme-path}images/homecrest.png" />
                         </a>
                     </div>
@@ -711,8 +713,8 @@
                         <div class="rss-content">
                             <div class="rss-block">
                                 <xsl:choose>
-                                    <xsl:when test="not($request-uri = 'discover') and not($request-uri = 'browse') 
-                                                    and not(contains($request-uri, 'handle')) and not($request-uri = 'community-list')">
+                                    <xsl:when test="not($request-uri = 'discover') and not($request-uri = 'browse') and not($request-uri = 'password-login') and not($request-uri = 'community-list')
+                                                    and not(contains($request-uri, 'register')) and not(contains($request-uri, 'handle')) and not($request-uri = 'recent-submissions')">
                                             <xsl:call-template name="addRSSLinks"/>
                                     </xsl:when>
                                     <!--<xsl:when test="contains($request-uri, 'handle')">
