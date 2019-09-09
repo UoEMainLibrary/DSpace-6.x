@@ -203,8 +203,8 @@
 	<message key="xmlui.ArtifactBrowser.CommunityViewer.browse_authors">Authors</message>
 	<message key="xmlui.ArtifactBrowser.CommunityViewer.browse_dates">Dates</message>
 	<message key="xmlui.ArtifactBrowser.CommunityViewer.advanced_search_link">Advanced Search</message>
-	<message key="xmlui.ArtifactBrowser.CommunityViewer.head_sub_communities">Sub-communities within this community</message>
-	<message key="xmlui.ArtifactBrowser.CommunityViewer.head_sub_collections">Collections in this community</message>
+	<message key="xmlui.ArtifactBrowser.CommunityViewer.head_sub_communities">Sub-communities within this Community</message>
+	<message key="xmlui.ArtifactBrowser.CommunityViewer.head_sub_collections">Collections in this Community</message>
 	<message key="xmlui.ArtifactBrowser.CommunityViewer.head_recent_submissions">Recent Submissions</message>
 
 

@@ -94,6 +94,9 @@ p {
   position: relative;
   z-index: 999;
 }
+.label-default {
+  font-weight: 300;
+}
 // GLOBAL CONTAINER STYLES //
 .main-content, #main-container .row-offcanvas {
   z-index: 999;
@@ -266,15 +269,23 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
   color: #2b466b;
   font-weight: 400;
   border-bottom: solid 5.5px;
+  padding-bottom: 9px;
 }
-.page-header-underline {
-  background: #2b466b;
-  height: 8px;
-  width: 100%;
-  margin-bottom: 40px;
+.ds-list-head, .ds-div-head {
+  font-size: 40px;
+  color: #2b466b;
+  font-weight: 400;
+  border-bottom: solid 4px;
+  padding-bottom: 3px;
 }
 .era-header {
   background-color: #2b466b;
+}
+#era-title {
+  color: #fff;
+}
+#era-title:hover {
+  text-decoration: none;
 }
 .era-logos {
   padding-bottom: 50px;
@@ -338,8 +349,6 @@ header .navbar-default .navbar-nav>li>a:focus {
 .active {
   font-weight: 400;
 }
-
-
 // GLOBAL FOOTER STYLES //
 .footer-links {
   text-align: center;
@@ -395,14 +404,13 @@ text-align: left;
 a#rss-item:hover {
   background-color: #d6eafc;
 }
-
 // GLOBAL LIST STYLES //
 .community-browser-row {
   padding-top: 8px;
   padding-bottom: 8px;
 }
 .community-browser-row a[name='community-browser-link'] {
-font-size: 26px;
+  font-size: 26px;
   font-weight: 300;
   color: #2b466b;
 }
@@ -415,6 +423,13 @@ font-size: 26px;
   text-align: justify;
   position: relative;
   z-index: 999;
+}
+#aspect_browseArtifacts_CommunityBrowse_div_community-browse h3 {
+  border: none;
+  font-weight: 300;
+}
+#aspect_artifactbrowser_CommunityViewer_div_community-view {
+  margin-bottom: 50px;
 }
 // GLOBAL SIDEBAR STYLES//
 #main-container #sidebar {
@@ -575,7 +590,9 @@ div#aspect_artifactbrowser_CommunityBrowser_div_comunity-browser p {
   border-radius: 5px;
 }
 #aspect_discovery_SimpleSearch_field_filter_1:focus,
-#aspect_eperson_PasswordLogin_field_login_email:focus {
+#aspect_eperson_PasswordLogin_field_login_email:focus,
+#aspect_eperson_StartRegistration_field_email:focus,
+.ds-text-field .form-control:focus {
   border-color: #66afe9;
   outline: 0;
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(102,175,233,0.6);
