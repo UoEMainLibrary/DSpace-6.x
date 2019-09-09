@@ -711,7 +711,8 @@
                         <div class="rss-content">
                             <div class="rss-block">
                                 <xsl:choose>
-                                    <xsl:when test="not($request-uri = 'discover') and not($request-uri = 'browse') and not(contains($request-uri, 'handle'))">
+                                    <xsl:when test="not($request-uri = 'discover') and not($request-uri = 'browse') 
+                                                    and not(contains($request-uri, 'handle')) and not($request-uri = 'community-list')">
                                             <xsl:call-template name="addRSSLinks"/>
                                     </xsl:when>
                                     <!--<xsl:when test="contains($request-uri, 'handle')">
