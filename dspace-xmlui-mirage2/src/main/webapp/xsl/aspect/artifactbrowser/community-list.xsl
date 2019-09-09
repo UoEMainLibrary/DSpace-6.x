@@ -106,7 +106,7 @@
         </span>
     </xsl:template>
 
-    <xsl:template match="dri:field[@rend = 'community-browser-toggle-button']">
+    <!--<xsl:template match="dri:field[@rend = 'community-browser-toggle-button']">
         <p class="toggler-wrap">
             <a class="btn btn-default btn-sm toggler collapsed" href="javascript:void(0)" role="button"  data-target="{@value}">
                 <i class="glyphicon glyphicon-minus open-icon hidden" aria-hidden="true"/>
@@ -114,6 +114,6 @@
             </a>
         </p>
 
-    </xsl:template>
+    </xsl:template>-->
 
 </xsl:stylesheet>
