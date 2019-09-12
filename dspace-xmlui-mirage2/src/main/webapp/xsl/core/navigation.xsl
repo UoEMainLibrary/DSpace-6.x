@@ -32,6 +32,7 @@
 
     <xsl:output indent="yes"/>
 
+    <!-- Variables to be used to supress Sidebar groups based on dri:trail values -->
     <xsl:variable name="trail-string" select="/dri:document/dri:meta/dri:pageMeta/dri:trail[last()]" />
     <xsl:variable name="trail-string-1">xmlui.ArtifactBrowser.ItemViewer.trail</xsl:variable>
     <xsl:variable name="trail-string-2">xmlui.EPerson.PasswordLogin.trail</xsl:variable>
@@ -57,7 +58,7 @@
             <xsl:if test="not(contains(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI'], 'discover'))">
                 <div id="ds-search-option" class="ds-option-set">
                 <!-- Variable for testing url via tail -->
-                <!--<p><xsl:value-of select="$trail-test" /></p>-->
+                <p><xsl:value-of select="$trail-string" /></p>
                     <!-- The form, complete with a text box and a button, all built from attributes referenced
                  from under pageMeta. -->
                     <form id="ds-search-form" class="" method="post">
@@ -186,7 +187,7 @@
 
     <xsl:template match="dri:options/dri:list" priority="3">
         <xsl:choose>
-            <xsl:when test="$trail-test = $trail-string-1">
+            <xsl:when test="$trail-string = $trail-string-1">
                 <xsl:choose>
                     <xsl:when test="position() >= 3">
                     </xsl:when>
@@ -201,7 +202,7 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
-            <xsl:when test="$trail-test = $trail-string-2">
+            <xsl:when test="$trail-string = $trail-string-2">
                 <xsl:choose>
                     <xsl:when test="position() >= 3">
                     </xsl:when>
@@ -216,7 +217,7 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
-            <xsl:when test="$trail-test = $trail-string-3">
+            <xsl:when test="$trail-string = $trail-string-3">
                 <xsl:choose>
                     <xsl:when test="position() >= 3">
                     </xsl:when>
@@ -231,7 +232,7 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
-            <xsl:when test="contains($trail-test, trail-string-4)">
+            <xsl:when test="contains($trail-string, $trail-string-4)">
                 <xsl:choose>
                     <xsl:when test="position() >= 3">
                     </xsl:when>
@@ -246,7 +247,7 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
-            <xsl:when test="contains($trail-test, $trail-string-5)">
+            <xsl:when test="contains($trail-string, $trail-string-5)">
                 <xsl:choose>
                     <xsl:when test="position() >= 3">
                     </xsl:when>
@@ -261,7 +262,7 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
-            <xsl:when test="contains($trail-test, trail-string-6)">
+            <xsl:when test="contains($trail-string, $trail-string-6)">
                 <xsl:choose>
                     <xsl:when test="position() >= 3">
                     </xsl:when>
@@ -276,7 +277,7 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
-            <xsl:when test="contains($trail-test, trail-string-7)">
+            <xsl:when test="contains($trail-string, $trail-string-7)">
                 <xsl:choose>
                     <xsl:when test="position() >= 3">
                     </xsl:when>
@@ -291,7 +292,7 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
-            <xsl:when test="$trail-test = $trail-string-8">
+            <xsl:when test="$trail-string = $trail-string-8">
                 <xsl:choose>
                     <xsl:when test="position() >= 3">
                     </xsl:when>
@@ -321,7 +322,7 @@
 
     <xsl:template match="dri:options//dri:item">
         <xsl:choose>
-            <xsl:when test="$trail-test = $trail-string-1">
+            <xsl:when test="$trail-string = $trail-string-1">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <div class="sidebar-dropdown">
                         <xsl:call-template name="standardAttributes">
@@ -331,7 +332,7 @@
                     </div>
                 </xsl:if>
             </xsl:when>
-            <xsl:when test="$trail-test = $trail-string-2">
+            <xsl:when test="$trail-string = $trail-string-2">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <div class="sidebar-dropdown">
                         <xsl:call-template name="standardAttributes">
@@ -341,7 +342,7 @@
                     </div>
                 </xsl:if>
             </xsl:when>
-            <xsl:when test="$trail-test = $trail-string-3">
+            <xsl:when test="$trail-string = $trail-string-3">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <div class="sidebar-dropdown">
                         <xsl:call-template name="standardAttributes">
@@ -351,7 +352,7 @@
                     </div>
                 </xsl:if>
             </xsl:when>
-            <xsl:when test="contains($trail-test, trail-string-4)">
+            <xsl:when test="contains($trail-string, $trail-string-4)">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <div class="sidebar-dropdown">
                         <xsl:call-template name="standardAttributes">
@@ -361,7 +362,7 @@
                     </div>
                 </xsl:if>
             </xsl:when>
-            <xsl:when test="contains($trail-test, $trail-string-5)">
+            <xsl:when test="contains($trail-string, $trail-string-5)">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <div class="sidebar-dropdown">
                         <xsl:call-template name="standardAttributes">
@@ -371,7 +372,7 @@
                     </div>
                 </xsl:if>
             </xsl:when>
-            <xsl:when test="contains($trail-test, trail-string-6)">
+            <xsl:when test="contains($trail-string, $trail-string-6)">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <div class="sidebar-dropdown">
                         <xsl:call-template name="standardAttributes">
@@ -381,7 +382,7 @@
                     </div>
                 </xsl:if>
             </xsl:when>
-            <xsl:when test="contains($trail-test, trail-string-7)">
+            <xsl:when test="contains($trail-string, $trail-string-7)">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <div class="sidebar-dropdown">
                         <xsl:call-template name="standardAttributes">
@@ -391,7 +392,7 @@
                     </div>
                 </xsl:if>
             </xsl:when>
-            <xsl:when test="$trail-test = $trail-string-8">
+            <xsl:when test="$trail-string = $trail-string-8">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <div class="sidebar-dropdown">
                         <xsl:call-template name="standardAttributes">
@@ -414,7 +415,7 @@
 
     <xsl:template match="dri:options//dri:item[dri:xref]">
         <xsl:choose>
-            <xsl:when test="$trail-test = $trail-string-1">
+            <xsl:when test="$trail-string = $trail-string-1">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <a href="{dri:xref/@target}">
                         <xsl:call-template name="standardAttributes">
@@ -432,7 +433,7 @@
                     </a>
                 </xsl:if>
             </xsl:when>
-            <xsl:when test="$trail-test = $trail-string-2">
+            <xsl:when test="$trail-string = $trail-string-2">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <a href="{dri:xref/@target}">
                         <xsl:call-template name="standardAttributes">
@@ -450,7 +451,7 @@
                     </a>
                 </xsl:if>
             </xsl:when>
-            <xsl:when test="$trail-test = $trail-string-3">
+            <xsl:when test="$trail-string = $trail-string-3">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <a href="{dri:xref/@target}">
                         <xsl:call-template name="standardAttributes">
@@ -468,7 +469,7 @@
                     </a>
                 </xsl:if>
             </xsl:when>
-            <xsl:when test="contains($trail-test, trail-string-4)">
+            <xsl:when test="contains($trail-string, $trail-string-4)">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <a href="{dri:xref/@target}">
                         <xsl:call-template name="standardAttributes">
@@ -486,7 +487,7 @@
                     </a>
                 </xsl:if>
             </xsl:when>
-            <xsl:when test="contains($trail-test, $trail-string-5)">
+            <xsl:when test="contains($trail-string, $trail-string-5)">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <a href="{dri:xref/@target}">
                         <xsl:call-template name="standardAttributes">
@@ -504,7 +505,7 @@
                     </a>
                 </xsl:if>
             </xsl:when>
-            <xsl:when test="contains($trail-test, trail-string-6)">
+            <xsl:when test="contains($trail-string, $trail-string-6)">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <a href="{dri:xref/@target}">
                         <xsl:call-template name="standardAttributes">
@@ -522,7 +523,7 @@
                     </a>
                 </xsl:if>
             </xsl:when>
-            <xsl:when test="contains($trail-test, trail-string-7)">
+            <xsl:when test="contains($trail-string, $trail-string-7)">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <a href="{dri:xref/@target}">
                         <xsl:call-template name="standardAttributes">
@@ -540,7 +541,7 @@
                     </a>
                 </xsl:if>
             </xsl:when>
-            <xsl:when test="$trail-test = $trail-string-8">
+            <xsl:when test="$trail-string = $trail-string-8">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <a href="{dri:xref/@target}">
                         <xsl:call-template name="standardAttributes">
@@ -579,56 +580,56 @@
 
     <xsl:template match="dri:options/dri:list/dri:head" priority="3">
         <xsl:choose>
-            <xsl:when test="$trail-test = $trail-string-1">
+            <xsl:when test="$trail-string = $trail-string-1">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <xsl:call-template name="renderHead">
                         <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
                     </xsl:call-template>
                 </xsl:if>
             </xsl:when>
-            <xsl:when test="$trail-test = $trail-string-2">
+            <xsl:when test="$trail-string = $trail-string-2">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <xsl:call-template name="renderHead">
                         <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
                     </xsl:call-template>
                 </xsl:if>
             </xsl:when>
-            <xsl:when test="$trail-test = $trail-string-3">
+            <xsl:when test="$trail-string = $trail-string-3">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <xsl:call-template name="renderHead">
                         <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
                     </xsl:call-template>
                 </xsl:if>
             </xsl:when>
-            <xsl:when test="contains($trail-test, trail-string-4)">
+            <xsl:when test="contains($trail-string, $trail-string-4)">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <xsl:call-template name="renderHead">
                         <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
                     </xsl:call-template>
                 </xsl:if>
             </xsl:when>
-            <xsl:when test="contains($trail-test, $trail-string-5)">
+            <xsl:when test="contains($trail-string, $trail-string-5)">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <xsl:call-template name="renderHead">
                         <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
                     </xsl:call-template>
                 </xsl:if>
             </xsl:when>
-            <xsl:when test="contains($trail-test, trail-string-6)">
+            <xsl:when test="contains($trail-string, $trail-string-6)">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <xsl:call-template name="renderHead">
                         <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
                     </xsl:call-template>
                 </xsl:if>
             </xsl:when>
-            <xsl:when test="contains($trail-test, trail-string-7)">
+            <xsl:when test="contains($trail-string, $trail-string-7)">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <xsl:call-template name="renderHead">
                         <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
                     </xsl:call-template>
                 </xsl:if>
             </xsl:when>
-            <xsl:when test="$trail-test = $trail-string-8">
+            <xsl:when test="$trail-string = $trail-string-8">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <xsl:call-template name="renderHead">
                         <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
@@ -645,7 +646,7 @@
 
     <xsl:template match="dri:options/dri:list//dri:list/dri:head" priority="3">
         <xsl:choose>
-            <xsl:when test="$trail-test = $trail-string-1">
+            <xsl:when test="$trail-string = $trail-string-1">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <a class="list-group-item active">
                         <span>
@@ -660,7 +661,7 @@
                     </a>
                 </xsl:if>
             </xsl:when>
-            <xsl:when test="$trail-test = $trail-string-2">
+            <xsl:when test="$trail-string = $trail-string-2">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <a class="list-group-item active">
                         <span>
@@ -675,7 +676,7 @@
                     </a>
                 </xsl:if>
             </xsl:when>
-            <xsl:when test="$trail-test = $trail-string-3">
+            <xsl:when test="$trail-string = $trail-string-3">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <a class="list-group-item active">
                         <span>
@@ -690,7 +691,7 @@
                     </a>
                 </xsl:if>
             </xsl:when>
-            <xsl:when test="contains($trail-test, trail-string-4)">
+            <xsl:when test="contains($trail-string, $trail-string-4)">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <a class="list-group-item active">
                         <span>
@@ -705,7 +706,7 @@
                     </a>
                 </xsl:if>
             </xsl:when>
-            <xsl:when test="contains($trail-test, $trail-string-5)">
+            <xsl:when test="contains($trail-string, $trail-string-5)">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <a class="list-group-item active">
                         <span>
@@ -720,7 +721,7 @@
                     </a>
                 </xsl:if>
             </xsl:when>
-            <xsl:when test="contains($trail-test, trail-string-6)">
+            <xsl:when test="contains($trail-string, $trail-string-6)">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <a class="list-group-item active">
                         <span>
@@ -735,7 +736,7 @@
                     </a>
                 </xsl:if>
             </xsl:when>
-            <xsl:when test="contains($trail-test, trail-string-7)">
+            <xsl:when test="contains($trail-string, $trail-string-7)">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <a class="list-group-item active">
                         <span>
@@ -750,7 +751,7 @@
                     </a>
                 </xsl:if>
             </xsl:when>
-            <xsl:when test="$trail-test = $trail-string-8">
+            <xsl:when test="$trail-string = $trail-string-8">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <a class="list-group-item active">
                         <span>
