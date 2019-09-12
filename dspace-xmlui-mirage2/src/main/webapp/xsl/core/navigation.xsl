@@ -56,6 +56,7 @@
         <div id="ds-options" class="word-break hidden-print">
             <xsl:if test="not(contains(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI'], 'discover'))">
                 <div id="ds-search-option" class="ds-option-set">
+                <!-- Variable for testing url via tail -->
                 <!--<p><xsl:value-of select="$trail-test" /></p>-->
                     <!-- The form, complete with a text box and a button, all built from attributes referenced
                  from under pageMeta. -->

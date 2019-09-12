@@ -713,8 +713,14 @@
                         <div class="rss-content">
                             <div class="rss-block">
                                 <xsl:choose>
-                                    <xsl:when test="not($request-uri = 'discover') and not($request-uri = 'browse') and not($request-uri = 'password-login') and not($request-uri = 'community-list')
-                                                    and not(contains($request-uri, 'register')) and not(contains($request-uri, 'handle')) and not($request-uri = 'recent-submissions')">
+                                    <xsl:when test="not($request-uri = 'discover') 
+                                                    and not($request-uri = 'browse') 
+                                                    and not($request-uri = 'password-login') 
+                                                    and not($request-uri = 'community-list')
+                                                    and not($request-uri = 'recent-submissions') 
+                                                    and not($request-uri = 'identifier-not-found')
+                                                    and not(contains($request-uri, 'register')) 
+                                                    and not(contains($request-uri, 'handle'))">
                                             <xsl:call-template name="addRSSLinks"/>
                                     </xsl:when>
                                     <!--<xsl:when test="contains($request-uri, 'handle')">
