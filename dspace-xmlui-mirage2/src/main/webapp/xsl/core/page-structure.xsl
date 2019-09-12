@@ -694,47 +694,34 @@
                     </div>
                 </div>
 
-                <!--<div class="col-xs-3 col-sm-2">
-                    <div class="pull-right">
-                        <a href="http://www.is.ed.ac.uk" target="_blank" title="University of Edinburgh Information Services Home" class="pull-right">
-                            <img src="{$theme-path}images/islogo.gif"/>
+                <div class="col-xs-3 col-sm-2" id="rss-dropdown">
+                    <div class="footer-links" id="footer-rss">
+                        <img src="{concat($context-path, '/static/icons/feed.png')}" class="btn-xs" alt="xmlui.mirage2.navigation.rss.feed" i18n:attr="alt"/>
+                        <a class="rss-dropdownbtn">
+                            RSS Feeds 
                         </a>
                     </div>
-                </div>-->
-                
-                
-                    <div class="col-xs-3 col-sm-2" id="rss-dropdown">
-                        <div class="footer-links" id="footer-rss">
-                            <img src="{concat($context-path, '/static/icons/feed.png')}" class="btn-xs" alt="xmlui.mirage2.navigation.rss.feed" i18n:attr="alt"/>
-                            <a class="rss-dropdownbtn">
-                                RSS Feeds 
-                            </a>
-                        </div>
-                        <div class="rss-content">
-                            <div class="rss-block">
-                                <xsl:choose>
-                                    <xsl:when test="not($request-uri = 'discover') 
-                                                    and not($request-uri = 'browse') 
-                                                    and not($request-uri = 'password-login') 
-                                                    and not($request-uri = 'community-list')
-                                                    and not($request-uri = 'recent-submissions') 
-                                                    and not($request-uri = 'identifier-not-found')
-                                                    and not(contains($request-uri, 'register')) 
-                                                    and not(contains($request-uri, 'handle'))">
-                                            <xsl:call-template name="addRSSLinks"/>
-                                    </xsl:when>
-                                    <!--<xsl:when test="contains($request-uri, 'handle')">
-                                        <p class="rss-p">RSS Feed not available for this page</p>  
-                                    </xsl:when>-->
-                                    <xsl:otherwise>
-                                        <p class="rss-p">RSS Feed not available for this page</p>                 
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                            </div>
+                    <div class="rss-content">
+                        <div class="rss-block">
+                            <xsl:choose>
+                                <!-- List of URL strings that do not have RSS compatability -->
+                                <xsl:when test="not($request-uri = 'discover') 
+                                                and not($request-uri = 'browse') 
+                                                and not($request-uri = 'password-login') 
+                                                and not($request-uri = 'community-list')
+                                                and not($request-uri = 'recent-submissions') 
+                                                and not($request-uri = 'identifier-not-found')
+                                                and not(contains($request-uri, 'register')) 
+                                                and not(contains($request-uri, 'handle'))">
+                                        <xsl:call-template name="addRSSLinks"/>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <p class="rss-p">RSS Feed not available for this page</p>                 
+                                </xsl:otherwise>
+                            </xsl:choose>
                         </div>
                     </div>
-                
-                
+                </div>    
             </div>
 
             <!--Invisible link to HTML sitemap (for search engines) -->
