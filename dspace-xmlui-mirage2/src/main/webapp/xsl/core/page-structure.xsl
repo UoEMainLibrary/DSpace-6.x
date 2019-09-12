@@ -664,10 +664,10 @@
                 <div class="col-xs-3 col-sm-2" id="footer-logo-cont">
                     <div id="footer-img-cont">
                         <a href="http://www.ed.ac.uk/schools-departments/information-services/about/organisation/library-and-collections" target="_blank" title="Library &amp; University Collections Home">
-                            <img src="{$theme-path}images/CollectionsLUCLogo.png" />
+                            <img id="luc-logo" src="{$theme-path}images/CollectionsLUCLogo.png" />
                         </a>
                         <a href="http://www.is.ed.ac.uk" target="_blank" title="University of Edinburgh Information Services Home" class="pull-right">
-                            <img src="{$theme-path}images/islogo.gif"/>
+                            <img id="is-logo" src="{$theme-path}images/islogo.gif"/>
                         </a>
                     </div>
                 </div>
