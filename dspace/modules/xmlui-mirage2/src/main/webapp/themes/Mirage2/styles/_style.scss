@@ -309,7 +309,7 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
   width: 11%;
 }
 #crest-head {
-  width: 50%;
+  width: 90px;
   float: right;
 }
 // GLOBAL NAVBAR STYLES //
@@ -363,7 +363,12 @@ text-align: left;
 }
 #footer-img-cont img {
   margin-right: 30px;
-  width: 60%;
+}
+#luc-logo {
+  width: 45px;
+}
+#is-logo {
+  width: 37px;
 }
 // RSS FEED POP-UP MENU \\
 #footer-rss {
@@ -380,7 +385,7 @@ text-align: left;
   display: none;
   position: absolute;
   text-align: center;
-  border: solid #2b466b;
+  border: solid #2b466b 2px;
 }
 .rss-block {
   display: flex;
