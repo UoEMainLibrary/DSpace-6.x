@@ -33,6 +33,8 @@
         Requested Page URI. Some functions may alter behavior of processing depending if URI matches a pattern.
         Specifically, adding a static page will need to override the DRI, to directly add content.
     -->
+
+    <!-- Various variables for conditionals regarding page structure and RSS feed availablity -->
     <xsl:variable name="request-uri" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI']"/>
     <xsl:variable name="full-uri" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request']"/>
     <xsl:variable name="trail-test" select="/dri:document/dri:meta/dri:pageMeta/dri:trail[last()]" />
@@ -345,7 +347,7 @@
                 <div class="clearfix"></div>
             </div>
 
-
+            <!-- Custom naviagtion layout -->
             <div class="navbar navbar-default navbar-static-top" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
@@ -694,6 +696,7 @@
                     </div>
                 </div>
 
+                <!-- Dynamic RSS feed pop-up menu -->
                 <div class="col-xs-3 col-sm-2" id="rss-dropdown">
                     <div class="footer-links" id="footer-rss">
                         <img src="{concat($context-path, '/static/icons/feed.png')}" class="btn-xs" alt="xmlui.mirage2.navigation.rss.feed" i18n:attr="alt"/>
@@ -701,6 +704,7 @@
                             RSS Feeds 
                         </a>
                     </div>
+                    <!-- Pop-up block for RSS feed on :hover -->
                     <div class="rss-content">
                         <div class="rss-block">
                             <xsl:choose>
@@ -715,6 +719,7 @@
                                                 and not(contains($request-uri, 'handle'))">
                                         <xsl:call-template name="addRSSLinks"/>
                                 </xsl:when>
+                                <!-- Default display for no RSS feed -->
                                 <xsl:otherwise>
                                     <p class="rss-p">RSS Feed not available for this page</p>                 
                                 </xsl:otherwise>
@@ -738,16 +743,14 @@
         </footer>
     </xsl:template>
 
-    <!-- RSS code taken from sidebar -->
+    <!-- RSS template taken from navigation.xsl to fill pop-up block -->
     <xsl:template name="addRSSLinks">
         <xsl:for-each select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='feed']">
             <a class="list-group-item" id="rss-item">
                 <xsl:attribute name="href">
                     <xsl:value-of select="."/>
                 </xsl:attribute>
-
                 <img src="{concat($context-path, '/static/icons/feed.png')}" class="btn-xs" alt="xmlui.mirage2.navigation.rss.feed" i18n:attr="alt"/>
-
                 <xsl:choose>
                     <xsl:when test="contains(., 'rss_1.0')">
                         <xsl:text>1.0</xsl:text>

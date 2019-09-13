@@ -32,8 +32,11 @@
 
     <xsl:output indent="yes"/>
 
-    <!-- Variables to be used to supress Sidebar groups based on dri:trail values -->
+    <!-- Variables to be used to supress Sidebar facets based on dri:trail or URI values -->
     <xsl:variable name="trail-string" select="/dri:document/dri:meta/dri:pageMeta/dri:trail[last()]" />
+    <xsl:variable name="request-uri" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI']"/>
+    <xsl:variable name="uri-string" select="concat($trail-string, '/', $request-uri)" />
+    <!-- String values for individual pages where sidebar facets are to be supressed -->
     <xsl:variable name="trail-string-1">xmlui.ArtifactBrowser.ItemViewer.trail</xsl:variable>
     <xsl:variable name="trail-string-2">xmlui.EPerson.PasswordLogin.trail</xsl:variable>
     <xsl:variable name="trail-string-3">xmlui.ArtifactBrowser.CommunityBrowser.trail</xsl:variable>
@@ -42,6 +45,7 @@
     <xsl:variable name="trail-string-6">xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.author</xsl:variable>
     <xsl:variable name="trail-string-7">xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.subject</xsl:variable>
     <xsl:variable name="trail-string-8">xmlui.Discovery.RecentSubmissions.RecentSubmissionTransformer.trail</xsl:variable>
+    <xsl:variable name="uri-string-1">dspace_home/handle</xsl:variable>
 
     <!--
         The template to handle dri:options. Since it contains only dri:list tags (which carry the actual
@@ -58,7 +62,8 @@
             <xsl:if test="not(contains(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI'], 'discover'))">
                 <div id="ds-search-option" class="ds-option-set">
                 <!-- Variable for testing url via tail -->
-                <p><xsl:value-of select="$trail-string" /></p>
+                <!--<p><xsl:value-of select="$request-uri" /></p>-->
+                <!--<p><xsl:value-of select="$uri-string" /></p>-->
                     <!-- The form, complete with a text box and a button, all built from attributes referenced
                  from under pageMeta. -->
                     <form id="ds-search-form" class="" method="post">
@@ -185,6 +190,8 @@
         <xsl:apply-templates select="dri:list"/>
     </xsl:template>
 
+    <!-- Template employs conditional using trail strings to determine current page
+    The position value determines after which point the facets should be supressed -->
     <xsl:template match="dri:options/dri:list" priority="3">
         <xsl:choose>
             <xsl:when test="$trail-string = $trail-string-1">
@@ -307,6 +314,21 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
+            <xsl:when test="contains($uri-string, $uri-string-1)">
+                <xsl:choose>
+                    <xsl:when test="position() >= 3">
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <div>
+                            <xsl:call-template name="standardAttributes">
+                                <xsl:with-param name="class">list-group</xsl:with-param>
+                            </xsl:call-template>
+                            <xsl:apply-templates select="dri:item"/>
+                            <xsl:apply-templates select="dri:list"/>
+                        </div>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:when>
             <xsl:otherwise>
                 <div>
                     <xsl:call-template name="standardAttributes">
@@ -319,7 +341,7 @@
         </xsl:choose>
     </xsl:template>
 
-
+    <!-- Template uses conditionals to check current page and supress facets accordingly -->
     <xsl:template match="dri:options//dri:item">
         <xsl:choose>
             <xsl:when test="$trail-string = $trail-string-1">
@@ -401,6 +423,16 @@
                         <xsl:apply-templates />
                     </div>
                 </xsl:if>
+            </xsl:when> 
+            <xsl:when test="contains($uri-string, $uri-string-1)">
+                <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
+                    <div class="sidebar-dropdown">
+                        <xsl:call-template name="standardAttributes">
+                            <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                        </xsl:call-template>
+                        <xsl:apply-templates />
+                    </div>
+                </xsl:if>
             </xsl:when>
             <xsl:otherwise>
                 <div class="sidebar-dropdown">
@@ -413,6 +445,7 @@
         </xsl:choose>
     </xsl:template>
 
+    <!-- Template uses conditionals to check current page and supress facets accordingly -->
     <xsl:template match="dri:options//dri:item[dri:xref]">
         <xsl:choose>
             <xsl:when test="$trail-string = $trail-string-1">
@@ -429,7 +462,6 @@
                                 <xsl:value-of select="dri:xref"/>
                             </xsl:otherwise>
                         </xsl:choose>
-
                     </a>
                 </xsl:if>
             </xsl:when>
@@ -447,7 +479,6 @@
                                 <xsl:value-of select="dri:xref"/>
                             </xsl:otherwise>
                         </xsl:choose>
-
                     </a>
                 </xsl:if>
             </xsl:when>
@@ -465,7 +496,6 @@
                                 <xsl:value-of select="dri:xref"/>
                             </xsl:otherwise>
                         </xsl:choose>
-
                     </a>
                 </xsl:if>
             </xsl:when>
@@ -483,7 +513,6 @@
                                 <xsl:value-of select="dri:xref"/>
                             </xsl:otherwise>
                         </xsl:choose>
-
                     </a>
                 </xsl:if>
             </xsl:when>
@@ -501,7 +530,6 @@
                                 <xsl:value-of select="dri:xref"/>
                             </xsl:otherwise>
                         </xsl:choose>
-
                     </a>
                 </xsl:if>
             </xsl:when>
@@ -519,7 +547,6 @@
                                 <xsl:value-of select="dri:xref"/>
                             </xsl:otherwise>
                         </xsl:choose>
-
                     </a>
                 </xsl:if>
             </xsl:when>
@@ -537,7 +564,6 @@
                                 <xsl:value-of select="dri:xref"/>
                             </xsl:otherwise>
                         </xsl:choose>
-
                     </a>
                 </xsl:if>
             </xsl:when>
@@ -555,7 +581,23 @@
                                 <xsl:value-of select="dri:xref"/>
                             </xsl:otherwise>
                         </xsl:choose>
-
+                    </a>
+                </xsl:if>
+            </xsl:when>
+            <xsl:when test="contains($uri-string, $uri-string-1)">
+                <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
+                    <a href="{dri:xref/@target}">
+                        <xsl:call-template name="standardAttributes">
+                            <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                        </xsl:call-template>
+                        <xsl:choose>
+                            <xsl:when test="dri:xref/node()">
+                                <xsl:apply-templates select="dri:xref/node()"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="dri:xref"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
                     </a>
                 </xsl:if>
             </xsl:when>
@@ -572,12 +614,12 @@
                             <xsl:value-of select="dri:xref"/>
                         </xsl:otherwise>
                     </xsl:choose>
-
                 </a>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
 
+    <!-- Template uses conditionals to check current page and supress facets accordingly -->
     <xsl:template match="dri:options/dri:list/dri:head" priority="3">
         <xsl:choose>
             <xsl:when test="$trail-string = $trail-string-1">
@@ -636,6 +678,13 @@
                     </xsl:call-template>
                 </xsl:if>
             </xsl:when>
+            <xsl:when test="contains($uri-string, $uri-string-1)">
+                <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
+                    <xsl:call-template name="renderHead">
+                        <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
+                    </xsl:call-template>
+                </xsl:if>
+            </xsl:when>
             <xsl:otherwise>
                 <xsl:call-template name="renderHead">
                     <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
@@ -644,6 +693,7 @@
         </xsl:choose>
     </xsl:template>
 
+    <!-- Template uses conditionals to check current page and supress facets accordingly -->
     <xsl:template match="dri:options/dri:list//dri:list/dri:head" priority="3">
         <xsl:choose>
             <xsl:when test="$trail-string = $trail-string-1">
@@ -752,6 +802,21 @@
                 </xsl:if>
             </xsl:when>
             <xsl:when test="$trail-string = $trail-string-8">
+                <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
+                    <a class="list-group-item active">
+                        <span>
+                            <xsl:call-template name="standardAttributes">
+                                <xsl:with-param name="class">
+                                    <xsl:value-of select="@rend"/>
+                                    <xsl:text> list-group-item-heading</xsl:text>
+                                </xsl:with-param>
+                            </xsl:call-template>
+                            <xsl:apply-templates/>
+                        </span>
+                    </a>
+                </xsl:if>
+            </xsl:when>
+            <xsl:when test="contains($uri-string, $uri-string-1)">
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <a class="list-group-item active">
                         <span>
