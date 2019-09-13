@@ -189,7 +189,8 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 #aspect_discovery_CollectionRecentSubmissions_p_recent-submission-view-more a, a:visited,
 .ds-static-div.col-xs-10.col-sm-11 a, a:visited,
 #exception a, a:visited,
-#aspect_general_PageNotFoundTransformer_div_page-not-found a, a:visited {
+#aspect_general_PageNotFoundTransformer_div_page-not-found a, a:visited,
+#aspect_discovery_SimpleSearch_div_search-filters a, a:visited {
   position: relative;
 }
 .artifact-title a:hover, a:focus, 
@@ -210,7 +211,8 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 #aspect_discovery_CollectionRecentSubmissions_p_recent-submission-view-more a:hover, a:focus,
 .ds-static-div.col-xs-10.col-sm-11 a:hover, a:focus,
 #exception a:hover, a:focus,
-#aspect_general_PageNotFoundTransformer_div_page-not-found a:hover, a:focus {
+#aspect_general_PageNotFoundTransformer_div_page-not-found a:hover, a:focus,
+#aspect_discovery_SimpleSearch_div_search-filters a:hover, a:focus {
   text-decoration: none;
 }
 .artifact-title a:after, a:visited:after, 
@@ -229,7 +231,8 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 #aspect_discovery_CollectionRecentSubmissions_p_recent-submission-view-more a::after, a:visited::after,
 .ds-static-div.col-xs-10.col-sm-11 a:after, a:visited::after,
 #exception a::after, a:visited::after,
-#aspect_general_PageNotFoundTransformer_div_page-not-found a:after, a:visited::after {
+#aspect_general_PageNotFoundTransformer_div_page-not-found a:after, a:visited::after,
+#aspect_discovery_SimpleSearch_div_search-filters a:after, a:visited::after {
   content: '';
   height: 2.5px;
   position: absolute;
@@ -256,7 +259,8 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 #aspect_discovery_CollectionRecentSubmissions_p_recent-submission-view-more a:hover::after, a:visited:hover::after,
 .ds-static-div.col-xs-10.col-sm-11 a:hover::after, a:visited:hover::after,
 #exception a:hover::after, a:visited:hover::after,
-#aspect_general_PageNotFoundTransformer_div_page-not-found a:hover::after, a:visited:hover::after {
+#aspect_general_PageNotFoundTransformer_div_page-not-found a:hover::after, a:visited:hover::after,
+#aspect_discovery_SimpleSearch_div_search-filters a:hover::after, a:visited:hover::after {
   width: 100%;
 }
 .footer-links a::after, a:visited::after {
