@@ -495,6 +495,22 @@ function startManageItems()
 }
 
 /**
+ * Start managing items
+ */
+function startManageRefItems()
+{
+	assertAdministrator();
+
+	doManageRefItems();
+
+	// This should never return, but just in case it does then point
+	// the user to the home page.
+	cocoon.redirectTo(cocoon.request.getContextPath());
+	getDSContext().complete();
+	cocoon.exit();
+}
+
+/**
  * Start managing authorizations
  */
 function startManageAuthorizations()
@@ -1915,6 +1931,109 @@ function doMapItems(collectionID)
             result = doMapItemBrowse(collectionID);
         }
     } while (true);
+}
+
+/**************************
+ * REF Item flows
+ **************************/
+
+/**
+ *
+ */
+
+function doManageRefItems()
+{
+	assertAdministrator();
+
+	var result;
+	var author;
+	var startDate;
+	var stopDate;
+	var exportExcel;
+
+	do {
+		sendPageAndWait("admin/refreport/find",{"author": author, "startDate":startDate,"stopDate":stopDate, "exportExcel": exportExcel},result);
+   		assertAdministrator();
+		result = null;
+
+		if (cocoon.request.get("submit_find"))
+		{
+			// Search for the identifier
+			author = cocoon.request.get("author");
+			startDate = cocoon.request.get("startDate");
+			stopDate = cocoon.request.get("stopDate");
+			exportExcel = cocoon.request.get("exportExcel");
+			//result = true; //FlowItemUtils.resolveItemIdentifier(getDSContext(),identifier);
+
+			// If an item was found then allow the user to edit the item.
+			/*if (result != null && result.getParameter("itemID"))
+			{
+				var itemID = UUID.fromString(result.getParameter("itemID"));*/
+				result = doViewRefItem(author, startDate, stopDate, exportExcel);
+			//}
+		}
+	} while (true)
+}
+
+
+/**
+ * Edit a single item. This method allows the user to switch between the
+ * three sections of editing an item: status, bitstreams, and metadata.
+ */
+/*function doEditRefItem(itemID)
+{
+	// Always go to the status page first
+	//doEditItemStatus(itemID);
+	doViewRefItem(itemID);
+
+	do {
+	    if (cocoon.request.get("submit_return"))
+		{
+			// go back to wherever we came from.
+			return null;
+		}
+		else if (cocoon.request.get("submit_status"))
+		{
+			//doEditItemStatus(itemID);
+		}
+		else if (cocoon.request.get("submit_bitstreams"))
+		{
+			//doEditItemBitstreams(itemID);
+		}
+		else if (cocoon.request.get("submit_metadata"))
+		{
+			//doEditItemMetadata(itemID, null);
+		}
+		else if (cocoon.request.get("view_item"))
+		{
+			doViewRefItem(itemID);
+		}
+	        else if (cocoon.request.get("submit_curate"))
+                {
+                        //doCurateItem(itemID, cocoon.request.get("curate_task"));
+                }
+                else
+		{
+			// This case should never happen but to prevent an infinite loop
+			// from occurring let's just return null.
+			return null;
+		}
+	} while (true)
+}*/
+
+/**
+*  Just show the item
+*/
+function doViewRefItem(author, startDate, stopDate, exportExcel){
+	do {
+		sendPageAndWait("admin/refreport/view_item",{"author": author, "startDate":startDate, "stopDate": stopDate, 'exportExcel': exportExcel},null);
+		//assertEditItem(itemID);
+		/*if ( !cocoon.request.get("view_item"))
+		{
+			// go back to wherever we came from.
+			return null;
+		}*/
+	} while (true)
 }
 
 /**

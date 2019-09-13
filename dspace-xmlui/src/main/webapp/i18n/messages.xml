@@ -1048,6 +1048,7 @@
     <message key="xmlui.administrative.Navigation.administrative_batch_import">Batch Import (ZIP)</message>
     <message key="xmlui.administrative.Navigation.administrative_import_metadata">Import Metadata</message>
     <message key="xmlui.administrative.Navigation.administrative_curation">Curation Tasks</message>
+	<message key="xmlui.administrative.Navigation.administrative_refreport">REF Report</message>
 
     <!-- my account items -->
 	<message key="xmlui.administrative.Navigation.account_export">My Exports</message>
@@ -1465,6 +1466,21 @@
 	<message key="xmlui.administrative.authorization.DeletePoliciesConfirm.head_action">Action</message>
 	<message key="xmlui.administrative.authorization.DeletePoliciesConfirm.head_group">Group</message>
 
+
+	<!-- REF Report  -->
+	<!-- org.dspace.app.xmlui.administrative.refreport -->
+	<!-- Customisation  -->
+
+	<message key="xmlui.administrative.refreport.title">REF Report</message>
+	<message key="xmlui.administrative.refreport.trail">REF Report</message>
+	<message key="xmlui.administrative.refreport.view_trail">View</message>
+	<message key="xmlui.administrative.refreport.head1">Find REF items</message>
+	<message key="xmlui.administrative.refreport.head2">View REF items</message>
+	<message key="xmlui.administrative.refreport.author">Author</message>
+	<message key="xmlui.administrative.refreport.startdate">Start date</message>
+	<message key="xmlui.administrative.refreport.stopdate">Stop date</message>
+	<message key="xmlui.administrative.refreport.datehelp">Accepted format: yyyy, yyyy-mm, yyyy-mm-dd</message>
+	<message key="xmlui.administrative.refreport.find">Find</message>
 
     <!-- Batch Import Tool -->
     <!-- org.dspace.app.xmlui.administrative.batchimport -->
