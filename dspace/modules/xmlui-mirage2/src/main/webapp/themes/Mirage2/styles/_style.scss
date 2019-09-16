@@ -11,65 +11,53 @@
  * It will be included in all color schemes
  */
 
-//example mixin to set the text-selection style
+// example mixin to set the text-selection style
 @mixin selection {
     ::-moz-selection { @content; }
     ::selection { @content; }
 }
-
 @include selection {
     color: white;
     background: cornflowerblue;
 }
-
 .publication-records-modal, .publication-records-modal ul {
   list-style-type: none;
   padding-left: 0px;
 }
-
 .publication-records-import-btn {
   margin: 5px 0px 15px 0px;
 }
-
 .bold {
   font-weight: bold;
 }
-
 .imported {
   background-color: #E2E2E2;
 }
-
 #aspect_submission_StepTransformer_div_StartSubmissionLookupStep {
-
   #aspect_submission_StepTransformer_field_search {
     width: 81%;
     display: inline;
   }
-
   #aspect_submission_StepTransformer_field_lookup {
     width:19%
   }
-
   .modal .modal-body {
     max-height: 500px;
     overflow-y: auto;
   }
-
   #aspect_submission_StepTransformer_item_publication-title{
     margin-bottom:5px;
   }
 }
 
-
-// SDLC //
+// SDLC \\
 .countriesMap  {
   padding-top: 80px;
 }
 
-
-// ERA //
-// GLOBAL STYLES //
-// TEXT //
+// ERA \\
+// GLOBAL STYLES \\
+// TEXT \\
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-weight: 300;
 }
@@ -97,7 +85,7 @@ p {
 .label-default {
   font-weight: 300;
 }
-// GLOBAL CONTAINER STYLES //
+// GLOBAL CONTAINER STYLES \\
 .main-content, #main-container .row-offcanvas {
   z-index: 999;
   background-color: transparent;
@@ -111,9 +99,8 @@ p {
 .ds-static-div.col-xs-2.col-sm-1 {
   display: none;
 }
-// GLOBAL BACKGROUND IMAGES //
+// GLOBAL BACKGROUND IMAGES \\
 #background-globe {
-  //background-image: url('themes/Mirage2/images/globe-png-icon.png');
   position: absolute;
   z-index: 1;
   right: 10%;
@@ -149,7 +136,7 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
   width: 100%; 
   left: 0; 
 }
-// COMMUNITIES LIST //
+// COMMUNITIES LIST \\
 .ds-static-div.row.community-browser-row a, a:visited {
   text-decoration: none;
   font-size: 22px;
@@ -280,7 +267,7 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
   width: 100%;
   left: 0;
 }
-// GLOBAL HEADER STYLES //
+// GLOBAL HEADER STYLES \\
 .page-header {
   color: #2b466b;
   font-weight: 400;
@@ -328,7 +315,7 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
   width: 90px;
   float: right;
 }
-// GLOBAL NAVBAR STYLES //
+// GLOBAL NAVBAR STYLES \\
 .nav>li>a {
   position: relative;
   display: initial;
@@ -355,7 +342,7 @@ header .navbar-default .navbar-nav>li>a:hover,
 header .navbar-default .navbar-nav>li>a:focus {
   background-color: #aab8c6;
 }
-// GLOBAL NAVBAR/BREADCRUMB STYLES // 
+// GLOBAL NAVBAR/BREADCRUMB STYLES \\ 
 .breadcrumb .hidden-xs .hidden-sm {
   width: 90%;
 }
@@ -365,7 +352,7 @@ header .navbar-default .navbar-nav>li>a:focus {
 .active {
   font-weight: 400;
 }
-// GLOBAL FOOTER STYLES //
+// GLOBAL FOOTER STYLES \\
 .footer-links {
   text-align: center;
   font-size: 18px;
@@ -425,7 +412,7 @@ text-align: left;
 a#rss-item:hover {
   background-color: #d6eafc;
 }
-// GLOBAL LIST STYLES //
+// GLOBAL LIST STYLES \\
 .community-browser-row {
   padding-top: 8px;
   padding-bottom: 8px;
@@ -443,7 +430,7 @@ a#rss-item:hover {
   margin: 8px 0px;
   text-align: justify;
   position: relative;
-  z-index: 999;
+ z-index: 999;
 }
 #aspect_browseArtifacts_CommunityBrowse_div_community-browse h3,
 #aspect_browseArtifacts_CollectionBrowse_div_collection-browse h3 {
@@ -453,7 +440,7 @@ a#rss-item:hover {
 #aspect_artifactbrowser_CommunityViewer_div_community-view {
   margin-bottom: 50px;
 }
-// GLOBAL SIDEBAR STYLES//
+// GLOBAL SIDEBAR STYLES \\
 #main-container #sidebar {
   background-color: transparent;
   position: relative;
@@ -478,16 +465,6 @@ a.list-group-item.active span {
   border-top-right-radius: 5px;
   border-top-left-radius: 5px
 }
-/*#ds-options div {
-  margin-bottom:   20px;
-  padding-left: 0;
-  border: solid #2b466b 2px;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px
-}
-#ds-search-option {
-  border: none;
-}*/
 .input-group, #aspect_viewArtifacts_Navigation_list_account, 
 #aspect_discovery_SimpleSearch_field_scope {
   border-radius: 5px;
@@ -506,7 +483,6 @@ a.list-group-item.active span {
 .list-group-item:first-child {
   border-radius: 0;
 }
-
 .btn-primary, .list-group-item.active, .input-group-btn, 
 #aspect_discovery_CommunitySearch_field_submit {
   background-color: #2b466b;
@@ -531,22 +507,17 @@ a.list-group-item.active span {
 .ds-text-field.form-control {
   z-index: 800;
 }
-
-// collapsible sidebar css
-#ds-options div.gu-hide, #dspace-options div.gu-hide {
-  display: none;
-}
-// PAGE STYLES //
-// INDEX // 
+// INDIVIDUAL PAGE STYLES \\
+// INDEX \\ 
 #file_news_div_news {
   margin-top: 40px;
 }
-// COMMUNITIES LIST // 
+// COMMUNITIES LIST \\ 
 .ds-artifact-list .artifact-title a {
   margin-bottom: 5px;
   font-size: 22px;
   position: relative;
-  z-index: 999;
+  //z-index: 999;
 }
 .community-browser-row {
   width: 200%;
@@ -556,7 +527,7 @@ h2.ds-div-head.page-header.first-page-header,
 div#aspect_artifactbrowser_CommunityBrowser_div_comunity-browser p {
   display: none;
 }
-// RECENT LIST //
+// RECENT LIST \\
 .artifact-abstract {
   font-weight: 300;
   color: #333;
@@ -565,8 +536,7 @@ div#aspect_artifactbrowser_CommunityBrowser_div_comunity-browser p {
 .ds-artifact-item {
   margin: 20px 0px;
 }
-
-// DISCOVERY \\
+// DISCOVERY | SEARCH \\
 .artifact-description h4 {
   font-size: 22px;
 }
@@ -606,12 +576,12 @@ div#aspect_artifactbrowser_CommunityBrowser_div_comunity-browser p {
   color: #fff;
   border-color: transparent;
 }
-#aspect_discovery_SimpleSearch_field_filter_1,
+#new-filters-wrapper input,
 #aspect_eperson_PasswordLogin_field_login_email {
   border: solid #ccc 1px;
   border-radius: 5px;
 }
-#aspect_discovery_SimpleSearch_field_filter_1:focus,
+#new-filters-wrapper input:focus,
 #aspect_eperson_PasswordLogin_field_login_email:focus,
 #aspect_eperson_StartRegistration_field_email:focus,
 .ds-text-field .form-control:focus {
@@ -620,8 +590,17 @@ div#aspect_artifactbrowser_CommunityBrowser_div_comunity-browser p {
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(102,175,233,0.6);
   box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(102,175,233,0.6);
 }
-
-
+div.controls-gear-wrapper .dropdown-menu .glyphicon {
+  font-size: 10px;
+}
+ul.dropdown-menu li {
+  font-size: 16px;
+  font-weight: 300;
+}
+ul.dropdown-menu a {
+  font-size: 18px;
+  font-weight: 200;
+}
 // ITEM VIEW \\
 .item-summary-view-metadata, .ds-static-div.primary {
   position: relative;
