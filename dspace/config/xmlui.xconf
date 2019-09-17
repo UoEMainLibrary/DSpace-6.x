@@ -97,6 +97,8 @@
         <!-- Additionally you may choose to expose your Google Analytics statistics in DSpace -->
         <!-- <aspect name="StatisticsGoogleAnalytics" path="resource://aspects/StatisticsGoogleAnalytics/" /> -->
 
+        <aspect name="StatisticsIRUS" path="resource://aspects/StatisticsIRUS/" />
+
         <!-- =========================
              Approval Workflow Systems
              ========================= -->
@@ -122,7 +124,7 @@
             It may be useful to developers in developing new aspects or themes.
             It's accessible for admins in the XMLTest menu or via the /XMLTest/ URL.
         -->
-        <!-- <aspect name="XML Tests" path="resource://aspects/XMLTest/"/> -->
+        <!--<aspect name="XML Tests" path="resource://aspects/XMLTest/"/>-->
     </aspects>
 
     <!--
@@ -157,7 +159,7 @@
         <!-- <theme name="Test Theme 2" regex="community-list" path="theme2/"/> -->
 
         <!-- Mirage theme, @mire contributed theme, default since DSpace 3.0 -->
-        <theme name="Atmire Mirage Theme" regex=".*" path="Mirage/" />
+        <theme name="Atmire Mirage2 Theme" regex=".*" path="Mirage2/" />
 
         <!-- Reference theme, the default Manakin XMLUI layout up to DSpace 1.8 -->
         <!-- <theme name="Default Reference Theme" regex=".*" path="Reference/" /> -->
