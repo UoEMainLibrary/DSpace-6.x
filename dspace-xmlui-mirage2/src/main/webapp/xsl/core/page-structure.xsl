@@ -38,6 +38,8 @@
     <xsl:variable name="request-uri" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI']"/>
     <xsl:variable name="full-uri" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request']"/>
     <xsl:variable name="trail-test" select="/dri:document/dri:meta/dri:pageMeta/dri:trail[last()]" />
+    <xsl:variable name="auth" select="/dri:document/dri:meta/dri:userMeta/@authenticated" />
+
 
     <!--
         The starting point of any XSL processing is matching the root element. In DRI the root element is document,
@@ -74,6 +76,7 @@
 
                 <!-- Then proceed to the body -->
                 <body>
+                    
                     <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
                    chromium.org/developers/how-tos/chrome-frame-getting-started -->
                     <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
@@ -279,6 +282,13 @@
                 return true;
                 }
             </script>
+
+            <xsl:if test="$auth = 'no'">
+                <script>
+                    document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
+                    document.getElementById("aspect_viewArtifacts_Navigation_list_administrative").style.display = "none";
+                </script>
+            </xsl:if>
 
             <xsl:text disable-output-escaping="yes">&lt;!--[if lt IE 9]&gt;
                 &lt;script src="</xsl:text><xsl:value-of select="concat($theme-path, 'vendor/html5shiv/dist/html5shiv.js')"/><xsl:text disable-output-escaping="yes">"&gt;&#160;&lt;/script&gt;
@@ -716,7 +726,12 @@
                                                 and not($request-uri = 'recent-submissions') 
                                                 and not($request-uri = 'identifier-not-found')
                                                 and not(contains($request-uri, 'register')) 
-                                                and not(contains($request-uri, 'handle'))">
+                                                and not(contains($request-uri, 'handle'))
+                                                and not(contains($request-uri, 'submit'))
+                                                and not(contains($request-uri, 'submissions'))
+                                                and not(contains($request-uri, 'continue'))
+                                                and not(contains($request-uri, 'profile'))
+                                                and not(contains($request-uri, 'xmlui'))">
                                         <xsl:call-template name="addRSSLinks"/>
                                 </xsl:when>
                                 <!-- Default display for no RSS feed -->
@@ -897,6 +912,13 @@
                   ga('create', '</xsl:text><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='google'][@qualifier='analytics']"/><xsl:text>', '</xsl:text><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='serverName']"/><xsl:text>');
                   ga('send', 'pageview');
            </xsl:text></script>
+        </xsl:if>
+
+        <xsl:if test="$auth = 'no'">
+            <script>
+                document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
+                document.getElementById("aspect_viewArtifacts_Navigation_list_administrative").style.display = "none";
+            </script>
         </xsl:if>
     </xsl:template>
 
