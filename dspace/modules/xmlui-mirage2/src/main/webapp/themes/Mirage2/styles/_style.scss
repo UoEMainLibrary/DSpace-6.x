@@ -58,7 +58,7 @@
 // ERA \\
 // GLOBAL STYLES \\
 // TEXT \\
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, legend {
   font-weight: 300;
 }
 h1 {
@@ -66,6 +66,9 @@ h1 {
 }
 h2 {
   font-size: 50px;
+}
+legend {
+  font-size: 30px;
 }
 p {
   font-size: 18px;
@@ -177,7 +180,11 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 .ds-static-div.col-xs-10.col-sm-11 a, a:visited,
 #exception a, a:visited,
 #aspect_general_PageNotFoundTransformer_div_page-not-found a, a:visited,
-#aspect_discovery_SimpleSearch_div_search-filters a, a:visited {
+#aspect_discovery_SimpleSearch_div_search-filters a, a:visited,
+#aspect_submission_Submissions_div_start-submision a, a:visited,
+#aspect_submission_Submissions_div_unfinished-submisions a, a:visited,
+.bold a, a:visited,
+#p-underline a, a:visited {
   position: relative;
 }
 .artifact-title a:hover, a:focus, 
@@ -199,7 +206,11 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 .ds-static-div.col-xs-10.col-sm-11 a:hover, a:focus,
 #exception a:hover, a:focus,
 #aspect_general_PageNotFoundTransformer_div_page-not-found a:hover, a:focus,
-#aspect_discovery_SimpleSearch_div_search-filters a:hover, a:focus {
+#aspect_discovery_SimpleSearch_div_search-filters a:hover, a:focus,
+#aspect_submission_Submissions_div_start-submision a:hover, a:focus,
+#aspect_submission_Submissions_div_unfinished-submisions a:hover, a:focus,
+.bold a:hover, a:focus,
+#p-underline a:hover, a:focus {
   text-decoration: none;
 }
 .artifact-title a:after, a:visited:after, 
@@ -219,7 +230,11 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 .ds-static-div.col-xs-10.col-sm-11 a:after, a:visited::after,
 #exception a::after, a:visited::after,
 #aspect_general_PageNotFoundTransformer_div_page-not-found a:after, a:visited::after,
-#aspect_discovery_SimpleSearch_div_search-filters a:after, a:visited::after {
+#aspect_discovery_SimpleSearch_div_search-filters a:after, a:visited::after,
+#aspect_submission_Submissions_div_start-submision a:after, a:visited::after,
+#aspect_submission_Submissions_div_unfinished-submisions a:after, a:visited::after,
+.bold a:after, a:visited::after,
+#p-underline a:after, a:visited::after {
   content: '';
   height: 2.5px;
   position: absolute;
@@ -247,7 +262,11 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 .ds-static-div.col-xs-10.col-sm-11 a:hover::after, a:visited:hover::after,
 #exception a:hover::after, a:visited:hover::after,
 #aspect_general_PageNotFoundTransformer_div_page-not-found a:hover::after, a:visited:hover::after,
-#aspect_discovery_SimpleSearch_div_search-filters a:hover::after, a:visited:hover::after {
+#aspect_discovery_SimpleSearch_div_search-filters a:hover::after, a:visited:hover::after,
+#aspect_submission_Submissions_div_start-submision a:hover::after, a:visited:hover::after,
+#aspect_submission_Submissions_div_unfinished-submisions a:hover::after, a:visited:hover::after,
+.bold a:hover::after, a:visited:hover::after,
+#p-underline a:hover::after, a:visited:hover::after {
   width: 100%;
 }
 .footer-links a::after, a:visited::after {
@@ -274,7 +293,8 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
   border-bottom: solid 5.5px;
   padding-bottom: 9px;
 }
-.ds-list-head, .ds-div-head {
+.ds-list-head, .ds-div-head,
+legend {
   font-size: 40px;
   color: #2b466b;
   font-weight: 400;
@@ -456,7 +476,7 @@ a.list-group-item.active span {
 #ds-options .ds-option-set-head,
 #aspect_viewArtifacts_Navigation_list_context,
 #aspect_viewArtifacts_Navigation_list_administrative {
-  display: none;
+  //display: none;
 }
 .list-group, .input-group {
   margin-bottom:   20px;
@@ -577,14 +597,18 @@ div#aspect_artifactbrowser_CommunityBrowser_div_comunity-browser p {
   border-color: transparent;
 }
 #new-filters-wrapper input,
-#aspect_eperson_PasswordLogin_field_login_email {
+#aspect_eperson_PasswordLogin_field_login_email,
+#aspect_submission_StepTransformer_list_submit-describe input,
+#aspect_eperson_EditProfile_div_information input {
   border: solid #ccc 1px;
   border-radius: 5px;
 }
 #new-filters-wrapper input:focus,
 #aspect_eperson_PasswordLogin_field_login_email:focus,
 #aspect_eperson_StartRegistration_field_email:focus,
-.ds-text-field .form-control:focus {
+.ds-text-field .form-control:focus,
+#aspect_submission_StepTransformer_list_submit-describe input:focus,
+#aspect_eperson_EditProfile_div_information input:focus {
   border-color: #66afe9;
   outline: 0;
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(102,175,233,0.6);
@@ -621,4 +645,12 @@ ul.dropdown-menu a {
 // LOGIN STYLES \\
 #aspect_eperson_PasswordLogin_item_login-in {
   margin-top: 15px;
+}
+// PROFILE STYLES \\
+#aspect_eperson_EditProfile_list_memberships,
+#aspect_eperson_EditProfile_div_information h3 {
+  display: none;
+}
+#aspect_viewArtifacts_Navigation_list_context {
+  border-radius: 5px;
 }
