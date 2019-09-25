@@ -7,6 +7,7 @@
  */
 package org.dspace.identifier.factory;
 
+import org.dspace.identifier.service.DOICollectionService;
 import org.dspace.identifier.service.DOIService;
 import org.dspace.identifier.service.IdentifierService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,8 @@ public class IdentifierServiceFactoryImpl extends IdentifierServiceFactory {
     private IdentifierService identifierService;
     @Autowired(required = true)
     private DOIService doiService;
+    @Autowired(required = true)
+    private DOICollectionService doiCollectionService;
 
     @Override
     public IdentifierService getIdentifierService() {
@@ -31,5 +34,10 @@ public class IdentifierServiceFactoryImpl extends IdentifierServiceFactory {
     @Override
     public DOIService getDOIService() {
         return doiService;
+    }
+
+    @Override
+    public DOICollectionService getDOICollectionService() {
+        return doiCollectionService;
     }
 }

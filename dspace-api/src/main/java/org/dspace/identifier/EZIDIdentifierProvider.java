@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.util.*;
 import java.util.Map.Entry;
 import org.dspace.authorize.AuthorizeException;
+import org.dspace.content.Collection;
 import org.dspace.content.MetadataValue;
 import org.dspace.content.DSpaceObject;
 import org.dspace.content.Item;
@@ -134,6 +135,13 @@ public class EZIDIdentifierProvider
         {
             return identifier.startsWith(DOI_SCHEME);
         } // XXX more thorough test?
+    }
+
+    @Override
+    public String register(Context context, DSpaceObject dso, Collection owningCollection)
+            throws IdentifierException    {
+
+        return register(context, dso);
     }
 
     @Override

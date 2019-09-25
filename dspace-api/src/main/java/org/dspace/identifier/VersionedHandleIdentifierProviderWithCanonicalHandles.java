@@ -97,6 +97,12 @@ public class VersionedHandleIdentifierProviderWithCanonicalHandles extends Ident
     }
 
     @Override
+    public String register(Context context, DSpaceObject dso, Collection owningCollection)
+    {
+        return register(context, dso);
+    }
+
+    @Override
     public String register(Context context, DSpaceObject dso)
     {
         String id = mint(context, dso);

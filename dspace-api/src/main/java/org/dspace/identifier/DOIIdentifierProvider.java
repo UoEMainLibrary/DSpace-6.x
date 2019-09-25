@@ -12,9 +12,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 import org.apache.commons.lang.ObjectUtils;
 import org.dspace.authorize.AuthorizeException;
+import org.dspace.content.Collection;
 import org.dspace.content.MetadataValue;
 import org.dspace.content.DSpaceObject;
 import org.dspace.content.Item;
@@ -24,6 +26,7 @@ import org.dspace.core.Constants;
 import org.dspace.core.Context;
 import org.dspace.identifier.doi.DOIConnector;
 import org.dspace.identifier.doi.DOIIdentifierException;
+import org.dspace.identifier.service.DOICollectionService;
 import org.dspace.identifier.service.DOIService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -88,6 +91,8 @@ public class DOIIdentifierProvider
     protected ContentServiceFactory contentServiceFactory;
     @Autowired(required = true)
     protected ItemService itemService;
+    @Autowired(required = true)
+    protected DOICollectionService doiCollectionService;
 
     protected DOIIdentifierProvider() {
     }
@@ -134,6 +139,33 @@ public class DOIIdentifierProvider
         return this.NAMESPACE_SEPARATOR;
     }
 
+    /***
+     * Checks in the doicollection table for the passed UUID.
+     * Hrafn Malmquist
+     * 25/09/2019
+     * @param context
+     * @param collection_id UUID of collection
+     * @return true if it finds the UUID
+     */
+
+    private boolean isDOICollection(Context context, UUID collection_id) {
+        DOICollection doiCollection;
+        try {
+            doiCollection = doiCollectionService.findByCollectionUUID(context, collection_id);
+
+            if(doiCollection != null)   {
+                return true;
+            }
+        }
+        catch (SQLException sqle)   {
+            log.error("SQL error when searching for DOI collection with UUID: " + collection_id);
+            log.error(sqle.getSQLState() + " \n" + sqle.getMessage());
+        }
+
+        return false;
+
+    }
+
     @Required
     public void setDOIConnector(DOIConnector connector)
     {
@@ -173,7 +205,36 @@ public class DOIIdentifierProvider
         return true;
     }
 
-    
+
+    /***
+     *  Register function added for DOICollection functionality.
+     *  Takes collection as parameter.
+     *  Hrafn Malmquist
+     *  25/09/2019
+     * @param context
+     * @param dso DSpaceObject, should be item
+     * @param owningCollection owning c
+     * @return
+     * @throws IdentifierException
+     */
+
+    @Override
+    public String register(Context context, DSpaceObject dso, Collection owningCollection) throws IdentifierException {
+
+        // Abort DOI registration if item belongs to a non DOICollection
+        if (!isDOICollection(context, owningCollection.getID())) {
+            //log.info("Item " + dso.getID() + " not in a DOI collection.");
+            return null;
+        }
+
+        String doi = mint(context, dso);
+        // register tries to reserve doi if it's not already.
+        // So we don't have to reserve it here.
+        register(context, dso, doi);
+        return doi;
+    }
+
+
     @Override
     public String register(Context context, DSpaceObject dso)
             throws IdentifierException
@@ -440,8 +501,8 @@ public class DOIIdentifierProvider
             throws IdentifierException
     {
         String doi = null;
-        try
-        {
+
+        try {
             doi = getDOIByObject(context, dso);
         }
         catch (SQLException e)
