@@ -914,6 +914,7 @@
            </xsl:text></script>
         </xsl:if>
 
+        <!-- Authentication script to hide sidebar groups based on auth status -->
         <xsl:if test="$auth = 'no'">
             <script>
                 document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";

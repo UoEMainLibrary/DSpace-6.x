@@ -33,7 +33,6 @@
     <xsl:output indent="yes"/>
 
     <!-- Variables to be used to supress Sidebar facets based on dri:trail or URI values -->
-    <xsl:variable name="auth" select="/dri:document/dri:meta/dri:userMeta/@authenticated" />
     <xsl:variable name="trail-string" select="/dri:document/dri:meta/dri:pageMeta/dri:trail[last()]" />
     <xsl:variable name="request-uri" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI']" />
     <xsl:variable name="uri-string" select="concat($trail-string, '/', $request-uri)" />
@@ -70,7 +69,6 @@
             <xsl:if test="not(contains(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI'], 'discover'))">
                 <div id="ds-search-option" class="ds-option-set">
                 <!-- Variable for testing url via tail -->
-                <!-- <p><xsl:value-of select="$auth" /></p> -->
                 <!-- <p><xsl:value-of select="$request-uri" /></p> -->
                 <!-- <p><xsl:value-of select="$uri-string" /></p> -->
                 <!-- <p><xsl:value-of select="$trail-string" /></p> -->
@@ -253,7 +251,7 @@
                 </div>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued') and not(../@n = 'context') and not(../@n = 'administrative')">
+                <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <div class="sidebar-dropdown">
                         <xsl:call-template name="standardAttributes">
                             <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
@@ -289,7 +287,7 @@
                 </a>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued') and not(../@n = 'context') and not(../@n = 'administrative')">
+                <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <a href="{dri:xref/@target}">
                         <xsl:call-template name="standardAttributes">
                             <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
@@ -322,7 +320,7 @@
                 </xsl:call-template>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued') and not(../@n = 'context') and not(../@n = 'administrative')">
+                <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <xsl:call-template name="renderHead">
                         <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
                     </xsl:call-template>
@@ -353,7 +351,7 @@
                 </a>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued') and not(../@n = 'context') and not(../@n = 'administrative')">
+                <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <a class="list-group-item active">
                         <span>
                             <xsl:call-template name="standardAttributes">
