@@ -9,6 +9,7 @@ package org.dspace.identifier;
 
 import org.apache.log4j.Logger;
 import org.dspace.authorize.AuthorizeException;
+import org.dspace.content.Collection;
 import org.dspace.content.DSpaceObject;
 import org.dspace.content.factory.ContentServiceFactory;
 import org.dspace.core.Context;
@@ -99,6 +100,22 @@ public class IdentifierServiceImpl implements IdentifierService {
         for (IdentifierProvider service : providers)
         {
             service.register(context, dso);
+        }
+        //Update our item
+        contentServiceFactory.getDSpaceObjectService(dso).update(context, dso);
+    }
+
+    //   DOICollection functionality
+    //   Hrafn Malmquist
+    //   25/09/2019
+
+    @Override
+    public void register(Context context, DSpaceObject dso, Collection owningCollection) throws AuthorizeException, SQLException, IdentifierException {
+        //We need to commit our context because one of the providers might require the handle created above
+        // Next resolve all other services
+        for (IdentifierProvider service : providers)
+        {
+            service.register(context, dso, owningCollection);
         }
         //Update our item
         contentServiceFactory.getDSpaceObjectService(dso).update(context, dso);

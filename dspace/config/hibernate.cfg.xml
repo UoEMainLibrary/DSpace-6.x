@@ -82,5 +82,7 @@
 
         <mapping class="com.atmire.statistics.export.OpenURLTracker"/>
 
+        <mapping class="org.dspace.identifier.DOICollection"/>
+
     </session-factory>
 </hibernate-configuration>
