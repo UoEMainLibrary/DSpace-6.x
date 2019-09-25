@@ -90,6 +90,8 @@
 
     <bean class="org.dspace.identifier.DOIServiceImpl"/>
 
+    <bean class="org.dspace.identifier.DOICollectionServiceImpl"/>
+
     <bean class="org.dspace.license.CreativeCommonsServiceImpl"/>
 
     <!-- Statistics services are both lazy loaded (by name), as you are likely just using ONE of them and not both -->

@@ -7,6 +7,7 @@
  */
 package org.dspace.identifier;
 
+import org.dspace.content.Collection;
 import org.dspace.content.DSpaceObject;
 import org.dspace.core.Context;
 import org.dspace.identifier.service.IdentifierService;
@@ -137,5 +138,8 @@ public abstract class IdentifierProvider {
      * @throws IdentifierException if identifier error
      */
     public abstract void register(Context context, DSpaceObject object, String identifier)
+            throws IdentifierException;
+
+    public abstract String register(Context context, DSpaceObject object, Collection owningCollection)
             throws IdentifierException;
 }

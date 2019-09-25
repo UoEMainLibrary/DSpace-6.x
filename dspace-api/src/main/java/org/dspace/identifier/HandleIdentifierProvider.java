@@ -80,6 +80,11 @@ public class HandleIdentifierProvider extends IdentifierProvider {
     }
 
     @Override
+    public String register(Context context, DSpaceObject dso, Collection owningCollection) {
+        return register(context, dso);
+    }
+
+    @Override
     public String register(Context context, DSpaceObject dso) {
         try{
             String id = mint(context, dso);
