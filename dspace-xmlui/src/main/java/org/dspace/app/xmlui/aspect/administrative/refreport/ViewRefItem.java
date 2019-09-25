@@ -17,6 +17,7 @@ import java.util.Date;
 import java.util.Iterator;
 
 import org.apache.log4j.Logger;
+import org.apache.tools.ant.types.selectors.SelectSelector;
 import org.dspace.app.xmlui.cocoon.AbstractDSpaceTransformer;
 import org.dspace.app.xmlui.wing.Message;
 import org.dspace.app.xmlui.wing.WingException;
@@ -67,7 +68,19 @@ public class ViewRefItem extends AbstractDSpaceTransformer {
 		StringBuilder mdvalue = new StringBuilder();
 
 		for(MetadataValue mdv: mdvs)	{
-			mdvalue.append(mdv.getValue()).append(", ");
+				mdvalue.append(mdv.getValue()).append(", ");
+		}
+
+		return mdvalue.substring(0, Math.max(0, mdvalue.length()-2));
+	}
+
+	private String getMetadata(java.util.List<MetadataValue> mdvs, String filterBy)	{
+		StringBuilder mdvalue = new StringBuilder();
+
+		for(MetadataValue mdv: mdvs)	{
+			if(mdv.getValue().contains(filterBy))
+				mdvalue.append(mdv.getValue()).append(", ");
+
 		}
 
 		return mdvalue.substring(0, Math.max(0, mdvalue.length()-2));
@@ -137,27 +150,31 @@ public class ViewRefItem extends AbstractDSpaceTransformer {
 	 */
 
     private void writeFile(String fileName, java.util.List<Item> content) throws IOException {
-	    String write = "\"Title\", \"Author\", \"ISSN\", \"Date issued\", \"URL\", \"Publisher\", \"Is part of\"," +
-				" \"Abstract\", \"Description\", \"Description URL\", \"Date accepted\", \"Date FCD\"\n";
+	    String write = "Title, Author, QMU Author, ISSN, Date issued, DOI URL, EResearch URL, Publisher, Is part of," +
+				" Volume, Number, Date accepted, Date FCD\n";
 
 	    for(Item item: content)	{
 			String con_author = getMetadata(itemService.getMetadata(item, "dc", "contributor","author", Item.ANY));
+			String qmu_author = getMetadata(itemService.getMetadata(item, "qmu", "author",null, Item.ANY));
 			String dateIssued = getMetadata(itemService.getMetadata(item, "dc", "date", "issued", Item.ANY));
 			String issn = getMetadata(itemService.getMetadata(item, "dc", "identifier","issn", Item.ANY));
-			String uri = getMetadata(itemService.getMetadata(item, "dc", "identifier", "uri", Item.ANY));
-			String description = getMetadata(itemService.getMetadata(item, "dc", "description",null, Item.ANY));
-			String mabstract = getMetadata(itemService.getMetadata(item, "dc", "description", "abstract", Item.ANY));
-			String descuri = getMetadata(itemService.getMetadata(item, "dc", "description","uri", Item.ANY));
+			String doiuri = getMetadata(itemService.getMetadata(item, "dc", "identifier", "uri", Item.ANY), "doi");
+			String eresearchuri = getMetadata(itemService.getMetadata(item, "dc", "identifier", "uri", Item.ANY), "eresearch");
+			//String uri = getMetadata(itemService.getMetadata(item, "dc", "identifier", "uri", Item.ANY), "doi");
+			//String description = getMetadata(itemService.getMetadata(item, "dc", "description",null, Item.ANY));
+			//String mabstract = getMetadata(itemService.getMetadata(item, "dc", "description", "abstract", Item.ANY));
+			//String descuri = getMetadata(itemService.getMetadata(item, "dc", "description","uri", Item.ANY));
 			String publisher = getMetadata(itemService.getMetadata(item, "dc", "publisher", null, Item.ANY));
 			String ispartof = getMetadata(itemService.getMetadata(item, "dc", "relation","ispartof", Item.ANY));
+			String volume = getMetadata(itemService.getMetadata(item, "dc", "description","volume", Item.ANY));
+			String number = getMetadata(itemService.getMetadata(item, "dc", "description","number", Item.ANY));
 			String title = getMetadata(itemService.getMetadata(item, "dc", "title", null, Item.ANY));
 			String dateAccepted = getMetadata(itemService.getMetadata(item, "refterms", "dateAccepted",null, Item.ANY));
 			String dateFCD = getMetadata(itemService.getMetadata(item, "refterms", "dateFCD", null, Item.ANY));
 
-			write += StringToCSVCell(title) + "," + StringToCSVCell(con_author) + "," + StringToCSVCell(issn) + "," +
-                    StringToCSVCell(dateIssued) + "," + StringToCSVCell(uri) + "," + StringToCSVCell(publisher) + "," +
-                    StringToCSVCell(ispartof) + "," + StringToCSVCell(mabstract) + "," + StringToCSVCell(description) + "," +
-                    StringToCSVCell(descuri) + "," + StringToCSVCell(dateAccepted) + "," + StringToCSVCell(dateFCD) + "\n";
+			write += StringToCSVCell(title) + "," + StringToCSVCell(con_author) + "," + StringToCSVCell(qmu_author) + "," + StringToCSVCell(issn) + "," +
+                    StringToCSVCell(dateIssued) + "," + StringToCSVCell(doiuri) + "," + StringToCSVCell(eresearchuri) + "," + StringToCSVCell(publisher) + "," +
+                    StringToCSVCell(ispartof) + "," + StringToCSVCell(volume) + "," + StringToCSVCell(number) + "," + StringToCSVCell(dateAccepted) + "," + StringToCSVCell(dateFCD) + "\n";
 		}
 
 	    BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath + "/" + fileName + ".csv"));
