@@ -41,6 +41,7 @@
     <bean class="org.dspace.harvest.dao.impl.HarvestedCollectionDAOImpl"/>
 
     <bean class="org.dspace.identifier.dao.impl.DOIDAOImpl"/>
+    <bean class="org.dspace.identifier.dao.impl.DOICollectionDAOImpl"/>
 
     <!-- declaration moved to bitstore.xml -->
     <!--<bean class="org.dspace.storage.bitstore.BitstreamStorageServiceImpl"/>-->

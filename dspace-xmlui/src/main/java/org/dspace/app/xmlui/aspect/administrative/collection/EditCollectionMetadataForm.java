@@ -15,6 +15,7 @@ import org.dspace.app.xmlui.cocoon.AbstractDSpaceTransformer;
 import org.dspace.app.xmlui.wing.Message;
 import org.dspace.app.xmlui.wing.WingException;
 import org.dspace.app.xmlui.wing.element.Body;
+import org.dspace.app.xmlui.wing.element.CheckBox;
 import org.dspace.app.xmlui.wing.element.Division;
 import org.dspace.app.xmlui.wing.element.Item;
 import org.dspace.app.xmlui.wing.element.List;
@@ -23,13 +24,15 @@ import org.dspace.app.xmlui.wing.element.Para;
 import org.dspace.app.xmlui.wing.element.Text;
 import org.dspace.app.xmlui.wing.element.TextArea;
 import org.dspace.authorize.AuthorizeException;
-import org.dspace.authorize.AuthorizeServiceImpl;
 import org.dspace.authorize.factory.AuthorizeServiceFactory;
 import org.dspace.authorize.service.AuthorizeService;
 import org.dspace.content.Collection;
 import org.dspace.content.factory.ContentServiceFactory;
 import org.dspace.content.service.CollectionService;
-
+import org.dspace.core.Context;
+import org.dspace.identifier.DOICollection;
+import org.dspace.identifier.factory.IdentifierServiceFactory;
+import org.dspace.identifier.service.DOICollectionService;
 
 /**
  * Presents the user (in this case an administrator over the collection) with the
@@ -76,8 +79,26 @@ public class EditCollectionMetadataForm extends AbstractDSpaceTransformer
 
 	protected AuthorizeService authorizeService = AuthorizeServiceFactory.getInstance().getAuthorizeService();
 	protected CollectionService collectionService = ContentServiceFactory.getInstance().getCollectionService();
+	protected DOICollectionService doiCollectionService = IdentifierServiceFactory.getInstance().getDOICollectionService();
 
-    @Override
+	private boolean isDOICollection(Context context, UUID collection_id) {
+		DOICollection doiCollection;
+		try {
+			doiCollection = doiCollectionService.findByCollectionUUID(context, collection_id);
+
+			if(doiCollection != null)   {
+				return true;
+			}
+		}
+		catch (SQLException sqle)   {
+				// No logging done
+		}
+
+		return false;
+
+	}
+
+	@Override
     public void addPageMeta(PageMeta pageMeta)
             throws WingException
     {
@@ -206,6 +227,14 @@ public class EditCollectionMetadataForm extends AbstractDSpaceTransformer
 	    	item.addButton("submit_edit_template").setValue(T_submit_edit_template);
 	    	item.addButton("submit_delete_template").setValue(T_submit_delete_template);
 	    }
+
+	    //   DOICollection functionality
+	    //   Hrafn Malmquist
+		//   25/09/2019
+
+	    CheckBox doiCollection = metadataList.addItem().addCheckBox("doi_collection");
+	    doiCollection.setLabel("Create DOIs for containing items");
+	    doiCollection.addOption(isDOICollection(new Context(), collectionID), "yes");
 	    
 		Para buttonList = main.addPara();
 	    buttonList.addButton("submit_save").setValue(T_submit_save);
