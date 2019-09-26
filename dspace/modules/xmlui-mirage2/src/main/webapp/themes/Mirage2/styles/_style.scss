@@ -293,9 +293,16 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
   border-bottom: solid 5.5px;
   padding-bottom: 9px;
 }
-.ds-list-head, .ds-div-head,
+.ds-div-head,
 legend {
   font-size: 40px;
+  color: #2b466b;
+  font-weight: 400;
+  border-bottom: solid 4px;
+  padding-bottom: 3px;
+}
+.ds-list-head {
+  font-size: 25px;
   color: #2b466b;
   font-weight: 400;
   border-bottom: solid 4px;
