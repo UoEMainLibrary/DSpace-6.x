@@ -932,7 +932,7 @@
     <script>
         <xsl:text>
             if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
-                document.getElementById("era-h-link>li>a").style.left = "30px";
+                document.getElementById("firefox-style").style.left = "30px";
             }
         </xsl:text>
     </script>
