@@ -68,7 +68,7 @@
         <div id="ds-options" class="word-break hidden-print">
             <xsl:if test="not(contains(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI'], 'discover'))">
                 <div id="ds-search-option" class="ds-option-set">
-                <!-- Variable for testing url via tail -->
+                <!-- Variables for testing url via tail and url -->
                 <!-- <p><xsl:value-of select="$request-uri" /></p> -->
                 <!-- <p><xsl:value-of select="$uri-string" /></p> -->
                 <!-- <p><xsl:value-of select="$trail-string" /></p> -->
@@ -218,6 +218,7 @@
             </xsl:when>
             <xsl:otherwise>
                 <xsl:choose>
+                    <!-- Suppress sidebar facets based on position in hierarchy -->
                     <xsl:when test="position() >= 3">
                     </xsl:when>
                     <xsl:otherwise>
@@ -251,6 +252,7 @@
                 </div>
             </xsl:when>
             <xsl:otherwise>
+                <!-- Suppress sidebar facets based on group -->
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <div class="sidebar-dropdown">
                         <xsl:call-template name="standardAttributes">
@@ -287,6 +289,7 @@
                 </a>
             </xsl:when>
             <xsl:otherwise>
+                <!-- Suppress sidebar facets based on group -->
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <a href="{dri:xref/@target}">
                         <xsl:call-template name="standardAttributes">
@@ -320,6 +323,7 @@
                 </xsl:call-template>
             </xsl:when>
             <xsl:otherwise>
+                <!-- Suppress sidebar facets based on group -->
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <xsl:call-template name="renderHead">
                         <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
@@ -351,6 +355,7 @@
                 </a>
             </xsl:when>
             <xsl:otherwise>
+                <!-- Suppress sidebar facets based on group -->
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
                     <a class="list-group-item active">
                         <span>
