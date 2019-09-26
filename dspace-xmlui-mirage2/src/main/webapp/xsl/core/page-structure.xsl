@@ -928,6 +928,15 @@
         </xsl:if>
     </xsl:template>
 
+    <!-- Javacript conditional to render css on Firefox browsers -->
+    <script>
+        <xsl:text>
+            if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
+                document.getElementById("era-h-link>li>a").style.left = "30px";
+            }
+        </xsl:text>
+    </script>
+
     <!--The Language Selection-->
     <xsl:template name="languageSelection">
         <xsl:if test="count(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='supportedLocale']) &gt; 1">
