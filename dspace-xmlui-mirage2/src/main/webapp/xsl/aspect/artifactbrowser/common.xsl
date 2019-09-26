@@ -68,7 +68,7 @@
     <xsl:template match="dri:referenceSet[@type = 'detailList']" priority="2">
         <xsl:apply-templates select="dri:head"/>
         <h3 class="era-h-link">
-            <a>
+            <a id="firefox-style">
                 <xsl:apply-templates select="*[not(name()='head')]" mode="detailList"/>
             </a>
         </h3>
