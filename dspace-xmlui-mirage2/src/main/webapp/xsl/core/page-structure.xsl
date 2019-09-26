@@ -34,7 +34,7 @@
         Specifically, adding a static page will need to override the DRI, to directly add content.
     -->
 
-    <!-- Various variables for conditionals regarding page structure and RSS feed availablity -->
+    <!-- Various variables for conditionals regarding page structure, sidebar structure and RSS feed availablity -->
     <xsl:variable name="request-uri" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI']"/>
     <xsl:variable name="full-uri" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request']"/>
     <xsl:variable name="trail-test" select="/dri:document/dri:meta/dri:pageMeta/dri:trail[last()]" />
@@ -87,7 +87,9 @@
                         </xsl:when>
                         <xsl:otherwise>
                             <xsl:call-template name="buildHeader"/>
+                            <!-- Remove normal implementation of trail -->
                             <!--<xsl:call-template name="buildTrail"/>-->
+
                             <!--javascript-disabled warning, will be invisible if javascript is enabled-->
                             <div id="no-js-warning-wrapper" class="hidden">
                                 <div id="no-js-warning">
@@ -103,14 +105,13 @@
                                     
                                     <div class="horizontal-slider clearfix">
 
-                                        <!-- Top background image -->
+                                        <!-- Top background image (globe) -->
                                         <img id="background-globe" src="{$theme-path}/images/globe-png-icon.png" />
 
                                         <div class="col-xs-12 col-sm-12 col-md-9 main-content" id="main-content">
 
-                                            <!--<p><xsl:value-of select="$trail-test" /></p>-->
-
-                                            <xsl:if test="$trail-test = xmlui.ArtifactBrowser.ItemViewer.trail">
+                                            <!-- Commented out for now -->
+                                            <!--<xsl:if test="$trail-test = xmlui.ArtifactBrowser.ItemViewer.trail">
                                                 <script type="text/javascript">
                                                     <xsl:text>
                                                         $(window).on('load', function() {
@@ -120,7 +121,7 @@
                                                     </xsl:text>
                                                 </script>   
                                                 <div id="aspect_discovery_Navigation_list_discovery" class="list-group" style="display: none;"></div>
-                                            </xsl:if>
+                                            </xsl:if>-->
 
                                             <xsl:apply-templates select="*[not(self::dri:options)]"/>
 
@@ -132,7 +133,7 @@
                                             <xsl:apply-templates select="dri:options"/>
                                         </div>
 
-                                        <!-- Bottom background image -->
+                                        <!-- Bottom background image (dandylion) -->
                                         <img id="background-dandy" src="{$theme-path}/images/dandy-png-icon.png" />
 
                                     </div>
@@ -283,6 +284,8 @@
                 }
             </script>
 
+            <!-- Authentication test to supress sidebar facets -->
+            <!-- Simple auth check to trigger javascript supression of specific sidebar groups via css -->
             <xsl:if test="$auth = 'no'">
                 <script>
                     document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
@@ -334,22 +337,22 @@
     <xsl:template name="buildHeader">
         <header class="era-header">
 
+            <!-- Simple container for header logos -->
             <div class="container era-logos">
-                <!--<img src="{$theme-path}images/dandy-png-icon-white.png" id="dandy-white" />-->
                 <div class="row">
                     <div class="col-xs-3 col-sm-2">
-                        <a href="{$context-path}/">
-                            <img src="{$theme-path}images/era-logo.gif" />
+                        <a href="{$context-path}/" title="Return to the ERA home page">
+                            <img src="{$theme-path}images/era-logo.gif"  alt="Edinburgh Research Archive logo"/>
                         </a>
                     </div>
                     <div class="col-xs-6 col-sm-8 header-title">
-                        <a href="{$context-path}/" id="era-title">
+                        <a href="{$context-path}/" id="era-title"  title="Return to the ERA home page">
                             <h1 class="hidden-xs hidden-sm">Edinburgh Research Archive</h1>
                         </a>
                     </div>
                     <div class="col-xs-3 col-sm-2">
-                        <a href="https://www.ed.ac.uk/" class="pull-right">
-                            <img id="crest-head" src="{$theme-path}images/homecrest.png" />
+                        <a href="https://www.ed.ac.uk/" class="pull-right"  title="External link to the University of Edinburgh's home page">
+                            <img id="crest-head" src="{$theme-path}images/homecrest.png" alt="University of Edinburgh homecrest"/>
                         </a>
                     </div>
                 </div>
@@ -371,6 +374,7 @@
                             <span class="icon-bar"></span>
                         </button>
 
+                        <!-- Custom trail implementation -->
                         <div class="pull-left">
                             <xsl:choose>
                                 <xsl:when test="count(/dri:document/dri:meta/dri:pageMeta/dri:trail) > 1">
@@ -407,6 +411,7 @@
                             </xsl:choose>
                         </div>
 
+                        <!-- Login added to navigation -->
                         <div class="navbar-header pull-right visible-xs hidden-sm hidden-md hidden-lg">
                             <ul class="nav nav-pills pull-left ">
                                 <xsl:call-template name="languageSelection-xs"/>
@@ -445,6 +450,7 @@
                         </div>
                     </div>
 
+                    <!-- Account / Logout dropdown menu -->
                     <div class="navbar-header pull-right hidden-xs">
 
                         <ul class="nav navbar-nav pull-left" id="era-nav">
@@ -550,8 +556,6 @@
                 </div>
             </div>
         </div>
-
-
     </xsl:template>
 
     <!--The Trail-->
@@ -914,7 +918,8 @@
            </xsl:text></script>
         </xsl:if>
 
-        <!-- Authentication script to hide sidebar groups based on auth status -->
+        <!-- Authentication test to supress sidebar facets -->
+        <!-- Simple auth check to trigger javascript supression of specific sidebar groups via css -->
         <xsl:if test="$auth = 'no'">
             <script>
                 document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
