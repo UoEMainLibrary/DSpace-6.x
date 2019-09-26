@@ -36,7 +36,6 @@
 
     <!-- Various variables for conditionals regarding page structure, sidebar structure and RSS feed availablity -->
     <xsl:variable name="request-uri" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI']"/>
-    <xsl:variable name="full-uri" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request']"/>
     <xsl:variable name="trail-test" select="/dri:document/dri:meta/dri:pageMeta/dri:trail[last()]" />
     <xsl:variable name="auth" select="/dri:document/dri:meta/dri:userMeta/@authenticated" />
 
@@ -913,10 +912,13 @@
                   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
                   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-                  ga('create', '</xsl:text><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='google'][@qualifier='analytics']"/><xsl:text>', '</xsl:text><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='serverName']"/><xsl:text>');
+                  ga('create', '</xsl:text><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='google'][@qualifier='analytics']"/>
+                  <xsl:text>', '</xsl:text><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='serverName']"/><xsl:text>');
                   ga('send', 'pageview');
            </xsl:text></script>
         </xsl:if>
+
+        <!-- JAVASCRIPT CONDITIONALS -->
 
         <!-- Authentication test to supress sidebar facets -->
         <!-- Simple auth check to trigger javascript supression of specific sidebar groups via css -->
@@ -924,6 +926,14 @@
             <script>
                 document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
                 document.getElementById("aspect_viewArtifacts_Navigation_list_administrative").style.display = "none";
+            </script>
+        </xsl:if>
+
+        <!-- Conditional to supress sidebar facets based on admin only page urls -->
+        <xsl:if test="contains($request-uri, 'admin/')">
+            <script>
+                document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
+                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";    
             </script>
         </xsl:if>
 

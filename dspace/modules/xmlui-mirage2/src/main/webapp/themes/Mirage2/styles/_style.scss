@@ -184,7 +184,8 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 #aspect_submission_Submissions_div_start-submision a, a:visited,
 #aspect_submission_Submissions_div_unfinished-submisions a, a:visited,
 .bold a, a:visited,
-#p-underline a, a:visited {
+#p-underline a, a:visited,
+.ds-simple-list-item a, a:visited {
   position: relative;
 }
 .artifact-title a:hover, a:focus, 
@@ -210,7 +211,8 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 #aspect_submission_Submissions_div_start-submision a:hover, a:focus,
 #aspect_submission_Submissions_div_unfinished-submisions a:hover, a:focus,
 .bold a:hover, a:focus,
-#p-underline a:hover, a:focus {
+#p-underline a:hover, a:focus,
+.ds-simple-list-item a:hover, a:focus {
   text-decoration: none;
 }
 .artifact-title a:after, a:visited:after, 
@@ -234,7 +236,8 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 #aspect_submission_Submissions_div_start-submision a:after, a:visited::after,
 #aspect_submission_Submissions_div_unfinished-submisions a:after, a:visited::after,
 .bold a:after, a:visited::after,
-#p-underline a:after, a:visited::after {
+#p-underline a:after, a:visited::after,
+.ds-simple-list-item a::after, a:visited::after {
   content: '';
   height: 2.5px;
   position: absolute;
@@ -266,7 +269,8 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 #aspect_submission_Submissions_div_start-submision a:hover::after, a:visited:hover::after,
 #aspect_submission_Submissions_div_unfinished-submisions a:hover::after, a:visited:hover::after,
 .bold a:hover::after, a:visited:hover::after,
-#p-underline a:hover::after, a:visited:hover::after {
+#p-underline a:hover::after, a:visited:hover::after,
+.ds-simple-list-item a:hover::after, a:visited:hover::after {
   width: 100%;
 }
 .footer-links a::after, a:visited::after {
@@ -347,6 +351,9 @@ legend {
   position: relative;
   display: initial;
   padding: 0;
+}
+.nav-tabs>li {
+  margin-right: 20px;
 }
 header .navbar-default {
   background-color: #aab8c6;
@@ -529,6 +536,43 @@ a.list-group-item.active span {
 .ds-text-field.form-control {
   z-index: 800;
 }
+// GLOBAL INPUT BOX STYLES \\
+#new-filters-wrapper input,
+#aspect_eperson_PasswordLogin_field_login_email,
+#aspect_submission_StepTransformer_list_submit-describe input,
+#aspect_eperson_EditProfile_div_information input,
+#aspect_administrative_CurateForm_field_identifier input,
+#aspect_administrative_eperson_ManageEPeopleMain_field_query input,
+#aspect_administrative_group_ManageGroupsMain_field_query input,
+#aspect_administrative_authorization_AuthorizationMain_field_identifier input,
+#aspect_administrative_item_FindItemForm_field_identifier input,
+#aspect_administrative_WithdrawnItems_field_starts_with input,
+#aspect_administrative_registries_MetadataRegistryMain_list_new-schema input,
+#aspect_administrative_registries_EditBitstreamFormat_list_edit-bitstream-format input,
+#aspect_administrative_registries_EditMetadataSchema_list_edit-schema-new-field-form input {
+  border: solid #ccc 1px;
+  border-radius: 5px;
+}
+#new-filters-wrapper input:focus,
+#aspect_eperson_PasswordLogin_field_login_email:focus,
+#aspect_eperson_StartRegistration_field_email:focus,
+.ds-text-field .form-control:focus,
+#aspect_submission_StepTransformer_list_submit-describe input:focus,
+#aspect_eperson_EditProfile_div_information input:focus,
+#aspect_administrative_CurateForm_field_identifier input:focus,
+#aspect_administrative_eperson_ManageEPeopleMain_field_query input:focus,
+#aspect_administrative_group_ManageGroupsMain_field_query input:focus,
+#aspect_administrative_authorization_AuthorizationMain_field_identifier input:focus,
+#aspect_administrative_item_FindItemForm_field_identifier input:focus,
+#aspect_administrative_WithdrawnItems_field_starts_with input:focus,
+#aspect_administrative_registries_MetadataRegistryMain_list_new-schema input:focus,
+#aspect_administrative_registries_EditBitstreamFormat_list_edit-bitstream-format input:focus,
+#aspect_administrative_registries_EditMetadataSchema_list_edit-schema-new-field-form input:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(102,175,233,0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(102,175,233,0.6);
+}
 // INDIVIDUAL PAGE STYLES \\
 // INDEX \\ 
 #file_news_div_news {
@@ -597,24 +641,6 @@ div#aspect_artifactbrowser_CommunityBrowser_div_comunity-browser p {
   background-color: #396096;
   color: #fff;
   border-color: transparent;
-}
-#new-filters-wrapper input,
-#aspect_eperson_PasswordLogin_field_login_email,
-#aspect_submission_StepTransformer_list_submit-describe input,
-#aspect_eperson_EditProfile_div_information input {
-  border: solid #ccc 1px;
-  border-radius: 5px;
-}
-#new-filters-wrapper input:focus,
-#aspect_eperson_PasswordLogin_field_login_email:focus,
-#aspect_eperson_StartRegistration_field_email:focus,
-.ds-text-field .form-control:focus,
-#aspect_submission_StepTransformer_list_submit-describe input:focus,
-#aspect_eperson_EditProfile_div_information input:focus {
-  border-color: #66afe9;
-  outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(102,175,233,0.6);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(102,175,233,0.6);
 }
 div.controls-gear-wrapper .dropdown-menu .glyphicon {
   font-size: 10px;
