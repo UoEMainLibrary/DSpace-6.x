@@ -926,16 +926,18 @@
                 document.getElementById("aspect_viewArtifacts_Navigation_list_administrative").style.display = "none";
             </script>
         </xsl:if>
-    </xsl:template>
 
-    <!-- Javacript conditional to render css on Firefox browsers -->
-    <script>
-        <xsl:text>
-            if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
-                document.getElementById("firefox-style").style.left = "30px";
-            }
-        </xsl:text>
-    </script>
+        <!-- Javacript conditional to render css on Firefox browsers -->
+        <!-- Super hacky but does the job -->
+        <script>
+            <xsl:text>
+                if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
+                    document.getElementById("firefox-style").style.left = "30px";
+                }
+            </xsl:text>
+        </script>
+
+    </xsl:template>
 
     <!--The Language Selection-->
     <xsl:template name="languageSelection">
