@@ -182,7 +182,7 @@
     <xsl:template match="mets:fileSec" mode="artifact-preview">
         <xsl:param name="href"/>
         <div class="thumbnail artifact-preview">
-            <a class="image-link" href="{$href}">
+            <a class="image-link" href="{$href}" alt="Item image link" title="Link to this item">
                 <xsl:choose>
                     <xsl:when test="mets:fileGrp[@USE='THUMBNAIL']">
                         <!-- Checking if Thumbnail is restricted and if so, show a restricted image --> 

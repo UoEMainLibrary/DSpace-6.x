@@ -105,7 +105,7 @@
         <xsl:variable name="metsDoc" select="document($externalMetadataUrl)"/>
 
         <div class="community-browser-row">
-            <a href="{$metsDoc/mets:METS/@OBJID}">
+            <a href="{$metsDoc/mets:METS/@OBJID}" alt="METS title" title="METS title link">
                 <xsl:choose>
                     <xsl:when test="dri:list[@n=(concat($handle, ':dc.title')) and descendant::text()]">
                         <xsl:apply-templates select="dri:list[@n=(concat($handle, ':dc.title'))]/dri:item"/>
@@ -178,7 +178,7 @@
                     </xsl:attribute>
                     <h4 class="artifact-h-link">
                         <xsl:variable name="artifact-url" select="concat($context-path, '/handle/', $handle)" />
-                        <a href="{$artifact-url}">
+                        <a href="{$artifact-url}" alt="Link to this item" title="Link to this item">
                             <xsl:choose>
                                 <xsl:when test="dri:list[@n=(concat($handle, ':dc.title'))]">
                                     <xsl:apply-templates select="dri:list[@n=(concat($handle, ':dc.title'))]/dri:item"/>
@@ -586,7 +586,7 @@
     </xsl:template>
 
     <xsl:template match="dri:list[@rend='gear-selection' and @n='sort-options']/dri:item/dri:xref">
-        <a href="{@target}" class="{@rend}">
+        <a href="{@target}" class="{@rend}" alt="Sort by dropdown menu" title="Sort by dropdown menu">
             <span>
                 <xsl:attribute name="class">
                     <xsl:text>glyphicon glyphicon-ok btn-xs</xsl:text>
