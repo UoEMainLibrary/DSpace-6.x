@@ -118,7 +118,7 @@
     </xsl:template>
 
     <xsl:template match="dri:list[@rend='sherpaList']/dri:item/dri:figure" priority="2" >
-        <a>
+        <a alt="Link to submission" title="Link to submission">
             <xsl:attribute name="href"><xsl:value-of select="@target"/></xsl:attribute>
             <xsl:if test="@title">
                 <xsl:attribute name="title"><xsl:value-of select="@title"/></xsl:attribute>
