@@ -364,14 +364,16 @@
                 <div class="container">
                     <div class="navbar-header">
 
-                        <button type="button" class="navbar-toggle" data-toggle="offcanvas">
+                        <!-- Commented out due to ineffective display
+                                Could be fixed if required -->
+                        <!--<button type="button" class="navbar-toggle" data-toggle="offcanvas">
                             <span class="sr-only">
                                 <i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text>
                             </span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
-                        </button>
+                        </button>-->
 
                         <!-- Custom trail implementation -->
                         <div class="pull-left">
