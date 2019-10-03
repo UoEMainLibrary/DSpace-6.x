@@ -1950,9 +1950,10 @@ function doManageRefItems()
 	var startDate;
 	var stopDate;
 	var exportExcel;
+	var field;
 
 	do {
-		sendPageAndWait("admin/refreport/find",{"author": author, "startDate":startDate,"stopDate":stopDate, "exportExcel": exportExcel},result);
+		sendPageAndWait("admin/refreport/find",{"author": author, "startDate":startDate,"stopDate":stopDate, "exportExcel": exportExcel, "field": field},result);
    		assertAdministrator();
 		result = null;
 
@@ -1963,13 +1964,14 @@ function doManageRefItems()
 			startDate = cocoon.request.get("startDate");
 			stopDate = cocoon.request.get("stopDate");
 			exportExcel = cocoon.request.get("exportExcel");
+			field = cocoon.request.get("field");
 			//result = true; //FlowItemUtils.resolveItemIdentifier(getDSContext(),identifier);
 
 			// If an item was found then allow the user to edit the item.
 			/*if (result != null && result.getParameter("itemID"))
 			{
 				var itemID = UUID.fromString(result.getParameter("itemID"));*/
-				result = doViewRefItem(author, startDate, stopDate, exportExcel);
+				result = doViewRefItem(author, startDate, stopDate, exportExcel, field);
 			//}
 		}
 	} while (true)
@@ -2024,9 +2026,9 @@ function doManageRefItems()
 /**
 *  Just show the item
 */
-function doViewRefItem(author, startDate, stopDate, exportExcel){
+function doViewRefItem(author, startDate, stopDate, exportExcel, field){
 	do {
-		sendPageAndWait("admin/refreport/view_item",{"author": author, "startDate":startDate, "stopDate": stopDate, 'exportExcel': exportExcel},null);
+		sendPageAndWait("admin/refreport/view_item",{"author": author, "startDate":startDate, "stopDate": stopDate, 'exportExcel': exportExcel, 'field': field},null);
 		//assertEditItem(itemID);
 		/*if ( !cocoon.request.get("view_item"))
 		{

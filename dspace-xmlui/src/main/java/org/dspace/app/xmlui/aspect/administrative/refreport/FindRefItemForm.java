@@ -11,7 +11,13 @@ import org.dspace.app.xmlui.cocoon.AbstractDSpaceTransformer;
 import org.dspace.app.xmlui.wing.Message;
 import org.dspace.app.xmlui.wing.WingException;
 import org.dspace.app.xmlui.wing.element.*;
+import org.dspace.content.MetadataField;
+import org.dspace.content.MetadataSchema;
+import org.dspace.content.factory.ContentServiceFactory;
+import org.dspace.content.service.MetadataFieldService;
 import org.xml.sax.SAXException;
+
+import java.sql.SQLException;
 
 /**
  * Find form to search items, uses jquery Datepicker.
@@ -38,6 +44,8 @@ public class FindRefItemForm extends AbstractDSpaceTransformer {
 	private static final Message T_label_date_help = message("xmlui.administrative.refreport.datehelp");
 	private static final Message T_find = message("xmlui.administrative.refreport.find");
 
+	protected MetadataFieldService metadataFieldService = ContentServiceFactory.getInstance().getMetadataFieldService();
+
 	public void addPageMeta(PageMeta pageMeta) throws WingException
 	{
 		pageMeta.addTrailLink(contextPath + "/", T_dspace_home);
@@ -48,8 +56,7 @@ public class FindRefItemForm extends AbstractDSpaceTransformer {
 	}
 
 	
-	public void addBody(Body body) throws SAXException, WingException
-	{
+	public void addBody(Body body) throws SAXException, WingException, SQLException {
 
 		// DIVISION: find-item
 		Division findItem = body.addInteractiveDivision("find-refitem",
@@ -57,6 +64,24 @@ public class FindRefItemForm extends AbstractDSpaceTransformer {
 		findItem.setHead(T_head1);
 		
 		List form = findItem.addList("find-refitem-form", List.TYPE_FORM);
+
+		Select addName = form.addItem().addSelect("field");
+		addName.setLabel("Limit results to record that contain");
+		addName.addOption("0", "");
+		java.util.List<MetadataField> fields = metadataFieldService.findAll(context);
+
+		for (MetadataField field : fields)
+		{
+			int fieldID = field.getID();
+			MetadataSchema schema = field.getMetadataSchema();
+			String name = schema.getName() + "." + field.getElement();
+			if (field.getQualifier() != null)
+			{
+				name += "." + field.getQualifier();
+			}
+
+			addName.addOption(fieldID, name);
+		}
 
 		Text author = form.addItem().addText("author");
 		Text startDate = form.addItem().addText("startDate");
