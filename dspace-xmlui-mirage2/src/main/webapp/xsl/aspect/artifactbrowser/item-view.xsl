@@ -301,7 +301,10 @@
                     <i18n:text>xmlui.dri2xhtml.METS-1.0.item-date</i18n:text>
                 </h5>
                 <xsl:for-each select="dim:field[@element='date' and @qualifier='issued']">
-                    <xsl:copy-of select="substring(./node(),1,10)"/>
+                    <!--<xsl:copy-of select="substring(./node(),1,10)"/>-->
+                    <xsl:call-template name="formatdate">
+                        <xsl:with-param name="datestr" select="substring(./node(),1,10)"/>
+                    </xsl:call-template>
                     <xsl:if test="count(following-sibling::dim:field[@element='date' and @qualifier='issued']) != 0">
                         <br/>
                     </xsl:if>
@@ -756,6 +759,42 @@
 
         <!--Lookup the MIME Type's key in messages.xml language file.  If not found, just display MIME Type-->
         <i18n:text i18n:key="{$mimetype-key}"><xsl:value-of select="$mimetype"/></i18n:text>
+    </xsl:template>
+
+    <xsl:template name="formatdate">
+        <xsl:param name="datestr" />
+        <!-- input format yyyy-mm-dd or yyyy -->
+        <!-- output format dd/mm/yyyy -->
+
+        <xsl:variable name="dd">
+            <xsl:value-of select="substring($datestr,9,2)" />
+        </xsl:variable>
+
+        <xsl:variable name="mm">
+            <xsl:value-of select="substring($datestr,6,2)" />
+        </xsl:variable>
+
+        <xsl:variable name="yyyy">
+            <xsl:value-of select="substring($datestr,1,4)" />
+        </xsl:variable>
+
+        <xsl:choose>
+            <xsl:when test="string-length($datestr) &lt; 5">
+                <xsl:value-of select="$yyyy" />
+            </xsl:when>
+            <xsl:when test="string-length($datestr) &lt; 8">
+                <xsl:value-of select="$mm" />
+                <xsl:value-of select="'/'" />
+                <xsl:value-of select="$yyyy" />
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$dd" />
+                <xsl:value-of select="'/'" />
+                <xsl:value-of select="$mm" />
+                <xsl:value-of select="'/'" />
+                <xsl:value-of select="$yyyy" />
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
 
