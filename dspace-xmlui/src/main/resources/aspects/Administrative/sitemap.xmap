@@ -548,6 +548,7 @@ to administer DSpace.
 
                         <map:match pattern="admin/refreport/view_item">
                             <map:transform type="ViewRefItem">
+                                <map:parameter name="field" value="{flow-attribute:field}"/>
                                 <map:parameter name="author" value="{flow-attribute:author}"/>
                                 <map:parameter name="startDate" value="{flow-attribute:startDate}"/>
                                 <map:parameter name="stopDate" value="{flow-attribute:stopDate}"/>

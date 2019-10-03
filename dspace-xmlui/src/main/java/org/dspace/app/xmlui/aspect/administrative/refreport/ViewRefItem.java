@@ -24,9 +24,11 @@ import org.dspace.app.xmlui.wing.WingException;
 import org.dspace.app.xmlui.wing.element.*;
 import org.dspace.authorize.AuthorizeException;
 import org.dspace.content.Item;
+import org.dspace.content.MetadataField;
 import org.dspace.content.factory.ContentServiceFactory;
 import org.dspace.content.service.ItemService;
 import org.dspace.content.MetadataValue;
+import org.dspace.content.service.MetadataFieldService;
 import org.dspace.core.ConfigurationManager;
 
 /**
@@ -55,6 +57,7 @@ public class ViewRefItem extends AbstractDSpaceTransformer {
 	private static final Message T_trail = message("xmlui.administrative.refreport.view_trail");
 
     protected ItemService itemService = ContentServiceFactory.getInstance().getItemService();
+	protected MetadataFieldService metadataFieldService = ContentServiceFactory.getInstance().getMetadataFieldService();
     private java.io.File outputPath = new java.io.File(ConfigurationManager.getProperty("dspace.dir") + "/webapps/refreports");
 
 	private static Logger log = Logger.getLogger(ViewRefItem.class);
@@ -199,10 +202,10 @@ public class ViewRefItem extends AbstractDSpaceTransformer {
 		if(author != null && !refAuthor.toLowerCase().contains(author.toLowerCase()))	{
 			return false;
 		}
-		else if(startDate != null && dateAccepted != null && dateAccepted.before(startDate))	{
+		else if(startDate != null && (dateAccepted == null || dateAccepted.before(startDate)))	{
 			return false;
 		}
-		else if(stopDate != null && dateAccepted != null && dateAccepted.after(stopDate))	{
+		else if(stopDate != null && (dateAccepted == null || dateAccepted.after(stopDate)))	{
 			return false;
 		}
 
@@ -229,6 +232,7 @@ public class ViewRefItem extends AbstractDSpaceTransformer {
 		Date stopDate = getDate(strstopDate);
 		boolean createExcel = (parameters.getParameter("exportExcel", null) != null
 				&& !parameters.getParameter("exportExcel", null).equalsIgnoreCase(""));
+		String field = parameters.getParameter("field", null).trim();
 
 		Division maindiv = body.addDivision("maindiv");
 		maindiv.setHead(T_refreport_head);
@@ -237,7 +241,16 @@ public class ViewRefItem extends AbstractDSpaceTransformer {
 		java.util.List<Item> filteredItems = new ArrayList<Item>();
 
 		try {
-			Iterator<Item> items = itemService.findByMetadataField(context, "refterms", "dateAccepted", null, Item.ANY);
+			MetadataField mdf;
+			Iterator<Item> items;
+			if(Integer.parseInt(field) != 0) {
+				mdf = metadataFieldService.find(context, Integer.parseInt(field));
+				items = itemService.findByMetadataField(context, mdf.getMetadataSchema().getName(), mdf.getElement(), mdf.getQualifier(), Item.ANY);
+			}
+			else {
+				items = itemService.findAll(context);
+			}
+
 
 			while(items.hasNext())	{
 				Item dspaceItem = items.next();
@@ -278,6 +291,7 @@ public class ViewRefItem extends AbstractDSpaceTransformer {
 		}
 
 		maindiv.addPara(filterPara);
+		//maindiv.addPara("Field: " + field);
 
 		//String[] cols = { "Title", "Author", "ISSN", "Date issued", "URL", "Publisher", "Is part of", "Abstract",
 		// "Description", "Description URL", "Date accepted", "Date FCD"};
