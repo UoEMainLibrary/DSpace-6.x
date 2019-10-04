@@ -88,6 +88,10 @@ p {
 .label-default {
   font-weight: 300;
 }
+.page-header.first-page-header {
+  font-size: 34px;
+  border-bottom: solid 4px;
+}
 // GLOBAL CONTAINER STYLES \\
 .main-content, #main-container .row-offcanvas {
   z-index: 999;

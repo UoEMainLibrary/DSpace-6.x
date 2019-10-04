@@ -38,6 +38,7 @@
     <xsl:variable name="request-uri" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI']"/>
     <xsl:variable name="trail-test" select="/dri:document/dri:meta/dri:pageMeta/dri:trail[last()]" />
     <xsl:variable name="auth" select="/dri:document/dri:meta/dri:userMeta/@authenticated" />
+    <xsl:variable name="uri-string" select="concat($trail-test, '/', $request-uri)" />
 
 
     <!--
@@ -282,15 +283,6 @@
                 return true;
                 }
             </script>
-
-            <!-- Authentication test to supress sidebar facets -->
-            <!-- Simple auth check to trigger javascript supression of specific sidebar groups via css -->
-            <xsl:if test="$auth = 'no'">
-                <script>
-                    document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
-                    document.getElementById("aspect_viewArtifacts_Navigation_list_administrative").style.display = "none";
-                </script>
-            </xsl:if>
 
             <xsl:text disable-output-escaping="yes">&lt;!--[if lt IE 9]&gt;
                 &lt;script src="</xsl:text><xsl:value-of select="concat($theme-path, 'vendor/html5shiv/dist/html5shiv.js')"/><xsl:text disable-output-escaping="yes">"&gt;&#160;&lt;/script&gt;
@@ -928,6 +920,17 @@
             <script>
                 document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
                 document.getElementById("aspect_viewArtifacts_Navigation_list_administrative").style.display = "none";
+            </script>
+        </xsl:if>
+        <xsl:if test="$auth = 'yes'">
+            <script>
+                document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "block";
+                document.getElementById("aspect_viewArtifacts_Navigation_list_administrative").style.display = "block";
+            </script>
+        </xsl:if>
+        <xsl:if test="contains($uri-string, 'Viewer.trail/handle')">
+            <script>
+                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
             </script>
         </xsl:if>
 

@@ -202,7 +202,7 @@
     The position value determines after which point the facets should be supressed -->
     <xsl:template match="dri:options/dri:list" priority="3">
         <xsl:choose>
-            <xsl:when test="not($trail-string = $trail-string-1) and not($trail-string = $trail-string-2) and not($trail-string = $trail-string-3) 
+            <xsl:when test="not($trail-string = $trail-string-2) and not($trail-string = $trail-string-3) 
                             and not($trail-string = $trail-string-4) and not($trail-string = $trail-string-5) and not($trail-string = $trail-string-6) 
                             and not($trail-string = $trail-string-7) and not($trail-string = $trail-string-8) and not($trail-string = $trail-string-9) 
                             and not($trail-string = $trail-string-10) and not($trail-string = $trail-string-11) and not($trail-string = $trail-string-12)
@@ -238,7 +238,7 @@
     <!-- Template uses conditionals to check current page and supress facets accordingly -->
     <xsl:template match="dri:options//dri:item">
         <xsl:choose>
-            <xsl:when test="not($trail-string = $trail-string-1) and not($trail-string = $trail-string-2) and not($trail-string = $trail-string-3) 
+            <xsl:when test="not($trail-string = $trail-string-2) and not($trail-string = $trail-string-3) 
                             and not($trail-string = $trail-string-4) and not($trail-string = $trail-string-5) and not($trail-string = $trail-string-6) 
                             and not($trail-string = $trail-string-7) and not($trail-string = $trail-string-8) and not($trail-string = $trail-string-9) 
                             and not($trail-string = $trail-string-10) and not($trail-string = $trail-string-11) and not($trail-string = $trail-string-12)
@@ -268,7 +268,7 @@
     <!-- Template uses conditionals to check current page and supress facets accordingly -->
     <xsl:template match="dri:options//dri:item[dri:xref]">
         <xsl:choose>
-            <xsl:when test="not($trail-string = $trail-string-1) and not($trail-string = $trail-string-2) and not($trail-string = $trail-string-3) 
+            <xsl:when test="not($trail-string = $trail-string-2) and not($trail-string = $trail-string-3) 
                             and not($trail-string = $trail-string-4) and not($trail-string = $trail-string-5) and not($trail-string = $trail-string-6) 
                             and not($trail-string = $trail-string-7) and not($trail-string = $trail-string-8) and not($trail-string = $trail-string-9) 
                             and not($trail-string = $trail-string-10) and not($trail-string = $trail-string-11) and not($trail-string = $trail-string-12)
@@ -312,7 +312,7 @@
     <!-- Template uses conditionals to check current page and supress facets accordingly -->
     <xsl:template match="dri:options/dri:list/dri:head" priority="3">
         <xsl:choose>
-            <xsl:when test="not($trail-string = $trail-string-1) and not($trail-string = $trail-string-2) and not($trail-string = $trail-string-3) 
+            <xsl:when test="not($trail-string = $trail-string-2) and not($trail-string = $trail-string-3) 
                             and not($trail-string = $trail-string-4) and not($trail-string = $trail-string-5) and not($trail-string = $trail-string-6) 
                             and not($trail-string = $trail-string-7) and not($trail-string = $trail-string-8) and not($trail-string = $trail-string-9) 
                             and not($trail-string = $trail-string-10) and not($trail-string = $trail-string-11) and not($trail-string = $trail-string-12)
@@ -336,7 +336,7 @@
     <!-- Template uses conditionals to check current page and supress facets accordingly -->
     <xsl:template match="dri:options/dri:list//dri:list/dri:head" priority="3">
         <xsl:choose>
-            <xsl:when test="not($trail-string = $trail-string-1) and not($trail-string = $trail-string-2) and not($trail-string = $trail-string-3) 
+            <xsl:when test="not($trail-string = $trail-string-2) and not($trail-string = $trail-string-3) 
                             and not($trail-string = $trail-string-4) and not($trail-string = $trail-string-5) and not($trail-string = $trail-string-6) 
                             and not($trail-string = $trail-string-7) and not($trail-string = $trail-string-8) and not($trail-string = $trail-string-9) 
                             and not($trail-string = $trail-string-10) and not($trail-string = $trail-string-11) and not($trail-string = $trail-string-12)
