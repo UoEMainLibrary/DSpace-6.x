@@ -62,10 +62,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, legend {
   font-weight: 300;
 }
 h1 {
-  font-size: 60px
+  font-size: 50px
 }
 h2 {
-  font-size: 50px;
+  font-size: 40px;
 }
 legend {
   font-size: 30px;
@@ -189,7 +189,8 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 #aspect_submission_Submissions_div_unfinished-submisions a, a:visited,
 .bold a, a:visited,
 #p-underline a, a:visited,
-.ds-simple-list-item a, a:visited {
+.ds-simple-list-item a, a:visited,
+.list-unstyled a, a:visited {
   position: relative;
 }
 .artifact-title a:hover, a:focus, 
@@ -216,7 +217,8 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 #aspect_submission_Submissions_div_unfinished-submisions a:hover, a:focus,
 .bold a:hover, a:focus,
 #p-underline a:hover, a:focus,
-.ds-simple-list-item a:hover, a:focus {
+.ds-simple-list-item a:hover, a:focus,
+.list-unstyled a:hover, a:focus {
   text-decoration: none;
 }
 .artifact-title a:after, a:visited:after, 
@@ -241,7 +243,8 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 #aspect_submission_Submissions_div_unfinished-submisions a:after, a:visited::after,
 .bold a:after, a:visited::after,
 #p-underline a:after, a:visited::after,
-.ds-simple-list-item a::after, a:visited::after {
+.ds-simple-list-item a::after, a:visited::after,
+.list-unstyled a::after, a:visited::after {
   content: '';
   height: 2.5px;
   position: absolute;
@@ -274,7 +277,8 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 #aspect_submission_Submissions_div_unfinished-submisions a:hover::after, a:visited:hover::after,
 .bold a:hover::after, a:visited:hover::after,
 #p-underline a:hover::after, a:visited:hover::after,
-.ds-simple-list-item a:hover::after, a:visited:hover::after {
+.ds-simple-list-item a:hover::after, a:visited:hover::after,
+.list-unstyled a:hover::after, a:visited:hover::after {
   width: 100%;
 }
 .footer-links a::after, a:visited::after {
@@ -553,7 +557,9 @@ a.list-group-item.active span {
 #aspect_administrative_WithdrawnItems_field_starts_with input,
 #aspect_administrative_registries_MetadataRegistryMain_list_new-schema input,
 #aspect_administrative_registries_EditBitstreamFormat_list_edit-bitstream-format input,
-#aspect_administrative_registries_EditMetadataSchema_list_edit-schema-new-field-form input {
+#aspect_administrative_registries_EditMetadataSchema_list_edit-schema-new-field-form input,
+#aspect_administrative_item_FindItemForm_field_identifier input,
+#aspect_administrative_CurateForm_field_identifier input {
   border: solid #ccc 1px;
   border-radius: 5px;
 }
@@ -571,7 +577,9 @@ a.list-group-item.active span {
 #aspect_administrative_WithdrawnItems_field_starts_with input:focus,
 #aspect_administrative_registries_MetadataRegistryMain_list_new-schema input:focus,
 #aspect_administrative_registries_EditBitstreamFormat_list_edit-bitstream-format input:focus,
-#aspect_administrative_registries_EditMetadataSchema_list_edit-schema-new-field-form input:focus {
+#aspect_administrative_registries_EditMetadataSchema_list_edit-schema-new-field-form input:focus,
+#aspect_administrative_item_FindItemForm_field_identifier input:focus,
+#aspect_administrative_CurateForm_field_identifier {
   border-color: #66afe9;
   outline: 0;
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(102,175,233,0.6);
@@ -685,4 +693,12 @@ ul.dropdown-menu a {
 }
 #aspect_viewArtifacts_Navigation_list_context {
   border-radius: 5px;
+}
+// ADMIN STYLES \\
+#aspect_administrative_ControlPanel_list_options,
+.nav-tabs>li>a:hover {
+  border: none;
+}
+.nav-tabs>li>a:hover {
+  background-color: none;
 }
