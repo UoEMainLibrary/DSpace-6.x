@@ -1476,11 +1476,19 @@
 	<message key="xmlui.administrative.refreport.view_trail">View</message>
 	<message key="xmlui.administrative.refreport.head1">Find REF items</message>
 	<message key="xmlui.administrative.refreport.head2">View REF items</message>
+	<message key="xmlui.administrative.refreport.mainmessage">Limit results to record that contain</message>
+	<message key="xmlui.administrative.refreport.field">Field</message>
+	<message key="xmlui.administrative.refreport.fieldhelp">Selecting a metadata field from this dropdown limits the search results to those records that have some value, any value for that field.</message>
 	<message key="xmlui.administrative.refreport.author">Author</message>
+	<message key="xmlui.administrative.refreport.authorhelp">Entering a value here limits the search results to those records that contain that value in the dc.contributor.author field.</message>
 	<message key="xmlui.administrative.refreport.startdate">Start date</message>
 	<message key="xmlui.administrative.refreport.stopdate">Stop date</message>
-	<message key="xmlui.administrative.refreport.datehelp">Accepted format: yyyy, yyyy-mm, yyyy-mm-dd</message>
+	<message key="xmlui.administrative.refreport.startdatehelp">Accepted format: yyyy, yyyy-mm, yyyy-mm-dd. Selecting a date here limits the search results to those records that have a later refterms.dateAccepted date value.</message>
+	<message key="xmlui.administrative.refreport.stopdatehelp">Accepted format: yyyy, yyyy-mm, yyyy-mm-dd. Selecting a date here limits the search results to those records that have a earlier refterms.dateAccepted date value.</message>
 	<message key="xmlui.administrative.refreport.find">Find</message>
+	<message key="xmlui.administrative.refreport.exportexcel">Export to Excel</message>
+	<message key="xmlui.administrative.refreport.exportexcelhelp">Checking this box exports a linked CSV file containing the search results that can be downloaded.</message>
+
 
     <!-- Batch Import Tool -->
     <!-- org.dspace.app.xmlui.administrative.batchimport -->
