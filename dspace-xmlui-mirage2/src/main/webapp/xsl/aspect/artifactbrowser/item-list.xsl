@@ -61,11 +61,11 @@
 
 
                 <div class="item-wrapper row">
-                    <div class="col-sm-3 hidden-xs">
+                    <!--<div class="col-sm-3 hidden-xs">
                         <xsl:apply-templates select="./mets:fileSec" mode="artifact-preview">
                             <xsl:with-param name="href" select="$href"/>
                         </xsl:apply-templates>
-                    </div>
+                    </div>-->
 
                     <div class="col-sm-9">
                         <xsl:apply-templates select="./mets:dmdSec/mets:mdWrap[@OTHERMDTYPE='DIM']/mets:xmlData/dim:dim"

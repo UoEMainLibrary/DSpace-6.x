@@ -195,7 +195,13 @@
     <xsl:template match="dri:options//dri:list">
         <xsl:apply-templates select="dri:head"/>
         <xsl:apply-templates select="dri:item"/>
-        <xsl:apply-templates select="dri:list"/>
+        <xsl:apply-templates select="dri:list[@n='search']"/>
+        <xsl:apply-templates select="dri:list[@n='context']"/>
+        <xsl:apply-templates select="dri:list[@n='browse']"/>
+        <xsl:apply-templates select="dri:list[@n='account']"/>
+        <xsl:apply-templates select="dri:list[@n='administrative']"/>
+        <xsl:apply-templates select="dri:list[@n='discovery']"/>
+        <xsl:apply-templates select="dri:list[@n='statistics']"/>
     </xsl:template>
 
     <!-- Template employs conditional using trail strings to determine current page
