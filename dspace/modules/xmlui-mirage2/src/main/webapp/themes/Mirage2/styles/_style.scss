@@ -62,16 +62,16 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, legend {
   font-weight: 300;
 }
 h1 {
-  font-size: 50px
+  font-size: 40px
 }
 h2 {
-  font-size: 40px;
-}
-legend {
   font-size: 30px;
 }
+legend {
+  font-size: 20px;
+}
 p {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 200;
   text-align: justify;
 }
@@ -81,7 +81,7 @@ p {
   font-weight: 300px;
 }
 #sidebar a {
-  font-size: 16px;
+  font-size: 14px;
   position: relative;
   z-index: 999;
 }
@@ -89,8 +89,8 @@ p {
   font-weight: 300;
 }
 .page-header.first-page-header {
-  font-size: 34px;
-  border-bottom: solid 4px;
+  font-size: 28px;
+  border-bottom: solid 3px;
 }
 // GLOBAL CONTAINER STYLES \\
 .main-content, #main-container .row-offcanvas {
@@ -105,6 +105,9 @@ p {
 }
 .ds-static-div.col-xs-2.col-sm-1 {
   display: none;
+}
+.row {
+  margin-top: 3%;
 }
 // GLOBAL BACKGROUND IMAGES \\
 #background-globe {
@@ -146,7 +149,7 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 // COMMUNITIES LIST \\
 .ds-static-div.row.community-browser-row a, a:visited {
   text-decoration: none;
-  font-size: 22px;
+  font-size: 18px;
   position: relative;
   z-index: 999;
 }
@@ -307,17 +310,17 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 }
 .ds-div-head,
 legend {
-  font-size: 40px;
+  font-size: 30px;
   color: #2b466b;
   font-weight: 400;
-  border-bottom: solid 4px;
+  border-bottom: solid 3px;
   padding-bottom: 3px;
 }
 .ds-list-head {
-  font-size: 25px;
+  font-size: 30px;
   color: #2b466b;
   font-weight: 400;
-  border-bottom: solid 4px;
+  border-bottom: solid 3px;
   padding-bottom: 3px;
 }
 .era-header {
@@ -397,7 +400,7 @@ header .navbar-default .navbar-nav>li>a:focus {
 // GLOBAL FOOTER STYLES \\
 .footer-links {
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
 }
 .dl-horizontal dt {
 text-align: left;
@@ -700,5 +703,8 @@ ul.dropdown-menu a {
   border: none;
 }
 .nav-tabs>li>a:hover {
+  background-color: none;
+}
+#aspect_administrative_ControlPanel_list_options_sm_xs li:hover, a:hover {
   background-color: none;
 }
