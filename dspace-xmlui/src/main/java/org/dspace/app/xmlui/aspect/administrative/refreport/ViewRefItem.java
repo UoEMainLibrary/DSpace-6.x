@@ -154,7 +154,7 @@ public class ViewRefItem extends AbstractDSpaceTransformer {
 
     private void writeFile(String fileName, java.util.List<Item> content) throws IOException {
 	    String write = "Title, Author, QMU Author, ISSN, Date issued, DOI URL, EResearch URL, Publisher, Is part of," +
-				" Volume, Number, Date accepted, Date FCD\n";
+				" Volume, Number, Date accepted (dcterms), Date accepted (refterms), Date FCD\n";
 
 	    for(Item item: content)	{
 			String con_author = getMetadata(itemService.getMetadata(item, "dc", "contributor","author", Item.ANY));
@@ -172,12 +172,13 @@ public class ViewRefItem extends AbstractDSpaceTransformer {
 			String volume = getMetadata(itemService.getMetadata(item, "dc", "description","volume", Item.ANY));
 			String number = getMetadata(itemService.getMetadata(item, "dc", "description","number", Item.ANY));
 			String title = getMetadata(itemService.getMetadata(item, "dc", "title", null, Item.ANY));
+			String dctdateAccepted = getMetadata(itemService.getMetadata(item, "dcterms", "dateAccepted",null, Item.ANY));
 			String dateAccepted = getMetadata(itemService.getMetadata(item, "refterms", "dateAccepted",null, Item.ANY));
 			String dateFCD = getMetadata(itemService.getMetadata(item, "refterms", "dateFCD", null, Item.ANY));
 
 			write += StringToCSVCell(title) + "," + StringToCSVCell(con_author) + "," + StringToCSVCell(qmu_author) + "," + StringToCSVCell(issn) + "," +
                     StringToCSVCell(dateIssued) + "," + StringToCSVCell(doiuri) + "," + StringToCSVCell(eresearchuri) + "," + StringToCSVCell(publisher) + "," +
-                    StringToCSVCell(ispartof) + "," + StringToCSVCell(volume) + "," + StringToCSVCell(number) + "," + StringToCSVCell(dateAccepted) + "," + StringToCSVCell(dateFCD) + "\n";
+                    StringToCSVCell(ispartof) + "," + StringToCSVCell(volume) + "," + StringToCSVCell(number) + "," + StringToCSVCell(dctdateAccepted) + "," + StringToCSVCell(dateAccepted) + "," + StringToCSVCell(dateFCD) + "\n";
 		}
 
 	    BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath + "/" + fileName + ".csv"));

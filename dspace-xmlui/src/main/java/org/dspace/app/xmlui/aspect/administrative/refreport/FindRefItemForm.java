@@ -38,11 +38,18 @@ public class FindRefItemForm extends AbstractDSpaceTransformer {
 	
 	private static final Message T_title = message("xmlui.administrative.refreport.title");
 	private static final Message T_head1 = message("xmlui.administrative.refreport.head1");
+	private static final Message T_main_message = message("xmlui.administrative.refreport.mainmessage");
+	private static final Message T_field_label = message("xmlui.administrative.refreport.field");
+	private static final Message T_field_help = message("xmlui.administrative.refreport.fieldhelp");
 	private static final Message T_author_label = message("xmlui.administrative.refreport.author");
+	private static final Message T_author_help = message("xmlui.administrative.refreport.authorhelp");
 	private static final Message T_startdate_label = message("xmlui.administrative.refreport.startdate");
 	private static final Message T_stopdate_label = message("xmlui.administrative.refreport.stopdate");
-	private static final Message T_label_date_help = message("xmlui.administrative.refreport.datehelp");
+	private static final Message T_startdate_help = message("xmlui.administrative.refreport.startdatehelp");
+	private static final Message T_stopdate_help = message("xmlui.administrative.refreport.stopdatehelp");
 	private static final Message T_find = message("xmlui.administrative.refreport.find");
+	private static final Message T_exportexcel_label = message("xmlui.administrative.refreport.exportexcel");
+	private static final Message T_exportexcel_help = message("xmlui.administrative.refreport.exportexcelhelp");
 
 	protected MetadataFieldService metadataFieldService = ContentServiceFactory.getInstance().getMetadataFieldService();
 
@@ -59,15 +66,19 @@ public class FindRefItemForm extends AbstractDSpaceTransformer {
 	public void addBody(Body body) throws SAXException, WingException, SQLException {
 
 		// DIVISION: find-item
+
 		Division findItem = body.addInteractiveDivision("find-refitem",
 				contextPath + "/admin/refreport", Division.METHOD_GET,"primary administrative item");
 		findItem.setHead(T_head1);
+		findItem.addPara(T_main_message);
 		
 		List form = findItem.addList("find-refitem-form", List.TYPE_FORM);
 
 		Select addName = form.addItem().addSelect("field");
-		addName.setLabel("Limit results to record that contain");
+		addName.setLabel(T_field_label);
 		addName.addOption("0", "");
+		addName.setHelp(T_field_help);
+
 		java.util.List<MetadataField> fields = metadataFieldService.findAll(context);
 
 		for (MetadataField field : fields)
@@ -90,11 +101,13 @@ public class FindRefItemForm extends AbstractDSpaceTransformer {
 		exportExcel.addOption("false");
 		author.setAutofocus("autofocus");
 		author.setLabel(T_author_label);
+		author.setHelp(T_author_help);
 		startDate.setLabel(T_startdate_label);
-		startDate.setHelp(T_label_date_help);
+		startDate.setHelp(T_startdate_help);
 		stopDate.setLabel(T_stopdate_label);
-		stopDate.setHelp(T_label_date_help);
-		exportExcel.setLabel("Export to Excel");
+		stopDate.setHelp(T_stopdate_help);
+		exportExcel.setLabel(T_exportexcel_label);
+		exportExcel.setHelp(T_exportexcel_help);
 
 		form.addItem().addButton("submit_find").setValue(T_find);
 		
