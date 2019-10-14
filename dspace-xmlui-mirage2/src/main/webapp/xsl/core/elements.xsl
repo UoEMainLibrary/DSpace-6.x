@@ -195,7 +195,7 @@
         and the item element under list are also rich text containers.
     -->
     <xsl:template match="dri:p">
-        <p id="p-underline">
+        <p>
             <xsl:call-template name="standardAttributes">
                 <xsl:with-param name="class">ds-paragraph</xsl:with-param>
             </xsl:call-template>
