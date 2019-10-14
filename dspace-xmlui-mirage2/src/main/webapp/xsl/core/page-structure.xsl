@@ -250,39 +250,6 @@
                     </xsl:attribute>
                 </link>
             </xsl:if>
-            
-            <!-- Authentication test to supress sidebar facets -->
-        <!-- Simple auth check to trigger javascript supression of specific sidebar groups via css -->
-        <xsl:if test="$auth = 'no'">
-            <script>
-                document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
-                document.getElementById("aspect_viewArtifacts_Navigation_list_administrative").style.display = "none";
-            </script>
-        </xsl:if>
-        <xsl:if test="$auth = 'yes'">
-            <script>
-                document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "block";
-                document.getElementById("aspect_viewArtifacts_Navigation_list_administrative").style.display = "block";
-            </script>
-        </xsl:if>
-        <xsl:if test="contains($uri-string, 'Viewer.trail/handle')">
-            <script>
-                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
-            </script>
-        </xsl:if>
-         <xsl:if test="contains($request-uri, 'statistics')">
-            <script>
-                document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
-            </script>
-        </xsl:if>
-
-        <!-- Conditional to supress sidebar facets based on admin only page urls -->
-        <xsl:if test="contains($request-uri, 'admin/')">
-            <script>
-                document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
-                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";    
-            </script>
-        </xsl:if>
 
             <!-- The following javascript removes the default text of empty text areas when they are focused on or submitted -->
             <!-- There is also javascript to disable submitting a form when the 'enter' key is pressed. -->
@@ -594,7 +561,7 @@
             <!-- Determine whether we are dealing with a link or plain text trail link -->
             <xsl:choose>
                 <xsl:when test="./@target">
-                    <a alt="Breadcrumb link" title="Breadcrumb link">
+                    <a alt="Breadcrumb link">
                         <xsl:attribute name="href">
                             <xsl:value-of select="./@target"/>
                         </xsl:attribute>
@@ -615,7 +582,7 @@
             <!-- Determine whether we are dealing with a link or plain text trail link -->
             <xsl:choose>
                 <xsl:when test="./@target">
-                    <a role="menuitem" alt="Breadcrumb link" title="Breadcrumb link">
+                    <a role="menuitem" alt="Breadcrumb link">
                         <xsl:attribute name="href">
                             <xsl:value-of select="./@target"/>
                         </xsl:attribute>
@@ -627,7 +594,7 @@
                 </xsl:when>
                 <xsl:when test="position() > 1 and position() = last()">
                     <xsl:attribute name="class">disabled</xsl:attribute>
-                    <a role="menuitem" href="#" alt="Breadcrumb link" title="Breadcrumb link">
+                    <a role="menuitem" href="#" alt="Breadcrumb link">
                         <xsl:apply-templates />
                     </a>
                 </xsl:when>
@@ -958,6 +925,40 @@
                 }
             </xsl:text>
         </script>
+
+        <!-- Authentication test to supress sidebar facets -->
+        <!-- Simple auth check to trigger javascript supression of specific sidebar groups via css -->
+        <xsl:if test="$auth = 'no'">
+            <script>
+                document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
+                document.getElementById("aspect_viewArtifacts_Navigation_list_administrative").style.display = "none";
+            </script>
+        </xsl:if>
+        <xsl:if test="$auth = 'yes'">
+            <script>
+                document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "block";
+                document.getElementById("aspect_viewArtifacts_Navigation_list_administrative").style.display = "block";
+            </script>
+        </xsl:if>
+
+        <!-- Conditional to supress sidebar facets based on admin only page urls -->
+        <xsl:if test="contains($uri-string, 'Viewer.trail/handle')">
+            <script>
+                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
+            </script>
+        </xsl:if>
+         <xsl:if test="contains($request-uri, 'statistics')">
+            <script>
+                document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
+                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
+            </script>
+        </xsl:if>
+        <xsl:if test="contains($request-uri, 'admin/')">
+            <script>
+                document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
+                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";    
+            </script>
+        </xsl:if>
 
     </xsl:template>
 
