@@ -109,9 +109,9 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="row">
-                        <div class="col-xs-6 col-sm-12">
+                        <!--<div class="col-xs-6 col-sm-12">
                             <xsl:call-template name="itemSummaryView-DIM-thumbnail"/>
-                        </div>
+                        </div>-->
                         <div class="col-xs-6 col-sm-12">
                             <xsl:call-template name="itemSummaryView-DIM-file-section"/>
                         </div>
@@ -165,7 +165,7 @@
         </xsl:choose>
     </xsl:template>
 
-    <xsl:template name="itemSummaryView-DIM-thumbnail">
+    <!--<xsl:template name="itemSummaryView-DIM-thumbnail">
         <div class="thumbnail">
             <xsl:choose>
                 <xsl:when test="//mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']">
@@ -180,9 +180,9 @@
                                         select="//mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']/mets:file/mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
                             </xsl:otherwise>
                         </xsl:choose>
-                    </xsl:variable>
+                    </xsl:variable>-->
                     <!-- Checking if Thumbnail is restricted and if so, show a restricted image --> 
-                    <xsl:choose>
+                    <!--<xsl:choose>
                         <xsl:when test="contains($src,'isAllowed=n')"/>
                         <xsl:otherwise>
                             <img class="img-thumbnail" alt="Thumbnail">
@@ -204,7 +204,7 @@
                 </xsl:otherwise>
             </xsl:choose>
         </div>
-    </xsl:template>
+    </xsl:template>-->
 
     <xsl:template name="itemSummaryView-DIM-abstract">
         <xsl:if test="dim:field[@element='description' and @qualifier='abstract']">
@@ -548,7 +548,7 @@
     <xsl:template match="mets:file">
         <xsl:param name="context" select="."/>
         <div class="file-wrapper row">
-            <div class="col-xs-6 col-sm-3">
+            <!--<div class="col-xs-6 col-sm-3">
                 <div class="thumbnail">
                     <a class="image-link" alt="Thumbnail link" title="Thumbnail link">
                         <xsl:attribute name="href">
@@ -576,7 +576,7 @@
                         </xsl:choose>
                     </a>
                 </div>
-            </div>
+            </div>-->
 
             <div class="col-xs-6 col-sm-7">
                 <dl class="file-metadata dl-horizontal">

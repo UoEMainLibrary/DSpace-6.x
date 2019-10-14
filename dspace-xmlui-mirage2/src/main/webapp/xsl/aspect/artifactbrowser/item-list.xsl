@@ -179,14 +179,14 @@
     </xsl:template>
 
 
-    <xsl:template match="mets:fileSec" mode="artifact-preview">
+    <!--<xsl:template match="mets:fileSec" mode="artifact-preview">
         <xsl:param name="href"/>
         <div class="thumbnail artifact-preview">
             <a class="image-link" href="{$href}" alt="Item image link" title="Link to this item">
                 <xsl:choose>
-                    <xsl:when test="mets:fileGrp[@USE='THUMBNAIL']">
+                    <xsl:when test="mets:fileGrp[@USE='THUMBNAIL']">-->
                         <!-- Checking if Thumbnail is restricted and if so, show a restricted image --> 
-                        <xsl:variable name="src">
+                        <!--<xsl:variable name="src">
                             <xsl:value-of select="mets:fileGrp[@USE='THUMBNAIL']/mets:file/mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
                         </xsl:variable>
                         <xsl:choose>
@@ -216,7 +216,7 @@
                 </xsl:choose>
             </a>
         </div>
-    </xsl:template>
+    </xsl:template>-->
 
 
 
