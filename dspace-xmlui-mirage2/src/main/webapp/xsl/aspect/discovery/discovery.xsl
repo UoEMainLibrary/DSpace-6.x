@@ -157,11 +157,11 @@
         <div class="row ds-artifact-item ">
 
             <!--Generates thumbnails (if present)-->
-            <div class="col-sm-3 hidden-xs">
+            <!--<div class="col-sm-3 hidden-xs">
                 <xsl:apply-templates select="$metsDoc/mets:METS/mets:fileSec" mode="artifact-preview">
                     <xsl:with-param name="href" select="concat($context-path, '/handle/', $handle)"/>
                 </xsl:apply-templates>
-            </div>
+            </div>-->
 
 
             <div class="col-sm-9 artifact-description">

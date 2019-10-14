@@ -63,7 +63,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, legend {
   font-weight: 300;
 }
 h1 {
-  font-size: 50px
+  font-size: 40px
 }
 h2 {
   font-size: 40px;
@@ -72,7 +72,7 @@ legend {
   font-size: 30px;
 }
 p {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 200;
   text-align: justify;
 }
@@ -90,8 +90,11 @@ p {
   font-weight: 300;
 }
 .page-header.first-page-header {
-  font-size: 34px;
+  font-size: 28px;
   border-bottom: solid 4px;
+}
+span.bold{
+  font-weight: 400;
 }
 // GLOBAL CONTAINER STYLES \\
 .main-content, #main-container .row-offcanvas {
@@ -103,6 +106,7 @@ p {
 }
 #main-content {
   padding-right: 40px;
+  padding-top: 2%;
 }
 .ds-static-div.col-xs-2.col-sm-1 {
   display: none;
@@ -130,7 +134,7 @@ p {
 header .navbar-default a:after, .navbar-header a:after,
 header .breadcrumb.hidden-xs.hidden-sm a:after, .breadcrumb.hidden-xs.hidden-sm a:after {
   content: '';
-  height: 2.5px;
+  height: 2px;
   position: absolute;
   bottom: -4px;
   left: 0;
@@ -147,13 +151,13 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 // COMMUNITIES LIST \\
 .ds-static-div.row.community-browser-row a, a:visited {
   text-decoration: none;
-  font-size: 22px;
+  font-size: 20px;
   position: relative;
   z-index: 999;
 }
 .ds-static-div.col-xs-10.col-sm-12.col-sm-offset-0.list-mode a:after, a:visited:after {
   content: '';
-  height: 2.5px;
+  height: 2px;
   position: absolute;
   bottom: -4px;
   left: 0;
@@ -164,6 +168,9 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 }
 .ds-static-div.col-xs-10.col-sm-12.col-sm-offset-0.list-mode a:hover:after, a:visited:hover:after {
   width: 100%;
+}
+.artifact-info{
+  margin-top: 7px;
 }
 // ARTICLE LIST \\
 .artifact-title a, a:visited, 
@@ -247,7 +254,7 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 .ds-simple-list-item a::after, a:visited::after,
 .list-unstyled a::after, a:visited::after {
   content: '';
-  height: 2.5px;
+  height: 2px;
   position: absolute;
   bottom: -4px;
   left: 0;
@@ -285,7 +292,7 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 .footer-links a::after, a:visited::after {
   background: none repeat scroll 0 0 transparent;
   content: '';
-  height: 2.5px;
+  height: 2px;
   position: absolute;
   bottom: -4px;
   left: 0;
@@ -308,17 +315,17 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 }
 .ds-div-head,
 legend {
-  font-size: 40px;
+  font-size: 28px;
   color: #2b466b;
   font-weight: 400;
-  border-bottom: solid 4px;
+  border-bottom: solid 3px;
   padding-bottom: 3px;
 }
 .ds-list-head {
-  font-size: 25px;
+  font-size: 28px;
   color: #2b466b;
   font-weight: 400;
-  border-bottom: solid 4px;
+  border-bottom: solid 3px;
   padding-bottom: 3px;
 }
 .era-header {
@@ -456,10 +463,6 @@ a#rss-item:hover {
   background-color: #d6eafc;
 }
 // GLOBAL LIST STYLES \\
-.community-browser-row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-}
 .community-browser-row a[name='community-browser-link'] {
   font-size: 26px;
   font-weight: 300;
@@ -484,11 +487,20 @@ a#rss-item:hover {
   margin-bottom: 50px;
 }
 // GLOBAL SIDEBAR STYLES \\
+#ds-options{
+  padding-top: 35px;
+}
+.col-sm-3{
+  width: 20%;
+}
+.main-content {
+  padding-top: 0;
+}
 #main-container #sidebar {
   background-color: transparent;
   position: relative;
   z-index: 999;
-  padding: 0;
+  right: -5%;
 }
 a.list-group-item.active span {
   font-size: 18px;
@@ -560,7 +572,10 @@ a.list-group-item.active span {
 #aspect_administrative_registries_EditBitstreamFormat_list_edit-bitstream-format input,
 #aspect_administrative_registries_EditMetadataSchema_list_edit-schema-new-field-form input,
 #aspect_administrative_item_FindItemForm_field_identifier input,
-#aspect_administrative_CurateForm_field_identifier input {
+#aspect_administrative_CurateForm_field_identifier input,
+.control-group .col-sm-12 input,
+.ds-paragraph input,
+.control-label input {
   border: solid #ccc 1px;
   border-radius: 5px;
 }
@@ -580,21 +595,20 @@ a.list-group-item.active span {
 #aspect_administrative_registries_EditBitstreamFormat_list_edit-bitstream-format input:focus,
 #aspect_administrative_registries_EditMetadataSchema_list_edit-schema-new-field-form input:focus,
 #aspect_administrative_item_FindItemForm_field_identifier input:focus,
-#aspect_administrative_CurateForm_field_identifier {
+#aspect_administrative_CurateForm_field_identifier,
+.control-group .col-sm-12 input,
+.ds-paragraph input,
+.control-label input {
   border-color: #66afe9;
   outline: 0;
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(102,175,233,0.6);
   box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(102,175,233,0.6);
 }
 // INDIVIDUAL PAGE STYLES \\
-// INDEX \\ 
-#file_news_div_news {
-  margin-top: 40px;
-}
 // COMMUNITIES LIST \\ 
 .ds-artifact-list .artifact-title a {
   margin-bottom: 5px;
-  font-size: 22px;
+  font-size: 20px;
   position: relative;
   //z-index: 999;
 }
@@ -610,7 +624,7 @@ div#aspect_artifactbrowser_CommunityBrowser_div_comunity-browser p {
 .artifact-abstract {
   font-weight: 300;
   color: #333;
-  font-size: 20px;
+  font-size: 16px;
 }
 .ds-artifact-item {
   margin: 20px 0px;
@@ -676,11 +690,20 @@ ul.dropdown-menu a {
 }
 .visible-xs div, .artifact-h-link a, div {
   font-weight: 300;
-  font-size: 18px;
+  font-size: 16px;
 }
 .era-h-link {
   margin-left: -28px;
   margin-bottom: 50px;
+}
+#item-info {
+  margin-top: 2%;
+}
+.file-wrapper.row{
+  margin-bottom: 4%;
+}
+#aspect_artifactbrowser_ItemViewer_div_item-view .item-summary-view-metadata h2 {
+  margin-bottom: 2%;
 }
 
 // LOGIN STYLES \\
@@ -697,9 +720,17 @@ ul.dropdown-menu a {
 }
 // ADMIN STYLES \\
 #aspect_administrative_ControlPanel_list_options,
+#aspect_administrative_item_EditItemStatusForm_list_options,
 .nav-tabs>li>a:hover {
   border: none;
 }
 .nav-tabs>li>a:hover {
   background-color: none;
+}
+.nav>li>a:hover, .nav>li>a:focus {
+  background-color: transparent;
+}
+.col .ds-form-list,
+.control-group {
+  padding-bottom: 1%;
 }
