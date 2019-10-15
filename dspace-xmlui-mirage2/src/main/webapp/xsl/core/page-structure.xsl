@@ -606,6 +606,21 @@
                             <ul class="nav navbar-nav pull-left">
                                 <xsl:choose>
                                     <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
+                                        <li>
+                                            <a href="{$context-path}/" alt="naviagtion link to home page">Home</a>
+                                        </li>
+                                        <li>
+                                            <a href="{$context-path}/exam-papers/about" alt="naviagtion link to about page">About</a>
+                                        </li>
+                                        <li>
+                                            <a href="{$context-path}/exam-papers/help" alt="naviagtion link to help page">Help</a>
+                                        </li>
+                                        <li>
+                                            <a href="{$context-path}/exam-papers/feedback" alt="naviagtion link to feedback page">Feedback</a>
+                                        </li>
+                                        <li>
+                                            <a href="{$context-path}/exam-papers/faqs" alt="naviagtion link to frequently asked questions page">FAQs</a>
+                                        </li>
                                         <li class="dropdown">
                                             <a id="user-dropdown-toggle" href="#" role="button" class="dropdown-toggle"
                                             data-toggle="dropdown">
@@ -619,9 +634,17 @@
                                             </a>
                                             <ul class="dropdown-menu pull-right" role="menu"
                                                 aria-labelledby="user-dropdown-toggle" data-no-collapse="true">
-                                                <li>
-                                                    <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='url']}">
+                                                <li id="auth-dropdown">
+                                                    <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='url']}" id="auth-dropdown">
                                                         <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a alt="admin logout link"  id="auth-dropdown">
+                                                        <xsl:attribute name="href">
+                                                            <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='logoutURL']"/>
+                                                        </xsl:attribute>
+                                                            Logout 
                                                     </a>
                                                 </li>
                                                 <!-- Supress logout button in navigation -->
@@ -1215,9 +1238,22 @@
                                         </a> 
                                     </p>
                                     <p id="footer-right">
-                                        <a href="/login" alt="admin login link">
-                                            Admin Login <i aria-hidden="true" class="glyphicon glyphicon glyphicon-log-in" id="admin-login-icon"></i>
-                                        </a>
+                                        <!-- Authentication login/logout footer links -->
+                                        <xsl:choose>
+                                            <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
+                                                <a alt="admin logoutlink">
+                                                <xsl:attribute name="href">
+                                                    <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='logoutURL']"/>
+                                                </xsl:attribute>
+                                                    Admin Logout <i aria-hidden="true" class="glyphicon glyphicon glyphicon-log-in" id="admin-login-icon"></i>
+                                                </a>
+                                            </xsl:when>
+                                            <xsl:otherwise>
+                                                <a href="/login" alt="admin login link">
+                                                    Admin Login <i aria-hidden="true" class="glyphicon glyphicon glyphicon-log-in" id="admin-login-icon"></i>
+                                                </a>
+                                            </xsl:otherwise>
+                                        </xsl:choose>
                                     </p>
                                 </div>
                                 <div id="footer-left" class="footer-disclaimer" alt="site disclaimer">
@@ -1325,7 +1361,6 @@
                             <br></br>
                         </div>
                     </div>
-
                 </xsl:when>
 
                 <!-- HELP PAGE -->

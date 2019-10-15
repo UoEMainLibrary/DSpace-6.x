@@ -203,6 +203,24 @@ header .navbar-default a :hover {
   background-color: #186599;
   text-decoration: underline;
 }
+.dropdown-toggle span {
+  color: #FFF;
+}
+.dropdown-toggle:hover {
+  background-color: transparent;
+}
+#user-dropdown-toggle span:hover {
+  background-color: #122538;
+}
+#auth-dropdown {
+  background-color: #FFF;
+}
+#auth-dropdown:hover {
+  background-color: #FFF;
+  text-decoration: underline;
+}
+
+/* Sidebar */
 #main-container #sidebar {
   background-color: #ffffff;
 }
@@ -353,6 +371,13 @@ fieldset {
 }
 .pdf-viewer {
   margin: 20px 0px;
+}
+/* Item Admin Page */
+#aspect_administrative_item_FindItemForm_field_submit_find,
+#aspect_administrative_registries_MetadataRegistryMain_field_submit_add,
+#aspect_administrative_CurateForm_field_submit_curate_task,
+#aspect_administrative_item_CurateItemForm_field_submit_curate_task {
+  margin: 10px 0px;
 }
 
 /* Search results/discovery page */

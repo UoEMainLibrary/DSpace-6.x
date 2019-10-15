@@ -331,7 +331,6 @@
                     <xsl:choose>
                         <!-- Checks if the returned $metsDoc string contains 'pdf' and serves up download link if true -->
                         <xsl:when test="contains($metsDoc, '.pdf') = 'true'">
-                        <!-- and contains($metsDoc, '.txt') = 'false'-->
                             <span class="pdf-download">
                                 <small>
                                     <xsl:element name="a">
