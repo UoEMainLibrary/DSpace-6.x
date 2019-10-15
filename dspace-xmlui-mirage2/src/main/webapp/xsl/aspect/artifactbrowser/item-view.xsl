@@ -150,7 +150,7 @@
             <!-- generate url variable for return button -->
             <xsl:variable name="return-url" select="$document//dri:meta/dri:pageMeta/dri:trail[@target][last()]/@target" />       
             <div class="return-button">
-                <a href="{$return-url}">
+                <a href="{$return-url}" alt="Back to previous search results" title="Click to go back to previous search results">
                     <button alt="button to return to search results">
                         BACK TO SEARCH RESULTS
                     </button>
@@ -341,11 +341,11 @@
                 </h5>
                 <xsl:for-each select="dim:field[@element='creator']">
                     
-                    <a alt="click to see all papers from this school">
+                    <a alt="click to see all papers from this school" title="click to see all papers from this school">
                         <xsl:attribute name="href">
                             <!-- concatanate search url from 'url' variables and element children(s) -->
                             <xsl:copy-of select="concat($search-url, $search-url-2, translate(./node(), ' ', '+'))"/>
-                        </xsl:attribute>
+                        </xsl:attribute>    
                         <xsl:copy-of select="./node()"/>
                     </a>
 
@@ -369,7 +369,7 @@
                     <i18n:text>xmlui.dri2xhtml.METS-1.0.item-subject</i18n:text>
                 </h5>
                     <xsl:for-each select="dim:field[@element='subject']">
-                        <a alt="click to see all papers from this subject">
+                        <a alt="click to see all papers from this subject" title="click to see all papers with this subject">
                             <xsl:attribute name="href">
                                 <!-- concatanate search url from 'url' variables and element children(s) -->
                                 <xsl:copy-of select="concat($search-url, $search-url-2, translate(./node(), ' ', '+'))"/>
@@ -396,7 +396,7 @@
                     <i18n:text>xmlui.dri2xhtml.METS-1.0.item-titlesml</i18n:text>
                 </h5>
                     <xsl:for-each select="dim:field[@element='title']">
-                        <a alt="click to see all papers with this title">
+                        <a alt="click to see all papers with this title" title="click to see all papers with this title">
                             <xsl:attribute name="href">
                                 <!-- concatanate search url from 'url' variables and element children(s) -->
                                 <xsl:copy-of select="concat($search-url, $search-url-2, translate(./node(), ' ', '+'))"/>
@@ -424,7 +424,7 @@
                 <xsl:for-each select="dim:field[@element='identifier']">
                     <xsl:if test="not(dim:field[@element='identifier' and @qualifier='version'])">
                             <xsl:if test="not(contains(./node(), 'http'))">
-                                <a alt="click to see all papers with this course code">
+                                <a alt="click to see all papers with this course code" title="click to see all papers with this course code">
                                     <xsl:attribute name="href">
                                         <xsl:copy-of select="concat($search-url, $search-url-2, translate(./node(), ' ', '+'))"/>
                                     </xsl:attribute>
@@ -514,7 +514,7 @@
             <h5>
                 <i18n:text>xmlui.mirage2.itemSummaryView.MetaData</i18n:text>
             </h5>
-            <a>
+            <a alt="View full item details" title="Click to view full item metadata">
                 <xsl:attribute name="href"><xsl:value-of select="$ds_item_view_toggle_url"/></xsl:attribute>
                 <i18n:text>xmlui.ArtifactBrowser.ItemViewer.show_full</i18n:text>
             </a>
@@ -597,7 +597,7 @@
         <xsl:param name="label" />
         <xsl:param name="size" />
         <div>
-            <a>
+            <a alt="download paper link" title="Click to download PDF of this paper">
                 <xsl:attribute name="href">
                     <xsl:value-of select="$href"/>
                 </xsl:attribute>

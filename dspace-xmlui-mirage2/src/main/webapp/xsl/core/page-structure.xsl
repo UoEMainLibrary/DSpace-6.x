@@ -119,7 +119,7 @@
                                                                 </xsl:attribute>
                                                             </input>
                                                             <span class="input-group-btn">
-                                                                <button id="search-button" class="ds-button-field btn btn-primary" title="xmlui.general.go" i18n:attr="title">
+                                                                <button id="search-button" class="ds-button-field btn btn-primary" title="Submit search">
                                                                     <span>Search</span> 
                                                                     <xsl:attribute name="onclick">
                                                                                 <xsl:text>
@@ -148,7 +148,7 @@
                                                 
                                                 <!-- Reset search button added, clears seach filters and returns to default discovery page -->
                                                 <xsl:variable name="clean-search" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath']"/>
-                                                <a id="search-reset" href="{$clean-search}/discover" alt="clear all seach filters">Reset Search</a>
+                                                <a id="search-reset" href="{$clean-search}/discover" alt="clear all seach filters" title="Clear search criteria">Reset Search</a>
                                             </div>
 
                                             <xsl:apply-templates select="*[not(self::dri:options)]"/>
@@ -172,7 +172,7 @@
                                     <xsl:choose>
                                         <!-- Conditional to determine if current URL is a static page and serve up static sidebar accordingly -->
                                         <xsl:when test="contains($request-uri, 'about') or contains($request-uri, 'help') or contains($request-uri, 'feedback') 
-                                                        or contains($request-uri, 'faq') or contains($request-uri, 'unavailable')">
+                                                        or contains($request-uri, 'faq') or contains($request-uri, 'unavailable') or contains($request-uri, 'accessibility')">
                                             <div role="navigation" id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
                                                 <div id="aspect_viewArtifacts_Navigation_list_discovery" class="list-group">
                                                     <a class="list-group-item active" alt="sidebar category">
@@ -466,6 +466,9 @@
                     <xsl:when test="starts-with($request-uri, 'exam-papers/unavailable')">
                         <i18n:text>Paper Unavailable</i18n:text>
                     </xsl:when>
+                    <xsl:when test="starts-with($request-uri, 'exam-papers/accessibility')">
+                        <i18n:text>Accessibility</i18n:text>
+                    </xsl:when> 
                     <xsl:when test="not($page_title)">
                         <xsl:text>  </xsl:text>
                     </xsl:when>
@@ -589,7 +592,7 @@
                                         <li>
                                             <form style="display: inline" action="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='loginURL']}" method="get">
                                                 <button class="navbar-toggle navbar-link">
-                                                <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
+                                                    <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
                                                 </button>
                                             </form>
                                         </li>
@@ -607,23 +610,22 @@
                                 <xsl:choose>
                                     <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
                                         <li>
-                                            <a href="{$context-path}/" alt="naviagtion link to home page">Home</a>
+                                            <a href="{$context-path}/" alt="naviagtion link to home page" title="Link to home page">Home</a>
                                         </li>
                                         <li>
-                                            <a href="{$context-path}/exam-papers/about" alt="naviagtion link to about page">About</a>
+                                            <a href="{$context-path}/exam-papers/about" alt="naviagtion link to about page" title="Link to about page">About</a>
                                         </li>
                                         <li>
-                                            <a href="{$context-path}/exam-papers/help" alt="naviagtion link to help page">Help</a>
+                                            <a href="{$context-path}/exam-papers/help" alt="naviagtion link to help page" title="Link to help page">Help</a>
                                         </li>
                                         <li>
-                                            <a href="{$context-path}/exam-papers/feedback" alt="naviagtion link to feedback page">Feedback</a>
+                                            <a href="{$context-path}/exam-papers/feedback" alt="naviagtion link to feedback page" title="Link to feedback page">Feedback</a>
                                         </li>
                                         <li>
-                                            <a href="{$context-path}/exam-papers/faqs" alt="naviagtion link to frequently asked questions page">FAQs</a>
+                                            <a href="{$context-path}/exam-papers/faqs" alt="naviagtion link to frequently asked questions page" title="Link to frequently asked questions page">FAQs</a>
                                         </li>
                                         <li class="dropdown">
-                                            <a id="user-dropdown-toggle" href="#" role="button" class="dropdown-toggle"
-                                            data-toggle="dropdown">
+                                            <a id="user-dropdown-toggle" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"  title="Profile dropdown menu">
                                                 <span class="hidden-xs">
                                                     <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='firstName']"/>
                                                     <xsl:text> </xsl:text>
@@ -635,12 +637,12 @@
                                             <ul class="dropdown-menu pull-right" role="menu"
                                                 aria-labelledby="user-dropdown-toggle" data-no-collapse="true">
                                                 <li id="auth-dropdown">
-                                                    <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='url']}" id="auth-dropdown">
+                                                    <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='url']}" id="auth-dropdown" alt="View profile" title="View profile page">
                                                         <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a alt="admin logout link"  id="auth-dropdown">
+                                                    <a id="auth-dropdown"  alt="Logout of profile" title="Logout of profile">
                                                         <xsl:attribute name="href">
                                                             <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='logoutURL']"/>
                                                         </xsl:attribute>
@@ -673,19 +675,19 @@
                                         <!-- Add static pages to navbar -->
                                         <!-- * urls will need to be updated if static urls are changed for live release -->
                                         <li>
-                                            <a href="{$context-path}/" alt="naviagtion link to home page">Home</a>
+                                            <a href="{$context-path}/" alt="naviagtion link to home page" title="Link to home page">Home</a>
                                         </li>
                                         <li>
-                                            <a href="{$context-path}/exam-papers/about" alt="naviagtion link to about page">About</a>
+                                            <a href="{$context-path}/exam-papers/about" alt="naviagtion link to about page" title="Link to about page">About</a>
                                         </li>
                                         <li>
-                                            <a href="{$context-path}/exam-papers/help" alt="naviagtion link to help page">Help</a>
+                                            <a href="{$context-path}/exam-papers/help" alt="naviagtion link to help page" title="Link to help page">Help</a>
                                         </li>
                                         <li>
-                                            <a href="{$context-path}/exam-papers/feedback" alt="naviagtion link to feedback page">Feedback</a>
+                                            <a href="{$context-path}/exam-papers/feedback" alt="naviagtion link to feedback page" title="Link to feedback page">Feedback</a>
                                         </li>
                                         <li>
-                                            <a href="{$context-path}/exam-papers/faqs" alt="naviagtion link to frequently asked questions page">FAQs</a>
+                                            <a href="{$context-path}/exam-papers/faqs" alt="naviagtion link to frequently asked questions page" title="Link to frequently asked questions page">FAQs</a>
                                         </li>
 
                                     </xsl:otherwise>
@@ -708,13 +710,13 @@
             <div class="container" id="header-container">
                 <div id="container-header">
                     <div class="uofe-logo">
-                        <a href="https://www.ed.ac.uk/" alt="image link to the univeristy of edinburgh's home page">
+                        <a href="https://www.ed.ac.uk/" alt="image link to the univeristy of edinburgh's home page" title="Click image to link to the univeristy of edinburgh's home page">
                             <img src="{$theme-path}images/uni-logo-black.png" alt="University of Edinburgh Logo"></img>
                         </a>
                     </div>
                     <div class="exam-banner" href="{$context-path}/">   
-                        <a class="exam-banner-click" href="{$context-path}/" alt="image link to the univeristy of edinburgh's exam papers home page"> 
-                            <img src="{$theme-path}images/exampapersbanner.png" alt="University of Edinburgh Exam Papers Banner" href="{$context-path}/"></img>
+                        <a class="exam-banner-click" href="{$context-path}/" alt="image link to the univeristy of edinburgh's exam papers home page" title="Click image to link to exam papers home page"> 
+                            <img src="{$theme-path}images/exampapersbanner.png" alt="University of Edinburgh Exam Papers Banner" href="{$context-path}/" ></img>
                             <h1>EXAM PAPERS ONLINE</h1>
                         </a>
                     </div>
@@ -772,31 +774,31 @@
                                     <xsl:when test="starts-with($request-uri, 'exam-papers/about')">
                                         <ul class="breadcrumb" alt="breadcrumb trail for current page">
                                             <li>
-                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home" alt="breadcrumb link to university homapge">
+                                                <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
                                                     University Homepage
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments" alt="breadcrumb link to university schools and departments">
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
                                                     Schools &amp; Departments
                                                 </a>
                                             </li> 
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services" alt="breadcrumb link to university information services">
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
                                                     Information Services
                                                 </a>
                                             </li>                                          
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials" alt="breadcrumb link to university library information page">
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
                                                     Library Essentials
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="/" alt="breadcrumb link to exam papers homapge">
+                                                <a href="/" alt="breadcrumb link to exam papers homapge" title="Breadcrumb link to exam papers home page">
                                                     Exam Papers
                                                 </a>
                                             </li>
-                                            <li class="breadcrumb" alt="breadcrumb for current page">
+                                            <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: About">
                                                 <xsl:text>About</xsl:text>
                                             </li>
                                         </ul>
@@ -805,29 +807,29 @@
                                     <xsl:when test="starts-with($request-uri, 'exam-papers/help')">
                                         <ul class="breadcrumb" alt="breadcrumb trail for current page">
                                             <li>
-                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home" alt="breadcrumb link to university homapge">
+                                                <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
                                                     University Homepage
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments" alt="breadcrumb link to university schools and departments">
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
                                                     Schools &amp; Departments
                                                 </a>
                                             </li> 
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services" alt="breadcrumb link to university information services">
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
                                                     Information Services
                                                 </a>
                                             </li>                                          
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials" alt="breadcrumb link to university library information page">
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
                                                     Library Essentials
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="/" alt="breadcrumb link to exam papers homapge">Exam Papers</a>
+                                                <a href="/" alt="breadcrumb link to exam papers homapge" title="Breadcrumb link to exam papers home page">Exam Papers</a>
                                             </li>
-                                            <li class="breadcrumb" alt="breadcrumb for current page">
+                                            <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: Help">
                                                 <xsl:text>Help</xsl:text>
                                             </li>
                                         </ul>
@@ -836,31 +838,26 @@
                                     <xsl:when test="starts-with($request-uri, 'exam-papers/feedback')">
                                         <ul class="breadcrumb" alt="breadcrumb trail for current page">
                                             <li>
-                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home" alt="breadcrumb link to university homapge">
+                                                <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
                                                     University Homepage
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments" alt="breadcrumb link to university schools and departments">
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
                                                     Schools &amp; Departments
                                                 </a>
                                             </li> 
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services" alt="breadcrumb link to university information services">
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
                                                     Information Services
                                                 </a>
                                             </li>                                          
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials" alt="breadcrumb link to university library information page">
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
                                                     Library Essentials
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a href="/" alt="breadcrumb link to exam papers homapge">
-                                                    Exam Papers
-                                                </a>
-                                            </li>
-                                            <li class="breadcrumb" alt="breadcrumb for current page">
+                                            <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: Feedback">
                                                 <xsl:text>Feedback</xsl:text>
                                             </li>
                                         </ul>
@@ -869,31 +866,26 @@
                                     <xsl:when test="starts-with($request-uri, 'exam-papers/faqs')">
                                         <ul class="breadcrumb" alt="breadcrumb trail for current page">
                                             <li>
-                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home" alt="breadcrumb link to university homapge">
+                                                <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
                                                     University Homepage
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments" alt="breadcrumb link to university schools and departments">
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
                                                     Schools &amp; Departments
                                                 </a>
                                             </li> 
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services" alt="breadcrumb link to university information services">
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
                                                     Information Services
                                                 </a>
                                             </li>                                          
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials" alt="breadcrumb link to university library information page">
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
                                                     Library Essentials
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a href="/" alt="breadcrumb link to exam papers homapge">
-                                                    Exam Papers
-                                                </a>
-                                            </li>
-                                            <li class="breadcrumb" alt="breadcrumb for current page">
+                                            <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: FAQs">
                                                 <xsl:text>FAQs</xsl:text>
                                             </li>
                                         </ul>
@@ -902,62 +894,82 @@
                                     <xsl:when test="starts-with($request-uri, 'exam-papers/unavailable')">
                                         <ul class="breadcrumb" alt="breadcrumb trail for current page">
                                             <li>
-                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home" alt="breadcrumb link to university homapge">
+                                                <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
                                                     University Homepage
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments" alt="breadcrumb link to university schools and departments">
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
                                                     Schools &amp; Departments
                                                 </a>
                                             </li> 
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services" alt="breadcrumb link to university information services">
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
                                                     Information Services
                                                 </a>
                                             </li>                                          
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials" alt="breadcrumb link to university library information page">
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
                                                     Library Essentials
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a href="/" alt="breadcrumb link to exam papers homapge">
-                                                    Exam Papers
-                                                </a>
-                                            </li>
-                                            <li class="breadcrumb" alt="breadcrumb for current page">
+                                            <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: Paper Unavailable">
                                                 <xsl:text>Paper Unavailable</xsl:text>
                                             </li>
                                         </ul>
                                     </xsl:when> 
 
-                                    <xsl:when test="starts-with($request-uri, 'handle')">
+                                    <xsl:when test="starts-with($request-uri, 'exam-papers/accessibility')">
                                         <ul class="breadcrumb" alt="breadcrumb trail for current page">
                                             <li>
-                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home" alt="breadcrumb link to university homapge">
+                                                <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
                                                     University Homepage
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments" alt="breadcrumb link to university schools and departments">
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
                                                     Schools &amp; Departments
                                                 </a>
                                             </li> 
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services" alt="breadcrumb link to university information services">
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
                                                     Information Services
                                                 </a>
                                             </li>                                          
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials" alt="breadcrumb link to university library information page">Library Essentials</a>
-                                            </li>
-                                            <li>
-                                                <a href="/" alt="breadcrumb link to exam papers homapge">
-                                                    Exam Papers
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
+                                                    Library Essentials
                                                 </a>
                                             </li>
-                                            <li class="breadcrumb" alt="breadcrumb for current page">
+                                            <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: Accessibility">
+                                                <xsl:text>Accessibility</xsl:text>
+                                            </li>
+                                        </ul>
+                                    </xsl:when>
+
+                                    <xsl:when test="starts-with($request-uri, 'handle')">
+                                        <ul class="breadcrumb" alt="breadcrumb trail for current page">
+                                            <li>
+                                                <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
+                                                    University Homepage
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
+                                                    Schools &amp; Departments
+                                                </a>
+                                            </li> 
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
+                                                    Information Services
+                                                </a>
+                                            </li>                                          
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
+                                                    Library Essentials
+                                                </a>
+                                            </li>
+                                            <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: View Paper">
                                                 <xsl:text>View Item</xsl:text>
                                             </li>
                                         </ul>   
@@ -966,31 +978,26 @@
                                     <xsl:when test="starts-with($request-uri, 'discover')">
                                         <ul class="breadcrumb" alt="breadcrumb trail for current page">
                                             <li>
-                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home" alt="breadcrumb link to university homapge">
+                                                <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
                                                     University Homepage
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments" alt="breadcrumb link to university schools and departments">
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
                                                     Schools &amp; Departments
                                                 </a>
                                             </li> 
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services" alt="breadcrumb link to university information services">
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
                                                     Information Services
                                                 </a>
                                             </li>                                          
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials" alt="breadcrumb link to university library information page">
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
                                                     Library Essentials
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a href="/" alt="breadcrumb link to exam papers homapge">
-                                                    Exam Papers
-                                                </a>
-                                            </li>
-                                            <li class="breadcrumb" alt="breadcrumb for current page">
+                                            <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: Search">
                                                 <xsl:text>Search</xsl:text>
                                             </li>
                                         </ul>      
@@ -999,26 +1006,26 @@
                                     <xsl:otherwise>
                                         <ul class="breadcrumb" alt="breadcrumb trail for current page">
                                             <li>
-                                                <a href="http://www.ed.ac.uk" title="University of Edinburgh Home" alt="breadcrumb link to university homapge">
+                                                <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
                                                     University Homepage
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="Schools and Departments" alt="breadcrumb link to university schools and departments">
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
                                                     Schools &amp; Departments
                                                 </a>
                                             </li> 
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="Information Services" alt="breadcrumb link to university information services">
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
                                                     Information Services
                                                 </a>
                                             </li>                                          
                                             <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="Library Essentials" alt="breadcrumb link to university library information page">
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
                                                     Library Essentials
                                                 </a>
                                             </li>
-                                            <li class="breadcrumb" alt="breadcrumb for current page">
+                                            <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: Exam Papers Home">
                                                 <xsl:text>Exam Papers</xsl:text>
                                             </li>
                                         </ul>
@@ -1210,6 +1217,7 @@
                                     <xsl:text>/exam-papers/feedback</xsl:text>
                                     <xsl:text>/exam-papers/faqs</xsl:text>
                                     <xsl:text>/exam-papers/unavailable</xsl:text>
+                                    <xsl:text>/exam-papers/accessibility</xsl:text>
                                 </xsl:attribute>
 
                                 <!--<i18n:text>xmlui.dri2xhtml.structural.contact-link</i18n:text>-->
@@ -1227,13 +1235,16 @@
                             <div class="footer-disclaimer">
                                 <div class="footer-policies" alt="site privacy and accessibility policy links">
                                     <p id="footer-left">
-                                        <a class="footer-policies-a" href="http://www.ed.ac.uk/about/website/privacy" title="Privacy and Cookies Link" target="_blank" alt="link to univeristy privacy and coookie policies">
+                                        <a class="footer-policies-a" href="http://www.ed.ac.uk/about/website/privacy" title="Click to view the Universities Privacy and Cookies Policy" target="_blank" 
+                                            alt="link to univeristy privacy and coookie policies">
                                             Privacy &amp; Cookies 
                                         </a> 
-                                        <a class="footer-policies-a" href="https://www.ed.ac.uk/files/atoms/files/uoe_academic_blogging_notice_and_takedown_policy_v1.0.pdf" title="Takedown Policy Link" alt="link to univeristy take down policy">
+                                        <a class="footer-policies-a" href="https://www.ed.ac.uk/files/atoms/files/uoe_academic_blogging_notice_and_takedown_policy_v1.0.pdf" 
+                                            title="Click to view the Universities Takedown Policy" alt="link to univeristy take down policy">
                                             Takedown Policy 
                                         </a> 
-                                        <a class="footer-policies-a" href="http://www.ed.ac.uk/about/website/accessibility" title="Website Accessibility Link" target="_blank" alt="link to univeristy accessibilty policy">
+                                        <a class="footer-policies-a" href="{$context-path}/exam-papers/accessibility" title="Click to view the exam papers Website Accessibility Statement" 
+                                            target="_blank" alt="link to univeristy accessibilty policy">
                                             Accessibility 
                                         </a> 
                                     </p>
@@ -1241,15 +1252,15 @@
                                         <!-- Authentication login/logout footer links -->
                                         <xsl:choose>
                                             <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
-                                                <a alt="admin logoutlink">
-                                                <xsl:attribute name="href">
-                                                    <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='logoutURL']"/>
-                                                </xsl:attribute>
+                                                <a alt="admin logout link" title="Log out of admin profile">
+                                                    <xsl:attribute name="href">
+                                                        <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='logoutURL']"/>
+                                                    </xsl:attribute>
                                                     Admin Logout <i aria-hidden="true" class="glyphicon glyphicon glyphicon-log-in" id="admin-login-icon"></i>
                                                 </a>
                                             </xsl:when>
                                             <xsl:otherwise>
-                                                <a href="/login" alt="admin login link">
+                                                <a href="/login" alt="admin login link" title="Log into admin profile">
                                                     Admin Login <i aria-hidden="true" class="glyphicon glyphicon glyphicon-log-in" id="admin-login-icon"></i>
                                                 </a>
                                             </xsl:otherwise>
@@ -1259,12 +1270,12 @@
                                 <div id="footer-left" class="footer-disclaimer" alt="site disclaimer">
                                     <p>
                                         The University of Edinburgh is a charitable body, registered in Scotland, with registration number SC005336, VAT Registration Number GB 592 9507 00, 
-                                        and is acknowledged by the UK authorities as a <a href="https://www.gov.uk/recognised-uk-degrees" title="UK Government Recognised Degrees Link" target="_blank"
+                                        and is acknowledged by the UK authorities as a <a href="https://www.gov.uk/recognised-uk-degrees" title="External link to UK Government Recognised Degrees site" target="_blank"
                                         alt="link to UK government recognised university charitable body check site"> “Recognised Body”</a> which has been granted degree awarding powers.
                                     </p>
                                     <p></p>
                                     <p>
-                                        Unless explicitly stated otherwise, all material is copyright © 2019 <a href="http://www.ed.ac.uk" title="University of Edinburgh Home" 
+                                        Unless explicitly stated otherwise, all material is copyright © 2019 <a href="http://www.ed.ac.uk" title="External link to University of Edinburgh home page" 
                                         alt="link to univeristy of edinburgh homepage
                                         .
                                         " target="_blank">University of Edinburgh</a>.
@@ -1322,7 +1333,7 @@
             <xsl:if test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='alert'][@qualifier='message']">
                 <div class="alert alert-warning">
                     <button type="button" class="close" data-dismiss="alert">&#215;</button>
-                    <xsl:copy-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='alert'][@qualifier='message']/node()"/>
+                        <xsl:copy-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='alert'][@qualifier='message']/node()"/>
                 </div>
             </xsl:if>
 
@@ -1505,12 +1516,314 @@
                                 <li>The paper contains copyright material which means it cannot be published online.</li>
                             </ol>
                             <p></p>
-                            <p>If you need for further information please contact <a href="mailto:exam.papers@ed.ac.uk" alt="link to exam papers email address">exam.papers@ed.ac.uk</a></p>
+                            <p>If you need for further information please contact 
+                                <a href="mailto:exam.papers@ed.ac.uk" alt="link to exam papers email address" title="Click to email the exam papers department for more information">
+                                exam.papers@ed.ac.uk</a>
+                            </p>
                             <br></br>
                         </div>
                     </div>
                 </xsl:when>
                 
+                <xsl:when test="starts-with($request-uri, 'exam-papers/accessibility')">
+                    <div class="hero-unit">
+                        <div class="content">
+                            <h3 alt="page title">The University of Edinburgh Exam Papers Accessibility Statement</h3>
+                            <p alt="exam papers accessability details">
+                                This is the website accessibility statement in line with Public Sector Body (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018
+                            </p>
+                            <p alt="exam papers accessability details">
+                                This website is run by the University of Edinburgh. We want as many people as possible to be able to use this website. For example, that means you should be able to:
+                            </p>
+                            <ul>
+                                <li>
+                                    change most of the colours, contrast levels and fonts
+                                </li>
+                                <li>
+                                    navigate most of the website using just a keyboard
+                                </li>
+                                <li>
+                                    navigate most of the website using speech recognition software
+                                </li>
+                                <li>
+                                    listen to most of the website using a screen reader (including the most recent versions of JAWS, NVDA and VoiceOver)
+                                </li>
+                                <li>
+                                    ensure no information is conveyed by colour or sound only
+                                </li>
+                            </ul>
+                            <p alt="exam papers accessability details">
+                                We’ve also made the website text as simple as possible to understand.
+                            </p>
+                            <p alt="exam papers accessability details">
+                                Customising the website
+                            </p>
+                            <p alt="exam papers accessability details">
+                                AbilityNet has advice on making your device easier to use if you have a disability.
+                            </p>
+                            <p alt="exam papers accessability details">
+                                <a href="https://mcmw.abilitynet.org.uk/">                                   
+                                    <p>AbilityNet - My computer my way</p>
+                                </a>
+                            </p>
+                            <p alt="exam papers accessability details">
+                                With a few simple steps you can customise the appearance of our website to make it easier to read and navigate.
+                            </p>
+                            <p alt="exam papers accessability details">
+                                <a href="https://www.edweb.ed.ac.uk/about/website/accessibility/customising-site">
+                                    <p>Additional information on how to customise our website appearance</p>
+                                </a>
+                            </p>
+                            <p></p>
+                            <h3>Customising the website</h3>
+                            <p  alt="exam papers accessability details">
+                                We know some parts of this website are not fully accessible:
+                            </p>
+                            <ul>
+                                <li>
+                                    May not be fully compatible with screen readers
+                                </li>
+                                <li>
+                                    May not be fully compatible with other forms of assistive technology e.g. Read and Write, Zoomtext
+                                </li>
+                                <li>
+                                    May not be able to access all content by using the keyboard alone and it is unclear where you have tabbed to
+                                </li>
+                                <li>
+                                    Some text is lost at certain levels of magnification
+                                </li>
+                                <li>
+                                    There is a lot of movement on the site
+                                </li>
+                                <li>
+                                    Not all colour contrasts meet recommended WCAG 2.1 AA standards
+                                </li>
+                                <li>
+                                    A user is not notified when a link opens a new window
+                                </li>
+                            </ul>
+                            <p></p>
+                            <h3>How accessible this website is</h3>
+                            <p alt="exam papers accessability details">
+                                We know some parts of this website are not fully accessible:
+                            </p>
+                            <ul>
+                                <li>
+                                    May not be fully compatible with screen readers
+                                </li>
+                                <li>
+                                    May not be fully compatible with other forms of assistive technology e.g. Read and Write, Zoomtext
+                                </li>
+                                <li>
+                                    May not be able to access all content by using the keyboard alone and it is unclear where you have tabbed to
+                                </li>
+                                <li>
+                                    Some text is lost at certain levels of magnification
+                                </li>
+                                <li>
+                                    There is a lot of movement on the site
+                                </li>
+                                <li>
+                                    Not all colour contrasts meet recommended WCAG 2.1 AA standards
+                                </li>
+                                <li>
+                                    A user is not notified when a link opens a new window
+                                </li>
+                            </ul>
+                            <p></p>
+                            <h3>What to do if you cannot access parts of this website</h3>
+                            <p alt="exam papers accessability details">
+                                If you need information on this website in a different format like accessible PDF, large print, audio recording or braille please contact the Universities Collection team Helpline by emailing 
+                                <a href="mailto:exam.papers@ed.ac.uk">exam.papers@ed.ac.uk</a> or phone <a href="tel: 0131 651 1827">0131 651 1827</a>
+                            </p>
+                            <p alt="exam papers accessability details">
+                                We’ll consider your request and get back to you in 5 working days.
+                            </p>
+                            <p alt="exam papers accessability details">
+                                Reporting accessibility problems with this website
+                            </p>
+                            <p alt="exam papers accessability details">
+                                We’re always looking to improve the accessibility of this website. If you find any problems not listed on this page or think we’re not meeting accessibility requirements please let us know: by emailing 
+                                <a href="mailto:exam.papers@ed.ac.uk">exam.papers@ed.ac.uk</a> or phone <a href="tel: 0131 651 1827">0131 651 1827</a>
+                            </p>
+                            <p alt="exam papers accessability details">
+                                We’ll consider your request and get back to you in 5 working days.
+                            </p>
+                            <p></p>
+                            <h3>Enforcement procedure</h3>
+                            <p alt="exam papers accessability details">
+                                The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ‘accessibility regulations’). If you’re not happy with how we respond to your complaint please contact the Equality Advisory and Support Service (EASS) directly.
+                            </p>
+                            <p alt="exam papers accessability details">
+                                <a href="https://www.equalityadvisoryservice.com/">Contact details for the Equality Advisory and Support Service (EASS)</a>
+                            </p>
+                            <p alt="exam papers accessability details">
+                                <strong>Contacting us by phone using British Sign Language</strong>
+                                British Sign Language service
+                            </p>
+                            <p alt="exam papers accessability details">
+                                British Sign Language Scotland runs a service for British Sign Language users and all of Scotland’s public bodies using video relay. This enables sign language users to contact public bodies and vice versa. The service operates from 8am to 12 midnight, 7 days a week. 
+                            </p>
+                            <p alt="exam papers accessability details">
+                                <a href="https://contactscotland-bsl.org">British Sign Language Scotland service details</a>
+                            </p>
+                            <p alt="exam papers accessability details">
+                                Technical information about this website’s accessibility
+                            </p>
+                            <p alt="exam papers accessability details">
+                                The University of Edinburgh is committed to making its website accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.
+                            </p>
+                            <p alt="exam papers accessability details">
+                                This website is partially compliant with the Web Content Accessibility Guidelines 2.1 AA standard, due to the non-compliances listed below.
+                            </p>
+                            <p alt="exam papers accessability details">
+                                The full guidelines are available at:
+                            </p>
+                            <p alt="exam papers accessability details">
+                                <a href="https://www.w3.org/TR/WCAG21/">British Sign Language Scotland service details</a>
+                            </p>
+                            <p></p>
+                            <h3>Non accessible content</h3>
+                            <p alt="exam papers accessability details">
+                                The content listed below is non-accessible for the following reasons.
+                            </p>
+                            <p alt="exam papers accessability details">
+                                Noncompliance with the accessibility regulations
+                            </p>
+                            <p alt="exam papers accessability details">
+                                The following items to not comply with the WCAG 2.1 AA success criteria:
+                            </p>
+                            <ul>
+                                <li>
+                                    It is not possible to use a keyboard to access all the content
+                                    <a href="https://www.w3.org/TR/WCAG21/#keyboard-accessible">2.1 - Keyboard accessible</a>
+                                </li>
+                                <li>
+                                    Information is conveyed as an image of text rather than as text itelf so that it's not compatible with screen readers and other assistive technology 
+
+                                    <a href="https://www.w3.org/TR/WCAG21/#images-of-text">1.4.5 - Images of text</a>
+                                </li>
+                                <li>
+                                    Most tooltips disappear as soon as the cursor moves. Also tooltips are not always present for all icons and images. 
+
+                                    <a href="https://www.w3.org/TR/WCAG21/#content-on-hover-or-focus">1.4.3 - Contrast (Minimum)</a>
+                                </li>
+                                <li>
+                                    There may not be sufficient colour contrast between font and background colours especially where the text size is very small. 
+
+                                    <a href="https://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-contrast">1.4.13 - Content on Hover or Focus</a>
+                                </li>
+                                <li>
+                                    Visual information to identify user interface components, such as keyboard focus, do not always have a sufficient contrast ratio 
+
+                                    <a href="https://www.w3.org/TR/WCAG21/#non-text-contrast">1.4.11 - Non-text contrast</a>
+                                </li>
+                                <li>
+                                    Some content cannot be presented without loss of information when magnified to the maximum browser level
+
+                                    <a href="https://www.w3.org/TR/WCAG21/#reflow">1.4.10 - Reflow</a>
+                                </li>
+                                <li>
+                                    It might not be possible for all form fields to be programmatically determined. This means that when using auto-fill functionality for forms not all fields will identify the meaning for input data accurately
+
+                                    <a href="https://www.w3.org/TR/WCAG21/#identify-input-purpose">1.3.5 - Identify Input Purpose</a>
+                                </li>
+                                <li>
+                                    Some content cannot be presented without loss of information if the line height, paragraph spacing, letter spacing or word spacing is increased.
+
+                                    <a href="https://www.w3.org/TR/WCAG21/#text-spacing">1.4.12 - Text Spacing</a>
+                                </li>
+                                <li>
+                                    There is content that has moving, blinking or scrolling information that (1) starts automatically, (2) lasts more than five seconds, and (3) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it unless the movement, blinking, or scrolling is part of an activity where it is essential.
+
+                                    <a href="https://www.w3.org/TR/WCAG21/#pause-stop-hide">2.2.2- Pause, Stop and Hide</a>
+                                </li>
+                            </ul>
+                            <p alt="exam papers accessability details">
+                                Unless specified otherwise a complete solution or significant improvement will be in place by September 2020. We also plan to remove the use of italics and continuous capitals wherever possible.
+                            </p>
+                            <p></p>
+                            <h3>How We Tested This Website</h3>
+                            <p alt="exam papers accessability details">
+                                This system was last tested by the University of Edinburgh’s Deputy Disability Information Officer in August 2019 via sampling the majority of pages across the website. We tested the system on a PC using the bowser Internet Explorer (11) as this is the bowsers most commonly used by disabled users due to its accessibility features and compatibility with assistive technology, as shown by the <a href="https://accessibility.blog.gov.uk/2016/11/01/results-of-the-2016-gov-uk-assistive-technology-survey/">Government Assistive Technology Survey</a>
+                            </p>
+                            <p alt="exam papers accessability details">
+                                We tested:
+                            </p>
+                            <ul>
+                                <li>
+                                    Spellcheck functionality
+                                </li>
+                                <li>
+                                    Data validation
+                                </li>
+                                <li>
+                                    Scaling using different resolutions
+                                </li>
+                                <li>
+                                    Options to customise the interface (magnification, font and background colour changing etc)
+                                </li>
+                                <li>
+                                    Keyboard navigation
+                                </li>
+                                <li>
+                                    Warning of links opening in a new tab or window
+                                </li>
+                                <li>
+                                    Information conveyed in colour or sound only
+                                </li>
+                                <li>
+                                    Flashing or scrolling text
+                                </li>
+                                <li>
+                                    Operability if Javascript is disabled
+                                </li>
+                                <li>
+                                    Use with screenreading software (JAWS) 
+                                </li>
+                                <li>
+                                    TextHelp Read and Write (assistive software)
+                                </li>
+                                <li>
+                                    Zoomtext (assistive software)
+                                </li>
+                                <li>
+                                    Time limits
+                                </li>
+                                <li>
+                                    Access to specialist help
+                                </li>
+                            </ul>
+                            <p></p>
+                            <h3>Content that's not within the scope of the accessibility regulations</h3>
+                            <h3>Security of and Access to Your Personal Data</h3>
+                            <h3>What we’re doing to improve accessibility</h3>
+                            <p alt="exam papers accessability details">
+                                We will continue to work with the developer to address these issues and deliver a solution or suitable workaround.
+                            </p>
+                            <p alt="exam papers accessability details">
+                                We will continue to monitor system accessibility and will carry out further accessibility testing as these issues are resolved. However, due to the complex nature of the information displayed it may not be possible to resolve all accessibility issues. If this is the case, we will ensure reasonable adjustments are in place to make sure no user is disadvantaged. We plan to have resolved the majority of accessibility issues by September 2020 at the latest.
+                            </p>
+                            <p></p>
+
+                            <h1 alt="exhibition title" class="access-h">Information Services and accessibility</h1>
+                            <p alt="exam papers accessability details">
+                                Information Services (IS) has further information on accessibility including assistive technology, creating accessible documents, and services IS provides for disabled users.
+                            </p>
+                            <p alt="exam papers accessability details">
+                                <a href="https://www.ed.ac.uk/information-services/help-consultancy/accessibility">
+                                    Assistive technology, creating accessible documents, and services IS provides for disabled users
+                                </a>
+                            </p>
+                            <p></p>
+                            <h3>Information Services and accessibility</h3>
+                            <p></p>
+                            <p alt="exam papers accessability details">
+                                <strong>This statement was prepared on October 2019. It was last updated on October 2019.</strong>
+                            </p>
+                        </div>
+                    </div>
+                </xsl:when>
                 <!-- Otherwise use default handling of body -->
                 <xsl:otherwise>
                     <xsl:apply-templates />

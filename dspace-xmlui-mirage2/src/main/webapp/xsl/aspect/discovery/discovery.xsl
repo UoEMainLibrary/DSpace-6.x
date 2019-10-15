@@ -689,7 +689,7 @@
     </xsl:template>
 
     <xsl:template match="dri:list[@rend='gear-selection' and @n='sort-options']/dri:item/dri:xref">
-        <a href="{@target}" class="{@rend}">
+        <a href="{@target}" class="{@rend}" alt="Sort search resaults dropdown options" title="Click to change search resaults sort order">
             <span>
                 <xsl:attribute name="class">
                     <xsl:text>glyphicon glyphicon-ok btn-xs</xsl:text>
