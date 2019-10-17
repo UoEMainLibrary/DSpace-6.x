@@ -148,7 +148,13 @@
                     </form>
                 </div>
             </xsl:if>
-            <xsl:apply-templates/>
+            <xsl:apply-templates select="dri:list[@n='context']"/>
+            <xsl:apply-templates select="dri:list[@n='browse']"/>
+            <xsl:apply-templates select="dri:list[@n='account']"/>
+            <xsl:apply-templates select="dri:list[@n='administrative']"/>
+            <xsl:apply-templates select="dri:list[@n='discovery']"/>
+            <xsl:apply-templates select="dri:list[@n='statistics']"/>
+            <!--<xsl:apply-templates/>-->
             <!-- DS-984 Add RSS Links to Options Box -->
             <!--<xsl:if test="count(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='feed']) != 0">
                 <div>
@@ -195,13 +201,7 @@
     <xsl:template match="dri:options//dri:list">
         <xsl:apply-templates select="dri:head"/>
         <xsl:apply-templates select="dri:item"/>
-        <xsl:apply-templates select="dri:list[@n='search']"/>
-        <xsl:apply-templates select="dri:list[@n='context']"/>
-        <xsl:apply-templates select="dri:list[@n='browse']"/>
-        <xsl:apply-templates select="dri:list[@n='account']"/>
-        <xsl:apply-templates select="dri:list[@n='administrative']"/>
-        <xsl:apply-templates select="dri:list[@n='discovery']"/>
-        <xsl:apply-templates select="dri:list[@n='statistics']"/>
+        <xsl:apply-templates select="dri:list"/>
     </xsl:template>
 
     <!-- Template employs conditional using trail strings to determine current page
