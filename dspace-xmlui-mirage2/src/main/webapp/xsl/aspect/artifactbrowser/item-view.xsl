@@ -109,6 +109,8 @@
             <div class="row">
                 <div class="col-sm-4">
 
+                    <p><xsl:value-of select="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'" /></p>
+
                     <!-- Supress thumbnail -->
                     <!-- <div class="row">
                         <div class="col-xs-6 col-sm-12">
@@ -129,9 +131,9 @@
                     <xsl:call-template name="itemSummaryView-DIM-file-section"/>
 
                     <!-- Supressed link to full item view -->
-                    <!-- <xsl:if test="$ds_item_view_toggle_url != ''">
+                    <xsl:if test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
                         <xsl:call-template name="itemSummaryView-show-full"/>
-                    </xsl:if> -->
+                    </xsl:if>
                 </div>
                 <!--<div class="col-sm-8">
                     <xsl:call-template name="itemSummaryView-DIM-abstract"/>

@@ -9,9 +9,7 @@ package org.dspace.app.xmlui.aspect.eperson;
 
 import java.io.Serializable;
 import java.sql.SQLException;
-
 import javax.servlet.http.HttpSession;
-
 import org.apache.cocoon.caching.CacheableProcessingComponent;
 import org.apache.cocoon.environment.ObjectModelHelper;
 import org.apache.cocoon.environment.Request;
@@ -30,6 +28,8 @@ import org.dspace.app.xmlui.wing.element.Password;
 import org.dspace.app.xmlui.wing.element.Text;
 import org.dspace.services.factory.DSpaceServicesFactory;
 import org.xml.sax.SAXException;
+
+
 
 /**
  * Query the user for their authentication credentials.
@@ -76,8 +76,8 @@ public class PasswordLogin extends AbstractDSpaceTransformer implements Cacheabl
     public static final Message T_para1 =
         message("xmlui.EPerson.PasswordLogin.para1");
     
-    public static final Message T_register_link = 
-        message("xmlui.EPerson.PasswordLogin.register_link");
+    /*public static final Message T_register_link = 
+        message("xmlui.EPerson.PasswordLogin.register_link");*/
     
     
     /**
@@ -141,6 +141,7 @@ public class PasswordLogin extends AbstractDSpaceTransformer implements Cacheabl
     /**
      * Set the page title and trail.
      */
+    @Override
     public void addPageMeta(PageMeta pageMeta) throws WingException
     {
         pageMeta.addMetadata("title").addContent(T_title);
@@ -152,6 +153,7 @@ public class PasswordLogin extends AbstractDSpaceTransformer implements Cacheabl
     /**
      * Display the login form.
      */
+    @Override
     public void addBody(Body body) throws SQLException, SAXException,
             WingException
     {
@@ -212,18 +214,18 @@ public class PasswordLogin extends AbstractDSpaceTransformer implements Cacheabl
         Password password = item.addPassword("login_password");
         password.setRequired();
         password.setLabel(T_password);
-        item.addXref(contextPath + "/forgot", T_forgot_link);
+        //item.addXref(contextPath + "/forgot", T_forgot_link);
 
         list.addLabel();
         Item submit = list.addItem("login-in", null);
         submit.addButton("submit").setValue(T_submit);
         
-        if (DSpaceServicesFactory.getInstance().getConfigurationService().getBooleanProperty("xmlui.user.registration", true))
+        /*if (DSpaceServicesFactory.getInstance().getConfigurationService().getBooleanProperty("xmlui.user.registration", true))
         {
 	        Division register = login.addDivision("register");
 	        register.setHead(T_head2);
 	        register.addPara(T_para1);
 	        register.addPara().addXref(contextPath + "/register",T_register_link);
-        }
+        }*/
     }
 }

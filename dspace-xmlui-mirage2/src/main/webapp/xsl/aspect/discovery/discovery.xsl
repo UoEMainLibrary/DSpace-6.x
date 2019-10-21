@@ -673,7 +673,7 @@
     </xsl:template>
 
     <xsl:template match="dri:list[@rend='gear-selection' and @n='sort-options']">
-        <ul class="dropdown-menu" role="menu">
+        <ul class="dropdown-menu" id="sort-by-ul" role="menu">
             <xsl:apply-templates/>
         </ul>
     </xsl:template>

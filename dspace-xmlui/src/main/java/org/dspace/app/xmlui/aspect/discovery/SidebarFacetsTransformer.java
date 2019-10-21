@@ -7,6 +7,17 @@
  */
 package org.dspace.app.xmlui.aspect.discovery;
 
+import java.io.IOException;
+import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.apache.cocoon.caching.CacheableProcessingComponent;
 import org.apache.cocoon.environment.ObjectModelHelper;
 import org.apache.cocoon.environment.Request;
@@ -26,7 +37,12 @@ import org.dspace.authorize.AuthorizeException;
 import org.dspace.content.DSpaceObject;
 import org.dspace.core.Context;
 import org.dspace.core.LogManager;
-import org.dspace.discovery.*;
+import org.dspace.discovery.DiscoverFacetField;
+import org.dspace.discovery.DiscoverQuery;
+import org.dspace.discovery.DiscoverResult;
+import org.dspace.discovery.SearchService;
+import org.dspace.discovery.SearchServiceException;
+import org.dspace.discovery.SearchUtils;
 import org.dspace.discovery.configuration.DiscoveryConfiguration;
 import org.dspace.discovery.configuration.DiscoveryConfigurationParameters;
 import org.dspace.discovery.configuration.DiscoverySearchFilterFacet;
@@ -34,14 +50,6 @@ import org.dspace.handle.factory.HandleServiceFactory;
 import org.dspace.handle.service.HandleService;
 import org.dspace.services.factory.DSpaceServicesFactory;
 import org.xml.sax.SAXException;
-
-import java.io.IOException;
-import java.io.Serializable;
-import java.io.UnsupportedEncodingException;
-import java.sql.SQLException;
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Renders the sidebar filters in Discovery
@@ -262,9 +270,9 @@ public class SidebarFacetsTransformer extends AbstractDSpaceTransformer implemen
                                 }
                             }
                             //Show a "view more" url should there be more values, unless we have a date
-                            if (i == shownFacets - 1 && !field.getType().equals(DiscoveryConfigurationParameters.TYPE_DATE)/*&& facetField.getGap() == null*/) {
+                            /*if (i == shownFacets - 1 && !field.getType().equals(DiscoveryConfigurationParameters.TYPE_DATE)//&& facetField.getGap() == null) {
                                 addViewMoreUrl(filterValsList, dso, request, field);
-                            }
+                            }*/
                         }
                     }
                 }

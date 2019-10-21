@@ -827,7 +827,9 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="/" alt="breadcrumb link to exam papers homapge" title="Breadcrumb link to exam papers home page">Exam Papers</a>
+                                                <a href="/" alt="breadcrumb link to exam papers homapge" title="Breadcrumb link to exam papers home page">
+                                                    Exam Papers
+                                                </a>
                                             </li>
                                             <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: Help">
                                                 <xsl:text>Help</xsl:text>
@@ -855,6 +857,11 @@
                                             <li>
                                                 <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
                                                     Library Essentials
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/" alt="breadcrumb link to exam papers homapge" title="Breadcrumb link to exam papers home page">
+                                                    Exam Papers
                                                 </a>
                                             </li>
                                             <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: Feedback">
@@ -885,6 +892,11 @@
                                                     Library Essentials
                                                 </a>
                                             </li>
+                                            <li>
+                                                <a href="/" alt="breadcrumb link to exam papers homapge" title="Breadcrumb link to exam papers home page">
+                                                    Exam Papers
+                                                </a>
+                                            </li>
                                             <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: FAQs">
                                                 <xsl:text>FAQs</xsl:text>
                                             </li>
@@ -911,6 +923,11 @@
                                             <li>
                                                 <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
                                                     Library Essentials
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/" alt="breadcrumb link to exam papers homapge" title="Breadcrumb link to exam papers home page">
+                                                    Exam Papers
                                                 </a>
                                             </li>
                                             <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: Paper Unavailable">
@@ -941,6 +958,11 @@
                                                     Library Essentials
                                                 </a>
                                             </li>
+                                            <li>
+                                                <a href="/" alt="breadcrumb link to exam papers homapge" title="Breadcrumb link to exam papers home page">
+                                                    Exam Papers
+                                                </a>
+                                            </li>
                                             <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: Accessibility">
                                                 <xsl:text>Accessibility</xsl:text>
                                             </li>
@@ -967,6 +989,11 @@
                                             <li>
                                                 <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
                                                     Library Essentials
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/" alt="breadcrumb link to exam papers homapge" title="Breadcrumb link to exam papers home page">
+                                                    Exam Papers
                                                 </a>
                                             </li>
                                             <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: View Paper">
@@ -997,12 +1024,80 @@
                                                     Library Essentials
                                                 </a>
                                             </li>
+                                            <li>
+                                                <a href="/" alt="breadcrumb link to exam papers homapge" title="Breadcrumb link to exam papers home page">
+                                                    Exam Papers
+                                                </a>
+                                            </li>
                                             <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: Search">
                                                 <xsl:text>Search</xsl:text>
                                             </li>
                                         </ul>      
-                                    </xsl:when>     
-
+                                    </xsl:when>  
+                                    <xsl:when test="starts-with($request-uri, 'password-login')">
+                                        <ul class="breadcrumb" alt="breadcrumb trail for current page">
+                                            <li>
+                                                <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
+                                                    University Homepage
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
+                                                    Schools &amp; Departments
+                                                </a>
+                                            </li> 
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
+                                                    Information Services
+                                                </a>
+                                            </li>                                          
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
+                                                    Library Essentials
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/" alt="breadcrumb link to exam papers homapge" title="Breadcrumb link to exam papers home page">
+                                                    Exam Papers
+                                                </a>
+                                            </li>
+                                            <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: Password Login">
+                                                <xsl:text>Password Login</xsl:text>
+                                            </li>
+                                        </ul>      
+                                    </xsl:when>   
+                                    <xsl:when test="starts-with($request-uri, 'forgot')">
+                                        <ul class="breadcrumb" alt="breadcrumb trail for current page">
+                                            <li>
+                                                <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
+                                                    University Homepage
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
+                                                    Schools &amp; Departments
+                                                </a>
+                                            </li> 
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
+                                                    Information Services
+                                                </a>
+                                            </li>                                          
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
+                                                    Library Essentials
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/" alt="breadcrumb link to exam papers homapge" title="Breadcrumb link to exam papers home page">
+                                                    Exam Papers
+                                                </a>
+                                            </li>
+                                            <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: Forgotten Password">
+                                                <xsl:text>Forgotten Password</xsl:text>
+                                            </li>
+                                        </ul>      
+                                    </xsl:when> 
                                     <xsl:otherwise>
                                         <ul class="breadcrumb" alt="breadcrumb trail for current page">
                                             <li>
@@ -1348,7 +1443,7 @@
                     <div class="hero-unit">
                         <div class="content">
                             <p></p>
-                            <h3 alt="page title">Edinburgh University Exam Papers Online</h3>
+                            <h3 alt="page title">University of Edinburgh Exam Papers Online</h3>
                             <p alt="information about the universities exam papers site">
                                 Exam Papers Online is a service provided by University of Edinburgh Library and University Collections for students and staff of The University of Edinburgh.
                             </p>
@@ -1389,7 +1484,7 @@
                             <p>
                                 All exam paper downloads on this site are in PDF format. Your browser should automatically display the PDF but if this is not possible, 
                                 there will be a link for downloading the PDF. If you do not have a PDF reader installed, <a href="http://get.adobe.com/uk/reader/" 
-                                title="Link to download and install Adobe Acrobat PDF Reader" class="bold" alt="link to adobe acrobat reader download page">download Adobe Acrobat Reader here</a>.
+                                title="Link to download and install Adobe Acrobat PDF Reader" alt="link to adobe acrobat reader download page">download Adobe Acrobat Reader here</a>.
                             </p>
                             <p>
                                 Users who wish to use assisted software are advised to use Internet Explorer.
@@ -1404,7 +1499,7 @@
                     <div class="hero-unit">
                         <div class="content">
                             <p></p>
-                            <h3 alt="page title">Feedback</h3>
+                            <h3 alt="page title">Exam Papers Online Feedback</h3>
                             <p alt="feedabck information">
                                 Please contact us with your suggestions or questions at <a href="mailto:exam.papers@ed.ac.uk" 
                                 title="Link to email the exam paper team at the University of Edinburgh with feedback and suggestions" alt="link to exam papers email address">exam.papers@ed.ac.uk</a>.
@@ -1443,7 +1538,7 @@
                     <div class="hero-unit">
                         <div class="content">
                             <div class="content byEditor about">
-                                <h3 alt="page title">FAQs</h3>
+                                <h3 alt="page title">Exam Papers Online FAQs</h3>
                                 <br></br>
                                 <h4 alt="subsection title">...For Students</h4>
                                 <h5 alt="frequently asked question"> I can’t find my paper. Why?</h5>
@@ -1915,6 +2010,11 @@
         <xsl:if test="dri:body/dri:div[@n='lookup']">
             <xsl:call-template name="choiceLookupPopUpSetup"/>
         </xsl:if>
+
+        <script>
+            var text = document.getElementById("email-news");
+            console.log(text);
+        </script>
 
         <xsl:call-template name="addJavascript-google-analytics" />
     </xsl:template>

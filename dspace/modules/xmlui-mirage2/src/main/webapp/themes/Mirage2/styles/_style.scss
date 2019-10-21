@@ -280,6 +280,9 @@ a.list-group-item :hover{
   text-decoration: none;
   background: #103d5c;
 }
+a.list-group-item :hover {
+      background-color: #186599;
+}
 
 /* Searchbar */
 .body-search {
@@ -377,7 +380,9 @@ fieldset {
 #aspect_administrative_registries_MetadataRegistryMain_field_submit_add,
 #aspect_administrative_CurateForm_field_submit_curate_task,
 #aspect_administrative_item_CurateItemForm_field_submit_curate_task,
-#aspect_administrative_community_CreateCommunityForm_field_submit_save {
+#aspect_administrative_community_CreateCommunityForm_field_submit_save,
+#aspect_eperson_PasswordLogin_field_submit,
+#aspect_eperson_StartForgotPassword_field_submit {
   margin: 10px 0px;
 }
 
@@ -482,7 +487,27 @@ fieldset {
 #faq-div-p {
   margin-bottom: 40px;
 }
-
 .emphasis span:hover {
   text-decoration: none;
 } 
+
+#aspect_eperson_PasswordLogin_div_register {
+  display: none;
+}
+
+/*#aspect_discovery_SimpleSearch_div_search-controls-gear ul {
+    transform: rotate(180deg);
+}
+#aspect_discovery_SimpleSearch_div_search-controls-gear ul > li {
+    transform: rotate(-180deg);
+}
+#aspect_discovery_SimpleSearch_div_search-controls-gear ul {
+    list-style-type:none;
+    counter-reset:item 6;
+}
+#aspect_discovery_SimpleSearch_div_search-controls-gear ul > li {
+    counter-increment:item -1;
+}
+#aspect_discovery_SimpleSearch_div_search-controls-gear ul > li:after {
+    content: counter(item);
+}*/
