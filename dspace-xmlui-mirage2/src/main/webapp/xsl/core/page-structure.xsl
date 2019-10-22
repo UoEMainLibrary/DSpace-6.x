@@ -1334,7 +1334,7 @@
                                             alt="link to univeristy privacy and coookie policies">
                                             Privacy &amp; Cookies 
                                         </a> 
-                                        <a class="footer-policies-a" href="https://www.ed.ac.uk/files/atoms/files/uoe_academic_blogging_notice_and_takedown_policy_v1.0.pdf" 
+                                        <a class="footer-policies-a" href="https://exampapers.ed.ac.uk/takedown" 
                                             title="Click to view the Universities Takedown Policy" alt="link to univeristy take down policy">
                                             Takedown Policy 
                                         </a> 
@@ -2012,8 +2012,16 @@
         </xsl:if>
 
         <script>
-            var text = document.getElementById("email-news");
-            console.log(text);
+            document.onload = function()
+            {
+                var byValue = document.querySelectorAll('a[value="... View More"]');
+                byValue.style.display="none";
+            }
+            window.onload = function()
+            {
+                var byValue = document.querySelectorAll('a[value="... View More"]');
+                byValue.style.display="none";
+            }
         </script>
 
         <xsl:call-template name="addJavascript-google-analytics" />

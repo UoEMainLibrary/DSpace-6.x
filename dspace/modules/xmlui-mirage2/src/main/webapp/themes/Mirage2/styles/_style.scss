@@ -290,17 +290,10 @@ a.list-group-item :hover {
   margin-bottom: 25px;
 }
 #body-input {
-  width: 1100%;
-}
-.input-group {
-  width: 100%;
-}
-fieldset {
-  width: 50%;
+  width: 400px;
 }
 #search-button {
   width: 200%;
-  left: 450px;
   position: relative;
   z-index: 10000;
 }
@@ -310,11 +303,12 @@ fieldset {
 }
 #search-reset {
   position: relative;
-  margin-left: 425px;
+  margin-left: 100px;
   padding-top: 8px;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: bold;
+  white-space: nowrap;
 }
 
 /* Footer */
