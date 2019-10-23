@@ -1098,6 +1098,70 @@
                                             </li>
                                         </ul>      
                                     </xsl:when> 
+                                    <xsl:when test="starts-with($request-uri, 'profile')">
+                                        <ul class="breadcrumb" alt="breadcrumb trail for current page">
+                                            <li>
+                                                <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
+                                                    University Homepage
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
+                                                    Schools &amp; Departments
+                                                </a>
+                                            </li> 
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
+                                                    Information Services
+                                                </a>
+                                            </li>                                          
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
+                                                    Library Essentials
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/" alt="breadcrumb link to exam papers homapge" title="Breadcrumb link to exam papers home page">
+                                                    Exam Papers
+                                                </a>
+                                            </li>
+                                            <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: Edit Profile">
+                                                <xsl:text>Edit Profile</xsl:text>
+                                            </li>
+                                        </ul>      
+                                    </xsl:when>
+                                    <xsl:when test="contains($request-uri, 'admin') or contains($request-uri, 'statistics')">
+                                        <ul class="breadcrumb" alt="breadcrumb trail for current page">
+                                            <li>
+                                                <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
+                                                    University Homepage
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
+                                                    Schools &amp; Departments
+                                                </a>
+                                            </li> 
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
+                                                    Information Services
+                                                </a>
+                                            </li>                                          
+                                            <li>
+                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
+                                                    Library Essentials
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/" alt="breadcrumb link to exam papers homapge" title="Breadcrumb link to exam papers home page">
+                                                    Exam Papers
+                                                </a>
+                                            </li>
+                                            <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: Administation">
+                                                <xsl:text>Administation</xsl:text>
+                                            </li>
+                                        </ul>      
+                                    </xsl:when>
                                     <xsl:otherwise>
                                         <ul class="breadcrumb" alt="breadcrumb trail for current page">
                                             <li>

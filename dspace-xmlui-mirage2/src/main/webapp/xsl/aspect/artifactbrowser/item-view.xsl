@@ -120,17 +120,17 @@
                     </div> -->
 
                     <!-- LIST OF ALL METADATA CATEGORIES TO BE DISPLAYED -->
-                    <xsl:call-template name="itemSummaryView-school"/>
-                    <xsl:call-template name="itemSummaryView-subject"/>
-                    <xsl:call-template name="itemSummaryView-titlesml"/>
-                    <xsl:call-template name="itemSummaryView-coursecode"/>
-                    <xsl:call-template name="itemSummaryView-version"/>
-                    <xsl:call-template name="itemSummaryView-year"/>
-                    <xsl:call-template name="itemSummaryView-DIM-file-section"/>
+                    <xsl:call-template name="itemSummaryView-school" />
+                    <xsl:call-template name="itemSummaryView-subject" />
+                    <xsl:call-template name="itemSummaryView-titlesml" />
+                    <xsl:call-template name="itemSummaryView-coursecode" />
+                    <xsl:call-template name="itemSummaryView-version" />
+                    <xsl:call-template name="itemSummaryView-year" />
+                    <xsl:call-template name="itemSummaryView-DIM-file-section" />
 
                     <!-- Supressed link to full item view -->
-                    <xsl:if test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'true'">
-                        <xsl:call-template name="itemSummaryView-show-full"/>
+                    <xsl:if test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
+                        <xsl:call-template name="itemSummaryView-show-full" />
                     </xsl:if>
                 </div>
                 <!--<div class="col-sm-8">
@@ -143,7 +143,7 @@
             <!-- generate variable for passing pdf to object viewer -->
             <xsl:variable name="pdf-link" select="//mets:fileSec/mets:fileGrp[@USE='CONTENT' or @USE='ORIGINAL']/mets:file/mets:FLocat[@LOCTYPE='URL']/@xlink:href" />
             <xsl:if test="normalize-space($pdf-link)">
-                <div class="pdf-viewer">
+                <div>
                     <object class="pdf-viewer" data="{$pdf-link}" type="application/pdf" width="100%" height="928"><xsl:value-of select="$pdf-link"></xsl:value-of></object>
                 </div>
             </xsl:if>

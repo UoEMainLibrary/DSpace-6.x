@@ -250,7 +250,7 @@
                 <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                     <div id="list-group-opt-div">
                     <a id="facet-back-link" href="/dri:document/dri:meta/dri:pageMeta/dri:trail[@target][last()]/@target" alt="View papers with this category link"
-                        title="Click to view all papers with this category">
+                        title="Click to view this page">
                         <xsl:call-template name="standardAttributes">
                             <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
                         </xsl:call-template>
@@ -302,7 +302,7 @@
         <xsl:choose>
             <xsl:when test="$doc-url = $doc-root">
                 <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
-                    <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to view all papers with this category">
+                    <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to view this page">
                         <xsl:call-template name="standardAttributes">
                             <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
                         </xsl:call-template>
@@ -319,7 +319,7 @@
             </xsl:when>
             <xsl:when test="not(contains($full-url, 'subject'))">
                 <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
-                    <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to view all papers with this category">
+                    <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to view this page">
                         <xsl:call-template name="standardAttributes">
                             <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
                         </xsl:call-template>
@@ -336,7 +336,7 @@
             </xsl:when>
             <xsl:when test="contains($full-url, 'profile')">
                 <xsl:if test="not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
-                    <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to view all papers with this category">
+                    <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to view this page">
                         <xsl:call-template name="standardAttributes">
                             <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
                         </xsl:call-template>
@@ -353,7 +353,7 @@
             </xsl:when>
             <xsl:otherwise>
                 <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse')">
-                    <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to view all papers with this category">
+                    <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to view this page">
                         <xsl:call-template name="standardAttributes">
                             <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
                         </xsl:call-template>
