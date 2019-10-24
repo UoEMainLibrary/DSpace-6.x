@@ -181,99 +181,99 @@
                                                         </span>
                                                     </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Biological+Sciences%2C+School+of" 
-                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Biological Sciences, School of
                                                     </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Biomedical+Sciences%2C+Deanery+of" 
-                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Biomedical Sciences, Deanery of
                                                     </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Business+School" 
-                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Business School
                                                     </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Chemistry%2C+School+of" 
-                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Chemistry, School of
                                                     </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Clinical+Sciences%2C+Deanery+of" 
-                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Clinical Sciences, Deanery of
                                                     </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Divinity%2C+School+of" 
-                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Divinity, School of
                                                     </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Economics%2C+School+of" 
-                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Economics, School of
                                                     </a>
                                                     <a href="${$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Edinburgh+College+of+Art" 
-                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Edinburgh College of Art
                                                     </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Education%2C+The+Moray+House+School+of" 
-                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Education, The Moray House School of
                                                     </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Engineering%2C+School+of" 
-                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Engineering, School of
                                                     </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Geosciences%2C+School+of" 
-                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Geosciences, School of
                                                     </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Health+in+Social+Science%2C+School+of" 
-                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Health in Social Science, School of
                                                     </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=History%2C+Classics+and+Archaeology%2C+School+of" 
-                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         History, Classics and Archaeology, School of
                                                     </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Informatics%2C+School+of" 
-                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Informatics, School of
                                                     </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Law%2C+School+of" 
-                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Law, School of
                                                     </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Life+Long+Learning" 
-                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Life Long Learning
                                                     </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Literatures%2C+Languages+%26+Cultures%2C+School+of" 
-                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Literatures, Languages &amp; Cultures, School of
                                                     </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Mathematics%2C+School+of" 
-                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Mathematics, School of
                                                     </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=MBChB+%28Papers+unavailable+at+request+of+College%29" 
-                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         MBChB (Papers unavailable at request of College)
                                                     </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Molecular%2C+Genetic+and+Population+Health+Sciences%2C+Deanery+of" 
-                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Molecular, Genetic and Population Health Sciences, Deanery of
                                                     </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Philosophy%2C+Psychology+%26+Language+Sciences%2C+School+of" 
-                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Philosophy, Psychology &amp; Language Sciences, School of
                                                     </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Physics+and+Astronomy%2C+School+of" 
-                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Physics and Astronomy, School of
                                                     </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Social+%26+Political+Science%2C+School+of" 
-                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Social &amp; Political Science, School of
                                                     </a>
                                                     <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Veterinary+Studies%2C+Royal+%28Dick%29+School+of" 
-                                                        class="list-group-item ds-option" alt="click to view all papers for this school">
+                                                        class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Veterinary Studies, Royal (Dick) School of
                                                     </a>
                                                 </div>   
@@ -1904,7 +1904,7 @@
                             <h3>How We Tested This Website</h3>
                             <p alt="exam papers accessability details">
                                 This system was last tested by the University of Edinburgh’s Deputy Disability Information Officer in August 2019 via sampling the majority of pages across the website. We tested the system on a PC using the bowser Internet Explorer (11) as this is the bowsers most commonly used by disabled users due to its accessibility features and compatibility with assistive technology, as shown by the 
-                                <a href="https://accessibility.blog.gov.uk/2016/11/01/results-of-the-2016-gov-uk-assistive-technology-survey/">Government Assistive Technology Survey</a>
+                                <a href="https://accessibility.blog.gov.uk/2016/11/01/results-of-the-2016-gov-uk-assistive-technology-survey/" title="Click to view the Government Assistive Technology Survey results">Government Assistive Technology Survey</a>
                             </p>
                             <p alt="exam papers accessability details">
                                 We tested:

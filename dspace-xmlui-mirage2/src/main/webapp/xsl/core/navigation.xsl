@@ -318,7 +318,7 @@
                     <!-- Conditional to determine title value for accessibility -->
                     <xsl:choose>
                         <xsl:when test="../@n = 'author'">
-                            <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to filter papers by this school">
+                            <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to view all papers from this school">
                                 <xsl:call-template name="standardAttributes">
                                     <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
                                 </xsl:call-template>
