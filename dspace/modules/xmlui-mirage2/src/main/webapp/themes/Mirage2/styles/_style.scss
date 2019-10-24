@@ -100,6 +100,14 @@ h4, h5 {
 .ds-paragraph p {
   margin-bottom: 15px;
 }
+.italic,
+.ds-gloss-list-label,
+#aspect_administrative_item_EditItemStatusForm_list_item-info span,
+#aspect_administrative_eperson_ManageEPeopleMain_list_actions span,
+#aspect_administrative_group_ManageGroupsMain_list_actions span,
+#aspect_administrative_authorization_AuthorizationMain_list_actions span {
+  color: #333;
+}
 
 /* Hide DSpace communities block */
 .ds-div-head {

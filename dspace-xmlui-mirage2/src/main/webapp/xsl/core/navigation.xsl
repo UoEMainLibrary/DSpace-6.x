@@ -249,13 +249,26 @@
             <xsl:when test="$doc-url = $doc-root">
                 <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                     <div id="list-group-opt-div">
+                    <xsl:choose>
+                    <xsl:when test="../@n = 'subject'">
                     <a id="facet-back-link" href="/dri:document/dri:meta/dri:pageMeta/dri:trail[@target][last()]/@target" alt="View papers with this category link"
-                        title="Click to view this page">
+                        title="Click to filter papers by this subject">
                         <xsl:call-template name="standardAttributes">
                             <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
                         </xsl:call-template>
                         <xsl:apply-templates/>
                     </a>
+                    </xsl:when>
+                    <xsl:otherwise>
+                    <a id="facet-back-link" href="/dri:document/dri:meta/dri:pageMeta/dri:trail[@target][last()]/@target" alt="View papers with this category link"
+                        title="Click to view this administrutive page">
+                        <xsl:call-template name="standardAttributes">
+                            <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                        </xsl:call-template>
+                        <xsl:apply-templates/>
+                    </a>
+                    </xsl:otherwise>
+                    </xsl:choose>
                     </div>
                 </xsl:if>
             </xsl:when>
@@ -302,70 +315,283 @@
         <xsl:choose>
             <xsl:when test="$doc-url = $doc-root">
                 <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
-                    <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to view this page">
-                        <xsl:call-template name="standardAttributes">
-                            <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
-                        </xsl:call-template>
-                        <xsl:choose>
-                            <xsl:when test="dri:xref/node()">
-                                <xsl:apply-templates select="dri:xref/node()"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:value-of select="dri:xref"/>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </a>   
+                    <!-- Conditional to determine title value for accessibility -->
+                    <xsl:choose>
+                        <xsl:when test="../@n = 'author'">
+                            <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to filter papers by this school">
+                                <xsl:call-template name="standardAttributes">
+                                    <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                                </xsl:call-template>
+                                <xsl:choose>
+                                    <xsl:when test="dri:xref/node()">
+                                        <xsl:apply-templates select="dri:xref/node()"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="dri:xref"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </a>
+                        </xsl:when>
+                        <xsl:when test="../@n = 'subject'">
+                            <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to filter papers by this subject">
+                                <xsl:call-template name="standardAttributes">
+                                    <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                                </xsl:call-template>
+                                <xsl:choose>
+                                    <xsl:when test="dri:xref/node()">
+                                        <xsl:apply-templates select="dri:xref/node()"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="dri:xref"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </a>
+                        </xsl:when>
+                        <xsl:when test="../@n = 'datetemporal'">
+                            <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to filter papers by this accademic year">
+                                <xsl:call-template name="standardAttributes">
+                                    <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                                </xsl:call-template>
+                                <xsl:choose>
+                                    <xsl:when test="dri:xref/node()">
+                                        <xsl:apply-templates select="dri:xref/node()"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="dri:xref"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </a>
+                        </xsl:when>
+                        <xsl:when test="../@n = 'titlefacet'">
+                            <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to filter papers by this course title">
+                                <xsl:call-template name="standardAttributes">
+                                    <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                                </xsl:call-template>
+                                <xsl:choose>
+                                    <xsl:when test="dri:xref/node()">
+                                        <xsl:apply-templates select="dri:xref/node()"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="dri:xref"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </a>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to view this administrutive page">
+                                <xsl:call-template name="standardAttributes">
+                                    <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                                </xsl:call-template>
+                                <xsl:choose>
+                                    <xsl:when test="dri:xref/node()">
+                                        <xsl:apply-templates select="dri:xref/node()"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="dri:xref"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </a>
+                        </xsl:otherwise>
+                    </xsl:choose>   
+                    <!-- End of conditional -->
                 </xsl:if>
             </xsl:when>
             <xsl:when test="not(contains($full-url, 'subject'))">
                 <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
-                    <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to view this page">
-                        <xsl:call-template name="standardAttributes">
-                            <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
-                        </xsl:call-template>
-                        <xsl:choose>
-                            <xsl:when test="dri:xref/node()">
-                                <xsl:apply-templates select="dri:xref/node()"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:value-of select="dri:xref"/>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </a>
+                    <xsl:choose>
+                        <xsl:when test="../@n = 'subject'">
+                            <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to filter papers by this subject">
+                                <xsl:call-template name="standardAttributes">
+                                    <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                                </xsl:call-template>
+                                <xsl:choose>
+                                    <xsl:when test="dri:xref/node()">
+                                        <xsl:apply-templates select="dri:xref/node()"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="dri:xref"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </a>
+                        </xsl:when>
+                        <xsl:when test="../@n = 'datetemporal'">
+                            <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to filter papers by this accademic year">
+                                <xsl:call-template name="standardAttributes">
+                                    <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                                </xsl:call-template>
+                                <xsl:choose>
+                                    <xsl:when test="dri:xref/node()">
+                                        <xsl:apply-templates select="dri:xref/node()"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="dri:xref"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </a>
+                        </xsl:when>
+                        <xsl:when test="../@n = 'titlefacet'">
+                            <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to filter papers by this course title">
+                                <xsl:call-template name="standardAttributes">
+                                    <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                                </xsl:call-template>
+                                <xsl:choose>
+                                    <xsl:when test="dri:xref/node()">
+                                        <xsl:apply-templates select="dri:xref/node()"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="dri:xref"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </a>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to view this administrutive page">
+                                <xsl:call-template name="standardAttributes">
+                                    <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                                </xsl:call-template>
+                                <xsl:choose>
+                                    <xsl:when test="dri:xref/node()">
+                                        <xsl:apply-templates select="dri:xref/node()"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="dri:xref"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </a>
+                        </xsl:otherwise>
+                    </xsl:choose>
                 </xsl:if>
             </xsl:when>
             <xsl:when test="contains($full-url, 'profile')">
                 <xsl:if test="not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
-                    <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to view this page">
-                        <xsl:call-template name="standardAttributes">
-                            <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
-                        </xsl:call-template>
-                        <xsl:choose>
-                            <xsl:when test="dri:xref/node()">
-                                <xsl:apply-templates select="dri:xref/node()"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:value-of select="dri:xref"/>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </a>
+                    <xsl:choose>
+                        <xsl:when test="../@n = 'subject'">
+                            <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to filter papers by this subject">
+                                <xsl:call-template name="standardAttributes">
+                                    <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                                </xsl:call-template>
+                                <xsl:choose>
+                                    <xsl:when test="dri:xref/node()">
+                                        <xsl:apply-templates select="dri:xref/node()"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="dri:xref"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </a>
+                        </xsl:when>
+                        <xsl:when test="../@n = 'datetemporal'">
+                            <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to filter papers by this accademic year">
+                                <xsl:call-template name="standardAttributes">
+                                    <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                                </xsl:call-template>
+                                <xsl:choose>
+                                    <xsl:when test="dri:xref/node()">
+                                        <xsl:apply-templates select="dri:xref/node()"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="dri:xref"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </a>
+                        </xsl:when>
+                        <xsl:when test="../@n = 'titlefacet'">
+                            <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to filter papers by this course title">
+                                <xsl:call-template name="standardAttributes">
+                                    <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                                </xsl:call-template>
+                                <xsl:choose>
+                                    <xsl:when test="dri:xref/node()">
+                                        <xsl:apply-templates select="dri:xref/node()"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="dri:xref"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </a>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to view this administrutive page">
+                                <xsl:call-template name="standardAttributes">
+                                    <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                                </xsl:call-template>
+                                <xsl:choose>
+                                    <xsl:when test="dri:xref/node()">
+                                        <xsl:apply-templates select="dri:xref/node()"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="dri:xref"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </a>
+                        </xsl:otherwise>
+                    </xsl:choose>
                 </xsl:if>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse')">
-                    <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to view this page">
-                        <xsl:call-template name="standardAttributes">
-                            <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
-                        </xsl:call-template>
-                        <xsl:choose>
-                            <xsl:when test="dri:xref/node()">
-                                <xsl:apply-templates select="dri:xref/node()"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:value-of select="dri:xref"/>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </a>
+                    <xsl:choose>
+                        <xsl:when test="../@n = 'subject'">
+                            <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to filter papers by this subject">
+                                <xsl:call-template name="standardAttributes">
+                                    <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                                </xsl:call-template>
+                                <xsl:choose>
+                                    <xsl:when test="dri:xref/node()">
+                                        <xsl:apply-templates select="dri:xref/node()"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="dri:xref"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </a>
+                        </xsl:when>
+                        <xsl:when test="../@n = 'datetemporal'">
+                            <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to filter papers by this accademic year">
+                                <xsl:call-template name="standardAttributes">
+                                    <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                                </xsl:call-template>
+                                <xsl:choose>
+                                    <xsl:when test="dri:xref/node()">
+                                        <xsl:apply-templates select="dri:xref/node()"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="dri:xref"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </a>
+                        </xsl:when>
+                        <xsl:when test="../@n = 'titlefacet'">
+                            <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to filter papers by this course title">
+                                <xsl:call-template name="standardAttributes">
+                                    <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                                </xsl:call-template>
+                                <xsl:choose>
+                                    <xsl:when test="dri:xref/node()">
+                                        <xsl:apply-templates select="dri:xref/node()"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="dri:xref"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </a>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to view this administrutive page">
+                                <xsl:call-template name="standardAttributes">
+                                    <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                                </xsl:call-template>
+                                <xsl:choose>
+                                    <xsl:when test="dri:xref/node()">
+                                        <xsl:apply-templates select="dri:xref/node()"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="dri:xref"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </a>
+                        </xsl:otherwise>
+                    </xsl:choose>
                 </xsl:if>
             </xsl:otherwise>
         </xsl:choose>

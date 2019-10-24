@@ -997,7 +997,7 @@
                                                 </a>
                                             </li>
                                             <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: View Paper">
-                                                <xsl:text>View Item</xsl:text>
+                                                <xsl:text>View Paper</xsl:text>
                                             </li>
                                         </ul>   
                                     </xsl:when>
@@ -1403,7 +1403,7 @@
                                             Takedown Policy 
                                         </a> 
                                         <a class="footer-policies-a" href="{$context-path}/exam-papers/accessibility" title="Click to view the exam papers Website Accessibility Statement" 
-                                            target="_blank" alt="link to univeristy accessibilty policy">
+                                            alt="link to univeristy accessibilty policy">
                                             Accessibility 
                                         </a> 
                                     </p>
@@ -1513,7 +1513,7 @@
                             </p>
                             <p>
                                 These pages will be updated periodically, as more papers become available. If you cannot find the paper you are looking for, please email 
-                                <a href="mailto:exam.papers@ed.ac.uk" title="Link to email the exam paper team at the University of Edinburgh about a specific exam paper"
+                                <a href="mailto:exam.papers@ed.ac.uk" title="Clink to email the exam papers team at the University of Edinburgh about a specific exam paper"
                                 alt="link to exam papers email address">exam.papers@ed.ac.uk</a>, or try visiting again at a later date.
                             </p>
                             <p>
@@ -1524,7 +1524,7 @@
                                 Bound volumes of older sets - up to academic year 2004/2005 - have now been moved to the University Collections Facility and may be retrieved upon request.
                                 Further information on accessing materials stored in the university are available from: 
                                 <a href="https://www.ed.ac.uk/information-services/library-museum-gallery/using-library/lib-locate/university-collections-facility" 
-                                target="_blank" title="Link to details about accessing the University Collections Facility materials" alt="link to the univeristy collections
+                                target="_blank" title="External link to details about accessing the University Collections Facility materials" alt="link to the univeristy collections
                                 facility website">University Collections Facility. 
                                 </a>
                             </p>
@@ -1540,15 +1540,15 @@
                             <p></p>
                             <h3 alt="page title">Exam Papers Online Help</h3>
                             <p alt=" helpful information about using the universities exam papers site">
-                                Please contact <a href="mailto:exam.papers@ed.ac.uk" title="Link to email the exam paper team at the University of Edinburgh with any queries"
+                                Please contact <a href="mailto:exam.papers@ed.ac.uk" title="Clink to email the exam papers team at the University of Edinburgh with any queries"
                                 alt="link to exam papers email address">exam.papers@ed.ac.uk</a> with any queries concerning past exam papers or use the 
-                                <a href="./feedback/" title="Link to the University of Edinburgh's exam papers feedback form" alt="link to exam papers feedback form">Feedback form</a> 
+                                <a href="./feedback/" title="Clink to view the University of Edinburgh's exam papers feedback form" alt="link to exam papers feedback form">Feedback form</a> 
                                 for comments or suggestions on the web pages.
                             </p>
                             <p>
                                 All exam paper downloads on this site are in PDF format. Your browser should automatically display the PDF but if this is not possible, 
                                 there will be a link for downloading the PDF. If you do not have a PDF reader installed, <a href="http://get.adobe.com/uk/reader/" 
-                                title="Link to download and install Adobe Acrobat PDF Reader" alt="link to adobe acrobat reader download page">download Adobe Acrobat Reader here</a>.
+                                title="Clink to download and install Adobe Acrobat PDF Reader" alt="link to adobe acrobat reader download page">download Adobe Acrobat Reader here</a>.
                             </p>
                             <p>
                                 Users who wish to use assisted software are advised to use Internet Explorer.
@@ -1566,7 +1566,7 @@
                             <h3 alt="page title">Exam Papers Online Feedback</h3>
                             <p alt="feedabck information">
                                 Please contact us with your suggestions or questions at <a href="mailto:exam.papers@ed.ac.uk" 
-                                title="Link to email the exam paper team at the University of Edinburgh with feedback and suggestions" alt="link to exam papers email address">exam.papers@ed.ac.uk</a>.
+                                title="Clink to email the exam papers team at the University of Edinburgh with feedback and suggestions" alt="link to exam papers email address">exam.papers@ed.ac.uk</a>.
                             </p>
                             <h3 alt="section title">Privacy Statement </h3>
                             <p alt="privacy statement deatils">
@@ -1585,10 +1585,10 @@
                             </p>
                             <p>
                                 If you have any questions, please contact: <a href="mailto:exam.papers@ed.ac.uk" 
-                                title="Link to email the exam paper team at the University of Edinburgh with any questions" alt="link to exam papers email address">exam.papers@ed.ac.uk</a>
+                                title="Clink to email the exam papers team at the University of Edinburgh with any questions" alt="link to exam papers email address">exam.papers@ed.ac.uk</a>
                             </p>
                             <p>
-                                <a href="https://www.ed.ac.uk/records-management/notice" target="_blank" title="Link to the University of Edinburgh's privacy statement" alt="link to university privacy statement">
+                                <a href="https://www.ed.ac.uk/records-management/notice" target="_blank" title="External link to the University of Edinburgh's privacy statement" alt="link to university privacy statement">
                                     University privacy statement
                                 </a>
                             </p>
@@ -1631,7 +1631,7 @@
                                 <p id="faq-div-p" alt="answer to frequently asked question">
                                     We hold some digitised exam papers from 1995 to 2004 in our archive. Please email us if you require older papers. Original print copies of papers further back are held at the 
                                     <a href="https://www.ed.ac.uk/information-services/library-museum-gallery/using-library/lib-locate/university-collections-facility" target="_blank" 
-                                    title="Link to details about accessing the University Collections Facility materials" alt="link to the univeristy's collection facility wbsite">University Collections Facility.
+                                    title="Clink to view details about accessing the University Collections Facility materials" alt="link to the univeristy's collection facility wbsite">University Collections Facility.
                                     </a>
                                 </p>
                                 <br></br>
@@ -1652,9 +1652,9 @@
                                 <br></br>
                                 <br></br>
                                 <p>
-                                    If you have any other questions please email us at <strong><a href="mailto:exam.papers@ed.ac.uk" 
-                                    title="Link to email the exam paper team at the University of Edinburgh about any other queries" alt="link to exam papers email address">
-                                    exam.papers@ed.ac.uk</a></strong>
+                                    If you have any other questions please email us at <a href="mailto:exam.papers@ed.ac.uk" 
+                                    title="Clink to email the exam papers team at the University of Edinburgh about any other queries" alt="link to exam papers email address">
+                                    exam.papers@ed.ac.uk</a>
                                 </p>
                                 <br></br>
                             </div>
@@ -1721,7 +1721,7 @@
                                 AbilityNet has advice on making your device easier to use if you have a disability.
                             </p>
                             <p alt="exam papers accessability details">
-                                <a href="https://mcmw.abilitynet.org.uk/">                                   
+                                <a href="https://mcmw.abilitynet.org.uk/" title="External link to AbilityNet website">                                   
                                     <p>AbilityNet - My computer my way</p>
                                 </a>
                             </p>
@@ -1729,7 +1729,7 @@
                                 With a few simple steps you can customise the appearance of our website to make it easier to read and navigate.
                             </p>
                             <p alt="exam papers accessability details">
-                                <a href="https://www.edweb.ed.ac.uk/about/website/accessibility/customising-site">
+                                <a href="https://www.edweb.ed.ac.uk/about/website/accessibility/customising-site" title="External link to EdWeb website customising page">
                                     <p>Additional information on how to customise our website appearance</p>
                                 </a>
                             </p>
@@ -1793,7 +1793,7 @@
                             <h3>What to do if you cannot access parts of this website</h3>
                             <p alt="exam papers accessability details">
                                 If you need information on this website in a different format like accessible PDF, large print, audio recording or braille please contact the Universities Collection team Helpline by emailing 
-                                <a href="mailto:exam.papers@ed.ac.uk">exam.papers@ed.ac.uk</a> or phone <a href="tel: 0131 651 1827">0131 651 1827</a>
+                                <a href="mailto:exam.papers@ed.ac.uk" title="Clink to email the exam papers team at the University of Edinburgh with any enquiries">exam.papers@ed.ac.uk</a> or phone <a href="tel: 0131 651 1827" title="Clink to call the exam papers team at the University of Edinburgh with any enquiries">0131 651 1827</a>
                             </p>
                             <p alt="exam papers accessability details">
                                 We’ll consider your request and get back to you in 5 working days.
@@ -1803,7 +1803,7 @@
                             </p>
                             <p alt="exam papers accessability details">
                                 We’re always looking to improve the accessibility of this website. If you find any problems not listed on this page or think we’re not meeting accessibility requirements please let us know: by emailing 
-                                <a href="mailto:exam.papers@ed.ac.uk">exam.papers@ed.ac.uk</a> or phone <a href="tel: 0131 651 1827">0131 651 1827</a>
+                                <a href="mailto:exam.papers@ed.ac.uk" title="Clink to email the exam papers team at the University of Edinburgh with any enquiries">exam.papers@ed.ac.uk</a> or phone <a href="tel: 0131 651 1827" title="Clink to call the exam papers team at the University of Edinburgh with any enquiries">0131 651 1827</a>
                             </p>
                             <p alt="exam papers accessability details">
                                 We’ll consider your request and get back to you in 5 working days.
@@ -1814,7 +1814,7 @@
                                 The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ‘accessibility regulations’). If you’re not happy with how we respond to your complaint please contact the Equality Advisory and Support Service (EASS) directly.
                             </p>
                             <p alt="exam papers accessability details">
-                                <a href="https://www.equalityadvisoryservice.com/">Contact details for the Equality Advisory and Support Service (EASS)</a>
+                                <a href="https://www.equalityadvisoryservice.com/" title="External link to Equality Advisory and Support Service website">Contact details for the Equality Advisory and Support Service (EASS)</a>
                             </p>
                             <p alt="exam papers accessability details">
                                 <strong>Contacting us by phone using British Sign Language</strong>
@@ -1824,7 +1824,7 @@
                                 British Sign Language Scotland runs a service for British Sign Language users and all of Scotland’s public bodies using video relay. This enables sign language users to contact public bodies and vice versa. The service operates from 8am to 12 midnight, 7 days a week. 
                             </p>
                             <p alt="exam papers accessability details">
-                                <a href="https://contactscotland-bsl.org">British Sign Language Scotland service details</a>
+                                <a href="https://contactscotland-bsl.org" title="External link to British Sign Language Scotland website">British Sign Language Scotland service details</a>
                             </p>
                             <p alt="exam papers accessability details">
                                 Technical information about this website’s accessibility
@@ -1839,7 +1839,7 @@
                                 The full guidelines are available at:
                             </p>
                             <p alt="exam papers accessability details">
-                                <a href="https://www.w3.org/TR/WCAG21/">British Sign Language Scotland service details</a>
+                                <a href="https://www.w3.org/TR/WCAG21/" title="External link to W3 Web Content Accessibility Guidelines">British Sign Language Scotland service details</a>
                             </p>
                             <p></p>
                             <h3>Non accessible content</h3>
@@ -1854,57 +1854,57 @@
                             </p>
                             <ul>
                                 <li>
-                                    It is not possible to use a keyboard to access all the content
-                                    <a href="https://www.w3.org/TR/WCAG21/#keyboard-accessible">2.1 - Keyboard accessible</a>
+                                    It is not possible to use a keyboard to access all the content <br></br>
+                                    <a href="https://www.w3.org/TR/WCAG21/#keyboard-accessible" title="External link to W3 Keyboard Accessibility Guidelines">2.1 - Keyboard accessible</a>
                                 </li>
                                 <li>
-                                    Information is conveyed as an image of text rather than as text itelf so that it's not compatible with screen readers and other assistive technology 
-
-                                    <a href="https://www.w3.org/TR/WCAG21/#images-of-text">1.4.5 - Images of text</a>
+                                    Information is conveyed as an image of text rather than as text itelf so that it's not compatible with screen readers and other assistive technology <br></br>
+                                    <a href="https://www.w3.org/TR/WCAG21/#images-of-text" title="External link to W3 Images of Text Guidelines">1.4.5 - Images of text</a>
                                 </li>
                                 <li>
-                                    Most tooltips disappear as soon as the cursor moves. Also tooltips are not always present for all icons and images. 
+                                    Most tooltips disappear as soon as the cursor moves. Also tooltips are not always present for all icons and images. <br></br> 
 
-                                    <a href="https://www.w3.org/TR/WCAG21/#content-on-hover-or-focus">1.4.3 - Contrast (Minimum)</a>
+                                    <a href="https://www.w3.org/TR/WCAG21/#content-on-hover-or-focus" title="External link to W3 Content on Hover or Focus Guidelines">1.4.3 - Contrast (Minimum)</a>
                                 </li>
                                 <li>
-                                    There may not be sufficient colour contrast between font and background colours especially where the text size is very small. 
+                                    There may not be sufficient colour contrast between font and background colours especially where the text size is very small. <br></br> 
 
-                                    <a href="https://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-contrast">1.4.13 - Content on Hover or Focus</a>
+                                    <a href="https://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-contrast" title="External link to W3 Visual and Audio Contrast Guidelines">1.4.13 - Content on Hover or Focus</a>
                                 </li>
                                 <li>
-                                    Visual information to identify user interface components, such as keyboard focus, do not always have a sufficient contrast ratio 
+                                    Visual information to identify user interface components, such as keyboard focus, do not always have a sufficient contrast ratio <br></br>
 
-                                    <a href="https://www.w3.org/TR/WCAG21/#non-text-contrast">1.4.11 - Non-text contrast</a>
+                                    <a href="https://www.w3.org/TR/WCAG21/#non-text-contrast" title="External link to W3 Non-text Contrast Guidelines">1.4.11 - Non-text contrast</a>
                                 </li>
                                 <li>
-                                    Some content cannot be presented without loss of information when magnified to the maximum browser level
+                                    Some content cannot be presented without loss of information when magnified to the maximum browser level <br></br>
 
-                                    <a href="https://www.w3.org/TR/WCAG21/#reflow">1.4.10 - Reflow</a>
+                                    <a href="https://www.w3.org/TR/WCAG21/#reflow" title="External link to W3 Reflow Guidelines">1.4.10 - Reflow</a>
                                 </li>
                                 <li>
-                                    It might not be possible for all form fields to be programmatically determined. This means that when using auto-fill functionality for forms not all fields will identify the meaning for input data accurately
+                                    It might not be possible for all form fields to be programmatically determined. This means that when using auto-fill functionality for forms not all fields will identify the meaning for input data accurately <br></br>
 
-                                    <a href="https://www.w3.org/TR/WCAG21/#identify-input-purpose">1.3.5 - Identify Input Purpose</a>
+                                    <a href="https://www.w3.org/TR/WCAG21/#identify-input-purpose" title="External link to W3 Identify Input Purpose Guidelines">1.3.5 - Identify Input Purpose</a>
                                 </li>
                                 <li>
-                                    Some content cannot be presented without loss of information if the line height, paragraph spacing, letter spacing or word spacing is increased.
+                                    Some content cannot be presented without loss of information if the line height, paragraph spacing, letter spacing or word spacing is increased. <br></br>
 
-                                    <a href="https://www.w3.org/TR/WCAG21/#text-spacing">1.4.12 - Text Spacing</a>
+                                    <a href="https://www.w3.org/TR/WCAG21/#text-spacing" title="External link to W3 ext Spacing Guidelines">1.4.12 - Text Spacing</a>
                                 </li>
                                 <li>
-                                    There is content that has moving, blinking or scrolling information that (1) starts automatically, (2) lasts more than five seconds, and (3) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it unless the movement, blinking, or scrolling is part of an activity where it is essential.
+                                    There is content that has moving, blinking or scrolling information that (1) starts automatically, (2) lasts more than five seconds, and (3) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it unless the movement, blinking, or scrolling is part of an activity where it is essential. <br></br>
 
-                                    <a href="https://www.w3.org/TR/WCAG21/#pause-stop-hide">2.2.2- Pause, Stop and Hide</a>
+                                    <a href="https://www.w3.org/TR/WCAG21/#pause-stop-hide" title="External link to W3 Pause, Stop and Hide Guidelines">2.2.2- Pause, Stop and Hide</a>
                                 </li>
                             </ul>
                             <p alt="exam papers accessability details">
-                                Unless specified otherwise a complete solution or significant improvement will be in place by September 2020. We also plan to remove the use of italics and continuous capitals wherever possible.
+                                Unless specified otherwise a complete solution or significant improvement will be in place by September 2020. We also plan to remove the use of italics and continuous capitals wherever possible. <br></br>
                             </p>
                             <p></p>
                             <h3>How We Tested This Website</h3>
                             <p alt="exam papers accessability details">
-                                This system was last tested by the University of Edinburgh’s Deputy Disability Information Officer in August 2019 via sampling the majority of pages across the website. We tested the system on a PC using the bowser Internet Explorer (11) as this is the bowsers most commonly used by disabled users due to its accessibility features and compatibility with assistive technology, as shown by the <a href="https://accessibility.blog.gov.uk/2016/11/01/results-of-the-2016-gov-uk-assistive-technology-survey/">Government Assistive Technology Survey</a>
+                                This system was last tested by the University of Edinburgh’s Deputy Disability Information Officer in August 2019 via sampling the majority of pages across the website. We tested the system on a PC using the bowser Internet Explorer (11) as this is the bowsers most commonly used by disabled users due to its accessibility features and compatibility with assistive technology, as shown by the 
+                                <a href="https://accessibility.blog.gov.uk/2016/11/01/results-of-the-2016-gov-uk-assistive-technology-survey/">Government Assistive Technology Survey</a>
                             </p>
                             <p alt="exam papers accessability details">
                                 We tested:
@@ -1954,8 +1954,8 @@
                                 </li>
                             </ul>
                             <p></p>
-                            <h3>Content that's not within the scope of the accessibility regulations</h3>
-                            <h3>Security of and Access to Your Personal Data</h3>
+                            <!--<h3>Content that's not within the scope of the accessibility regulations</h3>
+                            <h3>Security of and Access to Your Personal Data</h3>-->
                             <h3>What we’re doing to improve accessibility</h3>
                             <p alt="exam papers accessability details">
                                 We will continue to work with the developer to address these issues and deliver a solution or suitable workaround.
@@ -1965,17 +1965,17 @@
                             </p>
                             <p></p>
 
-                            <h1 alt="exhibition title" class="access-h">Information Services and accessibility</h1>
+                            <h3 alt="exhibition title" class="access-h">Information Services and accessibility</h3>
                             <p alt="exam papers accessability details">
                                 Information Services (IS) has further information on accessibility including assistive technology, creating accessible documents, and services IS provides for disabled users.
                             </p>
                             <p alt="exam papers accessability details">
-                                <a href="https://www.ed.ac.uk/information-services/help-consultancy/accessibility">
+                                <a href="https://www.ed.ac.uk/information-services/help-consultancy/accessibility" title="Click to view the IS accessibility services">
                                     Assistive technology, creating accessible documents, and services IS provides for disabled users
                                 </a>
                             </p>
                             <p></p>
-                            <h3>Information Services and accessibility</h3>
+                            <!--<h3>Information Services and accessibility</h3>-->
                             <p></p>
                             <p alt="exam papers accessability details">
                                 <strong>This statement was prepared on October 2019. It was last updated on October 2019.</strong>
