@@ -109,14 +109,16 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="row">
-                        <div class="col-xs-6 col-sm-12">
+                        <!--<div class="col-xs-6 col-sm-12">
                             <xsl:call-template name="itemSummaryView-DIM-thumbnail"/>
-                        </div>
+                        </div>-->
                         <div class="col-xs-6 col-sm-12">
                             <xsl:call-template name="itemSummaryView-DIM-file-section"/>
                         </div>
                     </div>
                     <xsl:call-template name="itemSummaryView-DIM-date"/>
+                    <xsl:call-template name="itemSummaryView-DIM-access"/>
+                    <xsl:call-template name="itemSummaryView-DIM-embargo"/>
                     <xsl:call-template name="itemSummaryView-DIM-authors"/>
                     <xsl:if test="$ds_item_view_toggle_url != ''">
                         <xsl:call-template name="itemSummaryView-show-full"/>
@@ -165,7 +167,7 @@
         </xsl:choose>
     </xsl:template>
 
-    <xsl:template name="itemSummaryView-DIM-thumbnail">
+    <!--<xsl:template name="itemSummaryView-DIM-thumbnail">
         <div class="thumbnail">
             <xsl:choose>
                 <xsl:when test="//mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']">
@@ -180,9 +182,9 @@
                                         select="//mets:fileSec/mets:fileGrp[@USE='THUMBNAIL']/mets:file/mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
                             </xsl:otherwise>
                         </xsl:choose>
-                    </xsl:variable>
+                    </xsl:variable>-->
                     <!-- Checking if Thumbnail is restricted and if so, show a restricted image --> 
-                    <xsl:choose>
+                    <!--<xsl:choose>
                         <xsl:when test="contains($src,'isAllowed=n')"/>
                         <xsl:otherwise>
                             <img class="img-thumbnail" alt="Thumbnail">
@@ -204,7 +206,7 @@
                 </xsl:otherwise>
             </xsl:choose>
         </div>
-    </xsl:template>
+    </xsl:template>-->
 
     <xsl:template name="itemSummaryView-DIM-abstract">
         <xsl:if test="dim:field[@element='description' and @qualifier='abstract']">
@@ -277,7 +279,7 @@
                     <xsl:for-each select="dim:field[@element='identifier' and @qualifier='uri']">
                         <div class="artifact-h-link">
                             <div>
-                                <a class="artifact-h-link" id="artifact-detail">
+                                <a class="artifact-h-link" id="artifact-detail" alt="Link to item U R I" title="Link to item URI">
                                     <xsl:attribute name="href">
                                         <xsl:copy-of select="./node()"/>
                                     </xsl:attribute>
@@ -301,8 +303,46 @@
                     <i18n:text>xmlui.dri2xhtml.METS-1.0.item-date</i18n:text>
                 </h5>
                 <xsl:for-each select="dim:field[@element='date' and @qualifier='issued']">
-                    <xsl:copy-of select="substring(./node(),1,10)"/>
+                    <!--<xsl:copy-of select="substring(./node(),1,10)"/>-->
+                    <xsl:call-template name="formatdate">
+                        <xsl:with-param name="datestr" select="substring(./node(),1,10)"/>
+                    </xsl:call-template>
                     <xsl:if test="count(following-sibling::dim:field[@element='date' and @qualifier='issued']) != 0">
+                        <br/>
+                    </xsl:if>
+                </xsl:for-each>
+            </div>
+        </xsl:if>
+    </xsl:template>
+
+    <xsl:template name="itemSummaryView-DIM-access">
+        <xsl:if test="dim:field[@element='accessRights' and descendant::text()]">
+            <div class="simple-item-view-date word-break item-page-field-wrapper table">
+                <h5>
+                    <i18n:text>xmlui.dri2xhtml.METS-1.0.item-access</i18n:text>
+                </h5>
+                <xsl:for-each select="dim:field[@element='accessRights']">
+                    <xsl:copy-of select="node()"/>
+                    <xsl:if test="count(following-sibling::dim:field[@element='accessRights']) != 0">
+                        <br/>
+                    </xsl:if>
+                </xsl:for-each>
+            </div>
+        </xsl:if>
+    </xsl:template>
+
+    <xsl:template name="itemSummaryView-DIM-embargo">
+        <xsl:if test="dim:field[@element='rights' and @qualifier='embargodate' and descendant::text()]">
+            <div class="simple-item-view-date word-break item-page-field-wrapper table">
+                <h5>
+                    <i18n:text>xmlui.dri2xhtml.METS-1.0.item-embargo</i18n:text>
+                </h5>
+                <xsl:for-each select="dim:field[@element='rights' and @qualifier='embargodate']">
+                    <!--<xsl:copy-of select="substring(./node(),1,10)"/>-->
+                    <xsl:call-template name="formatdate">
+                        <xsl:with-param name="datestr" select="substring(./node(),1,10)"/>
+                    </xsl:call-template>
+                    <xsl:if test="count(following-sibling::dim:field[@element='rights' and @qualifier='embargodate']) != 0">
                         <br/>
                     </xsl:if>
                 </xsl:for-each>
@@ -317,7 +357,7 @@
             </h5>
             <div class="articfact-h-link">
                 <span>
-                    <a href="{$ds_item_view_toggle_url}">
+                    <a href="{$ds_item_view_toggle_url}" alt="Shoe full item record link" title="Link to view full item record">
                         <i18n:text>xmlui.ArtifactBrowser.ItemViewer.show_full</i18n:text>
                     </a>
                 </span>
@@ -400,7 +440,7 @@
         <xsl:param name="label" />
         <xsl:param name="size" />
         <div>
-            <a>
+            <a alt="Thumbnail link" title="Thumbnail link">
                 <xsl:attribute name="href">
                     <xsl:value-of select="$href"/>
                 </xsl:attribute>
@@ -545,9 +585,9 @@
     <xsl:template match="mets:file">
         <xsl:param name="context" select="."/>
         <div class="file-wrapper row">
-            <div class="col-xs-6 col-sm-3">
+            <!--<div class="col-xs-6 col-sm-3">
                 <div class="thumbnail">
-                    <a class="image-link">
+                    <a class="image-link" alt="Thumbnail link" title="Thumbnail link">
                         <xsl:attribute name="href">
                             <xsl:value-of select="mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
                         </xsl:attribute>
@@ -573,7 +613,7 @@
                         </xsl:choose>
                     </a>
                 </div>
-            </div>
+            </div>-->
 
             <div class="col-xs-6 col-sm-7">
                 <dl class="file-metadata dl-horizontal">
@@ -668,7 +708,7 @@
 </xsl:template>
 
     <xsl:template name="view-open">
-        <a>
+        <a alt="Link to open item file" title="View/open file">
             <xsl:attribute name="href">
                 <xsl:value-of select="mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
             </xsl:attribute>
@@ -728,12 +768,12 @@
 
     <!-- Generate the license information from the file section -->
     <xsl:template match="mets:fileGrp[@USE='CC-LICENSE']" mode="simple">
-        <li><a href="{mets:file/mets:FLocat[@xlink:title='license_text']/@xlink:href}"><i18n:text>xmlui.dri2xhtml.structural.link_cc</i18n:text></a></li>
+        <li><a href="{mets:file/mets:FLocat[@xlink:title='license_text']/@xlink:href}" alt="Generate licence" title="Generate licence"><i18n:text>xmlui.dri2xhtml.structural.link_cc</i18n:text></a></li>
     </xsl:template>
 
     <!-- Generate the license information from the file section -->
     <xsl:template match="mets:fileGrp[@USE='LICENSE']" mode="simple">
-        <li><a href="{mets:file/mets:FLocat[@xlink:title='license.txt']/@xlink:href}"><i18n:text>xmlui.dri2xhtml.structural.link_original_license</i18n:text></a></li>
+        <li><a href="{mets:file/mets:FLocat[@xlink:title='license.txt']/@xlink:href}" alt="Generate licence" title="Generate licence"><i18n:text>xmlui.dri2xhtml.structural.link_original_license</i18n:text></a></li>
     </xsl:template>
 
     <!--
@@ -756,6 +796,42 @@
 
         <!--Lookup the MIME Type's key in messages.xml language file.  If not found, just display MIME Type-->
         <i18n:text i18n:key="{$mimetype-key}"><xsl:value-of select="$mimetype"/></i18n:text>
+    </xsl:template>
+
+    <xsl:template name="formatdate">
+        <xsl:param name="datestr" />
+        <!-- input format yyyy-mm-dd or yyyy -->
+        <!-- output format dd/mm/yyyy -->
+
+        <xsl:variable name="dd">
+            <xsl:value-of select="substring($datestr,9,2)" />
+        </xsl:variable>
+
+        <xsl:variable name="mm">
+            <xsl:value-of select="substring($datestr,6,2)" />
+        </xsl:variable>
+
+        <xsl:variable name="yyyy">
+            <xsl:value-of select="substring($datestr,1,4)" />
+        </xsl:variable>
+
+        <xsl:choose>
+            <xsl:when test="string-length($datestr) &lt; 5">
+                <xsl:value-of select="$yyyy" />
+            </xsl:when>
+            <xsl:when test="string-length($datestr) &lt; 8">
+                <xsl:value-of select="$mm" />
+                <xsl:value-of select="'/'" />
+                <xsl:value-of select="$yyyy" />
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$dd" />
+                <xsl:value-of select="'/'" />
+                <xsl:value-of select="$mm" />
+                <xsl:value-of select="'/'" />
+                <xsl:value-of select="$yyyy" />
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
 

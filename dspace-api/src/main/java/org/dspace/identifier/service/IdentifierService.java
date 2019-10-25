@@ -8,6 +8,7 @@
 package org.dspace.identifier.service;
 
 import org.dspace.authorize.AuthorizeException;
+import org.dspace.content.Collection;
 import org.dspace.content.DSpaceObject;
 import org.dspace.core.Context;
 import org.dspace.identifier.Identifier;
@@ -102,6 +103,8 @@ public interface IdentifierService {
      * @throws IdentifierException if identifier error
      */
     void register(Context context, DSpaceObject dso) throws AuthorizeException, SQLException, IdentifierException;
+
+    void register(Context context, DSpaceObject dso, Collection owningCollection) throws AuthorizeException, SQLException, IdentifierException;
 
     /**
      *

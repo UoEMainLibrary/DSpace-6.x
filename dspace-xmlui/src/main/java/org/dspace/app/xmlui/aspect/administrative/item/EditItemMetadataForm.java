@@ -77,6 +77,15 @@ public class EditItemMetadataForm extends AbstractDSpaceTransformer {
         protected ChoiceAuthorityService choiceAuthorityService = ContentAuthorityServiceFactory.getInstance().getChoiceAuthorityService();
         protected MetadataAuthorityService metadataAuthorityService = ContentAuthorityServiceFactory.getInstance().getMetadataAuthorityService();
 
+        private boolean checkPriorities(int[] priorities, int value) {
+            for(int i = 0; i < priorities.length; i++)  {
+                if(priorities[i] == value)
+                    return false;
+            }
+
+            return true;
+        }
+
         public void addPageMeta(PageMeta pageMeta) throws WingException, SQLException {
             Item item = itemService.find(context, UUID.fromString(parameters.getParameter("itemID", null)));
             Collection owner = item.getOwningCollection();
@@ -91,6 +100,9 @@ public class EditItemMetadataForm extends AbstractDSpaceTransformer {
             pageMeta.addMetadata("stylesheet", "screen", "person-lookup", true).addContent("../../static/css/authority/person-lookup.css");
             pageMeta.addMetadata("javascript", null, "person-lookup", true).addContent("../../static/js/person-lookup.js");
 
+
+            // Expand text area hardcoded quick fix
+            pageMeta.addMetadata("javascript", null, "edit-meta", true).addContent("../../static/js/edit-meta.js");
 
             pageMeta.addTrailLink(contextPath + "/", T_dspace_home);
             pageMeta.addTrailLink(contextPath + "/admin/item", T_item_trail);
@@ -159,6 +171,16 @@ public class EditItemMetadataForm extends AbstractDSpaceTransformer {
 
                 Select addName = addForm.addItem().addSelect("field");
                 addName.setLabel(T_name_label);
+                int[] prioritised = new int[] {27, 64, 65, 88, 89, 73, 57};
+
+                addName.addOption(27, "dc.description.abstract");
+                addName.addOption(64, "dc.title");
+                addName.addOption(65, "dc.title.alternative");
+                addName.addOption(88, "dc.rights.embargodate");
+                addName.addOption(89, "dcterms.accessRights");
+                addName.addOption(73, "dc.type.qualificationname");
+                addName.addOption(57, "dc.subject");
+
                 java.util.List<MetadataField> fields = metadataFieldService.findAll(context);
                 for (MetadataField field : fields)
                 {
@@ -170,7 +192,8 @@ public class EditItemMetadataForm extends AbstractDSpaceTransformer {
                             name += "." + field.getQualifier();
                         }
 
-                        addName.addOption(fieldID, name);
+                        if(checkPriorities(prioritised, fieldID))
+                            addName.addOption(fieldID, name);
                 }
                 if (previousFieldID != null)
                 {
@@ -186,6 +209,7 @@ public class EditItemMetadataForm extends AbstractDSpaceTransformer {
                 addValue.setSize(4, 35);
                 addLang.setLabel(T_lang_label);
                 addLang.setSize(6);
+                addLang.setValue("en"); // Set default value to en
 
                 addForm.addItem().addButton("submit_add").setValue(T_submit_add);
 
