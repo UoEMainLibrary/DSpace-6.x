@@ -279,7 +279,7 @@
                             <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
                         </xsl:call-template>
                         <xsl:apply-templates/>
-                        <input id="facet-back-link" action="action" onclick="window.history.go(-1); return false;" type="button" value="x" />
+                        <input id="facet-back-link" action="action" onclick="window.history.go(-1); return false;" type="button" value="x" title="Click to clear this filter" />
                     </div>
                 </xsl:if>
             </xsl:when>
@@ -290,7 +290,7 @@
                             <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
                         </xsl:call-template>
                         <xsl:apply-templates/>
-                        <input id="facet-back-link" action="action" onclick="window.history.go(-1); return false;" type="button" value="x" />
+                        <input id="facet-back-link" action="action" onclick="window.history.go(-1); return false;" type="button" value="x" title="Click to clear this filter" />
                     </div>
                 </xsl:if>
             </xsl:when>
@@ -298,13 +298,10 @@
                 <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse')">
                     <div id="list-group-opt-div">
                         <xsl:call-template name="standardAttributes">
-                            <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
-                            
+                            <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>                
                         </xsl:call-template>
                         <xsl:apply-templates/>
-
-                        <input id="facet-back-link" action="action" onclick="window.history.go(-1); return false;" type="button" value="x" />
-                        
+                        <input id="facet-back-link" action="action" onclick="window.history.go(-1); return false;" type="button" value="x" title="Click to clear this filter" />                   
                     </div>
                 </xsl:if>
             </xsl:otherwise>
