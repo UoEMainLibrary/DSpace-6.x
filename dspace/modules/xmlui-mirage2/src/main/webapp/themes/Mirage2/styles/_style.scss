@@ -93,9 +93,16 @@ p {
   font-size: 16px;
   position: relative;
   z-index: 999;
+  font-weight: 300;
 }
 .label-default {
   font-weight: 300;
+}
+.row {
+  font-weight: 300;
+}
+ul.ds-referenceSet-list a {
+  font-size: 16px;
 }
 // GLOBAL CONTAINER STYLES //
 .main-content, #main-container .row-offcanvas {

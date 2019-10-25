@@ -33,9 +33,13 @@
         Requested Page URI. Some functions may alter behavior of processing depending if URI matches a pattern.
         Specifically, adding a static page will need to override the DRI, to directly add content.
     -->
+
+    <!-- Various variables for conditionals regarding page structure, sidebar structure and RSS feed availablity -->
     <xsl:variable name="request-uri" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI']"/>
-    <xsl:variable name="full-uri" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request']"/>
     <xsl:variable name="trail-test" select="/dri:document/dri:meta/dri:pageMeta/dri:trail[last()]" />
+    <xsl:variable name="auth" select="/dri:document/dri:meta/dri:userMeta/@authenticated" />
+    <xsl:variable name="uri-string" select="concat($trail-test, '/', $request-uri)" />
+
 
     <!--
         The starting point of any XSL processing is matching the root element. In DRI the root element is document,
@@ -72,6 +76,7 @@
 
                 <!-- Then proceed to the body -->
                 <body>
+                    
                     <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
                    chromium.org/developers/how-tos/chrome-frame-getting-started -->
                     <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
@@ -82,7 +87,9 @@
                         </xsl:when>
                         <xsl:otherwise>
                             <xsl:call-template name="buildHeader"/>
+                            <!-- Remove normal implementation of trail -->
                             <!--<xsl:call-template name="buildTrail"/>-->
+
                             <!--javascript-disabled warning, will be invisible if javascript is enabled-->
                             <div id="no-js-warning-wrapper" class="hidden">
                                 <div id="no-js-warning">
@@ -98,14 +105,13 @@
                                     
                                     <div class="horizontal-slider clearfix">
 
-                                        <!-- Top background image -->
+                                        <!-- Top background image (globe) -->
                                         <img id="background-globe" src="{$theme-path}/images/globe-png-icon.png" />
 
                                         <div class="col-xs-12 col-sm-12 col-md-9 main-content" id="main-content">
 
-                                            <!--<p><xsl:value-of select="$trail-test" /></p>-->
-
-                                            <xsl:if test="$trail-test = xmlui.ArtifactBrowser.ItemViewer.trail">
+                                            <!-- Commented out for now -->
+                                            <!--<xsl:if test="$trail-test = xmlui.ArtifactBrowser.ItemViewer.trail">
                                                 <script type="text/javascript">
                                                     <xsl:text>
                                                         $(window).on('load', function() {
@@ -115,7 +121,7 @@
                                                     </xsl:text>
                                                 </script>   
                                                 <div id="aspect_discovery_Navigation_list_discovery" class="list-group" style="display: none;"></div>
-                                            </xsl:if>
+                                            </xsl:if>-->
 
                                             <xsl:apply-templates select="*[not(self::dri:options)]"/>
 
@@ -127,7 +133,7 @@
                                             <xsl:apply-templates select="dri:options"/>
                                         </div>
 
-                                        <!-- Bottom background image -->
+                                        <!-- Bottom background image (dandylion) -->
                                         <img id="background-dandy" src="{$theme-path}/images/dandy-png-icon.png" />
 
                                     </div>
@@ -322,22 +328,22 @@
     <xsl:template name="buildHeader">
         <header class="era-header">
 
+            <!-- Simple container for header logos -->
             <div class="container era-logos">
-                <!--<img src="{$theme-path}images/dandy-png-icon-white.png" id="dandy-white" />-->
                 <div class="row">
                     <div class="col-xs-3 col-sm-2">
-                        <a href="{$context-path}/">
-                            <img src="{$theme-path}images/era-logo.gif" />
+                        <a href="{$context-path}/" title="Return to the ERA home page">
+                            <img src="{$theme-path}images/era-logo.gif"  alt="Edinburgh Research Archive logo"/>
                         </a>
                     </div>
                     <div class="col-xs-6 col-sm-8 header-title">
-                        <a href="{$context-path}/" id="era-title">
+                        <a href="{$context-path}/" id="era-title"  title="Return to the ERA home page">
                             <h1 class="hidden-xs hidden-sm">Edinburgh Research Archive</h1>
                         </a>
                     </div>
                     <div class="col-xs-3 col-sm-2">
-                        <a href="https://www.ed.ac.uk/" class="pull-right">
-                            <img id="crest-head" src="{$theme-path}images/homecrest.png" />
+                        <a href="https://www.ed.ac.uk/" class="pull-right"  title="External link to the University of Edinburgh's home page">
+                            <img id="crest-head" src="{$theme-path}images/homecrest.png" alt="University of Edinburgh homecrest"/>
                         </a>
                     </div>
                 </div>
@@ -345,20 +351,23 @@
                 <div class="clearfix"></div>
             </div>
 
-
+            <!-- Custom naviagtion layout -->
             <div class="navbar navbar-default navbar-static-top" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
 
-                        <button type="button" class="navbar-toggle" data-toggle="offcanvas">
+                        <!-- Commented out due to ineffective display
+                                Could be fixed if required -->
+                        <!--<button type="button" class="navbar-toggle" data-toggle="offcanvas">
                             <span class="sr-only">
                                 <i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text>
                             </span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
-                        </button>
+                        </button>-->
 
+                        <!-- Custom trail implementation -->
                         <div class="pull-left">
                             <xsl:choose>
                                 <xsl:when test="count(/dri:document/dri:meta/dri:pageMeta/dri:trail) > 1">
@@ -395,6 +404,7 @@
                             </xsl:choose>
                         </div>
 
+                        <!-- Login added to navigation -->
                         <div class="navbar-header pull-right visible-xs hidden-sm hidden-md hidden-lg">
                             <ul class="nav nav-pills pull-left ">
                                 <xsl:call-template name="languageSelection-xs"/>
@@ -407,12 +417,12 @@
                                             </button>
                                             <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="user-dropdown-toggle-xs" data-no-collapse="true">
                                                 <li>
-                                                    <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='url']}">
+                                                    <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='url']}" alt="View profile" title="View profile">
                                                         <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='logoutURL']}">
+                                                    <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='logoutURL']}" alt="Logout from profile" title="Logout">
                                                         <i18n:text>xmlui.dri2xhtml.structural.logout</i18n:text>
                                                     </a>
                                                 </li>
@@ -433,6 +443,7 @@
                         </div>
                     </div>
 
+                    <!-- Account / Logout dropdown menu -->
                     <div class="navbar-header pull-right hidden-xs">
 
                         <ul class="nav navbar-nav pull-left" id="era-nav">
@@ -440,7 +451,7 @@
                                 <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
                                     <li class="dropdown">
                                         <a id="user-dropdown-toggle" href="#" role="button" class="dropdown-toggle"
-                                           data-toggle="dropdown">
+                                           data-toggle="dropdown" alt="Account dropdown menu" title="Account dropdown menu">
                                             <span class="hidden-xs">
                                                 <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='firstName']"/>
                                                 <xsl:text> </xsl:text>
@@ -451,12 +462,12 @@
                                         </a>
                                         <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="user-dropdown-toggle" data-no-collapse="true">
                                             <li>
-                                                <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='url']}">
+                                                <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='url']}" alt="View profile" title="View profile">
                                                     <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='logoutURL']}">
+                                                <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='logoutURL']}" alt="Logout" title="logout">
                                                     <i18n:text>xmlui.dri2xhtml.structural.logout</i18n:text>
                                                     <i class="glyphicon glyphicon-log-out open-icon hidden" aria-hidden="true"/>
                                                 </a>
@@ -466,7 +477,7 @@
                                 </xsl:when>
                                 <xsl:otherwise>
                                     <li>
-                                        <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='loginURL']}">
+                                        <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='loginURL']}" alt="Login to profile" title="Login Link">
                                             <span class="hidden-xs">    
                                                 <i18n:text>xmlui.dri2xhtml.structural.login</i18n:text>
                                                 <i class="glyphicon glyphicon-log-in open-icon hidden" aria-hidden="true"/>
@@ -538,8 +549,6 @@
                 </div>
             </div>
         </div>
-
-
     </xsl:template>
 
     <!--The Trail-->
@@ -552,7 +561,7 @@
             <!-- Determine whether we are dealing with a link or plain text trail link -->
             <xsl:choose>
                 <xsl:when test="./@target">
-                    <a>
+                    <a alt="Breadcrumb link">
                         <xsl:attribute name="href">
                             <xsl:value-of select="./@target"/>
                         </xsl:attribute>
@@ -573,7 +582,7 @@
             <!-- Determine whether we are dealing with a link or plain text trail link -->
             <xsl:choose>
                 <xsl:when test="./@target">
-                    <a role="menuitem">
+                    <a role="menuitem" alt="Breadcrumb link">
                         <xsl:attribute name="href">
                             <xsl:value-of select="./@target"/>
                         </xsl:attribute>
@@ -585,7 +594,7 @@
                 </xsl:when>
                 <xsl:when test="position() > 1 and position() = last()">
                     <xsl:attribute name="class">disabled</xsl:attribute>
-                    <a role="menuitem" href="#">
+                    <a role="menuitem" href="#" alt="Breadcrumb link">
                         <xsl:apply-templates />
                     </a>
                 </xsl:when>
@@ -675,8 +684,8 @@
                 <div class="col-xs-6 col-sm-8 hidden-xs footer-links" >
                     <a href="http://www.ed.ac.uk/about/website/privacy" title="Privacy and Cookies Link" target="_blank">Privacy &amp; Cookies</a><xsl:text>  |  </xsl:text>
                     <a href="http://www.ed.ac.uk/schools-departments/information-services/services/research-support/publish-research/scholarly-communications/sct-policies/sct-policies-take-down" title="Takedown Policy Link">Takedown Policy</a><xsl:text>  |  </xsl:text>
-                    <a href="http://www.ed.ac.uk/about/website/accessibility" title="Website Accessibility Link" target="_blank">Accessibility</a><xsl:text>  |  </xsl:text>
-                    <a href="http://www.ed.ac.uk/schools-departments/information-services/research-support/publish-research/scholarly-communications/help" title="Contact">Contact</a>
+                    <a href="{{$context-path}}/accessibility" title="Website Accessibility Link" target="_blank">Accessibility</a><xsl:text>  |  </xsl:text>
+                    <a href="http://www.ed.ac.uk/schools-departments/information-services/research-support/publish-research/scholarly-communications/help" title="Contact the Edinburgh Research Archive">Contact</a>
                 </div>
 
                 <div class="col-xs-6 col-sm-8 visible-xs footer-links">
@@ -690,45 +699,46 @@
                         <a href="http://www.ed.ac.uk/about/website/accessibility" title="Website Accessibility Link" target="_blank">Accessibility</a>
                     </div>
                     <div>
-                        <a href="http://www.ed.ac.uk/schools-departments/information-services/research-support/publish-research/scholarly-communications/help" title="Contact">Contact</a>
+                        <a href="http://www.ed.ac.uk/schools-departments/information-services/research-support/publish-research/scholarly-communications/help"  title="Contact the Edinburgh Research Archive">Contact</a>
                     </div>
                 </div>
 
-                <!--<div class="col-xs-3 col-sm-2">
-                    <div class="pull-right">
-                        <a href="http://www.is.ed.ac.uk" target="_blank" title="University of Edinburgh Information Services Home" class="pull-right">
-                            <img src="{$theme-path}images/islogo.gif"/>
+                <!-- Dynamic RSS feed pop-up menu -->
+                <div class="col-xs-3 col-sm-2" id="rss-dropdown">
+                    <div class="footer-links" id="footer-rss">
+                        <img src="{concat($context-path, '/static/icons/feed.png')}" class="btn-xs" alt="xmlui.mirage2.navigation.rss.feed" i18n:attr="alt"/>
+                        <a class="rss-dropdownbtn" alt="Link to RSS pop-up menu" title="RSS pop-up link">
+                            RSS Feeds 
                         </a>
                     </div>
-                </div>-->
-                
-                
-                    <div class="col-xs-3 col-sm-2" id="rss-dropdown">
-                        <div class="footer-links" id="footer-rss">
-                            <img src="{concat($context-path, '/static/icons/feed.png')}" class="btn-xs" alt="xmlui.mirage2.navigation.rss.feed" i18n:attr="alt"/>
-                            <a class="rss-dropdownbtn">
-                                RSS Feeds 
-                            </a>
-                        </div>
-                        <div class="rss-content">
-                            <div class="rss-block">
-                                <xsl:choose>
-                                    <xsl:when test="not($request-uri = 'discover') and not($request-uri = 'browse') and not($request-uri = 'password-login') and not($request-uri = 'community-list')
-                                                    and not(contains($request-uri, 'register')) and not(contains($request-uri, 'handle')) and not($request-uri = 'recent-submissions')">
-                                            <xsl:call-template name="addRSSLinks"/>
-                                    </xsl:when>
-                                    <!--<xsl:when test="contains($request-uri, 'handle')">
-                                        <p class="rss-p">RSS Feed not available for this page</p>  
-                                    </xsl:when>-->
-                                    <xsl:otherwise>
-                                        <p class="rss-p">RSS Feed not available for this page</p>                 
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                            </div>
+                    <!-- Pop-up block for RSS feed on :hover -->
+                    <div class="rss-content">
+                        <div class="rss-block">
+                            <xsl:choose>
+                                <!-- List of URL strings that do not have RSS compatability -->
+                                <xsl:when test="not($request-uri = 'discover') 
+                                                and not($request-uri = 'browse') 
+                                                and not($request-uri = 'password-login') 
+                                                and not($request-uri = 'community-list')
+                                                and not($request-uri = 'recent-submissions') 
+                                                and not($request-uri = 'identifier-not-found')
+                                                and not(contains($request-uri, 'register')) 
+                                                and not(contains($request-uri, 'handle'))
+                                                and not(contains($request-uri, 'submit'))
+                                                and not(contains($request-uri, 'submissions'))
+                                                and not(contains($request-uri, 'continue'))
+                                                and not(contains($request-uri, 'profile'))
+                                                and not(contains($request-uri, 'xmlui'))">
+                                        <xsl:call-template name="addRSSLinks"/>
+                                </xsl:when>
+                                <!-- Default display for no RSS feed -->
+                                <xsl:otherwise>
+                                    <p class="rss-p">RSS Feed not available for this page</p>                 
+                                </xsl:otherwise>
+                            </xsl:choose>
                         </div>
                     </div>
-                
-                
+                </div>    
             </div>
 
             <!--Invisible link to HTML sitemap (for search engines) -->
@@ -745,16 +755,14 @@
         </footer>
     </xsl:template>
 
-    <!-- RSS code taken from sidebar -->
+    <!-- RSS template taken from navigation.xsl to fill pop-up block -->
     <xsl:template name="addRSSLinks">
         <xsl:for-each select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='feed']">
-            <a class="list-group-item" id="rss-item">
+            <a class="list-group-item" id="rss-item" alt="RSS feed link" title="RSS feed link">
                 <xsl:attribute name="href">
                     <xsl:value-of select="."/>
                 </xsl:attribute>
-
                 <img src="{concat($context-path, '/static/icons/feed.png')}" class="btn-xs" alt="xmlui.mirage2.navigation.rss.feed" i18n:attr="alt"/>
-
                 <xsl:choose>
                     <xsl:when test="contains(., 'rss_1.0')">
                         <xsl:text>1.0</xsl:text>
@@ -802,6 +810,307 @@
                     <div class="hero-unit">
                         <h1><i18n:text>xmlui.mirage2.page-structure.heroUnit.title</i18n:text></h1>
                         <p><i18n:text>xmlui.mirage2.page-structure.heroUnit.content</i18n:text></p>
+                    </div>
+                </xsl:when>
+                <xsl:when test="contains($request-uri, 'accessibility')">
+                    <div class="hero-unit">
+                        <div class="content">
+                            <h2 class="ds-div-head page-header" alt="page title">Accessibility Statement for the Edinburgh Research Archive</h3>
+                            <p>
+                                This is the website accessibility statement in line with Public Sector Body (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018
+                            </p>
+                            <p>
+                                The online Edinburgh Research Archive is run by the University of Edinburgh. We want as many people as possible to be able to use this website. For example, that means you should be able to:
+                            </p>
+                            <ul>
+                                <li>
+                                    change most of the colours, contrast levels and fonts
+                                </li>
+                                <li>
+                                    navigate most of the website using just a keyboard
+                                </li>
+                                <li>
+                                    navigate most of the website using speech recognition software
+                                </li>
+                                <li>
+                                    listen to most of the website using a screen reader (including the most recent versions of JAWS, NVDA and VoiceOver)
+                                </li>
+                                <li>
+                                    ensure no information is conveyed by colour or sound only
+                                </li>
+                            </ul>
+                            <p>
+                                We’ve also made the website text as simple as possible to understand.
+                            </p>
+
+
+                            <h2 class="ds-div-head page-header" >
+                                Customising the website
+                            </h2>
+                            <p>
+                                AbilityNet has advice on making your device easier to use if you have a disability.
+                            </p>
+                            <p>
+                                <a href="https://mcmw.abilitynet.org.uk/" title="External link to AbilityNet website">                                   
+                                    <p>AbilityNet - My computer my way</p>
+                                </a>
+                            </p>
+                            <p>
+                                With a few simple steps you can customise the appearance of our website to make it easier to read and navigate.
+                            </p>
+                            <p>
+                                <a href="https://www.edweb.ed.ac.uk/about/website/accessibility/customising-site" title="External link to EdWeb website customising page">
+                                    <p>Additional information on how to customise our website appearance</p>
+                                </a>
+                            </p>
+
+
+                            <h2 class="ds-div-head page-header" >How accessible this website is</h2>
+                            <p >
+                                We know some parts of this website are not fully accessible:
+                            </p>
+                            <ul>
+                                <li>
+                                    May not be fully compatible with screen readers
+                                </li>
+                                <li>
+                                    May not be fully compatible with other forms of assistive technology e.g. Read and Write, Zoomtext
+                                </li>
+                                <li>
+                                    May not be able to access all content by using the keyboard alone and it is unclear where you have tabbed to
+                                </li>
+                                <li>
+                                    Some text is lost at certain levels of magnification
+                                </li>
+                                <li>
+                                    There is a lot of movement on the site
+                                </li>
+                                <li>
+                                    Not all colour contrasts meet recommended WCAG 2.1 AA standards
+                                </li>
+                                <li>
+                                    A user is not notified when a link opens a new window
+                                </li>
+                            </ul>
+                            
+                            
+                            <h2 class="ds-div-head page-header" >What to do if you cannot access parts of this website</h2>
+                            <p>
+                                Please note that if you require any content or web related resources such as media, documents or downloads in an alternative format please contact the Information Services Helpline on <a href="tel: 0131 651 5151" title="Clink to call the Edinburgh Research Archive">0131 651 5151</a> or use their online contact form.
+                            </p>
+                            
+                            
+                            <h2 class="ds-div-head page-header">
+                                Reporting accessibility problems with this website
+                            </h2>
+                            <p>
+                                We’re always looking to improve the accessibility of this website. 
+                                If you find any problems not listed on this page or think we’re not meeting accessibility requirements please let us know by contacting the Information Services Helpline on <a href="tel: 0131 651 5151" title="Clink to call the Edinburgh Research Archive">0131 651 5151</a>. 
+                            </p>
+                            <p>
+                                We’ll consider your request and get back to you in 5 working days.
+                            </p>
+
+
+                            <h2 class="ds-div-head page-header">Enforcement procedure</h2>
+                            <p>
+                                The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ‘accessibility regulations’). If you’re not happy with how we respond to your complaint please contact the Equality Advisory and Support Service (EASS) directly.
+                            </p>
+                            <p>
+                                <a href="https://www.equalityadvisoryservice.com/" title="External link to Equality Advisory and Support Service website">Contact details for the Equality Advisory and Support Service (EASS)</a>
+                            </p>
+                            <p>
+                                <strong>Contacting us by phone using British Sign Language</strong>
+                            </p>
+                            <p>
+                                British Sign Language service<br></br>
+                                British Sign Language Scotland runs a service for British Sign Language users and all of Scotland’s public bodies using video relay. This enables sign language users to contact public bodies and vice versa. The service operates from 8am to 12 midnight, 7 days a week. 
+                            </p>
+                            <p>
+                                <a href="https://contactscotland-bsl.org" title="External link to British Sign Language Scotland website">British Sign Language Scotland service details</a>
+                            </p>
+                            <p>
+                                <strong>Technical information about this website’s accessibility</strong>
+                            </p>
+                            <p>
+                                The University of Edinburgh is committed to making its website accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.
+                            </p>
+                            <p>
+                                This website is partially compliant with the Web Content Accessibility Guidelines 2.1 AA standard, due to the non-compliances listed below.
+                            </p>
+                            <p>
+                                The full guidelines are available at:
+                            </p>
+                            <p>
+                                <a href="https://www.w3.org/TR/WCAG21/" title="External link to W3 Web Content Accessibility Guidelines">Web Content Accessibility Guidelines version 2.1</a>
+                            </p>
+
+
+                            <h2 class="ds-div-head page-header">Non accessible content</h2>
+                            <p>
+                                The content listed below is non-accessible for the following reasons.
+                            </p>
+                            <p>
+                                Noncompliance with the accessibility regulations
+                            </p>
+                            <p>
+                                The following items to not comply with the WCAG 2.1 AA success criteria:
+                            </p>
+                            <ul>
+                                <li>
+                                    It is not possible to use a keyboard to access all the content <br></br>
+                                    <a href="https://www.w3.org/TR/WCAG21/#keyboard-accessible" title="External link to W3 Keyboard Accessibility Guidelines">2.1 - Keyboard accessible</a>
+                                </li>
+                                <li>
+                                    Information is conveyed as an image of text rather than as text itelf so that it's not compatible with screen readers and other assistive technology <br></br>
+                                    <a href="https://www.w3.org/TR/WCAG21/#images-of-text" title="External link to W3 Images of Text Guidelines">1.4.5 - Images of text</a>
+                                </li>
+                                <li>
+                                    Most tooltips disappear as soon as the cursor moves. Also tooltips are not always present for all icons and images. <br></br> 
+
+                                    <a href="https://www.w3.org/TR/WCAG21/#content-on-hover-or-focus" title="External link to W3 Content on Hover or Focus Guidelines">1.4.3 - Contrast (Minimum)</a>
+                                </li>
+                                <li>
+                                    There may not be sufficient colour contrast between font and background colours especially where the text size is very small. <br></br> 
+
+                                    <a href="https://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-contrast" title="External link to W3 Visual and Audio Contrast Guidelines">1.4.13 - Content on Hover or Focus</a>
+                                </li>
+                                <li>
+                                    Visual information to identify user interface components, such as keyboard focus, do not always have a sufficient contrast ratio <br></br>
+
+                                    <a href="https://www.w3.org/TR/WCAG21/#non-text-contrast" title="External link to W3 Non-text Contrast Guidelines">1.4.11 - Non-text contrast</a>
+                                </li>
+                                <li>
+                                    Some content cannot be presented without loss of information when magnified to the maximum browser level <br></br>
+
+                                    <a href="https://www.w3.org/TR/WCAG21/#reflow" title="External link to W3 Reflow Guidelines">1.4.10 - Reflow</a>
+                                </li>
+                                <li>
+                                    It might not be possible for all form fields to be programmatically determined. This means that when using auto-fill functionality for forms not all fields will identify the meaning for input data accurately <br></br>
+
+                                    <a href="https://www.w3.org/TR/WCAG21/#identify-input-purpose" title="External link to W3 Identify Input Purpose Guidelines">1.3.5 - Identify Input Purpose</a>
+                                </li>
+                                <li>
+                                    Some content cannot be presented without loss of information if the line height, paragraph spacing, letter spacing or word spacing is increased. <br></br>
+
+                                    <a href="https://www.w3.org/TR/WCAG21/#text-spacing" title="External link to W3 ext Spacing Guidelines">1.4.12 - Text Spacing</a>
+                                </li>
+                                <li>
+                                    There is content that has moving, blinking or scrolling information that (1) starts automatically, (2) lasts more than five seconds, and (3) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it unless the movement, blinking, or scrolling is part of an activity where it is essential. <br></br>
+
+                                    <a href="https://www.w3.org/TR/WCAG21/#pause-stop-hide" title="External link to W3 Pause, Stop and Hide Guidelines">2.2.2- Pause, Stop and Hide</a>
+                                </li>
+                            </ul>
+                            <p>
+                                Unless specified otherwise a complete solution or significant improvement will be in place by September 2020. We also plan to remove the use of italics and continuous capitals wherever possible. <br></br>
+                            </p>
+
+
+                            <h2 class="ds-div-head page-header">How We Tested This Website</h2>
+                            <p>
+                                This system was last tested by the University of Edinburgh’s Web Developers in October 2019 via sampling the majority of pages across the website. 
+                                We tested the system on suite of operating systems and browsers including the Internet Explorer 11 as this is the browsers most commonly used by disabled users due to its accessibility features and compatibility with assistive technology, as shown by the Government Assistive Technology Survey.
+                                We are in the process of undertaking further accessibility testing with the Information Services Disability Team. This testing will include
+                            </p>
+                            <p>
+                                We tested:
+                            </p>
+                            <ul>
+                                <li>
+                                    Spellcheck functionality
+                                </li>
+                                <li>
+                                    Data validation
+                                </li>
+                                <li>
+                                    Scaling using different resolutions
+                                </li>
+                                <li>
+                                    Options to customise the interface (magnification, font and background colour changing etc)
+                                </li>
+                                <li>
+                                    Keyboard navigation
+                                </li>
+                                <li>
+                                    Warning of links opening in a new tab or window
+                                </li>
+                                <li>
+                                    Information conveyed in colour or sound only
+                                </li>
+                                <li>
+                                    Flashing or scrolling text
+                                </li>
+                                <li>
+                                    Operability if Javascript is disabled
+                                </li>
+                                <li>
+                                    Use with screenreading software (JAWS) 
+                                </li>
+                                <li>
+                                    TextHelp Read and Write (assistive software)
+                                </li>
+                                <li>
+                                    Zoomtext (assistive software)
+                                </li>
+                                <li>
+                                    Time limits
+                                </li>
+                                <li>
+                                    Access to specialist help
+                                </li>
+                            </ul>
+
+
+                            <h2 class="ds-div-head page-header">What we’re doing to improve accessibility</h2>
+                            <p>
+                                Once the further accessibility testing is complete, we work with the developers to address these issues and deliver a solution or suitable workaround. 
+                                We are in the process of undertaking further accessibility testing with the Information Services Disability Team
+                            </p>
+                            <p>
+                                We will continue to monitor system accessibility and will carry out further accessibility testing as these issues are resolved. 
+                                However, due to the complex nature of the information displayed it may not be possible to resolve all accessibility issues. 
+                                If this is the case, we will ensure reasonable adjustments are in place to make sure no user is disadvantaged. 
+                                We plan to have resolved the majority of accessibility issues by September 2020 at the latest.
+                            </p>
+                            
+
+                            <h2 class="ds-div-head page-header">Information Services and accessibility</h2>
+                            <p>
+                                Information Services (IS) has further information on accessibility including assistive technology, creating accessible documents, and services IS provides for disabled users.
+                            </p>
+                            <p>
+                                <a href="https://www.ed.ac.uk/information-services/help-consultancy/accessibility">
+                                    Assistive technology, creating accessible documents, and services IS provides for disabled users
+                                </a>
+                            </p>
+
+                            <h2 class="ds-div-head page-header">A-Z list of higher education terms</h2>
+                            <p>
+                                This glossary includes common abbreviations and acronyms used across the University of Edinburgh website.                            
+                            </p>
+                            <p>
+                                <a href="https://www.ed.ac.uk/about/website/accessibility/list-terms">
+                                    A-Z list of higher education terms
+                                </a>
+                            </p>
+
+                            <h2 class="ds-div-head page-header">Requesting web content in alternative formats</h2>
+                            <p>
+                                Please note that if you require any content or web related resources such as media, documents or downloads in an alternative format please contact the Information Services Helpline on <a href="tel: 0131 651 5151" title="Clink to call the Edinburgh Research Archive">0131 651 5151</a> or use their online contact form.                            
+                            </p>
+
+                            <h2 class="ds-div-head page-header">Information Services online contact form</h2>
+                            <p>
+                                <a href="http://www.ishelpline.ed.ac.uk/forms/">
+                                    Get support
+                                </a>
+                            </p>    
+
+                            
+                            <p>
+                                <strong>This statement was prepared on October 2019. It was last updated on October 2019.</strong>
+                            </p>
+                        </div>
                     </div>
                 </xsl:when>
                 <!-- Otherwise use default handling of body -->
@@ -898,10 +1207,70 @@
                   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
                   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-                  ga('create', '</xsl:text><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='google'][@qualifier='analytics']"/><xsl:text>', '</xsl:text><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='serverName']"/><xsl:text>');
+                  ga('create', '</xsl:text><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='google'][@qualifier='analytics']"/>
+                  <xsl:text>', '</xsl:text><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='serverName']"/><xsl:text>');
                   ga('send', 'pageview');
            </xsl:text></script>
         </xsl:if>
+
+        <!-- JAVASCRIPT CONDITIONALS -->
+
+        
+
+        <!-- Javacript conditional to render css on Firefox browsers -->
+        <!-- Super hacky but does the job -->
+        <script>
+            <xsl:text>
+                if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
+                    document.getElementById("firefox-style").style.left = "30px";
+                }
+            </xsl:text>
+        </script>
+
+        <!-- Authentication test to supress sidebar facets -->
+        <!-- Simple auth check to trigger javascript supression of specific sidebar groups via css -->
+        <xsl:if test="$auth = 'no'">
+            <script>
+                document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
+                document.getElementById("aspect_viewArtifacts_Navigation_list_administrative").style.display = "none";
+            </script>
+        </xsl:if>
+        <xsl:if test="$auth = 'yes'">
+            <script>
+                document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "block";
+                document.getElementById("aspect_viewArtifacts_Navigation_list_administrative").style.display = "block";
+            </script>
+        </xsl:if>
+
+        <!-- Conditional to supress sidebar facets based on admin only page urls -->
+        <xsl:if test="contains($uri-string, 'Viewer.trail/handle')">
+            <script>
+                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
+            </script>
+        </xsl:if>
+        <xsl:if test="contains($uri-string, 'community')">
+            <script>
+                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
+            </script>
+        </xsl:if>
+         <xsl:if test="contains($request-uri, 'statistics')">
+            <script>
+                document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
+                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
+            </script>
+        </xsl:if>
+        <xsl:if test="contains($request-uri, 'admin/')">
+            <script>
+                document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
+                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";    
+            </script>
+        </xsl:if>
+        <xsl:if test="$request-uri = 'password-login'">
+            <script>
+                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";  
+            </script>
+        </xsl:if>
+
     </xsl:template>
 
     <!--The Language Selection-->
@@ -909,7 +1278,7 @@
         <xsl:if test="count(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='supportedLocale']) &gt; 1">
             <li id="ds-language-selection" class="dropdown">
                 <xsl:variable name="active-locale" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='currentLocale']"/>
-                <a id="language-dropdown-toggle" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+                <a id="language-dropdown-toggle" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown" alt="Select website language" title="Select website language">
                     <span class="hidden-xs">
                         <xsl:value-of
                                 select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='supportedLocale'][@qualifier=$active-locale]"/>
