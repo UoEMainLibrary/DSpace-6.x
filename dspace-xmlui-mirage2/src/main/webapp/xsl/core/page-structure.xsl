@@ -815,7 +815,7 @@
                 <xsl:when test="contains($request-uri, 'accessibility')">
                     <div class="hero-unit">
                         <div class="content">
-                            <h2 class="ds-div-head page-header" alt="page title">Accessibility Statement for the Edinburgh Research Archive</h3>
+                            <h2 class="ds-div-head page-header" alt="page title">Accessibility Statement for the Edinburgh Research Archive</h2>
                             <p>
                                 This is the website accessibility statement in line with Public Sector Body (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018
                             </p>
@@ -1243,17 +1243,21 @@
         </xsl:if>
 
         <!-- Conditional to supress sidebar facets based on admin only page urls -->
-        <xsl:if test="contains($uri-string, 'Viewer.trail/handle')">
+       <!-- <xsl:if test="contains($uri-string, 'Viewer.trail/handle')">
             <script>
                 document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
             </script>
         </xsl:if>
+<<<<<<< HEAD
         <xsl:if test="contains($uri-string, '/communities')">
             <script>
                 document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
             </script>
         </xsl:if>
         <xsl:if test="contains($uri-string, '/browse')">
+=======
+        <xsl:if test="contains($uri-string, 'community')">
+>>>>>>> Accessibility page added
             <script>
                 document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
             </script>
@@ -1274,7 +1278,7 @@
             <script>
                 document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";  
             </script>
-        </xsl:if>
+        </xsl:if>-->
 
     </xsl:template>
 

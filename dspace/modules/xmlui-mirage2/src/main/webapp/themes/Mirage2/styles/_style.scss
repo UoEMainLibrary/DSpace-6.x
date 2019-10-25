@@ -11,7 +11,7 @@
  * It will be included in all color schemes
  */
 
-// example mixin to set the text-selection style
+/* example mixin to set the text-selection style */
 @mixin selection 
 {
     ::-moz-selection  { @content; }
@@ -51,14 +51,14 @@
   }
 }
 
-// SDLC \\
+/* SDLC */
 .countriesMap  {
   padding-top: 80px;
 }
 
-// ERA \\
-// GLOBAL STYLES \\
-// TEXT \\
+/* ERA
+   GLOBAL STYLES \\
+   TEXT */
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, legend {
   font-weight: 300;
 }
@@ -79,16 +79,18 @@ p {
 .era-header span, li {
   color: #fff;
   font-size: 20px;
-  font-weight: 300px;
+  /*font-weight: 300px;*/
 }
 #sidebar a {
   font-size: 16px;
   position: relative;
   z-index: 999;
+  font-weight: 300;
 }
 .label-default {
   font-weight: 300;
 }
+
 .page-header.first-page-header {
   font-size: 28px;
   border-bottom: solid 4px;
@@ -96,7 +98,17 @@ p {
 span.bold{
   font-weight: 400;
 }
-// GLOBAL CONTAINER STYLES \\
+/* GLOBAL CONTAINER STYLES */
+
+.row {
+  font-weight: 300;
+}
+ul.ds-referenceSet-list a {
+  font-size: 16px;
+}
+
+/* GLOBAL CONTAINER STYLES */
+
 .main-content, #main-container .row-offcanvas {
   z-index: 999;
   background-color: transparent;
@@ -111,7 +123,7 @@ span.bold{
 .ds-static-div.col-xs-2.col-sm-1 {
   display: none;
 }
-// GLOBAL BACKGROUND IMAGES \\
+/* GLOBAL BACKGROUND IMAGES */
 #background-globe {
   position: absolute;
   z-index: 1;
@@ -129,8 +141,9 @@ span.bold{
   opacity: 0.5;
   width: 50%;
 }
-// GLOBAL :HOVER ANIMATIONS \\ 
-// NAVIGATION BAR \\
+
+/* GLOBAL :HOVER ANIMATIONS \\
+// NAVIGATION BAR */
 header .navbar-default a:after, .navbar-header a:after,
 header .breadcrumb.hidden-xs.hidden-sm a:after, .breadcrumb.hidden-xs.hidden-sm a:after {
   content: '';
@@ -148,7 +161,8 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
   width: 100%; 
   left: 0; 
 }
-// COMMUNITIES LIST \\
+
+/* COMMUNITIES LIST */
 .ds-static-div.row.community-browser-row a, a:visited {
   text-decoration: none;
   font-size: 20px;
@@ -172,7 +186,7 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 .artifact-info{
   margin-top: 7px;
 }
-// ARTICLE LIST \\
+/* ARTICLE LIST */
 .artifact-title a, a:visited, 
 .artifact-h-link a, a:visited,
 .simple-item-view-show-full.item-page-field-wrapper a, a:visited,
@@ -306,7 +320,7 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
   width: 100%;
   left: 0;
 }
-// GLOBAL HEADER STYLES \\
+/* GLOBAL HEADER STYLES */
 .page-header {
   color: #2b466b;
   font-weight: 400;
@@ -362,7 +376,7 @@ legend {
   width: 90px;
   float: right;
 }
-// GLOBAL NAVBAR STYLES \\
+/* GLOBAL NAVBAR STYLES */
 .nav>li>a {
   position: relative;
   display: initial;
@@ -392,7 +406,8 @@ header .navbar-default .navbar-nav>li>a:hover,
 header .navbar-default .navbar-nav>li>a:focus {
   background-color: #aab8c6;
 }
-// GLOBAL NAVBAR/BREADCRUMB STYLES \\ 
+
+/* GLOBAL NAVBAR/BREADCRUMB STYLES */
 .breadcrumb .hidden-xs .hidden-sm {
   width: 90%;
 }
@@ -402,7 +417,8 @@ header .navbar-default .navbar-nav>li>a:focus {
 .active {
   font-weight: 400;
 }
-// GLOBAL FOOTER STYLES \\
+
+/* GLOBAL FOOTER STYLES */
 .footer-links {
   text-align: center;
   font-size: 18px;
@@ -423,7 +439,8 @@ text-align: left;
 #is-logo {
   width: 37px;
 }
-// RSS FEED POP-UP MENU \\
+
+/* RSS FEED POP-UP MENU */
 #footer-rss {
   display: table-caption;
 }
@@ -462,7 +479,8 @@ text-align: left;
 a#rss-item:hover {
   background-color: #d6eafc;
 }
-// GLOBAL LIST STYLES \\
+
+/* GLOBAL LIST STYLES */
 .community-browser-row a[name='community-browser-link'] {
   font-size: 26px;
   font-weight: 300;
@@ -486,7 +504,8 @@ a#rss-item:hover {
 #aspect_artifactbrowser_CommunityViewer_div_community-view {
   margin-bottom: 50px;
 }
-// GLOBAL SIDEBAR STYLES \\
+
+/* GLOBAL SIDEBAR STYLES */
 #ds-options{
   padding-top: 35px;
 }
@@ -557,7 +576,8 @@ a.list-group-item.active span {
 .ds-text-field.form-control {
   z-index: 800;
 }
-// GLOBAL INPUT BOX STYLES \\
+
+/* GLOBAL INPUT BOX STYLES */
 #new-filters-wrapper input,
 #aspect_eperson_PasswordLogin_field_login_email,
 #aspect_submission_StepTransformer_list_submit-describe input,
@@ -604,8 +624,9 @@ a.list-group-item.active span {
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(102,175,233,0.6);
   box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(102,175,233,0.6);
 }
-// INDIVIDUAL PAGE STYLES \\
-// COMMUNITIES LIST \\ 
+
+/* INDIVIDUAL PAGE STYLES \\
+// COMMUNITIES LIST */
 .ds-artifact-list .artifact-title a {
   margin-bottom: 5px;
   font-size: 20px;
@@ -615,12 +636,14 @@ a.list-group-item.active span {
 .community-browser-row {
   width: 200%;
 } 
-// suppress unwanted elements
+
+/* suppress unwanted elements */
 h2.ds-div-head.page-header.first-page-header, 
 div#aspect_artifactbrowser_CommunityBrowser_div_comunity-browser p {
   display: none;
 }
-// RECENT LIST \\
+
+/* RECENT LIST */
 .artifact-abstract {
   font-weight: 300;
   color: #333;
@@ -629,7 +652,8 @@ div#aspect_artifactbrowser_CommunityBrowser_div_comunity-browser p {
 .ds-artifact-item {
   margin: 20px 0px;
 }
-// DISCOVERY | SEARCH \\
+
+/* DISCOVERY | SEARCH */
 .artifact-description h4 {
   font-size: 22px;
 }
@@ -680,7 +704,8 @@ ul.dropdown-menu a {
   font-size: 18px;
   font-weight: 200;
 }
-// ITEM VIEW \\
+
+/* ITEM VIEW */
 .item-summary-view-metadata, .ds-static-div.primary {
   position: relative;
   z-index: 999;
@@ -706,11 +731,12 @@ ul.dropdown-menu a {
   margin-bottom: 2%;
 }
 
-// LOGIN STYLES \\
+/* LOGIN STYLES */
 #aspect_eperson_PasswordLogin_item_login-in {
   margin-top: 15px;
 }
-// PROFILE STYLES \\
+
+/* PROFILE STYLES */
 #aspect_eperson_EditProfile_list_memberships,
 #aspect_eperson_EditProfile_div_information h3 {
   display: none;
@@ -718,14 +744,15 @@ ul.dropdown-menu a {
 #aspect_viewArtifacts_Navigation_list_context {
   border-radius: 5px;
 }
-// ADMIN STYLES \\
+
+/* ADMIN STYLES */
 #aspect_administrative_ControlPanel_list_options,
 #aspect_administrative_item_EditItemStatusForm_list_options,
 .nav-tabs>li>a:hover {
   border: none;
 }
 .nav-tabs>li>a:hover {
-  background-color: none;
+  background-color: transparent;
 }
 .nav>li>a:hover, .nav>li>a:focus {
   background-color: transparent;
