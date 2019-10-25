@@ -36,6 +36,8 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
 	/** Language Strings **/
     protected static final Message T_submissions = 
         message("xmlui.Submission.Navigation.submissions");
+    protected static final Message T_new_submission =
+            message("xmlui.Submission.Navigation.new_submission");
 	
 	 /**
      * Generate the unique caching key.
@@ -77,5 +79,6 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
 //    	}
     	
     	account.addItemXref(contextPath+"/submissions",T_submissions);
+        account.addItemXref(contextPath+"/submit",T_new_submission);
     }
 }

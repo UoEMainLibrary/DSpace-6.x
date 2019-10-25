@@ -1248,7 +1248,12 @@
                 document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
             </script>
         </xsl:if>
-        <xsl:if test="contains($uri-string, 'community')">
+        <xsl:if test="contains($uri-string, '/communities')">
+            <script>
+                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
+            </script>
+        </xsl:if>
+        <xsl:if test="contains($uri-string, '/browse')">
             <script>
                 document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
             </script>
