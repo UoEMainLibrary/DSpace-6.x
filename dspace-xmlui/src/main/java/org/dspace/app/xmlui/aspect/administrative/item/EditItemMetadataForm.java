@@ -170,17 +170,17 @@ public class EditItemMetadataForm extends AbstractDSpaceTransformer {
         addForm.setHead(T_head1);
 
                 Select addName = addForm.addItem().addSelect("field");
-                int[] prioritised = new int[] {33, 70, 71, 168, 74, 167, 63};
-
-                addName.addOption(33, "dc.description.abstract");
-                addName.addOption(70, "dc.title");
-                addName.addOption(71, "dc.title.alternative");
-                addName.addOption(168, "dc.rights.embargodate");
-                addName.addOption(74, "dcterms.accessRights");
-                addName.addOption(167, "dc.type.qualificationname");
-                addName.addOption(63, "dc.subject");
-
                 addName.setLabel(T_name_label);
+                int[] prioritised = new int[] {27, 64, 65, 88, 89, 73, 57};
+
+                addName.addOption(27, "dc.description.abstract");
+                addName.addOption(64, "dc.title");
+                addName.addOption(65, "dc.title.alternative");
+                addName.addOption(88, "dc.rights.embargodate");
+                addName.addOption(89, "dcterms.accessRights");
+                addName.addOption(73, "dc.type.qualificationname");
+                addName.addOption(57, "dc.subject");
+
                 java.util.List<MetadataField> fields = metadataFieldService.findAll(context);
                 for (MetadataField field : fields)
                 {

@@ -117,6 +117,8 @@
                         </div>
                     </div>
                     <xsl:call-template name="itemSummaryView-DIM-date"/>
+                    <xsl:call-template name="itemSummaryView-DIM-access"/>
+                    <xsl:call-template name="itemSummaryView-DIM-embargo"/>
                     <xsl:call-template name="itemSummaryView-DIM-authors"/>
                     <xsl:if test="$ds_item_view_toggle_url != ''">
                         <xsl:call-template name="itemSummaryView-show-full"/>
@@ -306,6 +308,41 @@
                         <xsl:with-param name="datestr" select="substring(./node(),1,10)"/>
                     </xsl:call-template>
                     <xsl:if test="count(following-sibling::dim:field[@element='date' and @qualifier='issued']) != 0">
+                        <br/>
+                    </xsl:if>
+                </xsl:for-each>
+            </div>
+        </xsl:if>
+    </xsl:template>
+
+    <xsl:template name="itemSummaryView-DIM-access">
+        <xsl:if test="dim:field[@element='accessRights' and descendant::text()]">
+            <div class="simple-item-view-date word-break item-page-field-wrapper table">
+                <h5>
+                    <i18n:text>xmlui.dri2xhtml.METS-1.0.item-access</i18n:text>
+                </h5>
+                <xsl:for-each select="dim:field[@element='accessRights']">
+                    <xsl:copy-of select="node()"/>
+                    <xsl:if test="count(following-sibling::dim:field[@element='accessRights']) != 0">
+                        <br/>
+                    </xsl:if>
+                </xsl:for-each>
+            </div>
+        </xsl:if>
+    </xsl:template>
+
+    <xsl:template name="itemSummaryView-DIM-embargo">
+        <xsl:if test="dim:field[@element='rights' and @qualifier='embargodate' and descendant::text()]">
+            <div class="simple-item-view-date word-break item-page-field-wrapper table">
+                <h5>
+                    <i18n:text>xmlui.dri2xhtml.METS-1.0.item-embargo</i18n:text>
+                </h5>
+                <xsl:for-each select="dim:field[@element='rights' and @qualifier='embargodate']">
+                    <!--<xsl:copy-of select="substring(./node(),1,10)"/>-->
+                    <xsl:call-template name="formatdate">
+                        <xsl:with-param name="datestr" select="substring(./node(),1,10)"/>
+                    </xsl:call-template>
+                    <xsl:if test="count(following-sibling::dim:field[@element='rights' and @qualifier='embargodate']) != 0">
                         <br/>
                     </xsl:if>
                 </xsl:for-each>
