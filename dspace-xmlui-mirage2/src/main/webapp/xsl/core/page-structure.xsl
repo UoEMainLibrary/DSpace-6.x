@@ -702,7 +702,7 @@
                     <hr/>
                     <div class="col-xs-7 col-sm-8">
                         <div>
-                            <a target="_blank" href="https://lac-sdlc-qmu-live.is.ed.ac.uk/">Queen Margaret University: Research Repositories</a>
+                            <a target="_blank" href="https://eresearch.qmu.ac.uk/">Queen Margaret University: Research Repositories</a>
                         </div>
                         <div class="hidden-print">
                             <a>
