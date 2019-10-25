@@ -1248,6 +1248,11 @@
                 document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
             </script>
         </xsl:if>
+        <xsl:if test="contains($uri-string, 'community')">
+            <script>
+                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
+            </script>
+        </xsl:if>
          <xsl:if test="contains($request-uri, 'statistics')">
             <script>
                 document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
