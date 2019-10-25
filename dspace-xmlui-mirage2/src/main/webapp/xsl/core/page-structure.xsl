@@ -684,7 +684,7 @@
                 <div class="col-xs-6 col-sm-8 hidden-xs footer-links" >
                     <a href="http://www.ed.ac.uk/about/website/privacy" title="Privacy and Cookies Link" target="_blank">Privacy &amp; Cookies</a><xsl:text>  |  </xsl:text>
                     <a href="http://www.ed.ac.uk/schools-departments/information-services/services/research-support/publish-research/scholarly-communications/sct-policies/sct-policies-take-down" title="Takedown Policy Link">Takedown Policy</a><xsl:text>  |  </xsl:text>
-                    <a href="http://www.ed.ac.uk/about/website/accessibility" title="Website Accessibility Link" target="_blank">Accessibility</a><xsl:text>  |  </xsl:text>
+                    <a href="{{$context-path}}/accessibility" title="Website Accessibility Link" target="_blank">Accessibility</a><xsl:text>  |  </xsl:text>
                     <a href="http://www.ed.ac.uk/schools-departments/information-services/research-support/publish-research/scholarly-communications/help" title="Contact the Edinburgh Research Archive">Contact</a>
                 </div>
 
@@ -810,6 +810,307 @@
                     <div class="hero-unit">
                         <h1><i18n:text>xmlui.mirage2.page-structure.heroUnit.title</i18n:text></h1>
                         <p><i18n:text>xmlui.mirage2.page-structure.heroUnit.content</i18n:text></p>
+                    </div>
+                </xsl:when>
+                <xsl:when test="contains($request-uri, 'accessibility')">
+                    <div class="hero-unit">
+                        <div class="content">
+                            <h2 class="ds-div-head page-header" alt="page title">Accessibility Statement for the Edinburgh Research Archive</h3>
+                            <p>
+                                This is the website accessibility statement in line with Public Sector Body (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018
+                            </p>
+                            <p>
+                                The online Edinburgh Research Archive is run by the University of Edinburgh. We want as many people as possible to be able to use this website. For example, that means you should be able to:
+                            </p>
+                            <ul>
+                                <li>
+                                    change most of the colours, contrast levels and fonts
+                                </li>
+                                <li>
+                                    navigate most of the website using just a keyboard
+                                </li>
+                                <li>
+                                    navigate most of the website using speech recognition software
+                                </li>
+                                <li>
+                                    listen to most of the website using a screen reader (including the most recent versions of JAWS, NVDA and VoiceOver)
+                                </li>
+                                <li>
+                                    ensure no information is conveyed by colour or sound only
+                                </li>
+                            </ul>
+                            <p>
+                                We’ve also made the website text as simple as possible to understand.
+                            </p>
+
+
+                            <h2 class="ds-div-head page-header" >
+                                Customising the website
+                            </h2>
+                            <p>
+                                AbilityNet has advice on making your device easier to use if you have a disability.
+                            </p>
+                            <p>
+                                <a href="https://mcmw.abilitynet.org.uk/" title="External link to AbilityNet website">                                   
+                                    <p>AbilityNet - My computer my way</p>
+                                </a>
+                            </p>
+                            <p>
+                                With a few simple steps you can customise the appearance of our website to make it easier to read and navigate.
+                            </p>
+                            <p>
+                                <a href="https://www.edweb.ed.ac.uk/about/website/accessibility/customising-site" title="External link to EdWeb website customising page">
+                                    <p>Additional information on how to customise our website appearance</p>
+                                </a>
+                            </p>
+
+
+                            <h2 class="ds-div-head page-header" >How accessible this website is</h2>
+                            <p >
+                                We know some parts of this website are not fully accessible:
+                            </p>
+                            <ul>
+                                <li>
+                                    May not be fully compatible with screen readers
+                                </li>
+                                <li>
+                                    May not be fully compatible with other forms of assistive technology e.g. Read and Write, Zoomtext
+                                </li>
+                                <li>
+                                    May not be able to access all content by using the keyboard alone and it is unclear where you have tabbed to
+                                </li>
+                                <li>
+                                    Some text is lost at certain levels of magnification
+                                </li>
+                                <li>
+                                    There is a lot of movement on the site
+                                </li>
+                                <li>
+                                    Not all colour contrasts meet recommended WCAG 2.1 AA standards
+                                </li>
+                                <li>
+                                    A user is not notified when a link opens a new window
+                                </li>
+                            </ul>
+                            
+                            
+                            <h2 class="ds-div-head page-header" >What to do if you cannot access parts of this website</h2>
+                            <p>
+                                Please note that if you require any content or web related resources such as media, documents or downloads in an alternative format please contact the Information Services Helpline on <a href="tel: 0131 651 5151" title="Clink to call the Edinburgh Research Archive">0131 651 5151</a> or use their online contact form.
+                            </p>
+                            
+                            
+                            <h2 class="ds-div-head page-header">
+                                Reporting accessibility problems with this website
+                            </h2>
+                            <p>
+                                We’re always looking to improve the accessibility of this website. 
+                                If you find any problems not listed on this page or think we’re not meeting accessibility requirements please let us know by contacting the Information Services Helpline on <a href="tel: 0131 651 5151" title="Clink to call the Edinburgh Research Archive">0131 651 5151</a>. 
+                            </p>
+                            <p>
+                                We’ll consider your request and get back to you in 5 working days.
+                            </p>
+
+
+                            <h2 class="ds-div-head page-header">Enforcement procedure</h2>
+                            <p>
+                                The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ‘accessibility regulations’). If you’re not happy with how we respond to your complaint please contact the Equality Advisory and Support Service (EASS) directly.
+                            </p>
+                            <p>
+                                <a href="https://www.equalityadvisoryservice.com/" title="External link to Equality Advisory and Support Service website">Contact details for the Equality Advisory and Support Service (EASS)</a>
+                            </p>
+                            <p>
+                                <strong>Contacting us by phone using British Sign Language</strong>
+                            </p>
+                            <p>
+                                British Sign Language service<br></br>
+                                British Sign Language Scotland runs a service for British Sign Language users and all of Scotland’s public bodies using video relay. This enables sign language users to contact public bodies and vice versa. The service operates from 8am to 12 midnight, 7 days a week. 
+                            </p>
+                            <p>
+                                <a href="https://contactscotland-bsl.org" title="External link to British Sign Language Scotland website">British Sign Language Scotland service details</a>
+                            </p>
+                            <p>
+                                <strong>Technical information about this website’s accessibility</strong>
+                            </p>
+                            <p>
+                                The University of Edinburgh is committed to making its website accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.
+                            </p>
+                            <p>
+                                This website is partially compliant with the Web Content Accessibility Guidelines 2.1 AA standard, due to the non-compliances listed below.
+                            </p>
+                            <p>
+                                The full guidelines are available at:
+                            </p>
+                            <p>
+                                <a href="https://www.w3.org/TR/WCAG21/" title="External link to W3 Web Content Accessibility Guidelines">Web Content Accessibility Guidelines version 2.1</a>
+                            </p>
+
+
+                            <h2 class="ds-div-head page-header">Non accessible content</h2>
+                            <p>
+                                The content listed below is non-accessible for the following reasons.
+                            </p>
+                            <p>
+                                Noncompliance with the accessibility regulations
+                            </p>
+                            <p>
+                                The following items to not comply with the WCAG 2.1 AA success criteria:
+                            </p>
+                            <ul>
+                                <li>
+                                    It is not possible to use a keyboard to access all the content <br></br>
+                                    <a href="https://www.w3.org/TR/WCAG21/#keyboard-accessible" title="External link to W3 Keyboard Accessibility Guidelines">2.1 - Keyboard accessible</a>
+                                </li>
+                                <li>
+                                    Information is conveyed as an image of text rather than as text itelf so that it's not compatible with screen readers and other assistive technology <br></br>
+                                    <a href="https://www.w3.org/TR/WCAG21/#images-of-text" title="External link to W3 Images of Text Guidelines">1.4.5 - Images of text</a>
+                                </li>
+                                <li>
+                                    Most tooltips disappear as soon as the cursor moves. Also tooltips are not always present for all icons and images. <br></br> 
+
+                                    <a href="https://www.w3.org/TR/WCAG21/#content-on-hover-or-focus" title="External link to W3 Content on Hover or Focus Guidelines">1.4.3 - Contrast (Minimum)</a>
+                                </li>
+                                <li>
+                                    There may not be sufficient colour contrast between font and background colours especially where the text size is very small. <br></br> 
+
+                                    <a href="https://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-contrast" title="External link to W3 Visual and Audio Contrast Guidelines">1.4.13 - Content on Hover or Focus</a>
+                                </li>
+                                <li>
+                                    Visual information to identify user interface components, such as keyboard focus, do not always have a sufficient contrast ratio <br></br>
+
+                                    <a href="https://www.w3.org/TR/WCAG21/#non-text-contrast" title="External link to W3 Non-text Contrast Guidelines">1.4.11 - Non-text contrast</a>
+                                </li>
+                                <li>
+                                    Some content cannot be presented without loss of information when magnified to the maximum browser level <br></br>
+
+                                    <a href="https://www.w3.org/TR/WCAG21/#reflow" title="External link to W3 Reflow Guidelines">1.4.10 - Reflow</a>
+                                </li>
+                                <li>
+                                    It might not be possible for all form fields to be programmatically determined. This means that when using auto-fill functionality for forms not all fields will identify the meaning for input data accurately <br></br>
+
+                                    <a href="https://www.w3.org/TR/WCAG21/#identify-input-purpose" title="External link to W3 Identify Input Purpose Guidelines">1.3.5 - Identify Input Purpose</a>
+                                </li>
+                                <li>
+                                    Some content cannot be presented without loss of information if the line height, paragraph spacing, letter spacing or word spacing is increased. <br></br>
+
+                                    <a href="https://www.w3.org/TR/WCAG21/#text-spacing" title="External link to W3 ext Spacing Guidelines">1.4.12 - Text Spacing</a>
+                                </li>
+                                <li>
+                                    There is content that has moving, blinking or scrolling information that (1) starts automatically, (2) lasts more than five seconds, and (3) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it unless the movement, blinking, or scrolling is part of an activity where it is essential. <br></br>
+
+                                    <a href="https://www.w3.org/TR/WCAG21/#pause-stop-hide" title="External link to W3 Pause, Stop and Hide Guidelines">2.2.2- Pause, Stop and Hide</a>
+                                </li>
+                            </ul>
+                            <p>
+                                Unless specified otherwise a complete solution or significant improvement will be in place by September 2020. We also plan to remove the use of italics and continuous capitals wherever possible. <br></br>
+                            </p>
+
+
+                            <h2 class="ds-div-head page-header">How We Tested This Website</h2>
+                            <p>
+                                This system was last tested by the University of Edinburgh’s Web Developers in October 2019 via sampling the majority of pages across the website. 
+                                We tested the system on suite of operating systems and browsers including the Internet Explorer 11 as this is the browsers most commonly used by disabled users due to its accessibility features and compatibility with assistive technology, as shown by the Government Assistive Technology Survey.
+                                We are in the process of undertaking further accessibility testing with the Information Services Disability Team. This testing will include
+                            </p>
+                            <p>
+                                We tested:
+                            </p>
+                            <ul>
+                                <li>
+                                    Spellcheck functionality
+                                </li>
+                                <li>
+                                    Data validation
+                                </li>
+                                <li>
+                                    Scaling using different resolutions
+                                </li>
+                                <li>
+                                    Options to customise the interface (magnification, font and background colour changing etc)
+                                </li>
+                                <li>
+                                    Keyboard navigation
+                                </li>
+                                <li>
+                                    Warning of links opening in a new tab or window
+                                </li>
+                                <li>
+                                    Information conveyed in colour or sound only
+                                </li>
+                                <li>
+                                    Flashing or scrolling text
+                                </li>
+                                <li>
+                                    Operability if Javascript is disabled
+                                </li>
+                                <li>
+                                    Use with screenreading software (JAWS) 
+                                </li>
+                                <li>
+                                    TextHelp Read and Write (assistive software)
+                                </li>
+                                <li>
+                                    Zoomtext (assistive software)
+                                </li>
+                                <li>
+                                    Time limits
+                                </li>
+                                <li>
+                                    Access to specialist help
+                                </li>
+                            </ul>
+
+
+                            <h2 class="ds-div-head page-header">What we’re doing to improve accessibility</h2>
+                            <p>
+                                Once the further accessibility testing is complete, we work with the developers to address these issues and deliver a solution or suitable workaround. 
+                                We are in the process of undertaking further accessibility testing with the Information Services Disability Team
+                            </p>
+                            <p>
+                                We will continue to monitor system accessibility and will carry out further accessibility testing as these issues are resolved. 
+                                However, due to the complex nature of the information displayed it may not be possible to resolve all accessibility issues. 
+                                If this is the case, we will ensure reasonable adjustments are in place to make sure no user is disadvantaged. 
+                                We plan to have resolved the majority of accessibility issues by September 2020 at the latest.
+                            </p>
+                            
+
+                            <h2 class="ds-div-head page-header">Information Services and accessibility</h2>
+                            <p>
+                                Information Services (IS) has further information on accessibility including assistive technology, creating accessible documents, and services IS provides for disabled users.
+                            </p>
+                            <p>
+                                <a href="https://www.ed.ac.uk/information-services/help-consultancy/accessibility">
+                                    Assistive technology, creating accessible documents, and services IS provides for disabled users
+                                </a>
+                            </p>
+
+                            <h2 class="ds-div-head page-header">A-Z list of higher education terms</h2>
+                            <p>
+                                This glossary includes common abbreviations and acronyms used across the University of Edinburgh website.                            
+                            </p>
+                            <p>
+                                <a href="https://www.ed.ac.uk/about/website/accessibility/list-terms">
+                                    A-Z list of higher education terms
+                                </a>
+                            </p>
+
+                            <h2 class="ds-div-head page-header">Requesting web content in alternative formats</h2>
+                            <p>
+                                Please note that if you require any content or web related resources such as media, documents or downloads in an alternative format please contact the Information Services Helpline on <a href="tel: 0131 651 5151" title="Clink to call the Edinburgh Research Archive">0131 651 5151</a> or use their online contact form.                            
+                            </p>
+
+                            <h2 class="ds-div-head page-header">Information Services online contact form</h2>
+                            <p>
+                                <a href="http://www.ishelpline.ed.ac.uk/forms/">
+                                    Get support
+                                </a>
+                            </p>    
+
+                            
+                            <p>
+                                <strong>This statement was prepared on October 2019. It was last updated on October 2019.</strong>
+                            </p>
+                        </div>
                     </div>
                 </xsl:when>
                 <!-- Otherwise use default handling of body -->
