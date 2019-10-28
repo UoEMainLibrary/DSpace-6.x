@@ -42,7 +42,7 @@ const itemTypes = ['Art/Design Item', 'Article', 'Audio', 'Book', 'Book Section'
 //Get Repository Identifier parameter from URL in script
 var url_string = location.href; //document.getElementById("irus-api-script").src;
 var url_script = new URL(url_string);
-var param = 147; //url_script.searchParams.get("RID");
+var param = 30; //url_script.searchParams.get("RID");
 var showTable = (url_script.searchParams.get("headerTable") == 'true');
 var userStartDate = url_script.searchParams.get("startDate");
 var userEndDate = url_script.searchParams.get("endDate");
