@@ -55,7 +55,6 @@ public class StatisticsIRUS extends AbstractDSpaceTransformer
         pageMeta.addTrailLink(contextPath + "/", T_dspace_home);
         pageMeta.addTrail().addContent("IRUS Statistics");
 
-        authorizeService.isAdmin(context, dso)
         pageMeta.addMetadata("stylesheet", "screen", null, true).addContent("../../static/css/irus_stats.css");
         pageMeta.addMetadata("javascript", "static").addContent("static/js/irus_stats.js");
 
