@@ -815,7 +815,7 @@
                 <xsl:when test="contains($request-uri, 'accessibility')">
                     <div class="hero-unit">
                         <div class="content">
-                            <h2 class="ds-div-head page-header" alt="page title">Accessibility Statement for the Edinburgh Research Archive</h3>
+                            <h2 class="ds-div-head page-header" alt="page title">Accessibility Statement for the Edinburgh Research Archive</h2>
                             <p>
                                 This is the website accessibility statement in line with Public Sector Body (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018
                             </p>
