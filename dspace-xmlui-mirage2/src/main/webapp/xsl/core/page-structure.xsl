@@ -684,11 +684,8 @@
                 <div class="col-xs-6 col-sm-8 hidden-xs footer-links" >
                     <a href="http://www.ed.ac.uk/about/website/privacy" title="Privacy and Cookies Link" target="_blank">Privacy &amp; Cookies</a><xsl:text>  |  </xsl:text>
                     <a href="http://www.ed.ac.uk/schools-departments/information-services/services/research-support/publish-research/scholarly-communications/sct-policies/sct-policies-take-down" title="Takedown Policy Link">Takedown Policy</a><xsl:text>  |  </xsl:text>
-<<<<<<< HEAD
-                    <a href="{{$context-path}}/accessibility" title="Website Accessibility Link" target="_blank">Accessibility</a><xsl:text>  |  </xsl:text>
-=======
                     <a href="http://www.ed.ac.uk/about/website/accessibility" title="Website Accessibility Link" target="_blank">Accessibility</a><xsl:text>  |  </xsl:text>
->>>>>>> 7493b4122ad22cf93a17b7437a02eabf618c5716
+
                     <a href="http://www.ed.ac.uk/schools-departments/information-services/research-support/publish-research/scholarly-communications/help" title="Contact the Edinburgh Research Archive">Contact</a>
                 </div>
 
@@ -819,7 +816,9 @@
                 <xsl:when test="contains($request-uri, 'accessibility')">
                     <div class="hero-unit">
                         <div class="content">
-                            <h2 class="ds-div-head page-header" alt="page title">Accessibility Statement for the Edinburgh Research Archive</h3>
+
+                            <h2 class="ds-div-head page-header" alt="page title">Accessibility Statement for the Edinburgh Research Archive</h2>
+
                             <p>
                                 This is the website accessibility statement in line with Public Sector Body (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018
                             </p>
@@ -1252,16 +1251,12 @@
                 document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
             </script>
         </xsl:if>
-<<<<<<< HEAD
-        <xsl:if test="contains($uri-string, 'community')">
-=======
         <xsl:if test="contains($uri-string, '/communities')">
             <script>
                 document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
             </script>
         </xsl:if>
         <xsl:if test="contains($uri-string, '/browse')">
->>>>>>> 7493b4122ad22cf93a17b7437a02eabf618c5716
             <script>
                 document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
             </script>
