@@ -1266,6 +1266,7 @@
             </script>
         </xsl:if>
 
+<<<<<<< HEAD
         <!--<xsl:if test="contains($request-uri, 'communit')">
 >>>>>>> code tidy
             <script>
@@ -1309,7 +1310,6 @@
                 document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";  
             </script>
         </xsl:if>-->
-
 
     </xsl:template>
 
