@@ -36,6 +36,8 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
 	/** Language Strings **/
     protected static final Message T_submissions = 
         message("xmlui.Submission.Navigation.submissions");
+    protected static final Message T_new_submission =
+            message("xmlui.Submission.Navigation.new_submission");
 	
 	 /**
      * Generate the unique caching key.
@@ -63,8 +65,6 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
         List account = options.addList("account");
         options.addList("context");
         options.addList("administrative");
-        options.addList("discovery");
-
     	
 //      This doesn't flow very well, lets remove it and see if anyone misses it.  
 //    	DSpaceObject dso = HandleUtil.obtainHandle(objectModel);	
@@ -77,7 +77,9 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
 //		        account.addItemXref(submitURL,"Submit to this collection");
 //    		}
 //    	}
-    	
+        
+        account.addItemXref(contextPath+"/submit",T_new_submission);
     	account.addItemXref(contextPath+"/submissions",T_submissions);
+        
     }
 }

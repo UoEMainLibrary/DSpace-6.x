@@ -208,7 +208,7 @@
                                                         class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Economics, School of
                                                     </a>
-                                                    <a href="${$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Edinburgh+College+of+Art" 
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Edinburgh+College+of+Art" 
                                                         class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Edinburgh College of Art
                                                     </a>

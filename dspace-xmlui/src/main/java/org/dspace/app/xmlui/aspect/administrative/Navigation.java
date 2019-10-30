@@ -298,7 +298,7 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
             admin.setHead(T_administrative_head);
 
             // Control panel
-            admin.addItemXref(contextPath+"/admin/panel", T_administrative_control_panel);
+            //admin.addItemXref(contextPath+"/admin/panel", T_administrative_control_panel);
 
             // Access Controls
             List epeople = admin.addList("epeople");
@@ -322,8 +322,8 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
             registries.addItemXref(contextPath+"/admin/metadata-registry",T_administrative_metadata);
             registries.addItemXref(contextPath+"/admin/format-registry",T_administrative_format);
 
-            admin.addItemXref(contextPath+"/statistics", T_statistics);
-            admin.addItemXref(contextPath+ "/admin/curate", T_administrative_curation);
+            //admin.addItemXref(contextPath+"/statistics", T_statistics);
+            //admin.addItemXref(contextPath+ "/admin/curate", T_administrative_curation);
         }
     }
     

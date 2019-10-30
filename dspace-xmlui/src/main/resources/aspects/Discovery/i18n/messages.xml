@@ -123,10 +123,10 @@
 
     <message key="xmlui.Discovery.AbstractSearch.sort_by.head">Sort Options:</message>
     <message key="xmlui.Discovery.AbstractSearch.sort_by.relevance">Relevance</message>
-    <message key="xmlui.Discovery.AbstractSearch.sort_by.dc.title_sort_desc">Papers A-Z</message>
+    <message key="xmlui.Discovery.AbstractSearch.sort_by.dc.title_sort_desc">Papers Z-A</message>
     <message key="xmlui.Discovery.AbstractSearch.sort_by.dc.date.issued_dt_desc">Academic Year Newest</message>
 
-    <message key="xmlui.Discovery.AbstractSearch.sort_by.dc.title_sort_asc">Papers Z-A</message>
+    <message key="xmlui.Discovery.AbstractSearch.sort_by.dc.title_sort_asc">Papers A-Z</message>
     <message key="xmlui.Discovery.AbstractSearch.sort_by.dc.date.issued_dt_asc">Academic Year Oldest</message>
 
     <message key="xmlui.Discovery.AbstractSearch.rpp">Results Per Page:</message>

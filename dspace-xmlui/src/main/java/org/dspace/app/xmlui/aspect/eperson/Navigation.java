@@ -12,7 +12,6 @@ import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.Enumeration;
 import java.util.Locale;
-
 import org.apache.cocoon.caching.CacheableProcessingComponent;
 import org.apache.cocoon.environment.ObjectModelHelper;
 import org.apache.cocoon.environment.Request;
@@ -28,12 +27,13 @@ import org.dspace.app.xmlui.wing.element.List;
 import org.dspace.app.xmlui.wing.element.Options;
 import org.dspace.app.xmlui.wing.element.UserMeta;
 import org.dspace.authorize.AuthorizeException;
-import org.dspace.services.factory.DSpaceServicesFactory;
 import org.dspace.eperson.EPerson;
 import org.dspace.eperson.Group;
 import org.dspace.eperson.factory.EPersonServiceFactory;
 import org.dspace.eperson.service.GroupService;
+import org.dspace.services.factory.DSpaceServicesFactory;
 import org.xml.sax.SAXException;
+
 
 /**
  * Add the eperson navigation items to the document. This includes:
@@ -169,6 +169,7 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
     /**
      * Add the eperson aspect navigational options.
      */
+    @Override
     public void addOptions(Options options) throws SAXException, WingException,
             UIException, SQLException, IOException, AuthorizeException
     {
@@ -185,8 +186,8 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
         if (eperson != null)
         {
             String fullName = eperson.getFullName();
-            account.addItemXref(contextPath+"/logout",T_logout);
-            account.addItemXref(contextPath+"/profile",T_profile.parameterize(fullName));
+            //account.addItemXref(contextPath+"/logout",T_logout);
+            //account.addItemXref(contextPath+"/profile",T_profile.parameterize(fullName));
         } 
         else 
         {
@@ -201,6 +202,7 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
     /**
      * Add the user metadata
      */
+    @Override
     public void addUserMeta(UserMeta userMeta) throws SAXException,
             WingException, UIException, SQLException, IOException,
             AuthorizeException
@@ -237,6 +239,7 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
     /**
      * recycle
      */
+    @Override
     public void recycle()
     {
         this.validity = null;
