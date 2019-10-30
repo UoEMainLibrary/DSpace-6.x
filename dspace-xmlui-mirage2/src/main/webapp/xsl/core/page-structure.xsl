@@ -1236,6 +1236,7 @@
             <script>
                 document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
                 document.getElementById("aspect_viewArtifacts_Navigation_list_administrative").style.display = "none";
+                document.getElementById("aspect_statisticsIRUS_Navigation_list_statistics").style.display = "none";
             </script>
         </xsl:if>
         <xsl:if test="$auth = 'yes'">
@@ -1246,21 +1247,37 @@
         </xsl:if>
 
         <!-- Conditional to supress sidebar facets based on admin only page urls -->
-        <xsl:if test="contains($uri-string, 'Viewer.trail/handle')">
+        <xsl:if test="contains($uri-string, 'Viewer.trail/handle') or contains($request-uri, 'communit')
+                        or contains($request-uri, 'browse') or $request-uri = 'password-login'">
             <script>
                 document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
             </script>
         </xsl:if>
-        <xsl:if test="contains($uri-string, '/communities')">
+        <xsl:if test="contains($request-uri, 'submi') or contains($request-uri, 'statistics')
+                        or contains($request-uri, 'admin/') or contains($request-uri, 'irus')">
+            <script>
+                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
+                document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
+            </script>
+        </xsl:if>
+
+        <!--<xsl:if test="contains($request-uri, 'communit')">
             <script>
                 document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
             </script>
         </xsl:if>
-        <xsl:if test="contains($uri-string, '/browse')">
+        
+        <xsl:if test="contains($uri-string, 'browse')">
             <script>
                 document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
             </script>
         </xsl:if>
+        <xsl:if test="$request-uri = 'password-login'">
+            <script>
+                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";  
+            </script>
+        </xsl:if>
+
          <xsl:if test="contains($request-uri, 'statistics')">
             <script>
                 document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
@@ -1272,12 +1289,8 @@
                 document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
                 document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";    
             </script>
-        </xsl:if>
-        <xsl:if test="$request-uri = 'password-login'">
-            <script>
-                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";  
-            </script>
-        </xsl:if>
+        </xsl:if>-->
+
 
     </xsl:template>
 
