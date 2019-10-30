@@ -1261,37 +1261,6 @@
             </script>
         </xsl:if>
 
-        <!--<xsl:if test="contains($request-uri, 'communit')">
-            <script>
-                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
-            </script>
-        </xsl:if>
-        
-        <xsl:if test="contains($uri-string, 'browse')">
-            <script>
-                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
-            </script>
-        </xsl:if>
-        <xsl:if test="$request-uri = 'password-login'">
-            <script>
-                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";  
-            </script>
-        </xsl:if>
-
-         <xsl:if test="contains($request-uri, 'statistics')">
-            <script>
-                document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
-                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
-            </script>
-        </xsl:if>
-        <xsl:if test="contains($request-uri, 'admin/')">
-            <script>
-                document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
-                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";    
-            </script>
-        </xsl:if>-->
-
-
     </xsl:template>
 
     <!--The Language Selection-->
