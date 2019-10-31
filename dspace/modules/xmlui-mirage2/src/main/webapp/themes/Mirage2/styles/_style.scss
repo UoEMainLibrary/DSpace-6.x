@@ -105,7 +105,8 @@ h4, h5 {
 #aspect_administrative_item_EditItemStatusForm_list_item-info span,
 #aspect_administrative_eperson_ManageEPeopleMain_list_actions span,
 #aspect_administrative_group_ManageGroupsMain_list_actions span,
-#aspect_administrative_authorization_AuthorizationMain_list_actions span {
+#aspect_administrative_authorization_AuthorizationMain_list_actions span,
+.ds-gloss-list-label  {
   color: #333;
 }
 
@@ -133,7 +134,7 @@ h4, h5 {
 }
 #main-container span {
   margin-bottom: 5px;
-  color: #186599;
+  font-size: 14px;
 }
 #main-container .horizontal-slider {
   background: #FFFFFF;
@@ -498,19 +499,8 @@ a.list-group-item :hover {
   display: none;
 }
 
-/*#aspect_discovery_SimpleSearch_div_search-controls-gear ul {
-    transform: rotate(180deg);
+/* Submission */
+.col-xs-12.col-sm-4,
+.col-xs-12.col-sm-4.needs-xs-spacing {
+  width: 33%;
 }
-#aspect_discovery_SimpleSearch_div_search-controls-gear ul > li {
-    transform: rotate(-180deg);
-}
-#aspect_discovery_SimpleSearch_div_search-controls-gear ul {
-    list-style-type:none;
-    counter-reset:item 6;
-}
-#aspect_discovery_SimpleSearch_div_search-controls-gear ul > li {
-    counter-increment:item -1;
-}
-#aspect_discovery_SimpleSearch_div_search-controls-gear ul > li:after {
-    content: counter(item);
-}*/
