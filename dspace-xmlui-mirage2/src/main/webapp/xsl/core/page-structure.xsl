@@ -302,6 +302,9 @@
                     <xsl:when test="not($page_title)">
                         <xsl:text>  </xsl:text>
                     </xsl:when>
+                    <xsl:when test="starts-with($request-uri, 'accessibility')">
+                        <i18n:text>Accessibility</i18n:text>
+                    </xsl:when>
                     <xsl:otherwise>
                         <xsl:copy-of select="$page_title/node()" />
                     </xsl:otherwise>
@@ -394,6 +397,12 @@
                                     </div>
                                     <ul class="breadcrumb hidden-xs hidden-sm">
                                         <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
+                                    </ul>
+                                </xsl:when>
+                                <xsl:when test="contains($request-uri, 'access')">
+                                <ul class="breadcrumb">
+                                        <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
+                                        <li>Accessibility</li>
                                     </ul>
                                 </xsl:when>
                                 <xsl:otherwise>
@@ -587,7 +596,7 @@
                             <xsl:value-of select="./@target"/>
                         </xsl:attribute>
                         <xsl:if test="position()=1">
-                            <i class="glyphicon glyphicon-home" aria-hidden="true"/>&#160;
+                            <i class="glyphicon glyphicon-home" aria-hidden="true" id="glyph-white" />&#160;
                         </xsl:if>
                         <xsl:apply-templates />
                     </a>
@@ -684,7 +693,7 @@
                 <div class="col-xs-6 col-sm-8 hidden-xs footer-links" >
                     <a href="http://www.ed.ac.uk/about/website/privacy" title="Privacy and Cookies Link" target="_blank">Privacy &amp; Cookies</a><xsl:text>  |  </xsl:text>
                     <a href="http://www.ed.ac.uk/schools-departments/information-services/services/research-support/publish-research/scholarly-communications/sct-policies/sct-policies-take-down" title="Takedown Policy Link">Takedown Policy</a><xsl:text>  |  </xsl:text>
-                    <a href="http://www.ed.ac.uk/about/website/accessibility" title="Website Accessibility Link" target="_blank">Accessibility</a><xsl:text>  |  </xsl:text>
+                    <a href="{$context-path}/accessibility" title="Website Accessibility Link">Accessibility</a><xsl:text>  |  </xsl:text>
 
                     <a href="http://www.ed.ac.uk/schools-departments/information-services/research-support/publish-research/scholarly-communications/help" title="Contact the Edinburgh Research Archive">Contact</a>
                 </div>
@@ -748,6 +757,7 @@
                     <xsl:value-of
                             select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
                     <xsl:text>/htmlmap</xsl:text>
+                    <xsl:text>/accessibility</xsl:text>
                 </xsl:attribute>
                 <xsl:text>&#160;</xsl:text>
             </a>
@@ -825,7 +835,7 @@
                             <p>
                                 The online Edinburgh Research Archive is run by the University of Edinburgh. We want as many people as possible to be able to use this website. For example, that means you should be able to:
                             </p>
-                            <ul>
+                            <ul id="access-ul">
                                 <li>
                                     change most of the colours, contrast levels and fonts
                                 </li>
@@ -854,7 +864,7 @@
                                 AbilityNet has advice on making your device easier to use if you have a disability.
                             </p>
                             <p>
-                                <a href="https://mcmw.abilitynet.org.uk/" title="External link to AbilityNet website">                                   
+                                <a href="https://mcmw.abilitynet.org.uk/" title="External link to AbilityNet website" id="access-link">                                   
                                     <p>AbilityNet - My computer my way</p>
                                 </a>
                             </p>
@@ -862,7 +872,7 @@
                                 With a few simple steps you can customise the appearance of our website to make it easier to read and navigate.
                             </p>
                             <p>
-                                <a href="https://www.edweb.ed.ac.uk/about/website/accessibility/customising-site" title="External link to EdWeb website customising page">
+                                <a href="https://www.edweb.ed.ac.uk/about/website/accessibility/customising-site" title="External link to EdWeb website customising page" id="access-link">
                                     <p>Additional information on how to customise our website appearance</p>
                                 </a>
                             </p>
@@ -872,7 +882,7 @@
                             <p >
                                 We know some parts of this website are not fully accessible:
                             </p>
-                            <ul>
+                            <ul id="access-ul">
                                 <li>
                                     May not be fully compatible with screen readers
                                 </li>
@@ -899,7 +909,7 @@
                             
                             <h2 class="ds-div-head page-header" >What to do if you cannot access parts of this website</h2>
                             <p>
-                                Please note that if you require any content or web related resources such as media, documents or downloads in an alternative format please contact the Information Services Helpline on <a href="tel: 0131 651 5151" title="Clink to call the Edinburgh Research Archive">0131 651 5151</a> or use their online contact form.
+                                Please note that if you require any content or web related resources such as media, documents or downloads in an alternative format please contact the Information Services Helpline on <a href="tel: 0131 651 5151" title="Clink to call the Edinburgh Research Archive" id="access-link">0131 651 5151</a> or use their online contact form.
                             </p>
                             
                             
@@ -908,7 +918,7 @@
                             </h2>
                             <p>
                                 We’re always looking to improve the accessibility of this website. 
-                                If you find any problems not listed on this page or think we’re not meeting accessibility requirements please let us know by contacting the Information Services Helpline on <a href="tel: 0131 651 5151" title="Clink to call the Edinburgh Research Archive">0131 651 5151</a>. 
+                                If you find any problems not listed on this page or think we’re not meeting accessibility requirements please let us know by contacting the Information Services Helpline on <a href="tel: 0131 651 5151" title="Clink to call the Edinburgh Research Archive" id="access-link">0131 651 5151</a>. 
                             </p>
                             <p>
                                 We’ll consider your request and get back to you in 5 working days.
@@ -920,7 +930,7 @@
                                 The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ‘accessibility regulations’). If you’re not happy with how we respond to your complaint please contact the Equality Advisory and Support Service (EASS) directly.
                             </p>
                             <p>
-                                <a href="https://www.equalityadvisoryservice.com/" title="External link to Equality Advisory and Support Service website">Contact details for the Equality Advisory and Support Service (EASS)</a>
+                                <a href="https://www.equalityadvisoryservice.com/" title="External link to Equality Advisory and Support Service website" id="access-link">Contact details for the Equality Advisory and Support Service (EASS)</a>
                             </p>
                             <p>
                                 <strong>Contacting us by phone using British Sign Language</strong>
@@ -930,7 +940,7 @@
                                 British Sign Language Scotland runs a service for British Sign Language users and all of Scotland’s public bodies using video relay. This enables sign language users to contact public bodies and vice versa. The service operates from 8am to 12 midnight, 7 days a week. 
                             </p>
                             <p>
-                                <a href="https://contactscotland-bsl.org" title="External link to British Sign Language Scotland website">British Sign Language Scotland service details</a>
+                                <a href="https://contactscotland-bsl.org" title="External link to British Sign Language Scotland website" id="access-link">British Sign Language Scotland service details</a>
                             </p>
                             <p>
                                 <strong>Technical information about this website’s accessibility</strong>
@@ -945,7 +955,7 @@
                                 The full guidelines are available at:
                             </p>
                             <p>
-                                <a href="https://www.w3.org/TR/WCAG21/" title="External link to W3 Web Content Accessibility Guidelines">Web Content Accessibility Guidelines version 2.1</a>
+                                <a href="https://www.w3.org/TR/WCAG21/" title="External link to W3 Web Content Accessibility Guidelines" id="access-link">Web Content Accessibility Guidelines version 2.1</a>
                             </p>
 
 
@@ -959,49 +969,49 @@
                             <p>
                                 The following items to not comply with the WCAG 2.1 AA success criteria:
                             </p>
-                            <ul>
+                            <ul id="access-ul">
                                 <li>
                                     It is not possible to use a keyboard to access all the content <br></br>
-                                    <a href="https://www.w3.org/TR/WCAG21/#keyboard-accessible" title="External link to W3 Keyboard Accessibility Guidelines">2.1 - Keyboard accessible</a>
+                                    <a href="https://www.w3.org/TR/WCAG21/#keyboard-accessible" title="External link to W3 Keyboard Accessibility Guidelines" id="access-link">2.1 - Keyboard accessible</a>
                                 </li>
                                 <li>
                                     Information is conveyed as an image of text rather than as text itelf so that it's not compatible with screen readers and other assistive technology <br></br>
-                                    <a href="https://www.w3.org/TR/WCAG21/#images-of-text" title="External link to W3 Images of Text Guidelines">1.4.5 - Images of text</a>
+                                    <a href="https://www.w3.org/TR/WCAG21/#images-of-text" title="External link to W3 Images of Text Guidelines" id="access-link">1.4.5 - Images of text</a>
                                 </li>
                                 <li>
                                     Most tooltips disappear as soon as the cursor moves. Also tooltips are not always present for all icons and images. <br></br> 
 
-                                    <a href="https://www.w3.org/TR/WCAG21/#content-on-hover-or-focus" title="External link to W3 Content on Hover or Focus Guidelines">1.4.3 - Contrast (Minimum)</a>
+                                    <a href="https://www.w3.org/TR/WCAG21/#content-on-hover-or-focus" title="External link to W3 Content on Hover or Focus Guidelines" id="access-link">1.4.3 - Contrast (Minimum)</a>
                                 </li>
                                 <li>
                                     There may not be sufficient colour contrast between font and background colours especially where the text size is very small. <br></br> 
 
-                                    <a href="https://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-contrast" title="External link to W3 Visual and Audio Contrast Guidelines">1.4.13 - Content on Hover or Focus</a>
+                                    <a href="https://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-contrast" title="External link to W3 Visual and Audio Contrast Guidelines" id="access-link">1.4.13 - Content on Hover or Focus</a>
                                 </li>
                                 <li>
                                     Visual information to identify user interface components, such as keyboard focus, do not always have a sufficient contrast ratio <br></br>
 
-                                    <a href="https://www.w3.org/TR/WCAG21/#non-text-contrast" title="External link to W3 Non-text Contrast Guidelines">1.4.11 - Non-text contrast</a>
+                                    <a href="https://www.w3.org/TR/WCAG21/#non-text-contrast" title="External link to W3 Non-text Contrast Guidelines" id="access-link">1.4.11 - Non-text contrast</a>
                                 </li>
                                 <li>
                                     Some content cannot be presented without loss of information when magnified to the maximum browser level <br></br>
 
-                                    <a href="https://www.w3.org/TR/WCAG21/#reflow" title="External link to W3 Reflow Guidelines">1.4.10 - Reflow</a>
+                                    <a href="https://www.w3.org/TR/WCAG21/#reflow" title="External link to W3 Reflow Guidelines" id="access-link">1.4.10 - Reflow</a>
                                 </li>
                                 <li>
                                     It might not be possible for all form fields to be programmatically determined. This means that when using auto-fill functionality for forms not all fields will identify the meaning for input data accurately <br></br>
 
-                                    <a href="https://www.w3.org/TR/WCAG21/#identify-input-purpose" title="External link to W3 Identify Input Purpose Guidelines">1.3.5 - Identify Input Purpose</a>
+                                    <a href="https://www.w3.org/TR/WCAG21/#identify-input-purpose" title="External link to W3 Identify Input Purpose Guidelines" id="access-link">1.3.5 - Identify Input Purpose</a>
                                 </li>
                                 <li>
                                     Some content cannot be presented without loss of information if the line height, paragraph spacing, letter spacing or word spacing is increased. <br></br>
 
-                                    <a href="https://www.w3.org/TR/WCAG21/#text-spacing" title="External link to W3 ext Spacing Guidelines">1.4.12 - Text Spacing</a>
+                                    <a href="https://www.w3.org/TR/WCAG21/#text-spacing" title="External link to W3 ext Spacing Guidelines" id="access-link">1.4.12 - Text Spacing</a>
                                 </li>
                                 <li>
                                     There is content that has moving, blinking or scrolling information that (1) starts automatically, (2) lasts more than five seconds, and (3) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it unless the movement, blinking, or scrolling is part of an activity where it is essential. <br></br>
 
-                                    <a href="https://www.w3.org/TR/WCAG21/#pause-stop-hide" title="External link to W3 Pause, Stop and Hide Guidelines">2.2.2- Pause, Stop and Hide</a>
+                                    <a href="https://www.w3.org/TR/WCAG21/#pause-stop-hide" title="External link to W3 Pause, Stop and Hide Guidelines" id="access-link">2.2.2- Pause, Stop and Hide</a>
                                 </li>
                             </ul>
                             <p>
@@ -1018,7 +1028,7 @@
                             <p>
                                 We tested:
                             </p>
-                            <ul>
+                            <ul id="access-ul">
                                 <li>
                                     Spellcheck functionality
                                 </li>
@@ -1082,7 +1092,7 @@
                                 Information Services (IS) has further information on accessibility including assistive technology, creating accessible documents, and services IS provides for disabled users.
                             </p>
                             <p>
-                                <a href="https://www.ed.ac.uk/information-services/help-consultancy/accessibility">
+                                <a href="https://www.ed.ac.uk/information-services/help-consultancy/accessibility" id="access-link">
                                     Assistive technology, creating accessible documents, and services IS provides for disabled users
                                 </a>
                             </p>
@@ -1092,7 +1102,7 @@
                                 This glossary includes common abbreviations and acronyms used across the University of Edinburgh website.                            
                             </p>
                             <p>
-                                <a href="https://www.ed.ac.uk/about/website/accessibility/list-terms">
+                                <a href="https://www.ed.ac.uk/about/website/accessibility/list-terms" id="access-link">
                                     A-Z list of higher education terms
                                 </a>
                             </p>
@@ -1104,7 +1114,7 @@
 
                             <h2 class="ds-div-head page-header">Information Services online contact form</h2>
                             <p>
-                                <a href="http://www.ishelpline.ed.ac.uk/forms/">
+                                <a href="http://www.ishelpline.ed.ac.uk/forms/" id="access-link">
                                     Get support
                                 </a>
                             </p>    
@@ -1248,7 +1258,8 @@
 
         <!-- Conditional to supress sidebar facets based on admin only page urls -->
         <xsl:if test="contains($uri-string, 'Viewer.trail/handle') or contains($request-uri, 'communit')
-                        or contains($request-uri, 'browse') or $request-uri = 'password-login'">
+                        or contains($request-uri, 'browse') or $request-uri = 'password-login'
+                        or contains($request-uri, 'access')">
             <script>
                 document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
             </script>
@@ -1260,37 +1271,6 @@
                 document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
             </script>
         </xsl:if>
-
-        <!--<xsl:if test="contains($request-uri, 'communit')">
-            <script>
-                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
-            </script>
-        </xsl:if>
-        
-        <xsl:if test="contains($uri-string, 'browse')">
-            <script>
-                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
-            </script>
-        </xsl:if>
-        <xsl:if test="$request-uri = 'password-login'">
-            <script>
-                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";  
-            </script>
-        </xsl:if>
-
-         <xsl:if test="contains($request-uri, 'statistics')">
-            <script>
-                document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
-                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
-            </script>
-        </xsl:if>
-        <xsl:if test="contains($request-uri, 'admin/')">
-            <script>
-                document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
-                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";    
-            </script>
-        </xsl:if>-->
-
 
     </xsl:template>
 
