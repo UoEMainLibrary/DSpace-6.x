@@ -675,7 +675,7 @@
                         <a href="http://www.ed.ac.uk/schools-departments/information-services/about/organisation/library-and-collections" target="_blank" title="Library &amp; University Collections Home">
                             <img id="luc-logo" src="{$theme-path}images/CollectionsLUCLogo.png" />
                         </a>
-                        <a href="http://www.is.ed.ac.uk" target="_blank" title="University of Edinburgh Information Services Home" class="pull-right">
+                        <a href="http://www.is.ed.ac.uk" target="_blank" title="University of Edinburgh Information Services Home">
                             <img id="is-logo" src="{$theme-path}images/islogo.gif"/>
                         </a>
                     </div>

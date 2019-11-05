@@ -19,6 +19,7 @@
 
         } else {
             $('#sidebar').show();
+            $('#sidebar').css('right', '-52%')
             $('.row-offcanvas').addClass('active');
             $('.main-content').css('min-height', $('#sidebar').height());
             $('.main-content').on('click', toggle_sidebar);
