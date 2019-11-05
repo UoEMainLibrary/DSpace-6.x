@@ -79,16 +79,26 @@ p {
 .era-header span, li {
   color: #fff;
   font-size: 20px;
-  font-weight: 300px;
+  font-weight: 300;
 }
 #sidebar a {
   font-size: 16px;
   position: relative;
   z-index: 999;
+  font-weight: 300;
 }
 .label-default {
   font-weight: 300;
 }
+
+.row {
+  font-weight: 300;
+}
+ul.ds-referenceSet-list a {
+  font-size: 16px;
+}
+// GLOBAL CONTAINER STYLES //
+
 .page-header.first-page-header {
   font-size: 28px;
   border-bottom: solid 4px;
@@ -97,6 +107,7 @@ span.bold{
   font-weight: 400;
 }
 // GLOBAL CONTAINER STYLES \\
+
 .main-content, #main-container .row-offcanvas {
   z-index: 999;
   background-color: transparent;
@@ -691,7 +702,7 @@ ul.dropdown-menu a {
 .ds-table-row.odd {
 /*  opacity: 0.7;*/
 }
-.visible-xs div, .artifact-h-link a, div {
+.visible-xs div {
   font-weight: 300;
   font-size: 16px;
 }
@@ -728,7 +739,7 @@ ul.dropdown-menu a {
   border: none;
 }
 .nav-tabs>li>a:hover {
-  background-color: none;
+  background-color: transparent;
 }
 .nav>li>a:hover, .nav>li>a:focus {
   background-color: transparent;

@@ -684,7 +684,8 @@
                 <div class="col-xs-6 col-sm-8 hidden-xs footer-links" >
                     <a href="http://www.ed.ac.uk/about/website/privacy" title="Privacy and Cookies Link" target="_blank">Privacy &amp; Cookies</a><xsl:text>  |  </xsl:text>
                     <a href="http://www.ed.ac.uk/schools-departments/information-services/services/research-support/publish-research/scholarly-communications/sct-policies/sct-policies-take-down" title="Takedown Policy Link">Takedown Policy</a><xsl:text>  |  </xsl:text>
-                    <a href="{{$context-path}}/accessibility" title="Website Accessibility Link" target="_blank">Accessibility</a><xsl:text>  |  </xsl:text>
+                    <a href="http://www.ed.ac.uk/about/website/accessibility" title="Website Accessibility Link" target="_blank">Accessibility</a><xsl:text>  |  </xsl:text>
+
                     <a href="http://www.ed.ac.uk/schools-departments/information-services/research-support/publish-research/scholarly-communications/help" title="Contact the Edinburgh Research Archive">Contact</a>
                 </div>
 
@@ -815,7 +816,9 @@
                 <xsl:when test="contains($request-uri, 'accessibility')">
                     <div class="hero-unit">
                         <div class="content">
+
                             <h2 class="ds-div-head page-header" alt="page title">Accessibility Statement for the Edinburgh Research Archive</h2>
+
                             <p>
                                 This is the website accessibility statement in line with Public Sector Body (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018
                             </p>
@@ -1233,6 +1236,7 @@
             <script>
                 document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
                 document.getElementById("aspect_viewArtifacts_Navigation_list_administrative").style.display = "none";
+                document.getElementById("aspect_statisticsIRUS_Navigation_list_statistics").style.display = "none";
             </script>
         </xsl:if>
         <xsl:if test="$auth = 'yes'">
@@ -1243,26 +1247,17 @@
         </xsl:if>
 
         <!-- Conditional to supress sidebar facets based on admin only page urls -->
-        <xsl:if test="contains($uri-string, 'Viewer.trail/handle')">
+        <xsl:if test="contains($uri-string, 'Viewer.trail/handle') or contains($request-uri, 'communit')
+                        or contains($request-uri, 'browse') or $request-uri = 'password-login'">
             <script>
                 document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
             </script>
         </xsl:if>
-         <xsl:if test="contains($request-uri, 'statistics')">
+        <xsl:if test="contains($request-uri, 'submi') or contains($request-uri, 'statistics')
+                        or contains($request-uri, 'admin/') or contains($request-uri, 'irus')">
             <script>
-                document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
                 document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
-            </script>
-        </xsl:if>
-        <xsl:if test="contains($request-uri, 'admin/')">
-            <script>
                 document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
-                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";    
-            </script>
-        </xsl:if>
-        <xsl:if test="$request-uri = 'password-login'">
-            <script>
-                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";  
             </script>
         </xsl:if>
 
