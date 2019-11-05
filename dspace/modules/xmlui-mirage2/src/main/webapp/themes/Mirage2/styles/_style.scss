@@ -436,12 +436,10 @@ header .navbar-default .navbar-nav>li>a:focus {
 .dl-horizontal dt {
 text-align: left;
 }
-#footer-img-cont {
-  display: flex;
-  padding-left: 100px;
-}
+
 #footer-img-cont img {
   margin-right: 30px;
+  margin-top: 4px;
 }
 #luc-logo {
   width: 45px;
@@ -524,10 +522,15 @@ a#rss-item:hover {
 }
 #main-container #sidebar {
   background-color: transparent;
-  position: relative;
+  /*position: relative;*/
   z-index: 999;
   right: -5%;
 }
+
+.sidebar-offcanvas {
+  /*right: -52% !important;*/
+}
+
 a.list-group-item.active span {
   font-size: 18px;
 }
@@ -553,8 +556,8 @@ a.list-group-item.active span {
 }
 .ds-button-field.btn.btn-primary,
 .ds-text-field.form-control {
-  border: 0;
-  border-radius: 0;
+/*  border: 0;
+  border-radius: 0;*/
 }
 .list-group-item:first-child {
   border-radius: 0;
@@ -712,7 +715,7 @@ ul.dropdown-menu a {
   z-index: 999;
 }
 .ds-table-row.odd {
-  opacity: 0.7;
+/*  opacity: 0.7;*/
 }
 .visible-xs div {
   font-weight: 300;
