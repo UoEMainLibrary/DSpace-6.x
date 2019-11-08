@@ -1259,12 +1259,17 @@
 =======
         <xsl:if test="contains($uri-string, 'Viewer.trail/handle') or contains($request-uri, 'communit')
 <<<<<<< HEAD
+<<<<<<< HEAD
                         or contains($request-uri, 'browse') or $request-uri = 'password-login'">
 >>>>>>> code tidy
 =======
                         or contains($request-uri, 'browse') or $request-uri = 'password-login'
                         or contains($request-uri, 'access')">
 >>>>>>> Accessibility footer link fix
+=======
+                        or contains($request-uri, 'browse') or $request-uri = 'password-login'
+                        or contains($request-uri, 'access')">
+>>>>>>> Ported item-view XSL from 4 to not link restricted bitstreams
             <script>
                 document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
             </script>
