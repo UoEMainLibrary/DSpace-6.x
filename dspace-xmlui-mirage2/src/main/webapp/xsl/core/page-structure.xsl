@@ -36,6 +36,7 @@
 
     <!-- Various variables for conditionals regarding page structure, sidebar structure and RSS feed availablity -->
     <xsl:variable name="request-uri" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI']"/>
+    <xsl:variable name="doc-root" select="translate(/dri:document/dri:meta/dri:pageMeta/dri:trail[@target][last()]/@target, '/', '')" />
     <xsl:variable name="trail-test" select="/dri:document/dri:meta/dri:pageMeta/dri:trail[last()]" />
     <xsl:variable name="auth" select="/dri:document/dri:meta/dri:userMeta/@authenticated" />
     <xsl:variable name="uri-string" select="concat($trail-test, '/', $request-uri)" />
@@ -1253,10 +1254,17 @@
             </script>
         </xsl:if>
 
-        <!-- Conditional to supress sidebar facets based on admin only page urls -->
+
 
        <!-- <xsl:if test="contains($uri-string, 'Viewer.trail/handle')">
 =======
+=======
+        <xsl:if test="$request-uri = ''">
+            <script>
+                document.querySelectorAll("h2")[0].style.display = "none";
+            </script>
+        </xsl:if>
+
         <xsl:if test="contains($uri-string, 'Viewer.trail/handle') or contains($request-uri, 'communit')
 <<<<<<< HEAD
 <<<<<<< HEAD
