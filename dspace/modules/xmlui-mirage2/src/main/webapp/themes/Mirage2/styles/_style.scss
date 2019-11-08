@@ -97,6 +97,11 @@ p {
 ul.ds-referenceSet-list a {
   font-size: 16px;
 }
+#access-ul li {
+  color: #333;
+  font-size: 16px;
+  font-weight: 200;
+}
 // GLOBAL CONTAINER STYLES //
 
 .page-header.first-page-header {
@@ -209,7 +214,8 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 .bold a, a:visited,
 #p-underline a, a:visited,
 .ds-simple-list-item a, a:visited,
-.list-unstyled a, a:visited {
+.list-unstyled a, a:visited,
+#access-link a, a:visited {
   position: relative;
 }
 .artifact-title a:hover, a:focus, 
@@ -237,7 +243,8 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 .bold a:hover, a:focus,
 #p-underline a:hover, a:focus,
 .ds-simple-list-item a:hover, a:focus,
-.list-unstyled a:hover, a:focus {
+.list-unstyled a:hover, a:focus,
+#access-link a:hover, a:focus {
   text-decoration: none;
 }
 .artifact-title a:after, a:visited:after, 
@@ -263,7 +270,8 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 .bold a:after, a:visited::after,
 #p-underline a:after, a:visited::after,
 .ds-simple-list-item a::after, a:visited::after,
-.list-unstyled a::after, a:visited::after {
+.list-unstyled a::after, a:visited::after,
+#access-link a::after, a:visited::after {
   content: '';
   height: 2px;
   position: absolute;
@@ -297,7 +305,8 @@ header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidd
 .bold a:hover::after, a:visited:hover::after,
 #p-underline a:hover::after, a:visited:hover::after,
 .ds-simple-list-item a:hover::after, a:visited:hover::after,
-.list-unstyled a:hover::after, a:visited:hover::after {
+.list-unstyled a:hover::after, a:visited:hover::after,
+#access-link a:hover::after, a:visited:hover::after {
   width: 100%;
 }
 .footer-links a::after, a:visited::after {
@@ -356,6 +365,12 @@ legend {
   background-color: #aab8c6;
   margin-bottom: 0px;
   padding: 18px 15px;
+  color: #fff;
+}
+#glyph-white,
+.glyphicon.glyphicon-home,
+.glyphicon.glyphicon-home i {
+  color: #fff;
 }
 .header-title {
   text-align: center;
