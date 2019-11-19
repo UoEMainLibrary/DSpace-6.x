@@ -62,12 +62,26 @@
 
 /* QMU customisations */
 
+/* For width smaller than 400px: */
+
+
 header .navbar-brand img{
   height: 98px;
 }
 
 header .navbar {
   min-height: 120px;
+}
+
+/* For width 400px and larger: */
+@media only screen and (max-width: 415px) {
+  header .navbar-brand img{
+    height: 55px;
+  }
+
+  header .navbar {
+    min-height: 80px;
+  }
 }
 
 header .navbar-default {
