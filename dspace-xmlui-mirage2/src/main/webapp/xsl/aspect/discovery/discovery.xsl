@@ -340,6 +340,9 @@
                                             <xsl:value-of select="concat(concat($context-url, '/', $pdf-filename),
                                                                     concat('.pdf?sequence=', $sequence-num,  '&amp;isAllowed=y'))"/>
                                         </xsl:attribute>
+                                        <xsl:attribute name="download">
+                                            <!--<xsl:value-of select="concat($pdf-filename, '.pdf')" />-->
+                                        </xsl:attribute>
                                         DOWNLOAD PAPER <i aria-hidden="true" class="glyphicon glyphicon-download-alt" id="download-icon"></i>
                                     </xsl:element>
                                 </small>
@@ -347,12 +350,12 @@
                         </xsl:when>
                         <xsl:otherwise>
                             <span class="pdf-unavailable" alt="no download available" title="No available PDF for this paper. Click to find out more">
-                                <small>
+                                <small class="pdf-un-a">
                                     <xsl:element name="a">
                                         <xsl:attribute name="href">
                                             <xsl:value-of select="concat($context-path, '/exam-papers', '/unavailable')" />
                                         </xsl:attribute>
-                                        PAPER UNAVAILABLE
+                                        PAPER UNAVAILABLE <i aria-hidden="true" class="glyphicon glyphicon-ban-circle" id="unavailable-icon"></i>
                                     </xsl:element>
                                 </small>
                             </span> 

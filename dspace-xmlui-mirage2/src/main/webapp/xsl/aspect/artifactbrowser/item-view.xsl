@@ -39,6 +39,8 @@
 
     <xsl:output indent="yes"/>
 
+    <xsl:variable name="auth" select="/dri:document/dri:meta/dri:userMeta/@authenticated" />
+
     <xsl:template name="itemSummaryView-DIM">
         <!-- Generate the info about the item from the metadata section -->
         <xsl:apply-templates select="./mets:dmdSec/mets:mdWrap[@OTHERMDTYPE='DIM']/mets:xmlData/dim:dim"
@@ -129,7 +131,7 @@
                     <xsl:call-template name="itemSummaryView-DIM-file-section" />
 
                     <!-- Supressed link to full item view -->
-                    <xsl:if test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
+                    <xsl:if test="$auth = 'yes'">
                         <xsl:call-template name="itemSummaryView-show-full" />
                     </xsl:if>
                 </div>

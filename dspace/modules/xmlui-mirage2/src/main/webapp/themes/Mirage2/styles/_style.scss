@@ -219,6 +219,9 @@ header .navbar-default {
 .dropdown-toggle:hover {
   background-color: transparent;
 }
+span#filter-span {
+  color: #186599;
+}
 
 #auth-dropdown {
   background-color: #FFF;
@@ -460,6 +463,9 @@ a.list-group-item :hover {
   background: #ddf5fb;
   padding: 0px 5px;
   border-radius: 5px;
+}
+.pdf-un-a a {
+  font-size: 14px;
 }
 .publisher {
   margin-left: 5px;
