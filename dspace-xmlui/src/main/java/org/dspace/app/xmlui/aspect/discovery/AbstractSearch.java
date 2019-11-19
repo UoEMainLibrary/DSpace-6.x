@@ -1041,7 +1041,7 @@ public abstract class AbstractSearch extends AbstractDSpaceTransformer implement
 
         org.dspace.app.xmlui.wing.element.List sortOptions = sortList.addList("sort-selections");
         boolean selected = ("score".equals(currentSort) || (currentSort == null && searchSortConfiguration.getDefaultSort() == null));
-        sortOptions.addItem("relevance", "gear-option" + (selected ? " gear-option-selected" : "")).addXref("sort_by=score&order=" + searchSortConfiguration.getDefaultSortOrder(), T_sort_by_relevance);
+        //sortOptions.addItem("relevance", "gear-option" + (selected ? " gear-option-selected" : "")).addXref("sort_by=score&order=" + searchSortConfiguration.getDefaultSortOrder(), T_sort_by_relevance);
 
         if (currentSort == null
                 && searchSortConfiguration.getDefaultSort() != null)
@@ -1070,8 +1070,18 @@ public abstract class AbstractSearch extends AbstractDSpaceTransformer implement
                 boolean selectedDesc = sortField.equals(currentSort)
                         && SORT_ORDER.desc.name().equals(sortOrder);
                 String sortFieldParam = "sort_by=" + sortField + "&order=";
-                sortOptions.addItem(sortField, "gear-option" + (selectedAsc ? " gear-option-selected" : "")).addXref(sortFieldParam + "asc", message("xmlui.Discovery.AbstractSearch.sort_by." + sortField + "_asc"));
-                sortOptions.addItem(sortField, "gear-option" + (selectedDesc ? " gear-option-selected" : "")).addXref(sortFieldParam + "desc", message("xmlui.Discovery.AbstractSearch.sort_by." + sortField + "_desc"));
+
+                // Conditional added to display sort-by options in correct order
+                if (sortField.equals("dc.date.issued_dt")) 
+                {
+                    sortOptions.addItem(sortField, "gear-option" + (selectedDesc ? " gear-option-selected" : "")).addXref(sortFieldParam + "desc", message("xmlui.Discovery.AbstractSearch.sort_by." + sortField + "_desc"));
+                    sortOptions.addItem(sortField, "gear-option" + (selectedAsc ? " gear-option-selected" : "")).addXref(sortFieldParam + "asc", message("xmlui.Discovery.AbstractSearch.sort_by." + sortField + "_asc"));
+                }
+                else 
+                {
+                    sortOptions.addItem(sortField, "gear-option" + (selectedAsc ? " gear-option-selected" : "")).addXref(sortFieldParam + "asc", message("xmlui.Discovery.AbstractSearch.sort_by." + sortField + "_asc"));
+                    sortOptions.addItem(sortField, "gear-option" + (selectedDesc ? " gear-option-selected" : "")).addXref(sortFieldParam + "desc", message("xmlui.Discovery.AbstractSearch.sort_by." + sortField + "_desc"));
+                }
             }
         }
 

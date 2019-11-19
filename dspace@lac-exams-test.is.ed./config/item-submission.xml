@@ -217,13 +217,13 @@
       </step>
 
        <!--Step 3 will be to Manage Item access.-->
-       <step>
+       <!--<step>
            <heading>submit.progressbar.access</heading>
            <processing-class>org.dspace.submit.step.AccessStep</processing-class>
            <jspui-binding>org.dspace.app.webui.submit.step.JSPAccessStep</jspui-binding>
            <xmlui-binding>org.dspace.app.xmlui.aspect.submission.submit.AccessStep</xmlui-binding>
            <workflow-editable>true</workflow-editable>
-       </step>
+       </step>-->
        
 
       <!--Step 4 will be to Upload the item 
@@ -269,13 +269,13 @@
       -->
 
       <!--Step 7 will be to Sign off on the License-->
-      <step>
+      <!--<step>
         <heading>submit.progressbar.license</heading>
         <processing-class>org.dspace.submit.step.LicenseStep</processing-class>
         <jspui-binding>org.dspace.app.webui.submit.step.JSPLicenseStep</jspui-binding>
 		<xmlui-binding>org.dspace.app.xmlui.aspect.submission.submit.LicenseStep</xmlui-binding>
 		<workflow-editable>false</workflow-editable>
-      </step>
+      </step>-->
 
 
      
