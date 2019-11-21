@@ -7,6 +7,10 @@
  */
 package org.dspace.app.xmlui.utils;
 
+import java.text.ParseException;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
 /**
  * Utilities that are needed in XSL transformations.
  *
@@ -51,6 +55,22 @@ public class XSLUtils {
         }
 
         return string.substring(0, targetLength) + " ...";
+
+    }
+
+    /*
+     * Checks if date is in the future and if so returns true
+     * Added for QMU 21/11/2019 to test if embargodate has passed
+     */
+    public static boolean isInTheFuture(String date) {
+        try {
+            return new SimpleDateFormat("yyyy-MM-dd").parse(date).after(new Date());
+        }
+        catch (ParseException ignored)   {
+
+        }
+
+        return false;
 
     }
 }
