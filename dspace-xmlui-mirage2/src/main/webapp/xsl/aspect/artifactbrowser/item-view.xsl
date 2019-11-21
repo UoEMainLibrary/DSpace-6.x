@@ -350,18 +350,19 @@
             </div>
         </xsl:if>
     </xsl:template>
-    <!--SR 06/09/2018: Add embargo date to simple item view- label as "file embargoed" -->
+    <!--SR 06/09/2018: Add embargo date to simple item view- label as "file embargoed"
+        HM 21/11/2019: Added utility function to check if -->
     <xsl:template name="itemSummaryView-DIM-embargoDate">
-        <xsl:if test="dim:field[@mdschema = 'refterms' and @element='dateEmbargoEnd']">
+        <xsl:if test="dim:field[@mdschema = 'refterms' and @element='dateEmbargoEnd'] and util:isInTheFuture(dim:field[@mdschema = 'refterms' and @element='dateEmbargoEnd'])">
             <div class="simple-item-view-date word-break item-page-field-wrapper table">
                 <h5>
                     <i18n:text>xmlui.mirage2.itemSummaryView.Embargoed</i18n:text>
                 </h5>
                 <xsl:for-each select="dim:field[@mdschema = 'refterms' and @element='dateEmbargoEnd']">
-                    <xsl:copy-of select="./node()"/>
-                    <xsl:if test="count(following-sibling::dim:field[@mdschema = 'refterms' and @element='dateEmbargoEnd']) != 0">
-                        <br/>
-                    </xsl:if>
+                        <xsl:copy-of select="./node()"/>
+                        <xsl:if test="count(following-sibling::dim:field[@mdschema = 'refterms' and @element='dateEmbargoEnd']) != 0">
+                            <br/>
+                        </xsl:if>
                 </xsl:for-each>
             </div>
         </xsl:if>
