@@ -21,6 +21,11 @@
     color: white;
     background: cornflowerblue;
 }
+
+h2:empty, .list-group:empty {
+  display: none;
+}
+
 .publication-records-modal, .publication-records-modal ul {
   list-style-type: none;
   padding-left: 0px;
