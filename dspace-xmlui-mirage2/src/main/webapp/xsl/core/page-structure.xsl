@@ -1719,36 +1719,39 @@
                 <xsl:when test="starts-with($request-uri, 'exam-papers/accessibility')">
                     <div class="hero-unit">
                         <div class="content">
-                            <h3 alt="page title">The University of Edinburgh Exam Papers Accessibility Statement</h3>
+                            <h3 alt="page title">Accessibility statement for University of Edinburgh – Exam Papers online</h3>
                             <p alt="exam papers accessability details">
-                                This is the website accessibility statement in line with Public Sector Body (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018
+                                Website accessibility statement inline with Public Sector Body (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018
+                                <br></br><a href="https://exampapers.ed.ac.uk/ ">https://exampapers.ed.ac.uk/</a>
                             </p>
                             <p alt="exam papers accessability details">
-                                This website is run by the University of Edinburgh. We want as many people as possible to be able to use this website. For example, that means you should be able to:
+                                Exam Papers Online is run by the University of Edinburgh Library as part of the University of Edinburgh. Exam papers online provides access on a website to PDF versions of past exam papers. 
+                            </p>
+                            <p>
+                                We want as many people as possible to be use DiscoverEd. For example, that means you should be able to:
                             </p>
                             <ul>
                                 <li>
-                                    change most of the colours, contrast levels and fonts
+                                    Change most of the colours, contrast levels and fonts
                                 </li>
                                 <li>
-                                    navigate most of the website using just a keyboard
+                                    Experience no time limits to content
                                 </li>
                                 <li>
-                                    navigate most of the website using speech recognition software
+                                    Navigate most of the website using just a keyboard
                                 </li>
                                 <li>
-                                    listen to most of the website using a screen reader (including the most recent versions of JAWS, NVDA and VoiceOver)
+                                    Navigate most of the website using speech recognition software
                                 </li>
                                 <li>
-                                    ensure no information is conveyed by colour or sound only
+                                    Listen to most of the website using a screen reader (including the most recent versions of JAWS, NVDA and VoiceOver)
                                 </li>
                             </ul>
                             <p alt="exam papers accessability details">
                                 We’ve also made the website text as simple as possible to understand.
                             </p>
-                            <p alt="exam papers accessability details">
-                                Customising the website
-                            </p>
+                            <p></p>
+                            <h3>Customising the website</h3>
                             <p alt="exam papers accessability details">
                                 AbilityNet has advice on making your device easier to use if you have a disability.
                             </p>
@@ -1766,76 +1769,56 @@
                                 </a>
                             </p>
                             <p></p>
-                            <h3>Customising the website</h3>
-                            <p  alt="exam papers accessability details">
-                                We know some parts of this website are not fully accessible:
-                            </p>
-                            <ul>
-                                <li>
-                                    May not be fully compatible with screen readers
-                                </li>
-                                <li>
-                                    May not be fully compatible with other forms of assistive technology e.g. Read and Write, Zoomtext
-                                </li>
-                                <li>
-                                    May not be able to access all content by using the keyboard alone and it is unclear where you have tabbed to
-                                </li>
-                                <li>
-                                    Some text is lost at certain levels of magnification
-                                </li>
-                                <li>
-                                    There is a lot of movement on the site
-                                </li>
-                                <li>
-                                    Not all colour contrasts meet recommended WCAG 2.1 AA standards
-                                </li>
-                                <li>
-                                    A user is not notified when a link opens a new window
-                                </li>
-                            </ul>
-                            <p></p>
                             <h3>How accessible this website is</h3>
                             <p alt="exam papers accessability details">
                                 We know some parts of this website are not fully accessible:
                             </p>
                             <ul>
                                 <li>
-                                    May not be fully compatible with screen readers
+                                    Some parts may not be fully compatible with screen readers 
                                 </li>
                                 <li>
-                                    May not be fully compatible with other forms of assistive technology e.g. Read and Write, Zoomtext
+                                    Sometimes it can be hard to tell where you have navigated to by keyboard.
                                 </li>
                                 <li>
-                                    May not be able to access all content by using the keyboard alone and it is unclear where you have tabbed to
+                                    Some colour contrasts do not meet recommended guidance
                                 </li>
                                 <li>
-                                    Some text is lost at certain levels of magnification
+                                    There is some use of block capitals 
                                 </li>
                                 <li>
-                                    There is a lot of movement on the site
+                                    Some links open new windows without warning the user
                                 </li>
                                 <li>
-                                    Not all colour contrasts meet recommended WCAG 2.1 AA standards
-                                </li>
-                                <li>
-                                    A user is not notified when a link opens a new window
+                                    Some PDF’s are not fully accessible
                                 </li>
                             </ul>
                             <p></p>
                             <h3>What to do if you cannot access parts of this website</h3>
                             <p alt="exam papers accessability details">
-                                If you need information on this website in a different format like accessible PDF, large print, audio recording or braille please contact the Universities Collection team Helpline by emailing 
-                                <a href="mailto:exam.papers@ed.ac.uk" title="Clink to email the exam papers team at the University of Edinburgh with any enquiries">exam.papers@ed.ac.uk</a> or phone <a href="tel: 0131 651 1827" title="Clink to call the exam papers team at the University of Edinburgh with any enquiries">0131 651 1827</a>
+                                If you need information on this website in a different format like accessible PDF, large print, audio recording or braille please contact the website team by contacting us:
+                                <br></br> 
+                                <a href="mailto:exam.papers@ed.ac.uk" title="Clink to email the exam papers team at the University of Edinburgh with any enquiries">exam.papers@ed.ac.uk</a> 
+                                <br></br>
+                                Or phoning 
+                                <br></br>
+                                <a href="tel: 0131 651 1827" title="Clink to call the exam papers team at the University of Edinburgh with any enquiries">0131 651 1827</a>
                             </p>
                             <p alt="exam papers accessability details">
-                                We’ll consider your request and get back to you in 5 working days.
+                                We are able to provide the exam papers in an alternative format for a reason related to a disability free of charge. You can also run the document through the SenusAccess service to get an accessible alternative version
+                                <br></br>
+                                <a href="https://www.ed.ac.uk/student-disability-service/staff/supporting-students/accessible-technology">https://www.ed.ac.uk/student-disability-service/staff/supporting-students/accessible-technology</a>
                             </p>
+                            <p></p>
+                            <h3>Reporting accessibility problems with this website</h3>
                             <p alt="exam papers accessability details">
-                                Reporting accessibility problems with this website
-                            </p>
-                            <p alt="exam papers accessability details">
-                                We’re always looking to improve the accessibility of this website. If you find any problems not listed on this page or think we’re not meeting accessibility requirements please let us know: by emailing 
-                                <a href="mailto:exam.papers@ed.ac.uk" title="Clink to email the exam papers team at the University of Edinburgh with any enquiries">exam.papers@ed.ac.uk</a> or phone <a href="tel: 0131 651 1827" title="Clink to call the exam papers team at the University of Edinburgh with any enquiries">0131 651 1827</a>
+                                We’re always looking to improve the accessibility of this website. If you find any problems not listed on this page or think we’re not meeting accessibility requirements please let us know by contacting:
+                                <br></br>
+                                <a href="mailto:exam.papers@ed.ac.uk" title="Clink to email the exam papers team at the University of Edinburgh with any enquiries">exam.papers@ed.ac.uk</a> 
+                                <br></br>
+                                Or phoning 
+                                <br></br>
+                                <a href="tel: 0131 651 1827" title="Clink to call the exam papers team at the University of Edinburgh with any enquiries">0131 651 1827</a>
                             </p>
                             <p alt="exam papers accessability details">
                                 We’ll consider your request and get back to you in 5 working days.
@@ -1848,21 +1831,23 @@
                             <p alt="exam papers accessability details">
                                 <a href="https://www.equalityadvisoryservice.com/" title="External link to Equality Advisory and Support Service website">Contact details for the Equality Advisory and Support Service (EASS)</a>
                             </p>
+                            <p></p>
+                            <h3>Contacting us by phone using British Sign Language British Sign Language service</h3>
                             <p alt="exam papers accessability details">
-                                <strong>Contacting us by phone using British Sign Language</strong>
-                                British Sign Language service
-                            </p>
-                            <p alt="exam papers accessability details">
+                                <strong>British Sign Language service</strong>
+                                <br></br>
                                 British Sign Language Scotland runs a service for British Sign Language users and all of Scotland’s public bodies using video relay. This enables sign language users to contact public bodies and vice versa. The service operates from 8am to 12 midnight, 7 days a week. 
                             </p>
                             <p alt="exam papers accessability details">
                                 <a href="https://contactscotland-bsl.org" title="External link to British Sign Language Scotland website">British Sign Language Scotland service details</a>
                             </p>
+                            <p></p>
+                            <h3>Technical information about this website’s accessibility</h3>
                             <p alt="exam papers accessability details">
-                                Technical information about this website’s accessibility
+                                The University of Edinburgh is committed to making its websites accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.
                             </p>
                             <p alt="exam papers accessability details">
-                                The University of Edinburgh is committed to making its website accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.
+                                When an issue is identified we will seek to resolve the issue in house and where this is not possible we will liaise with the system provider to highlight the issue and seek a solution. While investigation is underway, we will ensure reasonable adjustments are in place to make sure no disabled user is disadvantaged. This includes providing the PDF’s of exam papers in alternative formats free of charge upon request
                             </p>
                             <p alt="exam papers accessability details">
                                 This website is partially compliant with the Web Content Accessibility Guidelines 2.1 AA standard, due to the non-compliances listed below.
@@ -1871,7 +1856,7 @@
                                 The full guidelines are available at:
                             </p>
                             <p alt="exam papers accessability details">
-                                <a href="https://www.w3.org/TR/WCAG21/" title="External link to W3 Web Content Accessibility Guidelines">British Sign Language Scotland service details</a>
+                                <a href="https://www.w3.org/TR/WCAG21/" title="External link to W3 Web Content Accessibility Guidelines">Web Content Accessibility Guidelines version 2.1</a>
                             </p>
                             <p></p>
                             <h3>Non accessible content</h3>
@@ -1879,7 +1864,7 @@
                                 The content listed below is non-accessible for the following reasons.
                             </p>
                             <p alt="exam papers accessability details">
-                                Noncompliance with the accessibility regulations
+                                <strong>Noncompliance with the accessibility regulations</strong>
                             </p>
                             <p alt="exam papers accessability details">
                                 The following items to not comply with the WCAG 2.1 AA success criteria:
@@ -1935,8 +1920,8 @@
                             <p></p>
                             <h3>How We Tested This Website</h3>
                             <p alt="exam papers accessability details">
-                                This system was last tested by the University of Edinburgh’s Deputy Disability Information Officer in August 2019 via sampling the majority of pages across the website. We tested the system on a PC using the bowser Internet Explorer (11) as this is the bowsers most commonly used by disabled users due to its accessibility features and compatibility with assistive technology, as shown by the 
-                                <a href="https://accessibility.blog.gov.uk/2016/11/01/results-of-the-2016-gov-uk-assistive-technology-survey/" title="Click to view the Government Assistive Technology Survey results">Government Assistive Technology Survey</a>
+                                This website was last tested in October 2019. The website was tested by the University of Edinburgh’s Deputy Disability Information Officer on a PC using Internet Explorer (11.0.9600.19236) browser and also using the automated Webaim WAVE tool. Internet Explorer was chosen as the browser due to it being the most commonly used browser by disabled people as shown in the government survey:
+                                <a href="https://accessibility.blog.gov.uk/2016/11/01/results-of-the-2016-gov-uk-assistive-technology-survey/" title="Click to view the Government Assistive Technology Survey results">The Government Assistive Technology Browser Survey</a>
                             </p>
                             <p alt="exam papers accessability details">
                                 We tested:
@@ -1970,34 +1955,31 @@
                                     Operability if Javascript is disabled
                                 </li>
                                 <li>
-                                    Use with screenreading software (JAWS) 
+                                    Use with screenreading software (eg. JAWS) 
                                 </li>
                                 <li>
-                                    TextHelp Read and Write (assistive software)
+                                    Assistive Software such as TextHelp Read and Write, and Zoomtext
                                 </li>
                                 <li>
-                                    Zoomtext (assistive software)
+                                    Tooltips and text alternatives for any non-text content
                                 </li>
                                 <li>
                                     Time limits
                                 </li>
-                                <li>
-                                    Access to specialist help
-                                </li>
                             </ul>
                             <p></p>
-                            <!--<h3>Content that's not within the scope of the accessibility regulations</h3>
-                            <h3>Security of and Access to Your Personal Data</h3>-->
                             <h3>What we’re doing to improve accessibility</h3>
                             <p alt="exam papers accessability details">
-                                We will continue to work with the developer to address these issues and deliver a solution or suitable workaround.
+                                We will continue to work with our in house developers to address these issues and deliver a solution or suitable workaround and correct issues directly where they are under our control. 
                             </p>
                             <p alt="exam papers accessability details">
-                                We will continue to monitor system accessibility and will carry out further accessibility testing as these issues are resolved. However, due to the complex nature of the information displayed it may not be possible to resolve all accessibility issues. If this is the case, we will ensure reasonable adjustments are in place to make sure no user is disadvantaged. We plan to have resolved the majority of accessibility issues by September 2020 at the latest.
+                                We will carry out further accessibility testing if significant changes are made to the user interface or if a service user raises an issue. We plan to resolve the issues that are within our control by September 2020.
+                            </p>
+                            <p alt="exam papers accessability details">
+                                Whilst we are in the process of resolving these accessibility issues or where we are unable to, we will ensure reasonable adjustments are in place to make sure no user is disadvantaged.
                             </p>
                             <p></p>
-
-                            <h3 alt="exhibition title" class="access-h">Information Services and accessibility</h3>
+                            <h3>Information Services and accessibility</h3>
                             <p alt="exam papers accessability details">
                                 Information Services (IS) has further information on accessibility including assistive technology, creating accessible documents, and services IS provides for disabled users.
                             </p>
@@ -2010,7 +1992,7 @@
                             <!--<h3>Information Services and accessibility</h3>-->
                             <p></p>
                             <p alt="exam papers accessability details">
-                                <strong>This statement was prepared on October 2019. It was last updated on October 2019.</strong>
+                                <strong>This statement was prepared on 21st October 2019. It was last updated on 22nd November 2019</strong>
                             </p>
                         </div>
                     </div>
