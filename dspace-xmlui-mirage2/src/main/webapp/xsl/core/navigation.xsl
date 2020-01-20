@@ -194,12 +194,13 @@
     <xsl:variable name="full-url" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request']" />
     <xsl:variable name="return-url" select="$document//dri:meta/dri:pageMeta/dri:trail[@target][last()]/@target" />
     <xsl:variable name="auth" select="/dri:document/dri:meta/dri:userMeta/@authenticated" />
+    <xsl:variable name="auth-group" select="/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier'][@qualifier='group']" />
 
     <!-- ALL SIDEBAR NAVIGATION ELEMENTS CHECKED TO SEE IF THEY RELATE TO SCHOOLS AND SERVED ACCORDINGLY (I.E. ONLY DISPLAY SCHOOLS) -->
     <!-- 'SUBJECT' NAVIGATION ELEMENTS SUPRESSED ON HOME PAGE -->
     <xsl:template match="dri:options/dri:list" priority="3">
         <xsl:choose>
-            <xsl:when test="$auth = 'yes'">
+            <xsl:when test="$auth = 'yes' and $auth-group = 'Administrator'">
                 <xsl:choose>
                     <xsl:when test="$doc-url = $doc-root">
                         <xsl:if test="not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
@@ -297,7 +298,7 @@
 
     <xsl:template match="dri:options//dri:item">
         <xsl:choose>
-            <xsl:when test="$auth = 'yes'">
+            <xsl:when test="$auth = 'yes' and $auth-group = 'Administrator'">
                 <xsl:choose>
                     <xsl:when test="$doc-url = $doc-root">
                         <xsl:if test="not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
@@ -428,7 +429,7 @@
 
     <xsl:template match="dri:options//dri:item[dri:xref]">
         <xsl:choose>
-            <xsl:when test="$auth = 'yes'">
+            <xsl:when test="$auth = 'yes' and $auth-group = 'Administrator'">
                 <xsl:choose>
                     <xsl:when test="$doc-url = $doc-root">
                         <xsl:if test="not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
@@ -1015,7 +1016,7 @@
 
     <xsl:template match="dri:options/dri:list/dri:head" priority="3">
         <xsl:choose>
-            <xsl:when test="$auth = 'yes'">
+            <xsl:when test="$auth = 'yes' and $auth-group = 'Administrator'">
                 <xsl:choose>
                     <xsl:when test="$doc-url = $doc-root">
                         <xsl:if test="not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
@@ -1084,7 +1085,7 @@
 
     <xsl:template match="dri:options/dri:list//dri:list/dri:head" priority="3">
         <xsl:choose>
-            <xsl:when test="$auth = 'yes'">
+            <xsl:when test="$auth = 'yes' and $auth-group = 'Administrator'">
                 <xsl:choose>
                     <xsl:when test="$doc-url = $doc-root">
                         <xsl:if test="not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
