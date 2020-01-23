@@ -34,166 +34,139 @@ import org.dspace.eperson.service.GroupService;
 import org.dspace.services.factory.DSpaceServicesFactory;
 import org.xml.sax.SAXException;
 
-
 /**
  * Add the eperson navigation items to the document. This includes:
  * 
  * 1) Login and Logout links
  * 
- * 2) Navigational links to register or edit their profile based 
- *    upon whether the user is authenticatied or not.
+ * 2) Navigational links to register or edit their profile based upon whether
+ * the user is authenticatied or not.
  * 
- * 3) User metadata 
+ * 3) User metadata
  * 
- * 4) The user's language preferences (whether someone is logged 
- *    in or not)
+ * 4) The user's language preferences (whether someone is logged in or not)
  * 
  * @author Scott Phillips
  */
 
-public class Navigation extends AbstractDSpaceTransformer implements CacheableProcessingComponent
-{
+public class Navigation extends AbstractDSpaceTransformer implements CacheableProcessingComponent {
     /** Language Strings */
-    private static final Message T_my_account =
-        message("xmlui.EPerson.Navigation.my_account");
-    
-    private static final Message T_profile =
-        message("xmlui.EPerson.Navigation.profile");
-    
-    private static final Message T_logout =
-        message("xmlui.EPerson.Navigation.logout");
-    
-    private static final Message T_login =
-        message("xmlui.EPerson.Navigation.login");
-    
-    private static final Message T_register =
-        message("xmlui.EPerson.Navigation.register");
+    private static final Message T_my_account = message("xmlui.EPerson.Navigation.my_account");
 
-	/** Cached validity object */
-	private SourceValidity validity;
+    private static final Message T_profile = message("xmlui.EPerson.Navigation.profile");
+
+    private static final Message T_logout = message("xmlui.EPerson.Navigation.logout");
+
+    private static final Message T_login = message("xmlui.EPerson.Navigation.login");
+
+    private static final Message T_register = message("xmlui.EPerson.Navigation.register");
+
+    /** Cached validity object */
+    private SourceValidity validity;
 
     protected GroupService groupService = EPersonServiceFactory.getInstance().getGroupService();
 
     /**
-     * Generate the unique key.
-     * This key must be unique inside the space of this component.
+     * Generate the unique key. This key must be unique inside the space of this
+     * component.
      *
      * @return The generated key hashes the src
      */
-    public Serializable getKey() 
-    {
+    public Serializable getKey() {
         Request request = ObjectModelHelper.getRequest(objectModel);
-        
-        // Special case, don't cache anything if the user is logging 
+
+        // Special case, don't cache anything if the user is logging
         // in. The problem occures because of timming, this cache key
-        // is generated before we know whether the operation has 
-        // succeeded or failed. So we don't know whether to cache this 
+        // is generated before we know whether the operation has
+        // succeeded or failed. So we don't know whether to cache this
         // under the user's specific cache or under the anonymous user.
-        if (request.getParameter("login_email")    != null ||
-            request.getParameter("login_password") != null ||
-            request.getParameter("login_realm")    != null )
-        {
+        if (request.getParameter("login_email") != null || request.getParameter("login_password") != null
+                || request.getParameter("login_realm") != null) {
             return null;
         }
-                
+
         // FIXME:
         // Do not cache the home page. There is a bug that is causing the
         // homepage to be cached with user's data after a logout. This
         // pollutes the cache. As a work-around this problem we just won't
         // cache this page.
-        if (request.getSitemapURI().length() == 0)
-        {
-        	return null;
+        if (request.getSitemapURI().length() == 0) {
+            return null;
         }
-        
-    	StringBuilder key;
-        if (context.getCurrentUser() != null)
-        {
+
+        StringBuilder key;
+        if (context.getCurrentUser() != null) {
             key = new StringBuilder(context.getCurrentUser().getEmail());
-        }
-        else
-        {
+        } else {
             key = new StringBuilder("anonymous");
         }
-        
+
         // Add the user's language
         Enumeration locales = request.getLocales();
-        while (locales.hasMoreElements())
-        {
+        while (locales.hasMoreElements()) {
             Locale locale = (Locale) locales.nextElement();
             key.append("-").append(locale.toString());
         }
-        
+
         return HashUtil.hash(key.toString());
     }
 
     /**
      * Generate the validity object.
      *
-     * @return The generated validity object or <code>null</code> if the
-     *         component is currently not cacheable.
+     * @return The generated validity object or <code>null</code> if the component
+     *         is currently not cacheable.
      */
-    public SourceValidity getValidity() 
-    {
-    	if (this.validity == null)
-    	{
-    		// Only use the DSpaceValidity object is someone is logged in.
-    		if (context.getCurrentUser() != null)
-    		{
-		        try {
-		            DSpaceValidity validity = new DSpaceValidity();
-		            
-		            validity.add(context, eperson);
-		            
-		            java.util.Set<Group> groups = groupService.allMemberGroupsSet(context, eperson);
-		            for (Group group : groups)
-		            {
-		            	validity.add(context, group);
-		            }
-		            
-		            this.validity = validity.complete();
-		        } 
-		        catch (SQLException sqle)
-		        {
-		            // Just ignore it and return invalid.
-		        }
-    		}
-    		else
-    		{
-    			this.validity = NOPValidity.SHARED_INSTANCE;
-    		}
-    	}
-    	return this.validity;
+    public SourceValidity getValidity() {
+        if (this.validity == null) {
+            // Only use the DSpaceValidity object is someone is logged in.
+            if (context.getCurrentUser() != null) {
+                try {
+                    DSpaceValidity validity = new DSpaceValidity();
+
+                    validity.add(context, eperson);
+
+                    java.util.Set<Group> groups = groupService.allMemberGroupsSet(context, eperson);
+                    for (Group group : groups) {
+                        validity.add(context, group);
+                    }
+
+                    this.validity = validity.complete();
+                } catch (SQLException sqle) {
+                    // Just ignore it and return invalid.
+                }
+            } else {
+                this.validity = NOPValidity.SHARED_INSTANCE;
+            }
+        }
+        return this.validity;
     }
-    
+
     /**
      * Add the eperson aspect navigational options.
      */
     @Override
-    public void addOptions(Options options) throws SAXException, WingException,
-            UIException, SQLException, IOException, AuthorizeException
-    {
-    	/* Create skeleton menu structure to ensure consistent order between aspects,
-    	 * even if they are never used 
-    	 */
+    public void addOptions(Options options)
+            throws SAXException, WingException, UIException, SQLException, IOException, AuthorizeException {
+        /*
+         * Create skeleton menu structure to ensure consistent order between aspects,
+         * even if they are never used
+         */
         options.addList("browse");
         List account = options.addList("account");
         options.addList("context");
         options.addList("administrative");
-        
+
         account.setHead(T_my_account);
         EPerson eperson = this.context.getCurrentUser();
-        if (eperson != null)
-        {
+        if (eperson != null) {
             String fullName = eperson.getFullName();
-            //account.addItemXref(contextPath+"/logout",T_logout);
-            //account.addItemXref(contextPath+"/profile",T_profile.parameterize(fullName));
-        } 
-        else 
-        {
-            account.addItemXref(contextPath+"/login",T_login);
-            if (DSpaceServicesFactory.getInstance().getConfigurationService().getBooleanProperty("xmlui.user.registration", true))
-            {
+            // account.addItemXref(contextPath+"/logout",T_logout);
+            // account.addItemXref(contextPath+"/profile",T_profile.parameterize(fullName));
+        } else {
+            account.addItemXref(contextPath + "/login", T_login);
+            if (DSpaceServicesFactory.getInstance().getConfigurationService()
+                    .getBooleanProperty("xmlui.user.registration", true)) {
                 account.addItemXref(contextPath + "/register", T_register);
             }
         }
@@ -203,60 +176,51 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
      * Add the user metadata
      */
     @Override
-    public void addUserMeta(UserMeta userMeta) throws SAXException,
-            WingException, UIException, SQLException, IOException,
-            AuthorizeException
-    {
+    public void addUserMeta(UserMeta userMeta)
+            throws SAXException, WingException, UIException, SQLException, IOException, AuthorizeException {
         EPerson eperson = context.getCurrentUser();
-        if (eperson != null)
-        {
+        if (eperson != null) {
             userMeta.setAuthenticated(true);
             userMeta.addMetadata("identifier").addContent(eperson.getID().toString());
-            userMeta.addMetadata("identifier","email").addContent(eperson.getEmail());
-            userMeta.addMetadata("identifier","firstName").addContent(eperson.getFirstName());
-            userMeta.addMetadata("identifier","lastName").addContent(eperson.getLastName());
-            userMeta.addMetadata("identifier","logoutURL").addContent(contextPath+"/logout");
-            userMeta.addMetadata("identifier","url").addContent(contextPath+"/profile");
+            userMeta.addMetadata("identifier", "email").addContent(eperson.getEmail());
+            userMeta.addMetadata("identifier", "firstName").addContent(eperson.getFirstName());
+            userMeta.addMetadata("identifier", "lastName").addContent(eperson.getLastName());
+            userMeta.addMetadata("identifier", "logoutURL").addContent(contextPath + "/logout");
+            userMeta.addMetadata("identifier", "url").addContent(contextPath + "/profile");
 
+            /* Code below added to attach user group to UserMeta in the dri:schema */
             String egroup = "";
-
-            for (Group g: eperson.getGroups()) {
-                if(g.getName().equals("Anonymous"))
+            for (Group g : eperson.getGroups()) {
+                if (g.getName().equals("Anonymous"))
                     egroup = "Anonymous";
-
-                if(g.getName().equals("Administrator"))
+                if (g.getName().equals("Administrator"))
                     egroup = "Administrator";
-
             }
+            userMeta.addMetadata("identifier", "group").addContent(egroup);
 
-            userMeta.addMetadata("identifier","group").addContent(egroup);
-        }
-        else
-        {
+        } else {
             userMeta.setAuthenticated(false);
         }
 
         // Always have a login URL.
-        userMeta.addMetadata("identifier","loginURL").addContent(contextPath+"/login");
-        
+        userMeta.addMetadata("identifier", "loginURL").addContent(contextPath + "/login");
+
         // Always add language information
         Request request = ObjectModelHelper.getRequest(objectModel);
         Enumeration locales = request.getLocales();
-        while (locales.hasMoreElements())
-        {
+        while (locales.hasMoreElements()) {
             Locale locale = (Locale) locales.nextElement();
-            userMeta.addMetadata("language","RFC3066").addContent(locale.toString());    
+            userMeta.addMetadata("language", "RFC3066").addContent(locale.toString());
         }
     }
-    
+
     /**
      * recycle
      */
     @Override
-    public void recycle()
-    {
+    public void recycle() {
         this.validity = null;
         super.recycle();
     }
-    
+
 }
