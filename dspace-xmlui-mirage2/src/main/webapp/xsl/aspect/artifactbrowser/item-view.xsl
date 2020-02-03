@@ -40,6 +40,7 @@
     <xsl:output indent="yes"/>
 
     <xsl:variable name="auth" select="/dri:document/dri:meta/dri:userMeta/@authenticated" />
+    <xsl:variable name="auth-group" select="/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier'][@qualifier='group']" />
 
     <xsl:template name="itemSummaryView-DIM">
         <!-- Generate the info about the item from the metadata section -->
@@ -131,7 +132,7 @@
                     <xsl:call-template name="itemSummaryView-DIM-file-section" />
 
                     <!-- Supressed link to full item view -->
-                    <xsl:if test="$auth = 'yes'">
+                    <xsl:if test="$auth = 'yes' and $auth-group = 'Administrator'">
                         <xsl:call-template name="itemSummaryView-show-full" />
                     </xsl:if>
                 </div>

@@ -608,7 +608,8 @@
                             </ul>
                             <ul class="nav navbar-nav pull-left">
                                 <xsl:choose>
-                                    <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
+                                    <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes' 
+                                            and /dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier'][@qualifier='group'] = 'Administrator'">
                                         <li>
                                             <a href="{$context-path}/" alt="naviagtion link to home page" title="Link to home page">Home</a>
                                         </li>

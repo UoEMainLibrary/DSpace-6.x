@@ -126,6 +126,7 @@
                     
                 </div>
             <!--</xsl:if>-->
+            <xsl:apply-templates select="dri:list[@n='browse']"/>
             <xsl:apply-templates select="dri:list[@n='author']"/>
             <xsl:apply-templates select="dri:list[@n='subject']"/>
             <xsl:apply-templates select="dri:list[@n='context']"/>
@@ -203,7 +204,7 @@
             <xsl:when test="$auth = 'yes' and $auth-group = 'Administrator'">
                 <xsl:choose>
                     <xsl:when test="$doc-url = $doc-root">
-                        <xsl:if test="not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <div id="list-group-div">
                                 <xsl:call-template name="standardAttributes">
                                     <xsl:with-param name="class">list-group</xsl:with-param>
@@ -214,7 +215,7 @@
                         </xsl:if>
                     </xsl:when>
                     <xsl:when test="not(contains($full-url, 'subject'))">
-                        <xsl:if test="not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <div id="list-group-div">
                                 <xsl:call-template name="standardAttributes">
                                     <xsl:with-param name="class">list-group</xsl:with-param>
@@ -224,7 +225,7 @@
                         </xsl:if>
                     </xsl:when>
                     <xsl:when test="contains($full-url, 'profile')">
-                        <xsl:if test="not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <div id="list-group-div">
                                 <xsl:call-template name="standardAttributes">
                                     <xsl:with-param name="class">list-group</xsl:with-param>
@@ -249,7 +250,7 @@
             <xsl:otherwise>
                 <xsl:choose>
                     <xsl:when test="$doc-url = $doc-root">
-                        <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'account') and not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <div id="list-group-div">
                                 <xsl:call-template name="standardAttributes">
                                     <xsl:with-param name="class">list-group</xsl:with-param>
@@ -260,7 +261,7 @@
                         </xsl:if>
                     </xsl:when>
                     <xsl:when test="not(contains($full-url, 'subject'))">
-                        <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'account') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <div id="list-group-div">
                                 <xsl:call-template name="standardAttributes">
                                     <xsl:with-param name="class">list-group</xsl:with-param>
@@ -270,7 +271,7 @@
                         </xsl:if>
                     </xsl:when>
                     <xsl:when test="contains($full-url, 'profile')">
-                        <xsl:if test="not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <div id="list-group-div">
                                 <xsl:call-template name="standardAttributes">
                                     <xsl:with-param name="class">list-group</xsl:with-param>
@@ -301,7 +302,7 @@
             <xsl:when test="$auth = 'yes' and $auth-group = 'Administrator'">
                 <xsl:choose>
                     <xsl:when test="$doc-url = $doc-root">
-                        <xsl:if test="not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <div id="list-group-opt-div">
                             <xsl:choose>
                             <xsl:when test="../@n = 'subject'">
@@ -327,7 +328,7 @@
                         </xsl:if>
                     </xsl:when>
                     <xsl:when test="not(contains($full-url, 'subject'))">
-                        <xsl:if test="not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <div id="list-group-opt-div">
                                 <xsl:call-template name="standardAttributes">
                                     <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
@@ -338,7 +339,7 @@
                         </xsl:if>
                     </xsl:when>
                     <xsl:when test="contains($full-url, 'profile')">
-                        <xsl:if test="not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <div id="list-group-opt-div">
                                 <xsl:call-template name="standardAttributes">
                                     <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
@@ -364,7 +365,7 @@
             <xsl:otherwise>
                 <xsl:choose>
                     <xsl:when test="$doc-url = $doc-root">
-                        <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'account') and not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <div id="list-group-opt-div">
                             <xsl:choose>
                             <xsl:when test="../@n = 'subject'">
@@ -390,7 +391,7 @@
                         </xsl:if>
                     </xsl:when>
                     <xsl:when test="not(contains($full-url, 'subject'))">
-                        <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'account') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <div id="list-group-opt-div">
                                 <xsl:call-template name="standardAttributes">
                                     <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
@@ -401,7 +402,7 @@
                         </xsl:if>
                     </xsl:when>
                     <xsl:when test="contains($full-url, 'profile')">
-                        <xsl:if test="not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <div id="list-group-opt-div">
                                 <xsl:call-template name="standardAttributes">
                                     <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
@@ -432,7 +433,7 @@
             <xsl:when test="$auth = 'yes' and $auth-group = 'Administrator'">
                 <xsl:choose>
                     <xsl:when test="$doc-url = $doc-root">
-                        <xsl:if test="not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <!-- Conditional to determine title value for accessibility -->
                             <xsl:choose>
                                 <xsl:when test="../@n = 'author'">
@@ -521,7 +522,7 @@
                         </xsl:if>
                     </xsl:when>
                     <xsl:when test="not(contains($full-url, 'subject'))">
-                        <xsl:if test="not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <xsl:choose>
                                 <xsl:when test="../@n = 'subject'">
                                     <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to filter papers by this subject">
@@ -587,7 +588,7 @@
                         </xsl:if>
                     </xsl:when>
                     <xsl:when test="contains($full-url, 'profile')">
-                        <xsl:if test="not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <xsl:choose>
                                 <xsl:when test="../@n = 'subject'">
                                     <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to filter papers by this subject">
@@ -729,7 +730,7 @@
             <xsl:otherwise>
                 <xsl:choose>
                     <xsl:when test="$doc-url = $doc-root">
-                        <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'account') and not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <!-- Conditional to determine title value for accessibility -->
                             <xsl:choose>
                                 <xsl:when test="../@n = 'author'">
@@ -812,7 +813,7 @@
                         </xsl:if>
                     </xsl:when>
                     <xsl:when test="not(contains($full-url, 'subject'))">
-                        <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'account') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <xsl:choose>
                                 <xsl:when test="../@n = 'subject'">
                                     <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to filter papers by this subject">
@@ -878,7 +879,7 @@
                         </xsl:if>
                     </xsl:when>
                     <xsl:when test="contains($full-url, 'profile')">
-                        <xsl:if test="not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <xsl:choose>
                                 <xsl:when test="../@n = 'subject'">
                                     <a href="{dri:xref/@target}" alt="View papers with this category link" title="Click to filter papers by this subject">
@@ -1019,21 +1020,21 @@
             <xsl:when test="$auth = 'yes' and $auth-group = 'Administrator'">
                 <xsl:choose>
                     <xsl:when test="$doc-url = $doc-root">
-                        <xsl:if test="not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <xsl:call-template name="renderHead">
                                 <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
                             </xsl:call-template>
                         </xsl:if>
                     </xsl:when>
                     <xsl:when test="not(contains($full-url, 'subject'))">
-                        <xsl:if test="not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <xsl:call-template name="renderHead">
                                 <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
                             </xsl:call-template>
                         </xsl:if>
                     </xsl:when>
                     <xsl:when test="contains($full-url, 'profile')">
-                        <xsl:if test="not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <xsl:call-template name="renderHead">
                                 <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
                             </xsl:call-template>
@@ -1051,21 +1052,21 @@
             <xsl:otherwise>
                 <xsl:choose>
                     <xsl:when test="$doc-url = $doc-root">
-                        <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'account') and not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <xsl:call-template name="renderHead">
                                 <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
                             </xsl:call-template>
                         </xsl:if>
                     </xsl:when>
                     <xsl:when test="not(contains($full-url, 'subject'))">
-                        <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'account') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <xsl:call-template name="renderHead">
                                 <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
                             </xsl:call-template>
                         </xsl:if>
                     </xsl:when>
                     <xsl:when test="contains($full-url, 'profile')">
-                        <xsl:if test="not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <xsl:call-template name="renderHead">
                                 <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
                             </xsl:call-template>
@@ -1088,7 +1089,7 @@
             <xsl:when test="$auth = 'yes' and $auth-group = 'Administrator'">
                 <xsl:choose>
                     <xsl:when test="$doc-url = $doc-root">
-                        <xsl:if test="not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <a class="list-group-item active">
                                 <span>
                                     <xsl:call-template name="standardAttributes">
@@ -1103,7 +1104,7 @@
                         </xsl:if>
                     </xsl:when>
                     <xsl:when test="not(contains($full-url, 'subject'))">
-                        <xsl:if test="not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <a class="list-group-item active">
                                 <span>
                                     <xsl:call-template name="standardAttributes">
@@ -1118,7 +1119,7 @@
                         </xsl:if>
                     </xsl:when>
                     <xsl:when test="contains($full-url, 'profile')">
-                        <xsl:if test="not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <a class="list-group-item active">
                                 <span>
                                     <xsl:call-template name="standardAttributes">
@@ -1152,7 +1153,7 @@
             <xsl:otherwise>
                 <xsl:choose>
                     <xsl:when test="$doc-url = $doc-root">
-                        <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'account') and not(../@n = 'subject') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <a class="list-group-item active">
                                 <span>
                                     <xsl:call-template name="standardAttributes">
@@ -1167,7 +1168,7 @@
                         </xsl:if>
                     </xsl:when>
                     <xsl:when test="not(contains($full-url, 'subject'))">
-                        <xsl:if test="not(../@n = 'account') and not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'account') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <a class="list-group-item active">
                                 <span>
                                     <xsl:call-template name="standardAttributes">
@@ -1182,7 +1183,7 @@
                         </xsl:if>
                     </xsl:when>
                     <xsl:when test="contains($full-url, 'profile')">
-                        <xsl:if test="not(../@n = 'global') and not(../@n = 'browse') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
+                        <xsl:if test="not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <a class="list-group-item active">
                                 <span>
                                     <xsl:call-template name="standardAttributes">
