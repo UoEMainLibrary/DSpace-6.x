@@ -39,6 +39,7 @@
         Specifically, adding a static page will need to override the DRI, to directly add content.
     -->
     <xsl:variable name="request-uri" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI']"/>
+    <xsl:variable name="doc-root" select="translate(/dri:document/dri:meta/dri:pageMeta/dri:trail[@target][last()]/@target, '/', '')" />
 
     <!--
         The starting point of any XSL processing is matching the root element. In DRI the root element is document,
@@ -738,7 +739,7 @@
                     <div class="row">
                         <!--TODO-->
                         <div class="col-xs-12">
-                            <xsl:choose>
+                            
 
                                 <!-- REMOVED DYNAMIC BREADCRUMBS -->
                                 <!--<xsl:when test="count(/dri:document/dri:meta/dri:pageMeta/dri:trail) > 1">
@@ -772,457 +773,112 @@
                                 <!-- Add static page breadcrumbs based on url conditional -->
                                 <!-- * lengthy and ugly but avoids end-users being able to access default dspace discovery & collection pages 
                                         (stops students seeing dspace admin interface etc -->
-                                    <xsl:when test="starts-with($request-uri, 'exam-papers/about')">
-                                        <ul class="breadcrumb" alt="breadcrumb trail for current page">
-                                            <li>
-                                                <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
-                                                    University Homepage
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
-                                                    Schools &amp; Departments
-                                                </a>
-                                            </li> 
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
-                                                    Information Services
-                                                </a>
-                                            </li>                                          
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
-                                                    Library Essentials
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="/" alt="breadcrumb link to exam papers homapge" title="Breadcrumb link to exam papers home page">
-                                                    Exam Papers
-                                                </a>
-                                            </li>
-                                            <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: About">
-                                                <xsl:text>About</xsl:text>
-                                            </li>
-                                        </ul>
-                                        
-                                    </xsl:when>
-                                    <xsl:when test="starts-with($request-uri, 'exam-papers/help')">
-                                        <ul class="breadcrumb" alt="breadcrumb trail for current page">
-                                            <li>
-                                                <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
-                                                    University Homepage
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
-                                                    Schools &amp; Departments
-                                                </a>
-                                            </li> 
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
-                                                    Information Services
-                                                </a>
-                                            </li>                                          
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
-                                                    Library Essentials
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="/" alt="breadcrumb link to exam papers homapge" title="Breadcrumb link to exam papers home page">
-                                                    Exam Papers
-                                                </a>
-                                            </li>
-                                            <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: Help">
-                                                <xsl:text>Help</xsl:text>
-                                            </li>
-                                        </ul>
-                                        
-                                    </xsl:when>
-                                    <xsl:when test="starts-with($request-uri, 'exam-papers/feedback')">
-                                        <ul class="breadcrumb" alt="breadcrumb trail for current page">
-                                            <li>
-                                                <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
-                                                    University Homepage
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
-                                                    Schools &amp; Departments
-                                                </a>
-                                            </li> 
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
-                                                    Information Services
-                                                </a>
-                                            </li>                                          
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
-                                                    Library Essentials
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="/" alt="breadcrumb link to exam papers homapge" title="Breadcrumb link to exam papers home page">
-                                                    Exam Papers
-                                                </a>
-                                            </li>
-                                            <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: Feedback">
-                                                <xsl:text>Feedback</xsl:text>
-                                            </li>
-                                        </ul>
-                                        
-                                    </xsl:when>
-                                    <xsl:when test="starts-with($request-uri, 'exam-papers/faqs')">
-                                        <ul class="breadcrumb" alt="breadcrumb trail for current page">
-                                            <li>
-                                                <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
-                                                    University Homepage
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
-                                                    Schools &amp; Departments
-                                                </a>
-                                            </li> 
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
-                                                    Information Services
-                                                </a>
-                                            </li>                                          
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
-                                                    Library Essentials
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="/" alt="breadcrumb link to exam papers homapge" title="Breadcrumb link to exam papers home page">
-                                                    Exam Papers
-                                                </a>
-                                            </li>
-                                            <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: FAQs">
-                                                <xsl:text>FAQs</xsl:text>
-                                            </li>
-                                        </ul>
-                                    </xsl:when>
-
-                                    <xsl:when test="starts-with($request-uri, 'exam-papers/unavailable')">
-                                        <ul class="breadcrumb" alt="breadcrumb trail for current page">
-                                            <li>
-                                                <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
-                                                    University Homepage
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
-                                                    Schools &amp; Departments
-                                                </a>
-                                            </li> 
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
-                                                    Information Services
-                                                </a>
-                                            </li>                                          
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
-                                                    Library Essentials
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="/" alt="breadcrumb link to exam papers homapge" title="Breadcrumb link to exam papers home page">
-                                                    Exam Papers
-                                                </a>
-                                            </li>
-                                            <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: Paper Unavailable">
-                                                <xsl:text>Paper Unavailable</xsl:text>
-                                            </li>
-                                        </ul>
-                                    </xsl:when> 
-
-                                    <xsl:when test="starts-with($request-uri, 'exam-papers/accessibility')">
-                                        <ul class="breadcrumb" alt="breadcrumb trail for current page">
-                                            <li>
-                                                <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
-                                                    University Homepage
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
-                                                    Schools &amp; Departments
-                                                </a>
-                                            </li> 
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
-                                                    Information Services
-                                                </a>
-                                            </li>                                          
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
-                                                    Library Essentials
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="/" alt="breadcrumb link to exam papers homapge" title="Breadcrumb link to exam papers home page">
-                                                    Exam Papers
-                                                </a>
-                                            </li>
-                                            <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: Accessibility">
-                                                <xsl:text>Accessibility</xsl:text>
-                                            </li>
-                                        </ul>
-                                    </xsl:when>
-
-                                    <xsl:when test="starts-with($request-uri, 'handle')">
-                                        <ul class="breadcrumb" alt="breadcrumb trail for current page">
-                                            <li>
-                                                <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
-                                                    University Homepage
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
-                                                    Schools &amp; Departments
-                                                </a>
-                                            </li> 
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
-                                                    Information Services
-                                                </a>
-                                            </li>                                          
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
-                                                    Library Essentials
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="/" alt="breadcrumb link to exam papers homapge" title="Breadcrumb link to exam papers home page">
-                                                    Exam Papers
-                                                </a>
-                                            </li>
-                                            <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: View Paper">
-                                                <xsl:text>View Paper</xsl:text>
-                                            </li>
-                                        </ul>   
-                                    </xsl:when>
-
-                                    <xsl:when test="starts-with($request-uri, 'discover')">
-                                        <ul class="breadcrumb" alt="breadcrumb trail for current page">
-                                            <li>
-                                                <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
-                                                    University Homepage
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
-                                                    Schools &amp; Departments
-                                                </a>
-                                            </li> 
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
-                                                    Information Services
-                                                </a>
-                                            </li>                                          
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
-                                                    Library Essentials
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="/" alt="breadcrumb link to exam papers homapge" title="Breadcrumb link to exam papers home page">
-                                                    Exam Papers
-                                                </a>
-                                            </li>
-                                            <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: Search">
-                                                <xsl:text>Search</xsl:text>
-                                            </li>
-                                        </ul>      
-                                    </xsl:when>  
-                                    <xsl:when test="starts-with($request-uri, 'password-login')">
-                                        <ul class="breadcrumb" alt="breadcrumb trail for current page">
-                                            <li>
-                                                <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
-                                                    University Homepage
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
-                                                    Schools &amp; Departments
-                                                </a>
-                                            </li> 
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
-                                                    Information Services
-                                                </a>
-                                            </li>                                          
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
-                                                    Library Essentials
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="/" alt="breadcrumb link to exam papers homapge" title="Breadcrumb link to exam papers home page">
-                                                    Exam Papers
-                                                </a>
-                                            </li>
-                                            <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: Password Login">
-                                                <xsl:text>Password Login</xsl:text>
-                                            </li>
-                                        </ul>      
-                                    </xsl:when>   
-                                    <xsl:when test="starts-with($request-uri, 'forgot')">
-                                        <ul class="breadcrumb" alt="breadcrumb trail for current page">
-                                            <li>
-                                                <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
-                                                    University Homepage
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
-                                                    Schools &amp; Departments
-                                                </a>
-                                            </li> 
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
-                                                    Information Services
-                                                </a>
-                                            </li>                                          
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
-                                                    Library Essentials
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="/" alt="breadcrumb link to exam papers homapge" title="Breadcrumb link to exam papers home page">
-                                                    Exam Papers
-                                                </a>
-                                            </li>
-                                            <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: Forgotten Password">
-                                                <xsl:text>Forgotten Password</xsl:text>
-                                            </li>
-                                        </ul>      
-                                    </xsl:when> 
-                                    <xsl:when test="starts-with($request-uri, 'profile')">
-                                        <ul class="breadcrumb" alt="breadcrumb trail for current page">
-                                            <li>
-                                                <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
-                                                    University Homepage
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
-                                                    Schools &amp; Departments
-                                                </a>
-                                            </li> 
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
-                                                    Information Services
-                                                </a>
-                                            </li>                                          
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
-                                                    Library Essentials
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="/" alt="breadcrumb link to exam papers homapge" title="Breadcrumb link to exam papers home page">
-                                                    Exam Papers
-                                                </a>
-                                            </li>
-                                            <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: Edit Profile">
-                                                <xsl:text>Edit Profile</xsl:text>
-                                            </li>
-                                        </ul>      
-                                    </xsl:when>
-                                    <xsl:when test="contains($request-uri, 'admin') or contains($request-uri, 'statistics')">
-                                        <ul class="breadcrumb" alt="breadcrumb trail for current page">
-                                            <li>
-                                                <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
-                                                    University Homepage
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
-                                                    Schools &amp; Departments
-                                                </a>
-                                            </li> 
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
-                                                    Information Services
-                                                </a>
-                                            </li>                                          
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
-                                                    Library Essentials
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="/" alt="breadcrumb link to exam papers homapge" title="Breadcrumb link to exam papers home page">
-                                                    Exam Papers
-                                                </a>
-                                            </li>
-                                            <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: Administation">
-                                                <xsl:text>Administation</xsl:text>
-                                            </li>
-                                        </ul>      
-                                    </xsl:when>
-                                    <xsl:when test="contains($request-uri, 'submi')">
-                                        <ul class="breadcrumb" alt="breadcrumb trail for current page">
-                                            <li>
-                                                <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
-                                                    University Homepage
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
-                                                    Schools &amp; Departments
-                                                </a>
-                                            </li> 
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
-                                                    Information Services
-                                                </a>
-                                            </li>                                          
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
-                                                    Library Essentials
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="/" alt="breadcrumb link to exam papers homapge" title="Breadcrumb link to exam papers home page">
-                                                    Exam Papers
-                                                </a>
-                                            </li>
-                                            <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: Administation">
-                                                <xsl:text>Submissions</xsl:text>
-                                            </li>
-                                        </ul>      
+                                    
+                            <ul  class="breadcrumb" id="breadcrumb-list" alt="breadcrumb trail for current page">
+                                <li>
+                                    <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
+                                        University Homepage
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
+                                        Schools &amp; Departments
+                                    </a>
+                                </li> 
+                                <li>
+                                    <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
+                                        Information Services
+                                    </a>
+                                </li>                                          
+                                <li>
+                                    <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
+                                        Library Essentials
+                                    </a>
+                                </li>
+                                <xsl:choose>
+                                    <xsl:when test="$request-uri = $doc-root">
+                                        <li>
+                                            Exam Papers
+                                        </li>
                                     </xsl:when>
                                     <xsl:otherwise>
-                                        <ul class="breadcrumb" alt="breadcrumb trail for current page">
-                                            <li>
-                                                <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
-                                                    University Homepage
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
-                                                    Schools &amp; Departments
-                                                </a>
-                                            </li> 
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
-                                                    Information Services
-                                                </a>
-                                            </li>                                          
-                                            <li>
-                                                <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
-                                                    Library Essentials
-                                                </a>
-                                            </li>
-                                            <li class="breadcrumb" alt="breadcrumb for current page" title="Current page: Exam Papers Home">
-                                                <xsl:text>Exam Papers</xsl:text>
-                                            </li>
-                                        </ul>
+                                        <li>
+                                            <a href="/" alt="breadcrumb link to exam papers homapge" title="Breadcrumb link to exam papers home page">
+                                                Exam Papers
+                                            </a>
+                                        </li>
                                     </xsl:otherwise>
-                            </xsl:choose>
+                                </xsl:choose>
+                                <xsl:choose>
+                                    <xsl:when test="starts-with($request-uri, 'exam-papers/about')">
+                                        <li alt="breadcrumb for current page" title="Current page: About">
+                                            <xsl:text>About</xsl:text>
+                                        </li>
+                                    </xsl:when>
+                                    <xsl:when test="starts-with($request-uri, 'exam-papers/help')">
+                                        <li alt="breadcrumb for current page" title="Current page: Help">
+                                            <xsl:text>Help</xsl:text>
+                                        </li>
+                                    </xsl:when>
+                                    <xsl:when test="starts-with($request-uri, 'exam-papers/feedback')">
+                                        <li alt="breadcrumb for current page" title="Current page: Feedback">
+                                            <xsl:text>Feedback</xsl:text>
+                                        </li>
+                                    </xsl:when>
+                                    <xsl:when test="starts-with($request-uri, 'exam-papers/faqs')">
+                                        <li alt="breadcrumb for current page" title="Current page: FAQs">
+                                            <xsl:text>FAQs</xsl:text>
+                                        </li>
+                                    </xsl:when>
+                                    <xsl:when test="starts-with($request-uri, 'exam-papers/unavailable')">
+                                        <li alt="breadcrumb for current page" title="Current page: Paper Unavailable">
+                                            <xsl:text>Paper Unavailable</xsl:text>
+                                        </li>
+                                    </xsl:when>
+                                    <xsl:when test="starts-with($request-uri, 'exam-papers/accessibility')">
+                                        <li alt="breadcrumb for current page" title="Current page: Accessibility">
+                                            <xsl:text>Accessibility</xsl:text>
+                                        </li>
+                                    </xsl:when>
+                                    <xsl:when test="starts-with($request-uri, 'handle')">
+                                        <li alt="breadcrumb for current page" title="Current page: View Paper">
+                                            <xsl:text>View Paper</xsl:text>
+                                        </li>
+                                    </xsl:when>
+                                    <xsl:when test="starts-with($request-uri, 'discover')">
+                                        <li alt="breadcrumb for current page" title="Current page: Search">
+                                            <xsl:text>Search</xsl:text>
+                                        </li>
+                                    </xsl:when>
+                                    <xsl:when test="starts-with($request-uri, 'password-login')">
+                                        <li alt="breadcrumb for current page" title="Current page: Password Login">
+                                            <xsl:text>Password Login</xsl:text>
+                                        </li>
+                                    </xsl:when>
+                                    <xsl:when test="starts-with($request-uri, 'forgot')">
+                                        <li alt="breadcrumb for current page" title="Current page: Forgotten Password">
+                                            <xsl:text>Forgotten Password</xsl:text>
+                                        </li>
+                                    </xsl:when>
+                                    <xsl:when test="starts-with($request-uri, 'profile')">
+                                        <li alt="breadcrumb for current page" title="Current page: Edit Profile">
+                                            <xsl:text>Edit Profile</xsl:text>
+                                        </li>
+                                    </xsl:when>
+                                    <xsl:when test="contains($request-uri, 'admin') or contains($request-uri, 'statistics')">
+                                        <li alt="breadcrumb for current page" title="Current page: Administation">
+                                            <xsl:text>Administation</xsl:text>
+                                        </li>
+                                    </xsl:when>
+                                    <xsl:when test="contains($request-uri, 'submi')">
+                                        <li alt="breadcrumb for current page" title="Current page: Administation">
+                                            <xsl:text>Submissions</xsl:text>
+                                        </li>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </ul>
                         </div>
                     </div>
                 </div>
