@@ -76,7 +76,7 @@
          <dc-element>date</dc-element>
          <dc-qualifier>issued</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Date of Issue</label>
+         <label>Date first published</label>
          <input-type>date</input-type>
          <hint>Please give the date of previous publication or public distribution.
                         You can leave out the day and/or month if they aren't
@@ -162,7 +162,7 @@ it, please enter the types and the actual numbers or codes.</hint>
          <repeatable>true</repeatable>
          <label>Subject Keywords</label>
          <input-type>twobox</input-type>
-         <hint>Enter appropriate subject keywords or phrases. </hint>
+         <hint>Enter appropriate subject keywords or phrases.  Please take care to capitalise every word. </hint>
          <required></required>
          <vocabulary>srsc</vocabulary>
        </field>
@@ -183,7 +183,7 @@ it, please enter the types and the actual numbers or codes.</hint>
          <dc-element>description</dc-element>
          <dc-qualifier>sponsorship</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Sponsors</label>
+         <label>Funding</label>
          <input-type>textarea</input-type>
          <hint>Enter the names of any sponsors and/or funding codes in the box. </hint>
          <required></required>
@@ -360,12 +360,12 @@ it, please enter the types and the actual numbers or codes.</hint>
        <stored-value></stored-value>
      </pair>
      <pair>
-       <displayed-value>English (United States)</displayed-value>
-       <stored-value>en_US</stored-value>
-      </pair>
-     <pair>
        <displayed-value>English</displayed-value>
        <stored-value>en</stored-value>
+      </pair>
+     <pair>
+       <displayed-value>English (United States)</displayed-value>
+       <stored-value>en_US</stored-value>
      </pair>
      <pair>
        <displayed-value>Spanish</displayed-value>
