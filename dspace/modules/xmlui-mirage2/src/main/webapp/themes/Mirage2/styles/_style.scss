@@ -59,3 +59,219 @@
     margin-bottom:5px;
   }
 }
+
+ // Our stuff - SDLC
+ body {
+  background-color: #f0f0f0;
+}
+ a:link, a:visited, a {
+  color: #c6b2dc;
+}
+ a:hover, a:focus {
+  text-decoration: none;
+  border-bottom: 1px dotted #bcbcf0;
+  color: #bcbcf0;
+}
+ h3 a:hover {
+  text-decoration: none;
+  border-bottom: none;
+}
+ .countriesMap  {
+  padding-top: 80px;
+}
+ .navbar {
+  z-index: 100;
+}
+ .rsc-header {
+  background-color: #c6b2dc;
+}
+ .rsc-header h1 {
+  color: #fff;
+  font-family: "Oswald",sans-serif;
+  font-size: 2.3em;
+  margin: 0;
+}
+ .rsc-header h1 a {
+  color: #fff;
+  text-decoration: none;
+}
+ .rsc-header h1 a:hover {
+  text-decoration: none;
+  border-bottom: 1px dotted #ffffff;
+  color: #ffffff;
+}
+ #sidebar a:link,
+#sidebar a:visited,
+#sidebar a {
+  color: #524c44;
+}
+ .rsc-header-content {
+  background-color: #c6b2dc;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+.navbar {
+  background-color: #c6b2dc;
+}
+
+.navbar-default {
+  background-color: #c6b2dc;
+}
+
+.navbar-static-top {
+  background-color: #c6b2dc;
+}
+ .rsc-navbar {
+  background-color: #c6b2dc;
+  padding-left: 0;
+}
+ .rsc-navbar-content {
+  padding: 0;
+}
+ ul.rsc-lg-dropdown {
+  margin-right: -12px;
+}
+ ul.rsc-lg-dropdown li a:hover,
+ul.rsc-lg-dropdown li a:focus,
+li.dropdown a:hover,
+li.dropdown a:focus,
+.rsc-header-content a#logo {
+  border: 0 !important;
+}
+ .community-browse a:hover,
+.community-browse a:focus {
+  border-bottom: 1px solid #ccc;
+}
+ a#logo {
+  position: absolute;
+  z-index: 300;
+  right: 0px;
+  top: -15px;
+}
+ .header-title {
+  padding-top: 2px;
+  padding-bottom: 3px;
+}
+ .main-content {
+  position: relative;
+  z-index: -10;
+}
+ .rsc-lg-breadcrumb {
+  width: 680px;
+}
+ .rsc-md-breadcrumb {
+  width: 550px;
+}
+ .breadcrumb {
+  background-color: #c6b2dc;
+  margin-bottom: 0;
+  padding: 15px;
+}
+ .breadcrumb a {
+  color: #b0b0b0;
+}
+ .breadcrumb li {
+  color: #fff;
+}
+ .breadcrumb a:hover {
+  text-decoration: none;
+  border-bottom: 1px dotted #bcbcf0;
+  color: #bcbcf0;
+}
+ .breadcrumb > .active {
+  color: #fff;
+}
+ .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+  background-color: #c6b2dc;
+  border-color: #c6b2dc;
+  color: #fff !important;
+  z-index: 2;
+}
+ a.list-group-item:hover,
+a.list-group-item:focus {
+  border-bottom: 1px solid #ddd;
+}
+ .rsc-footer {
+  background-color: #c6b2dc;
+  color: #fff;
+  font-size: 0.9em;
+  margin-left: -15px;
+}
+ footer > .container {
+  border: none;
+  padding: 15px;
+  margin-top: 0;
+}
+ footer .row > div {
+  border: none;
+  padding-top: 0;
+  background-color: #c6b2dc;
+  color: #fff;
+}
+ .rsc-footer-content {
+  background-color: #c6b2dc;
+}
+ #copyright-content {
+  padding-left: 15px;
+}
+ #copyright-content a {
+  color: #fff;
+}
+ #copyright-content a:hover {
+  text-decoration: none;
+  border-bottom: 1px dotted #bcbcf0;
+  color: #bcbcf0;
+}
+ .footer-links {
+  padding-left: 15px;
+  padding-right: 15px;
+  float: right;
+}
+ .footer-links ul.footer-links-list {
+  display: block;
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0;
+  padding-right: 15px;
+  float: right;
+}
+ .small-footer-links {
+  padding-right: 15px;
+  float: right;
+}
+ ul.footer-links-list li {
+  display: inline;
+  padding-left: 8px;
+}
+ ul.footer-links-list li a,
+.small-footer-links a {
+  color: #fff;
+  font-size: 1em;
+  text-decoration: none;
+}
+ ul.footer-links-list li a:hover,
+.small-footer-links a:hover {
+  text-decoration: none;
+  border-bottom: 1px dotted #c6b2dc;
+  color: #fff;
+}
+ .btn-success {
+  background-color: #c6b2dc;
+  border-color: #bcbcf0;
+  color: #fff;
+}
+ .btn-success.disabled, .btn-success.disabled:hover, .btn-success.disabled:focus,
+.btn-success.disabled.focus, .btn-success.disabled:active, .btn-success.disabled.active,
+.btn-success[disabled], .btn-success[disabled]:hover, .btn-success[disabled]:focus,
+.btn-success.focus[disabled], .btn-success[disabled]:active, .btn-success.active[disabled],
+fieldset[disabled] .btn-success, fieldset[disabled] .btn-success:hover, fieldset[disabled] .btn-success:focus,
+fieldset[disabled] .btn-success.focus, fieldset[disabled] .btn-success:active, fieldset[disabled] .btn-success.active {
+  background-color: #c6b2dc;
+  border-color: #bcbcf0;
+}
+ a.btn-default,
+a.btn-default:link,
+a.btn-default:visited {
+  color: #333;
+}

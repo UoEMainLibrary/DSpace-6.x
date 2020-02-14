@@ -10,3 +10,11 @@
  * You can put your own style in this file.
  * It will be included in all color schemes
  */
+@mixin selection {
+  ::-moz-selection { @content; }
+  ::selection { @content; }
+}
+ @include selection {
+  color: white;
+  background: #b1d7ff;
+}
