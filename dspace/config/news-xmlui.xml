@@ -14,7 +14,7 @@
     <p>
         The very latest papers added are from the 2018-19 diet. These pages will be updated periodically, as more papers become available.
         If you cannot find the paper you are looking for, please email <xref name="email-news" id="email-news" target="mailto:exam.papers@ed.ac.uk"
-        title="Click to send email enquiry to the exam papers departmenrt"><alt>link to exam papers department email</alt>exam.papers@ed.ac.uk</xref>, 
+        title="Click to send email enquiry to the exam papers departmenrt"><xsl:value-of select="exam.papers@ed.ac.uk"/>exam.papers@ed.ac.uk</xref>, 
             or try visiting again at a later date.
     </p>
     <p></p>
