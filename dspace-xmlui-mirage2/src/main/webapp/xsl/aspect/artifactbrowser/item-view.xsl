@@ -151,10 +151,10 @@
                 </div>
             </xsl:if>
             <!-- generate url variable for return button -->
-            <xsl:variable name="return-url" select="$document//dri:meta/dri:pageMeta/dri:trail[@target][last()]/@target" />       
+            <xsl:variable name="return-url" select="$document/dri:meta/dri:pageMeta/dri:trail[@target][last()]/@target" />       
             <div class="return-button">
                 <a href="{$return-url}" alt="Back to previous search results" title="Click to go back to previous search results">
-                    <button alt="button to return to search results">
+                    <button alt="button to return to search results" onclick="window.history.go(-1); return false;">
                         BACK TO SEARCH RESULTS
                     </button>
                 </a>

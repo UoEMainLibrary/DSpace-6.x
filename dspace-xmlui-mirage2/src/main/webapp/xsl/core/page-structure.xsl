@@ -115,8 +115,7 @@
                                                         <div class="input-group">
                                                             <input id="body-input" class="ds-text-field form-control" type="text" placeholder="Course Title / Course Code" >
                                                                 <xsl:attribute name="name">
-                                                                    <xsl:value-of
-                                                                            select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='search'][@qualifier='queryField']"/>
+                                                                    <xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='search'][@qualifier='queryField']"/>
                                                                 </xsl:attribute>
                                                             </input>
                                                             <span class="input-group-btn">
@@ -1691,6 +1690,20 @@
         <script>
             <xsl:text>if(!window.DSpace){window.DSpace={};}window.DSpace.context_path='</xsl:text><xsl:value-of select="$context-path"/><xsl:text>';window.DSpace.theme_path='</xsl:text><xsl:value-of select="$theme-path"/><xsl:text>';</xsl:text>
         </script>
+
+        <script type="text/javascript">
+            <xsl:text>
+                <!--window.addEventListener("load", function(){-->
+                    document.onload = function()
+                    {
+                        a = document.getElementById("mailto-link").getElementsByTagName("A");
+                        console.log(a);
+                        a.href = "mailto:exam.papers@ed.ac.uk"; 
+                    }  
+                    <!--onclick = function(){/*do something*/};
+                });-->
+            </xsl:text>
+        </script>            
 
         <!--inject scripts.html containing all the theme specific javascript references
         that can be minified and concatinated in to a single file or separate and untouched
