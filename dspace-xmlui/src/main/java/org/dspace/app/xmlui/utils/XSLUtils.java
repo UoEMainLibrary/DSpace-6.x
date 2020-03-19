@@ -7,12 +7,29 @@
  */
 package org.dspace.app.xmlui.utils;
 
+import org.dspace.authorize.AuthorizeException;
+import org.dspace.content.Bitstream;
+import org.dspace.content.Bundle;
+import org.dspace.content.DSpaceObject;
+import org.dspace.content.Item;
+import org.dspace.content.factory.ContentServiceFactory;
+import org.dspace.content.service.ItemService;
+import org.dspace.core.Context;
+import org.dspace.handle.factory.HandleServiceFactory;
+import org.dspace.handle.service.HandleService;
+
+import java.sql.SQLException;
+
 /**
  * Utilities that are needed in XSL transformations.
  *
  * @author Art Lowel (art dot lowel at atmire dot com)
  */
 public class XSLUtils {
+
+
+    protected HandleService handleService = HandleServiceFactory.getInstance().getHandleService();
+    protected ItemService itemService = ContentServiceFactory.getInstance().getItemService();
 
     /*
      * Cuts off the string at the space nearest to the targetLength if there is one within
@@ -53,4 +70,40 @@ public class XSLUtils {
         return string.substring(0, targetLength) + " ...";
 
     }
+
+    /***
+     * This function was lifted from
+     * dspace-api/src/main/java/org/dspace/ctask/general/BitstreamsIntoMetadata.java
+     *
+     * It looks up an item by handle from XSL
+     * @param handle
+     * @return
+     */
+
+    public String getBitstreamInfo(String handle)
+    {
+        // The results that we'll return
+        StringBuilder results = new StringBuilder();
+
+        try {
+            Item item = (Item) handleService.resolveToObject(new Context(), handle);
+
+            for (Bundle bundle : item.getBundles()) {
+                if ("ORIGINAL".equals(bundle.getName())) {
+                    for (Bitstream bitstream : bundle.getBitstreams()) {
+                        String bitstreamname = bitstream.getName();
+
+                        if(bitstreamname.endsWith("pdf"))
+                            return bitstreamname + "?sequence=" + bitstream.getSequenceID() + "&amp;isAllowed=y";
+
+                    }
+                }
+            }
+        }   catch (SQLException sqle) {
+
+        }
+
+        return results.toString();
+    }
+
 }
