@@ -891,8 +891,28 @@ public abstract class AbstractSearch extends AbstractDSpaceTransformer implement
         if (queryResults != null) {
             return;
         }
-        
-        this.queryResults = SearchUtils.getSearchService().search(context, scope, prepareQuery(scope, getQuery(), getFilterQueries()));
+
+        String query = getQuery();
+        DiscoverResult checkResults = null;
+
+        /*
+
+        Search logic changed so as to force Solr query to be quoted because search results
+        are sorted by time and therefore relevance is lost.
+
+        Only add quotes if input isn't already quoted, only return that if contains results.
+
+         */
+
+        if(!query.endsWith("\"") && !query.startsWith("\"")) {
+            query = "\"" + query + "\"";
+            checkResults = SearchUtils.getSearchService().search(context, scope, prepareQuery(scope, query, getFilterQueries()));
+        }
+
+        if(checkResults != null && checkResults.getDspaceObjects().size() > 0)
+            this.queryResults = checkResults;
+        else
+            this.queryResults = SearchUtils.getSearchService().search(context, scope, prepareQuery(scope, getQuery(), getFilterQueries()));
     }
 
     /**
