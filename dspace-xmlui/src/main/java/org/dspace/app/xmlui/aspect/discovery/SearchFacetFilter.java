@@ -463,6 +463,29 @@ public class SearchFacetFilter extends AbstractDSpaceTransformer implements Cach
         //No use in selecting the same filter twice
         if(filterQueries.contains(searchService.toFilterQuery(context,  facetField, value.getFilterType(), value.getAsFilterQuery()).getFilterQuery())){
             cell.addContent(displayedValue + " (" + value.getCount() + ")");
+
+            String filterFormat = "&filter_relational_operator="+value.getFilterType() + "&filter=" + URLEncoder.encode(value.getAsFilterQuery(), "UTF-8");
+            int start = 0, end = 0;
+
+            StringBuilder removeFilter = new StringBuilder(contextPath);
+
+            if(facetField == "author"){
+                start = removeFilter.indexOf("?");
+                end = removeFilter.toString().length()-1;
+            }
+            if(facetField == "subject"){
+                start = removeFilter.indexOf("&filtertype=" + facetField);
+                end = removeFilter.toString().length()-1;
+            }
+            if(facetField == "datetemporal" || facetField == "titlefacet"){
+                start = removeFilter.indexOf("&filtertype=" + facetField);
+                end = removeFilter.indexOf(filterFormat) + (filterFormat.length() -1);
+            }
+
+            removeFilter.delete(start,end);
+
+            cell.addXref(removeFilter.toString(), "X");
+
         } else {
             //Add the basics
             Map<String, String> urlParams = new HashMap<>();
