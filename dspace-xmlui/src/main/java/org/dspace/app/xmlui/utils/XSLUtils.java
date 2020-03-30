@@ -7,16 +7,20 @@
  */
 package org.dspace.app.xmlui.utils;
 
-import org.dspace.authorize.AuthorizeException;
 import org.dspace.content.Bitstream;
 import org.dspace.content.Bundle;
-import org.dspace.content.DSpaceObject;
 import org.dspace.content.Item;
 import org.dspace.content.factory.ContentServiceFactory;
 import org.dspace.content.service.ItemService;
 import org.dspace.core.Context;
 import org.dspace.handle.factory.HandleServiceFactory;
 import org.dspace.handle.service.HandleService;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+import java.util.regex.*;
 
 import java.sql.SQLException;
 
@@ -106,4 +110,86 @@ public class XSLUtils {
         return results.toString();
     }
 
+    private int getKeyByValue(Map<Integer, String> map, String value) {
+        for (Map.Entry<Integer, String> entry : map.entrySet()) {
+            if (Objects.equals(value, entry.getValue())) {
+                return entry.getKey();
+            }
+        }
+        return -1;
+    }
+
+    public String removeFilter(String url, String facet)
+    {
+        // The results that we'll return
+        StringBuilder results = new StringBuilder();
+
+        // Two groups to match, property and value
+        Pattern p = Pattern.compile("([^|&][^=]+)=([^&]+)");
+        Matcher m = p.matcher(url);
+
+        // Data collections to store values, maps and not arrays
+        // because we don't know the order in the query string
+        // and we need to retain the id number with each value
+        Map<Integer, String> filtertypes = new HashMap<Integer, String>();
+        Map<Integer, String> relational_operators = new HashMap<Integer, String>();
+        Map<Integer, String> values = new HashMap<Integer, String>();
+
+        // Populate internal data structures
+        // so we can pick the correct values to remove
+        while(m.find()) {
+            String prop = m.group(1);
+            // minus one because query string will start with 0
+            int index = -1;
+
+            // This will fail in the first attempt and will also match the relational operator
+            // keeping -1 as the value is what we want in the event
+            try {
+                index = Integer.parseInt(prop.substring(prop.lastIndexOf("_")+1));
+
+            }
+            catch (NumberFormatException | StringIndexOutOfBoundsException ignored)   {
+
+            }
+
+            // Assign value to correct data structure
+            if(prop.contains("type"))
+                filtertypes.put(index, m.group(2));
+            else if(prop.contains("relational"))
+                relational_operators.put(index, m.group(2));
+            else
+                values.put(index, m.group(2));
+
+        }
+
+        // Rejoin the data structures to form a query string and return it
+
+        int index = -1;
+        int key = getKeyByValue(filtertypes, facet);
+
+        // we just need to remove from one datastructure, the one we will iterate through
+        filtertypes.remove(key);
+
+        for (Map.Entry<Integer, String> entry : filtertypes.entrySet()) {
+            // special case in first loop
+            if (index == -1) {
+                results.append("?filtertype=").append(entry.getValue());
+                results.append("&filter_relational_operator=").append(relational_operators.get(entry.getKey()));
+                results.append("&filter=").append(values.get(entry.getKey()));
+
+            } else {
+                // append the index int we are incrementing and NOT use the associated key because
+                // removing one entry has (maybe) created a gap
+                results.append("&filtertype_").append(index).append("=").append(filtertypes.get(entry.getKey()));
+                results.append("&filter_relational_operator_").append(index).append("=").append(relational_operators.get(entry.getKey()));
+                results.append("&filter_").append(index).append("=").append(values.get(entry.getKey()));
+            }
+            index += 1;
+        }
+
+        return "discover" + results.toString();
+
+    }
+
 }
+

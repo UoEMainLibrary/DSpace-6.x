@@ -28,6 +28,7 @@
 	xmlns:mods="http://www.loc.gov/mods/v3"
 	xmlns:dc="http://purl.org/dc/elements/1.1/"
 	xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:util="org.dspace.app.xmlui.utils.XSLUtils"
 	exclude-result-prefixes="i18n dri mets xlink xsl dim xhtml mods dc">
 
     <xsl:output indent="yes"/>
@@ -334,7 +335,17 @@
                                     <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
                                 </xsl:call-template>
                                 <xsl:apply-templates/>
-                                <input id="facet-back-link" action="action" onclick="window.history.go(-1); return false;" type="button" value="x" title="Click to clear this filter" />
+                                <a>
+                                    <xsl:attribute name="href">
+                                        <xsl:value-of select="util:removeFilter($full-url, ../@n)"/>
+                                    </xsl:attribute>
+                                    <xsl:attribute name="class">
+                                        <xsl:text>facet_button</xsl:text>
+                                    </xsl:attribute>
+                                    <xsl:text>X</xsl:text>
+                                </a>
+                                <!--<span>1 <xsl:value-of select="util:removeFilter($full-url, ../@n)"/></span>
+                                <input id="facet-back-link" action="action" onclick="window.history.go(-1); return false;" type="button" value="x" title="Click to clear this filter" />-->
                             </div>
                         </xsl:if>
                     </xsl:when>
@@ -345,7 +356,17 @@
                                     <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
                                 </xsl:call-template>
                                 <xsl:apply-templates/>
-                                <input id="facet-back-link" action="action" onclick="window.history.go(-1); return false;" type="button" value="x" title="Click to clear this filter" />
+                                <a>
+                                    <xsl:attribute name="href">
+                                        <xsl:value-of select="util:removeFilter($full-url, ../@n)"/>
+                                    </xsl:attribute>
+                                    <xsl:attribute name="class">
+                                        <xsl:text>facet_button</xsl:text>
+                                    </xsl:attribute>
+                                    <xsl:text>X</xsl:text>
+                                </a>
+                                <!--<span>2 <xsl:value-of select="util:removeFilter($full-url, ../@n)"/></span>
+                                <input id="facet-back-link" action="action" onclick="window.history.go(-1); return false;" type="button" value="x" title="Click to clear this filter" />-->
                             </div>
                         </xsl:if>
                     </xsl:when>
@@ -356,7 +377,17 @@
                                     <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>                
                                 </xsl:call-template>
                                 <xsl:apply-templates/>
-                                <input id="facet-back-link" action="action" onclick="window.history.go(-1); return false;" type="button" value="x" title="Click to clear this filter" />                   
+                                <a>
+                                    <xsl:attribute name="href">
+                                        <xsl:value-of select="util:removeFilter($full-url, ../@n)"/>
+                                    </xsl:attribute>
+                                    <xsl:attribute name="class">
+                                        <xsl:text>facet_button</xsl:text>
+                                    </xsl:attribute>
+                                    <xsl:text>X</xsl:text>
+                                </a>
+                                <!--<span>3 <xsl:value-of select="util:removeFilter($full-url, ../@n)"/></span>
+                                <input id="facet-back-link" action="action" onclick="window.history.go(-1); return false;" type="button" value="x" title="Click to clear this filter" />-->
                             </div>
                         </xsl:if>
                     </xsl:otherwise>
@@ -397,7 +428,17 @@
                                     <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
                                 </xsl:call-template>
                                 <xsl:apply-templates/>
-                                <input id="facet-back-link" action="action" onclick="window.history.go(-1); return false;" type="button" value="x" title="Click to clear this filter" />
+                                <a>
+                                    <xsl:attribute name="href">
+                                        <xsl:value-of select="util:removeFilter($full-url, ../@n)"/>
+                                    </xsl:attribute>
+                                    <xsl:attribute name="class">
+                                        <xsl:text>facet_button</xsl:text>
+                                    </xsl:attribute>
+                                    <xsl:text>X</xsl:text>
+                                </a>
+                                <!--<span>4 <xsl:value-of select="util:removeFilter($full-url, ../@n)"/></span>
+                                <input id="facet-back-link" action="action" onclick="window.history.go(-1); return false;" type="button" value="x" title="Click to clear this filter" />-->
                             </div>
                         </xsl:if>
                     </xsl:when>
@@ -408,7 +449,17 @@
                                     <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
                                 </xsl:call-template>
                                 <xsl:apply-templates/>
-                                <input id="facet-back-link" action="action" onclick="window.history.go(-1); return false;" type="button" value="x" title="Click to clear this filter" />
+                                <!--<input id="facet-back-link" action="action" onclick="window.history.go(-1); return false;" type="button" value="x" title="Click to clear this filter" />
+                                <span>5 <xsl:value-of select="util:removeFilter($full-url, ../@n)"/></span>-->
+                                <a>
+                                    <xsl:attribute name="href">
+                                        <xsl:value-of select="util:removeFilter($full-url, ../@n)"/>
+                                    </xsl:attribute>
+                                    <xsl:attribute name="class">
+                                        <xsl:text>facet_button</xsl:text>
+                                    </xsl:attribute>
+                                    <xsl:text>X</xsl:text>
+                                </a>
                             </div>
                         </xsl:if>
                     </xsl:when>
@@ -419,7 +470,17 @@
                                     <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>                
                                 </xsl:call-template>
                                 <xsl:apply-templates/>
-                                <input id="facet-back-link" action="action" onclick="window.history.go(-1); return false;" type="button" value="x" title="Click to clear this filter" />                   
+                                <!--<input id="facet-back-link" action="action" onclick="window.history.go(-1); return false;" type="button" value="x" title="Click to clear this filter" />
+                                <span>6 <xsl:value-of select="util:removeFilter($full-url, ../@n)"/></span>-->
+                                <a>
+                                    <xsl:attribute name="href">
+                                        <xsl:value-of select="util:removeFilter($full-url, ../@n)"/>
+                                    </xsl:attribute>
+                                    <xsl:attribute name="class">
+                                        <xsl:text>facet_button</xsl:text>
+                                    </xsl:attribute>
+                                    <xsl:text>X</xsl:text>
+                                </a>
                             </div>
                         </xsl:if>
                     </xsl:otherwise>
