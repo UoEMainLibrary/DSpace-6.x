@@ -16,7 +16,10 @@ import org.dspace.core.Context;
 import org.dspace.handle.factory.HandleServiceFactory;
 import org.dspace.handle.service.HandleService;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+>>>>>>> f17836f0675f39aba165fbdfd20e4df954f121e2
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -119,10 +122,18 @@ public class XSLUtils {
         return -1;
     }
 
+<<<<<<< HEAD
     public String removeFilter(String url, String facet)
     {
         // The results that we'll return
         StringBuilder results = new StringBuilder();
+=======
+    public String removeFilter(String url, String facets)
+    {
+        // The results that we'll return
+        StringBuilder results = new StringBuilder();
+        String[] facet_list = facets.split(",");
+>>>>>>> f17836f0675f39aba165fbdfd20e4df954f121e2
 
         // Two groups to match, property and value
         Pattern p = Pattern.compile("([^|&][^=]+)=([^&]+)");
@@ -165,14 +176,15 @@ public class XSLUtils {
         // Rejoin the data structures to form a query string and return it
 
         int index = -1;
-        int key = getKeyByValue(filtertypes, facet);
 
-        // we just need to remove from one datastructure, the one we will iterate through
-        filtertypes.remove(key);
+        for (String remove_facet: facet_list) {
+            // we just need to remove from one datastructure, the one we will iterate through
+            filtertypes.remove(getKeyByValue(filtertypes, remove_facet.trim()));
+        }
 
         for (Map.Entry<Integer, String> entry : filtertypes.entrySet()) {
-            // special case in first loop
             if (index == -1) {
+                // special case in first loop
                 results.append("?filtertype=").append(entry.getValue());
                 results.append("&filter_relational_operator=").append(relational_operators.get(entry.getKey()));
                 results.append("&filter=").append(values.get(entry.getKey()));
