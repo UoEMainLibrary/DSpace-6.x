@@ -510,3 +510,24 @@ a.list-group-item :hover {
 .col-xs-12.col-sm-4.needs-xs-spacing {
   width: 33%;
 }
+
+/* Search facet button */
+
+.facet_button {
+  background: #3aaaf4;
+  margin-left: 10px;
+  color: #fff;
+  border-radius: 5px;
+  float: right;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.facet_button:hover {
+  font-weight: bolder;
+}
