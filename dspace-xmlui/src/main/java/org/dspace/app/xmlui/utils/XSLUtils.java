@@ -16,13 +16,11 @@ import org.dspace.core.Context;
 import org.dspace.handle.factory.HandleServiceFactory;
 import org.dspace.handle.service.HandleService;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
-=======
->>>>>>> f17836f0675f39aba165fbdfd20e4df954f121e2
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.*;
 import java.util.regex.*;
 
 import java.sql.SQLException;
@@ -122,18 +120,12 @@ public class XSLUtils {
         return -1;
     }
 
-<<<<<<< HEAD
-    public String removeFilter(String url, String facet)
-    {
-        // The results that we'll return
-        StringBuilder results = new StringBuilder();
-=======
     public String removeFilter(String url, String facets)
     {
         // The results that we'll return
         StringBuilder results = new StringBuilder();
-        String[] facet_list = facets.split(",");
->>>>>>> f17836f0675f39aba165fbdfd20e4df954f121e2
+
+        String[] facet_list = facets.trim().split("\\s*,\\s*");
 
         // Two groups to match, property and value
         Pattern p = Pattern.compile("([^|&][^=]+)=([^&]+)");
@@ -175,12 +167,20 @@ public class XSLUtils {
 
         // Rejoin the data structures to form a query string and return it
 
-        int index = -1;
+        // need to first to collect ids to remove before removing to avoid a ConcurrentModificationException
+        // https://www.baeldung.com/java-concurrentmodificationexception
 
-        for (String remove_facet: facet_list) {
-            // we just need to remove from one datastructure, the one we will iterate through
-            filtertypes.remove(getKeyByValue(filtertypes, remove_facet.trim()));
+        ArrayList<Integer> removes = new ArrayList<>();
+
+        for (String filtertype : filtertypes.values()) {
+            if (!Arrays.asList(facet_list).contains(filtertype))
+                removes.add(getKeyByValue(filtertypes, filtertype));
         }
+
+        for(int filter: removes)
+            filtertypes.remove(filter);
+
+        int index = -1;
 
         for (Map.Entry<Integer, String> entry : filtertypes.entrySet()) {
             if (index == -1) {
