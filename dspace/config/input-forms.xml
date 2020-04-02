@@ -38,7 +38,97 @@
 
    <form name="traditional">
      <page number="1">
+
+      <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>title</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Title</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the title of the paper.</hint>
+         <required>You must enter a title for this paper.</required>
+       </field>
+
        <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>identifier</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Course Code</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the course code associated with the exam paper in uppercase.</hint>
+         <required>You must enter a course code for this paper.</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>coverage</dc-element>
+         <dc-qualifier>temporal</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Year</label>
+         <input-type value-pairs-name="exam_year">dropdown</input-type>
+         <hint>Select the year of this exam.</hint>
+         <required>You must enter a year for this paper.</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>description</dc-element>
+         <dc-qualifier>version</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Version</label>
+         <input-type value-pairs-name="exam_version">dropdown</input-type>
+         <hint>Choose which exam diet this paper belongs to.</hint>
+         <required>You must enter a version for this paper.</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>available</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Date of Exam</label>
+         <input-type>date</input-type>
+         <hint>Penter the date of this exam.</hint>
+         <required>You must enter at least the year.</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Subject</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the subject for this paper.</hint>
+         <required>You must enter subject area for this paper.</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>language</dc-element>
+         <dc-qualifier>iso</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Language</label>
+         <input-type value-pairs-name="common_iso_languages">dropdown</input-type>
+         <hint>Select the language of the exam paper.  If the language does not appear in the list, please select 'Other'.</hint>
+         <required></required>
+        </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>description</dc-element>
+         <dc-qualifier>comments</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Administrator Notes</label>
+         <input-type>textarea</input-type>
+         <hint>Enter required administrator notes. </hint>
+         <required></required>
+       </field>
+
+       
+       <!--<field>
          <dc-schema>dc</dc-schema>
          <dc-element>contributor</dc-element>
          <dc-qualifier>author</dc-qualifier>
@@ -47,20 +137,11 @@
          <input-type>name</input-type>
          <hint>Enter the names of the authors of this item.</hint>
          <required></required>
-       </field>
+       </field>-->
 
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>title</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Title</label>
-         <input-type>onebox</input-type>
-         <hint>Enter the main title of the item.</hint>
-         <required>You must enter a main title for this item.</required>
-       </field>
+       
 
-       <field>
+       <!--<field>
          <dc-schema>dc</dc-schema>
          <dc-element>title</dc-element>
          <dc-qualifier>alternative</dc-qualifier>
@@ -69,9 +150,9 @@
          <input-type>onebox</input-type>
          <hint>If the item has any alternative titles, please enter them here.</hint>
          <required></required>
-       </field>
+       </field>-->
 
-       <field>
+       <!--<field>
          <dc-schema>dc</dc-schema>
          <dc-element>date</dc-element>
          <dc-qualifier>issued</dc-qualifier>
@@ -82,9 +163,9 @@
                         You can leave out the day and/or month if they aren't
                         applicable.</hint>
          <required>You must enter at least the year.</required>
-       </field>
+       </field>-->
 
-       <field>
+       <!--<field>
          <dc-schema>dc</dc-schema>
          <dc-element>publisher</dc-element>
          <dc-qualifier></dc-qualifier>
@@ -93,9 +174,9 @@
          <input-type>onebox</input-type>
          <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
          <required></required>
-       </field>
+       </field>-->
 
-       <field>
+       <!--<field>
          <dc-schema>dc</dc-schema>
          <dc-element>identifier</dc-element>
          <dc-qualifier>citation</dc-qualifier>
@@ -104,9 +185,9 @@
          <input-type>onebox</input-type>
          <hint>Enter the standard citation for the previously issued instance of this item.</hint>
          <required></required>
-       </field>
+       </field>-->
 
-       <field>
+       <!--<field>
          <dc-schema>dc</dc-schema>
          <dc-element>relation</dc-element>
          <dc-qualifier>ispartofseries</dc-qualifier>
@@ -115,22 +196,21 @@
          <input-type>series</input-type>
          <hint>Enter the series and number assigned to this item by your community.</hint>
          <required></required>
-       </field>
+       </field>-->
 
-       <field>
+       <!--<field>
          <dc-schema>dc</dc-schema>
          <dc-element>identifier</dc-element>
          <dc-qualifier></dc-qualifier>
-         <!-- An input-type of qualdrop_value MUST be marked as repeatable -->
          <repeatable>true</repeatable>
          <label>Identifiers</label>
          <input-type value-pairs-name="common_identifiers">qualdrop_value</input-type>
          <hint>If the item has any identification numbers or codes associated with
 it, please enter the types and the actual numbers or codes.</hint>
          <required></required>
-       </field>
+       </field>-->
 
-       <field>
+       <!--<field>
          <dc-schema>dc</dc-schema>
          <dc-element>type</dc-element>
          <dc-qualifier></dc-qualifier>
@@ -139,9 +219,9 @@ it, please enter the types and the actual numbers or codes.</hint>
          <input-type value-pairs-name="common_types">dropdown</input-type>
          <hint>Select the type(s) of content of the item. To select more than one value in the list, you may have to hold down the "CTRL" or "Shift" key.</hint>
          <required></required>
-       </field>
+       </field>-->
 
-       <field>
+       <!--<field>
          <dc-schema>dc</dc-schema>
          <dc-element>language</dc-element>
          <dc-qualifier>iso</dc-qualifier>
@@ -150,15 +230,15 @@ it, please enter the types and the actual numbers or codes.</hint>
          <input-type value-pairs-name="common_iso_languages">dropdown</input-type>
          <hint>Select the language of the main content of the item.  If the language does not appear in the list, please select 'Other'.  If the content does not really have a language (for example, if it is a dataset or an image) please select 'N/A'.</hint>
          <required></required>
-       </field>
+       </field>-->
      </page>
 
-     <page number="2">
+     <!-- <page number="2">
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>subject</dc-element>
          <dc-qualifier></dc-qualifier>
-         <!-- An input-type of twobox MUST be marked as repeatable -->
+         An input-type of twobox MUST be marked as repeatable
          <repeatable>true</repeatable>
          <label>Subject Keywords</label>
          <input-type>twobox</input-type>
@@ -199,7 +279,7 @@ it, please enter the types and the actual numbers or codes.</hint>
          <hint>Enter any other description or comments in this box. </hint>
          <required></required>
        </field>
-     </page>
+     </page> -->
    </form>
 
    <form name="one">
@@ -262,14 +342,14 @@ it, please enter the types and the actual numbers or codes.</hint>
 
    <value-pairs value-pairs-name="common_types" dc-term="type">
      <pair>
-       <displayed-value>Animation</displayed-value>
-       <stored-value>Animation</stored-value>
+       <displayed-value>Exam Paper</displayed-value>
+       <stored-value>Exam Paper</stored-value>
      </pair>
      <pair>
-       <displayed-value>Article</displayed-value>
-       <stored-value>Article</stored-value>
+       <displayed-value>Resit Paper</displayed-value>
+       <stored-value>Resit Paper</stored-value>
      </pair>
-     <pair>
+     <!--<pair>
        <displayed-value>Book</displayed-value>
        <stored-value>Book</stored-value>
      </pair>
@@ -348,7 +428,7 @@ it, please enter the types and the actual numbers or codes.</hint>
      <pair>
        <displayed-value>Other</displayed-value>
        <stored-value>Other</stored-value>
-     </pair>
+     </pair>-->
    </value-pairs>
 
    <!-- default language order: (from dspace 1.2.1)
@@ -356,17 +436,13 @@ it, please enter the types and the actual numbers or codes.</hint>
      -->
    <value-pairs value-pairs-name="common_iso_languages" dc-term="language_iso">
      <pair>
-       <displayed-value>N/A</displayed-value>
-       <stored-value></stored-value>
+       <displayed-value>English</displayed-value>
+       <stored-value>en</stored-value>
      </pair>
      <pair>
        <displayed-value>English (United States)</displayed-value>
        <stored-value>en_US</stored-value>
       </pair>
-     <pair>
-       <displayed-value>English</displayed-value>
-       <stored-value>en</stored-value>
-     </pair>
      <pair>
        <displayed-value>Spanish</displayed-value>
        <stored-value>es</stored-value>
@@ -400,6 +476,77 @@ it, please enter the types and the actual numbers or codes.</hint>
        <stored-value>other</stored-value>
      </pair>
    </value-pairs>
+
+   <value-pairs value-pairs-name="exam_year" dc-term="date">
+     <pair>
+       <displayed-value>2004/2005</displayed-value>
+       <stored-value>2004/2005</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>2005/2006</displayed-value>
+       <stored-value>2005/2006</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>2006/2007</displayed-value>
+       <stored-value>2006/2007</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>2008/2009</displayed-value>
+       <stored-value>2008/2009</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>2009/2010</displayed-value>
+       <stored-value>2009/2010</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>2010/2011</displayed-value>
+       <stored-value>2010/2011</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>2011/2012</displayed-value>
+       <stored-value>2011/2012</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>2012/2013</displayed-value>
+       <stored-value>2012/2013</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>2013/2014</displayed-value>
+       <stored-value>2013/2014</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>2014/2015</displayed-value>
+       <stored-value>2014/2015</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>2015/2016</displayed-value>
+       <stored-value>2015/2016</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>2016/2017</displayed-value>
+       <stored-value>2016/2017</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>2017/2018</displayed-value>
+       <stored-value>2017/2018</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>2018/2019</displayed-value>
+       <stored-value>2018/2019</stored-value>
+     </pair>
+
+    </value-pairs>
+
+   <value-pairs value-pairs-name="exam_version" dc-term="description">
+     <pair>
+       <displayed-value>Main</displayed-value>
+       <stored-value>Main</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Resit</displayed-value>
+       <stored-value>Resit</stored-value>
+      </pair>
+    </value-pairs>
 
  </form-value-pairs>
 

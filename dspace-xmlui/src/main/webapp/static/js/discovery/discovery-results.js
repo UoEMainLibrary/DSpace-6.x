@@ -12,7 +12,7 @@
      */
     $(document).ready(function() {
         //Retrieve all links with handles attached (comm/coll/item links)
-        var urls = $('div#aspect_discovery_SimpleSearch_div_search-results').find('a');
+        var urls = $('div#aspect_discovery_SimpleSearch_div_search-results').find('a').not('.external-link');
 
         urls.click(function(){
             var $this = $(this);

@@ -75,8 +75,13 @@ span {
 .navbar {
   background: #186599;
 }
-.navbar a:hover {
-  text-decoration: underline;
+.navbar a:hover,
+.hidden-xs:hover,
+header .navbar-default a :hover,
+.navbar a:hover, .hidden-xs:hover, 
+.list-group-item-heading h5:hover,
+a.list-group-item :hover {
+  text-decoration: none;
 }
 
 h1, h2, h3, h4, h5, span {
@@ -94,6 +99,15 @@ h4, h5 {
 
 .ds-paragraph p {
   margin-bottom: 15px;
+}
+.italic,
+.ds-gloss-list-label,
+#aspect_administrative_item_EditItemStatusForm_list_item-info span,
+#aspect_administrative_eperson_ManageEPeopleMain_list_actions span,
+#aspect_administrative_group_ManageGroupsMain_list_actions span,
+#aspect_administrative_authorization_AuthorizationMain_list_actions span,
+.ds-gloss-list-label  {
+  color: #333;
 }
 
 /* Hide DSpace communities block */
@@ -120,7 +134,7 @@ h4, h5 {
 }
 #main-container span {
   margin-bottom: 5px;
-  color: #186599;
+  font-size: 14px;
 }
 #main-container .horizontal-slider {
   background: #FFFFFF;
@@ -192,17 +206,32 @@ h4, h5 {
 header .navbar-default {
   background-color: #186599;
 }
-header .navbar-default a :hover {
-  text-decoration: underline;
-}
 .navbar-nav li {
   float: left;
   background-color: #186599;
 }
 .navbar-nav a :hover {
-  background-color: #186599;
   text-decoration: underline;
 }
+.dropdown-toggle span {
+  color: #FFF;
+}
+.dropdown-toggle:hover {
+  background-color: transparent;
+}
+span#filter-span {
+  color: #186599;
+}
+
+#auth-dropdown {
+  background-color: #FFF;
+}
+#auth-dropdown:hover {
+  background-color: #FFF;
+  text-decoration: underline;
+}
+
+/* Sidebar */
 #main-container #sidebar {
   background-color: #ffffff;
 }
@@ -224,9 +253,10 @@ a.list-group-item {
 }
 a.list-group-item :hover{
   background-color: #ddf5fb;
-  text-decoration: underline;
 }
-.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+.list-group-item.active, 
+.list-group-item.active:hover, 
+.list-group-item.active:focus {
   z-index: 2;
   background-color: #186599;
   border-color: #186599;
@@ -262,6 +292,9 @@ a.list-group-item :hover{
   text-decoration: none;
   background: #103d5c;
 }
+a.list-group-item :hover {
+      background-color: #186599;
+}
 
 /* Searchbar */
 .body-search {
@@ -269,17 +302,10 @@ a.list-group-item :hover{
   margin-bottom: 25px;
 }
 #body-input {
-  width: 1100%;
-}
-.input-group {
-  width: 100%;
-}
-fieldset {
-  width: 50%;
+  width: 400px;
 }
 #search-button {
   width: 200%;
-  left: 450px;
   position: relative;
   z-index: 10000;
 }
@@ -289,11 +315,12 @@ fieldset {
 }
 #search-reset {
   position: relative;
-  margin-left: 425px;
+  margin-left: 100px;
   padding-top: 8px;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: bold;
+  white-space: nowrap;
 }
 
 /* Footer */
@@ -335,7 +362,7 @@ fieldset {
   margin-bottom: 10px;
 }
 .item-page-field-wrapper {
-  border-bottom: dashed #e0ded2 1px;
+  border-bottom: solid #e0ded2 1px;
   margin: 0;
   padding: 5px 0;
 }
@@ -352,7 +379,18 @@ fieldset {
   margin: 25px 0;
 }
 .pdf-viewer {
+  border: solid #e0ded2 1px;
   margin: 20px 0px;
+}
+/* Item Admin Page */
+#aspect_administrative_item_FindItemForm_field_submit_find,
+#aspect_administrative_registries_MetadataRegistryMain_field_submit_add,
+#aspect_administrative_CurateForm_field_submit_curate_task,
+#aspect_administrative_item_CurateItemForm_field_submit_curate_task,
+#aspect_administrative_community_CreateCommunityForm_field_submit_save,
+#aspect_eperson_PasswordLogin_field_submit,
+#aspect_eperson_StartForgotPassword_field_submit {
+  margin: 10px 0px;
 }
 
 /* Search results/discovery page */
@@ -426,6 +464,9 @@ fieldset {
   padding: 0px 5px;
   border-radius: 5px;
 }
+.pdf-un-a a {
+  font-size: 14px;
+}
 .publisher {
   margin-left: 5px;
 }
@@ -456,7 +497,37 @@ fieldset {
 #faq-div-p {
   margin-bottom: 40px;
 }
-
 .emphasis span:hover {
   text-decoration: none;
 } 
+
+#aspect_eperson_PasswordLogin_div_register {
+  display: none;
+}
+
+/* Submission */
+.col-xs-12.col-sm-4,
+.col-xs-12.col-sm-4.needs-xs-spacing {
+  width: 33%;
+}
+
+/* Search facet button */
+
+.facet_button {
+  background: #3aaaf4;
+  margin-left: 10px;
+  color: #fff;
+  border-radius: 5px;
+  float: right;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.facet_button:hover {
+  font-weight: bolder;
+}

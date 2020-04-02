@@ -501,20 +501,20 @@
 	<!-- org.dspace.app.xmlui.eperson.PasswordLogin.java -->
 	<message key="xmlui.EPerson.PasswordLogin.title">Sign in</message>
 	<message key="xmlui.EPerson.PasswordLogin.trail">Sign in</message>
-	<message key="xmlui.EPerson.PasswordLogin.head1">Sign in to DSpace</message>
+	<message key="xmlui.EPerson.PasswordLogin.head1">Sign in to Exam Papers</message>
 	<message key="xmlui.EPerson.PasswordLogin.email_address">E-Mail Address</message>
 	<message key="xmlui.EPerson.PasswordLogin.error_bad_login">The email address and/or password supplied were not valid.</message>
 	<message key="xmlui.EPerson.PasswordLogin.password">Password</message>
 	<message key="xmlui.EPerson.PasswordLogin.forgot_link"> Forgot your password?</message>
 	<message key="xmlui.EPerson.PasswordLogin.submit">Sign in</message>
 	<message key="xmlui.EPerson.PasswordLogin.head2">Register new user</message>
-	<message key="xmlui.EPerson.PasswordLogin.para1">Register an account to subscribe to collections for email updates, and submit new items to DSpace.</message>
+	<message key="xmlui.EPerson.PasswordLogin.para1">To register an account to please contact a member of the Exam Papers department</message>
 	<message key="xmlui.EPerson.PasswordLogin.register_link">Click here to register.</message>
 
 	<!-- org.dspace.app.xmlui.eperson.LDAPLogin.java -->
 	<message key="xmlui.EPerson.LDAPLogin.title">Sign in</message>
 	<message key="xmlui.EPerson.LDAPLogin.trail">Sign in</message>
-	<message key="xmlui.EPerson.LDAPLogin.head1">Sign in to DSpace</message>
+	<message key="xmlui.EPerson.LDAPLogin.head1">Sign in to Exam Papers</message>
 	<message key="xmlui.EPerson.LDAPLogin.username">User Name</message>
 	<message key="xmlui.EPerson.LDAPLogin.error_bad_login">The user name and/or password supplied were not valid.</message>
 	<message key="xmlui.EPerson.LDAPLogin.password">Password</message>
@@ -553,7 +553,7 @@
 	<!-- org.dspace.app.xmlui.eperson.RegistrationFinished.java -->
 	<message key="xmlui.EPerson.RegistrationFinished.title">Registration finished</message>
 	<message key="xmlui.EPerson.RegistrationFinished.head">Registration Finished</message>
-	<message key="xmlui.EPerson.RegistrationFinished.para1">You're now registered to use the DSpace system.  You can subscribe to collections to receive email updates about new items.</message>
+	<message key="xmlui.EPerson.RegistrationFinished.para1">You're now registered to use the Exam Papers DSpace system.  You can subscribe to collections to receive email updates about new items.</message>
 
 	<!-- org.dspace.app.xmlui.eperson.ResetPassword.java -->
 	<message key="xmlui.EPerson.ResetPassword.title">Reset password</message>
@@ -582,7 +582,7 @@
 	<message key="xmlui.EPerson.StartRegistration.reset_password_for">Reset password for</message>
 	<message key="xmlui.EPerson.StartRegistration.submit_reset">Reset password</message>
 	<message key="xmlui.EPerson.StartRegistration.head2">New user registration</message>
-	<message key="xmlui.EPerson.StartRegistration.para2">Register an account to subscribe to collections for email updates, and submit new items to DSpace.</message>
+	<message key="xmlui.EPerson.StartRegistration.para2">Register an account to subscribe to collections for email updates, and submit new items to Exam Papers.</message>
 	<message key="xmlui.EPerson.StartRegistration.email_address">Email Address</message>
 	<message key="xmlui.EPerson.StartRegistration.email_address_help">This address will be verified and used as your login name.</message>
 	<message key="xmlui.EPerson.StartRegistration.error_bad_email">Unable to send email to this address.</message>
@@ -611,8 +611,8 @@
 
 
 	<!-- general submission aspect messages -->
-	<message key="xmlui.Submission.general.mydspace_home">MyDSpace Home</message>
-	<message key="xmlui.Submission.general.go_mydspace">Go to MyDSpace Home</message>
+	<message key="xmlui.Submission.general.mydspace_home">Exam Papers Home</message>
+	<message key="xmlui.Submission.general.go_mydspace">Go to Exam Papers Home</message>
 	<message key="xmlui.Submission.general.submission.title">Item submission</message>
 	<message key="xmlui.Submission.general.submission.trail">Item submission</message>
 	<message key="xmlui.Submission.general.submission.head">Item submission</message>
@@ -627,6 +627,7 @@
 	<message key="xmlui.Submission.general.showsimple">Show simple item record</message>
 	<message key="xmlui.Submission.general.default.title">Submission</message>
 	<message key="xmlui.Submission.general.default.trail">Submission</message>
+	<message key="xmlui.Submission.Navigation.new_submission">Add new Submission</message>
 
 	<!-- org.dspace.app.xmlui.submission.CollectiovViewer -->
 	<message key="xmlui.Submission.CollectionViewer.link1">Submit a new item to this collection</message>
@@ -690,7 +691,7 @@
 	<message key="xmlui.Submission.Submissions.status_unknown">Unknown state</message>
         <!-- Same transformer, completed submissions section -->
         <message key="xmlui.Submission.Submissions.completed.head">Archived Submissions</message>
-        <message key="xmlui.Submission.Submissions.completed.info">These are your completed submissions which have been accepted into DSpace.</message>
+        <message key="xmlui.Submission.Submissions.completed.info">These are your completed submissions which have been accepted into Exam Papers.</message>
         <message key="xmlui.Submission.Submissions.completed.column1">Date accepted</message>
         <message key="xmlui.Submission.Submissions.completed.column2">Title</message>
         <message key="xmlui.Submission.Submissions.completed.column3">Collection</message>

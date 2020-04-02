@@ -408,7 +408,7 @@
         <property name="facetLimit" value="50"/>
         <property name="sortOrderSidebar" value="VALUE"/>
         <property name="sortOrderFilterPage" value="VALUE"/>
-        <property name="splitter" value="::"/>
+        <!--<property name="splitter" value="::"/>-->
     </bean>
 
     <bean id="searchFilterAuthor" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
@@ -434,7 +434,7 @@
         <property name="facetLimit" value="50"/>
         <property name="sortOrderSidebar" value="VALUE"/>
         <property name="sortOrderFilterPage" value="VALUE"/>
-        <property name="splitter" value="::"/>
+        <!--<property name="splitter" value="::"/>-->
     </bean>
 
     
@@ -461,7 +461,7 @@
         <property name="facetLimit" value="50"/>
         <property name="sortOrderSidebar" value="VALUE"/>
         <property name="sortOrderFilterPage" value="VALUE"/>
-        <property name="splitter" value="::"/>
+        <!--<property name="splitter" value="::"/>-->
     </bean>
 
     <bean id="searchFilterIdentifier" class="org.dspace.discovery.configuration.DiscoverySearchFilter">

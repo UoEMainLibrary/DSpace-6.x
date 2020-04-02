@@ -154,9 +154,9 @@ public class ControlPanel extends AbstractDSpaceTransformer implements Serviceab
         	tab = tab.trim();
             Message linkText = message("xmlui.administrative.ControlPanel.tabs." + tab);
         	if(tab.equals(selected_tab)) {
-        		options.addItem().addHighlight("bold").addXref("?tab=" + selected_tab, linkText);
+        		//options.addItem().addHighlight("bold").addXref("?tab=" + selected_tab, linkText);
         	} else {
-        		options.addItemXref(contextPath + "/admin/panel?tab=" + tab, linkText);
+        		//options.addItemXref(contextPath + "/admin/panel?tab=" + tab, linkText);
         	}
         }
         

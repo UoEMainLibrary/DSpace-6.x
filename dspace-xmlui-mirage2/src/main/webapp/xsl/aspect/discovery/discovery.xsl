@@ -182,7 +182,7 @@
                                 </xsl:otherwise>
                             </xsl:choose>
                         </xsl:attribute>
-                        <h4 alt="paper title and year">
+                        <h4 title="Click to view full details for this paper">
                             <xsl:choose>
                                 <xsl:when test="dri:list[@n=(concat($handle, ':dc.title'))]">
                                     <xsl:apply-templates select="dri:list[@n=(concat($handle, ':dc.title'))]/dri:item"/>
@@ -213,7 +213,7 @@
                     </xsl:element>
 
                     <xsl:if test="dri:list[@n=(concat($handle, ':dc.description.version'))]='Resit'">
-                        <p class="exam-version" alt="paper version">   
+                        <p class="exam-version" title="paper version">
                             <xsl:apply-templates select="dri:list[@n=(concat($handle, ':dc.description.version'))]/dri:item"/>
                         </p>
                     </xsl:if>
@@ -293,9 +293,11 @@
                                         <xsl:attribute name="href">
                                             <xsl:value-of select="concat($context-path, $title-search-url, translate(dri:list[@n=(concat($handle, ':dc.title'))], ' ', '+'))"/>
                                         </xsl:attribute>
+                                        <xsl:attribute name="class">
+                                            <xsl:text>external-link</xsl:text>
+                                        </xsl:attribute>
                                         <xsl:if test="dri:list[@n=(concat($handle, ':dc.title'))]">
-                                            <span class="school-name" alt="link to view all papers with the same course title">All papers from this course title
-                                            </span>
+                                            <span class="school-name" title="Click to view all papers with this course title">All papers from this course title</span>
                                         </xsl:if>
                                     </xsl:element>
                                 </small>
@@ -311,8 +313,11 @@
                                         <xsl:attribute name="href">
                                             <xsl:value-of select="concat($context-path, $id-search-url, translate(dri:list[@n=(concat($handle, ':dc.identifier'))], ' ', '+'))"/>
                                         </xsl:attribute>
+                                        <xsl:attribute name="class">
+                                            <xsl:text>external-link</xsl:text>
+                                        </xsl:attribute>
                                         <xsl:if test="dri:list[@n=(concat($handle, ':dc.identifier'))]">
-                                            <span class="coursecode" alt="link to view all papers with the same course code">
+                                            <span class="coursecode" title="Click to view all papers with this course code">
                                                 <xsl:apply-templates select="dri:list[@n=(concat($handle, ':dc.identifier'))]/dri:item"/>
                                             </span>
                                         </xsl:if>
@@ -321,25 +326,29 @@
                             </span>
                     </xsl:if>
 
-                    <span class="divider-span-2"></span> 
+                    <!--<span class="test">
+                        <xsl:value-of select="util:getBitstreamInfo($handle)"/>
+                    </span>-->
+                    <span class="divider-span-2"></span>
+                    <xsl:variable name="bitstreaminfo" select="util:getBitstreamInfo($handle)"/>
 
-                    <xsl:variable name="context-url" select="concat($context-path, '/bitstream/handle/', $handle)"/>
-                    <xsl:variable name="pdf-filename" select="substring-after(substring-before($metsDoc, '.pdf'), '##')"/>
-                    <xsl:variable name="sequence-num" select="substring-before(substring-after($metsDoc, concat($handle, '##')), '##')"/>
+                    <!--<xsl:variable name="context-url" select="concat($context-path, '/bitstream/handle/', $handle)"/>
+                    <xsl:variable name="pdf-filename" select="substring-after(substring-before($bitstreaminfo, '.pdf'), '##')"/>
+                    <xsl:variable name="sequence-num" select="substring-before(substring-after($bitstreaminfo, concat($handle, '##')), '##')"/>-->
                     
                     <!-- Conditional to check if exam paper pdf available and display download link if true -->
                     <xsl:choose>
                         <!-- Checks if the returned $metsDoc string contains 'pdf' and serves up download link if true -->
-                        <xsl:when test="contains($metsDoc, '.pdf') = 'true'">
-                        <!-- and contains($metsDoc, '.txt') = 'false'-->
-                            <span class="pdf-download">
+                        <xsl:when test="$bitstreaminfo != ''">
+                            <span class="pdf-download" title="Click to download PDF version of this paper">
                                 <small>
                                     <xsl:element name="a">
                                         <xsl:attribute name="href">
-                                            <!-- Generates download link by concatinating item handle and pdf file name onto search string -->
-                                            <!-- A little bit ugly but functions without having to dig deep into the mets data path -->
-                                            <xsl:value-of select="concat(concat($context-url, '/', $pdf-filename),
-                                                                    concat('.pdf?sequence=', $sequence-num,  '&amp;isAllowed=y'))"/>
+                                            <!-- Generates download link by concatenating item handle and pdf file name onto search string -->
+                                            <xsl:value-of select="concat($context-path, '/bitstream/handle/', $handle, '/', $bitstreaminfo)"/>
+                                        </xsl:attribute>
+                                        <xsl:attribute name="download">
+                                            <!--<xsl:value-of select="concat($pdf-filename, '.pdf')" />-->
                                         </xsl:attribute>
                                         DOWNLOAD PAPER <i aria-hidden="true" class="glyphicon glyphicon-download-alt" id="download-icon"></i>
                                     </xsl:element>
@@ -347,13 +356,13 @@
                             </span>
                         </xsl:when>
                         <xsl:otherwise>
-                            <span class="pdf-unavailable">
-                                <small>
+                            <span class="pdf-unavailable" title="No available PDF for this paper. Click to find out more">
+                                <small class="pdf-un-a">
                                     <xsl:element name="a">
                                         <xsl:attribute name="href">
                                             <xsl:value-of select="concat($context-path, '/exam-papers', '/unavailable')" />
                                         </xsl:attribute>
-                                        PAPER UNAVAILABLE
+                                        PAPER UNAVAILABLE <i aria-hidden="true" class="glyphicon glyphicon-ban-circle" id="unavailable-icon"></i>
                                     </xsl:element>
                                 </small>
                             </span> 
@@ -664,7 +673,7 @@
     </xsl:template>
 
     <xsl:template match="dri:div[@rend='controls-gear-wrapper' and @n='search-controls-gear']">
-        <div class="btn-group sort-options-menu pull-right">
+        <div class="btn-group sort-options-menu pull-right" title="Click to change sort by options">
             <xsl:call-template name="standardAttributes">
                 <xsl:with-param name="class">btn-group discovery-sort-options-menu pull-right</xsl:with-param>
             </xsl:call-template>
@@ -674,7 +683,7 @@
     </xsl:template>
 
     <xsl:template match="dri:list[@rend='gear-selection' and @n='sort-options']">
-        <ul class="dropdown-menu" role="menu">
+        <ul class="dropdown-menu" id="sort-by-ul" role="menu">
             <xsl:apply-templates/>
         </ul>
     </xsl:template>
@@ -690,7 +699,7 @@
     </xsl:template>
 
     <xsl:template match="dri:list[@rend='gear-selection' and @n='sort-options']/dri:item/dri:xref">
-        <a href="{@target}" class="{@rend}">
+        <a href="{@target}" class="{@rend}" title="Click to change search results sort parameters">
             <span>
                 <xsl:attribute name="class">
                     <xsl:text>glyphicon glyphicon-ok btn-xs</xsl:text>

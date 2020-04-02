@@ -3,28 +3,41 @@
 <body>
 <div id="file.news.div.news" n="news" rend="primary">
 
-    <hi>University of Edinburgh Exam Papers Online: 2004/05 to 2018/19</hi>
+    <hi alt="page introduction">
+        University of Edinburgh Exam Papers Online: 2004/05 to 2018/19
+    </hi>
     <p></p>
-    <hi>To find a paper, use the search box above or select a school from the list on the right:</hi>
+    <hi>
+        To find a paper, use the search box above or select a school from the list on the right:
+    </hi>
     <p></p>
     <p>
         The very latest papers added are from the 2018-19 diet. These pages will be updated periodically, as more papers become available.
-        If you cannot find the paper you are looking for, please email <xref target="mailto:exam.papers@ed.ac.uk" title="Link to email the exam paper team at the University of Edinburgh about a specific exam paper">exam.papers@ed.ac.uk</xref>, or try visiting again at a later date.
+        If you cannot find the paper you are looking for, please email <xref name="email-news" id="email-news" target="mailto:exam.papers@ed.ac.uk"
+        title="Click to send email enquiry to the exam papers departmenrt"><alt>link to exam papers department email</alt>exam.papers@ed.ac.uk</xref>, 
+            or try visiting again at a later date.
     </p>
     <p></p>
 
     <div id="search-tip-box">
-        <hi>Search Tips</hi>
+        <hi alt="tips on how to search for a past paper">Search Tips</hi>
 
         <list n="test" id="test.list">
-            <item>Typing in the course name or code will bring up suggestions for records already in the database.</item>
-            <item>If you cannot find the paper you are looking for from a title search try entering the course code. Course codes changed format in 2010/11 so results will be different before and after this time.</item> 
-            <item>You can browse to the paper you are looking for by clicking the options on the right-hand side of the screen to narrow the results by School, subject, year and title.</item>     
+            <item>
+                Typing in the course name or code will bring up suggestions for records already in the database.
+            </item>
+            <item>
+                If you cannot find the paper you are looking for from a title search try entering the course code. 
+                Course codes changed format in 2010/11 so results will be different before and after this time.
+            </item> 
+            <item>
+                You can browse to the paper you are looking for by clicking the options on the right-hand side of the screen to narrow the results by School, subject, year and title.
+            </item>     
         </list>
     </div>
     <p></p>
 
-    <hi>Marking Guides and Sample Solutions</hi>
+    <hi alt="introduction to finding marking guides">Marking Guides and Sample Solutions</hi>
     <p>
         The Library does not hold any marking guides or sample solutions to exam papers. We suggest that you contact the course secretary or 
         course organiser to check if these have been created for your course and how they have been made available.
@@ -32,16 +45,20 @@
     <p></p>
     
 
-    <hi>FAQs</hi>
+    <hi alt="introduction to frequently asked questions">FAQs</hi>
         <!-- URL MUST BE HARD CODED REMEMBER TO CHANGE BEFORE DEPLOYMENT!!! -->
-        <p>Frequently asked questions for students, and administrative and teaching staff can be found at the <xref target="/exam-papers/faqs" title="Link to email the University of Edinburgh's exam papers frequently ask questions page" rend="bold">FAQs Page</xref>.</p>
+        <p>
+            Frequently asked questions for students, and administrative and teaching staff can be found at the <xref target="/exam-papers/faqs" 
+            title="Link to email the University of Edinburgh's exam papers frequently ask questions page" alt="link to frequently asked questions page">FAQs Page</xref>.
+        </p>
     <p></p>
 
 
-    <hi>Alternative Formats</hi>
+    <hi alt="information on requesting exam papers in alternative formats">Alternative Formats</hi>
         <p> 
             If you require an exam paper in an alternative format, such as large print or a coloured background, please contact the Exam Papers Online Team, by e-mail at 
-            <xref target="mailto:exam.papers@ed.ac.uk" title="Link to email the exam paper team at the University of Edinburgh about alternative formats">exam.papers@ed.ac.uk</xref>, or by phone on 0131 651 1827.
+            <xref name="email-news" xml:id="email-news" target="mailto:exam.papers@ed.ac.uk" title="Click to email the exam paper team at the University of Edinburgh about alternative formats" alt="link to the exam papers departments email">
+            exam.papers@ed.ac.uk</xref>, or by phone on 0131 651 1827.
         </p>
     <p></p>
 

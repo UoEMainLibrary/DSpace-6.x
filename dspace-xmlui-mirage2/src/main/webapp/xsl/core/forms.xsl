@@ -1192,7 +1192,7 @@
     </xsl:template>
 
     <xsl:template match="dri:item[count(dri:field) = 2 and dri:field[@type='button'] and dri:field[not(@type='button')]]" priority="4" mode="labeled">
-        <div class="row">
+        <div class="row" id="flex-row">
             <div class="col-sm-2">
                 <xsl:call-template name="pick-label"/>
             </div>
