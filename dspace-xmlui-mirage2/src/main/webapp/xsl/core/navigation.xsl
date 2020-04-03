@@ -337,7 +337,7 @@
                                     <xsl:attribute name="class">
                                         <xsl:text>facet_button</xsl:text>
                                     </xsl:attribute>
-                                    <xsl:text>X-1</xsl:text>
+                                    <xsl:text>X</xsl:text>
                                 </a>
                             </div>
                         </xsl:if>
@@ -359,7 +359,7 @@
                                     <xsl:attribute name="class">
                                         <xsl:text>facet_button</xsl:text>
                                     </xsl:attribute>
-                                    <xsl:text>X-2</xsl:text>
+                                    <xsl:text>X</xsl:text>
                                 </a>
                             </div>
                         </xsl:if>
@@ -378,7 +378,7 @@
                                     <xsl:attribute name="class">
                                         <xsl:text>facet_button</xsl:text>
                                     </xsl:attribute>
-                                    <xsl:text>X-3</xsl:text>
+                                    <xsl:text>X</xsl:text>
                                 </a>
                             </div>
                         </xsl:if>
@@ -426,7 +426,7 @@
 
                     <!-- Show subject links -->
 
-                    <!--<xsl:when test="not(contains($full-url, 'subject'))">
+                    <xsl:when test="not(contains($full-url, 'subject'))">
                         <xsl:if test="not(../@n = 'browse') and not(../@n = 'account') and not(../@n = 'datetemporal') and not(../@n = 'titlefacet')">
                             <div id="list-group-opt-div">
                                 <xsl:call-template name="standardAttributes">
@@ -435,17 +435,17 @@
                                 <xsl:apply-templates/>
                                 <a>
                                     <xsl:attribute name="href">
-                                        <xsl:value-of select="util:removeFilter($full-url, 'author, subject, datetemporal, titlefacet')"/>
+                                        <!--<xsl:value-of select="util:removeFilter($full-url, 'author')"/>-->
                                         <xsl:text>discover</xsl:text>
                                     </xsl:attribute>
                                     <xsl:attribute name="class">
                                         <xsl:text>facet_button</xsl:text>
                                     </xsl:attribute>
-                                    <xsl:text>X-4</xsl:text>
+                                    <xsl:text>X</xsl:text>
                                 </a>
                             </div>
                         </xsl:if>
-                    </xsl:when>-->
+                    </xsl:when>
 
                     <!-- Ignore, profile suppression again (can’t remember why I needed to do it twice but I did) -->
 
@@ -463,7 +463,7 @@
                                     <xsl:attribute name="class">
                                         <xsl:text>facet_button</xsl:text>
                                     </xsl:attribute>
-                                    <xsl:text>X-5</xsl:text>
+                                    <xsl:text>X</xsl:text>
                                 </a>
                             </div>
                         </xsl:if>
@@ -481,13 +481,14 @@
                                 <a>
                                     <xsl:attribute name="href">
                                         <xsl:choose>
-                                            <!--   If a filter has been selected and we're about to print out the author/school axing the school always returns to spot 1. -->
+                                            <!--   If a filter has been selected and we're about to print out the author/school
+                                                   axing the school always returns to spot 1. -->
                                             <xsl:when test="../@n = 'author'">
                                                 <xsl:text>discover</xsl:text>
                                             </xsl:when>
                                             <xsl:when test="../@n = 'subject'">
                                                 <!-- We only want to keep the school if axing the course -->
-                                                <xsl:value-of select="util:removeFilter($full-url, 'subject')"/>
+                                                <xsl:value-of select="util:removeFilter($full-url, 'author')"/>
                                             </xsl:when>
                                             <xsl:when test="../@n = 'datetemporal'">
                                                 <xsl:value-of select="util:removeFilter($full-url, 'author, subject, titlefacet')"/>
@@ -500,7 +501,7 @@
                                     <xsl:attribute name="class">
                                         <xsl:text>facet_button</xsl:text>
                                     </xsl:attribute>
-                                    <xsl:text>X-6</xsl:text>
+                                    <xsl:text>X</xsl:text>
                                 </a>
                             </div>
                         </xsl:if>
@@ -555,7 +556,7 @@
                                         </xsl:call-template>
                                         <xsl:choose>
                                             <xsl:when test="dri:xref/node()">
-                                                <xsl:apply-templates select="dri:xref/node()"/>
+                                                <xsl:apply-templates select="dri:xref/node()"/>gm
                                             </xsl:when>
                                             <xsl:otherwise>
                                                 <xsl:value-of select="dri:xref"/>

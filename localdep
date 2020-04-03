@@ -1,0 +1,21 @@
+#! /usr/bin/env bash
+
+source ~/.nvm/nvm.sh
+npm config delete prefix
+nvm install 6.5.0
+nvm alias default 6.5.0
+
+npm install -g bower
+bower
+
+npm install -g grunt && npm install -g grunt-cli 
+grunt --version
+
+curl -sSL https://get.rvm.io | bash -s stable --ruby
+
+source /Users/bparkes/.rvm/scripts/rvm
+gem install sass -v 3.3.14
+gem install compass -v 1.0.1
+
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+Java -version
