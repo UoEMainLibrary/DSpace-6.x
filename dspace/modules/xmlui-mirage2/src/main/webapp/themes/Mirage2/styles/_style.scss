@@ -520,7 +520,7 @@ a.list-group-item :hover {
   border-radius: 5px;
   float: right;
   width: 25px;
-  height: 25px;
+  height: 20px;
   display: inline-block;
   text-align: center;
   cursor: pointer;
@@ -530,4 +530,7 @@ a.list-group-item :hover {
 
 .facet_button:hover {
   font-weight: bolder;
+  text-decoration: none;
+  color: #fff;
+  background: #103d5c;
 }

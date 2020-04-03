@@ -121,7 +121,7 @@ public class XSLUtils {
         // The results that we'll return
         StringBuilder results = new StringBuilder();
         String[] facet_list = facets.trim().split("\\s*,\\s*");
-f
+
         // Two groups to match, property and value
         Pattern p = Pattern.compile("([^|&][^=]+)=([^&]+)");
         Matcher m = p.matcher(url);
