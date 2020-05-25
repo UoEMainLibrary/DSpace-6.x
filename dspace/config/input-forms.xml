@@ -63,6 +63,17 @@
 
        <field>
          <dc-schema>dc</dc-schema>
+         <dc-element>creator</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>School</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the school that issued exam paper.</hint>
+         <required>You must enter a school for this paper.</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
          <dc-element>coverage</dc-element>
          <dc-qualifier>temporal</dc-qualifier>
          <repeatable>false</repeatable>

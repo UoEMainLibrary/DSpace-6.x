@@ -131,8 +131,8 @@
                 <property name="defaultSortOrder" value="desc"/>
                 <property name="sortFields">
                     <list>
-                        <ref bean="sortTitle" />
                         <ref bean="sortDateIssued" />
+                        <ref bean="sortTitle" />
                     </list>
                 </property>
             </bean>
