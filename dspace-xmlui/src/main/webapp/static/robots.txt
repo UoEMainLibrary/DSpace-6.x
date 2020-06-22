@@ -16,8 +16,10 @@ Disallow: /search-filter
 #
 # Optionally uncomment the following line ONLY if sitemaps are working
 # and you have verified that your site is being indexed correctly.
-# Disallow: /browse
-# Disallow: /handle/${handle.prefix}/*/browse
+Disallow: /browse
+Disallow: /handle/${handle.prefix}/*/browse
+Disallow: /handle/${handle.prefix}/*/discover
+
 #
 # If you have configured DSpace (Solr-based) Statistics to be publicly 
 # accessible, then you may not want this content to be indexed
