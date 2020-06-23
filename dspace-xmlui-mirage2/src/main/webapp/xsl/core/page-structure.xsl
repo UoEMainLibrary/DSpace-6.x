@@ -695,10 +695,6 @@
                     <a href="http://www.ed.ac.uk/about/website/privacy" title="Privacy and Cookies Link" target="_blank">Privacy &amp; Cookies</a><xsl:text>  |  </xsl:text>
                     <a href="http://www.ed.ac.uk/schools-departments/information-services/services/research-support/publish-research/scholarly-communications/sct-policies/sct-policies-take-down" title="Takedown Policy Link">Takedown Policy</a><xsl:text>  |  </xsl:text>
                     <a href="{$context-path}/accessibility" title="Website Accessibility Link">Accessibility</a><xsl:text>  |  </xsl:text>
-<<<<<<< HEAD
-
-=======
->>>>>>> e8d7802bee2c180011557279797a18c77dd65ea7
                     <a href="http://www.ed.ac.uk/schools-departments/information-services/research-support/publish-research/scholarly-communications/help" title="Contact the Edinburgh Research Archive">Contact</a>
                 </div>
 
@@ -1248,36 +1244,6 @@
                 document.getElementById("aspect_viewArtifacts_Navigation_list_administrative").style.display = "none";
                 document.getElementById("aspect_statisticsIRUS_Navigation_list_statistics").style.display = "none";
             </script>
-<<<<<<< HEAD
-        </xsl:if>
-        <xsl:if test="$auth = 'yes'">
-            <script>
-                document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "block";
-                document.getElementById("aspect_viewArtifacts_Navigation_list_administrative").style.display = "block";
-            </script>
-        </xsl:if>
-
-        <!-- Conditional to supress sidebar facets based on admin only page urls -->
-        <xsl:if test="$request-uri = ''">
-            <script>
-                document.querySelectorAll("h2")[0].style.display = "none";
-            </script>
-        </xsl:if>-->
-        <xsl:if test="contains($uri-string, 'Viewer.trail/handle') or contains($request-uri, 'communit')
-                        or contains($request-uri, 'browse') or $request-uri = 'password-login'
-                        or contains($request-uri, 'access')">
-            <script>
-                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
-            </script>
-        </xsl:if>
-        <xsl:if test="contains($request-uri, 'submi') or contains($request-uri, 'statistics')
-                        or contains($request-uri, 'admin/') or contains($request-uri, 'irus')">
-            <script>
-                document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
-                document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
-            </script>
-        </xsl:if>
-=======
         </xsl:if>
         <xsl:if test="$auth = 'yes'">
             <script>
@@ -1328,7 +1294,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
-        <!--<xsl:if test="contains($request-uri, 'communit')">
+        <xsl:if test="contains($request-uri, 'communit')">
 >>>>>>> code tidy
             <script>
                 document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";
@@ -1371,7 +1337,6 @@
                 document.getElementById("aspect_discovery_Navigation_list_discovery").style.display = "none";  
             </script>
         </xsl:if>-->
->>>>>>> e8d7802bee2c180011557279797a18c77dd65ea7
 
     </xsl:template>
 
