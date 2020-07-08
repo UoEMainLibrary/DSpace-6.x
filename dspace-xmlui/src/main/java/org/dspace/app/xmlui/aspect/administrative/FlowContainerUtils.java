@@ -9,6 +9,8 @@ package org.dspace.app.xmlui.aspect.administrative;
 
 import org.apache.cocoon.environment.Request;
 import org.apache.cocoon.servlet.multipart.Part;
+import org.apache.jena.atlas.logging.Log;
+import org.apache.log4j.Logger;
 import org.dspace.app.xmlui.utils.UIException;
 import org.dspace.app.xmlui.wing.Message;
 import org.dspace.authorize.AuthorizeException;
@@ -36,6 +38,9 @@ import org.dspace.harvest.HarvestedCollection;
 import org.dspace.harvest.OAIHarvester;
 import org.dspace.harvest.factory.HarvestServiceFactory;
 import org.dspace.harvest.service.HarvestedCollectionService;
+import org.dspace.identifier.DOICollection;
+import org.dspace.identifier.factory.IdentifierServiceFactory;
+import org.dspace.identifier.service.DOICollectionService;
 import org.dspace.services.factory.DSpaceServicesFactory;
 import org.dspace.workflow.WorkflowException;
 import org.dspace.workflow.WorkflowService;
@@ -86,8 +91,10 @@ public class FlowContainerUtils
 	protected static final GroupService groupService = EPersonServiceFactory.getInstance().getGroupService();
 	protected static final HarvestedCollectionService harvestedCollectionService = HarvestServiceFactory.getInstance().getHarvestedCollectionService();
 	protected static final WorkflowService workflowService = WorkflowServiceFactory.getInstance().getWorkflowService();
+	protected static final DOICollectionService doiCollectionService = IdentifierServiceFactory.getInstance().getDOICollectionService();
 
-	
+	private static final Logger log = Logger.getLogger(FlowContainerUtils.class);
+
 	// Collection related functions
 
 	/**
@@ -116,7 +123,21 @@ public class FlowContainerUtils
 		String sideBarText = request.getParameter("side_bar_text");
 		String license = request.getParameter("license");
 		String provenanceDescription = request.getParameter("provenance_description");
-		
+
+		String doiCollection = request.getParameter("doi_collection");
+
+		// Add UUID to DOICollection table if checkbox is set, else remove it
+		// * Hrafn Malmquist
+     	// * 25/09/2019
+		if (doiCollection != null && doiCollection.length() != 0)	{
+			DOICollection doiCollectionObj = doiCollectionService.create(context);
+			doiCollectionObj.setUUID(collectionID);
+		}
+		else {
+			DOICollection doiCollectionObj = doiCollectionService.findByCollectionUUID(context, collectionID);
+			doiCollectionService.delete(context, doiCollectionObj);
+		}
+
 		// If they don't have a name then make it untitled.
 		if (name == null || name.length() == 0)
         {
@@ -157,7 +178,8 @@ public class FlowContainerUtils
 		collectionService.setMetadata(context, collection, "side_bar_text", sideBarText);
 		collectionService.setMetadata(context, collection, "license", license);
 		collectionService.setMetadata(context, collection, "provenance_description", provenanceDescription);
-		
+
+		//DOICollection doiCollection = ;
         
 		// Change or delete the logo
         if (deleteLogo)

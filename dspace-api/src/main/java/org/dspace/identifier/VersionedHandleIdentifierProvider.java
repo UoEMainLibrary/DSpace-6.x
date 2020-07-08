@@ -118,6 +118,12 @@ public class VersionedHandleIdentifierProvider extends IdentifierProvider {
     }
 
     @Override
+    public String register(Context context, DSpaceObject dso, Collection owningCollection)
+    {
+        return register(context, dso);
+    }
+
+    @Override
     public void register(Context context, DSpaceObject dso, String identifier)
             throws IdentifierException
     {

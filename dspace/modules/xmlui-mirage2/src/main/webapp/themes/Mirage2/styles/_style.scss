@@ -11,51 +11,764 @@
  * It will be included in all color schemes
  */
 
-//example mixin to set the text-selection style
-@mixin selection {
-    ::-moz-selection { @content; }
-    ::selection { @content; }
+/* example mixin to set the text-selection style */
+@mixin selection 
+{
+    ::-moz-selection  { @content; }
+    ::selection       { @content; }
 }
-
 @include selection {
     color: white;
     background: cornflowerblue;
+}
+
+h2:empty, .list-group:empty {
+  display: none;
 }
 
 .publication-records-modal, .publication-records-modal ul {
   list-style-type: none;
   padding-left: 0px;
 }
-
 .publication-records-import-btn {
   margin: 5px 0px 15px 0px;
 }
-
 .bold {
   font-weight: bold;
 }
-
 .imported {
   background-color: #E2E2E2;
 }
-
 #aspect_submission_StepTransformer_div_StartSubmissionLookupStep {
-
   #aspect_submission_StepTransformer_field_search {
     width: 81%;
     display: inline;
   }
-
   #aspect_submission_StepTransformer_field_lookup {
     width:19%
   }
-
   .modal .modal-body {
     max-height: 500px;
     overflow-y: auto;
   }
-
-  #aspect_submission_StepTransformer_item_publication-title{
+  #aspect_submission_StepTransformer_item_publication-title {
     margin-bottom:5px;
   }
+}
+
+/* SDLC */
+.countriesMap  {
+  padding-top: 80px;
+}
+
+/* ERA GLOBAL STYLES TEXT */
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, legend {
+  font-weight: 300;
+}
+h1 {
+  font-size: 40px
+}
+h2 {
+  font-size: 40px;
+}
+legend {
+  font-size: 30px;
+}
+p {
+  font-size: 16px;
+  font-weight: 200;
+  text-align: justify;
+}
+.era-header span, li {
+  color: #fff;
+  font-size: 20px;
+}
+#sidebar a {
+  font-size: 16px;
+  position: relative;
+  z-index: 999;
+  font-weight: 300;
+}
+.label-default {
+  font-weight: 300;
+}
+
+.row {
+  font-weight: 300;
+}
+ul.ds-referenceSet-list a {
+  font-size: 16px;
+}
+#access-ul li {
+  color: #333;
+  font-size: 16px;
+  font-weight: 200;
+}
+
+/* GLOBAL CONTAINER STYLES */
+
+.page-header.first-page-header {
+  font-size: 28px;
+  border-bottom: solid 4px;
+}
+span.bold{
+  font-weight: 400;
+}
+/* GLOBAL CONTAINER STYLES */
+
+.row {
+  font-weight: 300;
+}
+ul.ds-referenceSet-list a {
+  font-size: 16px;
+}
+
+/* GLOBAL CONTAINER STYLES */
+
+.main-content, #main-container .row-offcanvas {
+  z-index: 999;
+  background-color: transparent;
+}
+.container {
+  width: 90%;
+}
+#main-content {
+  padding-right: 40px;
+  padding-top: 2%;
+}
+.ds-static-div.col-xs-2.col-sm-1 {
+  display: none;
+}
+/* GLOBAL BACKGROUND IMAGES */
+#background-globe {
+  position: absolute;
+  z-index: 1;
+  right: 10%;
+  top: -50px;
+  overflow: hidden;
+  width: 40%;
+}
+#background-dandy {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  opacity: 0.5;
+  width: 50%;
+}
+
+/* GLOBAL :HOVER ANIMATIONS \\
+/* NAVIGATION BAR */
+header .navbar-default a:after, .navbar-header a:after,
+header .breadcrumb.hidden-xs.hidden-sm a:after, .breadcrumb.hidden-xs.hidden-sm a:after {
+  content: '';
+  height: 2px;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  color: #fff;
+  background: #fff;
+  transition: 0.6s;
+}
+header .navbar-default a:hover:after, .navbar-header a:hover:after,
+header .breadcrumb.hidden-xs.hidden-sm a:hover:after, .breadcrumb.hidden-xs.hidden-sm a:hover:after {
+  width: 100%; 
+  left: 0; 
+}
+
+/* COMMUNITIES LIST */
+.ds-static-div.row.community-browser-row a, a:visited {
+  text-decoration: none;
+  font-size: 20px;
+  position: relative;
+  z-index: 999;
+}
+.ds-static-div.col-xs-10.col-sm-12.col-sm-offset-0.list-mode a:after, a:visited:after {
+  content: '';
+  height: 2px;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  color: #415262;
+  background: #415262;
+  transition: 0.6s;
+}
+.ds-static-div.col-xs-10.col-sm-12.col-sm-offset-0.list-mode a:hover:after, a:visited:hover:after {
+  width: 100%;
+}
+.artifact-info{
+  margin-top: 7px;
+}
+/* ARTICLE LIST */
+.artifact-title a, a:visited, 
+.artifact-h-link a, a:visited,
+.simple-item-view-show-full.item-page-field-wrapper a, a:visited,
+.item-view-toggle a, a:visited,
+.ds-paragraph.ds-referenceSet-list a, a:visited,
+.navbar-header a, a:visited,
+.footer-links a, a:visited,
+.ds-table-row a, .ds-table-row a:visited,
+.control-group.col-sm-12 a, a:visited,
+#aspect_eperson_PasswordLogin_div_register a, a:visited,
+.file-link a, a:visited,
+.era-h-link a, a:visited,
+.detail-view a, a:visited,
+#aspect_discovery_CommunityRecentSubmissions_p_recent-submission-view-more a, a:visited,
+#aspect_discovery_SiteRecentSubmissions_p_recent-submission-view-more a, a:visited,
+#aspect_discovery_CollectionRecentSubmissions_p_recent-submission-view-more a, a:visited,
+.ds-static-div.col-xs-10.col-sm-11 a, a:visited,
+#exception a, a:visited,
+#aspect_general_PageNotFoundTransformer_div_page-not-found a, a:visited,
+#aspect_discovery_SimpleSearch_div_search-filters a, a:visited,
+#aspect_submission_Submissions_div_start-submision a, a:visited,
+#aspect_submission_Submissions_div_unfinished-submisions a, a:visited,
+.bold a, a:visited,
+#p-underline a, a:visited,
+.ds-simple-list-item a, a:visited,
+.list-unstyled a, a:visited,
+#access-link a, a:visited {
+  position: relative;
+}
+.artifact-title a:hover, a:focus, 
+.artifact-h-link a:hover, a:focus,
+.simple-item-view-show-full.item-page-field-wrapper a:hover, a:focus,
+.ds-paragraph.item-view-toggle a:hover, a:focus,
+.ds-referenceSet-list a:hover, a:focus,
+.navbar-header a:hover, a:focus,
+.footer-links a:hover, a:focus,
+.ds-table-row a:hover, a:focus,
+.control-group.col-sm-12 a:hover, a:focus,
+#aspect_eperson_PasswordLogin_div_register a:hover, a:focus,
+.file-link a:hover, a:focus,
+.era-h-link a:hover, a:focus,
+.detail-view a:hover, a:focus,
+#aspect_discovery_CommunityRecentSubmissions_p_recent-submission-view-more a:hover, a:focus,
+#aspect_discovery_SiteRecentSubmissions_p_recent-submission-view-more a:hover, a:focus,
+#aspect_discovery_CollectionRecentSubmissions_p_recent-submission-view-more a:hover, a:focus,
+.ds-static-div.col-xs-10.col-sm-11 a:hover, a:focus,
+#exception a:hover, a:focus,
+#aspect_general_PageNotFoundTransformer_div_page-not-found a:hover, a:focus,
+#aspect_discovery_SimpleSearch_div_search-filters a:hover, a:focus,
+#aspect_submission_Submissions_div_start-submision a:hover, a:focus,
+#aspect_submission_Submissions_div_unfinished-submisions a:hover, a:focus,
+.bold a:hover, a:focus,
+#p-underline a:hover, a:focus,
+.ds-simple-list-item a:hover, a:focus,
+.list-unstyled a:hover, a:focus,
+#access-link a:hover, a:focus {
+  text-decoration: none;
+}
+.artifact-title a:after, a:visited:after, 
+.artifact-h-link a:after, a:visited:after,
+.simple-item-view-show-full.item-page-field-wrapper a:after, a:visited:after,
+.ds-paragraph.item-view-toggle a:after, a:visited::after,
+.ds-referenceSet-list a::after, a:visited::after,
+.ds-table-row a::after, a:visited::after,
+.control-group.col-sm-12 a::after, a:visited::after,
+#aspect_eperson_PasswordLogin_div_register a::after, a:visited::after,
+.file-link a::after, a:visited::after,
+.era-h-link a::after, a:visited::after,
+.detail-view a::after, a:visited::after,
+#aspect_discovery_CommunityRecentSubmissions_p_recent-submission-view-more a::after, a:visited::after,
+#aspect_discovery_SiteRecentSubmissions_p_recent-submission-view-more a::after, a:visited::after,
+#aspect_discovery_CollectionRecentSubmissions_p_recent-submission-view-more a::after, a:visited::after,
+.ds-static-div.col-xs-10.col-sm-11 a:after, a:visited::after,
+#exception a::after, a:visited::after,
+#aspect_general_PageNotFoundTransformer_div_page-not-found a:after, a:visited::after,
+#aspect_discovery_SimpleSearch_div_search-filters a:after, a:visited::after,
+#aspect_submission_Submissions_div_start-submision a:after, a:visited::after,
+#aspect_submission_Submissions_div_unfinished-submisions a:after, a:visited::after,
+.bold a:after, a:visited::after,
+#p-underline a:after, a:visited::after,
+.ds-simple-list-item a::after, a:visited::after,
+.list-unstyled a::after, a:visited::after,
+#access-link a::after, a:visited::after {
+  content: '';
+  height: 2px;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  background: #415262;
+  transition: 0.6s;
+}
+.artifact-title a:hover:after, a:visited:hover:after, 
+.artifact-h-link a:hover:after, a:visited:hover:after,
+.simple-item-view-show-full.item-page-field-wrapper a:hover:after, a:visited:hover:after,
+.ds-paragraph.item-view-toggle a:hover::after, a:visited:hover::after,
+.ds-referenceSet-list a:hover::after, a:visited:hover::after,
+.footer-links a:hover::after, a:visited:hover::after,
+.ds-table-row a:hover::after, a:visited:hover::after,
+.control-group.col-sm-12 a:hover::after, a:visited:hover::after,
+#aspect_eperson_PasswordLogin_div_register a:hover::after, a:visited:hover::after,
+.file-link a:hover::after, a:visited:hover::after,
+.era-h-link a:hover::after, a:visited:hover::after,
+.detail-view a:hover::after, a:visited:hover::after,
+#aspect_discovery_CommunityRecentSubmissions_p_recent-submission-view-more a:hover::after, a:visited:hover::after,
+#aspect_discovery_SiteRecentSubmissions_p_recent-submission-view-more a:hover::after, a:visited:hover::after,
+#aspect_discovery_CollectionRecentSubmissions_p_recent-submission-view-more a:hover::after, a:visited:hover::after,
+.ds-static-div.col-xs-10.col-sm-11 a:hover::after, a:visited:hover::after,
+#exception a:hover::after, a:visited:hover::after,
+#aspect_general_PageNotFoundTransformer_div_page-not-found a:hover::after, a:visited:hover::after,
+#aspect_discovery_SimpleSearch_div_search-filters a:hover::after, a:visited:hover::after,
+#aspect_submission_Submissions_div_start-submision a:hover::after, a:visited:hover::after,
+#aspect_submission_Submissions_div_unfinished-submisions a:hover::after, a:visited:hover::after,
+.bold a:hover::after, a:visited:hover::after,
+#p-underline a:hover::after, a:visited:hover::after,
+.ds-simple-list-item a:hover::after, a:visited:hover::after,
+.list-unstyled a:hover::after, a:visited:hover::after,
+#access-link a:hover::after, a:visited:hover::after {
+  width: 100%;
+}
+.footer-links a::after, a:visited::after {
+  background: none repeat scroll 0 0 transparent;
+  content: '';
+  height: 2px;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  background: #415262;
+  transition: width 0.6s ease 0s, left 0.6s ease 0s;
+  width: 0;
+}
+.navbar-header a:hover::after, a:visited:hover::after,
+.footer-links a:hover::after, a:visited:hover::after {
+  width: 100%;
+  left: 0;
+}
+/* GLOBAL HEADER STYLES */
+.page-header {
+  color: #2b466b;
+  font-weight: 400;
+  border-bottom: solid 5.5px;
+  padding-bottom: 9px;
+}
+.ds-div-head,
+legend {
+  font-size: 28px;
+  color: #2b466b;
+  font-weight: 400;
+  border-bottom: solid 3px;
+  padding-bottom: 3px;
+}
+.ds-list-head {
+  font-size: 28px;
+  color: #2b466b;
+  font-weight: 400;
+  border-bottom: solid 3px;
+  padding-bottom: 3px;
+}
+.era-header {
+  background-color: #2b466b;
+}
+#era-title {
+  color: #fff;
+}
+#era-title:hover {
+  text-decoration: none;
+}
+.era-logos {
+  padding-bottom: 1.5%;
+  padding-top: 1.5%;
+}
+.breadcrumb {
+  background-color: #aab8c6;
+  margin-bottom: 0px;
+  padding: 18px 15px;
+  color: #fff;
+}
+#glyph-white,
+.glyphicon.glyphicon-home,
+.glyphicon.glyphicon-home i {
+  color: #fff;
+}
+.header-title {
+  text-align: center;
+  color: white;
+}
+#dandy-white {
+  position: absolute;
+  z-index: 1;
+  left: 25%;
+  top: 0;
+  overflow: hidden;
+  width: 11%;
+}
+#crest-head {
+  width: 90px;
+  float: right;
+}
+/* GLOBAL NAVBAR STYLES */
+.nav>li>a {
+  position: relative;
+  display: initial;
+  padding: 0;
+}
+.nav-tabs>li {
+  margin-right: 20px;
+}
+header .navbar-default {
+  background-color: #aab8c6;
+  font-weight: 300;
+}
+header .navbar-default .navbar-toggle:hover, 
+header .navbar-default .navbar-toggle:focus,
+header .navbar-default .navbar-nav:hover, 
+header .navbar-default .navbar-nav:focus {
+  background-color: #aab8c6;
+}
+header .navbar-default .navbar-toggle, 
+header .navbar-default .navbar-nav {
+  margin-bottom: 0px;
+  padding: 18px 15px;
+}
+header .navbar-default .navbar-toggle>li>a:hover, 
+header .navbar-default .navbar-toggle>li>a:focus, 
+header .navbar-default .navbar-nav>li>a:hover, 
+header .navbar-default .navbar-nav>li>a:focus {
+  background-color: #aab8c6;
+}
+
+/* GLOBAL NAVBAR/BREADCRUMB STYLES */
+.breadcrumb .hidden-xs .hidden-sm {
+  width: 90%;
+}
+.navbar-header a, .active li, .breadcrumb>.active {
+  color: #fff;
+}
+.active {
+  font-weight: 400;
+}
+
+/* GLOBAL FOOTER STYLES */
+.footer-links {
+  text-align: center;
+  font-size: 18px;
+}
+.dl-horizontal dt {
+text-align: left;
+}
+
+#footer-img-cont img {
+  margin-right: 30px;
+  margin-top: 4px;
+}
+#luc-logo {
+  width: 45px;
+}
+#is-logo {
+  width: 37px;
+}
+
+/* RSS FEED POP-UP MENU */
+#footer-rss {
+  display: table-caption;
+}
+#footer-rss a {
+  white-space: nowrap;
+}
+#rss-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.rss-content {
+  display: none;
+  position: absolute;
+  text-align: center;
+  border: solid #2b466b 2px;
+}
+.rss-block {
+  display: flex;
+  background-color: #f0f8ff;
+}
+.rss-p {
+  text-align: center;
+  margin: 5px 10px;
+  font-size: 14px;
+}
+#rss-item {
+  background-color: #f0f8ff;
+  border: none;
+  height: 68px;
+  width: 68px;
+}
+#rss-dropdown:hover .rss-content {
+  display: block;
+  bottom: 100%;
+}
+a#rss-item:hover {
+  background-color: #d6eafc;
+}
+
+/* GLOBAL LIST STYLES */
+.community-browser-row a[name='community-browser-link'] {
+  font-size: 26px;
+  font-weight: 300;
+  color: #2b466b;
+}
+.artifact-abstract {
+  font-weight: 300;
+  font-size: 18px;
+}
+.ds-artifact-item {
+  margin: 8px 0px;
+  text-align: justify;
+  position: relative;
+  z-index: 999;
+}
+#aspect_browseArtifacts_CommunityBrowse_div_community-browse h3,
+#aspect_browseArtifacts_CollectionBrowse_div_collection-browse h3 {
+  border: none;
+  font-weight: 300;
+}
+#aspect_artifactbrowser_CommunityViewer_div_community-view {
+  margin-bottom: 50px;
+}
+
+/* GLOBAL SIDEBAR STYLES */
+#ds-options{
+  padding-top: 35px;
+}
+.col-sm-3{
+  width: 20%;
+}
+.main-content {
+  padding-top: 0;
+}
+#main-container #sidebar {
+  background-color: transparent;
+  z-index: 999;
+  right: -5%;
+}
+a.list-group-item.active span {
+  font-size: 18px;
+}
+.radio label {
+  font-weight: 300;
+}
+.list-group, .input-group {
+  margin-bottom:   20px;
+  padding-left: 0;
+  border: solid #2b466b 2px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px
+}
+.input-group, #aspect_viewArtifacts_Navigation_list_account, 
+#aspect_discovery_SimpleSearch_field_scope {
+  border-radius: 5px;
+}
+.ds-text-field.form-control {
+  border-color: #ccc;
+}
+.ds-button-field.btn.btn-primary {
+  height: 35px;
+}
+.list-group-item:first-child {
+  border-radius: 0;
+}
+.btn-primary, .list-group-item.active, .input-group-btn, 
+#aspect_discovery_CommunitySearch_field_submit {
+  background-color: #2b466b;
+  border-color: #2b466b;
+  color: #fff;
+}
+.list-group-item.active:hover {
+  background-color: #2b466b;
+  border-color: #2b466b;
+}
+.list-group-item.ds-option {
+  display: none;
+}
+.list-group-item.ds-option:hover {
+  background-color: #d6eafc;
+}
+.sidebar-dropdown:hover .list-group-item.ds-option,
+.list-group-item.active, .list-group-item.active:hover, 
+.list-group-item.active:focus, .list-group-item.ds-option {
+  display: block;
+}
+.ds-text-field.form-control {
+  z-index: 800;
+}
+
+/* GLOBAL INPUT BOX STYLES */
+#new-filters-wrapper input,
+#aspect_eperson_PasswordLogin_field_login_email,
+#aspect_submission_StepTransformer_list_submit-describe input,
+#aspect_eperson_EditProfile_div_information input,
+#aspect_administrative_CurateForm_field_identifier input,
+#aspect_administrative_eperson_ManageEPeopleMain_field_query input,
+#aspect_administrative_group_ManageGroupsMain_field_query input,
+#aspect_administrative_authorization_AuthorizationMain_field_identifier input,
+#aspect_administrative_item_FindItemForm_field_identifier input,
+#aspect_administrative_WithdrawnItems_field_starts_with input,
+#aspect_administrative_registries_MetadataRegistryMain_list_new-schema input,
+#aspect_administrative_registries_EditBitstreamFormat_list_edit-bitstream-format input,
+#aspect_administrative_registries_EditMetadataSchema_list_edit-schema-new-field-form input,
+#aspect_administrative_item_FindItemForm_field_identifier input,
+#aspect_administrative_CurateForm_field_identifier input,
+.control-group .col-sm-12 input,
+.ds-paragraph input,
+.control-label input {
+  border: solid #ccc 1px;
+  border-radius: 5px;
+}
+#new-filters-wrapper input:focus,
+#aspect_eperson_PasswordLogin_field_login_email:focus,
+#aspect_eperson_StartRegistration_field_email:focus,
+.ds-text-field .form-control:focus,
+#aspect_submission_StepTransformer_list_submit-describe input:focus,
+#aspect_eperson_EditProfile_div_information input:focus,
+#aspect_administrative_CurateForm_field_identifier input:focus,
+#aspect_administrative_eperson_ManageEPeopleMain_field_query input:focus,
+#aspect_administrative_group_ManageGroupsMain_field_query input:focus,
+#aspect_administrative_authorization_AuthorizationMain_field_identifier input:focus,
+#aspect_administrative_item_FindItemForm_field_identifier input:focus,
+#aspect_administrative_WithdrawnItems_field_starts_with input:focus,
+#aspect_administrative_registries_MetadataRegistryMain_list_new-schema input:focus,
+#aspect_administrative_registries_EditBitstreamFormat_list_edit-bitstream-format input:focus,
+#aspect_administrative_registries_EditMetadataSchema_list_edit-schema-new-field-form input:focus,
+#aspect_administrative_item_FindItemForm_field_identifier input:focus,
+#aspect_administrative_CurateForm_field_identifier,
+.control-group .col-sm-12 input,
+.ds-paragraph input,
+.control-label input {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(102,175,233,0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(102,175,233,0.6);
+}
+
+/* INDIVIDUAL PAGE STYLES \\
+/* COMMUNITIES LIST */
+.ds-artifact-list .artifact-title a {
+  margin-bottom: 5px;
+  font-size: 20px;
+  position: relative;
+}
+
+/* suppress unwanted elements */
+h2.ds-div-head.page-header.first-page-header, 
+div#aspect_artifactbrowser_CommunityBrowser_div_comunity-browser p {
+  display: none;
+}
+
+/* RECENT LIST */
+.artifact-abstract {
+  font-weight: 300;
+  color: #333;
+  font-size: 16px;
+}
+.ds-artifact-item {
+  margin: 20px 0px;
+}
+
+/* DISCOVERY | SEARCH */
+.artifact-description h4 {
+  font-size: 22px;
+}
+.artifact-description h4:hover {
+  text-decoration: none;
+}
+.abstract {
+  font-size: 18px;
+  font-weight: 300;
+}
+.discoverySearchBox {
+  position: relative;
+  z-index: 999;
+}
+.col-sm-9.input-group{
+  border: none;
+}
+#aspect_discovery_SimpleSearch_field_submit,
+#aspect_artifactbrowser_ConfigurableBrowse_field_submit,
+#aspect_discovery_CollectionSearch_field_submit,
+.btn-primary {
+  background-color: #2b466b;
+  color: #fff;
+  border-color: transparent;
+}
+#aspect_discovery_SimpleSearch_field_submit:hover,
+#aspect_artifactbrowser_ConfigurableBrowse_field_submit:hover,
+#aspect_discovery_CollectionSearch_field_submit:hover,
+#aspect_discovery_CommunitySearch_field_submit:hover {
+  background-color: #396096;
+  color: #fff;
+  border-color: transparent;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary.focus, 
+.btn-primary:active, .btn-primary.active, .open>.btn-primary.dropdown-toggle {
+  background-color: #396096;
+  color: #fff;
+  border-color: transparent;
+}
+div.controls-gear-wrapper .dropdown-menu .glyphicon {
+  font-size: 10px;
+}
+ul.dropdown-menu li {
+  font-size: 16px;
+  font-weight: 300;
+}
+ul.dropdown-menu a {
+  font-size: 18px;
+  font-weight: 200;
+}
+
+/* ITEM VIEW */
+.item-summary-view-metadata, .ds-static-div.primary {
+  position: relative;
+  z-index: 999;
+}
+.visible-xs div {
+  font-weight: 300;
+  font-size: 16px;
+}
+.era-h-link {
+  margin-left: -28px;
+  margin-bottom: 50px;
+}
+#item-info {
+  margin-top: 2%;
+}
+.file-wrapper.row{
+  margin-bottom: 4%;
+}
+#aspect_artifactbrowser_ItemViewer_div_item-view .item-summary-view-metadata h2 {
+  margin-bottom: 2%;
+}
+
+/* LOGIN STYLES */
+#aspect_eperson_PasswordLogin_item_login-in {
+  margin-top: 15px;
+}
+
+/* PROFILE STYLES */
+#aspect_eperson_EditProfile_list_memberships,
+#aspect_eperson_EditProfile_div_information h3 {
+  display: none;
+}
+#aspect_viewArtifacts_Navigation_list_context {
+  border-radius: 5px;
+}
+
+/* ADMIN STYLES */
+#aspect_administrative_ControlPanel_list_options,
+#aspect_administrative_item_EditItemStatusForm_list_options,
+.nav-tabs>li>a:hover {
+  border: none;
+}
+.nav-tabs>li>a:hover {
+  background-color: transparent;
+}
+.nav>li>a:hover, .nav>li>a:focus {
+  background-color: transparent;
+}
+.col .ds-form-list,
+.control-group {
+  padding-bottom: 1%;
 }

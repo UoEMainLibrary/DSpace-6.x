@@ -105,7 +105,7 @@
         <xsl:variable name="metsDoc" select="document($externalMetadataUrl)"/>
 
         <div class="community-browser-row">
-            <a href="{$metsDoc/mets:METS/@OBJID}">
+            <a href="{$metsDoc/mets:METS/@OBJID}" alt="METS title" title="METS title link">
                 <xsl:choose>
                     <xsl:when test="dri:list[@n=(concat($handle, ':dc.title')) and descendant::text()]">
                         <xsl:apply-templates select="dri:list[@n=(concat($handle, ':dc.title'))]/dri:item"/>
@@ -157,11 +157,11 @@
         <div class="row ds-artifact-item ">
 
             <!--Generates thumbnails (if present)-->
-            <div class="col-sm-3 hidden-xs">
+            <!--<div class="col-sm-3 hidden-xs">
                 <xsl:apply-templates select="$metsDoc/mets:METS/mets:fileSec" mode="artifact-preview">
                     <xsl:with-param name="href" select="concat($context-path, '/handle/', $handle)"/>
                 </xsl:apply-templates>
-            </div>
+            </div>-->
 
 
             <div class="col-sm-9 artifact-description">
@@ -176,25 +176,28 @@
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:attribute>
-                    <h4>
-                        <xsl:choose>
-                            <xsl:when test="dri:list[@n=(concat($handle, ':dc.title'))]">
-                                <xsl:apply-templates select="dri:list[@n=(concat($handle, ':dc.title'))]/dri:item"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <i18n:text>xmlui.dri2xhtml.METS-1.0.no-title</i18n:text>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                        <!-- Generate COinS with empty content per spec but force Cocoon to not create a minified tag  -->
-                        <span class="Z3988">
-                            <xsl:attribute name="title">
-                                <xsl:for-each select="$metsDoc/mets:METS/mets:dmdSec/mets:mdWrap/mets:xmlData/dim:dim">
-                                    <xsl:call-template name="renderCOinS"/>
-                                </xsl:for-each>
-                            </xsl:attribute>
-                            <xsl:text>&#160;</xsl:text>
-                            <!-- non-breaking space to force separating the end tag -->
-                        </span>
+                    <h4 class="artifact-h-link">
+                        <xsl:variable name="artifact-url" select="concat($context-path, '/handle/', $handle)" />
+                        <a href="{$artifact-url}" alt="Link to this item" title="Link to this item">
+                            <xsl:choose>
+                                <xsl:when test="dri:list[@n=(concat($handle, ':dc.title'))]">
+                                    <xsl:apply-templates select="dri:list[@n=(concat($handle, ':dc.title'))]/dri:item"/>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <i18n:text>xmlui.dri2xhtml.METS-1.0.no-title</i18n:text>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                            <!-- Generate COinS with empty content per spec but force Cocoon to not create a minified tag  -->
+                            <span class="Z3988">
+                                <xsl:attribute name="title">
+                                    <xsl:for-each select="$metsDoc/mets:METS/mets:dmdSec/mets:mdWrap/mets:xmlData/dim:dim">
+                                        <xsl:call-template name="renderCOinS"/>
+                                    </xsl:for-each>
+                                </xsl:attribute>
+                                <xsl:text>&#160;</xsl:text>
+                                <!-- non-breaking space to force separating the end tag -->
+                            </span>
+                        </a>
                     </h4>
                 </xsl:element>
                 <div class="artifact-info">
@@ -583,7 +586,7 @@
     </xsl:template>
 
     <xsl:template match="dri:list[@rend='gear-selection' and @n='sort-options']/dri:item/dri:xref">
-        <a href="{@target}" class="{@rend}">
+        <a href="{@target}" class="{@rend}" alt="Sort by dropdown menu" title="Sort by dropdown menu">
             <span>
                 <xsl:attribute name="class">
                     <xsl:text>glyphicon glyphicon-ok btn-xs</xsl:text>

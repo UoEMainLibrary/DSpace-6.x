@@ -10,3 +10,66 @@
  * You can put your own style in this file.
  * It will be included in all color schemes
  */
+
+//example mixin to set the text-selection style
+@mixin selection {
+    ::-moz-selection { @content; }
+    ::selection { @content; }
+  }
+  
+  @include selection {
+    color: white;
+    background: cornflowerblue;
+  }
+  
+  // Our stuff - SDLC
+  
+  .countriesMap  {
+    padding-top: 80px;
+  }
+  
+  // Our stuff - ERA
+  
+  
+  .navbar {
+    //border: 1px solid transparent;
+    //margin-bottom: 20px;
+    min-height: 110px;
+    position: relative;
+  }
+  header .navbar-brand img{
+    height: 75px;
+  }
+  
+  
+  /*.era-header {
+    background-color: $era-header-bg;
+  }
+  
+  .era-logos {
+    padding-bottom: 15px;
+    padding-top: 15px;
+  }
+  
+  .breadcrumb {
+    background-color: $navbar-inverse-bg;
+    margin-bottom: 0px;
+    padding: 18px 15px;
+  }
+  
+  .footer-links {
+    text-align: center;
+  }
+  
+  .header-title {
+    text-align: center;
+    color: white;
+  }
+  
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+      font-weight: 300;
+  }
+  
+  .dl-horizontal dt {
+    text-align: left;
+  }*/
