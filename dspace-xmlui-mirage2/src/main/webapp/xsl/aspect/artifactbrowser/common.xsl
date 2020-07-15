@@ -67,9 +67,11 @@
     <!-- First, the detail list case -->
     <xsl:template match="dri:referenceSet[@type = 'detailList']" priority="2">
         <xsl:apply-templates select="dri:head"/>
-        <ul class="ds-referenceSet-list">
-            <xsl:apply-templates select="*[not(name()='head')]" mode="detailList"/>
-        </ul>
+        <h3 class="era-h-link">
+            <a id="firefox-style" alt="Collection link" title="Collection link">
+                <xsl:apply-templates select="*[not(name()='head')]" mode="detailList"/>
+            </a>
+        </h3>
     </xsl:template>
 
 
