@@ -2,7 +2,7 @@
 <document xmlns="http://di.tamu.edu/DRI/1.0/" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" version="1.1">
 <body>
 <div id="file.news.div.news" n="news" rend="primary">
-<head></head>
+<!--<head></head>-->
 <p>
     ERA is a digital repository of original research produced at The University of Edinburgh. 
     The archive contains documents written by, or affiliated with, academic authors, or units, based at Edinburgh that have sufficient quality to be collected and preserved by the Library, 

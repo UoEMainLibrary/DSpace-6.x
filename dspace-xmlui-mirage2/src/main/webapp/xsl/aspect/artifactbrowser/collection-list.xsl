@@ -43,7 +43,7 @@
         <xsl:variable name="data" select="./mets:dmdSec/mets:mdWrap/mets:xmlData/dim:dim"/>
         <div class="artifact-description">
             <h4 class="artifact-title">
-                <a href="{@OBJID}" alt="Collection link" title="Collection link">
+                <a href="{@OBJID}" title="Collection link">
                     <span class="Z3988">
                         <xsl:choose>
                             <xsl:when test="string-length($data/dim:field[@element='title'][1]) &gt; 0">
@@ -77,7 +77,7 @@
         the "this item is part of these collections" list -->
     <xsl:template name="collectionDetailList-DIM">
         <xsl:variable name="data" select="./mets:dmdSec/mets:mdWrap/mets:xmlData/dim:dim"/>
-        <a href="{@OBJID}" alt="Collection link" title="Collection link">
+        <a href="{@OBJID}" title="Collection link">
             <xsl:choose>
 	            <xsl:when test="string-length($data/dim:field[@element='title'][1]) &gt; 0">
 	                <xsl:value-of select="$data/dim:field[@element='title'][1]"/>
@@ -108,7 +108,7 @@
         the "this item is part of these collections" list -->
     <xsl:template name="collectionItemPageSummaryList-DIM">
         <xsl:variable name="data" select="./mets:dmdSec/mets:mdWrap/mets:xmlData/dim:dim"/>
-        <a href="{@OBJID}" alt="Collection link" title="Collection link">
+        <a href="{@OBJID}" title="Collection link">
             <xsl:choose>
 	            <xsl:when test="string-length($data/dim:field[@element='title'][1]) &gt; 0">
 	                <xsl:value-of select="$data/dim:field[@element='title'][1]"/>

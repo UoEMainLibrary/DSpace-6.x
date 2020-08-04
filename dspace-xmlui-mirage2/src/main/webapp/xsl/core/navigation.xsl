@@ -173,12 +173,12 @@
     <!-- Add each RSS feed from meta to a list -->
     <xsl:template name="addRSSLinks">
         <xsl:for-each select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='feed']">
-            <a class="list-group-item" id="rss-item" alt="RSS feed" title="RSS feed link">
+            <a class="list-group-item rss-item" title="RSS feed link">
                 <xsl:attribute name="href">
                     <xsl:value-of select="."/>
                 </xsl:attribute>
 
-                <img src="{concat($context-path, '/static/icons/feed.png')}" class="btn-xs" alt="xmlui.mirage2.navigation.rss.feed" i18n:attr="alt"/>
+                <img src="{concat($context-path, '/static/icons/feed.png')}" class="btn-xs" title="xmlui.mirage2.navigation.rss.feed" alt="xmlui.mirage2.navigation.rss.feed" i18n:attr="alt"/>
 
                 <xsl:choose>
                     <xsl:when test="contains(., 'rss_1.0')">
@@ -280,7 +280,7 @@
                             and not($trail-string = $trail-string-10) and not($trail-string = $trail-string-11) and not($trail-string = $trail-string-12)
                             and not(contains($uri-string, $uri-string-1)) and not(contains($uri-string, $uri-string-2)) and not(contains($uri-string, $uri-string-3)) 
                             and not(contains($uri-string, $uri-string-4))">
-                <a href="{dri:xref/@target}" alt="Sidebar link" title="Sidebar link">
+                <a href="{dri:xref/@target}" title="Sidebar link">
                     <xsl:call-template name="standardAttributes">
                         <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
                     </xsl:call-template>
@@ -297,7 +297,7 @@
             <xsl:otherwise>
                 <!-- Suppress sidebar facets based on group -->
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
-                    <a href="{dri:xref/@target}"  alt="Sidebar link" title="Sidebar link">
+                    <a href="{dri:xref/@target}" title="Sidebar link">
                         <xsl:call-template name="standardAttributes">
                             <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
                         </xsl:call-template>
@@ -348,7 +348,7 @@
                             and not($trail-string = $trail-string-10) and not($trail-string = $trail-string-11) and not($trail-string = $trail-string-12)
                             and not(contains($uri-string, $uri-string-1)) and not(contains($uri-string, $uri-string-2)) and not(contains($uri-string, $uri-string-3)) 
                             and not(contains($uri-string, $uri-string-4))">
-                <a class="list-group-item active"  alt="Sidebar link" title="Sidebar link">
+                <a class="list-group-item active" title="Sidebar link">
                     <span>
                         <xsl:call-template name="standardAttributes">
                             <xsl:with-param name="class">
@@ -363,7 +363,7 @@
             <xsl:otherwise>
                 <!-- Suppress sidebar facets based on group -->
                 <xsl:if test="not(../@n = 'author') and not(../@n = 'subject') and not(../@n = 'dateIssued')">
-                    <a class="list-group-item active"  alt="Sidebar link" title="Sidebar link">
+                    <a class="list-group-item active" title="Sidebar link">
                         <span>
                             <xsl:call-template name="standardAttributes">
                                 <xsl:with-param name="class">

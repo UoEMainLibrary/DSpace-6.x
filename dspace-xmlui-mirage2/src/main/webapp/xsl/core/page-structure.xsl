@@ -337,17 +337,17 @@
                 <div class="row">
                     <div class="col-xs-3 col-sm-2">
                         <a href="{$context-path}/" title="Return to the ERA home page">
-                            <img src="{$theme-path}images/era-logo.gif"  alt="Edinburgh Research Archive logo"/>
+                            <img src="{$theme-path}images/era-logo.gif" alt="Edinburgh Research Archive logo"  title="Return to the ERA home page"/>
                         </a>
                     </div>
                     <div class="col-xs-6 col-sm-8 header-title">
-                        <a href="{$context-path}/" id="era-title"  title="Return to the ERA home page">
+                        <a href="{$context-path}/" id="era-title" title="Return to the ERA home page">
                             <h1 class="hidden-xs hidden-sm">Edinburgh Research Archive</h1>
                         </a>
                     </div>
                     <div class="col-xs-3 col-sm-2">
-                        <a href="https://www.ed.ac.uk/" class="pull-right"  title="External link to the University of Edinburgh's home page">
-                            <img id="crest-head" src="{$theme-path}images/homecrest.png" alt="University of Edinburgh homecrest"/>
+                        <a href="https://www.ed.ac.uk/" class="pull-right" title="External link to the University of Edinburgh's home page">
+                            <img id="crest-head" src="{$theme-path}images/homecrest.png" alt="University of Edinburgh homecrest" title="External link to the University of Edinburgh's home page"/>
                         </a>
                     </div>
                 </div>
@@ -427,12 +427,12 @@
                                             </button>
                                             <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="user-dropdown-toggle-xs" data-no-collapse="true">
                                                 <li>
-                                                    <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='url']}" alt="View profile" title="View profile">
+                                                    <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='url']}" title="View profile">
                                                         <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='logoutURL']}" alt="Logout from profile" title="Logout">
+                                                    <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='logoutURL']}" title="Logout">
                                                         <i18n:text>xmlui.dri2xhtml.structural.logout</i18n:text>
                                                     </a>
                                                 </li>
@@ -461,7 +461,7 @@
                                 <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
                                     <li class="dropdown">
                                         <a id="user-dropdown-toggle" href="#" role="button" class="dropdown-toggle"
-                                           data-toggle="dropdown" alt="Account dropdown menu" title="Account dropdown menu">
+                                           data-toggle="dropdown" title="Account dropdown menu">
                                             <span class="hidden-xs">
                                                 <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='firstName']"/>
                                                 <xsl:text> </xsl:text>
@@ -472,12 +472,12 @@
                                         </a>
                                         <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="user-dropdown-toggle" data-no-collapse="true">
                                             <li>
-                                                <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='url']}" alt="View profile" title="View profile">
+                                                <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='url']}" title="View profile">
                                                     <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='logoutURL']}" alt="Logout" title="logout">
+                                                <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='logoutURL']}" title="logout">
                                                     <i18n:text>xmlui.dri2xhtml.structural.logout</i18n:text>
                                                     <i class="glyphicon glyphicon-log-out open-icon hidden" aria-hidden="true"/>
                                                 </a>
@@ -487,7 +487,7 @@
                                 </xsl:when>
                                 <xsl:otherwise>
                                     <li>
-                                        <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='loginURL']}" alt="Login to profile" title="Login Link">
+                                        <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='loginURL']}" title="Login Link">
                                             <span class="hidden-xs">    
                                                 <i18n:text>xmlui.dri2xhtml.structural.login</i18n:text>
                                                 <i class="glyphicon glyphicon-log-in open-icon hidden" aria-hidden="true"/>
@@ -571,7 +571,7 @@
             <!-- Determine whether we are dealing with a link or plain text trail link -->
             <xsl:choose>
                 <xsl:when test="./@target">
-                    <a alt="Breadcrumb link">
+                    <a title="Breadcrumb link">
                         <xsl:attribute name="href">
                             <xsl:value-of select="./@target"/>
                         </xsl:attribute>
@@ -592,7 +592,7 @@
             <!-- Determine whether we are dealing with a link or plain text trail link -->
             <xsl:choose>
                 <xsl:when test="./@target">
-                    <a role="menuitem" alt="Breadcrumb link">
+                    <a role="menuitem" title="Breadcrumb link">
                         <xsl:attribute name="href">
                             <xsl:value-of select="./@target"/>
                         </xsl:attribute>
@@ -604,7 +604,7 @@
                 </xsl:when>
                 <xsl:when test="position() > 1 and position() = last()">
                     <xsl:attribute name="class">disabled</xsl:attribute>
-                    <a role="menuitem" href="#" alt="Breadcrumb link">
+                    <a role="menuitem" href="#" title="Breadcrumb link">
                         <xsl:apply-templates />
                     </a>
                 </xsl:when>
@@ -653,7 +653,6 @@
             <div class="col-sm-3 col-xs-12">
                 <a rel="license"
                    href="{$ccLicenseUri}"
-                   alt="{$ccLicenseName}"
                    title="{$ccLicenseName}"
                         >
                     <img class="img-responsive">
@@ -680,44 +679,44 @@
         <footer>
             <div class="row">
                 <hr/>
-                <div class="col-xs-3 col-sm-2" id="footer-logo-cont">
-                    <div id="footer-img-cont">
-                        <a href="http://www.ed.ac.uk/schools-departments/information-services/about/organisation/library-and-collections" target="_blank" title="Library &amp; University Collections Home">
-                            <img id="luc-logo" src="{$theme-path}images/CollectionsLUCLogo.png" />
+                <div class="col-xs-3 col-sm-2">
+                    <div class="footer-img-cont">
+                        <a href="https://www.ed.ac.uk/schools-departments/information-services/about/organisation/library-and-collections" target="_blank" title="Library &amp; University Collections Home">
+                            <img class="luc-logo" src="{$theme-path}images/CollectionsLUCLogo.png" title="Library &amp; University Collections Home" alt="Library &amp; University Collections Home"/>
                         </a>
-                        <a href="http://www.is.ed.ac.uk" target="_blank" title="University of Edinburgh Information Services Home">
-                            <img id="is-logo" src="{$theme-path}images/islogo.gif"/>
+                        <a href="https://www.is.ed.ac.uk" target="_blank" title="University of Edinburgh Information Services Home">
+                            <img class="is-logo" src="{$theme-path}images/islogo.gif" title="University of Edinburgh Information Services Home" alt="University of Edinburgh Information Services Home"/>
                         </a>
                     </div>
                 </div>
 
                 <div class="col-xs-6 col-sm-8 hidden-xs footer-links" >
-                    <a href="http://www.ed.ac.uk/about/website/privacy" title="Privacy and Cookies Link" target="_blank">Privacy &amp; Cookies</a><xsl:text>  |  </xsl:text>
-                    <a href="http://www.ed.ac.uk/schools-departments/information-services/services/research-support/publish-research/scholarly-communications/sct-policies/sct-policies-take-down" title="Takedown Policy Link">Takedown Policy</a><xsl:text>  |  </xsl:text>
+                    <a href="https://www.ed.ac.uk/about/website/privacy" title="Privacy and Cookies Link" target="_blank">Privacy &amp; Cookies</a><xsl:text>  |  </xsl:text>
+                    <a href="https://www.ed.ac.uk/schools-departments/information-services/services/research-support/publish-research/scholarly-communications/sct-policies/sct-policies-take-down" title="Takedown Policy Link">Takedown Policy</a><xsl:text>  |  </xsl:text>
                     <a href="{$context-path}/accessibility" title="Website Accessibility Link">Accessibility</a><xsl:text>  |  </xsl:text>
-                    <a href="http://www.ed.ac.uk/schools-departments/information-services/research-support/publish-research/scholarly-communications/help" title="Contact the Edinburgh Research Archive">Contact</a>
+                    <a href="https://www.ed.ac.uk/information-services/research-support/publish-research/scholarly-communications/open-access-help" title="Contact the Edinburgh Research Archive">Contact</a>
                 </div>
 
                 <div class="col-xs-6 col-sm-8 visible-xs footer-links">
                     <div>
-                        <a href="http://www.ed.ac.uk/about/website/privacy" title="Privacy and Cookies Link" target="_blank">Privacy &amp; Cookies</a>
+                        <a href="https://www.ed.ac.uk/about/website/privacy" title="Privacy and Cookies Link" target="_blank">Privacy &amp; Cookies</a>
                     </div>
                     <div>
-                        <a href="http://www.ed.ac.uk/schools-departments/information-services/services/research-support/publish-research/scholarly-communications/sct-policies/sct-policies-take-down" title="Takedown Policy Link">Takedown Policy</a>
+                        <a href="https://www.ed.ac.uk/schools-departments/information-services/services/research-support/publish-research/scholarly-communications/sct-policies/sct-policies-take-down" title="Takedown Policy Link">Takedown Policy</a>
                     </div>
                     <div>
-                        <a href="http://www.ed.ac.uk/about/website/accessibility" title="Website Accessibility Link" target="_blank">Accessibility</a>
+                        <a href="https://www.ed.ac.uk/about/website/accessibility" title="Website Accessibility Link" target="_blank">Accessibility</a>
                     </div>
                     <div>
-                        <a href="http://www.ed.ac.uk/schools-departments/information-services/research-support/publish-research/scholarly-communications/help"  title="Contact the Edinburgh Research Archive">Contact</a>
+                        <a href="https://www.ed.ac.uk/information-services/research-support/publish-research/scholarly-communications/open-access-help" title="Contact the Edinburgh Research Archive">Contact</a>
                     </div>
                 </div>
 
                 <!-- Dynamic RSS feed pop-up menu -->
-                <div class="col-xs-3 col-sm-2" id="rss-dropdown">
-                    <div class="footer-links" id="footer-rss">
-                        <img src="{concat($context-path, '/static/icons/feed.png')}" class="btn-xs" alt="xmlui.mirage2.navigation.rss.feed" i18n:attr="alt"/>
-                        <a class="rss-dropdownbtn" alt="Link to RSS pop-up menu" title="RSS pop-up link">
+                <div class="col-xs-3 col-sm-2 rss-dropdown">
+                    <div class="footer-links footer-rss">
+                        <img src="{concat($context-path, '/static/icons/feed.png')}" class="btn-xs" alt="xmlui.mirage2.navigation.rss.feed" title="xmlui.mirage2.navigation.rss.feed" i18n:attr="alt"/>
+                        <a class="rss-dropdownbtn" title="RSS pop-up link">
                             RSS Feeds 
                         </a>
                     </div>
@@ -769,11 +768,11 @@
     <!-- RSS template taken from navigation.xsl to fill pop-up block -->
     <xsl:template name="addRSSLinks">
         <xsl:for-each select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='feed']">
-            <a class="list-group-item" id="rss-item" alt="RSS feed link" title="RSS feed link">
+            <a class="list-group-item rss-item" title="RSS feed link">
                 <xsl:attribute name="href">
                     <xsl:value-of select="."/>
                 </xsl:attribute>
-                <img src="{concat($context-path, '/static/icons/feed.png')}" class="btn-xs" alt="xmlui.mirage2.navigation.rss.feed" i18n:attr="alt"/>
+                <img src="{concat($context-path, '/static/icons/feed.png')}" class="btn-xs" title="xmlui.mirage2.navigation.rss.feed" alt="xmlui.mirage2.navigation.rss.feed" i18n:attr="alt"/>
                 <xsl:choose>
                     <xsl:when test="contains(., 'rss_1.0')">
                         <xsl:text>1.0</xsl:text>
@@ -826,7 +825,7 @@
                 <xsl:when test="contains($request-uri, 'accessibility')">
                     <div class="hero-unit">
                         <div class="content">
-                            <h2 class="ds-div-head page-header" alt="page title">Accessibility Statement for the Edinburgh Research Archive</h2>
+                            <h2 class="ds-div-head page-header" title="page title">Accessibility Statement for the Edinburgh Research Archive</h2>
                             <p>
                                 This is the website accessibility statement in line with Public Sector Body (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018
                             </p>
@@ -1112,7 +1111,7 @@
 
                             <h2 class="ds-div-head page-header">Information Services online contact form</h2>
                             <p>
-                                <a href="http://www.ishelpline.ed.ac.uk/forms/" id="access-link">
+                                <a href="https://www.ishelpline.ed.ac.uk/forms/" id="access-link">
                                     Get support
                                 </a>
                             </p>    
@@ -1345,7 +1344,7 @@
         <xsl:if test="count(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='supportedLocale']) &gt; 1">
             <li id="ds-language-selection" class="dropdown">
                 <xsl:variable name="active-locale" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='currentLocale']"/>
-                <a id="language-dropdown-toggle" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown" alt="Select website language" title="Select website language">
+                <a id="language-dropdown-toggle" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown" title="Select website language">
                     <span class="hidden-xs">
                         <xsl:value-of
                                 select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='supportedLocale'][@qualifier=$active-locale]"/>

@@ -275,11 +275,11 @@
         <xsl:if test="dim:field[@element='identifier' and @qualifier='uri' and descendant::text()]">
             <div class="simple-item-view-uri item-page-field-wrapper table">
                 <h5><i18n:text>xmlui.dri2xhtml.METS-1.0.item-uri</i18n:text></h5>
-                <span class="artifact-h-link">
+                <div class="artifact-h-link">
                     <xsl:for-each select="dim:field[@element='identifier' and @qualifier='uri']">
                         <div class="artifact-h-link">
                             <div>
-                                <a class="artifact-h-link" id="artifact-detail" alt="Link to item U R I" title="Link to item URI">
+                                <a class="artifact-h-link artifact-detail" title="Link to item URI">
                                     <xsl:attribute name="href">
                                         <xsl:copy-of select="./node()"/>
                                     </xsl:attribute>
@@ -291,7 +291,7 @@
                             <br/>
                         </xsl:if>
                     </xsl:for-each>
-                </span>
+                </div>
             </div>
         </xsl:if>
     </xsl:template>
@@ -357,7 +357,7 @@
             </h5>
             <div class="articfact-h-link">
                 <span>
-                    <a href="{$ds_item_view_toggle_url}" alt="Show full item record link" title="Link to view full item record">
+                    <a href="{$ds_item_view_toggle_url}" title="Link to view full item record">
                         <i18n:text>xmlui.ArtifactBrowser.ItemViewer.show_full</i18n:text>
                     </a>
                 </span>
@@ -774,7 +774,7 @@
 </xsl:template>
 
     <xsl:template name="view-open">
-        <a alt="Link to open item file" title="View/open file">
+        <a title="View/open file">
             <xsl:attribute name="href">
                 <xsl:value-of select="mets:FLocat[@LOCTYPE='URL']/@xlink:href"/>
             </xsl:attribute>
@@ -804,7 +804,7 @@
         <xsl:choose>
             <xsl:when test="not ($rights_context/@CONTEXTCLASS = 'GENERAL PUBLIC') and ($rights_context/rights:Permissions/@DISPLAY = 'true')">
                 <a href="{mets:FLocat[@LOCTYPE='URL']/@xlink:href}">
-                    <img width="64" height="64" src="{concat($theme-path,'/images/Crystal_Clear_action_lock3_64px.png')}" title="Read access available for {$users}"/>
+                    <img width="64" height="64" src="{concat($theme-path,'/images/Crystal_Clear_action_lock3_64px.png')}"  alt="Read access available for {$users}" title="Read access available for {$users}"/>
                     <!-- icon source: http://commons.wikimedia.org/wiki/File:Crystal_Clear_action_lock3.png -->
                 </a>
             </xsl:when>
@@ -834,12 +834,12 @@
 
     <!-- Generate the license information from the file section -->
     <xsl:template match="mets:fileGrp[@USE='CC-LICENSE']" mode="simple">
-        <li><a href="{mets:file/mets:FLocat[@xlink:title='license_text']/@xlink:href}" alt="Generate licence" title="Generate licence"><i18n:text>xmlui.dri2xhtml.structural.link_cc</i18n:text></a></li>
+        <li><a href="{mets:file/mets:FLocat[@xlink:title='license_text']/@xlink:href}" title="Generate licence"><i18n:text>xmlui.dri2xhtml.structural.link_cc</i18n:text></a></li>
     </xsl:template>
 
     <!-- Generate the license information from the file section -->
     <xsl:template match="mets:fileGrp[@USE='LICENSE']" mode="simple">
-        <li><a href="{mets:file/mets:FLocat[@xlink:title='license.txt']/@xlink:href}" alt="Generate licence" title="Generate licence"><i18n:text>xmlui.dri2xhtml.structural.link_original_license</i18n:text></a></li>
+        <li><a href="{mets:file/mets:FLocat[@xlink:title='license.txt']/@xlink:href}" title="Generate licence"><i18n:text>xmlui.dri2xhtml.structural.link_original_license</i18n:text></a></li>
     </xsl:template>
 
     <!--

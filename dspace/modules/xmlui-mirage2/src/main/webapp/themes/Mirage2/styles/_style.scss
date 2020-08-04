@@ -453,25 +453,25 @@ header .navbar-default .navbar-nav>li>a:focus {
 text-align: left;
 }
 
-#footer-img-cont img {
+.footer-img-cont img {
   margin-right: 30px;
   margin-top: 4px;
 }
-#luc-logo {
+.luc-logo {
   width: 45px;
 }
-#is-logo {
+.is-logo {
   width: 37px;
 }
 
 /* RSS FEED POP-UP MENU */
-#footer-rss {
+.footer-rss {
   display: table-caption;
 }
-#footer-rss a {
+.footer-rss a {
   white-space: nowrap;
 }
-#rss-dropdown {
+.rss-dropdown {
   position: relative;
   display: inline-block;
 }
@@ -490,7 +490,7 @@ text-align: left;
   margin: 5px 10px;
   font-size: 14px;
 }
-#rss-item {
+.rss-item {
   background-color: #f0f8ff;
   border: none;
   height: 68px;
@@ -500,7 +500,7 @@ text-align: left;
   display: block;
   bottom: 100%;
 }
-a#rss-item:hover {
+a.rss-item:hover {
   background-color: #d6eafc;
 }
 
