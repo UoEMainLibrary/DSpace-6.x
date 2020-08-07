@@ -56,7 +56,8 @@
                         </xsl:attribute>
                         <fieldset>
                             <div class="input-group">
-                                <input class="ds-text-field form-control" type="text" placeholder="xmlui.general.search"
+                                <input class="ds-text-field form-control" type="text" aria-label="Aura search input"
+                                       placeholder="xmlui.general.search"
                                        i18n:attr="placeholder">
                                     <xsl:attribute name="name">
                                         <xsl:value-of
@@ -92,7 +93,9 @@
                             <xsl:if test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='container']">
                                 <div class="radio">
                                     <label>
-                                        <input id="ds-search-form-scope-all" type="radio" name="scope" value=""
+                                        <input id="ds-search-form-scope-all" type="radio" name="scope"
+                                               aria-label="xmlui.dri2xhtml.structural.search"
+                                               value=""
                                                checked="checked"/>
                                         <i18n:text>xmlui.dri2xhtml.structural.search</i18n:text>
                                     </label>
@@ -101,6 +104,10 @@
                                     <label>
                                         <input id="ds-search-form-scope-container" type="radio" name="scope">
                                             <xsl:attribute name="value">
+                                                <xsl:value-of
+                                                        select="substring-after(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='container'],':')"/>
+                                            </xsl:attribute>
+                                            <xsl:attribute name="aria-label">
                                                 <xsl:value-of
                                                         select="substring-after(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='container'],':')"/>
                                             </xsl:attribute>
