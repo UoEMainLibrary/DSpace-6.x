@@ -2,8 +2,9 @@
 <document xmlns="http://di.tamu.edu/DRI/1.0/" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" version="1.1">
     <body>
         <div id="file.news.div.news" n="news" rend="primary">
-            <head>Welcome to Aberdeen University Research Archive</head>
-            <p>The Aberdeen University Research Archive (AURA) provides access to the full text of selected research outputs of the University. Research theses are not included in AURA but are held in our <xref target="https://digitool.abdn.ac.uk/R?func=collections&amp;collection_id=1182">Digital Resources collections.</xref></p>
+
+            <head>Welcome</head>
+            <p>The Aberdeen University Research Archive (AURA) provides access to the full text of selected research outputs of the University. Research theses are not included in AURA but are held in our <xref target="https://abdn.primo.exlibrisgroup.com/discovery/collectionDiscovery?vid=44ABE_INST:44ABE_VU1&amp;collectionId=81151714170005941">Digital Resources collections.</xref></p>
             <p>If you are looking for an article, chapter, conference paper, working paper or other research output of the University and cannot find it in AURA (or have any other query) please <xref target="mailto:aura.deposit@abdn.ac.uk">contact us.</xref></p>
             <p>If you are a member of University staff, to keep your publication information up to date please make sure you notify <xref target="mailto:paperaccepted@abdn.ac.uk">paperaccepted</xref> of all new publications, and enter all relevant content into Pure. Further information can be found <xref target="https://www.abdn.ac.uk/staffnet/research/pure-306.php">here</xref>.</p>
         </div>

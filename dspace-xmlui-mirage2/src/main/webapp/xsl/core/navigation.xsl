@@ -56,7 +56,8 @@
                         </xsl:attribute>
                         <fieldset>
                             <div class="input-group">
-                                <input class="ds-text-field form-control" type="text" placeholder="xmlui.general.search"
+                                <input class="ds-text-field form-control" type="text" aria-label="Aura search input"
+                                       placeholder="xmlui.general.search"
                                        i18n:attr="placeholder">
                                     <xsl:attribute name="name">
                                         <xsl:value-of
@@ -92,7 +93,9 @@
                             <xsl:if test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='container']">
                                 <div class="radio">
                                     <label>
-                                        <input id="ds-search-form-scope-all" type="radio" name="scope" value=""
+                                        <input id="ds-search-form-scope-all" type="radio" name="scope"
+                                               aria-label="xmlui.dri2xhtml.structural.search"
+                                               value=""
                                                checked="checked"/>
                                         <i18n:text>xmlui.dri2xhtml.structural.search</i18n:text>
                                     </label>
@@ -101,6 +104,10 @@
                                     <label>
                                         <input id="ds-search-form-scope-container" type="radio" name="scope">
                                             <xsl:attribute name="value">
+                                                <xsl:value-of
+                                                        select="substring-after(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='container'],':')"/>
+                                            </xsl:attribute>
+                                            <xsl:attribute name="aria-label">
                                                 <xsl:value-of
                                                         select="substring-after(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='container'],':')"/>
                                             </xsl:attribute>
@@ -208,7 +215,7 @@
 
     <xsl:template match="dri:options//dri:item[dri:xref]">
         <xsl:if test="(/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes' or not(../@n = 'account')) and not(dri:xref/node() = 'xmlui.administrative.Navigation.statistics')">
-            <xsl:comment><xsl:value-of select="dri:xref/@target"/></xsl:comment>
+            <!--<xsl:comment><xsl:value-of select="dri:xref/@target"/></xsl:comment>-->
             <a href="{dri:xref/@target}">
                 <xsl:call-template name="standardAttributes">
                     <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
@@ -223,7 +230,7 @@
                 </xsl:choose>
 
             </a>
-            <xsl:comment><xsl:value-of select="dri:xref/node()"/></xsl:comment>
+            <!--<xsl:comment><xsl:value-of select="dri:xref/node()"/></xsl:comment>-->
         </xsl:if>
     </xsl:template>
 
@@ -236,17 +243,18 @@
     </xsl:template>
 
     <xsl:template match="dri:options/dri:list//dri:list/dri:head" priority="3">
-        <a class="list-group-item active">
+        <!--<a class="list-group-item active">-->
             <span>
                 <xsl:call-template name="standardAttributes">
                     <xsl:with-param name="class">
-                        <xsl:value-of select="@rend"/>
-                        <xsl:text> list-group-item-heading</xsl:text>
+                        <!--<xsl:value-of select="@rend"/>-->
+                        <!--<xsl:text> list-group-item-heading</xsl:text>-->
+                        <xsl:text>list-group-item active</xsl:text>
                     </xsl:with-param>
                 </xsl:call-template>
                 <xsl:apply-templates/>
             </span>
-        </a>
+        <!--</a>-->
     </xsl:template>
 
     <xsl:template match="dri:list[count(child::*)=0]"/>
