@@ -341,15 +341,15 @@
 
                     <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                         <a title="University of Aberdeen" href="https://www.abdn.ac.uk/" class="navbar-brand" target="_blank">
-                            <img alt="University of Aberdeen" src="{$theme-path}images/unilogo3.gif" class="abe-logo" />
+                            <img alt="University of Aberdeen" title="University of Aberdeen" src="{$theme-path}images/unilogo3.gif" class="abe-logo" />
                         </a>
                     </div>
                     <div class="col-lg-9 header-title hidden-xs hidden-sm">
-                        <h4 class="hidden-xs hidden-sm">
-                            <a href="{$context-path}/">
+                        <h1 class="hidden-xs hidden-sm">
+                            <!--<a href="{$context-path}/" title="AURA - Aberdeen University Research Archive">-->
                                 AURA - Aberdeen University Research Archive
-                            </a>
-                        </h4>
+                            <!--</a>-->
+                        </h1>
                     </div>
                 </div>
 
@@ -654,7 +654,6 @@
             <div class="col-sm-3 col-xs-12">
                 <a rel="license"
                    href="{$ccLicenseUri}"
-                   alt="{$ccLicenseName}"
                    title="{$ccLicenseName}"
                         >
                     <xsl:call-template name="cc-logo">
@@ -747,7 +746,9 @@
                                 </div>
                             </div>
                             <div id="page_footer_left" class="col-md-7 col-sm-8 col-xs-12">
-                                <table cellpadding="0" cellspacing="0" border="0">
+
+                                <table>
+
                                     <tr>
                                         <td class="tl">&#160;</td>
                                         <td class="top">&#160;</td>
@@ -760,17 +761,17 @@
                                                 <a>
                                                     <xsl:attribute name="href"><xsl:text>https://www.abdn.ac.uk/library/</xsl:text></xsl:attribute>
                                                     <xsl:attribute name="title"><xsl:text>Library, Special Collections and Museums home page</xsl:text></xsl:attribute>
-                                                    <img src="{$theme-path}images/unilogo3.gif" alt="Library, Special Collections and Museums logo" />
+                                                    <img src="{$theme-path}images/unilogo3.gif" alt="Library, Special Collections and Museums logo" title="Library, Special Collections and Museums logo" />
                                                 </a>
                                             </div>
-                                            <div style="float:left; width:200px;">
+                                            <div style="float:left;">
+
                                                 <b>The Sir Duncan Rice Library</b><br />
                                                 University of Aberdeen<br />
                                                 Bedford Road<br />
                                                 Aberdeen<br />
                                                 AB24 3AA<br /><br />
                                                 Tel: +44 (0)1224 273330<br />
-                                                Fax: +44 (0)1224 273382<br />
                                                 Email: <a>
                                                 <xsl:attribute name="href"><xsl:text>mailto:library@abdn.ac.uk</xsl:text></xsl:attribute>
                                                 <xsl:attribute name="title"><xsl:text>Email Library, Special Collections and Museums</xsl:text></xsl:attribute>
@@ -788,7 +789,8 @@
                                 </table>
                             </div>
                             <div class="visible-lg visible-md hidden-sm hidden-xs">
-                                <div id="page_footer_right" class="col-md-5">
+                                <div class="col-md-5 page_footer_right">
+
                                     <p>Share and keep up to date</p>
                                     <!--
                                     Thanks to Rogie King/Komodo Media for the lovely icons
@@ -797,15 +799,16 @@
                                     <p>
                                         <a>
                                             <xsl:attribute name="href"><xsl:text>https://www.facebook.com/biblio.teque?fref=ts</xsl:text></xsl:attribute>
-                                            <img src="{$theme-path}images/facebook_32.png" alt="Facebook" class="png" />
+
+                                            <img src="{$theme-path}images/facebook_32.png" alt="Facebook" title="Facebook" class="png" />
                                         </a>
                                         <a>
                                             <xsl:attribute name="href"><xsl:text>http://twitter.com/aberdeenunilib/</xsl:text></xsl:attribute>
-                                            <img src="{$theme-path}images/twitter_32.png" alt="Twitter" class="png" />
+                                            <img src="{$theme-path}images/twitter_32.png" alt="Twitter" title="Facebook" class="png" />
                                         </a>
                                         <a>
                                             <xsl:attribute name="href"><xsl:text>http://aberdeenunilib.wordpress.com</xsl:text></xsl:attribute>
-                                            <img src="{$theme-path}images/wordpress_32.png" alt="Wordpress" class="png" />
+                                            <img src="{$theme-path}images/wordpress_32.png" alt="Wordpress" title="Facebook" class="png" />
                                         </a>
                                         <!--<a>
                                             <xsl:attribute name="href"><xsl:text>https://www.abdn.ac.uk/library/rss-feeds/</xsl:text></xsl:attribute>
@@ -823,7 +826,7 @@
                                 </div>
                             </div>
                             <div class="hidden-lg hidden-md visible-sm visible-xs">
-                                <div id="page_footer_right" class="col-md-6 col-sm-4 col-xs-12">
+                                <div class="col-md-6 col-sm-4 col-xs-12 page_footer_right">
                                     <xsl:call-template name="buildFooterLinks"/>
                                 </div>
                             </div>
@@ -868,7 +871,8 @@
             </li>
             <li>
                 <a>
-                    <xsl:attribute name="href"><xsl:text>https://digitool.abdn.ac.uk/R?func=collections&amp;collection_id=1182</xsl:text></xsl:attribute>
+
+                    <xsl:attribute name="href"><xsl:text>https://abdn.primo.exlibrisgroup.com/discovery/collectionDiscovery?vid=44ABE_INST:44ABE_VU1&amp;collectionId=81151714170005941</xsl:text></xsl:attribute>
                     <xsl:attribute name="title"><xsl:text>Digital Resources</xsl:text></xsl:attribute>
                     <xsl:attribute name="target"><xsl:text>_blank</xsl:text></xsl:attribute>
                     <xsl:text>Digital Resources</xsl:text>
