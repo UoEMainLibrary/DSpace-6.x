@@ -113,6 +113,19 @@
         </pageMeta>
     </xsl:template>
 
+    <xsl:template match="dri:pageMeta[dri:metadata[@element = 'request'][@qualifier = 'URI']/text() = 'page/accessibility']">
+        <pageMeta>
+            <xsl:call-template name="copy-attributes"/>
+            <xsl:apply-templates select="*[not(self::dri:trail)]"/>
+            <trail target="{$context-path}/">
+                <i18n:text catalogue="default">xmlui.general.dspace_home</i18n:text>
+            </trail>
+            <trail>
+                <xsl:text>Accessibility statement</xsl:text>
+            </trail>
+        </pageMeta>
+    </xsl:template>
+
     <xsl:template match="dri:pageMeta">
     <pageMeta>
         <xsl:call-template name="copy-attributes"/>
