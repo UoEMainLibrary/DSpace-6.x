@@ -55,12 +55,18 @@
                                     select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='search'][@qualifier='simpleURL']"/>
                         </xsl:attribute>
                         <fieldset>
+                            <xsl:variable name="queryfield" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='search'][@qualifier='queryField']"/>
+                            <label class="ds-option-set-head  h6">
+                                <xsl:attribute name="name">
+                                    <xsl:value-of select="$queryfield"/>
+                                </xsl:attribute>
+                                <xsl:value-of select="$queryfield"/>
+                            </label>
                             <div class="input-group">
                                 <input class="ds-text-field form-control" type="text" placeholder="xmlui.general.search"
                                        i18n:attr="placeholder">
                                     <xsl:attribute name="name">
-                                        <xsl:value-of
-                                                select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='search'][@qualifier='queryField']"/>
+                                        <xsl:value-of select="$queryfield"/>
                                     </xsl:attribute>
                                 </input>
                                 <span class="input-group-btn">
