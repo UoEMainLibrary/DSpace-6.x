@@ -47,7 +47,7 @@
   }
 
   #aspect_submission_StepTransformer_field_lookup {
-    width:19%
+    width: 19%;
   }
 
   .modal .modal-body {
@@ -64,7 +64,61 @@
 
 /* For width smaller than 400px: */
 
+/* HM Accessibility changes
+  24 August 2020
+  Overwriting default style */
 
+a {
+  color: #3B4856;
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Reverting from default justify to left */
+h1,
+.artifact-abstract,
+span.composite-help,
+span.field-help,
+div.simple-item-view-authors,
+div.item-summary-view-metadata,
+#aspect_administrative_registries_EditMetadataSchema_table_metadata-schema-edit-existing-fields td,
+#aspect_administrative_registries_MetadataRegistryMain_table_metadata-registry-main-table td,
+#aspect_administrative_registries_FormatRegistryMain_table_bitstream-format-registry td,
+#aspect_submission_Submissions_table_unfinished-submissions td,
+#aspect_submission_Submissions_table_submissions-inprogress td,
+#aspect_submission_Submissions_table_completed-submissions td,
+table.detailtable td,
+.simple-item-view-description {
+  text-align: left !important;
+}
+
+.community-browser-row p {
+  color: #5E5E5E;
+}
+
+.recent-submission .artifact-abstract {
+  margin-bottom: 6px;
+}
+
+small, #ds-options .ds-option-set-head,
+#aspect_browseArtifacts_CommunityBrowse_div_community-browse h3,
+#aspect_browseArtifacts_CollectionBrowse_div_collection-browse h3{
+  color: #555 !important;
+}
+
+div.table h5 {
+  font-weight: bold;
+}
+
+.list-group-item active {
+  background-color: #607890;
+  border-color: #607890;
+}
+
+/* Style */
 header .navbar-brand img{
   height: 98px;
 }

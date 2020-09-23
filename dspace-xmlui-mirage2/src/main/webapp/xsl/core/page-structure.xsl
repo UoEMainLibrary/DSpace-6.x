@@ -342,8 +342,8 @@
                             <span class="icon-bar"></span>
                         </button>
 
-                        <a href="{$context-path}/" class="navbar-brand">
-                            <img src="{$theme-path}images/eResearch.png" />
+                        <a href="{$context-path}/" class="navbar-brand" title="Back to homepage">
+                            <img src="{$theme-path}images/eResearch.png" alt="QMU logo" />
                         </a>
 
 
@@ -384,7 +384,7 @@
                             <xsl:choose>
                                 <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
                                     <li class="dropdown">
-                                        <button class="dropdown-toggle navbar-toggle navbar-link" id="user-dropdown-toggle-xs" href="#" role="button"  data-toggle="dropdown">
+                                        <button class="dropdown-toggle navbar-toggle navbar-link" id="user-dropdown-toggle-xs" href="#" role="button" data-toggle="dropdown" aria-label="Login" title="Login">
                                             <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
                                         </button>
                                         <ul class="dropdown-menu pull-right" role="menu"
@@ -408,7 +408,7 @@
                                     <li>
                                         <form style="display: inline" action="{/dri:document/dri:meta/dri:userMeta/
                             dri:metadata[@element='identifier' and @qualifier='loginURL']}" method="get">
-                                            <button class="navbar-toggle navbar-link">
+                                            <button class="navbar-toggle navbar-link" aria-label="Navigation menu" title="Navigation menu">
                                             <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
                                             </button>
                                         </form>
@@ -722,6 +722,16 @@
                                 </xsl:attribute>
                                 <i18n:text>xmlui.dri2xhtml.structural.feedback-link</i18n:text>
                             </a>
+                            <xsl:text> | </xsl:text>
+                            <a>
+                                <xsl:attribute name="href">
+                                    <xsl:value-of
+                                            select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+                                    <xsl:text>/htmlmap</xsl:text>
+                                </xsl:attribute>
+                                <xsl:text>HTML Sitemap</xsl:text>
+                            </a>
+
                         </div>
                     </div>
                     <div class="col-xs-5 col-sm-4 hidden-print">
@@ -731,15 +741,21 @@
 
                     </div>
                 </div>
-                <!--Invisible link to HTML sitemap (for search engines) -->
-                <a class="hidden">
+
+            <!--
+
+            August 24 2020 - HM
+            HTML sitemap link made visible for accessibility purpose
+            -->
+            <!--Invisible link to HTML sitemap (for search engines) -->
+                <!--<a>
                     <xsl:attribute name="href">
                         <xsl:value-of
                                 select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
                         <xsl:text>/htmlmap</xsl:text>
                     </xsl:attribute>
                     <xsl:text>&#160;</xsl:text>
-                </a>
+                </a>-->
             <p>&#160;</p>
         </footer>
     </xsl:template>
