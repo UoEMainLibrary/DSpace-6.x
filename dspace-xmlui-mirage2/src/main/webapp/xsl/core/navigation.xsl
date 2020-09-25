@@ -60,7 +60,7 @@
                                 <xsl:attribute name="name">
                                     <xsl:value-of select="$queryfield"/>
                                 </xsl:attribute>
-                                <xsl:value-of select="$queryfield"/>
+                                <i18n:text>xmlui.general.search</i18n:text>
                             </label>
                             <div class="input-group">
                                 <input class="ds-text-field form-control" type="text" placeholder="xmlui.general.search"
@@ -249,17 +249,20 @@
     </xsl:template>
 
     <xsl:template match="dri:options/dri:list//dri:list/dri:head" priority="3">
-        <a class="list-group-item active">
+        <!--<a class="list-group-item active">=-->
             <span>
+                <xsl:attribute name="style">
+                    <xsl:text>height: 41px;</xsl:text>
+                </xsl:attribute>
                 <xsl:call-template name="standardAttributes">
                     <xsl:with-param name="class">
                         <xsl:value-of select="@rend"/>
-                        <xsl:text> list-group-item-heading</xsl:text>
+                        <xsl:text> list-group-item active</xsl:text>
                     </xsl:with-param>
                 </xsl:call-template>
                 <xsl:apply-templates/>
             </span>
-        </a>
+        <!--</a>-->
     </xsl:template>
 
     <xsl:template match="dri:list[count(child::*)=0]"/>
