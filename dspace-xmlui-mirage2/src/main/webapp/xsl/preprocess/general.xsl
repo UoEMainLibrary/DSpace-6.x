@@ -100,7 +100,7 @@
         </field>
     </xsl:template>
 
-    <xsl:template match="dri:pageMeta[dri:metadata[@element = 'request'][@qualifier = 'URI']/text() = 'page/about']">
+    <xsl:template match="dri:pageMeta[dri:metadata[@element = 'request'][@qualifier = 'URI']/text() = 'page/accessibility']">
         <pageMeta>
             <xsl:call-template name="copy-attributes"/>
             <xsl:apply-templates select="*[not(self::dri:trail)]"/>
@@ -108,7 +108,7 @@
                 <i18n:text catalogue="default">xmlui.general.dspace_home</i18n:text>
             </trail>
             <trail>
-                <xsl:text>About This Repository</xsl:text>
+                <xsl:text>Accessibility Statement</xsl:text>
             </trail>
         </pageMeta>
     </xsl:template>

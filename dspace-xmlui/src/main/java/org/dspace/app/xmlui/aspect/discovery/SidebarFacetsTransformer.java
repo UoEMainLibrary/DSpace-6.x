@@ -316,11 +316,14 @@ public class SidebarFacetsTransformer extends AbstractDSpaceTransformer implemen
 
     private void addViewMoreUrl(List facet, DSpaceObject dso, Request request, DiscoverySearchFilterFacet field) throws WingException, UnsupportedEncodingException {
         String parameters = retrieveParameters(request);
+        //Message fields = message("xmlui.ArtifactBrowser.AdvancedSearch.type_" + field.getIndexFieldName());
+        String viewMore = field.getIndexFieldName().substring(0, 1).toUpperCase() + field.getIndexFieldName().substring(1);
+
         facet.addItem().addXref(
                 contextPath +
                         (dso == null ? "" : "/handle/" + dso.getHandle()) +
                         "/search-filter?" + parameters + BrowseFacet.FACET_FIELD + "=" + field.getIndexFieldName()+"&filterorder="+field.getSortOrderFilterPage(),
-                T_VIEW_MORE
+                T_VIEW_MORE.parameterize(viewMore)
 
         );
     }
