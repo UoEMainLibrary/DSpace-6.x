@@ -139,6 +139,7 @@
                     <xsl:call-template name="itemSummaryView-DIM-authors"/>
                     <xsl:call-template name="itemSummaryView-DIM-supervisors"/>
                     <xsl:call-template name="itemSummaryView-DIM-sponsors"/>
+                    <xsl:call-template name="itemSummaryView-DIM-grantnumbers"/>
                     <xsl:call-template name="itemSummaryView-DIM-keywords"/>
                     <xsl:if test="$ds_item_view_toggle_url != ''">
                     <xsl:call-template name="itemSummaryView-show-full"/>
@@ -382,6 +383,26 @@
             </div>
         </xsl:if>
     </xsl:template>
+
+    <xsl:template name="itemSummaryView-DIM-grantnumbers">
+        <xsl:if test="dim:field[@element='identifier' and @qualifier='grantnumber']">
+            <div class="simple-item-view-keywords item-page-field-wrapper table">
+                <h5><i18n:text>xmlui.dri2xhtml.METS-1.0.item-grantnumber</i18n:text></h5>
+                <xsl:for-each select="dim:field[@element='identifier' and @qualifier='grantnumber']">
+                    <div>
+                        <!--<a>
+                            <xsl:attribute name="href">
+                                <xsl:value-of select="(concat($context-path,'/browse?type=subject&amp;value='))"/>
+                                <xsl:copy-of select="encoder:encode(node())"/>
+                            </xsl:attribute>-->
+                            <xsl:value-of select="text()"/>
+                        <!--</a>-->
+                    </div>
+                </xsl:for-each>
+            </div>
+        </xsl:if>
+    </xsl:template>
+
 
     <xsl:template name="itemSummaryView-DIM-keywords">
         <xsl:if test="dim:field[@element='subject'][not(@qualifier)]">
