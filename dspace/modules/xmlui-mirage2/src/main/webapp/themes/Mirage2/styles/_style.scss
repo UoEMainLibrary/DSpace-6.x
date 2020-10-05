@@ -70,7 +70,7 @@
  a:hover, a:focus {
   text-decoration: none;
   border-bottom: 1px dotted #bcbcf0;
-  color: #bcbcf0;
+  color: #6262DA;
 }
  h3 a:hover {
   text-decoration: none;
@@ -123,16 +123,38 @@
   background-color: #fff;
 }
  .rsc-navbar {
-  background-color: #fff;
+  /*background-color: #fff;*/
   padding-left: 0;
 }
  .rsc-navbar-content {
   padding: 0;
+   background-image: url("/themes/Mirage2/images/logo-lower-part.png");
+   background-size: 373px;
+   background-repeat: repeat-x;
 }
  ul.rsc-lg-dropdown {
-  margin-right: -12px;
+   margin-right: -12px;
+   background-color: #6D72AB;
+   border-radius: 2em;
+   transition: all 0.3s ease;
+   opacity: 0.9;
+   font-weight: 600;
+
 }
- ul.rsc-lg-dropdown li a:hover,
+
+ul.rsc-lg-dropdown:hover  {
+  border-radius: 2em !important;
+  background-color: #4E5488;
+  opacity: 1;
+
+}
+
+ul.rsc-lg-dropdown li a:hover,
+ul.rsc-lg-dropdown li a:focus {
+  background-color: transparent !important;
+}
+
+ul.rsc-lg-dropdown li a:hover,
 ul.rsc-lg-dropdown li a:focus,
 li.dropdown a:hover,
 li.dropdown a:focus,
@@ -144,10 +166,11 @@ li.dropdown a:focus,
   border-bottom: 1px solid #ccc;
 }
  a#logo {
-  position: absolute;
+  /*position: absolute;
   z-index: 300;
   right: 0px;
-  top: -15px;
+  top: -15px;*/
+   margin-left: 35px;
 }
  .header-title {
   padding-top: 2px;
@@ -164,15 +187,23 @@ li.dropdown a:focus,
   width: 550px;
 }
  .breadcrumb {
-  background-color: #fff;
+  /*background-color: #fff;*/
+   background-color: transparent !important;
   margin-bottom: 0;
-  padding: 15px;
+  /*padding: 15px;*/
 }
  .breadcrumb a {
   color: #080c54;
 }
  .breadcrumb li {
   color: #000;
+   background-color: #F8F8FF;
+   padding: 0.6em;
+   border-radius: 25px;
+   transition: all 0.6s ease;
+}
+.breadcrumb li:hover {
+  background-color: #8C8CE2;
 }
  .breadcrumb a:hover {
   text-decoration: none;
@@ -183,8 +214,8 @@ li.dropdown a:focus,
   color: #080c54;
 }
  .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
-  background-color: #080c54;
-  border-color: #080c54;
+   background-color: #6D72AB;
+   border-color: #7389F4;
   color: #fff !important;
   z-index: 2;
 }
@@ -193,7 +224,7 @@ a.list-group-item:focus {
   border-bottom: 1px solid #ddd;
 }
  .rsc-footer {
-  background-color: #080c54;
+  background-color: #6D72AB;
   color: #fff;
   font-size: 0.9em;
   margin-left: -15px;
@@ -206,11 +237,11 @@ a.list-group-item:focus {
  footer .row > div {
   border: none;
   padding-top: 0;
-  background-color: #080c54;
+  background-color: #6D72AB;
   color: #fff;
 }
  .rsc-footer-content {
-  background-color: #080c54;
+  background-color: #6D72AB;
 }
  #copyright-content {
   padding-left: 15px;
@@ -252,13 +283,13 @@ a.list-group-item:focus {
 }
  ul.footer-links-list li a:hover,
 .small-footer-links a:hover {
-  text-decoration: none;
-  border-bottom: 1px dotted #080c54;
+  text-decoration: underline;
+  border-bottom: 1px dotted #6D72AB;
   color: #fff;
 }
  .btn-success {
-  background-color: #080c54;
-  border-color: #080c54;
+  background-color: #6D72AB;
+  border-color: #6D72AB;
   color: #fff;
 }
  .btn-success.disabled, .btn-success.disabled:hover, .btn-success.disabled:focus,
@@ -267,8 +298,8 @@ a.list-group-item:focus {
 .btn-success.focus[disabled], .btn-success[disabled]:active, .btn-success.active[disabled],
 fieldset[disabled] .btn-success, fieldset[disabled] .btn-success:hover, fieldset[disabled] .btn-success:focus, .btn-primary,
 fieldset[disabled] .btn-success.focus, fieldset[disabled] .btn-success:active, fieldset[disabled] .btn-success.active {
-  background-color:#080c54;
-  border-color: #080c54;
+  background-color:#6D72AB;
+  border-color: #6D72AB;
 }
  a.btn-default,
 a.btn-default:link,
@@ -281,4 +312,30 @@ header .navbar-default {
 
 li a{
     color: #080c54;
+}
+
+.navbar-toggle {
+  margin: 0;
+  margin-left: 9px;
+  background-color: #6D72AB;
+  border-radius: 2em;
+  height: 50px;
+  padding-left: 1em;
+  padding-right: 1em;
+  opacity: 0.9;
+}
+
+.navbar-toggle  {
+  border-radius: 2em !important;
+  background-color: #4E5488;
+  opacity: 1;
+
+}
+
+.navbar-nav:focus, .navbar-nav:hover {
+  background-color: #8C8CE2;
+}
+
+.h4 small {
+  color: #707070;
 }

@@ -142,12 +142,15 @@
 .navbar-static-top {
   background-color: #fff;
 }
- .rsc-navbar {
-  background-color: #fff;
+.rsc-navbar {
+  /*background-color: #fff;*/
   padding-left: 0;
 }
  .rsc-navbar-content {
-  padding: 0;
+   padding: 0;
+   background-image: url("http://localhost:8080/xmlui/themes/Mirage2/images/logo-lower-part.png");
+   background-size: 373px;
+   background-repeat: repeat-x;
 }
  ul.rsc-lg-dropdown {
   margin-right: -12px;
@@ -164,10 +167,10 @@ li.dropdown a:focus,
   border-bottom: 1px solid #ccc;
 }
  a#logo {
-  position: absolute;
+  /*position: absolute;
   z-index: 300;
   right: 0px;
-  top: -15px;
+  top: -15px;*/
 }
  .header-title {
   padding-top: 2px;
@@ -184,16 +187,25 @@ li.dropdown a:focus,
   width: 550px;
 }
  .breadcrumb {
-  background-color: #fff;
-  margin-bottom: 0;
-  padding: 15px;
+  /*background-color: #fff;*/
+   background-color: transparent !important;
+   margin-bottom: 0;
+   padding: 15px;
 }
  .breadcrumb a {
   color: #080c54;
 }
  .breadcrumb li {
-  color: #000;
+   color: #000;
+   background-color: #F8F8FF;
+   padding: 0.6em;
+   border-radius: 25px;
 }
+
+.breadcrumb li:hover {
+  background-color: #EEE8A9;
+}
+
  .breadcrumb a:hover {
   text-decoration: none;
   border-bottom: 1px dotted #bcbcf0;
@@ -203,8 +215,8 @@ li.dropdown a:focus,
   color: #080c54;
 }
  .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
-  background-color: #080c54;
-  border-color: #080c54;
+  background-color: #9698C2;
+  border-color: ##7389F4;
   color: #fff !important;
   z-index: 2;
 }
@@ -213,7 +225,7 @@ a.list-group-item:focus {
   border-bottom: 1px solid #ddd;
 }
  .rsc-footer {
-  background-color: #080c54;
+  background-color: #9698C2;
   color: #fff;
   font-size: 0.9em;
   margin-left: -15px;

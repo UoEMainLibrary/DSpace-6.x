@@ -329,34 +329,24 @@
         <header class="rsc-header">
             <div class="container rsc-header-content">
                 <div class="row">
-                    <div class="col-xs-9 col-sm-10 header-title">
-                        <h1 class="hidden-xs hidden-sm">
-                            <a href="{$context-path}/">
-                                Research Scotland Repository
-                            </a>
-                        </h1>
+                    <div class="col-12 header-title">
+                        <a title="Research Scotland Home" class="pull-left" href="//research-scotland.ac.uk" id="logo">
+                            <img src="{$theme-path}images/rsc-logo-upper.png" style="width: 293px;"/></a>
                     </div>
-                    <div class="col-xs-3 col-sm-2">
+                    <!--<div class="col-xs-3 col-sm-2">
                         <a id="logo" href="//research-scotland.ac.uk" class="pull-right" title="Research Scotland Home">
                             <img src="{$theme-path}images/RSCLogo.png" />
                         </a>
-                    </div>
+                    </div>-->
                 </div>
                 <div class="clearfix"></div>
             </div>
 
             <div class="navbar navbar-default navbar-static-top" role="navigation">
                 <div class="container rsc-navbar">
-                    <div class="col-xs-9 col-sm-9 col-md-9 rsc-navbar-content">
+                    <div class="col-xs-7 col-sm-8 col-md-9 rsc-navbar-content">
                         <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="offcanvas">
-                                <span class="sr-only">
-                                    <i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text>
-                                </span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
+
                             <!-- breadcrumbs -->
                             <div class="pull-left">
                                 <xsl:choose>
@@ -401,42 +391,54 @@
                                     </xsl:otherwise>
                                 </xsl:choose>
                             </div>
-                            <!-- extra small screen size icons -->
-                            <div class="navbar-header pull-right visible-xs hidden-sm hidden-md hidden-lg">
-                                <ul class="nav nav-pills pull-right">
-                                    <!--xsl:call-template name="languageSelection-xs"/-->
-                                    <xsl:choose>
-                                        <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
-                                            <li class="dropdown">
-                                                <button class="dropdown-toggle navbar-toggle navbar-link" id="user-dropdown-toggle-xs" href="#" role="button"  data-toggle="dropdown">
+                        </div>
+                    </div>
+                    <div class="col-xs-5 col-sm-4 col-md-3">
+
+                        <button type="button" class="navbar-toggle" data-toggle="offcanvas">
+                            <span class="sr-only">
+                                <i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text>
+                            </span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                        <!-- extra small screen size icons -->
+                        <div class="navbar-header pull-right visible-xs hidden-sm hidden-md hidden-lg">
+                            <ul class="nav nav-pills pull-right">
+                                <!--xsl:call-template name="languageSelection-xs"/-->
+                                <xsl:choose>
+                                    <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
+                                        <li class="dropdown">
+                                            <button class="dropdown-toggle navbar-toggle navbar-link" id="user-dropdown-toggle-xs" href="#" role="button"  data-toggle="dropdown">
+                                                <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
+                                            </button>
+                                            <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="user-dropdown-toggle-xs" data-no-collapse="true">
+                                                <li>
+                                                    <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='url']}">
+                                                        <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='logoutURL']}">
+                                                        <i18n:text>xmlui.dri2xhtml.structural.logout</i18n:text>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <li>
+                                            <form style="display: inline" action="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='loginURL']}" method="get">
+                                                <button class="navbar-toggle navbar-link">
                                                     <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
                                                 </button>
-                                                <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="user-dropdown-toggle-xs" data-no-collapse="true">
-                                                    <li>
-                                                        <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='url']}">
-                                                            <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='logoutURL']}">
-                                                            <i18n:text>xmlui.dri2xhtml.structural.logout</i18n:text>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </xsl:when>
-                                        <xsl:otherwise>
-                                            <li>
-                                                <form style="display: inline" action="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='loginURL']}" method="get">
-                                                    <button class="navbar-toggle navbar-link">
-                                                        <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
-                                                    </button>
-                                                </form>
-                                            </li>
-                                        </xsl:otherwise>
-                                    </xsl:choose>
-                                </ul>
-                            </div>
+                                            </form>
+                                        </li>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </ul>
                         </div>
                         <!-- all but extra small screen size dropdown -->
                         <div class="navbar-header pull-right hidden-xs">
