@@ -23,7 +23,7 @@
     <!-- DO NOT CHANGE ANYTHING BELOW THIS LINE EXCEPT YOU REALLY KNOW WHAT YOU ARE DOING! -->
 
     <!-- The base url of DataCite resolver see: https://support.datacite.org/docs/datacite-doi-display-guidelines -->
-    <xsl:variable name="baseurl" select="https://doi.org/" />
+    <xsl:variable name="baseurl" select="'https://doi.org/'" />
     <!-- We need the prefix to determine DOIs that were minted by ourself. -->
     <xsl:param name="prefix">10.5072/dspace-</xsl:param>
     <!-- The content of the following parameter will be used as element publisher. -->
@@ -300,7 +300,7 @@
     -->
     <xsl:template match="dspace:field[@mdschema='dc' and @element='identifier' and @qualifier and starts-with(., concat($baseurl, $prefix))]">
         <identifier identifierType="DOI">
-            <xsl:value-of select="substring(., 19)"/>
+            <xsl:value-of select="substring(., string-length($baseurl) + 1)"/>
         </identifier>
     </xsl:template>
 
