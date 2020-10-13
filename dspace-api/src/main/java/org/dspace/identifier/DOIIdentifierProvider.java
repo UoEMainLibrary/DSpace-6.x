@@ -73,7 +73,7 @@ public class DOIIdentifierProvider
     // TODO: move these to MetadataSchema or some such?
     public static final String MD_SCHEMA = "dc";
     public static final String DOI_ELEMENT = "identifier";
-    public static final String DOI_QUALIFIER = "uri";
+    public static final String DOI_QUALIFIER = "doi";
     
     public static final Integer TO_BE_REGISTERED = 1;
     public static final Integer TO_BE_RESERVED = 2;
