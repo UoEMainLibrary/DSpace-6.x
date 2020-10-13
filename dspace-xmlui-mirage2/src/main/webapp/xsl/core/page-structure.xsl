@@ -343,12 +343,12 @@
                         </h1>
                     </div>
                     <div class="col-sm-4 col-md-3 hidden-xs sta-header-logos">
-                        <a id="library-logo" href="//www.st-andrews.ac.uk" class="pull-right" title="St Andrews University Home">
-                            <img src="{$theme-path}images/sta-logo.png" alt="St Andrews University Home" />
+                        <a href="//www.st-andrews.ac.uk" class="pull-right" title="St Andrews University Home">
+                            <img src="{$theme-path}images/01-standard-black-text.png" alt="St Andrews University Home" />
                         </a>
-                        <a id="logo" href="//www.st-andrews.ac.uk/library/" class="pull-right" title="St Andrews University Library">
+                        <!--<a id="logo" href="//www.st-andrews.ac.uk/library/" class="pull-right" title="St Andrews University Library">
                             <img src="{$theme-path}images/sta-library-logo.png" alt="St Andrews University Library" />
-                        </a>
+                        </a>-->
                     </div>
                 </div>
 
@@ -739,7 +739,7 @@
                 <div class="row sta-footer-top">
                     <div class="col-md-3 footer-block">
                         <h3>Open Access</h3>
-                        <p>To find out how you can benefit from open access to research, see our <a href="//www.st-andrews.ac.uk/library/services/researchsupport/openaccess/" title="Open Access" target="_blank">library web pages</a> and <a href="//univstandrews-oaresearch.blogspot.co.uk/" title="Open Access Blog" target="_blank">Open Access blog</a>. For open access help contact: <a href="mailto:openaccess@st-andrews.ac.uk">openaccess@st-andrews.ac.uk</a>.</p>
+                        <p>To find out how you can benefit from open access to research, see our <a href="//www.st-andrews.ac.uk/library/services/researchsupport/openaccess/" title="University of St Andrews Library Open Access web pages" target="_blank">library web pages</a> and <a href="//univstandrews-oaresearch.blogspot.co.uk/" title="Open Access Blog" target="_blank">Open Access blog</a>. For open access help contact: <a href="mailto:openaccess@st-andrews.ac.uk">openaccess@st-andrews.ac.uk</a>.</p>
                         <h3>Accessibility</h3>
                         <p>Read our <a href="/page/accessibility" title="Accessibility statement">Accessibility statement</a>.</p>
                         </div>
@@ -749,16 +749,16 @@
                     </div>
                     <div class="col-md-3 footer-block">
                         <h3>Electronic thesis deposit</h3>
-                        <p>Help with <a href="//www.st-andrews.ac.uk/library/resources/collections/theses/#Submitting" target="_blank">deposit</a>.</p>
+                        <p>Help with <a href="//www.st-andrews.ac.uk/library/resources/collections/theses/#Submitting" target="_blank" title="Help with electronic theses deposit">deposit</a>.</p>
                         <h3>Repository help</h3>
-                        <p>For repository help contact: <a href="mailto:Digital-Repository@st-andrews.ac.uk">Digital-Repository@st-andrews.ac.uk</a>.</p>
-                        <p><a href="/feedback">Give Feedback</a></p>
+                        <p>For repository help contact: <a href="mailto:Digital-Repository@st-andrews.ac.uk" title="Email address for St Andrews Research Repository">Digital-Repository@st-andrews.ac.uk</a>.</p>
+                        <p><a href="/feedback" title="For sharing feedback about the St Andrews Research Repository">Give Feedback</a></p>
                     </div>
                     <div class="col-md-3 footer-block">
                         <h3>Cookie policy</h3>
-                        <p>This site may use cookies. Please see <a href="//www.st-andrews.ac.uk/terms/" target="_blank">Terms and Conditions</a>.</p>
+                        <p>This site may use cookies. Please see <a href="//www.st-andrews.ac.uk/terms/" target="_blank" title="Terms and Conditions">Terms and Conditions</a>.</p>
                         <h3>Usage statistics</h3>
-                        <p>COUNTER-compliant statistics on downloads from the repository are available from the <a href="http://irus.mimas.ac.uk/">IRUS-UK Service</a>. <a href="mailto:openaccess@st-andrews.ac.uk?subject=Enquiry%20about%20IRUS-UK%20statistics">Contact us</a> for information.</p>
+                        <p>COUNTER-compliant statistics on downloads from the repository are available from the <a href="http://irus.mimas.ac.uk/" title="IRUS-UK Service">IRUS-UK Service</a>. <a href="mailto:openaccess@st-andrews.ac.uk?subject=Enquiry%20about%20IRUS-UK%20statistics" title="Email an enquiry about IRUS-UK statistics">Contact us</a> for information.</p>
                     </div>
                 </div>
             </div>
