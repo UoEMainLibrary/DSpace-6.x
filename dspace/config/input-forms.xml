@@ -136,9 +136,10 @@ it, please enter the types and the actual numbers or codes.</hint>
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
          <label>Type</label>
-         <input-type value-pairs-name="common_types">dropdown</input-type>
+         <input-type value-pairs-name="publication_types">dropdown</input-type>
+         <!--<input-type value-pairs-name="common_types">dropdown</input-type>-->
          <hint>Select the type(s) of content of the item. To select more than one value in the list, you may have to hold down the "CTRL" or "Shift" key.</hint>
-         <required></required>
+         <required>You must select a content type.</required>
        </field>
 
        <field>
@@ -154,18 +155,18 @@ it, please enter the types and the actual numbers or codes.</hint>
      </page>
 
      <page number="2">
-       <field>
+       <!--<field>
          <dc-schema>dc</dc-schema>
          <dc-element>subject</dc-element>
-         <dc-qualifier></dc-qualifier>
+         <dc-qualifier></dc-qualifier>-->
          <!-- An input-type of twobox MUST be marked as repeatable -->
-         <repeatable>true</repeatable>
+         <!--<repeatable>true</repeatable>
          <label>Subject Keywords</label>
          <input-type>twobox</input-type>
          <hint>Enter appropriate subject keywords or phrases. </hint>
          <required></required>
          <vocabulary>srsc</vocabulary>
-       </field>
+       </field>-->
 
        <field>
          <dc-schema>dc</dc-schema>
@@ -212,7 +213,7 @@ it, please enter the types and the actual numbers or codes.</hint>
          <label>One: Authors</label>
          <input-type>name</input-type>
          <hint>Enter the names of the authors of this item.</hint>
-         <required></required>
+         <required>You must enter at least one author.</required>
        </field>
       </page>
     </form>
@@ -257,6 +258,97 @@ it, please enter the types and the actual numbers or codes.</hint>
      <pair>
        <displayed-value>ISBN</displayed-value>
        <stored-value>isbn</stored-value>
+     </pair>
+   </value-pairs>
+
+   <value-pairs value-pairs-name="publication_types" dc-term="type">
+     <pair>
+       <displayed-value>Abstract</displayed-value>
+       <stored-value>Abstract</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Article - peer-reviewed</displayed-value>
+       <stored-value>Article - peer-reviewed</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Article - popular</displayed-value>
+       <stored-value>Article - popular</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Book</displayed-value>
+       <stored-value>Book</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Book chapter</displayed-value>
+       <stored-value>Book chapter</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Book Review</displayed-value>
+       <stored-value>Book Review</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Conference / Meeting paper</displayed-value>
+       <stored-value>Conference / Meeting paper</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Conference / Meeting proceedings</displayed-value>
+       <stored-value>Conference / Meeting proceedings</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Data</displayed-value>
+       <stored-value>Data</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Database</displayed-value>
+       <stored-value>Database</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>E-Book</displayed-value>
+       <stored-value>E-Book</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>In press</displayed-value>
+       <stored-value>In press</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Map</displayed-value>
+       <stored-value>Map</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Obituary</displayed-value>
+       <stored-value>Obituary</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Online resource</displayed-value>
+       <stored-value>Online resource</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Other</displayed-value>
+       <stored-value>Other</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Poster</displayed-value>
+       <stored-value>Poster</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Report</displayed-value>
+       <stored-value>Report</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Taxon</displayed-value>
+       <stored-value>Taxon</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Technical Paper</displayed-value>
+       <stored-value>Technical Paper</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Thesis</displayed-value>
+       <stored-value>Thesis</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Web article</displayed-value>
+       <stored-value>Web article</stored-value>
      </pair>
    </value-pairs>
 
