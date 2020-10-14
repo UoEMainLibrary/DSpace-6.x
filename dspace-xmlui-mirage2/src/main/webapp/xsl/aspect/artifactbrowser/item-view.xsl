@@ -265,7 +265,13 @@
             <xsl:if test="@authority">
                 <xsl:attribute name="class"><xsl:text>ds-dc_contributor_author-authority</xsl:text></xsl:attribute>
             </xsl:if>
-            <xsl:copy-of select="node()"/>
+            <a>
+                <xsl:attribute name="href">
+                    <xsl:value-of select="(concat($context-path,'/browse?type=names&amp;value='))"/>
+                    <xsl:copy-of select="encoder:encode(node())"/>
+                </xsl:attribute>
+                <xsl:value-of select="text()"/>
+            </a>
         </div>
     </xsl:template>
 
