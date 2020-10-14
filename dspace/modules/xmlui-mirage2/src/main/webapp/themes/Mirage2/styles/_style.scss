@@ -196,11 +196,12 @@ li.dropdown a:focus,
   color: #080c54;
 }
  .breadcrumb li {
-  color: #000;
+   color: #000;
    background-color: #F8F8FF;
    padding: 0.6em;
    border-radius: 25px;
    transition: all 0.6s ease;
+   margin-top: 2px;
 }
 .breadcrumb li:hover {
   background-color: #8C8CE2;
@@ -337,5 +338,5 @@ li a{
 }
 
 .h4 small {
-  color: #707070;
+  color: #595959;
 }
