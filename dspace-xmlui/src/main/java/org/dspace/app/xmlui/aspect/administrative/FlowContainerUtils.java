@@ -135,7 +135,10 @@ public class FlowContainerUtils
 		}
 		else {
 			DOICollection doiCollectionObj = doiCollectionService.findByCollectionUUID(context, collectionID);
-			doiCollectionService.delete(context, doiCollectionObj);
+
+			if(doiCollectionObj != null) {
+				doiCollectionService.delete(context, doiCollectionObj);
+			}
 		}
 
 		// If they don't have a name then make it untitled.
