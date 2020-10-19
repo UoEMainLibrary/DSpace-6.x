@@ -57,7 +57,7 @@
                         <fieldset>
                             <xsl:variable name="queryfield" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='search'][@qualifier='queryField']"/>
                             <label class="ds-option-set-head  h6">
-                                <xsl:attribute name="name">
+                                <xsl:attribute name="for">
                                     <xsl:value-of select="$queryfield"/>
                                 </xsl:attribute>
                                 <i18n:text>xmlui.general.search</i18n:text>
