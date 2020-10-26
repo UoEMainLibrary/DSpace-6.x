@@ -283,8 +283,8 @@
             <xsl:variable name="page_title" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='title'][last()]" />
             <title>
                 <xsl:choose>
-                    <xsl:when test="starts-with($request-uri, 'page/about')">
-                        <i18n:text>xmlui.mirage2.page-structure.aboutThisRepository</i18n:text>
+                    <xsl:when test="starts-with($request-uri, 'page/accessibility')">
+                        Accessibility Statement
                     </xsl:when>
                     <xsl:when test="not($page_title)">
                         <xsl:text>  </xsl:text>
@@ -343,12 +343,12 @@
                         </h1>
                     </div>
                     <div class="col-sm-4 col-md-3 hidden-xs sta-header-logos">
-                        <a id="library-logo" href="//www.st-andrews.ac.uk" class="pull-right" title="St Andrews University Home">
-                            <img src="{$theme-path}images/sta-logo.png" alt="St Andrews University Home" />
+                        <a href="//www.st-andrews.ac.uk" class="pull-right" title="St Andrews University Home">
+                            <img src="{$theme-path}images/01-standard-black-text.png" alt="St Andrews University Home" />
                         </a>
-                        <a id="logo" href="//www.st-andrews.ac.uk/library/" class="pull-right" title="St Andrews University Library">
+                        <!--<a id="logo" href="//www.st-andrews.ac.uk/library/" class="pull-right" title="St Andrews University Library">
                             <img src="{$theme-path}images/sta-library-logo.png" alt="St Andrews University Library" />
-                        </a>
+                        </a>-->
                     </div>
                 </div>
 
@@ -739,25 +739,29 @@
                 <div class="row sta-footer-top">
                     <div class="col-md-3 footer-block">
                         <h3>Open Access</h3>
-                        <p>To find out how you can benefit from open access to research, see our <a href="//www.st-andrews.ac.uk/library/services/researchsupport/openaccess/" target="_blank">library web pages</a> and <a href="//univstandrews-oaresearch.blogspot.co.uk/" target="_blank">Open Access blog</a>. For open access help contact: <a href="mailto:openaccess@st-andrews.ac.uk">openaccess@st-andrews.ac.uk</a>.</p>
+
+                        <p>To find out how you can benefit from open access to research, see our <a href="//www.st-andrews.ac.uk/library/services/researchsupport/openaccess/" title="University of St Andrews Library Open Access web pages" target="_blank">library web pages</a> and <a href="//univstandrews-oaresearch.blogspot.co.uk/" title="Open Access Blog" target="_blank">Open Access blog</a>. For open access help contact: <a href="mailto:openaccess@st-andrews.ac.uk">openaccess@st-andrews.ac.uk</a>.</p>
+                        <h3>Accessibility</h3>
+                        <p>Read our <a href="/page/accessibility" title="Accessibility statement">Accessibility statement</a>.</p>
                         </div>
                     <div class="col-md-3 footer-block">
                         <h3>How to submit research papers</h3>
-                        <p>The full text of research papers can be submitted to the repository via <a href="//www.st-andrews.ac.uk/staff/research/pure/" target="_blank">PURE</a>, the University's research information system. For help see our guide: <a href="http://www.st-andrews.ac.uk/library/services/researchsupport/openaccess/deposit/" target="_blank">How to deposit in Pure</a>.</p>
+                        <p>The full text of research papers can be submitted to the repository via <a href="//www.st-andrews.ac.uk/staff/research/pure/" title="PURE" target="_blank">PURE</a>, the University's research information system. For help see our guide: <a href="http://www.st-andrews.ac.uk/library/services/researchsupport/openaccess/deposit/" title="How to deposit in Pure" target="_blank">How to deposit in Pure</a>.</p>
                     </div>
                     <div class="col-md-3 footer-block">
                         <h3>Electronic thesis deposit</h3>
-                        <p>Help with <a href="//www.st-andrews.ac.uk/library/resources/collections/theses/#Submitting" target="_blank">deposit</a>.</p>
+                        <p>Help with <a href="//www.st-andrews.ac.uk/library/resources/collections/theses/#Submitting" target="_blank" title="Help with electronic theses deposit">deposit</a>.</p>
                         <h3>Repository help</h3>
-                        <p>For repository help contact: <a href="mailto:Digital-Repository@st-andrews.ac.uk">Digital-Repository@st-andrews.ac.uk</a>.</p>
-                        <p><a href="/feedback">Give Feedback</a></p>
+                        <p>For repository help contact: <a href="mailto:Digital-Repository@st-andrews.ac.uk" title="Email address for St Andrews Research Repository">Digital-Repository@st-andrews.ac.uk</a>.</p>
+                        <p><a href="/feedback" title="For sharing feedback about the St Andrews Research Repository">Give Feedback</a></p>
                     </div>
                     <div class="col-md-3 footer-block">
                         <h3>Cookie policy</h3>
-                        <p>This site may use cookies. Please see <a href="//www.st-andrews.ac.uk/terms/" target="_blank">Terms and Conditions</a>.</p>
+                        <p>This site may use cookies. Please see <a href="//www.st-andrews.ac.uk/terms/" target="_blank" title="Terms and Conditions">Terms and Conditions</a>.</p>
                         <h3>Usage statistics</h3>
-                        <p>COUNTER-compliant statistics on downloads from the repository are available from the <a href="http://irus.mimas.ac.uk/">IRUS-UK Service</a>. <a href="mailto:openaccess@st-andrews.ac.uk?subject=Enquiry%20about%20IRUS-UK%20statistics">Contact us</a> for information.</p>
+                        <p>COUNTER-compliant statistics on downloads from the repository are available from the <a href="http://irus.mimas.ac.uk/" title="IRUS-UK Service">IRUS-UK Service</a>. <a href="mailto:openaccess@st-andrews.ac.uk?subject=Enquiry%20about%20IRUS-UK%20statistics" title="Email an enquiry about IRUS-UK statistics">Contact us</a> for information.</p>
                     </div>
+
                 </div>
             </div>
             </div>
@@ -821,10 +825,118 @@
 
             <!-- Check for the custom pages -->
             <xsl:choose>
-                <xsl:when test="starts-with($request-uri, 'page/about')">
+                <xsl:when test="starts-with($request-uri, 'page/accessibility')">
                     <div class="hero-unit">
-                        <h1><i18n:text>xmlui.mirage2.page-structure.heroUnit.title</i18n:text></h1>
-                        <p><i18n:text>xmlui.mirage2.page-structure.heroUnit.content</i18n:text></p>
+                        <h1 id="d.en.106512" class="page-heading">Accessibility statement for the Research repository</h1>
+                        <div id="d.en.106513">
+                            <p>This statement applies to content published on the <a href="https://research-repository.st-andrews.ac.uk">https://research-repository.st-andrews.ac.uk</a> domain, run by the University of St Andrews. It does not apply to content on any other st-andrews.ac.uk domain or subdomains.</p>
+                            <p>We want as many people as possible to be able to use this website. For example, that means you should be able to:</p>
+                            <ul>
+                                <li>change colours, contrast levels and fonts</li>
+                                <li>zoom in up to 300% without the text spilling off the screen</li>
+                                <li>navigate most of the website using just a keyboard</li>
+                                <li>navigate most of the website using speech recognition software</li>
+                                <li>listen to most of the website using a screen reader (including the most recent versions of JAWS, NVDA and VoiceOver).</li>
+                            </ul>
+                            <p>We’ve also made the website text as simple as possible to understand.</p>
+                            <p><a href="https://mcmw.abilitynet.org.uk/">AbilityNet</a> has advice on making your device easier to use if you have a disability.</p>
+                            <p>You can also explore some of our recommendations for tools that can <a href="https://www.st-andrews.ac.uk/students/advice/disabilities/student-study-toolkit/">make your online experience better</a>.</p>
+                        </div>
+                        <div id="d.en.106514">
+                            <h2>How accessible this website is</h2>
+                            <p>The Research Repository is currently not fully compliant with accessibility legislation. We are working with the software supplier and website host, Edinburgh University, to fix the issues. </p>
+                            <p>Some areas of inaccessibility include:</p>
+                            <ul>
+                                <li>Some pages have poor colour contrast.</li>
+                                <li>Some of our online forms are missing descriptions for screen readers.</li>
+                                <li>Some links are only identifiable by colour.</li>
+                                <li>Some link text is used to go to multiple destinations.</li>
+                                <li>Some form elements are not grouped, making keyboard navigation harder.</li>
+                                <li>Some metadata elements have an invalid language.</li>
+                            </ul>
+                        </div>
+                        <div id="d.en.106515">
+                            <h2>Feedback and contact information</h2>
+                            <p>If you need information on this website in a different format like accessible PDF, large print, easy read, audio recording or braille:</p>
+                            <ul>
+                                <li>email: <a href="mailto:itservicedesk@st-andrews.ac.uk">itservicedesk@st-andrews.ac.uk</a> </li>
+                                <li>phone: +44 (0)1334 46 3333</li>
+                            </ul>
+                        </div>
+                        <div id="d.en.106516">
+                            <h2>Reporting accessibility problems with this website</h2>
+                            <p>We’re always looking to improve the accessibility of this website. If you find any problems that aren’t listed on this page or think we’re not meeting accessibility requirements, contact IT Service Desk:</p>
+                            <ul>
+                                <li>email: <a href="mailto:itservicedesk@st-andrews.ac.uk">itservicedesk@st-andrews.ac.uk</a></li>
+                                <li>phone: +44 (0)1334 46 3333</li>
+                            </ul>
+                        </div>
+                        <div id="d.en.106517">
+                            <h2>Enforcement procedure</h2>
+                            <p>The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ‘accessibility regulations’). If you’re not happy with how we respond to your complaint, contact the <a href="https://www.equalityadvisoryservice.com/">Equality Advisory and Support Service (EASS)</a>.</p>
+                        </div>
+                        <div id="d.en.106518">
+                            <h2>Contacting us by phone or visiting us in person</h2>
+                            <p>We have induction loops in main lecture venues, and we have portable loops that may be set up if requested in advance. We also have a Roger pen to assist visitors who use hearing aids.</p>
+                            <p>We can provide a text relay service for people who are Deaf, deaf, hearing impaired or have a speech impediment who are contacting us by phone.</p>
+                            <p>British Sign Language (BSL) users can contact us via the online BSL Video Relay Interpreting service from <a href="https://contactscotland-bsl.org/">Contact Scotland BSL</a>. We will also endeavour to arrange a BSL interpreter for visiting individuals that need that support, but this should be requested in advance as availability is limited.</p>
+                            <p>Find out how to <a href="https://www.st-andrews.ac.uk/contact/">contact the University</a>. </p>
+                        </div>
+                        <div id="d.en.106519">
+                            <h2>Technical information about this website’s accessibility</h2>
+                            <p>The University of St Andrews is committed to making its website accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.</p>
+                            <h2>Compliance status</h2>
+                            <p>This website is partially compliant with the <a href="https://www.w3.org/TR/WCAG21/">Web Content Accessibility Guidelines (WCAG) version 2.1</a> AA standard due to the non-compliances and exemptions listed below.</p>
+                        </div>
+                        <div id="d.en.106520">
+                            <h2>Non-accessible content</h2>
+                            <h4>Forms and interactive elements</h4>
+                            <p>There are forms and interactive elements such as carousels which do not meet multiple AA success criteria. We are working with the software supplier, Edinburgh University, to fix these issues,  including, but not limited to:</p>
+                            <ul>
+                                <li>Orientation (1.3.4)</li>
+                                <li>Colour contrast (1.4.3)</li>
+                                <li>Resize text (1.4.4)</li>
+                                <li>Reflow (1.4.10)</li>
+                                <li>Non-text contrast (1.4.11)</li>
+                                <li>Text spacing (1.4.12)</li>
+                                <li>Headings and labels (2.4.6)</li>
+                                <li>Focus visible (2.4.7)</li>
+                                <li>Consistent navigation (3.2.3)</li>
+                                <li>Error suggestion (3.3.3)</li>
+                                <li>Grouping (1.3.1)</li>
+                            </ul>
+                            <h4>Contrast Issues</h4>
+                            <p>Some pages contain elements with low contrast between the element and its background. This can cause text to be difficult to read, especially for those with low vision, poor eyesight, or colour blindness (Success criterion 1.4.3 Contrast - minimum).</p>
+                            <p>We are working with the software supplier, Edinburgh University, to fix this issue.</p>
+                            <h4>Issues with focus indicator</h4>
+                            <p>Some elements may not always display effective focus indication when interacting with elements (Success criterion 2.4.7 Focus visible).</p>
+                            <p>We are working with the software supplier, Edinburgh University, to fix this issue.</p>
+                            <h4>Link text used for multiple different destinations</h4>
+                            <p>The same link text is used for links going to different destinations. Users might not know the difference if they are not somehow explained (Success criterion 2.4.4 Link Purpose (In Context)).</p>
+                            <p>We are working with the software supplier, Edinburgh University, to fix this issue. </p>
+                            <h4>Incorrect or missing labels</h4>
+                            <p>There are some label and aria-labelledby tags that are not referencing the correct field. There are also some missing labels. This fails success criterium 1.1.1 Non-text Content.</p>
+                            <p>We are working with the software supplier, Edinburgh University, to fix this issue.</p>
+                            <h4>Input field has no description</h4>
+                            <p>Input fields should always have a description that is explicitly associated with the field to make sure that users of assistive technologies will also know what the field is for. The Research Repository site has multiple IDs with the same value, failing criterium 1.3.1 Info and Relationships.</p>
+                            <p>We are working with the software supplier, Edinburgh University, to fix this issue.</p>
+                            <h4 class="media-content">Metadata language</h4>
+                            <p>The value for the language attribute is not set to a valid language code for use in metadata on a record page.</p>
+                            <p>We are working with the software supplier, Edinburgh University, to fix this issue.</p>
+                        </div>
+                        <div id="d.en.106521">
+                            <h2>What we’re doing to improve accessibility</h2>
+                            <p>We recognise that some content on Research Repository is not fully accessible, but the University is committed to improving this through:</p>
+                            <ul>
+                                <li>Working with the software supplier, Edinburgh University, on ensuring full compliance.</li>
+                            </ul>
+                        </div>
+                        <div id="d.en.106522">
+                            <h2>Preparation of this accessibility statement</h2>
+                            <p>This statement was prepared on Friday 18 September 2020. It was last reviewed on Friday 18 September 2020.</p>
+                            <p>Research Repository is tested on a regular basis, using accessibility tool provided by Siteimprove. This tool tests a sample of web pages and provides a report on accessibility issues. </p>
+                            <p>Issues are prioritised according to the severity of the impact it may cause, the number of people that may be impacted and the time involved in resolving the issue.</p>
+                        </div>
                     </div>
                 </xsl:when>
                 <!-- Otherwise use default handling of body -->

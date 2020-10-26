@@ -25,11 +25,11 @@
 
 .publication-records-modal, .publication-records-modal ul {
   list-style-type: none;
-  padding-left: 0px;
+  padding-left: 0;
 }
 
 .publication-records-import-btn {
-  margin: 5px 0px 15px 0px;
+  margin: 5px 0 15px 0;
 }
 
 .bold {
@@ -70,22 +70,27 @@
 
 body {
   background-color: #fff;
-  color: #444444;
+  /*color: #444444;*/
+  color: #2B2B2B;
   font-family: "PT Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 14px;
   line-height: 1.42857;
 }
 
 a {
-  color: #0088cc;
-  text-decoration: none;
+  /*color: #0088cc;*/
+  color: #007AB8;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #428bca;
 }
 
 a:hover,
-a:focus,
-a:visited {
+a:focus {
   color: #428bca;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* header */
@@ -131,19 +136,56 @@ h1.sta-title {
 }
 
 .sta-header-logos {
-  padding-right: 0px;
+  padding-right: 0;
 }
 
+.sta-header-logos a {
+  margin-top: 16px;
+  margin-right: 37px;
+}
+
+@media (max-width: 768px) and (min-width: 320px){
+  .sta-header-logos a {
+    margin-right: 0;
+  }
+}
+
+.sta-header-logos a img {
+  height: 96px;
+}
+/*
+.image_mobile{
+  display:none;
+}*/
+
+/*@media (max-width: 1024px) and (min-width: 640px) {
+  .image_full img {
+    height: 96px;
+  }
+
+}*/
+/*
+@media (max-width: 640px) and (min-width: 320px){
+  .image_full{
+    display:none;
+  }
+
+  .image_mobile{
+    display:block;
+  }
+}
+*/
+
 sta-header div.container {
-  padding-right: 0px;
+  padding-right: 0;
 }
 
 header .navbar-default {
-  background-color: #0086cf;
+  background-color: #007AB8;
 }
 
 .sta-navbar {
-  background-color: #0088cc;
+  /*background-color: #0088cc;*/
   padding-left: 0;
 }
 
@@ -186,7 +228,7 @@ header ul.sta-lg-dropdown > li > a:focus {
 /* facets */
 
 .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
-  background-color: #0086cf;
+  background-color: #007AB8;
   border-color: #0086cf;
 }
 
@@ -198,7 +240,7 @@ a.list-group-item:visited {
 /* btns */
 
 .btn-primary {
-  background-color: #0086cf;
+  background-color: #007AB8;
   border-color: #0086cf;
   color: #fff;
 }
@@ -308,7 +350,7 @@ div.ds-search-link {
 }
 
 .detailtable {
-    margin-bottom: 0px !important;
+    margin-bottom: 0 !important;
 }
  .pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
     background-color: #005580;
@@ -329,7 +371,7 @@ div.ds-search-link {
 #aspect_submission_Submissions_div_new-submission a {
     -moz-user-select: none;
     background-image: none;
-    border: 1px solid transparent;
+    /*border: 1px solid transparent;*/
     border-radius: 4px;
     cursor: pointer;
     display: inline-block;

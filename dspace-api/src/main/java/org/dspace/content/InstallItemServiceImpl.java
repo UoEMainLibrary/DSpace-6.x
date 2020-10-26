@@ -63,10 +63,18 @@ public class InstallItemServiceImpl implements InstallItemService
     {
         Item item = is.getItem();
         Collection collection = is.getCollection();
+
         try {
             if(suppliedHandle == null)
             {
-                identifierService.register(c, item);
+                //   DOICollection functionality
+                //   Hrafn Malmquist
+                //   25/09/2019
+
+                if(collection != null)
+                    identifierService.register(c, item, collection);
+                else
+                    identifierService.register(c, item);
             }else{
                 identifierService.register(c, item, suppliedHandle);
             }
