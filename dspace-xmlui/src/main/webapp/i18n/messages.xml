@@ -137,6 +137,8 @@
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.sort_by.dateaccessioned">Submit date</message>
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.sort_by.type">Type</message>
 
+	<message key="xmlui.Discovery.AbstractSearch.type_type">Filter by: Type</message>
+
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.order.asc">Ascending</message>
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.order.desc">Descending</message>
 
