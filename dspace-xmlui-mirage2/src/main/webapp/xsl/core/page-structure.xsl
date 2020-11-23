@@ -343,7 +343,7 @@
                         </button>
 
                         <a href="{$context-path}/" class="navbar-brand" title="Back to homepage">
-                            <img src="{$theme-path}images/eResearch.png" alt="QMU logo" />
+                            <img src="{$theme-path}images/eResearch-logo.svg" alt="Queen Margaret University logo" />
                         </a>
 
 
