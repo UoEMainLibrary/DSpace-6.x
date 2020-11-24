@@ -234,7 +234,7 @@ public class EditCollectionMetadataForm extends AbstractDSpaceTransformer
 
 	    CheckBox doiCollection = metadataList.addItem().addCheckBox("doi_collection");
 	    doiCollection.setLabel("Create DOIs for containing items");
-	    doiCollection.addOption(isDOICollection(new Context(), collectionID), "yes");
+	    doiCollection.addOption(isDOICollection(context, collectionID), "yes");
 	    
 		Para buttonList = main.addPara();
 	    buttonList.addButton("submit_save").setValue(T_submit_save);
