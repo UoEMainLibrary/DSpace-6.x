@@ -172,6 +172,10 @@ li.dropdown a:focus,
   top: -15px;*/
    margin-left: 35px;
 }
+
+ #logo img {
+   width: 293px;
+ }
  .header-title {
   padding-top: 2px;
   padding-bottom: 3px;
@@ -244,13 +248,13 @@ a.list-group-item:focus {
  .rsc-footer-content {
   background-color: #6D72AB;
 }
- #copyright-content {
+ .copyright-content {
   padding-left: 15px;
 }
- #copyright-content a {
+ .copyright-content a {
   color: #fff;
 }
- #copyright-content a:hover {
+ .copyright-content a:hover {
   text-decoration: none;
   border-bottom: 1px dotted #bcbcf0;
   color: #bcbcf0;
@@ -283,7 +287,7 @@ a.list-group-item:focus {
   text-decoration: none;
 }
  ul.footer-links-list li a:hover,
-.small-footer-links a:hover {
+.small-footer-links a:hover, address span a:hover {
   text-decoration: underline;
   border-bottom: 1px dotted #6D72AB;
   color: #fff;

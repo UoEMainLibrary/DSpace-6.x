@@ -331,7 +331,7 @@
                 <div class="row">
                     <div class="col-12 header-title">
                         <a title="Research Scotland Home" class="pull-left" href="//research-scotland.ac.uk" id="logo">
-                            <img src="{$theme-path}images/rsc-logo-upper.png" style="width: 293px;"/></a>
+                            <img src="{$theme-path}images/rsc-logo-upper.png" alt="Research Scotland logo" /></a>
                     </div>
                     <!--<div class="col-xs-3 col-sm-2">
                         <a id="logo" href="//research-scotland.ac.uk" class="pull-right" title="Research Scotland Home">
@@ -718,42 +718,40 @@
             <div class="container rsc-footer-content">
                 <div class="row">
                     <div class="col-xs-5 col-sm-5 footer-address">
-                        <div id="copyright-content">
-                            <address itemtype="http://schema.org/CollegeOrUniversity" itemscope="" id="footerOrg">
-                                <strong><xsl:text>&#169;</xsl:text> <span itemprop="name">Research Scotland Consortium</span></strong>,
+                        <div class="copyright-content">
+                            <address itemtype="http://schema.org/CollegeOrUniversity" itemscope="">
+                                <strong><xsl:text>&#169;</xsl:text> <span itemprop="name">Research Scotland Consortium</span></strong><br />
                                 <span itemtype="http://schema.org/PostalAddress" itemscope="" itemprop="address">
-                                    <span itemprop="addressLocality">xxxxxxx</span>,
+                                    <span itemprop="streetAddress">20a Inverleith Row</span><br />
+                                    <span itemprop="postalCode">EH3 5LR</span><br />
+                                    <span itemprop="addressLocality">Edinburgh</span>,
                                     <span itemprop="addressRegion">Scotland</span>,
-                                    <span itemprop="addressCountry">UK</span><xsl:text>&#160;</xsl:text>
-                                    <span itemprop="postalCode">xxxxxxx</span>.<br/>
-                                    <p>
-                                        Maintained by the Research Scotland Consortium<br />
-                                        Tel: <span itemprop="telephone">xxxxxx</span><br />
-                                        Library Email: <a href="mailto:someone@research-scotland.ac.uk" itemprop="email">someone@research-scotland.ac.uk</a><br />
-                                        Other Email: <a href="mailto:someone@research-scotland.ac.uk" itemprop="email">someone@research-scotland.ac.uk</a><br />
-                                    </p>
+                                    <span itemprop="addressCountry">UK</span><br /><br />
+                                    <span>Maintained by the Research Scotland Consortium<br />
+                                        Tel: <span itemprop="telephone">0131 248 2850</span><br />
+                                        Library Email: <a href="mailto:ResearchScotland@rbge.org.uk" itemprop="email">ResearchScotland@rbge.org.uk</a><br />
+                                    </span>
                                 </span>
                             </address>
-                            <p>Scottish registered charity number: xxxxxxx</p>
                         </div>
                     </div>
 
                     <div class="col-xs-7 col-sm-7 hidden-xs footer-links">
                         <ul class="footer-links-list">
-                            <li><a rel="license" href="//research-scotland.ac.uk" target="_blank">Copyright</a></li>
-                            <li><a href="//research-scotland.ac.uk" target="_blank">Accessibility</a></li>
-                            <li><a href="//research-scotland.ac.uk" target="_blank">Policies</a></li>
                             <li><a href="//research-scotland.ac.uk" target="_blank">Privacy &amp; Cookies</a></li>
-                            <li><a href="/feedback">Feedback</a></li>
+                            <li><a href="//research-scotland.ac.uk" target="_blank">Takedown Policy</a></li>
+                            <li><a href="//research-scotland.ac.uk" target="_blank">Accessibility</a></li>
+                            <li><a rel="license" href="//research-scotland.ac.uk" target="_blank">Policies</a></li>
+                            <li><a href="/feedback">Contact</a></li>
                         </ul>
                     </div>
                     <div class="col-xs-7 col-sm-7 visible-xs footer-links">
                         <div class="small-footer-links">
-                            <a rel="license" href="//research-scotland.ac.uk" target="_blank">Copyright</a><br />
+                            <a href="//research-scotland.ac.uk" target="_blank">Privacy &amp;amp; Cookies</a><br />
+                            <a href="//research-scotland.ac.uk" target="_blank">Takedown Policy</a><br />
                             <a href="//research-scotland.ac.uk" target="_blank">Accessibility</a><br />
                             <a href="//research-scotland.ac.uk" target="_blank">Policies</a><br />
-                            <a href="//research-scotland.ac.uk" target="_blank">Privacy &amp; Cookies</a><br />
-                            <a href="/feedback" target="_blank">Feedback</a><br />
+                            <a href="/feedback" target="_blank">Contact</a><br />
                         </div>
                     </div>
                 </div>
