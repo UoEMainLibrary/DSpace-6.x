@@ -2202,7 +2202,20 @@
 	<message key="xmlui.dri2xhtml.METS-1.0.item-preview">Preview</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-title">Title</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-author">Author</message>
+
+	<message key="xmlui.dri2xhtml.METS-1.0.item-orcid">Orcid</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-editor">Editor</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-corporate">Corporate</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-illustrator">Illustrator</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-idother">Identifier</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-publisher">Publisher</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-sizeorduration">Size or duration</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-qualification">Qualification</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-version">Version</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-source">Source</message>
+
 	<message key="xmlui.dri2xhtml.METS-1.0.item-abstract">Abstract</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-comment">Note</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-description">Description</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-doi">DOI</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-uri">Link</message>
@@ -2470,6 +2483,8 @@
 
     <message key="xmlui.mirage2.itemSummaryView.MetaData">Metadata</message>
     <message key="xmlui.mirage2.itemSummaryView.Collections">Collections</message>
+	<message key="xmlui.mirage2.itemSummaryView.Citation">Citation</message>
+	<message key="xmlui.mirage2.itemSummaryView.Comment">Comment</message>
 
     <message key="xmlui.mirage2.discovery.reset">Reset</message>
     <message key="xmlui.mirage2.discovery.newFilter">Add New Filter</message>
