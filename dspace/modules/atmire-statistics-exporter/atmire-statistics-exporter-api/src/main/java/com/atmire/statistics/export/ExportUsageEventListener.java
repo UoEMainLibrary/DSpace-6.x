@@ -51,10 +51,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLEncoder;
+import java.net.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -327,6 +324,7 @@ public class ExportUsageEventListener extends AbstractUsageEventListener {
             // Send data
             URL url = new URL(urlStr);
             conn = url.openConnection();
+            conn.setReadTimeout(5000);
 
             // Get the response
             BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -338,7 +336,11 @@ public class ExportUsageEventListener extends AbstractUsageEventListener {
             } else if (log.isDebugEnabled()) {
                 log.debug("Successfully posted " + urlStr + " on " + new Date());
             }
-        } catch (Exception e) {
+        } catch (SocketTimeoutException ste) {
+            log.error("HTTP connection to IRUS server timed out: " + urlStr);
+            ExportUsageEventListener.logfailed(c, urlStr);
+        }
+        catch (Exception e) {
             log.error("Failed to send url to tracker URL: " + urlStr);
             ExportUsageEventListener.logfailed(c, urlStr);
         }
