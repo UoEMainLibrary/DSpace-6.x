@@ -348,3 +348,80 @@ li a{
 .item-page-field-wrapper h5 {
   font-weight: bold;
 }
+
+.community-homepage {
+  clear: both;
+/*background-color: #0b93d5;*/
+}
+
+.community-container {
+  transition: background-size 0.2s ease;
+  background-size: auto 136px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 136px;
+  width: 300px;
+  float: left;
+}
+
+
+.community-container p {
+max-width: 300px;
+}
+
+/* SASA */
+#partner-577 {
+  background-image: url("https://research-scotland.ac.uk/bitstream/id/8793315c-30b0-44be-9004-46f3caddaab7/?sequence=-1");
+  background-size: auto 91px
+}
+
+#partner-577:hover {
+  background-size: auto 98px
+}
+
+/* BIOSS */
+#partner-574 {
+  background-image: url("https://research-scotland.ac.uk/bitstream/id/0ccc7684-eb6e-44c0-bbd4-3feb93e42888/?sequence=-1")
+}
+#partner-574:hover {
+  background-size: auto 143px;
+}
+
+/* Hutton */
+#partner-575 {
+  background-image: url("https://research-scotland.ac.uk/bitstream/id/9ec623e5-ab9e-4835-9ab7-26eb10afdf5f/?sequence=-1");
+  background-size: auto 102px
+}
+
+#partner-575:hover {
+  background-size: auto 109px
+}
+
+/* Marine */
+#partner-576 {
+  background-image: url("https://research-scotland.ac.uk/bitstream/id/018e1ed2-c3ab-48e7-b790-0300e842d1db/?sequence=-1");
+  background-size: auto 68px
+}
+
+#partner-576:hover {
+  background-size: auto 75px
+}
+
+/* RBGE */
+#partner-1 {
+  background-image: url("https://research-scotland.ac.uk/bitstream/id/d793a850-97ef-4a0a-8a79-a7f5fffd35c2/?sequence=-1");
+  background-size: auto 102px;
+  /*width: 266px;*/
+}
+
+#partner-1:hover {
+  background-size: auto 109px
+}
+
+.clear {
+clear: both;
+}
+
+.pad {
+  padding-top: 30px;
+}
