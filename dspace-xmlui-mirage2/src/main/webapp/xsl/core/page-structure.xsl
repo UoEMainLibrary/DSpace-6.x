@@ -719,38 +719,39 @@
                 <div class="row">
                     <div class="col-xs-5 col-sm-5 footer-address">
                         <div class="copyright-content">
-                            <address itemtype="http://schema.org/CollegeOrUniversity" itemscope="">
+                            <address itemtype="https://schema.org/Organization" itemscope="">
                                 <strong><xsl:text>&#169;</xsl:text> <span itemprop="name">Research Scotland Consortium</span></strong><br />
-                                <span itemtype="http://schema.org/PostalAddress" itemscope="" itemprop="address">
+                                    c/o <span itemtype="http://schema.org/PostalAddress" itemscope="" itemprop="address">
                                     <span itemprop="streetAddress">20a Inverleith Row</span><br />
                                     <span itemprop="postalCode">EH3 5LR</span><br />
                                     <span itemprop="addressLocality">Edinburgh</span>,
                                     <span itemprop="addressRegion">Scotland</span>,
                                     <span itemprop="addressCountry">UK</span><br /><br />
-                                    <span>Maintained by the Research Scotland Consortium<br />
+                                    <span><!--Maintained by the Research Scotland Consortium<br />-->
                                         Tel: <span itemprop="telephone">0131 248 2850</span><br />
-                                        Library Email: <a href="mailto:ResearchScotland@rbge.org.uk" itemprop="email">ResearchScotland@rbge.org.uk</a><br />
+                                        Library Email: <a href="mailto:info@ResearchScotland.ac.uk" itemprop="email">info@ResearchScotland.ac.uk</a><br />
                                     </span>
                                 </span>
                             </address>
+                            Items in Research Scotland are protected by copyright with all rights reserved unless otherwise indicated.
                         </div>
                     </div>
 
                     <div class="col-xs-7 col-sm-7 hidden-xs footer-links">
                         <ul class="footer-links-list">
-                            <li><a href="//research-scotland.ac.uk" target="_blank">Privacy &amp; Cookies</a></li>
-                            <li><a href="//research-scotland.ac.uk" target="_blank">Takedown Policy</a></li>
-                            <li><a href="//research-scotland.ac.uk" target="_blank">Accessibility</a></li>
-                            <li><a rel="license" href="//research-scotland.ac.uk" target="_blank">Policies</a></li>
+                            <li><a href="//research-scotland.ac.uk/privacy" target="_blank">Privacy &amp; Cookies</a></li>
+                            <li><a href="//research-scotland.ac.uk/takedown" target="_blank">Takedown Policy</a></li>
+                            <li><a href="//research-scotland.ac.uk/accessibility" target="_blank">Accessibility</a></li>
+                            <li><a href="//research-scotland.ac.uk/policies" target="_blank" rel="license">Policies</a></li>
                             <li><a href="/feedback">Contact</a></li>
                         </ul>
                     </div>
                     <div class="col-xs-7 col-sm-7 visible-xs footer-links">
                         <div class="small-footer-links">
-                            <a href="//research-scotland.ac.uk" target="_blank">Privacy &amp;amp; Cookies</a><br />
-                            <a href="//research-scotland.ac.uk" target="_blank">Takedown Policy</a><br />
-                            <a href="//research-scotland.ac.uk" target="_blank">Accessibility</a><br />
-                            <a href="//research-scotland.ac.uk" target="_blank">Policies</a><br />
+                            <a href="//research-scotland.ac.uk/privacy" target="_blank">Privacy &amp;amp; Cookies</a><br />
+                            <a href="//research-scotland.ac.uk/takedown" target="_blank">Takedown Policy</a><br />
+                            <a href="//research-scotland.ac.uk/accessibility" target="_blank">Accessibility</a><br />
+                            <a href="//research-scotland.ac.uk/policies" target="_blank">Policies</a><br />
                             <a href="/feedback" target="_blank">Contact</a><br />
                         </div>
                     </div>
