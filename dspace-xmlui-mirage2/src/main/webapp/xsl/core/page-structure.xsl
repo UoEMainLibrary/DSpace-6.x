@@ -280,7 +280,19 @@
             <title>
                 <xsl:choose>
                     <xsl:when test="starts-with($request-uri, 'page/about')">
-                        <i18n:text>xmlui.mirage2.page-structure.aboutThisRepository</i18n:text>
+                        <i18n:text>xmlui.mirage2.static.about.trail</i18n:text>
+                    </xsl:when>
+                    <xsl:when test="starts-with($request-uri, 'page/accessibility')">
+                        <i18n:text>xmlui.mirage2.static.accessibility.trail</i18n:text>
+                    </xsl:when>
+                    <xsl:when test="starts-with($request-uri, 'page/takedown')">
+                        <i18n:text>xmlui.mirage2.static.takedown.trail</i18n:text>
+                    </xsl:when>
+                    <xsl:when test="starts-with($request-uri, 'page/policies')">
+                        <i18n:text>xmlui.mirage2.static.policies.trail</i18n:text>
+                    </xsl:when>
+                    <xsl:when test="starts-with($request-uri, 'page/privacy')">
+                        <i18n:text>xmlui.mirage2.static.privacy.trail</i18n:text>
                     </xsl:when>
                     <xsl:when test="not($page_title)">
                         <xsl:text>  </xsl:text>
@@ -739,19 +751,19 @@
 
                     <div class="col-xs-7 col-sm-7 hidden-xs footer-links">
                         <ul class="footer-links-list">
-                            <li><a href="//research-scotland.ac.uk/privacy" target="_blank">Privacy &amp; Cookies</a></li>
-                            <li><a href="//research-scotland.ac.uk/takedown" target="_blank">Takedown Policy</a></li>
-                            <li><a href="//research-scotland.ac.uk/accessibility" target="_blank">Accessibility</a></li>
-                            <li><a href="//research-scotland.ac.uk/policies" target="_blank" rel="license">Policies</a></li>
+                            <li><a href="/page/privacy" target="_blank">Privacy &amp; Cookies</a></li>
+                            <li><a href="/page/takedown" target="_blank">Takedown Policy</a></li>
+                            <li><a href="/page/accessibility" target="_blank">Accessibility</a></li>
+                            <li><a href="/page/policies" target="_blank" rel="license">Policies</a></li>
                             <li><a href="/feedback">Contact</a></li>
                         </ul>
                     </div>
                     <div class="col-xs-7 col-sm-7 visible-xs footer-links">
                         <div class="small-footer-links">
-                            <a href="//research-scotland.ac.uk/privacy" target="_blank">Privacy &amp;amp; Cookies</a><br />
-                            <a href="//research-scotland.ac.uk/takedown" target="_blank">Takedown Policy</a><br />
-                            <a href="//research-scotland.ac.uk/accessibility" target="_blank">Accessibility</a><br />
-                            <a href="//research-scotland.ac.uk/policies" target="_blank">Policies</a><br />
+                            <a href="/page/privacy" target="_blank">Privacy &amp;amp; Cookies</a><br />
+                            <a href="/page/takedown" target="_blank">Takedown Policy</a><br />
+                            <a href="/page/accessibility" target="_blank">Accessibility</a><br />
+                            <a href="/page/policies" target="_blank">Policies</a><br />
                             <a href="/feedback" target="_blank">Contact</a><br />
                         </div>
                     </div>
@@ -793,10 +805,39 @@
             <xsl:choose>
                 <xsl:when test="starts-with($request-uri, 'page/about')">
                     <div class="hero-unit">
-                        <h1><i18n:text>xmlui.mirage2.page-structure.heroUnit.title</i18n:text></h1>
-                        <p><i18n:text>xmlui.mirage2.page-structure.heroUnit.content</i18n:text></p>
+                        <h1><i18n:text>xmlui.mirage2.static.about.title</i18n:text></h1>
+                        <p><i18n:text>xmlui.mirage2.static.about.content</i18n:text></p>
                     </div>
                 </xsl:when>
+
+                <xsl:when test="starts-with($request-uri, 'page/accessibility')">
+                    <div class="hero-unit">
+                        <h1><i18n:text>xmlui.mirage2.static.accessibility.title</i18n:text></h1>
+                        <p><i18n:text>xmlui.mirage2.static.accessibility.content</i18n:text></p>
+                    </div>
+                </xsl:when>
+
+                <xsl:when test="starts-with($request-uri, 'page/takedown')">
+                    <div class="hero-unit">
+                        <h1><i18n:text>xmlui.mirage2.static.takedown.title</i18n:text></h1>
+                        <p><i18n:text>xmlui.mirage2.static.takedown.content</i18n:text></p>
+                    </div>
+                </xsl:when>
+
+                <xsl:when test="starts-with($request-uri, 'page/privacy')">
+                    <div class="hero-unit">
+                        <h1><i18n:text>xmlui.mirage2.static.privacy.title</i18n:text></h1>
+                        <p><i18n:text>xmlui.mirage2.static.privacy.content</i18n:text></p>
+                    </div>
+                </xsl:when>
+
+                <xsl:when test="starts-with($request-uri, 'page/policies')">
+                    <div class="hero-unit">
+                        <h1><i18n:text>xmlui.mirage2.static.policies.title</i18n:text></h1>
+                        <p><i18n:text>xmlui.mirage2.static.policies.content</i18n:text></p>
+                    </div>
+                </xsl:when>
+
                 <!-- Otherwise use default handling of body -->
                 <xsl:otherwise>
                     <xsl:apply-templates />

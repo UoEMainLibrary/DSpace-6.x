@@ -2506,11 +2506,78 @@
     <message key="xmlui.mirage2.forms.nonCompositeFieldSet.add">Add</message>
     <message key="xmlui.mirage2.forms.nonCompositeFieldSet.remove">Remove</message>
 
-    <message key="xmlui.mirage2.page-structure.aboutThisRepository">About This Repository</message>
-    <message key="xmlui.mirage2.page-structure.toggleNavigation">Toggle navigation</message>
 
-    <message key="xmlui.mirage2.page-structure.heroUnit.title">About This Repository</message>
-    <message key="xmlui.mirage2.page-structure.heroUnit.content">To add your own content to this page, edit webapps/xmlui/themes/Mirage2/lib/xsl/core/page-structure.xsl and add your own content to the title, trail, and body. If you wish to add additional pages, you will need to create an additional xsl:when block and match the request-uri to whatever page you are adding. Currently, static pages created through altering XSL are only available under the URI prefix of page/.</message>
+    <message key="xmlui.mirage2.static.toggleNavigation">Toggle navigation</message>
+
+	<message key="xmlui.mirage2.static.about.trail">About Research Scotland</message>
+	<message key="xmlui.mirage2.static.about.title">About Research Scotland</message>
+    <message key="xmlui.mirage2.static.about.content">To add your own content to this page, edit webapps/xmlui/themes/Mirage2/lib/xsl/core/static.xsl and add your own content to the title, trail, and body. If you wish to add additional pages, you will need to create an additional xsl:when block and match the request-uri to whatever page you are adding. Currently, static pages created through altering XSL are only available under the URI prefix of page/.</message>
+
+	<message key="xmlui.mirage2.static.accessibility.trail">Accessibility</message>
+	<message key="xmlui.mirage2.static.accessibility.title">Accessibility</message>
+	<message key="xmlui.mirage2.static.accessibility.content"><p>This is the website accessibility statement for the Research Scotland repository in line with Public Sector Body (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.</p>
+
+		<p>The repository is run by the partners and is hosted on the SCURL Shared Service at the University of Edinburgh.</p>
+
+		<p>We want as many people as possible to be able to use this website. For example, that means you should be able to:</p>
+
+		<ol>
+		<li>change most of the colours, contrast levels and fonts</li>
+		<li>navigate most of the website using just a keyboard</li>
+		<li>navigate most of the website using speech recognition software</li>
+		<li>listen to most of the website using a screen reader (including the most recent versions of JAWS, NVDA and VoiceOver)</li>
+		<li>ensure no information is conveyed by colour or sound only</li>
+		</ol>
+		We’ve also made the website text as simple as possible to understand.</message>
+
+	<message key="xmlui.mirage2.static.takedown.trail">Takedown Policy</message>
+	<message key="xmlui.mirage2.static.takedown.title">Notice and Takedown Policy</message>
+	<message key="xmlui.mirage2.static.takedown.content">Every effort has been made to ensure that the content in Research Scotland does not infringe any person's rights or applicable UK laws. Should you discover content that you believe to be illegal or that infringes any of your statutory rights you may contact the repository administrator who will review the complaint.
+
+		<p>Contact Address</p>
+
+		<p>Research Scotland</p>
+
+		<p>c/o Royal Botanic Garden Edinburgh</p>
+
+		<p>20a Inverleith Row, Edinburgh EH3 5LR</p>
+
+		<p>Email: <a href="mailto:info@ResearchScotland.ac.uk">info@ResearchScotland.ac.uk</a></p>
+
+		<p>Please contact the administrator in writing including the following:</p>
+
+
+		<ol>
+		<li>Your contact details.</li>
+		<li>The full details of the material (author, title, etc) that is the subject of the complaint.</li>
+		<li>The exact and full URL (web address) where you found the material.</li>
+		<li>If the request relates to copyright provide proof that you are the rights holder and a statement that you are the rights holder or are an authorised representative.</li>
+		<li>The reason for your request, including but not limited to, copyright law, privacy laws, data protection, obscenity, defamation etc.</li>
+		</ol>
+
+		<p>On receipt of your complaint, the administrator will log a central record and cease access to the item that is subject to complaint.</p>
+
+		<p>The complaint will then be forwarded to a representative of the appropriate Research Scotland partner who will:</p>
+
+		<ol>
+			<li>Acknowledge receipt of the complaint by e-mail</li>
+			<li>Make an initial assessment of the validity of the complaint including verifying your identity and authority as complainant</li>
+			<li>Where appropriate, refer the complaint to a legal advisor for comment and advice</li>
+		</ol>
+
+		<p>When the partner has verified the authenticity of your complaint and has been advised that it is ostensibly legitimate, the file will be removed from public access, leaving behind the bibliographic record describing the record.</p>
+
+		<p>If the partner confirms that the item in question does not breach any law then it will be reinstated.</p>
+
+		<p>You will receive a notification of the outcome of your complaint no later than 21 working days from the day of receipt by the Research Scotland administrator.</p></message>
+
+	<message key="xmlui.mirage2.static.policies.trail">Policies</message>
+	<message key="xmlui.mirage2.static.policies.title">Policies</message>
+	<message key="xmlui.mirage2.static.policies.content">Lorum ipsum dolor</message>
+
+	<message key="xmlui.mirage2.static.privacy.trail">Privacy</message>
+	<message key="xmlui.mirage2.static.privacy.title">Privacy &amp; Cookies</message>
+	<message key="xmlui.mirage2.static.privacy.content">The Research Scotland partners are committed to preserving your privacy. The information on this page will help you understand how we use and protect your information obtained from using the Research Scotland site.</message>
 
     <message key="xmlui.mirage2.navigation.rss.feed">feed</message>
 
