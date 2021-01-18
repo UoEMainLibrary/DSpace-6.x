@@ -733,7 +733,7 @@
                         <div class="copyright-content">
                             <address itemtype="https://schema.org/Organization" itemscope="">
                                 <strong><xsl:text>&#169;</xsl:text> <span itemprop="name">Research Scotland Consortium</span></strong><br />
-                                    c/o <span itemtype="http://schema.org/PostalAddress" itemscope="" itemprop="address">
+                                    c/o RGBE <span itemtype="http://schema.org/PostalAddress" itemscope="" itemprop="address">
                                     <span itemprop="streetAddress">20a Inverleith Row</span><br />
                                     <span itemprop="postalCode">EH3 5LR</span><br />
                                     <span itemprop="addressLocality">Edinburgh</span>,
@@ -741,7 +741,7 @@
                                     <span itemprop="addressCountry">UK</span><br /><br />
                                     <span><!--Maintained by the Research Scotland Consortium<br />-->
                                         Tel: <span itemprop="telephone">0131 248 2850</span><br />
-                                        Library Email: <a href="mailto:info@ResearchScotland.ac.uk" itemprop="email">info@ResearchScotland.ac.uk</a><br />
+                                        Email: <a href="mailto:info@ResearchScotland.ac.uk" itemprop="email">info@ResearchScotland.ac.uk</a><br />
                                     </span>
                                 </span>
                             </address>
