@@ -66,15 +66,18 @@ i.collapse{
 .community-browser-row {
     padding-top: 5px;
     padding-bottom: 5px;
+    clear: both;
     a[name='community-browser-link'] {
         line-height: 30px;
         font-size: $font-size-h4;
-//        font-weight: $headings-font-weight;
+        margin-top: 35px;
+        //        font-weight: $headings-font-weight;
     }
     p {
         color: $gray-light;
         &.toggler-wrap{
             margin-bottom: 0;
+            margin-top: 35px;
         }
     }
 

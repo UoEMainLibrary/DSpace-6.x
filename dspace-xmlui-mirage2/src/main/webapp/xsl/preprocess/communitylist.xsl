@@ -48,29 +48,29 @@
             </xsl:call-template>
         </xsl:variable>
 
-            <xsl:variable name="externalMetadataURL">
-                <xsl:text>cocoon://</xsl:text>
-                <xsl:value-of select="@url"/>
-                <xsl:text>?sections=dmdSec</xsl:text>
-            </xsl:variable>
-            <xsl:variable name="depth" select="count(ancestor::dri:referenceSet)"/>
-            <xsl:variable name="nephews" select="count(following-sibling::dri:reference/dri:referenceSet) + count(preceding-sibling::dri:reference/dri:referenceSet)"/>
-            <xsl:variable name="second_cousins" select="count(parent::dri:referenceSet/following-sibling::dri:referenceSet/dri:reference/dri:referenceSet) + count(parent::dri:referenceSet/preceding-sibling::dri:referenceSet/dri:reference/dri:referenceSet)"/>
-            <xsl:variable name="needs_one_less_indent"
-                          select="$depth > 0 and $nephews = 0 and $second_cousins = 0 and not(dri:referenceSet)"/>
-            <xsl:variable name="left-width">
-                <xsl:choose>
-                    <xsl:when test="$depth = 1 and $needs_one_less_indent">
-                        <xsl:value-of select="$depth - 1"/>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:value-of select="$depth"/>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:variable>
+        <xsl:variable name="externalMetadataURL">
+            <xsl:text>cocoon://</xsl:text>
+            <xsl:value-of select="@url"/>
+            <xsl:text>?sections=dmdSec</xsl:text>
+        </xsl:variable>
+        <xsl:variable name="depth" select="count(ancestor::dri:referenceSet)"/>
+        <xsl:variable name="nephews" select="count(following-sibling::dri:reference/dri:referenceSet) + count(preceding-sibling::dri:reference/dri:referenceSet)"/>
+        <xsl:variable name="second_cousins" select="count(parent::dri:referenceSet/following-sibling::dri:referenceSet/dri:reference/dri:referenceSet) + count(parent::dri:referenceSet/preceding-sibling::dri:referenceSet/dri:reference/dri:referenceSet)"/>
+        <xsl:variable name="needs_one_less_indent"
+                      select="$depth > 0 and $nephews = 0 and $second_cousins = 0 and not(dri:referenceSet)"/>
+        <xsl:variable name="left-width">
             <xsl:choose>
-                <xsl:when test="node()">
-                    <div>
+                <xsl:when test="$depth = 1 and $needs_one_less_indent">
+                    <xsl:value-of select="$depth - 1"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="$depth"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <xsl:choose>
+            <xsl:when test="node()">
+                <div>
                     <xsl:attribute name="rend">
                         <xsl:text>row community-browser-row</xsl:text>
                         <xsl:if test="ancestor::dri:referenceSet[1][@id='aspect.artifactbrowser.CommunityBrowser.referenceSet.community-browser'] and position() mod 2 = 0">
@@ -90,34 +90,34 @@
                     <div rend="col-xs-10 col-sm-{12 - $left-width}">
                         <xsl:apply-templates select="document($externalMetadataURL)" mode="community-browser"/>
                     </div>
-                    </div>
+                </div>
 
+            </xsl:when>
+            <xsl:otherwise>
+                <div rend="col-xs-10 col-sm-{12 - $left-width} col-xs-offset-2 col-sm-offset-{$left-width}">
+
+                    <xsl:attribute name="rend">
+                        <xsl:text>col-xs-10 col-sm-</xsl:text><xsl:value-of select="12 - $left-width"/>
+                        <xsl:text> col-sm-offset-</xsl:text><xsl:value-of select="$left-width"/>
+                        <xsl:choose>
+                            <xsl:when test="$depth = 1 and $needs_one_less_indent">
+                                <xsl:text> list-mode</xsl:text>
+                            </xsl:when>
+                <xsl:when test="$depth > 1 and $needs_one_less_indent">
+                <xsl:text> col-xs-offset-2  half-indented</xsl:text>
                 </xsl:when>
                 <xsl:otherwise>
-                    <!--<div rend="col-xs-10 col-sm-{12 - $left-width} col-xs-offset-2 col-sm-offset-{$left-width}">
-
-                        <xsl:attribute name="rend">
-                            <xsl:text>col-xs-10 col-sm-</xsl:text><xsl:value-of select="12 - $left-width"/>
-                            <xsl:text> col-sm-offset-</xsl:text><xsl:value-of select="$left-width"/>
-                            <xsl:choose>
-                                <xsl:when test="$depth = 1 and $needs_one_less_indent">
-                                    <xsl:text> list-mode</xsl:text>
-                                </xsl:when>-->
-                                <!--<xsl:when test="$depth > 1 and $needs_one_less_indent">-->
-                                    <!--<xsl:text> col-xs-offset-2  half-indented</xsl:text>-->
-                                <!--</xsl:when>-->
-                                <!--<xsl:otherwise>
-                                    <xsl:text> col-xs-offset-2</xsl:text>
-                                </xsl:otherwise>
-                            </xsl:choose>
-
-                        </xsl:attribute>-->
-                    <div rend="community-homepage">
-                        <xsl:apply-templates select="document($externalMetadataURL)" mode="community-browser"/>
-                    </div>
-
+                    <xsl:text> col-xs-offset-2</xsl:text>
                 </xsl:otherwise>
             </xsl:choose>
+
+            </xsl:attribute>
+                <!--<div rend="community-homepage">-->
+                    <xsl:apply-templates select="document($externalMetadataURL)" mode="community-browser"/>
+                </div>
+
+            </xsl:otherwise>
+        </xsl:choose>
         <xsl:if test="dri:referenceSet/dri:reference">
             <div id="collapse-{$handle}" rend="sub-tree-wrapper hidden">
                 <xsl:apply-templates select="dri:referenceSet[dri:reference[@type = 'DSpace Community']]/dri:reference" mode="community-browser"/>
@@ -128,46 +128,61 @@
 
     <xsl:template match="mets:METS" mode="community-browser">
         <xsl:variable name="dim" select="mets:dmdSec/mets:mdWrap/mets:xmlData/dim:dim"/>
+        <xsl:variable name="handle_first_part" select="string-length('/handle/20.500.12594/') + 1"/>
+        <xsl:variable name="handle_id" select="substring(@OBJID, $handle_first_part)"/>
+
         <xref target="{@OBJID}">
             <!--<xsl:attribute name="id">
                 <xsl:value-of select="concat('link-', substring(@OBJID, 25))"/>
             </xsl:attribute>-->
 
-            <div>
-                <xsl:attribute name="rend">
-                    <xsl:text>community-container</xsl:text>
-                </xsl:attribute>
-                <xsl:attribute name="id">
-                    <xsl:value-of select="concat('partner-', substring(@OBJID, 22))"/>
-                </xsl:attribute>
+            <xsl:choose>
+                <xsl:when test="$handle_id = '574' or $handle_id = '575' or $handle_id = '576' or $handle_id = '577' or $handle_id = '1'">
+                    <div>
+                        <xsl:attribute name="rend">
+                            <xsl:text>community-container</xsl:text>
+                        </xsl:attribute>
+                        <xsl:attribute name="id">
+                            <xsl:value-of select="concat('partner-', $handle_id)"/>
+                        </xsl:attribute>
 
-            <!--Display community strengths (item counts) if they exist-->
-            <!--<xsl:if test="string-length($dim/dim:field[@element='format'][@qualifier='extent'][1]) &gt; 0">
-                <span>
-                    <xsl:text> [</xsl:text>
-                    <xsl:value-of
-                        select="$dim/dim:field[@element='format'][@qualifier='extent'][1]"/>
-                    <xsl:text>]</xsl:text>
-                </span>
-            </xsl:if>
-                <xsl:if test="string-length($description/text()) > 0">
-                    <p rend="hidden-xs">
-                    <xsl:attribute name="title">
-                        <xsl:value-of select="$description"/>
-                    </xsl:attribute>
-                    </p>
-                </xsl:if>-->
-            </div>
+                        <!--Display community strengths (item counts) if they exist-->
+                        <!--<xsl:if test="string-length($dim/dim:field[@element='format'][@qualifier='extent'][1]) &gt; 0">
+                            <span>
+                                <xsl:text> [</xsl:text>
+                                <xsl:value-of
+                                    select="$dim/dim:field[@element='format'][@qualifier='extent'][1]"/>
+                                <xsl:text>]</xsl:text>
+                            </span>
+                        </xsl:if>
+                            <xsl:if  <xref target="{@OBJID}" n="community-browser-link">
+                        <xsl:value-of select="$dim/dim:field[@element='title']"/>
+                    </xref>test="string-length($description/text()) > 0">
+                                <p rend="hidden-xs">
+                                <xsl:attribute name="title">
+                                    <xsl:value-of select="$description"/>
+                                </xsl:attribute>
+                                </p>
+                            </xsl:if>-->
+                    </div>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:attribute name="n">community-browser-link</xsl:attribute>
+                    <xsl:value-of select="$dim/dim:field[@element='title']"/>
+                </xsl:otherwise>
 
-        <xsl:variable name="description" select="$dim/dim:field[@element='description'][@qualifier='abstract']"/>
-        <xsl:if test="string-length($description/text()) > 0">
-            <p rend="hidden-xs pad">
-                <xsl:value-of select="$description"/>
-            </p>
-        </xsl:if> </xref>
+            </xsl:choose>
+
+
+            <xsl:variable name="description" select="$dim/dim:field[@element='description'][@qualifier='abstract']"/>
+            <xsl:if test="string-length($description/text()) > 0">
+                <p rend="hidden-xs pad">
+                    <xsl:value-of select="$description"/>
+                </p>
+            </xsl:if> </xref>
 
     </xsl:template>
-    
+
     <xsl:template name="get-handle-class-from-url">
         <xsl:param name="url"/>
         <xsl:variable name="handle_pre">
