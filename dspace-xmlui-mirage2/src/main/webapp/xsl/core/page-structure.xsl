@@ -755,7 +755,7 @@
                             <li><a href="/page/takedown" target="_blank">Takedown Policy</a></li>
                             <li><a href="/page/accessibility" target="_blank">Accessibility</a></li>
                             <li><a href="/page/policies" target="_blank" rel="license">Policies</a></li>
-                            <li><a href="/feedback">Contact</a></li>
+                            <li><a href="mailto:info@ResearchScotland.ac.uk">Contact</a></li>
                         </ul>
                     </div>
                     <div class="col-xs-7 col-sm-7 visible-xs footer-links">
@@ -764,7 +764,7 @@
                             <a href="/page/takedown" target="_blank">Takedown Policy</a><br />
                             <a href="/page/accessibility" target="_blank">Accessibility</a><br />
                             <a href="/page/policies" target="_blank">Policies</a><br />
-                            <a href="/feedback" target="_blank">Contact</a><br />
+                            <a href="mailto:info@ResearchScotland.ac.uk" target="_blank">Contact</a><br />
                         </div>
                     </div>
                 </div>
