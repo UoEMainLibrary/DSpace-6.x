@@ -22,12 +22,16 @@ import org.dspace.handle.service.HandleService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.mail.MessagingException;
+import javax.swing.text.Style;
+
 import java.io.*;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
+
+import java.util.Collections;
 
 /**
  * Item exporter to create simple AIPs for DSpace content. Currently exports
@@ -69,11 +73,13 @@ public class ItemExportServiceImpl implements ItemExportService
     /** log4j logger */
     private Logger log = Logger.getLogger(ItemExportServiceImpl.class);
 
+    private String porticoFileName;
+    private boolean porticoFile =  false;
+
     protected ItemExportServiceImpl()
     {
 
     }
-
 
     @Override
     public void exportItem(Context c, Iterator<Item> i,
@@ -112,8 +118,9 @@ public class ItemExportServiceImpl implements ItemExportService
                 }
             }
 
-            System.out.println("Exporting item to " + mySequenceNumber);
+            System.out.println(" to " + mySequenceNumber);
             Item item = i.next();
+            
             exportItem(c, item, fullPath, mySequenceNumber, migrate, excludeBitstreams);
             c.uncacheEntity(item);
             mySequenceNumber++;
@@ -123,11 +130,12 @@ public class ItemExportServiceImpl implements ItemExportService
     protected void exportItem(Context c, Item myItem, String destDirName,
             int seqStart, boolean migrate, boolean excludeBitstreams) throws Exception
     {
+
         File destDir = new File(destDirName);
 
         if (destDir.exists())
         {
-            // now create a subdirectory
+
             File itemDir = new File(destDir + "/" + seqStart);
             
             System.out.println("Exporting Item " + myItem.getID() +
@@ -201,6 +209,7 @@ public class ItemExportServiceImpl implements ItemExportService
     protected void writeMetadata(Context c, String schema, Item i,
             File destDir, boolean migrate) throws Exception
     {
+
         String filename;
         if (schema.equals(MetadataSchema.DC_SCHEMA))
         {
@@ -330,7 +339,7 @@ public class ItemExportServiceImpl implements ItemExportService
         String filename = "handle";
 
         File outFile = new File(destDir, filename);
-
+        
         if (outFile.createNewFile())
         {
             PrintWriter out = new PrintWriter(new FileWriter(outFile));
@@ -459,11 +468,12 @@ public class ItemExportServiceImpl implements ItemExportService
 
     @Override
     public void exportAsZip(Context context, Iterator<Item> items,
-                                   String destDirName, String zipFileName,
-                                   int seqStart, boolean migrate,
-                                   boolean excludeBitstreams) throws Exception
-                                   
+                            String destDirName, String zipFileName,
+                            int seqStart, boolean migrate,
+                            boolean excludeBitstreams) throws Exception
+                            
     {
+
         String workDir = getExportWorkDirectory() +
                          System.getProperty("file.separator") +
                          zipFileName;
@@ -521,6 +531,20 @@ public class ItemExportServiceImpl implements ItemExportService
             Context context, String additionalEmail, boolean migrate) throws Exception
     {
         processDownloadableExport(dsObjects, context, additionalEmail, migrate);
+    }
+
+    @Override
+    public void createDownloadablePorticoExport(DSpaceObject dso,
+            Context context, boolean migrate, String flag) throws Exception
+    {
+
+        if (flag != null){
+            porticoFile = true;
+        }
+        EPerson eperson = context.getCurrentUser();
+        ArrayList<DSpaceObject> list = new ArrayList<DSpaceObject>(1);
+        list.add(dso);
+        processDownloadableExport(list, context, eperson == null ? null : eperson.getEmail(), migrate);
     }
 
     /**
@@ -632,6 +656,7 @@ public class ItemExportServiceImpl implements ItemExportService
             else if (dso.getType() == Constants.ITEM)
             {
                 Item item = (Item) dso;
+                exportForPortico(item);
                 // get all the bundles in the item
                 List<Bundle> bundles = item.getBundles();
                 for (Bundle bundle : bundles)
@@ -694,8 +719,8 @@ public class ItemExportServiceImpl implements ItemExportService
                         // ignore auths
                         context.turnOffAuthorisationSystem();
 
-                        String fileName = assembleFileName("item", eperson,
-                                new Date());
+                        String fileName = assembleFileName("item", eperson, new Date());
+
                         String workParentDir = getExportWorkDirectory()
                                 + System.getProperty("file.separator")
                                 + fileName;
@@ -731,6 +756,10 @@ public class ItemExportServiceImpl implements ItemExportService
                             // export the items using normal export method
                             exportItem(context, iitems, workDir, 1, migrate, false);
                         }
+
+                        System.out.println("Parent Directory: " + workParentDir);
+                        System.out.println("Download Directory: " + downloadDir);
+                        System.out.println("File Name: " + fileName);
 
                         // now zip up the export directory created above
                         zip(workParentDir, downloadDir
@@ -790,8 +819,17 @@ public class ItemExportServiceImpl implements ItemExportService
         String fileName = null;
         while (exists)
         {
-            fileName = type + "_export_" + sdf.format(date) + "_" + count + "_"
-                    + eperson.getID();
+
+            if (porticoFile)
+            {
+                fileName = type + "_export_" + sdf.format(date) + "_" + porticoFileName;
+                porticoFile = false;
+            }
+            else
+            {
+                fileName = type + "_export_" + sdf.format(date) + "_" + count + "_" + eperson.getID();
+            }
+
             exists = new File(downloadDir
                     + System.getProperty("file.separator") + fileName + ".zip")
                     .exists();
@@ -1087,6 +1125,7 @@ public class ItemExportServiceImpl implements ItemExportService
             File targetFile = new File(tempFileName);
             if (!targetFile.createNewFile())
             {
+                System.out.println(targetFile.getName());
                 log.warn("Target file already exists: " + targetFile.getName());
             }
 
@@ -1199,6 +1238,50 @@ public class ItemExportServiceImpl implements ItemExportService
         }
 
         return (path.delete());
+    }
+
+    private String changeZipName(String s){
+        return "THIS_IS_A_ZIPFILE.zip";
+    }
+
+    // Returns String representing author String for file name formatting
+    private void exportForPortico(Item item){
+        // create list containing author metadata
+        List <MetadataValue> authMetaList = item.getAuthors();
+        // system confirmation
+        if (authMetaList != null)
+        {
+            System.out.println("Author list loaded");
+        }
+        // 
+        if (authMetaList.size() > 1) 
+        {
+            // ArrayList for sorting author names
+            ArrayList<String> authList = new ArrayList<String>();
+            // add author names to ArrayList
+            for (MetadataValue author : authMetaList) 
+            {
+                String authFullName = author.getValue();
+                int split = authFullName.indexOf(",");
+                String authSurname = authFullName.substring(0, split);
+                authList.add(authSurname);
+            }
+            // sort ArrayList
+            Collections.sort(authList);
+            // format String
+            String authSurname = authList.get(0);
+            //String tmp2 = tmp.replace(",", "");
+            porticoFileName = authSurname + "_et_al_EITN_Remote_Consultation_Between_VOR";
+        }
+        else 
+        {
+            // format String
+            String authFullName = item.getAuthor();
+            int split = authFullName.indexOf(",");
+            String authSurname = authFullName.substring(0, split);
+            //String tmp2 = tmp.replace(",", "");
+            porticoFileName = authSurname + "_EITN_Remote_Consultation_Between_VOR";
+        }
     }
 
 }
