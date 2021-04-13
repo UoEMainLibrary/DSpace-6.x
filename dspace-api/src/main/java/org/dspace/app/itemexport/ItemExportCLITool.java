@@ -63,9 +63,11 @@ public class ItemExportCLITool {
 
         options.addOption("t", "type", true, "type: COLLECTION or ITEM");
         options.addOption("i", "id", true, "ID or handle of thing to export");
-        options.addOption("d", "dest", true, "destination where you want items to go");
+        options.addOption("d", "dest", true,
+                "destination where you want items to go");
         options.addOption("m", "migrate", false, "export for migration (remove handle and metadata that will be re-created in new system)");
-        options.addOption("n", "number", true, "sequence number to begin exporting items with");
+        options.addOption("n", "number", true,
+                "sequence number to begin exporting items with");
         options.addOption("z", "zip", true, "export as zip file (specify filename e.g. export.zip)");
         options.addOption("h", "help", false, "help");
 
@@ -132,14 +134,12 @@ public class ItemExportCLITool {
         }
 
         boolean zip = false;
-        String zipFileNameTest = "";
+        String zipFileName = "";
         if (line.hasOption('z'))
         {
             zip = true;
-            //zipFileName = line.getOptionValue('z');
-            System.out.println(line.getOptionValue('z'));
-            zipFileNameTest = "ZIP_FILE_NAME.zip";
-            }
+            zipFileName = line.getOptionValue('z');
+        }
 
         boolean excludeBitstreams = false;
         if (line.hasOption('x'))
@@ -244,7 +244,7 @@ public class ItemExportCLITool {
                 System.out.println("Exporting from collection: " + myIDString);
                 items = itemService.findByCollection(c, mycollection);
             }
-            itemExportService.exportAsZip(c, items, destDirName, zipFileNameTest, seqStart, migrate, excludeBitstreams);
+            itemExportService.exportAsZip(c, items, destDirName, zipFileName, seqStart, migrate, excludeBitstreams);
         }
         else
         {
