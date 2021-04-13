@@ -89,6 +89,7 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
     private static final Message T_statistics            	        = message("xmlui.administrative.Navigation.statistics");
 
     private static final Message T_context_export_item 				= message("xmlui.administrative.Navigation.context_export_item");
+    private static final Message T_context_export_portico 			= message("xmlui.administrative.Navigation.context_export_portico");
     private static final Message T_context_export_collection 		= message("xmlui.administrative.Navigation.context_export_collection");
     private static final Message T_context_export_community 		= message("xmlui.administrative.Navigation.context_export_community");
     private static final Message T_account_export			 		= message("xmlui.administrative.Navigation.account_export");
@@ -104,12 +105,12 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
     protected AuthorizeService authorizeService = AuthorizeServiceFactory.getInstance().getAuthorizeService();
     
     protected CommunityService communityService = ContentServiceFactory.getInstance().getCommunityService();
-   	protected CollectionService collectionService = ContentServiceFactory.getInstance().getCollectionService();
+    protected CollectionService collectionService = ContentServiceFactory.getInstance().getCollectionService();
     protected ItemService itemService = ContentServiceFactory.getInstance().getItemService();
     protected GroupService groupService = EPersonServiceFactory.getInstance().getGroupService();
     protected ItemExportService itemExportService = ItemExportServiceFactory.getInstance().getItemExportService();
 
-	 /**
+	/**
      * Generate the unique cache key.
      *
      * @return The generated key hashes the src
@@ -214,7 +215,7 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
     	 */
         options.addList("browse");
         List account = options.addList("account");
-        List context = options.addList("context");
+        List context = options.addList("    ");
         List admin = options.addList("administrative");
         account.setHead(T_my_account);	        
         
@@ -238,6 +239,7 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
                     if (authorizeService.isAdmin(this.context, dso))
                     {
                         context.addItem().addXref(contextPath+"/admin/export?itemID="+item.getID(), T_context_export_item );
+                        context.addItem().addXref(contextPath+"/admin/export?itemID="+item.getID()+"&porticoFlag=true", T_context_export_portico );
                         context.addItem().addXref(contextPath+ "/csv/handle/"+dso.getHandle(),T_context_export_metadata );
                     }
                 }
