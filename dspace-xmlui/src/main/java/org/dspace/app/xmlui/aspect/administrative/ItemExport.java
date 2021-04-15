@@ -111,7 +111,11 @@ public class ItemExport extends AbstractDSpaceTransformer implements
 		this.request = ObjectModelHelper.getRequest(objectModel);
 		this.response = ObjectModelHelper.getResponse(objectModel);
 
+		String portico = request.getParameter("porticoFlag");
+
 		errors = new ArrayList<Message>();
+		//System.out.println("Portico Export: " + portico);
+
 		if (request.getParameter("itemID") != null) {
 			Item item = null;
 			try {
@@ -124,11 +128,20 @@ public class ItemExport extends AbstractDSpaceTransformer implements
 			if (item == null) {
 				errors.add(T_export_item_not_found);
 			} else {
-				try {
-					itemExportService
-							.createDownloadableExport(item, context, false);
-				} catch (Exception e) {
-					errors.add(message(e.getMessage()));
+				if (portico != null) {
+					System.out.println("Exporting for Portico");
+					try {
+						itemExportService.createDownloadablePorticoExport(item, context, false, portico);
+					} catch (Exception e) {
+						errors.add(message(e.getMessage()));
+					}
+				}
+				else {
+					try {
+						itemExportService.createDownloadableExport(item, context, false);
+					} catch (Exception e) {
+						errors.add(message(e.getMessage()));
+					}
 				}
 			}
 			if (errors.size() <= 0)
@@ -216,6 +229,7 @@ public class ItemExport extends AbstractDSpaceTransformer implements
 			if (availableExports != null && availableExports.size() > 0) {
 				for (String fileName : availableExports) {
 					key.append(":").append(fileName);
+					System.out.println(fileName);
 				}
 			}
 
