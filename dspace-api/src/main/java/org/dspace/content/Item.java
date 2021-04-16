@@ -370,6 +370,18 @@ public class Item extends DSpaceObject implements DSpaceObjectLegacySupport
         return getItemService().getMetadataFirstValue(this, MetadataSchema.DC_SCHEMA, "title", null, Item.ANY);
     }
 
+    // added for portico exports
+    public String getAuthor()
+    {
+        return getItemService().getMetadataFirstValue(this, MetadataSchema.DC_SCHEMA, "contributor", "author", Item.ANY);
+    }
+
+    public List<MetadataValue> getAuthors()
+    {
+        return getItemService().getMetadata(this, MetadataSchema.DC_SCHEMA, Item.ANY, "author", Item.ANY, Item.ANY);
+    }
+    // added for portico exports
+
     @Override
     public Integer getLegacyId() {
         return legacyId;

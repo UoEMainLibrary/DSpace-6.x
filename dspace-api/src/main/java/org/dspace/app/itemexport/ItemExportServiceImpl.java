@@ -69,6 +69,10 @@ public class ItemExportServiceImpl implements ItemExportService
     /** log4j logger */
     private Logger log = Logger.getLogger(ItemExportServiceImpl.class);
 
+    // Variables for portico export functionality
+    private String porticoFileName;
+    private boolean porticoFile =  false;
+
     protected ItemExportServiceImpl()
     {
 
@@ -523,6 +527,22 @@ public class ItemExportServiceImpl implements ItemExportService
         processDownloadableExport(dsObjects, context, additionalEmail, migrate);
     }
 
+    // Method to create download for portico
+    @Override
+    public void createDownloadablePorticoExport(DSpaceObject dso,
+            Context context, boolean migrate, String flag) throws Exception
+    {
+
+        if (flag != null){
+            porticoFile = true;
+        }
+        EPerson eperson = context.getCurrentUser();
+        ArrayList<DSpaceObject> list = new ArrayList<DSpaceObject>(1);
+        list.add(dso);
+        processDownloadableExport(list, context, eperson == null ? null : eperson.getEmail(), migrate);
+    }
+
+
     /**
      * Does the work creating a List with all the Items in the Community or
      * Collection It then kicks off a new Thread to export the items, zip the
@@ -632,6 +652,12 @@ public class ItemExportServiceImpl implements ItemExportService
             else if (dso.getType() == Constants.ITEM)
             {
                 Item item = (Item) dso;
+
+                // trigger portico export file name formatting
+                if (porticoFile){
+                    exportForPortico(item);
+                }
+                
                 // get all the bundles in the item
                 List<Bundle> bundles = item.getBundles();
                 for (Bundle bundle : bundles)
@@ -790,8 +816,16 @@ public class ItemExportServiceImpl implements ItemExportService
         String fileName = null;
         while (exists)
         {
-            fileName = type + "_export_" + sdf.format(date) + "_" + count + "_"
-                    + eperson.getID();
+            if (porticoFile)
+            {
+                fileName = type + "_export_" + sdf.format(date) + "_" + porticoFileName;
+                porticoFile = false;
+            }
+            else
+            {
+                fileName = type + "_export_" + sdf.format(date) + "_" + count + "_" + eperson.getID();
+            }
+
             exists = new File(downloadDir
                     + System.getProperty("file.separator") + fileName + ".zip")
                     .exists();
@@ -1199,6 +1233,80 @@ public class ItemExportServiceImpl implements ItemExportService
         }
 
         return (path.delete());
+    }
+
+        // Returns String representing author String for file name formatting
+    private void exportForPortico(Item item){
+
+        // String for formatting file name
+        //String formatString = "";
+        // ArrayList for looping through bundkes
+        List <Bundle> bundles = item.getBundles();
+        // Check item contains bundles
+        if (bundles != null)
+        {
+            System.out.println("Bundles loaded");
+        }
+        // Loop through bundles, get bitstreams to extract file name
+        for(Bundle bundle : bundles){
+            int i = 0;
+            List <Bitstream> bitstreams = bundle.getBitstreams();
+            // loop through bitstreams and extract file name
+            for (Bitstream bitstream : bitstreams) {
+                String rawBitstreamString = bitstream.getName();
+                // remove file type from file name String
+                int split = rawBitstreamString.indexOf(".");
+                //String removeFileType = rawBitstreamString.substring(0, split);
+                porticoFileName = rawBitstreamString.substring(0, split);
+                System.out.println("Portico Export Name: " + porticoFileName);
+                // Only needed for test
+                //formatString += removeFileType.replace(" ", "_");
+                i++;
+            }
+            // Only check first bitstream, exit loop
+            if(i >= 1){
+                break;
+            }
+        }
+
+        /** 
+        // create list containing author metadata
+        List <MetadataValue> authMetaList = item.getAuthors();
+        // system confirmation
+        if (authMetaList != null)
+        {
+            System.out.println("Author list loaded");
+        }
+        // If record contains multiple authors
+        if (authMetaList.size() > 1) 
+        {
+            // ArrayList for sorting author names
+            ArrayList<String> authList = new ArrayList<String>();
+            // add author names to ArrayList
+            for (MetadataValue author : authMetaList) 
+            {
+                // format String
+                String authFullName = author.getValue();
+                int split = authFullName.indexOf(",");
+                String authSurname = authFullName.substring(0, split);
+                authList.add(authSurname);
+            }
+            // sort ArrayList
+            Collections.sort(authList);
+            // format String
+            String authSurname = authList.get(0);
+            porticoFileName = authSurname + "_et_al_" + formatString + "_vor";
+        }
+        // If author list contains single authr
+        else 
+        {
+            // format String
+            String authFullName = item.getAuthor();
+            int split = authFullName.indexOf(",");
+            String authSurname = authFullName.substring(0, split);
+            porticoFileName = authSurname + formatString + "_vor";
+        }
+        */
     }
 
 }
