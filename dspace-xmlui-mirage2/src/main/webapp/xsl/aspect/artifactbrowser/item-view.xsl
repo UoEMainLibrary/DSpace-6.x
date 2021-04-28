@@ -277,7 +277,6 @@
                 <h5><i18n:text>xmlui.dri2xhtml.METS-1.0.item-uri</i18n:text></h5>
                 <span class="artifact-h-link">
                     <xsl:for-each select="dim:field[@element='identifier' and @qualifier='uri']">
-                        <xsl:if test="contains(./node(), 'doi' or contains(./node(), 'handle))">
                         <div class="artifact-h-link">
                             <div>
                                 <a class="artifact-h-link" id="artifact-detail" alt="Link to item U R I" title="Link to item URI">
@@ -288,6 +287,8 @@
                                 </a>
                             </div>
                         </div>
+                        <xsl:if test="count(following-sibling::dim:field[@element='identifier' and @qualifier='uri']) != 0">
+                            <br/>
                         </xsl:if>
                     </xsl:for-each>
                 </span>

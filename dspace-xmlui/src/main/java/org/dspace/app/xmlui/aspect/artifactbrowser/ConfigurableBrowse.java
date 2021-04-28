@@ -414,7 +414,7 @@ public class ConfigurableBrowse extends AbstractDSpaceTransformer implements
         {
             //Not necessary to hide the start-with param because it's added later
             if (param.getKey() != BrowseParams.STARTS_WITH)
-                jump.addHidden(param.getKey()).setValue(param.getValue());
+                jump.addPara().addHidden(param.getKey()).setValue(param.getValue());
         }
 
         // If this is a date based browse, render the date navigation
