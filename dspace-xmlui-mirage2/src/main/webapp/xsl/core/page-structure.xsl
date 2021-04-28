@@ -813,7 +813,7 @@
                         <p><i18n:text>xmlui.mirage2.page-structure.heroUnit.content</i18n:text></p>
                     </div>
                 </xsl:when>
-                <xsl:when test="contains($request-uri, 'accessibility')">
+                <xsl:when test="starts-with($request-uri, 'accessibility')">
                     <div class="hero-unit">
                         <div class="content">
 
