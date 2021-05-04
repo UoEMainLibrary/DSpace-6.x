@@ -299,12 +299,24 @@
                       <i18n:text>xmlui.ArtifactBrowser.ItemViewer.show_full</i18n:text>
                   </a>
               </p>
+
+            <h3 class="bold"><i18n:text>xmlui.dri2xhtml.METS-1.0.item-altmetrics</i18n:text></h3>
+            <div class='altmetric-embed' data-badge-type='donut'>
+                <xsl:attribute name="data-doi"><xsl:copy-of select="./node()"/></xsl:atrribute>
+            </div>
           </xsl:when>
+
+        <!--<xsl:when test="$clause = 8 and (dim:field[@element='identifier' and @qualifier='doi' and descendant::text()])">
+            <h3 class="bold"><i18n:text>xmlui.dri2xhtml.METS-1.0.item-altmetrics</i18n:text></h3>
+            <div class='altmetric-embed' data-badge-type='donut'>
+                <xsl:attribute name="data-doi"><xsl:copy-of select="./node()"/></xsl:atrribute>
+            </div>
+        </xsl:when>-->
 
           <!-- recurse without changing phase if we didn't output anything -->
           <xsl:otherwise>
             <!-- IMPORTANT: This test should be updated if clauses are added! -->
-            <xsl:if test="$clause &lt; 8">
+            <xsl:if test="$clause &lt; 9">
               <xsl:call-template name="itemSummaryView-DIM-fields">
                 <xsl:with-param name="clause" select="($clause + 1)"/>
                 <xsl:with-param name="phase" select="$phase"/>
@@ -312,7 +324,7 @@
             </xsl:if>
           </xsl:otherwise>
         </xsl:choose>
-
+        
          <!-- Generate the Creative Commons license information from the file section (DSpace deposit license hidden by default) -->
         <xsl:apply-templates select="mets:fileSec/mets:fileGrp[@USE='CC-LICENSE']"/>
     </xsl:template>

@@ -143,6 +143,7 @@
                     <xsl:if test="$ds_item_view_toggle_url != ''">
                     <xsl:call-template name="itemSummaryView-show-full"/>
                     </xsl:if>
+                    <xsl:call-template name="itemAltmetricsDonut"/>
                 </div>
                 <div class="col-sm-8">
                     <xsl:call-template name="itemSummaryView-DIM-abstract"/>
@@ -846,6 +847,19 @@
                 <i18n:text>xmlui.ArtifactBrowser.ItemViewer.show_full</i18n:text>
             </a>
         </div>
+    </xsl:template>
+
+    <xsl:template name="itemAltmetricsDonut">
+        <xsl:if test="dim:field[@element='identifier' and @qualifier='doi' and descendant::text()]">
+            <h5>
+                <i18n:text>xmlui.dri2xhtml.METS-1.0.item-altmetrics</i18n:text>
+            </h5>
+            <div class='altmetric-embed' data-badge-type='donut'>
+                <xsl:attribute name="data-doi">
+                    <xsl:value-of select="substring(dim:field[@element='identifier' and @qualifier='doi' and descendant::text()],17)"/>
+                </xsl:attribute>
+            </div>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template name="itemSummaryView-collections">
