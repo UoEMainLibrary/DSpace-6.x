@@ -282,6 +282,9 @@
                     <xsl:when test="starts-with($request-uri, 'page/about')">
                         <i18n:text>xmlui.mirage2.page-structure.aboutThisRepository</i18n:text>
                     </xsl:when>
+                    <xsl:when test="starts-with($request-uri, 'page/policy')">
+                            <xsl:text>Queen Margaret University Repository Policies</xsl:text>
+                    </xsl:when>
                     <xsl:when test="not($page_title)">
                         <xsl:text>  </xsl:text>
                     </xsl:when>
@@ -773,6 +776,205 @@
                         <p><i18n:text>xmlui.mirage2.page-structure.heroUnit.content</i18n:text></p>
                     </div>
                 </xsl:when>
+                <xsl:when test="starts-with($request-uri, 'page/policy')">
+                        <div class="hero-unit">
+                            <h1>Queen Margaret University Repository Policies</h1>
+
+                            <h2>Open Access Archiving Policy</h2>
+                            <ol>
+                                <li>It is our policy to maximise the visibility, usage and impact of our research output by maximising online access to it for all would-be users and researchers worldwide.
+                                    <ul class="policy-ul-one">
+                                        <li>It is also our policy to minimise the effort that each of us has to expend in order to provide open online access to our research output</li>
+                                        <li>With all our research output accessible online we will be able to respond to the research assessment and other administrative initiatives with minimal input and effort from individual staff.</li>
+                                    </ul>
+                                </li>
+                                <li>We have accordingly adopted the policy that all peer-reviewed research outputs are to be archived in the institutional repository - QMU's eResearch publications repository: <a href="https://eresearch.qmu.ac.uk/"><strong>https://eresearch.qmu.ac.uk/</strong></a>
+                                    <p>It is encouraged that those outputs not yet peer-reviewed, along with other unpublished work, are also archived in the repository as appropriate. The repository will clearly describe the status of all outputs. This archive forms the official record of the institution's research publications.</p>
+                                </li>
+                                <li>Our policy is compatible with publishers' copyright agreements as follows:
+                                    <ul class="policy-ul-one">
+                                        <li>The copyright for the un-refereed <strong>preprint<a href="#section1">[1]</a></strong> resides entirely with the author before it is submitted for peer-reviewed publication, hence it can be self-archived irrespective of the copyright policy of the journal to which it is eventually submitted</li>
+                                        <li>The copyright for the peer-reviewed <strong>postprint<a href="#section2">[2]</a></strong> will depend on the wording of the copyright agreement which the author signs with the publisher</li>
+                                        <li>Many publishers will allow the peer-reviewed postprint to be archived. The copyright transfer agreement will either specify this right explicitly or the author can inquire about it directly. If you are uncertain about the terms of your agreement, a directory of journal self-archiving policies is available on the JISC SHERPA/RoMEO website: <a href="http://www.sherpa.ac.uk/romeo">http://www.sherpa.ac.uk/romeo</a>
+                                        <p>Wherever possible, you are advised to modify your copyright agreement so that it does not disallow archiving</p></li>
+                                        <li>In the rare case where you have signed a very restrictive copyright transfer form in which you have agreed explicitly <strong>not</strong> 
+                                            to self-archive the peer-reviewed postprint, you are encouraged to archive, alongside your already-archived preprint, a "corrigenda" file, 
+                                            listing the substantive changes the user would need to make in order to turn the un-refereed preprint into the refereed postprint
+                                        </li>
+                                        <li>Copyright agreements may state that <strong>eprints<a href="#section3">[3]</a></strong> can be archived on your personal homepage. As far as publishers are concerned, 
+                                            the institutional repository is a part of the institutions infrastructure for your personal homepage.
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>We do not require you to archive the full text of books or research monographs. It is sufficient to archive the items bibliographic details 
+                                    along with the usual metadata.
+                                </li>
+                                <li>Some journals still maintain submission policies which state that a preprint will not be considered for publication if it has been previously 
+                                    'publicised' by making it accessible online. Unlike copyright transfer agreements, such policies are not a matter of law. If you have concerns 
+                                    about submitting an archived paper to a journal which still maintains such a restrictive submission policy, please discuss it with the 
+                                    institutional repository named contact.
+                                </li>
+                            </ol>
+                            <h2>eResearch Publications Repository: Submission Policy</h2>
+                            <p>This section relates to depositors, quality and copyright.</p>
+                            <ol class="policy-ol-indent">
+                                <li>Items may only be deposited by accredited members of the institution, or their delegated agents.</li>
+                                <li>Eligible depositors must deposit full texts of all their publications, as per QMUs Open Access Archiving Policy (as above). 
+                                    Depositors may delay making full texts publicly visible to comply with publishers' embargo periods.</li>
+                                <li>The repositories administrator only vets items for the eligibility of authors/depositors, relevance to the scope of eResearch, 
+                                    valid layout and format, and the exclusion of spam.
+                                </li>
+                                <li>The validity and authenticity of the content of submissions is the sole responsibility of the author(s)/depositor(s).</li>
+                                <li>Items may be deposited at any time, but will not be made publicly visible until any publishers' or funders' embargo periods have expired.</li>
+                                <li>Any copyright violations are entirely the responsibility of the author(s)/depositor(s).</li>
+                                <li>If QMU receives proof of copyright violation, the relevant item(s) will be removed immediately.</li>
+                            </ol>
+
+                            <h2>eResearch Publications Repository: Content Policy</h2>
+                            <p>This section relates to the types of documents held in the eResearch publications repository</p>
+                            <ol>
+                                <li>Automatic inclusion
+                                    <ul class="policy-ul-two">
+                                        <li>Peer-reviewed journal articles</li>
+                                        <li>Books and book chapters (<strong>not</strong> textbooks, technical chapters or teaching materials)</li>
+                                        <li>Conference proceedings with papers</li>
+                                        <li>Government reports, where open access is permissible</li>
+                                        <li>Working papers, where open access is permissible</li>
+                                        <li>Editorials, including guest editorials, in prestigious journals</li>
+                                        <li>Practice as research<a href="#section4">[4]</a></li>
+                                        <li>Items In Press but not items submitted for review.</li>
+                                    </ul>
+                                </li>
+                                <li>Academic staff may self-deposit documents of the types described above and Library staff will perform final quality control checks on 
+                                    records created for each item before making items visible externally. Academic staff may also send documents or article references, etc. 
+                                    to the Librarys eResearch Team (email: <a href="mailto:eResearch@qmu.ac.uk"><strong>eResearch@qmu.ac.uk</strong></a>) for record creation 
+                                    and upload to the repository. Library staff will use services such as JISC Publications Router alerts (which includes items identified 
+                                    by QMU affiliation in services such as Scopus, Web of Science, etc.) to identify material published by QMU staff for inclusion in eResearch.
+                                </li>
+                                <li>Automatic exclusion
+                                    <ul class="policy-ul-two">
+                                        <li>Textbooks, technical chapters or teaching materials</li>
+                                        <li>Abstracts</li>
+                                        <li>Newspaper reviews</li>
+                                        <li>Talks presented at other HEIs</li>
+                                        <li>Other types of material not considered research outputs</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                            <p>Exceptionally, if a member of academic staff believes an individual output demonstrates quality or specific merit then it should be forwarded, 
+                                in the first instance, to the relevant QMU School or Research Centre Lead who will decide whether the material is suitable for inclusion in 
+                                eResearch. If the Research Lead recommends that an item should be included in eResearch, they should inform the member of staff who will then 
+                                either self-deposit or send the document to the Librarys eResearch Team (email: <a href="mailto:eResearch@qmu.ac.uk">
+                                <strong>eResearch@qmu.ac.uk</strong></a>) for deposit as described above.
+                            </p>
+                            <ol start="4">
+                                <li>Items are individually tagged with their version type and date, and their publication status.</li>
+                            </ol>
+
+                            <h2>QMU Repositories: Data Policy</h2>
+                            <p>This policy relates to full-text and other full data items deposited in QMUs eData repository. Access to some or all full items may be controlled.</p>
+                            <ol>
+                                <li>Anyone may access full items free of charge.</li>
+                                <li>Copies of full items can generally be:
+                                    <ul>
+                                        <li>reproduced, displayed or performed, and given to third parties in any format or medium for personal research or study, educational, 
+                                            or not-for-profit purposes without prior permission or charge, provided:
+                                            <ul class="policy-ul-two">
+                                                <li>author(s), title(s) and full bibliographic details are provided</li>
+                                                <li>hyperlink(s) and/or URL(s) are provided for original metadata page(s)</li>
+                                                <li>content is not changed in any way.</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Full items may not be sold commercially in any format or medium without formal permission of the copyright holders.</li>
+                                <li>Some full items are tagged individually with different rights, permissions and conditions to comply with restrictions or licensing conditions, 
+                                    such as publisher embargoes, Creative Commons licenses, etc.
+                                </li>
+                            </ol>
+                            <p>This repository is <strong>not </strong>the publisher; it is merely the online archive.</p>
+                            <p>Acknowledgement of QMU repositories is appreciated but not mandatory.</p>
+
+                            <h2>QMU Repositories: Metadata Policy</h2>
+                            <p>This policy relates to information describing items deposited in the repositories.</p>
+                            <ol>
+                                <li>Anyone may access the metadata free of charge.</li>
+                                <li>The metadata may be re-used in any medium without prior permission for not-for-profit purposes, provided:
+                                    <ul>
+                                        <li>an identifier or a link to the original metadata record are given</li>
+                                        <li>QMU Repositories are acknowledged.</li>
+                                    </ul>
+                                </li>
+                                <li>The metadata must not be re-used in any medium for commercial purposes without formal permission from QMU.</li>
+                            </ol>
+
+                            <h2>QMU Repositories: Preservation Policy</h2>
+                            <ol>
+                                <li>Items authored while affiliated with QMU will be retained indefinitely. Items published outwith QMU may be withdrawn and deleted from the repository when the author leaves QMU.</li>
+                                <li>QMU will try to ensure continued readability and accessibility of its repositories
+                                    <ul>
+                                        <li>items will be migrated to new file formats where necessary.</li>
+                                        <li>where possible, software emulations will be provided to access un-migrated formats.</li>
+                                    </ul>
+                                </li>
+                                <li>The repository and its files are backed up nightly by the repository hosts, University of Edinburgh.</li>
+                                <li>Original bitstreams are retained for all items, in addition to any upgraded formats.</li>
+                                <li>Items may not normally be removed from QMU repositories.</li>
+                                <li>Acceptable reasons for withdrawal include:
+                                    <ul>
+                                        <li>proven copyright violation or plagiarism</li>
+                                        <li>legal requirements and proven violations</li>
+                                        <li>national security</li>
+                                        <li>falsified research.</li>
+                                    </ul>
+                                </li>
+                            <p>Proven falsified or fraudulent research or any publication(s)/article(s) submitted and proven to be produced as a result of any form of 
+                                professional misconduct may be withdrawn from the repositories, in accordance with the <strong>QMU Code of Research Practice</strong> 
+                                (see: section 15. Research Misconduct) available at: 
+                                <a href="https://www.qmu.ac.uk/research-and-knowledge-exchange/strategy-and-policy/research-ethics-and-governance/">
+                                https://www.qmu.ac.uk/research-and-knowledge-exchange/strategy-and-policy/research-ethics-and-governance/</a>
+                            </p>
+                                <li>Withdrawn items will be deleted entirely from the repository.</li>
+                                <li>Withdrawn items' identifiers/URLs will not be retained.</li>
+                                <li>Changes to deposited items are <strong>not </strong></li>
+                                <li><em>Errata </em>and <em>corrigenda </em>lists may be included with the original record if required.</li>
+                                <li>If necessary, an updated version may be deposited
+                                    <ul  class="policy-ul-one">
+                                        <li>the earlier version may be withdrawn from public view</li>
+                                        <li>the original URL will be linked to the latest version.</li>
+                                    </ul>
+                                </li>
+                                <li>In the event of QMU repositories being closed down, the database will be transferred to another appropriate archive.</li>
+                            </ol>
+
+                            <!-- FOOTNOTES -->
+                            <div class="policy-footer">
+                                <p id="section1" class="policy-footer-p">[1] A postprint (often known as accepted version, author accepted manuscript (AAM), author's final version, etc.) 
+                                    is the version of an output that:
+                                    <ul class="policy-footer-ul">
+                                        <li>has been accepted for publication.</li>
+                                        <li>has been peer-reviewed.</li>
+                                        <li>but has generally not yet had the publisher's layout and typesetting applied.</li>
+                                    </ul>
+                                </p>
+                                <p class="policy-footer-p">This can often be a Word version of a publication but some publishers work with templates from the submission stage, so it 
+                                    is important that authors retain all versions of outputs until confirmation of acceptance has been received.
+                                </p>
+                                <p id="section2" class="policy-footer-p">[2] A preprint is the pre-refereed and unpublished version of the paper that has been submitted for publication 
+                                    and has not yet been peer-reviewed and may also be known as an accepted version, author accepted manuscript (AAM) or author's 
+                                    final version, etc.
+                                </p>
+                                <p id="section3" class="policy-footer-p">[3] An eprint is a digital version of a research document (usually a journal article, but could also be a thesis, 
+                                    conference paper, book chapter, or a book) that is accessible online.
+                                </p>
+                                <p id="section4" class="policy-footer-p">[4] Practice as research is a research method in the arts in which the practice of an art is the research process, 
+                                    and the performance, art, or other media item is the research output.
+                                    (Definition from NELSON, R. 2013. Introduction: The What, Where, When and Why of ‘Practice as Research’. In: R. NELSON (ed.) 
+                                    Practice as Research in the Arts. London: Palgrave Macmillan, pp. 3-22.)
+                                </p>
+                            </div>
+                        </div>
+                    </xsl:when>
                 <!-- Otherwise use default handling of body -->
                 <xsl:otherwise>
                     <xsl:apply-templates />
