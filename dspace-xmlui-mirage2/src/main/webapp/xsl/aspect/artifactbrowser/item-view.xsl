@@ -453,6 +453,11 @@
                 </xsl:attribute>
                 <xsl:value-of select="text()"/>
             </a>
+
+            <xsl:if test="@orcid_id">
+                <xsl:text> </xsl:text>
+                <a href="https://orcid.org/{@orcid_id}" target="_blank"><img src="{$theme-path}/images/orcid_16x16.png" alt="ORCID" /></a>
+            </xsl:if>
         </div>
     </xsl:template>
 
