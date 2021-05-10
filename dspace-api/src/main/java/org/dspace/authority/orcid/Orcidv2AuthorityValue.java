@@ -7,7 +7,9 @@
  */
 package org.dspace.authority.orcid;
 
+import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrInputDocument;
 import org.dspace.authority.AuthorityValue;
@@ -39,6 +41,7 @@ public class Orcidv2AuthorityValue extends PersonAuthorityValue {
      * The syntax that the ORCID id needs to conform to
      */
     public static final String ORCID_ID_SYNTAX = "\\d{4}-\\d{4}-\\d{4}-(\\d{3}X|\\d{4})";
+    private static Logger log = Logger.getLogger(Orcidv2AuthorityValue.class);
 
 
     /**
@@ -84,7 +87,13 @@ public class Orcidv2AuthorityValue extends PersonAuthorityValue {
         }
         Orcidv2AuthorityValue authority = Orcidv2AuthorityValue.create();
 
-        authority.setValues(person);
+        // DS-3998
+        try {
+            authority.setValues(person);
+        } catch (Exception e) {
+            log.error("Could not set Orcid values.");
+            return null;
+        }
 
         return authority;
     }
@@ -326,5 +335,22 @@ public class Orcidv2AuthorityValue extends PersonAuthorityValue {
         }
 
         return true;
+    }
+
+    @Override
+    public void setValues(SolrDocument document) {
+        super.setValues(document);
+        log.debug("Solr - Setting values");
+        this.orcid_id = ObjectUtils.toString(document.getFieldValue("orcid_id"));
+        for (String key : document.getFieldNames()) {
+            if (key.startsWith("label_")) {
+                String keyInternalMap = key.substring(key.indexOf("_") + 1);
+                Collection<Object> valuesSolr = document.getFieldValues(key);
+                for (Object valueInternal : valuesSolr) {
+                    log.debug("-----    " + valueInternal.toString());
+                    addOtherMetadata(keyInternalMap, (String) valueInternal);
+                }
+            }
+        }
     }
 }
