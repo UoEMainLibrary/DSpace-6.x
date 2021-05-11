@@ -120,6 +120,9 @@
                             </xsl:if>
                         </fieldset>
                     </form>
+                    <div id="ds-search-link" class="ds-search-link">
+                        <a href="/discover"><i18n:text>xmlui.dri2xhtml.structural.search-advanced</i18n:text></a>
+                    </div>
                 </div>
             </xsl:if>
             <xsl:apply-templates/>

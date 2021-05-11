@@ -2577,7 +2577,22 @@
 
 	<message key="xmlui.mirage2.static.privacy.trail">Privacy</message>
 	<message key="xmlui.mirage2.static.privacy.title">Privacy &amp; Cookies</message>
-	<message key="xmlui.mirage2.static.privacy.content">The Research Scotland partners are committed to preserving your privacy. The information on this page will help you understand how we use and protect your information obtained from using the Research Scotland site.</message>
+	<message key="xmlui.mirage2.static.privacy.content">The Research Scotland partners are committed to preserving your privacy. The information on this page will help you understand how we use and protect your information obtained from using the Research Scotland site.
+		<h2>Examples of policies:</h2>
+		<ul>
+			<li><a href="https://wiki.lyrasis.org/display/DSPACE/Data+Protection+and+Privacy">Official DSpace Wiki Documentation</a></li>
+
+			<li><a href="https://dspace-cris.4science.cloud/cookiespolicy.jsp">DSpace CRIS</a></li>
+
+			<li><a href="https://demo.dspace.keep.pt/cookies/policy_en.jsp">Keep Cookies Privacy and Content</a></li>
+
+			<li><a href="https://www.abdn.ac.uk/staffnet/documents/policy-zone-information-policies/DITPrivacyPolicyandDisclaimer.pdf">Aberdeen Website wide policy</a></li>
+
+			<li><a href="https://jira.lyrasis.org/browse/DS-1245">Discussion on cookies (obsolete?)</a></li>
+
+			<li><a href="https://jira.lyrasis.org/browse/DS-1245">GDPR compliance</a></li>
+
+		</ul></message>
 
     <message key="xmlui.mirage2.navigation.rss.feed">feed</message>
 
