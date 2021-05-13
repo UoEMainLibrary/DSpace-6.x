@@ -71,6 +71,7 @@ public class ItemExportServiceImpl implements ItemExportService
 
     // Variables for portico export functionality
     private String porticoFileName;
+    private String porticoEperson;
     private boolean porticoFile =  false;
 
     protected ItemExportServiceImpl()
@@ -537,6 +538,8 @@ public class ItemExportServiceImpl implements ItemExportService
             porticoFile = true;
         }
         EPerson eperson = context.getCurrentUser();
+        // Store portico ePerson ID
+        porticoEperson = eperson.getID().toString();
         ArrayList<DSpaceObject> list = new ArrayList<DSpaceObject>(1);
         list.add(dso);
         processDownloadableExport(list, context, eperson == null ? null : eperson.getEmail(), migrate);
@@ -887,10 +890,11 @@ public class ItemExportServiceImpl implements ItemExportService
     @Override
     public long getExportFileSize(Context context, String fileName) throws Exception
     {
-        String strID = fileName.substring(fileName.lastIndexOf('_') + 1,
-                fileName.lastIndexOf('.'));
+        /* original dspace code, replaced with downloadForPortico() below
+        String strID = fileName.substring(fileName.lastIndexOf('_') + 1, fileName.lastIndexOf('.'));
+        */
+        String strID = downloadForPortico(context, fileName);
         EPerson ePerson = getEPersonFromString(context, strID);
-
 
         File file = new File(
                 getExportDownloadDirectory(ePerson)
@@ -928,8 +932,10 @@ public class ItemExportServiceImpl implements ItemExportService
     public long getExportFileLastModified(Context context, String fileName)
             throws Exception
     {
-        String strID = fileName.substring(fileName.lastIndexOf('_') + 1,
-                fileName.lastIndexOf('.'));
+        /* original dspace code, replaced with downloadForPortico() below
+        String strID = fileName.substring(fileName.lastIndexOf('_') + 1, fileName.lastIndexOf('.'));
+        */
+        String strID = downloadForPortico(context, fileName);
         EPerson ePerson = getEPersonFromString(context, strID);
 
         File file = new File(
@@ -954,8 +960,10 @@ public class ItemExportServiceImpl implements ItemExportService
         {
             return false;
         }
-        String strID = fileName.substring(fileName.lastIndexOf('_') + 1,
-                fileName.lastIndexOf('.'));
+        /* original dspace code, replaced with downloadForPortico() below
+        String strID = fileName.substring(fileName.lastIndexOf('_') + 1, fileName.lastIndexOf('.'));
+        */
+        String strID = downloadForPortico(context, fileName);
         try
         {
             if (strID.equals(eperson.getID().toString()))
@@ -1235,11 +1243,9 @@ public class ItemExportServiceImpl implements ItemExportService
         return (path.delete());
     }
 
-        // Returns String representing author String for file name formatting
-    private void exportForPortico(Item item){
-
-        // String for formatting file name
-        //String formatString = "";
+    // Returns String representing portico file name
+    private void exportForPortico(Item item)
+    {
         // ArrayList for looping through bundkes
         List <Bundle> bundles = item.getBundles();
         // Check item contains bundles
@@ -1259,8 +1265,6 @@ public class ItemExportServiceImpl implements ItemExportService
                 //String removeFileType = rawBitstreamString.substring(0, split);
                 porticoFileName = rawBitstreamString.substring(0, split);
                 System.out.println("Portico Export Name: " + porticoFileName);
-                // Only needed for test
-                //formatString += removeFileType.replace(" ", "_");
                 i++;
             }
             // Only check first bitstream, exit loop
@@ -1268,45 +1272,21 @@ public class ItemExportServiceImpl implements ItemExportService
                 break;
             }
         }
+    }
 
-        /** 
-        // create list containing author metadata
-        List <MetadataValue> authMetaList = item.getAuthors();
-        // system confirmation
-        if (authMetaList != null)
+    // Checks and returns the correct ePerson ID string based on what type of download it is
+    public String downloadForPortico(Context context, String fileName)
+    {
+        String strID; 
+        if(porticoEperson.equals(context.getCurrentUser().getID().toString()))
         {
-            System.out.println("Author list loaded");
+            strID = porticoEperson;
         }
-        // If record contains multiple authors
-        if (authMetaList.size() > 1) 
-        {
-            // ArrayList for sorting author names
-            ArrayList<String> authList = new ArrayList<String>();
-            // add author names to ArrayList
-            for (MetadataValue author : authMetaList) 
-            {
-                // format String
-                String authFullName = author.getValue();
-                int split = authFullName.indexOf(",");
-                String authSurname = authFullName.substring(0, split);
-                authList.add(authSurname);
-            }
-            // sort ArrayList
-            Collections.sort(authList);
-            // format String
-            String authSurname = authList.get(0);
-            porticoFileName = authSurname + "_et_al_" + formatString + "_vor";
-        }
-        // If author list contains single authr
         else 
         {
-            // format String
-            String authFullName = item.getAuthor();
-            int split = authFullName.indexOf(",");
-            String authSurname = authFullName.substring(0, split);
-            porticoFileName = authSurname + formatString + "_vor";
+            strID = fileName.substring(fileName.lastIndexOf('_') + 1, fileName.lastIndexOf('.'));
         }
-        */
+        return strID;
     }
 
 }
