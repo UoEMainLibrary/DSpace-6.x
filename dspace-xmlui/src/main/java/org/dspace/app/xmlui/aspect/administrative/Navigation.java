@@ -89,6 +89,7 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
     private static final Message T_statistics            	        = message("xmlui.administrative.Navigation.statistics");
 
     private static final Message T_context_export_item 				= message("xmlui.administrative.Navigation.context_export_item");
+    private static final Message T_context_export_portico 			= message("xmlui.administrative.Navigation.context_export_portico");
     private static final Message T_context_export_collection 		= message("xmlui.administrative.Navigation.context_export_collection");
     private static final Message T_context_export_community 		= message("xmlui.administrative.Navigation.context_export_community");
     private static final Message T_account_export			 		= message("xmlui.administrative.Navigation.account_export");
@@ -238,6 +239,7 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
                     if (authorizeService.isAdmin(this.context, dso))
                     {
                         context.addItem().addXref(contextPath+"/admin/export?itemID="+item.getID(), T_context_export_item );
+                        context.addItem().addXref(contextPath+"/admin/export?itemID="+item.getID()+"&porticoFlag=true", T_context_export_portico );
                         context.addItem().addXref(contextPath+ "/csv/handle/"+dso.getHandle(),T_context_export_metadata );
                     }
                 }

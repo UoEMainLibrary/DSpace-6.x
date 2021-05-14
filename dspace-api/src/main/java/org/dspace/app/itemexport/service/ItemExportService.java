@@ -128,6 +128,24 @@ public interface ItemExportService {
             Context context, String additionalEmail, boolean migrate) throws Exception;
 
 
+        /**
+         * Convenience methot to create export a single Community, Collection, or
+         * Item
+         *
+         * @param dso
+         *            - the dspace object to export
+         * @param context
+         *            - the dspace context
+         * @param migrate
+         *            - Whether to use the migrate option or not
+         * @param portico
+         *            - String to determine if export is to follow portico file naming converntions
+         * 
+         * @throws Exception if error
+         */
+        public void createDownloadablePorticoExport(DSpaceObject dso,
+                Context context, boolean migrate, boolean flag) throws Exception;
+
     /**
      * Create a file name based on the date and eperson
      *
