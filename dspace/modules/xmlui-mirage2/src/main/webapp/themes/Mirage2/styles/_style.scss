@@ -61,8 +61,17 @@
 }
 
 //Policy page styles
-.hero-unit h1, .hero-unit h2 {
+.policy-container {
+  overflow: visible!important;
+}
+.hero-unit h1, .hero-unit h2, .hero-unit h3 {
   padding: .5rem 0rem;
+}
+.hero-unit h3 {
+  font-size: 18px;
+}
+.contents-ul {
+  list-style: decimal;
 }
 .hero-unit ol {
   list-style: decimal!important;
@@ -70,6 +79,9 @@
 }
 .policy-ol-indent {
   padding-left: 3rem;
+}
+.policy-ol-final{
+  margin-bottom: 3rem!important;
 }
 .policy-ul-one {
   list-style: lower-alpha!important;

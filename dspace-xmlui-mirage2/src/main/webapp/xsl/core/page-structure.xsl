@@ -85,6 +85,44 @@
                                 test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='framing'][@qualifier='popup']">
                             <xsl:apply-templates select="dri:body/*"/>
                         </xsl:when>
+                        <xsl:when test="starts-with($request-uri, 'page/policy')">
+                            <xsl:call-template name="buildHeader"/>
+                            <xsl:call-template name="buildTrail"/>
+                            <!--javascript-disabled warning, will be invisible if javascript is enabled-->
+                            <div id="no-js-warning-wrapper" class="hidden">
+                                <div id="no-js-warning">
+                                    <div class="notice failure">
+                                        <xsl:text>JavaScript is disabled for your browser. Some features of this site may not work without it.</xsl:text>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="main-container" class="container policy-container">
+
+                                <div class="row row-offcanvas row-offcanvas-right">
+                                    <div class="horizontal-slider clearfix">
+                                        <div class="col-xs-12 col-sm-12 col-md-9 main-content">
+                                            <xsl:apply-templates select="*[not(self::dri:options)]"/>
+
+                                            <div class="visible-xs visible-sm">
+                                                <xsl:call-template name="buildFooter"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+                                            <xsl:apply-templates select="dri:options"/>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <!--
+                            The footer div, dropping whatever extra information is needed on the page. It will
+                            most likely be something similar in structure to the currently given example. -->
+                            <div class="hidden-xs hidden-sm">
+                            <xsl:call-template name="buildFooter"/>
+                             </div>
+                         </div>
+                        </xsl:when>
                         <xsl:otherwise>
                             <xsl:call-template name="buildHeader"/>
                             <xsl:call-template name="buildTrail"/>
@@ -780,7 +818,18 @@
                         <div class="hero-unit">
                             <h1>Queen Margaret University Repository Policies</h1>
 
-                            <h2>Open Access Archiving Policy</h2>
+                            <h3>Contents</h3>
+                            <ul class="contents-ul">
+                                <li class="contents-li"><a href="#section1">Open Access Archiving Policy</a></li>
+                                <li class="contents-li"><a href="#section2">eResearch Publications Repository: Submission Policy</a></li>
+                                <li class="contents-li"><a href="#section3">eResearch Publications Repository: Content Policy</a></li>
+                                <li class="contents-li"><a href="#section4">QMU Repositories: Data Policy</a></li>
+                                <li class="contents-li"><a href="#section5">QMU Repositories: Metadata Policy</a></li>
+                                <li class="contents-li"><a href="#section6">QMU Repositories: Preservation Policy</a></li>
+                                <li class="contents-li"><a href="#section7">Definitions</a></li>
+                            </ul>
+
+                            <h2 id="section1">Open Access Archiving Policy</h2>
                             <ol>
                                 <li>It is our policy to maximise the visibility, usage and impact of our research output by maximising online access to it for all would-be users and researchers worldwide.
                                     <ul class="policy-ul-one">
@@ -793,15 +842,15 @@
                                 </li>
                                 <li>Our policy is compatible with publishers' copyright agreements as follows:
                                     <ul class="policy-ul-one">
-                                        <li>The copyright for the un-refereed <strong>preprint<a href="#section1">[1]</a></strong> resides entirely with the author before it is submitted for peer-reviewed publication, hence it can be self-archived irrespective of the copyright policy of the journal to which it is eventually submitted</li>
-                                        <li>The copyright for the peer-reviewed <strong>postprint<a href="#section2">[2]</a></strong> will depend on the wording of the copyright agreement which the author signs with the publisher</li>
+                                        <li>The copyright for the un-refereed <strong>preprint<a href="#footnote1">[1]</a></strong> resides entirely with the author before it is submitted for peer-reviewed publication, hence it can be self-archived irrespective of the copyright policy of the journal to which it is eventually submitted</li>
+                                        <li>The copyright for the peer-reviewed <strong>postprint<a href="#footnote2">[2]</a></strong> will depend on the wording of the copyright agreement which the author signs with the publisher</li>
                                         <li>Many publishers will allow the peer-reviewed postprint to be archived. The copyright transfer agreement will either specify this right explicitly or the author can inquire about it directly. If you are uncertain about the terms of your agreement, a directory of journal self-archiving policies is available on the JISC SHERPA/RoMEO website: <a href="http://www.sherpa.ac.uk/romeo">http://www.sherpa.ac.uk/romeo</a>
                                         <p>Wherever possible, you are advised to modify your copyright agreement so that it does not disallow archiving</p></li>
                                         <li>In the rare case where you have signed a very restrictive copyright transfer form in which you have agreed explicitly <strong>not</strong> 
                                             to self-archive the peer-reviewed postprint, you are encouraged to archive, alongside your already-archived preprint, a "corrigenda" file, 
                                             listing the substantive changes the user would need to make in order to turn the un-refereed preprint into the refereed postprint
                                         </li>
-                                        <li>Copyright agreements may state that <strong>eprints<a href="#section3">[3]</a></strong> can be archived on your personal homepage. As far as publishers are concerned, 
+                                        <li>Copyright agreements may state that <strong>eprints<a href="#footnote3">[3]</a></strong> can be archived on your personal homepage. As far as publishers are concerned, 
                                             the institutional repository is a part of the institutions infrastructure for your personal homepage.
                                         </li>
                                     </ul>
@@ -815,7 +864,8 @@
                                     institutional repository named contact.
                                 </li>
                             </ol>
-                            <h2>eResearch Publications Repository: Submission Policy</h2>
+
+                            <h2 id="section2">eResearch Publications Repository: Submission Policy</h2>
                             <p>This section relates to depositors, quality and copyright.</p>
                             <ol class="policy-ol-indent">
                                 <li>Items may only be deposited by accredited members of the institution, or their delegated agents.</li>
@@ -830,7 +880,7 @@
                                 <li>If QMU receives proof of copyright violation, the relevant item(s) will be removed immediately.</li>
                             </ol>
 
-                            <h2>eResearch Publications Repository: Content Policy</h2>
+                            <h2 id="section3">eResearch Publications Repository: Content Policy</h2>
                             <p>This section relates to the types of documents held in the eResearch publications repository</p>
                             <ol>
                                 <li>Automatic inclusion
@@ -841,7 +891,7 @@
                                         <li>Government reports, where open access is permissible</li>
                                         <li>Working papers, where open access is permissible</li>
                                         <li>Editorials, including guest editorials, in prestigious journals</li>
-                                        <li>Practice as research<a href="#section4">[4]</a></li>
+                                        <li>Practice as research<a href="#footnote4">[4]</a></li>
                                         <li>Items In Press but not items submitted for review.</li>
                                     </ul>
                                 </li>
@@ -871,7 +921,7 @@
                                 <li>Items are individually tagged with their version type and date, and their publication status.</li>
                             </ol>
 
-                            <h2>QMU Repositories: Data Policy</h2>
+                            <h2 id="section4">QMU Repositories: Data Policy</h2>
                             <p>This policy relates to full-text and other full data items deposited in QMUs eData repository. Access to some or all full items may be controlled.</p>
                             <ol>
                                 <li>Anyone may access full items free of charge.</li>
@@ -895,7 +945,7 @@
                             <p>This repository is <strong>not </strong>the publisher; it is merely the online archive.</p>
                             <p>Acknowledgement of QMU repositories is appreciated but not mandatory.</p>
 
-                            <h2>QMU Repositories: Metadata Policy</h2>
+                            <h2 id="section5">QMU Repositories: Metadata Policy</h2>
                             <p>This policy relates to information describing items deposited in the repositories.</p>
                             <ol>
                                 <li>Anyone may access the metadata free of charge.</li>
@@ -908,8 +958,8 @@
                                 <li>The metadata must not be re-used in any medium for commercial purposes without formal permission from QMU.</li>
                             </ol>
 
-                            <h2>QMU Repositories: Preservation Policy</h2>
-                            <ol>
+                            <h2 id="section6">QMU Repositories: Preservation Policy</h2>
+                            <ol class="policy-ol-final">
                                 <li>Items authored while affiliated with QMU will be retained indefinitely. Items published outwith QMU may be withdrawn and deleted from the repository when the author leaves QMU.</li>
                                 <li>QMU will try to ensure continued readability and accessibility of its repositories
                                     <ul>
@@ -949,7 +999,8 @@
 
                             <!-- FOOTNOTES -->
                             <div class="policy-footer">
-                                <p id="section1" class="policy-footer-p">[1] A postprint (often known as accepted version, author accepted manuscript (AAM), author's final version, etc.) 
+                                <h3 id="section7">Definitions</h3>
+                                <p id="footnote1" class="policy-footer-p">[1] A postprint (often known as accepted version, author accepted manuscript (AAM), author's final version, etc.) 
                                     is the version of an output that:
                                     <ul class="policy-footer-ul">
                                         <li>has been accepted for publication.</li>
@@ -960,14 +1011,14 @@
                                 <p class="policy-footer-p">This can often be a Word version of a publication but some publishers work with templates from the submission stage, so it 
                                     is important that authors retain all versions of outputs until confirmation of acceptance has been received.
                                 </p>
-                                <p id="section2" class="policy-footer-p">[2] A preprint is the pre-refereed and unpublished version of the paper that has been submitted for publication 
+                                <p id="footnote2" class="policy-footer-p">[2] A preprint is the pre-refereed and unpublished version of the paper that has been submitted for publication 
                                     and has not yet been peer-reviewed and may also be known as an accepted version, author accepted manuscript (AAM) or author's 
                                     final version, etc.
                                 </p>
-                                <p id="section3" class="policy-footer-p">[3] An eprint is a digital version of a research document (usually a journal article, but could also be a thesis, 
+                                <p id="footnote3" class="policy-footer-p">[3] An eprint is a digital version of a research document (usually a journal article, but could also be a thesis, 
                                     conference paper, book chapter, or a book) that is accessible online.
                                 </p>
-                                <p id="section4" class="policy-footer-p">[4] Practice as research is a research method in the arts in which the practice of an art is the research process, 
+                                <p id="footnote4" class="policy-footer-p">[4] Practice as research is a research method in the arts in which the practice of an art is the research process, 
                                     and the performance, art, or other media item is the research output.
                                     (Definition from NELSON, R. 2013. Introduction: The What, Where, When and Why of ‘Practice as Research’. In: R. NELSON (ed.) 
                                     Practice as Research in the Arts. London: Palgrave Macmillan, pp. 3-22.)
