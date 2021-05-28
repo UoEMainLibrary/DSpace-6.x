@@ -417,7 +417,7 @@
             <ul id="ds-trail">
                 <xsl:choose>
                     <xsl:when test="starts-with($request-uri, 'page/about')">
-                         <xsl:text>About This Repository</xsl:text>
+                        <xsl:text>About This Repository</xsl:text>
                     </xsl:when>
                     <xsl:when test="count(/dri:document/dri:meta/dri:pageMeta/dri:trail) = 0">
                         <li class="ds-trail-link first-link">-</li>

@@ -102,6 +102,7 @@
     <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_identifier">Identifier</message>
     <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_language">Language (ISO)</message>
     <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_keyword">Keyword</message>
+	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_qmucentre">Research Centre</message>
 
    <!--  some common other possibilities for Advanced Search Fields -->
    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_contributor">Contributor</message>
@@ -2541,6 +2542,8 @@
 
     <message key="xmlui.mirage2.page-structure.aboutThisRepository">About This Repository</message>
     <message key="xmlui.mirage2.page-structure.toggleNavigation">Toggle navigation</message>
+
+	<message key="xmlui.mirage2.page-structure.repositroyPolicies">Queen Margaret University Repository Policies</message>
 
     <message key="xmlui.mirage2.page-structure.heroUnit.title">About This Repository</message>
     <message key="xmlui.mirage2.page-structure.heroUnit.content">To add your own content to this page, edit webapps/xmlui/themes/Mirage2/lib/xsl/core/page-structure.xsl and add your own content to the title, trail, and body. If you wish to add additional pages, you will need to create an additional xsl:when block and match the request-uri to whatever page you are adding. Currently, static pages created through altering XSL are only available under the URI prefix of page/.</message>
