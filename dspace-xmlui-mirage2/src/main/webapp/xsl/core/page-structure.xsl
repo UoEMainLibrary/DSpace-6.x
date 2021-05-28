@@ -986,7 +986,7 @@
                             </p>
                                 <li>Withdrawn items will be deleted entirely from the repository.</li>
                                 <li>Withdrawn items' identifiers/URLs will not be retained.</li>
-                                <li>Changes to deposited items are <strong>not </strong></li>
+                                <li>Changes to deposited items are <strong>not permitted.</strong></li>
                                 <li><em>Errata </em>and <em>corrigenda </em>lists may be included with the original record if required.</li>
                                 <li>If necessary, an updated version may be deposited
                                     <ul  class="policy-ul-one">
