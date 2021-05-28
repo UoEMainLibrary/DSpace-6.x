@@ -60,6 +60,49 @@
   }
 }
 
+//Policy page styles
+.policy-container {
+  overflow: visible!important;
+}
+.hero-unit h1, .hero-unit h2, .hero-unit h3 {
+  padding: .5rem 0rem;
+}
+.hero-unit h3 {
+  font-size: 18px;
+}
+.contents-ul {
+  list-style: decimal;
+}
+.hero-unit ol {
+  list-style: decimal!important;
+  margin-bottom: .5rem;
+}
+.policy-ol-indent {
+  padding-left: 3rem;
+}
+.policy-ol-final{
+  margin-bottom: 3rem!important;
+}
+.policy-ul-one {
+  list-style: lower-alpha!important;
+}
+.policy-ul-two {
+  list-style: disc!important;
+}
+.hero-unit li {
+  line-height: 15px;
+  margin-bottom: .3rem;
+}
+.policy-footer {
+  border-top: #444 solid 1px;
+}
+.policy-footer-p, .policy-footer-ul {
+  font-size: 10px;
+}
+#section1 {
+  margin-top: .5rem;
+}
+
 /* QMU customisations */
 
 /* For width smaller than 400px: */
