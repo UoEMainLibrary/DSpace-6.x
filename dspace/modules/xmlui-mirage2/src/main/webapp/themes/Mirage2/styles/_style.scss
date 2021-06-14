@@ -19,7 +19,7 @@
 
 @include selection {
     color: white;
-    background: hotpink;
+    background: cornflowerblue;
 }
 
 .publication-records-modal, .publication-records-modal ul {
@@ -37,6 +37,10 @@
 
 .imported {
   background-color: #E2E2E2;
+}
+
+.item-page-field-wrapper h5 {
+  font-weight: bold;
 }
 
 #aspect_submission_StepTransformer_div_StartSubmissionLookupStep {
@@ -60,7 +64,53 @@
   }
 }
 
+//Policy page styles
+.policy-container {
+  overflow: visible!important;
+}
+.hero-unit h1, .hero-unit h2, .hero-unit h3 {
+  padding: .5rem 0rem;
+}
+.hero-unit h3 {
+  font-size: 18px;
+}
+.contents-ul {
+  list-style: decimal;
+}
+.hero-unit ol {
+  list-style: decimal!important;
+  margin-bottom: .5rem;
+}
+.policy-ol-indent {
+  padding-left: 3rem;
+}
+.policy-ol-final{
+  margin-bottom: 3rem!important;
+}
+.policy-ul-one {
+  list-style: lower-alpha!important;
+}
+.policy-ul-two {
+  list-style: disc!important;
+}
+.hero-unit li {
+  line-height: 15px;
+  margin-bottom: .3rem;
+}
+.policy-footer {
+  border-top: #444 solid 1px;
+}
+.policy-footer-p, .policy-footer-ul {
+  font-size: 10px;
+}
+#section1 {
+  margin-top: .5rem;
+}
+
 /* QMU customisations */
+
+/* For width smaller than 400px: */
+
 
 header .navbar-brand img{
   height: 98px;
@@ -68,6 +118,21 @@ header .navbar-brand img{
 
 header .navbar {
   min-height: 120px;
+}
+
+/* For width 400px and larger: */
+@media only screen and (max-width: 415px) {
+  header .navbar-brand img{
+    height: 65px;
+  }
+
+  header .navbar {
+    min-height: 80px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
 }
 
 header .navbar-default {

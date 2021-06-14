@@ -412,7 +412,9 @@ public class ConfigurableBrowse extends AbstractDSpaceTransformer implements
         // Add all the query parameters as hidden fields on the form
         for (Map.Entry<String, String> param : queryParamsPOST.entrySet())
         {
-            jump.addHidden(param.getKey()).setValue(param.getValue());
+            //Not necessary to hide the start-with param because it's added later
+            if (param.getKey() != BrowseParams.STARTS_WITH)
+                jump.addPara().addHidden(param.getKey()).setValue(param.getValue());
         }
 
         // If this is a date based browse, render the date navigation
@@ -1101,6 +1103,7 @@ class BrowseParams
         paramMap.put(BrowseParams.RESULTS_PER_PAGE, Integer
                 .toString(this.scope.getResultsPerPage()));
         paramMap.put(BrowseParams.ETAL, Integer.toString(this.etAl));
+        paramMap.put(BrowseParams.STARTS_WITH, this.scope.getStartsWith());
 
         return paramMap;
     }

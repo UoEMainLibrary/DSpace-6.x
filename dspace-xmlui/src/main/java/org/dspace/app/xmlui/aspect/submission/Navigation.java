@@ -20,7 +20,10 @@ import org.dspace.app.xmlui.wing.Message;
 import org.dspace.app.xmlui.wing.WingException;
 import org.dspace.app.xmlui.wing.element.List;
 import org.dspace.app.xmlui.wing.element.Options;
+import org.dspace.app.xmlui.wing.element.PageMeta;
 import org.dspace.authorize.AuthorizeException;
+import org.dspace.eperson.EPerson;
+import org.dspace.eperson.Group;
 import org.xml.sax.SAXException;
 
 /**
@@ -78,4 +81,36 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
     	
     	account.addItemXref(contextPath+"/submissions",T_submissions);
     }
+
+    public void addPageMeta(PageMeta pageMeta) throws SAXException,
+            WingException, UIException, SQLException, IOException,
+            AuthorizeException
+    {
+        /*
+        This hides hard-coded input forms, defined in js file, on the submission process step if the user is
+        NOT an administrator and IS a member of staff.
+         */
+
+        EPerson eperson = context.getCurrentUser();
+
+        if (eperson != null)
+        {
+            boolean staff = false;
+            boolean admin = false;
+
+            for (Group g: eperson.getGroups()) {
+                if(g.getName().equals("STAFF"))
+                    staff = true;
+
+                if(g.getName().equals("Administrator"))
+                    admin = true;
+
+            }
+
+            if(staff && !admin)
+                pageMeta.addMetadata("javascript","static").addContent("static/js/hide_inputs.js");
+
+        }
+    }
+
 }

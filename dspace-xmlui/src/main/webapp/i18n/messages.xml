@@ -102,6 +102,8 @@
     <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_identifier">Identifier</message>
     <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_language">Language (ISO)</message>
     <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_keyword">Keyword</message>
+	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_qmuauthor">QMU Author</message>
+	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_qmucentre">Research Centre</message>
 
    <!--  some common other possibilities for Advanced Search Fields -->
    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_contributor">Contributor</message>
@@ -112,6 +114,7 @@
    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_other">Other Contributor</message>
    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_advisor">Advisor</message>
    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_department">Department</message>
+   <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_person">Person</message>
 
    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_ANY">Full Text</message>
 
@@ -637,7 +640,7 @@
 	<message key="xmlui.Submission.general.submission.trail">Item submission</message>
 	<message key="xmlui.Submission.general.submission.head">Item submission</message>
 	<message key="xmlui.Submission.general.submission.previous">&lt; Previous</message>
-	<message key="xmlui.Submission.general.submission.save">Save &amp; Exit</message>
+	<message key="xmlui.Submission.general.submission.save">Save</message>
 	<message key="xmlui.Submission.general.submission.next">Next &gt;</message>
 	<message key="xmlui.Submission.general.submission.complete">Complete submission</message>
 	<message key="xmlui.Submission.general.workflow.title">Item submission</message>
@@ -825,13 +828,16 @@
     <!-- org.dspace.app.xmlui.Submission.submit.UploadStep -->
 	<message key="xmlui.Submission.submit.UploadStep.head">Upload File(s)</message>
 	<message key="xmlui.Submission.submit.UploadStep.file">File</message>
-	<message key="xmlui.Submission.submit.UploadStep.file_help">Please enter the full path of the file on your computer corresponding to your item. If you click "Browse...", a new window will allow you to select the file from your computer.</message>
+	<message key="xmlui.Submission.submit.UploadStep.file_help">Please enter the full path of the file on your computer corresponding to your item. If you click "Browse...", a new window will allow you to select the file from your computer.
+	<p class="help-block">Please ensure you are depositing your accepted manuscript version, not the published version, unless your work has been published Gold Open Access. For more information about versions, please contact EResearch@qmu.ac.uk</p>
+	</message>
 	<message key="xmlui.Submission.submit.UploadStep.file_error">The item must contain at least one file.</message>
 	<message key="xmlui.Submission.submit.UploadStep.upload_error">There was a problem uploading your file.  Either the filename you entered was incorrect, there was a network problem which prevented the file from reaching us correctly, or you have attempted to upload a file format marked for internal system use only.  Please try again.</message>
 	<message key="xmlui.Submission.submit.UploadStep.virus_error">The file has not been uploaded as it appears to contain a virus. Please contact the system administrator.</message>
     <message key="xmlui.Submission.submit.UploadStep.virus_checker_error">A technical problem was encountered whilst attempting to scan the file for viruses. Please contact the system administrator.</message>
     <message key="xmlui.Submission.submit.UploadStep.description">File Description</message>
-	<message key="xmlui.Submission.submit.UploadStep.description_help">Optionally, provide a brief description of the file, for example "<i>Main article</i>", or "<i>Experiment data readings</i>".</message>
+	<!--<message key="xmlui.Submission.submit.UploadStep.description_help">Optionally, provide a brief description of the file, for example "<i>Main article</i>", or "<i>Experiment data readings</i>".</message>-->
+	<message key="xmlui.Submission.submit.UploadStep.description_help">Please type in either <i>Accepted Version</i> or <i>Published Version</i>.</message>
 	<message key="xmlui.Submission.submit.UploadStep.submit_upload">Upload file &amp; add another</message>
 	<message key="xmlui.Submission.submit.UploadStep.head2">Files Uploaded</message>
 	<message key="xmlui.Submission.submit.UploadStep.column0">Primary</message>
@@ -1048,6 +1054,7 @@
     <message key="xmlui.administrative.Navigation.administrative_batch_import">Batch Import (ZIP)</message>
     <message key="xmlui.administrative.Navigation.administrative_import_metadata">Import Metadata</message>
     <message key="xmlui.administrative.Navigation.administrative_curation">Curation Tasks</message>
+	<message key="xmlui.administrative.Navigation.administrative_refreport">REF Report</message>
 
     <!-- my account items -->
 	<message key="xmlui.administrative.Navigation.account_export">My Exports</message>
@@ -1464,6 +1471,29 @@
 	<message key="xmlui.administrative.authorization.DeletePoliciesConfirm.head_id">ID</message>
 	<message key="xmlui.administrative.authorization.DeletePoliciesConfirm.head_action">Action</message>
 	<message key="xmlui.administrative.authorization.DeletePoliciesConfirm.head_group">Group</message>
+
+
+	<!-- REF Report  -->
+	<!-- org.dspace.app.xmlui.administrative.refreport -->
+	<!-- Customisation  -->
+
+	<message key="xmlui.administrative.refreport.title">REF Report</message>
+	<message key="xmlui.administrative.refreport.trail">REF Report</message>
+	<message key="xmlui.administrative.refreport.view_trail">View</message>
+	<message key="xmlui.administrative.refreport.head1">Find REF items</message>
+	<message key="xmlui.administrative.refreport.head2">View REF items</message>
+	<message key="xmlui.administrative.refreport.mainmessage">Limit results to record that contain</message>
+	<message key="xmlui.administrative.refreport.field">Field</message>
+	<message key="xmlui.administrative.refreport.fieldhelp">Selecting a metadata field from this dropdown limits the search results to those records that have some value, any value for that field.</message>
+	<message key="xmlui.administrative.refreport.author">Author</message>
+	<message key="xmlui.administrative.refreport.authorhelp">Entering a value here limits the search results to those records that contain that value in the dc.contributor.author field.</message>
+	<message key="xmlui.administrative.refreport.startdate">Start date</message>
+	<message key="xmlui.administrative.refreport.stopdate">Stop date</message>
+	<message key="xmlui.administrative.refreport.startdatehelp">Accepted format: yyyy, yyyy-mm, yyyy-mm-dd. Selecting a date here limits the search results to those records that have a later refterms.dateAccepted date value.</message>
+	<message key="xmlui.administrative.refreport.stopdatehelp">Accepted format: yyyy, yyyy-mm, yyyy-mm-dd. Selecting a date here limits the search results to those records that have a earlier refterms.dateAccepted date value.</message>
+	<message key="xmlui.administrative.refreport.find">Find</message>
+	<message key="xmlui.administrative.refreport.exportexcel">Export to Excel</message>
+	<message key="xmlui.administrative.refreport.exportexcelhelp">Checking this box exports a linked CSV file containing the search results that can be downloaded.</message>
 
 
     <!-- Batch Import Tool -->
@@ -2192,6 +2222,7 @@
 	</message>
 	<message key="xmlui.dri2xhtml.structural.contact-link">Contact Us</message>
 	<message key="xmlui.dri2xhtml.structural.feedback-link">Send Feedback</message>
+	<message key="xmlui.dri2xhtml.structural.policy-link">Policy Page</message>
 
 	<message key="xmlui.dri2xhtml.structural.head-subtitle">QMU Repositories</message>
 
@@ -2514,6 +2545,8 @@
 
     <message key="xmlui.mirage2.page-structure.aboutThisRepository">About This Repository</message>
     <message key="xmlui.mirage2.page-structure.toggleNavigation">Toggle navigation</message>
+
+	<message key="xmlui.mirage2.page-structure.repositroyPolicies">Queen Margaret University Repository Policies</message>
 
     <message key="xmlui.mirage2.page-structure.heroUnit.title">About This Repository</message>
     <message key="xmlui.mirage2.page-structure.heroUnit.content">To add your own content to this page, edit webapps/xmlui/themes/Mirage2/lib/xsl/core/page-structure.xsl and add your own content to the title, trail, and body. If you wish to add additional pages, you will need to create an additional xsl:when block and match the request-uri to whatever page you are adding. Currently, static pages created through altering XSL are only available under the URI prefix of page/.</message>
