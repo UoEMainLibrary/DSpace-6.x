@@ -448,8 +448,9 @@
             </xsl:if>
             <a>
                 <xsl:attribute name="href">
-                    <xsl:value-of select="(concat($context-path,'/browse?type=author&amp;value='))"/>
-                    <xsl:copy-of select="encoder:encode(node())"/>
+                    <xsl:value-of select="(concat($context-path,'/browse?type=author&amp;authority='))"/>
+                    <!--<xsl:copy-of select="encoder:encode(node())"/>-->
+                    <xsl:value-of select="@authority"/>
                 </xsl:attribute>
                 <xsl:value-of select="text()"/>
             </a>
