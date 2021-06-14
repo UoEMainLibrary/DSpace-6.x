@@ -114,6 +114,7 @@
    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_other">Other Contributor</message>
    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_advisor">Advisor</message>
    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_department">Department</message>
+   <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_person">Person</message>
 
    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_ANY">Full Text</message>
 
@@ -2221,6 +2222,7 @@
 	</message>
 	<message key="xmlui.dri2xhtml.structural.contact-link">Contact Us</message>
 	<message key="xmlui.dri2xhtml.structural.feedback-link">Send Feedback</message>
+	<message key="xmlui.dri2xhtml.structural.policy-link">Policy Page</message>
 
 	<message key="xmlui.dri2xhtml.structural.head-subtitle">QMU Repositories</message>
 

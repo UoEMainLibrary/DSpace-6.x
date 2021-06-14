@@ -763,6 +763,15 @@
                                 </xsl:attribute>
                                 <i18n:text>xmlui.dri2xhtml.structural.feedback-link</i18n:text>
                             </a>
+                            <xsl:text> | </xsl:text>
+                            <a>
+                                <xsl:attribute name="href">
+                                    <xsl:value-of
+                                            select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+                                    <xsl:text>/page/policy</xsl:text>
+                                </xsl:attribute>
+                                <i18n:text>xmlui.dri2xhtml.structural.policy-link</i18n:text>
+                            </a>
                         </div>
                     </div>
                     <div class="col-xs-5 col-sm-4 hidden-print">
