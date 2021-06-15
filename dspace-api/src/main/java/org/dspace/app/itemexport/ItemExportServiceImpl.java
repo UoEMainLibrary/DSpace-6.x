@@ -1244,11 +1244,14 @@ public class ItemExportServiceImpl implements ItemExportService
     private void exportForPortico(Item item)
     {
         List <Bundle> bundles = item.getBundles();
-        if(bundles.size() > 0)
+        try
         {
             String rawBitstreamString = bundles.get(0).getBitstreams().get(0).getName();
             int split = rawBitstreamString.indexOf(".");
             porticoFileName = rawBitstreamString.substring(0, split);
+        }
+        catch(NullPointerException npe) {
+            log.error("Could not get a bitstream for naming Portico export for item: " + item.getHandle());
         }
     }
 
