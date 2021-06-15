@@ -287,6 +287,7 @@
             <xsl:text disable-output-escaping="yes">&lt;!--[if lt IE 9]&gt;
                 &lt;script src="</xsl:text><xsl:value-of select="concat($theme-path, 'vendor/html5shiv/dist/html5shiv.js')"/><xsl:text disable-output-escaping="yes">"&gt;&#160;&lt;/script&gt;
                 &lt;script src="</xsl:text><xsl:value-of select="concat($theme-path, 'vendor/respond/dest/respond.min.js')"/><xsl:text disable-output-escaping="yes">"&gt;&#160;&lt;/script&gt;
+                &lt;script src="</xsl:text><xsl:value-of select="concat($theme-path, 'scripts/core-collapsible-panel.js')"/><xsl:text disable-output-escaping="yes">"&gt;&#160;&lt;/script&gt;
                 &lt;![endif]--&gt;</xsl:text>
 
             <!-- Modernizr enables HTML5 elements & feature detects -->
@@ -1260,6 +1261,32 @@
                 document.getElementById("aspect_viewArtifacts_Navigation_list_context").style.display = "none";
             </script>
         </xsl:if>
+
+        <!-- CORE Recommender Script -->
+        <script>
+            (function (d, s, jdScript, jdRec, userInput)
+            {
+                var coreAddress = 'https://core.ac.uk/';
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(jdScript))
+                    return;
+                js = d.createElement(s);
+                js.id = jdScript;
+                js.src = coreAddress + 'recommender/embed.js';
+                fjs.parentNode.insertBefore(js, fjs);
+
+                localStorage.setItem('idRecommender', jdRec);
+                localStorage.setItem('userInput', JSON.stringify(userInput));
+
+                var link = d.createElement('link');
+                link.setAttribute('rel', 'stylesheet');
+                link.setAttribute('type', 'text/css');
+                link.setAttribute('href', coreAddress + 'recommender/embed-default-style.css');
+                d.getElementsByTagName('head')[0].appendChild(link);
+            }
+            (document, 'script', 'recommender-embed', '163461', {}));
+        </script>
+        <!-- CORE Recommender accordion script -->
 
     </xsl:template>
 

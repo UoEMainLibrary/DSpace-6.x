@@ -460,7 +460,7 @@ text-align: left;
   bottom: 100%;
 }
 a#rss-item:hover {
-  background-color: #d6eafc;
+  background-color: #e6f2fc;
 }
 // GLOBAL LIST STYLES \\
 .community-browser-row a[name='community-browser-link'] {
@@ -552,7 +552,7 @@ a.list-group-item.active span {
   display: none;
 }
 .list-group-item.ds-option:hover {
-  background-color: #d6eafc;
+  background-color: #e6f2fc;
 }
 .sidebar-dropdown:hover .list-group-item.ds-option,
 .list-group-item.active, .list-group-item.active:hover, 
@@ -738,4 +738,82 @@ ul.dropdown-menu a {
 .col .ds-form-list,
 .control-group {
   padding-bottom: 1%;
+}
+
+//CORE RECOMMENDER STYLES\\
+.panel-group {
+  border: solid #2b466b 1px;
+  border-radius: 6px;
+}
+.panel-default {
+  border-color: #2b466b;
+}
+.panel-default>.panel-heading:hover {
+  background-color: #3c6093;
+  text-decoration: none;
+}
+.panel-title {
+  color: #fff;
+  font-size: 15px;
+}
+.panel-title:hover {
+  color: #fff;
+}
+#panel-dropdown:hover {
+  text-decoration: none!important;
+}
+.panel-title::after,
+#panel-dropdown[aria-expanded="false"]>.panel-title::after {
+  content: "▼";
+}
+#panel-dropdown[aria-expanded="true"]>.panel-title::after {
+  content: "▲";
+}
+.panel-default>.panel-heading {
+  color: #fff;
+  background-color: #2c466b;
+}
+#coreRecommenderOutput {
+  width: auto!important;
+}
+li#general, li#specificLibrary {
+  display: none;
+}
+.coreRecommender li:hover {
+  border: none!important;
+  background-color: #e6f2fc!important;
+}
+#coreRecommenderOutput .tabs>li {
+  font-size: 16px;
+  color: inherit;
+}
+#coreRecommenderOutput .tabs>li>a {
+  font-size: 12px!important;
+  padding: 5px 10px!important;
+  color: #2c466b!important;
+}
+.coreRecommender .documentTpl .thumb {
+  margin-right: 25px!important;
+}
+.coreRecommender .label {
+  color: #333!important;
+}
+#coreRecommenderOutput .tabs>li.active>a 
+{
+  color: #333!important;
+  background-color: #fff!important;
+  border: none;
+}
+.coreRecommender .title {
+  color: #2c466b;
+  font-size: 14px!important;
+}
+.coreRecommender .detail-info {
+  font-size: 14px;
+}
+.coreRecommender .label {
+  color: #333;
+}
+.coreRecommender .information {
+  font-size: 14px;
 }

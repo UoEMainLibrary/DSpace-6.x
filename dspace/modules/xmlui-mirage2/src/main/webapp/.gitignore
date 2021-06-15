@@ -1,0 +1,4 @@
+Dockerfile
+docker-compose.yml
+dspace-xmlui-mirage2/src/main/webapp/scripts/core-collapsible-panel.js
+dspace/src/main/docker/

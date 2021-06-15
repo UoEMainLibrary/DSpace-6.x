@@ -131,6 +131,25 @@
                 </div>
             </div>
         </div>
+        <div class="coreRecommenderContainer">
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                    <a id="panel-dropdown" data-toggle="collapse" href="#collapse1">
+                        <h4 class="panel-title">
+                            If this paper interests you, you may also like these outputs
+                        </h4>
+                    </a>
+                    </div>
+                    <div id="collapse1" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div id="coreRecommenderOutput"></div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div id="coreRecommenderOutput"></div>-->
     </xsl:template>
 
     <xsl:template name="itemSummaryView-DIM-title">

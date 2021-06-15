@@ -39,3 +39,6 @@ META-INF/
 
 ##Mac noise
 .DS_Store
+Dockerfile
+docker-compose.yml
+dspace/src/main/docker/
