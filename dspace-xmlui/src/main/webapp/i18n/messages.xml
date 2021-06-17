@@ -114,7 +114,7 @@
    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_other">Other Contributor</message>
    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_advisor">Advisor</message>
    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_department">Department</message>
-   <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_person">Person</message>
+   <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_persons">Person</message>
 
    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_ANY">Full Text</message>
 
