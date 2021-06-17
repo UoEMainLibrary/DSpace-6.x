@@ -892,6 +892,14 @@
             </li>
             <li>
                 <a>
+                    <xsl:attribute name="href"><xsl:text>https://www.abdn.ac.uk/it/service-portfolio/sc-systems-aura.php#repository-takedown</xsl:text></xsl:attribute>
+                    <xsl:attribute name="title"><xsl:text>Take-Down Notice</xsl:text></xsl:attribute>
+                    <xsl:attribute name="target"><xsl:text>_blank</xsl:text></xsl:attribute>
+                    <xsl:text>Take-Down Notice</xsl:text>
+                </a>
+            </li>
+            <li>
+                <a>
                     <xsl:attribute name="href">
                         <xsl:value-of
                                 select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
