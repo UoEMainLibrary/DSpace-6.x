@@ -215,7 +215,7 @@
 
     <xsl:template match="dri:options//dri:item[dri:xref]">
         <xsl:if test="(/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes' or not(../@n = 'account')) and not(dri:xref/node() = 'xmlui.administrative.Navigation.statistics')">
-            <xsl:comment><xsl:value-of select="dri:xref/@target"/></xsl:comment>
+            <!--<xsl:comment><xsl:value-of select="dri:xref/@target"/></xsl:comment>-->
             <a href="{dri:xref/@target}">
                 <xsl:call-template name="standardAttributes">
                     <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
@@ -230,7 +230,8 @@
                 </xsl:choose>
 
             </a>
-            <xsl:comment><xsl:value-of select="dri:xref/node()"/></xsl:comment>
+            <!--<xsl:comment><xsl:value-of select="dri:xref/node()"/></xsl:comment>-->
+
         </xsl:if>
     </xsl:template>
 
@@ -243,17 +244,18 @@
     </xsl:template>
 
     <xsl:template match="dri:options/dri:list//dri:list/dri:head" priority="3">
-        <a class="list-group-item active">
+        <!--<a class="list-group-item active">-->
             <span>
                 <xsl:call-template name="standardAttributes">
                     <xsl:with-param name="class">
-                        <xsl:value-of select="@rend"/>
-                        <xsl:text> list-group-item-heading</xsl:text>
+                        <!--<xsl:value-of select="@rend"/>-->
+                        <!--<xsl:text> list-group-item-heading</xsl:text>-->
+                        <xsl:text>list-group-item active</xsl:text>
                     </xsl:with-param>
                 </xsl:call-template>
                 <xsl:apply-templates/>
             </span>
-        </a>
+        <!--</a>-->
     </xsl:template>
 
     <xsl:template match="dri:list[count(child::*)=0]"/>

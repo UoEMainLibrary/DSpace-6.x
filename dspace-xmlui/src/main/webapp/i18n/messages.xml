@@ -24,7 +24,8 @@
 		-->
 
 	<!-- General keys -->
-	<message key="xmlui.general.dspace_home">AURA - University of Aberdeen Research Archive</message>
+
+	<message key="xmlui.general.dspace_home">AURA Home</message>
 	<message key="xmlui.general.search">Search</message>
 	<message key="xmlui.general.go">Go</message>
 	<message key="xmlui.general.go_home">Go to AURA home</message>
@@ -999,6 +1000,7 @@
 	<message key="xmlui.administrative.Navigation.context_create_subcommunity">Create Sub-community</message>
 	<message key="xmlui.administrative.Navigation.context_create_community">Create Community</message>
 	<message key="xmlui.administrative.Navigation.context_export_item">Export Item</message>
+	<message key="xmlui.administrative.Navigation.context_export_portico">Export For Portico</message>
     <message key="xmlui.administrative.Navigation.context_export_collection">Export Collection</message>
     <message key="xmlui.administrative.Navigation.context_export_community">Export Community</message>
     <message key="xmlui.administrative.Navigation.context_export_metadata">Export Metadata</message>
