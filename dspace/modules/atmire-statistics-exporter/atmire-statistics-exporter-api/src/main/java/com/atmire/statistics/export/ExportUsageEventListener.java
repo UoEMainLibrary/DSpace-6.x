@@ -324,6 +324,8 @@ public class ExportUsageEventListener extends AbstractUsageEventListener {
             // Send data
             URL url = new URL(urlStr);
             conn = url.openConnection();
+
+            conn.setConnectTimeout(5000);
             conn.setReadTimeout(5000);
 
             // Get the response
@@ -336,7 +338,8 @@ public class ExportUsageEventListener extends AbstractUsageEventListener {
             } else if (log.isDebugEnabled()) {
                 log.debug("Successfully posted " + urlStr + " on " + new Date());
             }
-        } catch (SocketTimeoutException ste) {
+        }
+        catch (SocketTimeoutException ste) {
             log.error("HTTP connection to IRUS server timed out: " + urlStr);
             ExportUsageEventListener.logfailed(c, urlStr);
         }
@@ -352,6 +355,8 @@ public class ExportUsageEventListener extends AbstractUsageEventListener {
         try {
             URL url = new URL(tracker.getUrl());
             conn = url.openConnection();
+            conn.setConnectTimeout(5000);
+            conn.setReadTimeout(5000);
             BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             while (rd.readLine() != null) ;
             rd.close();
