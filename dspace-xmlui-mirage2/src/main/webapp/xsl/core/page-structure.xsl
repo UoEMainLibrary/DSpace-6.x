@@ -765,7 +765,6 @@
                                                 </a>
                                             </div>
                                             <div style="float:left;">
-
                                                 <b>The Sir Duncan Rice Library</b><br />
                                                 University of Aberdeen<br />
                                                 Bedford Road<br />
@@ -799,7 +798,6 @@
                                     <p>
                                         <a>
                                             <xsl:attribute name="href"><xsl:text>https://www.facebook.com/biblio.teque?fref=ts</xsl:text></xsl:attribute>
-
                                             <img src="{$theme-path}images/facebook_32.png" alt="Facebook" title="Facebook" class="png" />
                                         </a>
                                         <a>
@@ -878,7 +876,6 @@
             </li>
             <li>
                 <a>
-
                     <xsl:attribute name="href"><xsl:text>https://abdn.primo.exlibrisgroup.com/discovery/collectionDiscovery?vid=44ABE_INST:44ABE_VU1&amp;collectionId=81151714170005941</xsl:text></xsl:attribute>
                     <xsl:attribute name="title"><xsl:text>Digital Resources</xsl:text></xsl:attribute>
                     <xsl:attribute name="target"><xsl:text>_blank</xsl:text></xsl:attribute>
@@ -891,6 +888,14 @@
                     <xsl:attribute name="title"><xsl:text>Library, Special Collections &#160; Museums</xsl:text></xsl:attribute>
                     <xsl:attribute name="target"><xsl:text>_blank</xsl:text></xsl:attribute>
                     <xsl:text>Library, Special Collections &amp; Museums</xsl:text>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <xsl:attribute name="href"><xsl:text>https://www.abdn.ac.uk/it/service-portfolio/sc-systems-aura.php#repository-takedown</xsl:text></xsl:attribute>
+                    <xsl:attribute name="title"><xsl:text>Take-Down Notice</xsl:text></xsl:attribute>
+                    <xsl:attribute name="target"><xsl:text>_blank</xsl:text></xsl:attribute>
+                    <xsl:text>Take-Down Notice</xsl:text>
                 </a>
             </li>
             <li>
