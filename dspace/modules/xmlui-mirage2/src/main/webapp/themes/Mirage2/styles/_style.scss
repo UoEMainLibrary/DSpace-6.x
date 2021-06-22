@@ -60,6 +60,49 @@
   }
 }
 
+//Policy page styles
+.policy-container {
+  overflow: visible!important;
+}
+.hero-unit h1, .hero-unit h2, .hero-unit h3 {
+  padding: .5rem 0rem;
+}
+.hero-unit h3 {
+  font-size: 18px;
+}
+.contents-ul {
+  list-style: decimal;
+}
+.hero-unit ol {
+  list-style: decimal!important;
+  margin-bottom: .5rem;
+}
+.policy-ol-indent {
+  padding-left: 3rem;
+}
+.policy-ol-final{
+  margin-bottom: 3rem!important;
+}
+.policy-ul-one {
+  list-style: lower-alpha!important;
+}
+.policy-ul-two {
+  list-style: disc!important;
+}
+.hero-unit li {
+  line-height: 15px;
+  margin-bottom: .3rem;
+}
+.policy-footer {
+  border-top: #444 solid 1px;
+}
+.policy-footer-p, .policy-footer-ul {
+  font-size: 10px;
+}
+#section1 {
+  margin-top: .5rem;
+}
+
 /* QMU customisations */
 
 /* For width smaller than 400px: */
@@ -119,18 +162,34 @@ div.table h5 {
 }
 
 /* Style */
+
+/* Header logo */
 header .navbar-brand img{
-  height: 84px;
+  height: 72px;
+  margin-top: 6px;
 }
 
 header .navbar {
   min-height: 120px;
 }
 
-/* For width 400px and larger: */
-@media only screen and (max-width: 415px) {
+@media only screen and (max-width: 360px) {
+  header .navbar {
+    min-height: 60px;
+  }
+
   header .navbar-brand img{
-    height: 65px;
+    height: 38px;
+    margin-top: 0;
+
+  }
+
+}
+
+/* For width 400px and larger: */
+@media only screen and (min-width: 361px) and (max-width: 415px) {
+  header .navbar-brand img{
+    height: 40px;
   }
 
   header .navbar {
@@ -140,6 +199,13 @@ header .navbar {
   h2 {
     font-size: 22px;
   }
+}
+
+@media only screen and (min-width: 416px) and (max-width: 540px) {
+  header .navbar-brand img{
+    height: 70px;
+  }
+
 }
 
 header .navbar-default {
