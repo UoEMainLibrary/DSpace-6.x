@@ -1285,8 +1285,24 @@
                 d.getElementsByTagName('head')[0].appendChild(link);
             }
             (document, 'script', 'recommender-embed', '163461', {}));
+
+            <!-- Custom code to adjust initially displayed tab -->
+
         </script>
         <!-- CORE Recommender accordion script -->
+
+        <!--<script>
+            var elem = document.getElementById("general")
+            
+            elem.onclick = function() {
+                if(document.getElementById("general").style.display = "none"){
+                    document.getElementById("general").style.display = "block";
+                }
+                else {
+                    document.getElementById("general").style.display = "none";
+                }
+            }
+        </script>-->
 
     </xsl:template>
 

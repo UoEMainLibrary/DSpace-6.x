@@ -776,9 +776,19 @@ ul.dropdown-menu a {
 #coreRecommenderOutput {
   width: auto!important;
 }
-li#general, li#specificLibrary {
-  display: none;
+// reverses tab order - may cause issues with accessibility
+#coreRecommenderOutput ul.tabs.clearfix {
+  transform: rotate(180deg);
 }
+#coreRecommenderOutput .tabs>li {
+  transform: rotate(-180deg);
+}
+/*#coreRecommender-tab1 {
+  display: none!important;
+}
+#coreRecommender-tab2 {
+  display: block!important;
+}*/
 .coreRecommender li:hover {
   border: none!important;
   background-color: #e6f2fc!important;
