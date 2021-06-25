@@ -777,18 +777,18 @@ ul.dropdown-menu a {
   width: auto!important;
 }
 // reverses tab order - may cause issues with accessibility
-#coreRecommenderOutput ul.tabs.clearfix {
+/*#coreRecommenderOutput ul.tabs.clearfix {
   transform: rotate(180deg);
 }
 #coreRecommenderOutput .tabs>li {
   transform: rotate(-180deg);
-}
-/*#coreRecommender-tab1 {
+}*/
+#general, #specificLibrary, #coreRecommender-tab1 {
   display: none!important;
 }
 #coreRecommender-tab2 {
   display: block!important;
-}*/
+}
 .coreRecommender li:hover {
   border: none!important;
   background-color: #e6f2fc!important;
