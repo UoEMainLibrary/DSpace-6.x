@@ -326,6 +326,28 @@
             <!-- Add Altmetrics JS -->
             <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
 
+            <!-- CORE Recommender JS -->
+            <script>
+                (function (d, s, idScript, idRec, userInput) {
+                    var coreAddress = 'https://core.ac.uk/';
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(idScript)) return;
+                    js = d.createElement(s);
+                    js.id = idScript;
+                    js.src = coreAddress + 'recommender/embed.js';
+                    fjs.parentNode.insertBefore(js, fjs);
+
+                    localStorage.setItem('idRecommender', idRec);
+                    localStorage.setItem('userInput', JSON.stringify(userInput));
+
+                    var link = d.createElement('link');
+                    link.setAttribute('rel', 'stylesheet');
+                    link.setAttribute('type', 'text/css');
+                    link.setAttribute('href', coreAddress + 'recommender/embed-default-style.css');
+                    d.getElementsByTagName('head')[0].appendChild(link);
+                }(document, 'script', 'recommender-embed', 'fbca3d', {}));
+            </script>
+
         </head>
     </xsl:template>
 
