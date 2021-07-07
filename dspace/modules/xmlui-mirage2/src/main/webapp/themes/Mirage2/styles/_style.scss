@@ -374,3 +374,41 @@ div #aspect_submission_Submissions_div_new-submission p a:last-child {
     font-size: 24px;
   }
 }
+
+
+// CORE Recommender Styles \\
+/*.coreRecommenderContainer {
+  display: none;
+}*/
+.panel-group {
+  border: solid #0088cb 1px;
+  border-radius: 6px;
+}
+.panel-default {
+  border-color: #0088cb;
+}
+.panel-default>.panel-heading:hover {
+  background-color: rgb(116, 168, 242);
+  text-decoration: none;
+}
+.panel-title {
+  color: #fff;
+  font-size: 15px;
+}
+.panel-title:hover {
+  color: #fff;
+}
+#panel-dropdown:hover {
+  text-decoration: none!important;
+}
+.panel-title::after,
+#panel-dropdown[aria-expanded="false"]>.panel-title::after {
+  content: "▼";
+}
+#panel-dropdown[aria-expanded="true"]>.panel-title::after {
+  content: "▲";
+}
+.panel-default>.panel-heading {
+  color: #fff;
+  background-color: #0088cb;
+}
