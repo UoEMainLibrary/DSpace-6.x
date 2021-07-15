@@ -2286,8 +2286,8 @@
 	<message key="xmlui.dri2xhtml.METS-1.0.item-uri">URI</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-publisher-uri">Publisher link</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-url">URL</message>
-	<message key="xmlui.dri2xhtml.METS-1.0.item-altmetrics-doi">Altmetrics Statistics DOI</message>
-	<message key="xmlui.dri2xhtml.METS-1.0.item-altmetrics-handle">Altmetrics Statistics Handle</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-altmetrics-doi">Altmetrics DOI Statistics</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-altmetrics-handle">Altmetrics Handle Statistics</message>
 
 	<message key="xmlui.dri2xhtml.METS-1.0.item-metadata-head">Item metadata</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-files-head">Files in this item</message>

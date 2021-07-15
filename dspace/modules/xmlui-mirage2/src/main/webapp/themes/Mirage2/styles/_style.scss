@@ -455,3 +455,31 @@ div #aspect_submission_Submissions_div_new-submission p a:last-child {
   color: #fff;
   background-color: #0088cb;
 }
+#coreRecommenderOutput {
+  width: 100%!important;
+}
+#general a {
+  display: none!important;
+}
+#general::after {
+  content: 'Other Repositories';
+  position: relative;
+  display: inline-block;
+  padding: 10px 15px;
+  margin-right: 2px;
+  line-height: 1.42857143;
+  border: 1px solid #ddd;
+  border-radius: 4px 4px 0 0;
+  color: #045d8a;
+  text-decoration: none;
+}
+#general:hover,
+#general:focus,
+#general::after:hover,
+#general::after:focus {
+  cursor: pointer!important;
+  text-decoration: none!important;
+  background-color: #eee!important;
+  color: #045d8a!important;
+  outline: 0!important;
+}
