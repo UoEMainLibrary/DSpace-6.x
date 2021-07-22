@@ -760,7 +760,7 @@
                     </div>
                     <div class="col-xs-7 col-sm-7 visible-xs footer-links">
                         <div class="small-footer-links">
-                            <a href="/page/privacy" target="_blank">Privacy &amp;amp; Cookies</a><br />
+                            <a href="/page/privacy" target="_blank">Privacy &amp; Cookies</a><br />
                             <a href="/page/takedown" target="_blank">Takedown Policy</a><br />
                             <a href="/page/accessibility" target="_blank">Accessibility</a><br />
                             <a href="/page/policies" target="_blank">Policies</a><br />

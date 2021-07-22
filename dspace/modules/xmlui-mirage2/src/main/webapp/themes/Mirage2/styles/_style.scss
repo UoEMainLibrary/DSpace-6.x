@@ -191,10 +191,18 @@ li.dropdown a:focus,
   width: 550px;
 }
  .breadcrumb {
-  /*background-color: #fff;*/
+  /*background-color: #fff;
    background-color: transparent !important;
-  margin-bottom: 0;
-  /*padding: 15px;*/
+   margin-bottom: 0;
+   padding: 15px;*/
+   color: #000;
+   background-color: #F8F8FF;
+   padding: 0.6em;
+   border-radius: 25px;
+   transition: all 0.6s ease;
+   margin-top: 2px;
+   border: 1px solid #ccc;
+ }
 }
  .breadcrumb a {
   color: #080c54;
@@ -206,6 +214,7 @@ li.dropdown a:focus,
    border-radius: 25px;
    transition: all 0.6s ease;
    margin-top: 2px;
+   border: 1px solid #ccc;
 }
 .breadcrumb li:hover {
   background-color: #8C8CE2;
