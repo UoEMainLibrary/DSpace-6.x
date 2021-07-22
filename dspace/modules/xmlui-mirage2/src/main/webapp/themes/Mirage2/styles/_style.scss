@@ -740,7 +740,7 @@ ul.dropdown-menu a {
   padding-bottom: 1%;
 }
 
-//CORE RECOMMENDER STYLES\\
+/* CORE RECOMMENDER STYLES */
 .panel-group {
   border: solid #2b466b 1px;
   border-radius: 6px;
@@ -819,4 +819,9 @@ ul.dropdown-menu a {
 }
 .coreRecommender .information {
   font-size: 14px;
+}
+
+/* ALTMETRICS DONUT */
+.altmetric-embed {
+  margin-bottom: 20px;
 }

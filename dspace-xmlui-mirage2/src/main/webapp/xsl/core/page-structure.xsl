@@ -1289,20 +1289,9 @@
             <!-- Custom code to adjust initially displayed tab -->
 
         </script>
-        <!-- CORE Recommender accordion script -->
 
-        <!--<script>
-            var elem = document.getElementById("general")
-            
-            elem.onclick = function() {
-                if(document.getElementById("general").style.display = "none"){
-                    document.getElementById("general").style.display = "block";
-                }
-                else {
-                    document.getElementById("general").style.display = "none";
-                }
-            }
-        </script>-->
+        <!-- Altmetrics JS -->
+        <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
 
     </xsl:template>
 
