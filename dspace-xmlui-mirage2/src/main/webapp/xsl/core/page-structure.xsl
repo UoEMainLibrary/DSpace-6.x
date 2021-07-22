@@ -325,17 +325,14 @@
 
             <!-- Add Altmetrics JS -->
             <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
-            <script type='text/javascript'>
-                $(document).ready(function() 
+            <!--<script type='text/javascript'>
+                $(function() 
                 {
-                    if($('.altmetric-embed')[0].html() === ""){
-                        $($('.altmetric-embed')[0]).parent().hide();
-                    }
-                    if($('.altmetric-embed')[1].html() === ""){
-                        $($('.altmetric-embed')[1]).parent().hide();
-                    }
+                    alert('test');
+                    //if($('.altmetric-embed')[0].html() === ""){ $($('.altmetric-embed')[0]).parent().hide(); }
+                    //if($('.altmetric-embed')[1].html() === ""){ $($('.altmetric-embed')[1]).parent().hide(); }
                 });
-            </script>
+            </script>-->
 
             <!-- CORE Recommender JS -->
             <script>
@@ -971,6 +968,17 @@
                 ga('send', 'pageview');
             </xsl:text></script>
         </xsl:if>
+
+        <script>
+            <xsl:text>
+                $(function() 
+                {
+                    if($('.altmet-handle').html() === ""){ $('.altmet-handle-head').hide(); }
+                    if($('.altmet-doi').html() === ""){ $('.altmet-doi-head').hide(); }
+                });
+            </xsl:text>
+        </script>
+
     </xsl:template>
 
     <!--The Language Selection
