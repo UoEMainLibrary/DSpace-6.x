@@ -125,20 +125,19 @@ public class FlowContainerUtils
 		String provenanceDescription = request.getParameter("provenance_description");
 
 		String doiCollection = request.getParameter("doi_collection");
+		DOICollection doiCollectionObj = doiCollectionService.findByCollectionUUID(context, collectionID);
 
 		// Add UUID to DOICollection table if checkbox is set, else remove it
 		// * Hrafn Malmquist
      	// * 25/09/2019
-		if (doiCollection != null && doiCollection.length() != 0)	{
-			DOICollection doiCollectionObj = doiCollectionService.create(context);
+		if (doiCollection != null && doiCollection.length() != 0 && doiCollectionObj == null)	{
+			doiCollectionObj = doiCollectionService.create(context);
 			doiCollectionObj.setUUID(collectionID);
-		}
-		else {
-			DOICollection doiCollectionObj = doiCollectionService.findByCollectionUUID(context, collectionID);
 
-			if(doiCollectionObj != null) {
-				doiCollectionService.delete(context, doiCollectionObj);
-			}
+		}
+		else if(doiCollectionObj != null) {
+			doiCollectionService.delete(context, doiCollectionObj);
+
 		}
 
 		// If they don't have a name then make it untitled.
