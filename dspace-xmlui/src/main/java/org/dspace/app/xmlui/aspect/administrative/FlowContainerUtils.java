@@ -133,9 +133,8 @@ public class FlowContainerUtils
 		if (doiCollection != null && doiCollection.length() != 0 && doiCollectionObj == null)	{
 			doiCollectionObj = doiCollectionService.create(context);
 			doiCollectionObj.setUUID(collectionID);
-
 		}
-		else if(doiCollectionObj != null) {
+		else if(doiCollection == null && doiCollectionObj != null) {
 			doiCollectionService.delete(context, doiCollectionObj);
 
 		}
@@ -180,8 +179,6 @@ public class FlowContainerUtils
 		collectionService.setMetadata(context, collection, "side_bar_text", sideBarText);
 		collectionService.setMetadata(context, collection, "license", license);
 		collectionService.setMetadata(context, collection, "provenance_description", provenanceDescription);
-
-		//DOICollection doiCollection = ;
         
 		// Change or delete the logo
         if (deleteLogo)
