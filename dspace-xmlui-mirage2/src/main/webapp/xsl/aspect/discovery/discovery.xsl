@@ -220,10 +220,20 @@
                 
                 </div>
 
+                <div class="artifact-comments">
+
+                    <xsl:if test="dri:list[@n=(concat($handle, ':dc.description.comments'))]">
+                        <p class="exam-comments" title="paper commnets">
+                            <xsl:apply-templates select="dri:list[@n=(concat($handle, ':dc.description.comments'))]/dri:item"/>
+                        </p>
+                    </xsl:if>
+                
+                </div>
+
                 <div class="artifact-info">
 
                     <!-- Remove standard author text from display -->
-                    <!--<span class="author h4">    <small>
+                    <!--<span class="author h4">    <small> 
                         <xsl:choose>
                             <xsl:when test="dri:list[@n=(concat($handle, ':dc.contributor.author'))]">
                                 <xsl:for-each select="dri:list[@n=(concat($handle, ':dc.contributor.author'))]/dri:item">
@@ -339,7 +349,7 @@
                     <!-- Conditional to check if exam paper pdf available and display download link if true -->
                     <xsl:choose>
                         <!-- Checks if the returned $metsDoc string contains 'pdf' and serves up download link if true -->
-                        <xsl:when test="$bitstreaminfo != ''">
+                        <xsl:when test="normalize-space($bitstreaminfo)">
                             <span class="pdf-download" title="Click to download PDF version of this paper">
                                 <small>
                                     <xsl:element name="a">

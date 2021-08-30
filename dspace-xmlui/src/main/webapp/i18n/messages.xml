@@ -2221,6 +2221,7 @@
 	<message key="xmlui.dri2xhtml.METS-1.0.item-coursecode">Course Code</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-version">Version</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-type">Type</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-comments">Comments</message>
 	
 
 	<message key="xmlui.dri2xhtml.METS-1.0.item-files-head">Files in this item</message>

@@ -85,25 +85,36 @@ public class XSLUtils {
     {
         // The results that we'll return
         StringBuilder results = new StringBuilder();
+        Context context = null;
 
         try {
-            Item item = (Item) handleService.resolveToObject(new Context(), handle);
-
+            // A context initializes a database connection
+            context = new Context();
+            Item item = (Item) handleService.resolveToObject(context, handle);
+        
             for (Bundle bundle : item.getBundles()) {
                 if ("ORIGINAL".equals(bundle.getName())) {
                     for (Bitstream bitstream : bundle.getBitstreams()) {
                         String bitstreamname = bitstream.getName();
-
-                        if(bitstreamname.endsWith("pdf"))
+        
+                        if(bitstreamname.toLowerCase().endsWith("pdf")){
                             return bitstreamname + "?sequence=" + bitstream.getSequenceID() + "&amp;isAllowed=y";
-
+                        }
                     }
                 }
             }
-        }   catch (SQLException sqle) {
-
+        
+            context.complete();
         }
-
+        catch (SQLException ignored) {                
+        }
+        finally {
+            // If there's a problem in the database we need to free the connection
+            if(context != null) {
+                context.abort();    
+            }
+        }
+        
         return results.toString();
     }
 

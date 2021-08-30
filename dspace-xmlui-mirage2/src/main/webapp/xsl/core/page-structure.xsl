@@ -469,6 +469,9 @@
                     <xsl:when test="starts-with($request-uri, 'exam-papers/accessibility')">
                         <i18n:text>Accessibility</i18n:text>
                     </xsl:when> 
+                    <xsl:when test="starts-with($request-uri, 'exam-papers/archive')">
+                        <i18n:text>Archive</i18n:text>
+                    </xsl:when> 
                     <xsl:when test="not($page_title)">
                         <xsl:text>  </xsl:text>
                     </xsl:when>
@@ -738,8 +741,7 @@
                     <div class="row">
                         <!--TODO-->
                         <div class="col-xs-12">
-                            
-
+                        
                                 <!-- REMOVED DYNAMIC BREADCRUMBS -->
                                 <!--<xsl:when test="count(/dri:document/dri:meta/dri:pageMeta/dri:trail) > 1">
                                     <div class="breadcrumb dropdown visible-xs">
@@ -872,6 +874,11 @@
                                     <xsl:when test="contains($request-uri, 'submi')">
                                         <li alt="breadcrumb for current page" title="Current page: Administation">
                                             <xsl:text>Submissions</xsl:text>
+                                        </li>
+                                    </xsl:when>
+                                    <xsl:when test="contains($request-uri, 'archive')">
+                                        <li alt="breadcrumb for current page" title="Current page: Administation">
+                                            <xsl:text>Archive</xsl:text>
                                         </li>
                                     </xsl:when>
                                     <xsl:otherwise>
@@ -1065,6 +1072,7 @@
                                     <xsl:text>/exam-papers/faqs</xsl:text>
                                     <xsl:text>/exam-papers/unavailable</xsl:text>
                                     <xsl:text>/exam-papers/accessibility</xsl:text>
+                                    <xsl:text>/exam-papers/archive</xsl:text>
                                 </xsl:attribute>
 
                                 <!--<i18n:text>xmlui.dri2xhtml.structural.contact-link</i18n:text>-->
@@ -1372,6 +1380,7 @@
                     </div>
                 </xsl:when>
                 
+                <!-- ACCESSIBILITY PAGE -->
                 <xsl:when test="starts-with($request-uri, 'exam-papers/accessibility')">
                     <div class="hero-unit">
                         <div class="content">
@@ -1650,6 +1659,22 @@
                             <p alt="exam papers accessability details">
                                 <strong>This statement was prepared on 21st October 2019. It was last updated on 22nd November 2019</strong>
                             </p>
+                        </div>
+                    </div>
+                </xsl:when>
+
+                <!-- ARCHIVE PAGE -->
+                <xsl:when test="starts-with($request-uri, 'exam-papers/archive')">
+                    <div class="hero-unit">
+                        <div class="content">
+                            <h3 alt="page title">The past papers for 1996/1997 to 2003/2004 have been archived</h3>
+                            <p></p>
+                            <p>
+                                If you require access to any of the exam papers from the archive please contact 
+                                <a href="mailto:exam.papers@ed.ac.uk" alt="link to exam papers email address" title="Click to email the exam papers department for more information">
+                                exam.papers@ed.ac.uk</a> with your enquiry.
+                            </p>
+                            <br></br>
                         </div>
                     </div>
                 </xsl:when>

@@ -129,6 +129,7 @@
                     <xsl:call-template name="itemSummaryView-coursecode" />
                     <xsl:call-template name="itemSummaryView-version" />
                     <xsl:call-template name="itemSummaryView-year" />
+                    <!--<xsl:call-template name="itemSummaryView-comments" />-->
                     <xsl:call-template name="itemSummaryView-DIM-file-section" />
 
                     <!-- Suppressed link to full item view -->
@@ -475,6 +476,24 @@
             </div>
         </xsl:if>
     </xsl:template>
+
+    <!--<xsl:template name="itemSummaryView-comments">
+        <xsl:if test="dim:field[@element='description' and @qualifier='comments' and descendant::text()]">
+            <div class="simple-item-view-isbn word-break item-page-field-wrapper table">
+                <h5 title="paper comments">
+                    <i18n:text>xmlui.dri2xhtml.METS-1.0.item-comments</i18n:text>
+                </h5>
+                <xsl:for-each select="dim:field[@element='description' and @qualifier='comments']">
+                    <p class="item-meta-p" title="paper comments">
+                        <xsl:copy-of select="./node()"/>
+                        <xsl:if test="count(following-sibling::dim:field[@element='description' and @qualifier='comments']) != 0">
+                            <br/>
+                        </xsl:if>
+                    </p>
+                </xsl:for-each>
+            </div>
+        </xsl:if>
+    </xsl:template>-->
 
     <xsl:template name="itemSummaryView-date">
         <xsl:if test="dim:field[@element='date' and @qualifier='issued' and descendant::text()]">
