@@ -220,7 +220,7 @@
                 
                 </div>
 
-                <div class="artifact-comments">
+                <!--<div class="artifact-comments">
 
                     <xsl:if test="dri:list[@n=(concat($handle, ':dc.description.comments'))]">
                         <p class="exam-comments" title="paper commnets">
@@ -228,7 +228,7 @@
                         </p>
                     </xsl:if>
                 
-                </div>
+                </div>-->
 
                 <div class="artifact-info">
 
