@@ -88,7 +88,14 @@ public class StartRegistration extends AbstractDSpaceTransformer implements Cach
     
     private static final Message T_submit_register = 
         message("xmlui.EPerson.StartRegistration.submit_register");
-    
+
+    private static final Message T_captcha_help =
+            message("xmlui.EPerson.StartRegistration.captcha_help");
+
+    private static final Message T_captcha_error =
+            message("xmlui.EPerson.StartRegistration.captcha_error");
+
+
 
     /** The email address previously entered */
     private String email;
@@ -212,6 +219,14 @@ public class StartRegistration extends AbstractDSpaceTransformer implements Cach
        {
            email.addError(T_error_bad_email);
        }
+
+       //Add simple math captcha
+       Item captcha=form.addItem("captcha", "captcha");
+       captcha.addContent(T_captcha_help);
+       Text captcha_input=captcha.addText("captcha_input");
+       if(errors.contains("captcha"))
+           captcha_input.addError(T_captcha_error);
+       captcha_input.setLabel("Captcha");
        
        Item submit = form.addItem();
        submit.addButton("submit").setValue(T_submit_register);

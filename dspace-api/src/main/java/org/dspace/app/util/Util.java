@@ -551,4 +551,27 @@ public class Util {
 
         return toReturn;
     }
+
+    /**
+     * Method to check if the sum result of the captcha is correct
+     * Borrowed from https://github.com/CICBA/DSpace/commit/4a888684cef31aa7633791dad52a675dc5cbb95d#diff-6d6cc26e53790710ae6b656711d23afc3126311a58d9d1199e85c913f1f70fd8
+     * used in new user registration process
+     *
+     * @param number1 first number to sum
+     * @param number2 second number to sum
+     * @param result  the result entered by the user
+     * @return True the sum is correct False otherwise
+     */
+    public static boolean isValidCaptchaResult(String number1, String number2, String result) {
+        boolean isValidUser = false;
+        if (number1 != null && number2 != null && result != null) {
+            try {
+                if (Integer.parseInt(number1) + Integer.parseInt(number2) == Integer.parseInt(result))
+                    isValidUser = true;
+            } catch (NumberFormatException e) {
+                isValidUser = false;
+            }
+        }
+        return isValidUser;
+    }
 }

@@ -59,5 +59,6 @@
      so no other way really
      -->
     <script src="scripts/accessibility.js">&#160;</script>
+    <script src="scripts/add_user_captcha.js">&#160;</script>
 
 </scripts>
