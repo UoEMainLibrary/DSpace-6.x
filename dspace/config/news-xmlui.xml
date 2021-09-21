@@ -3,7 +3,7 @@
 <body>
 <div id="file.news.div.news" n="news" rend="primary">
 
-    <h1 alt="page introduction">
+    <h1 title="page introduction">
         University of Edinburgh Exam Papers Online: 2004/05 to 2020/21
     </h1>
     <p></p>
@@ -20,7 +20,7 @@
     <p></p>
 
     <div id="search-tip-box">
-        <h1 alt="tips on how to search for a past paper">Search Tips</h1>
+        <h1 title="tips on how to search for a past paper">Search Tips</h1>
 
         <list n="test" id="test.list">
             <item>
@@ -37,7 +37,7 @@
     </div>
     <p></p>
 
-    <h1 alt="introduction to finding marking guides">Marking Guides and Sample Solutions</h1>
+    <h1 title="introduction to finding marking guides">Marking Guides and Sample Solutions</h1>
     <p>
         The Library does not hold any marking guides or sample solutions to exam papers. We suggest that you contact the course secretary or 
         course organiser to check if these have been created for your course and how they have been made available.
@@ -45,10 +45,10 @@
     <p></p>
     
 
-    <h1 alt="introduction to frequently asked questions">FAQs</h1>
+    <h1 title="introduction to frequently asked questions">FAQs</h1>
         <!-- URL MUST BE HARD CODED REMEMBER TO CHANGE BEFORE DEPLOYMENT!!! -->
         <p>
-            Frequently asked questions for students, and administrative and teach1ng staff can be found at the <xref target="/exam-papers/faqs" 
+            Frequently asked questions for students, and administrative and teaching staff can be found at the <xref target="/exam-papers/faqs" 
             title="Link to email the University of Edinburgh's exam papers frequently ask questions page" alt="link to frequently asked questions page">FAQs Page</xref>.
         </p>
     <p></p>
