@@ -161,11 +161,13 @@ public class DSpaceCocoonServletFilter implements Filter
                 }
     } catch (IOException e) {
         ContextUtil.abortContext(realRequest);
+
         if (LOG.isDebugEnabled()) {
               LOG.debug("The connection was reset", e);
             }
         else {
-            LOG.error("Client closed the connection before file download was complete");
+            LOG.error("Client closed the connection before file download was complete. URL: "
+                    + realRequest.getRequestURI() + " IP: " + realRequest.getRemoteAddr());
         }
     } catch (RuntimeException e) {
         ContextUtil.abortContext(realRequest);
