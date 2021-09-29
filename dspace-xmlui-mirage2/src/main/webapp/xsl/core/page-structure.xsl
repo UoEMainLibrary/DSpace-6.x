@@ -938,13 +938,13 @@
                         <p>At this time we are not claiming any material is out of scope.</p>
                         <h2>What we're doing to improve accessibility</h2>
                         <p>We will continue to work with our in house developers to address these issues and deliver a solution or suitable workaround and correct issues directly where they are under our control.</p>
-                        <p>We will continue to monitor accessibility and will carry out further accessibility testing if significant changes are made to the user interface or if a service user raises an issue, and plan to resolve the issues that are within our control by March 2021. We plan to manual review the accessibility of the site and make improvements and update this statement before December 2021.Where we are unable to resolve an issue or where an issue is out with our control we will ensure reasonable adjustments are put in place to ensure no user is disadvantaged</p>
+                        <p>We will continue to monitor accessibility and will carry out further accessibility testing if significant changes are made to the user interface or if a service user raises an issue, and plan to resolve the issues that are within our control by April 2022. We plan to manual review the accessibility of the site and make improvements and update this statement before April 2022.Where we are unable to resolve an issue or where an issue is out with our control we will ensure reasonable adjustments are put in place to ensure no user is disadvantaged</p>
                         <h3>Information Services and accessibility</h3>
                         <p>Information Services (IS) has further information on accessibility including assistive technology, creating accessible documents, and services IS provides for disabled users.</p>
                         <p><a href="https://www.ed.ac.uk/information-services/help-consultancy/accessibility">Assistive technology, creating accessible documents, and services IS provides for disabled users</a></p>
                         <h2>Preparation of this accessibility statement</h2>
-                        <p><strong>This statement was prepared on 10<sup>th</sup> September 2020. It was last reviewed on 15<sup>th</sup> September 2020.</strong></p>
-                        <p>This website was last tested on 10<sup>th</sup> September 2020. The test was carried out by The University Library and University Collections Digital Library team using the automated LittleForest tool. The website is scheduled for manual testing by December 2021.</p>
+                        <p><strong>This statement was prepared on 23<sup>th</sup> September 2021. It was last reviewed on 23<sup>th</sup> September 2021.</strong></p>
+                        <p>This website was last tested on 10<sup>th</sup> September 2020. The test was carried out by The University Library and University Collections Digital Library team using the automated LittleForest tool. The website is scheduled for manual testing by April 2022.</p>
                         <p>We did not use sample pages for testing - all pages were run through LittleForest.</p>
                         <p>Little Forrest claims it tests the following WCAG criteria either partially or wholly</p>
                         <table width="0">
