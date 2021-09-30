@@ -57,7 +57,7 @@
             <ref bean="dspace.eventService"/>
         </property>
     </bean>-->
-    <bean class="org.dspace.google.GoogleAsyncEventListener">
+    <bean class="org.dspace.google.GoogleAsyncEventListener" destroy-method="destroy">
         <property name="eventService" >
             <ref bean="dspace.eventService"/>
         </property>
