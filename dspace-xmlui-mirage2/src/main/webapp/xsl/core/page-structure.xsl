@@ -97,7 +97,8 @@
                                 </div>
                             </div>
 
-                            <div id="main-container" class="container policy-container">
+                            <div id="main-container" class="container">
+                                <div class="policy-container">
 
                                 <div class="row row-offcanvas row-offcanvas-right">
                                     <div class="horizontal-slider clearfix">
@@ -113,6 +114,7 @@
                                         </div>
 
                                     </div>
+                                </div>
                                 </div>
 
                                 <!--
@@ -753,6 +755,15 @@
                                     <xsl:text>/page/accessibility</xsl:text>
                                 </xsl:attribute>
                                 Accessibility Statement
+                            </a>
+                            <xsl:text> | </xsl:text>
+                            <a>
+                                <xsl:attribute name="href">
+                                    <xsl:value-of
+                                            select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+                                    <xsl:text>/page/policy</xsl:text>
+                                </xsl:attribute>
+                                <i18n:text>xmlui.mirage2.page-structure.policy</i18n:text>
                             </a>
                             <xsl:text> | </xsl:text>
                             <a>
@@ -1841,13 +1852,13 @@
 
                             <h3>Contents</h3>
                             <ul class="contents-ul">
-                                <li class="contents-li"><a href="#section1">Open Access Archiving Policy</a></li>
-                                <li class="contents-li"><a href="#section2">eResearch Publications Repository: Submission Policy</a></li>
-                                <li class="contents-li"><a href="#section3">eResearch Publications Repository: Content Policy</a></li>
-                                <li class="contents-li"><a href="#section4">QMU Repositories: Data Policy</a></li>
-                                <li class="contents-li"><a href="#section5">QMU Repositories: Metadata Policy</a></li>
-                                <li class="contents-li"><a href="#section6">QMU Repositories: Preservation Policy</a></li>
-                                <li class="contents-li"><a href="#section7">Definitions</a></li>
+                                <li class="contents-li">Open Access Archiving Policy</li>
+                                <li class="contents-li">eResearch Publications Repository: Submission Policy</li>
+                                <li class="contents-li">eResearch Publications Repository: Content Policy</li>
+                                <li class="contents-li">QMU Repositories: Data Policy</li>
+                                <li class="contents-li">QMU Repositories: Metadata Policy</li>
+                                <li class="contents-li">QMU Repositories: Preservation Policy</li>
+                                <li class="contents-li">Definitions</li>
                             </ul>
 
                             <h2 id="section1">Open Access Archiving Policy</h2>
@@ -1865,7 +1876,7 @@
                                     <ul class="policy-ul-one">
                                         <li>The copyright for the un-refereed <strong>preprint<a href="#footnote1">[1]</a></strong> resides entirely with the author before it is submitted for peer-reviewed publication, hence it can be self-archived irrespective of the copyright policy of the journal to which it is eventually submitted</li>
                                         <li>The copyright for the peer-reviewed <strong>postprint<a href="#footnote2">[2]</a></strong> will depend on the wording of the copyright agreement which the author signs with the publisher</li>
-                                        <li>Many publishers will allow the peer-reviewed postprint to be archived. The copyright transfer agreement will either specify this right explicitly or the author can inquire about it directly. If you are uncertain about the terms of your agreement, a directory of journal self-archiving policies is available on the JISC SHERPA/RoMEO website: <a href="http://www.sherpa.ac.uk/romeo">http://www.sherpa.ac.uk/romeo</a>
+                                        <li>Many publishers will allow the peer-reviewed postprint to be archived. The copyright transfer agreement will either specify this right explicitly or the author can inquire about it directly. If you are uncertain about the terms of your agreement, a directory of journal self-archiving policies is available on the JISC SHERPA/RoMEO website: <a href="https://www.sherpa.ac.uk/romeo">https://www.sherpa.ac.uk/romeo</a>
                                         <p>Wherever possible, you are advised to modify your copyright agreement so that it does not disallow archiving</p></li>
                                         <li>In the rare case where you have signed a very restrictive copyright transfer form in which you have agreed explicitly <strong>not</strong> 
                                             to self-archive the peer-reviewed postprint, you are encouraged to archive, alongside your already-archived preprint, a "corrigenda" file, 
@@ -1918,7 +1929,7 @@
                                 </li>
                                 <li>Academic staff may self-deposit documents of the types described above and Library staff will perform final quality control checks on 
                                     records created for each item before making items visible externally. Academic staff may also send documents or article references, etc. 
-                                    to the Librarys eResearch Team (email: <a href="mailto:eResearch@qmu.ac.uk"><strong>eResearch@qmu.ac.uk</strong></a>) for record creation 
+                                    to the Library's eResearch Team (email: <a href="mailto:eResearch@qmu.ac.uk"><strong>eResearch@qmu.ac.uk</strong></a>) for record creation
                                     and upload to the repository. Library staff will use services such as JISC Publications Router alerts (which includes items identified 
                                     by QMU affiliation in services such as Scopus, Web of Science, etc.) to identify material published by QMU staff for inclusion in eResearch.
                                 </li>
@@ -1935,7 +1946,7 @@
                             <p>Exceptionally, if a member of academic staff believes an individual output demonstrates quality or specific merit then it should be forwarded, 
                                 in the first instance, to the relevant QMU School or Research Centre Lead who will decide whether the material is suitable for inclusion in 
                                 eResearch. If the Research Lead recommends that an item should be included in eResearch, they should inform the member of staff who will then 
-                                either self-deposit or send the document to the Librarys eResearch Team (email: <a href="mailto:eResearch@qmu.ac.uk">
+                                either self-deposit or send the document to the Library's eResearch Team (email: <a href="mailto:eResearch@qmu.ac.uk">
                                 <strong>eResearch@qmu.ac.uk</strong></a>) for deposit as described above.
                             </p>
                             <ol start="4">
