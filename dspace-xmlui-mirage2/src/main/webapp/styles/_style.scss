@@ -187,8 +187,9 @@ li.dropdown a:focus,
   width: 550px;
 }
  .breadcrumb {
-  /*background-color: #fff;*/
-   background-color: transparent !important;
+  /*background-color: #fff;
+   background-color: transparent !important;*/
+   background-color: #F8F8FF;
    margin-bottom: 0;
    padding: 15px;
 }
@@ -216,7 +217,7 @@ li.dropdown a:focus,
 }
  .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
   background-color: #9698C2;
-  border-color: ##7389F4;
+  border-color: #7389F4;
   color: #fff !important;
   z-index: 2;
 }
