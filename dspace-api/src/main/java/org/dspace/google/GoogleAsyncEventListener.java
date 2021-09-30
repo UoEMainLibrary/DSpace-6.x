@@ -64,12 +64,12 @@ public class GoogleAsyncEventListener extends AbstractUsageEventListener {
     private static Future future;
     private static boolean destroyed = false;
 
-    @Autowired(required = true)
+    //@Autowired(required = true)
     private static ConfigurationService configurationService;
 
-    @PostConstruct
-    public void init() {
-        //configurationService = DSpaceServicesFactory.getInstance().getConfigurationService();
+    //@PostConstruct
+    public GoogleAsyncEventListener() {
+        configurationService = DSpaceServicesFactory.getInstance().getConfigurationService();
         analyticsKey = configurationService.getProperty("google.analytics.key");
         if (StringUtils.isNotEmpty(analyticsKey)) {
             int analyticsBufferlimit = configurationService.getIntProperty("google.analytics.buffer.limit", 256);
@@ -156,7 +156,7 @@ public class GoogleAsyncEventListener extends AbstractUsageEventListener {
         return clientIP;
     }
 
-    @PreDestroy
+    //@PreDestroy
     public void destroy() throws InterruptedException {
         destroyed = true;
         if (StringUtils.isNotEmpty(analyticsKey)) {
