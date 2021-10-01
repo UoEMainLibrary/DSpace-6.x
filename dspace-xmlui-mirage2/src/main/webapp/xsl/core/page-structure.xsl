@@ -1638,7 +1638,7 @@
                                 We will continue to work with our in house developers to address these issues and deliver a solution or suitable workaround and correct issues directly where they are under our control.
                             </p>
                             <p alt="exam papers accessability details">
-                                We will carry out further accessibility testing if significant changes are made to the user interface or if a service user raises an issue. We plan to resolve the issues that are within our control by September 2020.
+                                We will carry out further accessibility testing if significant changes are made to the user interface or if a service user raises an issue. We plan to resolve the issues that are within our control by April 2022.
                             </p>
                             <p alt="exam papers accessability details">
                                 Whilst we are in the process of resolving these accessibility issues or where we are unable to, we will ensure reasonable adjustments are in place to make sure no user is disadvantaged.
