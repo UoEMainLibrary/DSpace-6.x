@@ -98,7 +98,7 @@
                             </div>
 
                             <div id="main-container" class="container">
-        
+
                                 <div class="row row-offcanvas row-offcanvas-right">
                                     <div class="horizontal-slider clearfix">
                                         <div class="col-xs-12 col-sm-12 col-md-9 main-content">
@@ -120,7 +120,7 @@
                                                             </input>
                                                             <span class="input-group-btn">
                                                                 <button id="search-button" class="ds-button-field btn btn-primary" title="Submit search">
-                                                                    <span>Search</span> 
+                                                                    <span>Search</span>
                                                                     <xsl:attribute name="onclick">
                                                                                 <xsl:text>
                                                                                     var radio = document.getElementById(&quot;ds-search-form-scope-container&quot;);
@@ -145,7 +145,7 @@
                                                         </div>
                                                     </fieldset>
                                                 </form>
-                                                
+
                                                 <!-- Reset search button added, clears seach filters and returns to default discovery page -->
                                                 <xsl:variable name="clean-search" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath']"/>
                                                 <a id="search-reset" href="{$clean-search}/discover" alt="clear all seach filters" title="Clear search criteria">Reset Search</a>
@@ -157,13 +157,13 @@
                                                 <xsl:call-template name="buildFooter"/>
                                             </div>
 
-                                            <!-- The footer div, dropping whatever extra information is needed on the page. It 
+                                            <!-- The footer div, dropping whatever extra information is needed on the page. It
                                             will most likely be something similar in structure to the currently given example. -->
                                             <div class="hidden-xs hidden-sm">
                                                 <xsl:call-template name="buildFooter"/>
                                             </div>
                                         </div>
-                                        
+
 
                                     <!-- CREATE STATIC SIDEBAR FOR STATIC PAGES -->
                                     <!-- Very ugly solution but works for these purposes -->
@@ -171,7 +171,7 @@
                                     <xsl:variable name="root-url" select="/dri:document/dri:meta/dri:pageMeta/dri:trail[@target][last()]/@target"/>
                                     <xsl:choose>
                                         <!-- Conditional to determine if current URL is a static page and serve up static sidebar accordingly -->
-                                        <xsl:when test="contains($request-uri, 'about') or contains($request-uri, 'help') or contains($request-uri, 'feedback') 
+                                        <xsl:when test="contains($request-uri, 'about') or contains($request-uri, 'help') or contains($request-uri, 'feedback')
                                                         or contains($request-uri, 'faq') or contains($request-uri, 'unavailable') or contains($request-uri, 'accessibility')">
                                             <div role="navigation" id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
                                                 <div id="aspect_viewArtifacts_Navigation_list_discovery" class="list-group">
@@ -180,103 +180,103 @@
                                                             Browse by School
                                                         </span>
                                                     </a>
-                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Biological+Sciences%2C+School+of" 
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Biological+Sciences%2C+School+of"
                                                         class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Biological Sciences, School of
                                                     </a>
-                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Biomedical+Sciences%2C+Deanery+of" 
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Biomedical+Sciences%2C+Deanery+of"
                                                         class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Biomedical Sciences, Deanery of
                                                     </a>
-                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Business+School" 
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Business+School"
                                                         class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Business School
                                                     </a>
-                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Chemistry%2C+School+of" 
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Chemistry%2C+School+of"
                                                         class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Chemistry, School of
                                                     </a>
-                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Clinical+Sciences%2C+Deanery+of" 
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Clinical+Sciences%2C+Deanery+of"
                                                         class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Clinical Sciences, Deanery of
                                                     </a>
-                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Divinity%2C+School+of" 
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Divinity%2C+School+of"
                                                         class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Divinity, School of
                                                     </a>
-                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Economics%2C+School+of" 
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Economics%2C+School+of"
                                                         class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Economics, School of
                                                     </a>
-                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Edinburgh+College+of+Art" 
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Edinburgh+College+of+Art"
                                                         class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Edinburgh College of Art
                                                     </a>
-                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Education%2C+The+Moray+House+School+of" 
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Education%2C+The+Moray+House+School+of"
                                                         class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Education, The Moray House School of
                                                     </a>
-                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Engineering%2C+School+of" 
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Engineering%2C+School+of"
                                                         class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Engineering, School of
                                                     </a>
-                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Geosciences%2C+School+of" 
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Geosciences%2C+School+of"
                                                         class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Geosciences, School of
                                                     </a>
-                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Health+in+Social+Science%2C+School+of" 
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Health+in+Social+Science%2C+School+of"
                                                         class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Health in Social Science, School of
                                                     </a>
-                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=History%2C+Classics+and+Archaeology%2C+School+of" 
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=History%2C+Classics+and+Archaeology%2C+School+of"
                                                         class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         History, Classics and Archaeology, School of
                                                     </a>
-                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Informatics%2C+School+of" 
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Informatics%2C+School+of"
                                                         class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Informatics, School of
                                                     </a>
-                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Law%2C+School+of" 
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Law%2C+School+of"
                                                         class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Law, School of
                                                     </a>
-                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Life+Long+Learning" 
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Life+Long+Learning"
                                                         class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Life Long Learning
                                                     </a>
-                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Literatures%2C+Languages+%26+Cultures%2C+School+of" 
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Literatures%2C+Languages+%26+Cultures%2C+School+of"
                                                         class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Literatures, Languages &amp; Cultures, School of
                                                     </a>
-                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Mathematics%2C+School+of" 
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Mathematics%2C+School+of"
                                                         class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Mathematics, School of
                                                     </a>
-                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=MBChB+%28Papers+unavailable+at+request+of+College%29" 
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=MBChB+%28Papers+unavailable+at+request+of+College%29"
                                                         class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         MBChB (Papers unavailable at request of College)
                                                     </a>
-                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Molecular%2C+Genetic+and+Population+Health+Sciences%2C+Deanery+of" 
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Molecular%2C+Genetic+and+Population+Health+Sciences%2C+Deanery+of"
                                                         class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Molecular, Genetic and Population Health Sciences, Deanery of
                                                     </a>
-                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Philosophy%2C+Psychology+%26+Language+Sciences%2C+School+of" 
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Philosophy%2C+Psychology+%26+Language+Sciences%2C+School+of"
                                                         class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Philosophy, Psychology &amp; Language Sciences, School of
                                                     </a>
-                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Physics+and+Astronomy%2C+School+of" 
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Physics+and+Astronomy%2C+School+of"
                                                         class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Physics and Astronomy, School of
                                                     </a>
-                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Social+%26+Political+Science%2C+School+of" 
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Social+%26+Political+Science%2C+School+of"
                                                         class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Social &amp; Political Science, School of
                                                     </a>
-                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Veterinary+Studies%2C+Royal+%28Dick%29+School+of" 
+                                                    <a href="{$root-url}discover?filtertype=author&amp;filter_relational_operator=equals&amp;filter=Veterinary+Studies%2C+Royal+%28Dick%29+School+of"
                                                         class="list-group-item ds-option" alt="click to view all papers for this school" title="Click to view all papers from this school">
                                                         Veterinary Studies, Royal (Dick) School of
                                                     </a>
-                                                </div>   
+                                                </div>
                                             </div>
                                         </xsl:when>
                                         <!-- Serve up dynamic sidebar on all other pages -->
@@ -288,7 +288,7 @@
                                     </xsl:choose>
 
                                     </div>
-                                </div>   
+                                </div>
                         </div>
                         </xsl:otherwise>
                     </xsl:choose>
@@ -468,10 +468,10 @@
                     </xsl:when>
                     <xsl:when test="starts-with($request-uri, 'exam-papers/accessibility')">
                         <i18n:text>Accessibility</i18n:text>
-                    </xsl:when> 
+                    </xsl:when>
                     <xsl:when test="starts-with($request-uri, 'exam-papers/archive')">
                         <i18n:text>Archive</i18n:text>
-                    </xsl:when> 
+                    </xsl:when>
                     <xsl:when test="not($page_title)">
                         <xsl:text>  </xsl:text>
                     </xsl:when>
@@ -611,7 +611,7 @@
                             </ul>
                             <ul class="nav navbar-nav pull-left">
                                 <xsl:choose>
-                                    <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes' 
+                                    <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'
                                             and /dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier'][@qualifier='group'] = 'Administrator'">
                                         <li>
                                             <a href="{$context-path}/" alt="naviagtion link to home page" title="Link to home page">Home</a>
@@ -650,7 +650,7 @@
                                                         <xsl:attribute name="href">
                                                             <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='logoutURL']"/>
                                                         </xsl:attribute>
-                                                            Logout 
+                                                            Logout
                                                     </a>
                                                 </li>
                                                 <!-- Supress logout button in navigation -->
@@ -718,8 +718,8 @@
                             <img src="{$theme-path}images/uni-logo-black.png" alt="University of Edinburgh Logo"></img>
                         </a>
                     </div>
-                    <div class="exam-banner" href="{$context-path}/">   
-                        <a class="exam-banner-click" href="{$context-path}/" alt="image link to the univeristy of edinburgh's exam papers home page" title="Click image to link to exam papers home page"> 
+                    <div class="exam-banner" href="{$context-path}/">
+                        <a class="exam-banner-click" href="{$context-path}/" alt="image link to the univeristy of edinburgh's exam papers home page" title="Click image to link to exam papers home page">
                             <img src="{$theme-path}images/exampapersbanner.png" alt="University of Edinburgh Exam Papers Banner" href="{$context-path}/" ></img>
                             <h1>EXAM PAPERS ONLINE</h1>
                         </a>
@@ -741,7 +741,7 @@
                     <div class="row">
                         <!--TODO-->
                         <div class="col-xs-12">
-                        
+
                                 <!-- REMOVED DYNAMIC BREADCRUMBS -->
                                 <!--<xsl:when test="count(/dri:document/dri:meta/dri:pageMeta/dri:trail) > 1">
                                     <div class="breadcrumb dropdown visible-xs">
@@ -769,12 +769,12 @@
                                         <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
                                     </ul>
                                 </xsl:when>-->
-                                
+
                                 <!-- OVERRIDE BREADCRUMBS -->
                                 <!-- Add static page breadcrumbs based on url conditional -->
-                                <!-- * lengthy and ugly but avoids end-users being able to access default dspace discovery & collection pages 
+                                <!-- * lengthy and ugly but avoids end-users being able to access default dspace discovery & collection pages
                                         (stops students seeing dspace admin interface etc -->
-                                    
+
                             <ul  class="breadcrumb" id="breadcrumb-list" alt="breadcrumb trail for current page">
                                 <li>
                                     <a href="http://www.ed.ac.uk" title="External link to the University of Edinburgh's home page" alt="breadcrumb link to university homapge">
@@ -785,12 +785,12 @@
                                     <a href="http://www.ed.ac.uk/schools-departments" title="External link to the University of Edinburgh's Schools and Departments page" alt="breadcrumb link to university schools and departments">
                                         Schools &amp; Departments
                                     </a>
-                                </li> 
+                                </li>
                                 <li>
                                     <a href="http://www.ed.ac.uk/schools-departments/information-services" title="External link to the University of Edinburgh's Information Services page" alt="breadcrumb link to university information services">
                                         Information Services
                                     </a>
-                                </li>                                          
+                                </li>
                                 <li>
                                     <a href="http://www.ed.ac.uk/schools-departments/information-services/library-museum-gallery" title="External link to the University of Edinburgh's Library Essentials page" alt="breadcrumb link to university library information page">
                                         Library Essentials
@@ -1077,7 +1077,7 @@
 
                                 <!--<i18n:text>xmlui.dri2xhtml.structural.contact-link</i18n:text>-->
                             </a>
-                            <!--<xsl:text> | </xsl:text>--> 
+                            <!--<xsl:text> | </xsl:text>-->
                             <a>
                                 <!-- Supress default feedback page link -->
                                 <!--<xsl:attribute name="href">
@@ -1090,18 +1090,18 @@
                             <div class="footer-disclaimer">
                                 <div class="footer-policies" alt="site privacy and accessibility policy links">
                                     <p id="footer-left">
-                                        <a class="footer-policies-a" href="http://www.ed.ac.uk/about/website/privacy" title="Click to view the Universities Privacy and Cookies Policy" target="_blank" 
+                                        <a class="footer-policies-a" href="http://www.ed.ac.uk/about/website/privacy" title="Click to view the Universities Privacy and Cookies Policy" target="_blank"
                                             alt="link to univeristy privacy and coookie policies">
-                                            Privacy &amp; Cookies 
-                                        </a> 
-                                        <a class="footer-policies-a" href="https://exampapers.ed.ac.uk/takedown" 
+                                            Privacy &amp; Cookies
+                                        </a>
+                                        <a class="footer-policies-a" href="https://exampapers.ed.ac.uk/takedown"
                                             title="Click to view the Universities Takedown Policy" alt="link to univeristy take down policy">
-                                            Takedown Policy 
-                                        </a> 
-                                        <a class="footer-policies-a" href="{$context-path}/exam-papers/accessibility" title="Click to view the exam papers Website Accessibility Statement" 
+                                            Takedown Policy
+                                        </a>
+                                        <a class="footer-policies-a" href="{$context-path}/exam-papers/accessibility" title="Click to view the exam papers Website Accessibility Statement"
                                             alt="link to univeristy accessibilty policy">
-                                            Accessibility 
-                                        </a> 
+                                            Accessibility
+                                        </a>
                                     </p>
                                     <p id="footer-right">
                                         <!-- Authentication login/logout footer links -->
@@ -1124,13 +1124,13 @@
                                 </div>
                                 <div id="footer-left" class="footer-disclaimer" alt="site disclaimer">
                                     <p>
-                                        The University of Edinburgh is a charitable body, registered in Scotland, with registration number SC005336, VAT Registration Number GB 592 9507 00, 
+                                        The University of Edinburgh is a charitable body, registered in Scotland, with registration number SC005336, VAT Registration Number GB 592 9507 00,
                                         and is acknowledged by the UK authorities as a <a href="https://www.gov.uk/recognised-uk-degrees" title="External link to UK Government Recognised Degrees site" target="_blank"
                                         alt="link to UK government recognised university charitable body check site"> “Recognised Body”</a> which has been granted degree awarding powers.
                                     </p>
                                     <p></p>
                                     <p>
-                                        Unless explicitly stated otherwise, all material is copyright © 2019 <a href="http://www.ed.ac.uk" title="External link to University of Edinburgh home page" 
+                                        Unless explicitly stated otherwise, all material is copyright © 2019 <a href="http://www.ed.ac.uk" title="External link to University of Edinburgh home page"
                                         alt="link to univeristy of edinburgh homepage
                                         .
                                         " target="_blank">University of Edinburgh</a>.
@@ -1208,20 +1208,20 @@
                                 Exam Papers Online is a service provided by University of Edinburgh Library and University Collections for students and staff of The University of Edinburgh.
                             </p>
                             <p>
-                                These pages will be updated periodically, as more papers become available. If you cannot find the paper you are looking for, please email 
+                                These pages will be updated periodically, as more papers become available. If you cannot find the paper you are looking for, please email
                                 <a href="mailto:exam.papers@ed.ac.uk" title="Clink to email the exam papers team at the University of Edinburgh about a specific exam paper"
                                 alt="link to exam papers email address">exam.papers@ed.ac.uk</a>, or try visiting again at a later date.
                             </p>
                             <p>
-                                These pages are part of the collected Degree Examination Papers of the University of Edinburgh and are provided for use by its students as a study aid. 
+                                These pages are part of the collected Degree Examination Papers of the University of Edinburgh and are provided for use by its students as a study aid.
                                 No other use is permitted.
                             </p>
                             <p>
                                 Bound volumes of older sets - up to academic year 2004/2005 - have now been moved to the University Collections Facility and may be retrieved upon request.
-                                Further information on accessing materials stored in the university are available from: 
-                                <a href="https://www.ed.ac.uk/information-services/library-museum-gallery/using-library/lib-locate/university-collections-facility" 
+                                Further information on accessing materials stored in the university are available from:
+                                <a href="https://www.ed.ac.uk/information-services/library-museum-gallery/using-library/lib-locate/university-collections-facility"
                                 target="_blank" title="External link to details about accessing the University Collections Facility materials" alt="link to the univeristy collections
-                                facility website">University Collections Facility. 
+                                facility website">University Collections Facility.
                                 </a>
                             </p>
                             <br></br>
@@ -1237,13 +1237,13 @@
                             <h3 alt="page title">Exam Papers Online Help</h3>
                             <p alt=" helpful information about using the universities exam papers site">
                                 Please contact <a href="mailto:exam.papers@ed.ac.uk" title="Clink to email the exam papers team at the University of Edinburgh with any queries"
-                                alt="link to exam papers email address">exam.papers@ed.ac.uk</a> with any queries concerning past exam papers or use the 
-                                <a href="./feedback/" title="Clink to view the University of Edinburgh's exam papers feedback form" alt="link to exam papers feedback form">Feedback form</a> 
+                                alt="link to exam papers email address">exam.papers@ed.ac.uk</a> with any queries concerning past exam papers or use the
+                                <a href="./feedback/" title="Clink to view the University of Edinburgh's exam papers feedback form" alt="link to exam papers feedback form">Feedback form</a>
                                 for comments or suggestions on the web pages.
                             </p>
                             <p>
-                                All exam paper downloads on this site are in PDF format. Your browser should automatically display the PDF but if this is not possible, 
-                                there will be a link for downloading the PDF. If you do not have a PDF reader installed, <a href="http://get.adobe.com/uk/reader/" 
+                                All exam paper downloads on this site are in PDF format. Your browser should automatically display the PDF but if this is not possible,
+                                there will be a link for downloading the PDF. If you do not have a PDF reader installed, <a href="http://get.adobe.com/uk/reader/"
                                 title="Clink to download and install Adobe Acrobat PDF Reader" alt="link to adobe acrobat reader download page">download Adobe Acrobat Reader here</a>.
                             </p>
                             <p>
@@ -1261,7 +1261,7 @@
                             <p></p>
                             <h3 alt="page title">Exam Papers Online Feedback</h3>
                             <p alt="feedabck information">
-                                Please contact us with your suggestions or questions at <a href="mailto:exam.papers@ed.ac.uk" 
+                                Please contact us with your suggestions or questions at <a href="mailto:exam.papers@ed.ac.uk"
                                 title="Clink to email the exam papers team at the University of Edinburgh with feedback and suggestions" alt="link to exam papers email address">exam.papers@ed.ac.uk</a>.
                             </p>
                             <h3 alt="section title">Privacy Statement </h3>
@@ -1269,8 +1269,8 @@
                                 Information about you: how we use it and with whom we share it
                             </p>
                             <p>
-                                The information you provide in this form will be used only for purposes of your enquiry. We will not share your personal information with any third party or use it 
-                                for any other purpose. We are using information about you because it is necessary to contact you regarding your enquiry. By providing your personal data when submitting 
+                                The information you provide in this form will be used only for purposes of your enquiry. We will not share your personal information with any third party or use it
+                                for any other purpose. We are using information about you because it is necessary to contact you regarding your enquiry. By providing your personal data when submitting
                                 an enquiry to us, consent for your personal data to be used in this way is implied.
                             </p>
                             <p>
@@ -1280,7 +1280,7 @@
                                 We will hold the personal data you provided us for 6 years. We do not use profiling or automated decision-making processes.
                             </p>
                             <p>
-                                If you have any questions, please contact: <a href="mailto:exam.papers@ed.ac.uk" 
+                                If you have any questions, please contact: <a href="mailto:exam.papers@ed.ac.uk"
                                 title="Clink to email the exam papers team at the University of Edinburgh with any questions" alt="link to exam papers email address">exam.papers@ed.ac.uk</a>
                             </p>
                             <p>
@@ -1325,8 +1325,8 @@
                                 </p>
                                 <h5 alt="frequently asked question">Where can I find pre-2004 exam papers?</h5>
                                 <p id="faq-div-p" alt="answer to frequently asked question">
-                                    We hold some digitised exam papers from 1995 to 2004 in our archive. Please email us if you require older papers. Original print copies of papers further back are held at the 
-                                    <a href="https://www.ed.ac.uk/information-services/library-museum-gallery/using-library/lib-locate/university-collections-facility" target="_blank" 
+                                    We hold some digitised exam papers from 1995 to 2004 in our archive. Please email us if you require older papers. Original print copies of papers further back are held at the
+                                    <a href="https://www.ed.ac.uk/information-services/library-museum-gallery/using-library/lib-locate/university-collections-facility" target="_blank"
                                     title="Clink to view details about accessing the University Collections Facility materials" alt="link to the univeristy's collection facility wbsite">University Collections Facility.
                                     </a>
                                 </p>
@@ -1334,7 +1334,7 @@
                                 <h4 alt="subsection title">...For Administrative &amp; Teaching Staff</h4>
                                 <h5 alt="frequently asked question">How do I submit an exam paper to go online?</h5>
                                 <p alt="answer to frequently asked question">
-                                    Once the examination period is over papers can be emailed to us at any time, in Word or pdf format. We send out email reminders out 3 times a year, 
+                                    Once the examination period is over papers can be emailed to us at any time, in Word or pdf format. We send out email reminders out 3 times a year,
                                     after each examination diet. If you wish to be included in the mailing list please contact us.
                                 </p>
                                 <h5 alt="frequently asked question">Can you tell me what exam papers are missing from my subject?</h5>
@@ -1348,13 +1348,13 @@
                                 <br></br>
                                 <br></br>
                                 <p>
-                                    If you have any other questions please email us at <a href="mailto:exam.papers@ed.ac.uk" 
+                                    If you have any other questions please email us at <a href="mailto:exam.papers@ed.ac.uk"
                                     title="Clink to email the exam papers team at the University of Edinburgh about any other queries" alt="link to exam papers email address">
                                     exam.papers@ed.ac.uk</a>
                                 </p>
                                 <br></br>
                             </div>
-                        </div>        
+                        </div>
                     </div>
                 </xsl:when>
 
@@ -1371,7 +1371,7 @@
                                 <li>The paper contains copyright material which means it cannot be published online.</li>
                             </ol>
                             <p></p>
-                            <p>If you need for further information please contact 
+                            <p>If you need for further information please contact
                                 <a href="mailto:exam.papers@ed.ac.uk" alt="link to exam papers email address" title="Click to email the exam papers department for more information">
                                 exam.papers@ed.ac.uk</a>
                             </p>
@@ -1379,7 +1379,7 @@
                         </div>
                     </div>
                 </xsl:when>
-                
+
                 <!-- ACCESSIBILITY PAGE -->
                 <xsl:when test="starts-with($request-uri, 'exam-papers/accessibility')">
                     <div class="hero-unit">
@@ -1390,7 +1390,7 @@
                                 <br></br><a href="https://exampapers.ed.ac.uk/ ">https://exampapers.ed.ac.uk/</a>
                             </p>
                             <p alt="exam papers accessability details">
-                                Exam Papers Online is run by the University of Edinburgh Library as part of the University of Edinburgh. Exam papers online provides access on a website to PDF versions of past exam papers. 
+                                Exam Papers Online is run by the University of Edinburgh Library as part of the University of Edinburgh. Exam papers online provides access on a website to PDF versions of past exam papers.
                             </p>
                             <p>
                                 We want as many people as possible to be use DiscoverEd. For example, that means you should be able to:
@@ -1421,7 +1421,7 @@
                                 AbilityNet has advice on making your device easier to use if you have a disability.
                             </p>
                             <p alt="exam papers accessability details">
-                                <a href="https://mcmw.abilitynet.org.uk/" title="External link to AbilityNet website">                                   
+                                <a href="https://mcmw.abilitynet.org.uk/" title="External link to AbilityNet website">
                                     <p>AbilityNet - My computer my way</p>
                                 </a>
                             </p>
@@ -1440,7 +1440,7 @@
                             </p>
                             <ul>
                                 <li>
-                                    Some parts may not be fully compatible with screen readers 
+                                    Some parts may not be fully compatible with screen readers
                                 </li>
                                 <li>
                                     Sometimes it can be hard to tell where you have navigated to by keyboard.
@@ -1449,7 +1449,7 @@
                                     Some colour contrasts do not meet recommended guidance
                                 </li>
                                 <li>
-                                    There is some use of block capitals 
+                                    There is some use of block capitals
                                 </li>
                                 <li>
                                     Some links open new windows without warning the user
@@ -1462,10 +1462,10 @@
                             <h3>What to do if you cannot access parts of this website</h3>
                             <p alt="exam papers accessability details">
                                 If you need information on this website in a different format like accessible PDF, large print, audio recording or braille please contact the website team by contacting us:
-                                <br></br> 
-                                <a href="mailto:exam.papers@ed.ac.uk" title="Clink to email the exam papers team at the University of Edinburgh with any enquiries">exam.papers@ed.ac.uk</a> 
                                 <br></br>
-                                Or phoning 
+                                <a href="mailto:exam.papers@ed.ac.uk" title="Clink to email the exam papers team at the University of Edinburgh with any enquiries">exam.papers@ed.ac.uk</a>
+                                <br></br>
+                                Or phoning
                                 <br></br>
                                 <a href="tel: 0131 651 1827" title="Clink to call the exam papers team at the University of Edinburgh with any enquiries">0131 651 1827</a>
                             </p>
@@ -1479,9 +1479,9 @@
                             <p alt="exam papers accessability details">
                                 We’re always looking to improve the accessibility of this website. If you find any problems not listed on this page or think we’re not meeting accessibility requirements please let us know by contacting:
                                 <br></br>
-                                <a href="mailto:exam.papers@ed.ac.uk" title="Clink to email the exam papers team at the University of Edinburgh with any enquiries">exam.papers@ed.ac.uk</a> 
+                                <a href="mailto:exam.papers@ed.ac.uk" title="Clink to email the exam papers team at the University of Edinburgh with any enquiries">exam.papers@ed.ac.uk</a>
                                 <br></br>
-                                Or phoning 
+                                Or phoning
                                 <br></br>
                                 <a href="tel: 0131 651 1827" title="Clink to call the exam papers team at the University of Edinburgh with any enquiries">0131 651 1827</a>
                             </p>
@@ -1501,7 +1501,7 @@
                             <p alt="exam papers accessability details">
                                 <strong>British Sign Language service</strong>
                                 <br></br>
-                                British Sign Language Scotland runs a service for British Sign Language users and all of Scotland’s public bodies using video relay. This enables sign language users to contact public bodies and vice versa. The service operates from 8am to 12 midnight, 7 days a week. 
+                                British Sign Language Scotland runs a service for British Sign Language users and all of Scotland’s public bodies using video relay. This enables sign language users to contact public bodies and vice versa. The service operates from 8am to 12 midnight, 7 days a week.
                             </p>
                             <p alt="exam papers accessability details">
                                 <a href="https://contactscotland-bsl.org" title="External link to British Sign Language Scotland website">British Sign Language Scotland service details</a>
@@ -1544,12 +1544,12 @@
                                     <a href="https://www.w3.org/TR/WCAG21/#images-of-text" title="External link to W3 Images of Text Guidelines">1.4.5 - Images of text</a>
                                 </li>
                                 <li>
-                                    Most tooltips disappear as soon as the cursor moves. Also tooltips are not always present for all icons and images. <br></br> 
+                                    Most tooltips disappear as soon as the cursor moves. Also tooltips are not always present for all icons and images. <br></br>
 
                                     <a href="https://www.w3.org/TR/WCAG21/#content-on-hover-or-focus" title="External link to W3 Content on Hover or Focus Guidelines">1.4.3 - Contrast (Minimum)</a>
                                 </li>
                                 <li>
-                                    There may not be sufficient colour contrast between font and background colours especially where the text size is very small. <br></br> 
+                                    There may not be sufficient colour contrast between font and background colours especially where the text size is very small. <br></br>
 
                                     <a href="https://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-contrast" title="External link to W3 Visual and Audio Contrast Guidelines">1.4.13 - Content on Hover or Focus</a>
                                 </li>
@@ -1620,7 +1620,7 @@
                                     Operability if Javascript is disabled
                                 </li>
                                 <li>
-                                    Use with screenreading software (eg. JAWS) 
+                                    Use with screenreading software (eg. JAWS)
                                 </li>
                                 <li>
                                     Assistive Software such as TextHelp Read and Write, and Zoomtext
@@ -1635,7 +1635,7 @@
                             <p></p>
                             <h3>What we’re doing to improve accessibility</h3>
                             <p alt="exam papers accessability details">
-                                We will continue to work with our in house developers to address these issues and deliver a solution or suitable workaround and correct issues directly where they are under our control. 
+                                We will continue to work with our in house developers to address these issues and deliver a solution or suitable workaround and correct issues directly where they are under our control.
                             </p>
                             <p alt="exam papers accessability details">
                                 We will carry out further accessibility testing if significant changes are made to the user interface or if a service user raises an issue. We plan to resolve the issues that are within our control by September 2020.
@@ -1657,7 +1657,7 @@
                             <!--<h3>Information Services and accessibility</h3>-->
                             <p></p>
                             <p alt="exam papers accessability details">
-                                <strong>This statement was prepared on 21st October 2019. It was last updated on 22nd November 2019</strong>
+                                <strong>This statement was prepared on 30th September 2021. It was last updated on 30th September 2021</strong>
                             </p>
                         </div>
                     </div>
@@ -1670,7 +1670,7 @@
                             <h3 alt="page title">The past papers for 1996/1997 to 2003/2004 have been archived</h3>
                             <p></p>
                             <p>
-                                If you require access to any of the exam papers from the archive please contact 
+                                If you require access to any of the exam papers from the archive please contact
                                 <a href="mailto:exam.papers@ed.ac.uk" alt="link to exam papers email address" title="Click to email the exam papers department for more information">
                                 exam.papers@ed.ac.uk</a> with your enquiry.
                             </p>
@@ -1723,12 +1723,12 @@
                     {
                         a = document.getElementById("mailto-link").getElementsByTagName("A");
                         console.log(a);
-                        a.href = "mailto:exam.papers@ed.ac.uk"; 
-                    }  
+                        a.href = "mailto:exam.papers@ed.ac.uk";
+                    }
                     <!--onclick = function(){/*do something*/};
                 });-->
             </xsl:text>
-        </script>            
+        </script>
 
         <!--inject scripts.html containing all the theme specific javascript references
         that can be minified and concatinated in to a single file or separate and untouched

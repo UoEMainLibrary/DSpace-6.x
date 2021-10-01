@@ -1,11 +1,11 @@
 # This image will be published as dspace/dspace
 # See https://dspace-labs.github.io/DSpace-Docker-Images/ for usage details
-# 
+#
 # This version is JDK8 compatible
 # - tomcat:8-jre8
 # - ANT 1.10.5
 # - maven:3-jdk-8
-# - note: 
+# - note:
 # - default tag for branch: dspace/dspace: dspace/dspace:dspace-6_x-jdk8
 
 # Step 1 - Run Maven Build
@@ -34,12 +34,13 @@ ARG TARGET_DIR=dspace-installer
 COPY --from=build /install /dspace-src
 WORKDIR /dspace-src
 
+
 # Create the initial install deployment using ANT
-ENV ANT_VERSION 1.10.5
+ENV ANT_VERSION 1.10.11
 ENV ANT_HOME /tmp/ant-$ANT_VERSION
 ENV PATH $ANT_HOME/bin:$PATH
 
-RUN mkdir $ANT_HOME && \
+RUN mkdir -p $ANT_HOME && \
     wget -qO- "https://www.apache.org/dist/ant/binaries/apache-ant-$ANT_VERSION-bin.tar.gz" | tar -zx --strip-components=1 -C $ANT_HOME
 
 RUN ant init_installation update_configs update_code update_webapps update_solr_indexes
