@@ -966,7 +966,7 @@
                         </div>
                         <div id="d.en.106522">
                             <h2>Preparation of this accessibility statement</h2>
-                            <p>This statement was prepared on Friday 18 September 2020. It was last reviewed on Friday 18 September 2020.</p>
+                            <p>This statement was prepared on Monday 04 October 2021. It was last reviewed on Monday 04 October 2021.</p>
                             <p>Research Repository is tested on a regular basis, using accessibility tool provided by Siteimprove. This tool tests a sample of web pages and provides a report on accessibility issues. </p>
                             <p>Issues are prioritised according to the severity of the impact it may cause, the number of people that may be impacted and the time involved in resolving the issue.</p>
                         </div>
