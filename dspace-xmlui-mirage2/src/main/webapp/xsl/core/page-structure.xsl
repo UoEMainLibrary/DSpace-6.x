@@ -942,7 +942,7 @@
                                 </ul>
                             </li>
                         </ul>
-                        <p>A complete solution or significant improvement will be in place by March 2021 where the issues are within our control.</p>
+                        <p>A complete solution or significant improvement will be in place by April 2022 where the issues are within our control.</p>
                         <h3>Disproportionate burden</h3>
                         <p>We are not currently claiming that any accessibility problems would be a disproportionate burden to fix. </p>
                         <h3>Content that is not within the Scope of the Accessibility Regulations</h3>
