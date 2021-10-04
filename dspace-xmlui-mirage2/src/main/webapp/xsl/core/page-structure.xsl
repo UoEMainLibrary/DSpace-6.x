@@ -1012,7 +1012,7 @@
                                 </li>
                             </ul>
                             <p>
-                                Unless specified otherwise a complete solution or significant improvement will be in place by September 2020. We also plan to remove the use of italics and continuous capitals wherever possible. <br></br>
+                                Unless specified otherwise a complete solution or significant improvement will be in place by April 2022. We also plan to remove the use of italics and continuous capitals wherever possible. <br></br>
                             </p>
 
 
@@ -1080,7 +1080,7 @@
                                 We will continue to monitor system accessibility and will carry out further accessibility testing as these issues are resolved. 
                                 However, due to the complex nature of the information displayed it may not be possible to resolve all accessibility issues. 
                                 If this is the case, we will ensure reasonable adjustments are in place to make sure no user is disadvantaged. 
-                                We plan to have resolved the majority of accessibility issues by September 2020 at the latest.
+                                We plan to have resolved the majority of accessibility issues by April 2022 at the latest.
                             </p>
                             
 
@@ -1118,7 +1118,7 @@
 
                             
                             <p>
-                                <strong>This statement was prepared on October 2019. It was last updated on October 2019.</strong>
+                                <strong>This statement was prepared on October 2021. It was last updated on October 2021.</strong>
                             </p>
                         </div>
                     </div>
