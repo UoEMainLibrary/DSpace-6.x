@@ -190,18 +190,23 @@ li.dropdown a:focus,
  .rsc-md-breadcrumb {
   width: 550px;
 }
- .breadcrumb {
+
+div.breadcrumb.visible-xs.visible-sm {
+  background-color:#F8F8FF !important;
+}
+
+ ul.breadcrumb {
   /*background-color: #fff;
-   background-color: transparent !important;
+   background-color: #F8F8FF;
    margin-bottom: 0;
    padding: 15px;*/
    color: #000;
-   background-color: #F8F8FF;
+   background-color: transparent !important;
    padding: 0.6em;
    border-radius: 25px;
    transition: all 0.6s ease;
    margin-top: 2px;
-   border: 1px solid #ccc;
+   border: none !important;
 }
  .breadcrumb a {
   color: #080c54;
@@ -424,6 +429,15 @@ max-width: 300px;
 
 #partner-1:hover {
   background-size: auto 109px
+}
+
+#partner-11549 {
+  background-image:url("https://research-scotland.ac.uk/bitstream/id/3cd93b4d-1dd8-4036-b9ba-00e65c88d558/?sequence=-1");
+  background-size:auto 62px
+}
+
+#partner-11549:hover {
+  background-size:auto 68px
 }
 
 .clear {
