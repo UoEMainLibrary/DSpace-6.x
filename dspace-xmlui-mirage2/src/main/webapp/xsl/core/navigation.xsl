@@ -55,18 +55,13 @@
                                     select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='search'][@qualifier='simpleURL']"/>
                         </xsl:attribute>
                         <fieldset>
-                            <xsl:variable name="queryfield" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='search'][@qualifier='queryField']"/>
-                            <label class="ds-option-set-head  h6">
-                                <xsl:attribute name="for">
-                                    <xsl:value-of select="$queryfield"/>
-                                </xsl:attribute>
-                                <i18n:text>xmlui.general.search</i18n:text>
-                            </label>
                             <div class="input-group">
-                                <input class="ds-text-field form-control" type="text" placeholder="xmlui.general.search"
+                                <input class="ds-text-field form-control" type="text" aria-label="Aura search input"
+                                       placeholder="xmlui.general.search"
                                        i18n:attr="placeholder">
                                     <xsl:attribute name="name">
-                                        <xsl:value-of select="$queryfield"/>
+                                        <xsl:value-of
+                                                select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='search'][@qualifier='queryField']"/>
                                     </xsl:attribute>
                                 </input>
                                 <span class="input-group-btn">
@@ -98,7 +93,9 @@
                             <xsl:if test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='container']">
                                 <div class="radio">
                                     <label>
-                                        <input id="ds-search-form-scope-all" type="radio" name="scope" value=""
+                                        <input id="ds-search-form-scope-all" type="radio" name="scope"
+                                               aria-label="xmlui.dri2xhtml.structural.search"
+                                               value=""
                                                checked="checked"/>
                                         <i18n:text>xmlui.dri2xhtml.structural.search</i18n:text>
                                     </label>
@@ -107,6 +104,10 @@
                                     <label>
                                         <input id="ds-search-form-scope-container" type="radio" name="scope">
                                             <xsl:attribute name="value">
+                                                <xsl:value-of
+                                                        select="substring-after(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='container'],':')"/>
+                                            </xsl:attribute>
+                                            <xsl:attribute name="aria-label">
                                                 <xsl:value-of
                                                         select="substring-after(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='container'],':')"/>
                                             </xsl:attribute>
@@ -126,32 +127,6 @@
                             </xsl:if>
                         </fieldset>
                     </form>
-                    <!-- Added customisation -->
-                    <div id="ds-search-link" class="ds-search-link">
-                        <!--<span><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='containerType']/text()"/></span>
-                        <a>-->
-                            <!--
-                            For some reason, string comparison for either 'type:community' or 'type:collection' would evaluate true for 'type:item'
-                            therefore 'type:item' is checked first.
-                            -->
-                            <!--<xsl:attribute name="href">
-                                <xsl:choose>
-                                    <xsl:when test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='containerType']/text() = 'type:item'">
-                                        <xsl:text>/discover</xsl:text>
-                                    </xsl:when>
-                                    <xsl:when
-                                            test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='containerType']/text() = 'type:community' or
-                                          /dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='focus'][@qualifier='containerType']/text() = 'type:collection'">
-                                        <xsl:value-of
-                                                select="concat('/', /dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='URI'], '/discover')"/>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <xsl:text>/discover</xsl:text>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                            </xsl:attribute>-->
-                            <a href="/discover"><i18n:text>xmlui.dri2xhtml.structural.search-advanced</i18n:text></a>
-                    </div>
                 </div>
             </xsl:if>
             <xsl:apply-templates/>
@@ -225,39 +200,47 @@
         </div>
     </xsl:template>
 
-    <xsl:template match="dri:options//dri:item[dri:xref]">
-        <a href="{dri:xref/@target}">
-            <xsl:call-template name="standardAttributes">
-                <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
-            </xsl:call-template>
-            <xsl:choose>
-                <xsl:when test="dri:xref/node()">
-                    <xsl:apply-templates select="dri:xref/node()"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:value-of select="dri:xref"/>
-                </xsl:otherwise>
-            </xsl:choose>
+    <!--
+    Hrafn - 08/04/2019
+    Added condition to templates item link and head (priority 3, whatever that means) to not
+    print Login nor Register under My account in the navigation sidebar
+    -->
 
-        </a>
+    <xsl:template match="dri:options//dri:item[dri:xref]">
+        <xsl:if test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes' or not(../@n = 'account')">
+            <a href="{dri:xref/@target}">
+                <xsl:call-template name="standardAttributes">
+                    <xsl:with-param name="class">list-group-item ds-option</xsl:with-param>
+                </xsl:call-template>
+                <xsl:choose>
+                    <xsl:when test="dri:xref/node()">
+                        <xsl:apply-templates select="dri:xref/node()"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="dri:xref"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+
+            </a>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template match="dri:options/dri:list/dri:head" priority="3">
-        <xsl:call-template name="renderHead">
-            <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
-        </xsl:call-template>
+        <xsl:if test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes' or not(../@n = 'account')">
+            <xsl:call-template name="renderHead">
+                <xsl:with-param name="class">ds-option-set-head</xsl:with-param>
+            </xsl:call-template>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template match="dri:options/dri:list//dri:list/dri:head" priority="3">
-        <!--<a class="list-group-item active">=-->
+        <!--<a class="list-group-item active">-->
             <span>
-                <xsl:attribute name="style">
-                    <xsl:text>height: 41px;</xsl:text>
-                </xsl:attribute>
                 <xsl:call-template name="standardAttributes">
                     <xsl:with-param name="class">
-                        <xsl:value-of select="@rend"/>
-                        <xsl:text> list-group-item active</xsl:text>
+                        <!--<xsl:value-of select="@rend"/>-->
+                        <!--<xsl:text> list-group-item-heading</xsl:text>-->
+                        <xsl:text>list-group-item active</xsl:text>
                     </xsl:with-param>
                 </xsl:call-template>
                 <xsl:apply-templates/>
