@@ -12,6 +12,10 @@ import org.dspace.app.util.factory.UtilServiceFactory;
 import org.dspace.app.util.service.MetadataExposureService;
 import org.dspace.app.xmlui.wing.AttributeMap;
 import org.dspace.app.xmlui.wing.WingException;
+import org.dspace.authority.AuthorityValue;
+import org.dspace.authority.factory.AuthorityServiceFactory;
+import org.dspace.authority.service.AuthorityValueService;
+import org.dspace.authority.orcid.Orcidv2AuthorityValue;
 import org.dspace.authorize.AuthorizeException;
 import org.dspace.authorize.factory.AuthorizeServiceFactory;
 import org.dspace.authorize.service.AuthorizeService;
@@ -88,6 +92,7 @@ public class ItemAdapter extends AbstractAdapter
     // DSpace DB context
     private final Context context;
 
+    protected final AuthorityValueService authorityValueService = AuthorityServiceFactory.getInstance().getAuthorityValueService();
     protected AuthorizeService authorizeService = AuthorizeServiceFactory.getInstance().getAuthorizeService();
     protected ItemService itemService = ContentServiceFactory.getInstance().getItemService();
     protected BundleService bundleService = ContentServiceFactory.getInstance().getBundleService();
@@ -311,6 +316,11 @@ public class ItemAdapter extends AbstractAdapter
                         if (dcv.getAuthority() != null || dcv.getConfidence() != Choices.CF_UNSET) {
                             attributes.put("authority", dcv.getAuthority());
                             attributes.put("confidence", Choices.getConfidenceText(dcv.getConfidence()));
+
+                            AuthorityValue av = authorityValueService.findByUID(context, dcv.getAuthority());
+                            if (av instanceof Orcidv2AuthorityValue) {
+                                attributes.put("orcid_id", ((Orcidv2AuthorityValue)av).getOrcid_id());
+                            }
                         }
                         startElement(DIM, "field", attributes);
                         sendCharacters(dcv.getValue());

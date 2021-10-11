@@ -765,7 +765,10 @@
                                                 </a>
                                             </div>
                                             <div style="float:left;">
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2a48293940375345bbb35c70ddec8cefbc657583
                                                 <b>The Sir Duncan Rice Library</b><br />
                                                 University of Aberdeen<br />
                                                 Bedford Road<br />
@@ -799,7 +802,10 @@
                                     <p>
                                         <a>
                                             <xsl:attribute name="href"><xsl:text>https://www.facebook.com/biblio.teque?fref=ts</xsl:text></xsl:attribute>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2a48293940375345bbb35c70ddec8cefbc657583
                                             <img src="{$theme-path}images/facebook_32.png" alt="Facebook" title="Facebook" class="png" />
                                         </a>
                                         <a>
@@ -878,7 +884,10 @@
             </li>
             <li>
                 <a>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2a48293940375345bbb35c70ddec8cefbc657583
                     <xsl:attribute name="href"><xsl:text>https://abdn.primo.exlibrisgroup.com/discovery/collectionDiscovery?vid=44ABE_INST:44ABE_VU1&amp;collectionId=81151714170005941</xsl:text></xsl:attribute>
                     <xsl:attribute name="title"><xsl:text>Digital Resources</xsl:text></xsl:attribute>
                     <xsl:attribute name="target"><xsl:text>_blank</xsl:text></xsl:attribute>
@@ -895,6 +904,17 @@
             </li>
             <li>
                 <a>
+<<<<<<< HEAD
+=======
+                    <xsl:attribute name="href"><xsl:text>https://www.abdn.ac.uk/it/service-portfolio/sc-systems-aura.php#repository-takedown</xsl:text></xsl:attribute>
+                    <xsl:attribute name="title"><xsl:text>Take-Down Notice</xsl:text></xsl:attribute>
+                    <xsl:attribute name="target"><xsl:text>_blank</xsl:text></xsl:attribute>
+                    <xsl:text>Take-Down Notice</xsl:text>
+                </a>
+            </li>
+            <li>
+                <a>
+>>>>>>> 2a48293940375345bbb35c70ddec8cefbc657583
                     <xsl:attribute name="href">
                         <xsl:value-of
                                 select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
@@ -1038,20 +1058,33 @@
                                 <li><u><a href="https://www.w3.org/TR/WCAG21/#on-input">2.2 - On Input</a></u></li>
                             </ul>
                         </ul>
+<<<<<<< HEAD
                         <p>A complete solution or significant improvement will be in place by March 2021 where the issues are within our control.</p>
+=======
+                        <p>A complete solution or significant improvement will be in place by April 2022 where the issues are within our control.</p>
+>>>>>>> 2a48293940375345bbb35c70ddec8cefbc657583
                         <h3>Disproportionate burden</h3>
                         <p>We are not currently claiming that any accessibility problems would be a disproportionate burden to fix.</p>
                         <h3>Content that is not within the Scope of the Accessibility Regulations</h3>
                         <p>At this time we are not claiming any material is out of scope.</p>
                         <h2>What we're doing to improve accessibility</h2>
                         <p>We will continue to work with our in house developers to address these issues and deliver a solution or suitable workaround and correct issues directly where they are under our control.</p>
+<<<<<<< HEAD
                         <p>We will continue to monitor accessibility and will carry out further accessibility testing if significant changes are made to the user interface or if a service user raises an issue, and plan to resolve the issues that are within our control by March 2021. We plan to manual review the accessibility of the site and make improvements and update this statement before December 2021.Where we are unable to resolve an issue or where an issue is out with our control we will ensure reasonable adjustments are put in place to ensure no user is disadvantaged.</p>
+=======
+                        <p>We will continue to monitor accessibility and will carry out further accessibility testing if significant changes are made to the user interface or if a service user raises an issue, and plan to resolve the issues that are within our control by April 2022. We plan to manual review the accessibility of the site and make improvements and update this statement before April 2022.Where we are unable to resolve an issue or where an issue is out with our control we will ensure reasonable adjustments are put in place to ensure no user is disadvantaged.</p>
+>>>>>>> 2a48293940375345bbb35c70ddec8cefbc657583
                         <h3>Information Services and accessibility</h3>
                         <p>Information Services (IS) has further information on accessibility including assistive technology, creating accessible documents, and services IS provides for disabled users.</p>
                         <p><a href="https://www.ed.ac.uk/information-services/help-consultancy/accessibility">Assistive technology, creating accessible documents, and services IS provides for disabled users</a></p>
                         <h2>Preparation of this accessibility statement</h2>
+<<<<<<< HEAD
                         <p><strong>This statement was prepared on 10<sup>th</sup> September 2020. It was last reviewed on 15<sup>th</sup> September 2020.</strong></p>
                         <p>This website was last tested on 10th September 2020. The test was carried out by The University Library and University Collections Digital Library team using the automated LittleForest tool. The website is scheduled for manual testing by December 2021.</p>
+=======
+                        <p><strong>This statement was prepared on 4<sup>th</sup> October 2021. It was last reviewed on 4<sup>th</sup> October 2021.</strong></p>
+                        <p>This website was last tested on 10th September 2020. The test was carried out by The University Library and University Collections Digital Library team using the automated LittleForest tool. The website is scheduled for manual testing by April 2022.</p>
+>>>>>>> 2a48293940375345bbb35c70ddec8cefbc657583
                         <p>We did not use sample pages for testing - all pages were run through LittleForest.</p>
                         <p>Little Forrest claims it tests the following WCAG criteria either partially or wholly</p>
                         <table width="0">
