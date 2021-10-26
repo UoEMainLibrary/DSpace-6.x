@@ -231,10 +231,6 @@
 
             </a>
             <!--<xsl:comment><xsl:value-of select="dri:xref/node()"/></xsl:comment>-->
-<<<<<<< HEAD
-=======
-
->>>>>>> 2a48293940375345bbb35c70ddec8cefbc657583
         </xsl:if>
     </xsl:template>
 
