@@ -269,7 +269,7 @@ public class AccountServiceImpl implements AccountService
         // Breadcrumbs
         if (log.isInfoEnabled())
         {
-            log.info("Sent " + (isRegister ? "registration" : "account")
+            log.info("Sent " + (isRegister ? "registration:" : "account")
                     + " information to " + email);
         }
     }
