@@ -252,16 +252,18 @@ public class AccountServiceImpl implements AccountService
         String base = ConfigurationManager.getProperty("dspace.url");
 
         //  Note change from "key=" to "token="
-        String specialLink = new StringBuffer().append(base).append(
+        /*String specialLink = new StringBuffer().append(base).append(
                 base.endsWith("/") ? "" : "/").append(
                 isRegister ? "register" : "forgot").append("?")
                 .append("token=").append(rd.getToken())
-                .toString();
+                .toString();*/
         Locale locale = context.getCurrentLocale();
         Email bean = Email.getEmail(I18nUtil.getEmailFilename(locale, isRegister ? "register"
                 : "change_password"));
+        bean.setSubtype("html");
         bean.addRecipient(email);
-        bean.addArgument(specialLink);
+        bean.addArgument("Student Name");
+        bean.addArgument("Student ID");
         bean.send();
 
         // Breadcrumbs
@@ -271,4 +273,12 @@ public class AccountServiceImpl implements AccountService
                     + " information to " + email);
         }
     }
+
+    /*
+    protected void sendEThesesEmail(Context context, String email, boolean isStudent)
+            throws MessagingException, IOException
+    {
+
+    }
+    */
 }

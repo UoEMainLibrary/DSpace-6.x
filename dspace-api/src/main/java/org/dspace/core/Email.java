@@ -124,6 +124,9 @@ public class Email
     /** The character set this message will be sent in */
     private String charset;
 
+    /** The subtype represents whether the email will be plain text or HTML */
+    private String subtype;
+
     private static final Logger log = Logger.getLogger(Email.class);
 
     /**
@@ -139,6 +142,11 @@ public class Email
         content = "";
         replyTo = null;
         charset = null;
+        subtype = "plain";
+    }
+
+    public void setSubtype(String subtype){
+        this.subtype = subtype;
     }
 
     /**
@@ -288,11 +296,13 @@ public class Email
             // If a character set has been specified, or a default exists
             if (charset != null)
             {
-                message.setText(fullMessage, charset);
+                //message.setText(fullMessage, charset);
+                message.setText(fullMessage, charset, subtype);
             }
             else
             {
-                message.setText(fullMessage);
+                //message.setText(fullMessage);
+                message.setText(fullMessage,null, subtype);
             }
         }
         else{

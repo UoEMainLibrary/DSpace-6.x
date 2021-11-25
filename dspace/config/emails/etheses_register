@@ -1,0 +1,64 @@
+# E-mail sent to inform students to register for submitting to E-Theses
+#
+# Parameters: {0} Student Name
+#             {1} Student ID
+#
+Subject: Outcome email and Repository guidance ({0}, {1}) [Registry staff sends manually to {0} inviting them to register with Digital Repository]
+
+<div>
+    <p>Dear {0},</p>
+    <br>
+    <p>Congratulations on the successful completion of your thesis.</p>
+    <p white-space: pre-wrap;>Please find attached a letter from the Associate Provost Education for your information. 
+        Should you have any queries regarding graduation, please contact the Graduation Office (<a href="mailto:graduation@st-andrews.ac.uk">graduation@st-andrews.ac.uk</a>).</p>
+    <br>
+    <p>We now require you to make the submission of the final examined version of your thesis to the St Andrews Research Repository. Please follow these instructions.</p>
+    <br>
+    <p>REGISTRATION</p>
+    <p>Please go to the final task in MySaint in order to register with the St Andrews Research Repository.</p>
+    <p>Please enter:</p>
+    <ul>
+        <li>Your St Andrews username and password in the boxes at the top of the display.</li>
+        <li>A long-term contact email address.</li>
+        <li>Details of your school and department. (This enables us to assign your thesis to the correct repository collection after you’ve completed your submission).</li>
+        <li>Please click on the <b><u>Register</u></b> button which will send your registration details to the repository administrator.</li>
+    </ul>
+    <p>We will complete your registration and send confirmation to you as soon as we can, (usually within one working day). We will send this confirmation to your St Andrews email address unless you indicate an alternative, preferred contact email address.</p>
+    <p><u>Please note that you will not be able to continue with the submission until you receive this confirmation, so</u></p>
+    <ul>
+        <li><u>please log out of the St Andrews Research Repository after you have completed this initial registration.</u></p>
+    </ul>
+    <p>Once you have received acknowledgement of your registration you can login again, by entering your St Andrews Username and Password, in order to make your submission.</p>
+    <br>
+    <p>SUBMISSION</p>
+</div>
+<hr>
+<div>
+    <p white-space: pre-wrap;>Thank you,  
+    David Collins 
+    Janet Aucock</p>
+    <p>St Andrews Research Repository</p>
+</div>
+<hr>
+<div>
+    <img src="">
+    <div>
+        <p>For administrative queries:</p>
+        <p white-space: pre-wrap;>Postgraduate Research 
+        Academic Registry  </p>
+        <p>Tel: +44 (0) 1334 463084</p>
+        <p>Email: <a href="mailto:researchpg-reg@st-andrews.ac.uk">researchpg-reg@st-andrews.ac.uk</a></p>
+    </div>
+    <div>
+        <p>For queries regarding the digital repository:</p>
+        <p>St Andrews Research Repository</p>
+        <p><a href="https://research-repository.st-andrews.ac.uk/">https://research-repository.st-andrews.ac.uk/</a></p>
+        <p>Tel: +44 (0) 1334 462302/462299</p>
+        <p>Email: <a href="mailto:digirep@st-andrews.ac.uk">digirep@st-andrews.ac.uk</a></p>
+    </div>
+</div>
+<div>
+    <p>Walter Bower House, Eden Campus, Main Street, Guardbridge, Fife, KY16 0US</p>
+    <p  white-space: pre-wrap;>The University of St Andrews is a charity registered in Scotland: No SC013532 
+The University of St Andrews is committed to sustainable practices and the preservation of the environment – please do not print this email unless absolutely necessary.</p>
+</div>

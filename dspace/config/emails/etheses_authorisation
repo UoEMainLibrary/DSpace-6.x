@@ -1,0 +1,67 @@
+# E-mail sent to confirm students registration to E-Theses
+#
+# Parameters: {0} Student Name
+#             {1} Student ID
+#
+Subject: RE: Repository: Registration Notification ({0}, {1}) [Repository staff sends to student confirming the repository collection they can submit their thesis to, and giving guidance to help with the submission]
+
+<div>
+    <p>Dear {0},</p>
+    <br>
+    <p>Thank you for your registration with St Andrews Research Repository. You have been authorised to submit into the Library Theses collection. 
+        Once your submission is complete, repository staff will move your submission to the appropriate collection.
+    </p>
+    <p>Please return to the Login page at <a href="https://research-repository.st-andrews.ac.uk/ldap-login">https://research-repository.st-andrews.ac.uk/ldap-login</a> 
+        where you can log in again to the repository.
+    </p>
+    <ul>
+        <li>From the right-hand Browse menu, go to Submissions under ‘My Account’ where, having selected your collection from the drop-down menu, 
+            you can then make your submission.
+        </li>
+        <li>Please fill in as many details as you can about your thesis, including the abstract. Please also provide subject keywords to describe 
+            your work more fully.
+        </li>
+        <li>Please grant the deposit license on the final submission page in order to submit your work into the repository.</li>
+        <li>You are also given the choice to attach a Creative Commons license to your work if you wish to. On the License Your Work page, 
+            if you choose this option from the License Type: dropdown menu, we recommend that you choose a restrictive license and answer 
+            No to both questions; "Allow commercial uses of your work?" and " Allow modifications of your work?".
+        </li>
+    </ul>
+    <p>There is a link to the Creative Commons site where you can see more information about the choice of licenses offered. 
+        You may want to be less restrictive or not choose this option at all - the choice is yours. 
+        Your work is covered by original copyright whether or not you attach this license.
+    </p>
+    <p>Good luck with your deposit and we will acknowledge receipt and confirm the citation to your electronic thesis, 
+        once both your print and electronic copies have been processed.
+    </p>
+    <p>If you have any further questions, please do not hesitate to contact us again.</p>
+    <br>
+    <p white-space: pre-wrap;>
+        Janet Aucock 
+        David Collins 
+        St Andrews Research Repository
+    </p>
+</div>
+<hr>
+<div>
+    <img src="">
+    <div>
+        <p>For administrative queries:</p>
+        <p white-space: pre-wrap;>Postgraduate Research 
+        Academic Registry  </p>
+        <p>Tel: +44 (0) 1334 463084</p>
+        <p>Email: <a href="mailto:researchpg-reg@st-andrews.ac.uk">researchpg-reg@st-andrews.ac.uk</a></p>
+    </div>
+    <div>
+        <p>For queries regarding the digital repository:</p>
+        <p>St Andrews Research Repository</p>
+        <p><a href="https://research-repository.st-andrews.ac.uk/">https://research-repository.st-andrews.ac.uk/</a></p>
+        <p>Tel: +44 (0) 1334 462302/462299</p>
+        <p>Email: <a href="mailto:digirep@st-andrews.ac.uk">digirep@st-andrews.ac.uk</a></p>
+    </div>
+</div>
+<div>
+    <p>Walter Bower House, Eden Campus, Main Street, Guardbridge, Fife, KY16 0US</p>
+    <p  white-space: pre-wrap;>The University of St Andrews is a charity registered in Scotland: No SC013532 
+The University of St Andrews is committed to sustainable practices and the preservation of the environment – please do not print this email unless absolutely necessary.</p>
+</div>
