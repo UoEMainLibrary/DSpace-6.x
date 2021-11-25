@@ -129,6 +129,8 @@
     <name-map collection-handle="10023/7230" form-name="theses_form"/>
     <name-map collection-handle="10023/9993" form-name="theses_form"/>
     <name-map collection-handle="10023/13169" form-name="theses_form"/>
+    <name-map collection-handle="10023/19869" form-name="theses_form"/>
+    
 
     <!-- Form mapping for research collection -->
     <name-map collection-handle="10023/41" form-name="research_form"/>
@@ -449,8 +451,11 @@
           <repeatable>false</repeatable>
           <label>Title</label>
           <input-type>onebox</input-type>
-          <hint>Enter the main title of the item.</hint>
-          <required>You must enter a main title for this item.</required>
+          <hint>
+            Enter the main title of the item. Please enter the title in sentence case, i.e. not using block capitals. 
+            For example, ‘The structure of mannitol’
+          </hint>
+          <required>You must enter a main title for this item. Please enter the title in sentence case, i.e. not using block capitals. For example, ‘The structure of mannitol’</required>
         </field>
 
         <field>
@@ -510,9 +515,9 @@
           <repeatable>false</repeatable>
           <label>Additional Institutions</label>
           <input-type>onebox</input-type>
-          <hint>If you wish to add any additional institutions or you wish to indicate an affiliation to a
-            specific St Andrews Research Institute as well as to the School and Department you are
-            associated with then please indicate this in the box above.
+          <hint>
+            Please use this box if you want to indicate any additional affiliations. 
+            (For example, a research institute in St Andrews, or another University.)
           </hint>
           <required></required>
         </field>
@@ -563,7 +568,7 @@
           <required>You must enter at least the year.</required>
         </field>
 
-        <field>
+        <!--<field>
           <dc-schema>dc</dc-schema>
           <dc-element>relation</dc-element>
           <dc-qualifier></dc-qualifier>
@@ -575,7 +580,7 @@
             a basis for your submission.
           </hint>
           <required></required>
-        </field>
+        </field>-->
 
         <field>
           <dc-schema>dc</dc-schema>
@@ -585,6 +590,17 @@
           <label>Funders</label>
           <input-type>onebox</input-type>
           <hint>Enter the names of any funders in the box above</hint>
+          <required></required>
+        </field>
+
+        <field>
+          <dc-schema>dc</dc-schema>
+          <dc-element>identifier</dc-element>
+          <dc-qualifier>grantnumber</dc-qualifier>
+          <repeatable>true</repeatable>
+          <label>Grant numbers</label>
+          <input-type>onebox</input-type>
+          <hint>Enter the grant number(s) from your research funder(s) above</hint>
           <required></required>
         </field>
 
@@ -624,7 +640,7 @@
           <repeatable>true</repeatable>
           <label>Subject Keywords</label>
           <input-type>onebox</input-type>
-          <hint>Enter appropriate subject keywords or phrases above, one word or phrase per box.</hint>
+          <hint>Enter appropriate subject keywords or phrases above. Please enter one word or phrase per box.</hint>
           <required></required>
         </field>
 
@@ -635,7 +651,7 @@
           <repeatable>false</repeatable>
           <label>Number of pages</label>
           <input-type>onebox</input-type>
-          <hint>Please give the number of pages of the text you are submitting.</hint>
+          <hint>Please supply the number of pages from your PDF.</hint>
           <required></required>
         </field>
 
@@ -854,7 +870,7 @@
           <repeatable>true</repeatable>
           <label>Subject Keywords</label>
           <input-type>onebox</input-type>
-          <hint>Enter appropriate subject keywords or phrases above, one word or phrase per box.</hint>
+          <hint>Enter appropriate subject keywords or phrases.</hint>
           <required></required>
         </field>
 

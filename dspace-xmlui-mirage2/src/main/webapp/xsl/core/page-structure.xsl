@@ -324,18 +324,10 @@
             </xsl:if>
 
             <!-- Add Altmetrics JS -->
-            <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
-            <!--<script type='text/javascript'>
-                $(function() 
-                {
-                    alert('test');
-                    //if($('.altmetric-embed')[0].html() === ""){ $($('.altmetric-embed')[0]).parent().hide(); }
-                    //if($('.altmetric-embed')[1].html() === ""){ $($('.altmetric-embed')[1]).parent().hide(); }
-                });
-            </script>-->
+            <!--<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>-->
 
             <!-- CORE Recommender JS -->
-            <script>
+            <!--<script>
                 (function (d, s, idScript, idRec, userInput) {
                     var coreAddress = 'https://core.ac.uk/';
                     var js, fjs = d.getElementsByTagName(s)[0];
@@ -354,7 +346,7 @@
                     link.setAttribute('href', coreAddress + 'recommender/embed-default-style.css');
                     d.getElementsByTagName('head')[0].appendChild(link);
                 }(document, 'script', 'recommender-embed', 'fbca3d', {}));
-            </script>
+            </script>-->
 
         </head>
     </xsl:template>
