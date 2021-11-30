@@ -357,9 +357,13 @@
             </script>
 
             <script  type="text/javascript">
-                var x = document.getElementByClassName('bold-test').textContent;
-                var y = x.split(". ");
-                document.getElementByClassName('bold-test').innerHTML = y[0] + "<b>" + y[1] + "</b>";
+                (function ()
+                {
+                    var x = document.getElementByClassName('bold-test').textContent;
+                    var y = x.split(". ");
+                    document.getElementByClassName('bold-test').innerHTML = y[0] + "<b>" + y[1] + "</b>";
+                    console.log(y[0] + "<b>" + y[1] + "</b>")
+                });
             </script>
 
         </head>
