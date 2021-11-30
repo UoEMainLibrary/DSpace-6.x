@@ -348,6 +348,17 @@
                 }(document, 'script', 'recommender-embed', 'fbca3d', {}));
             </script>-->
 
+            <script  type="text/javascript">
+                $(function()
+                {
+                    var a = $('.bold-test').text();
+                    var b = a.slice(0, a.indexOf('. '));
+                    var c = a.slice(a.indexOf('. '), a.length);
+
+                    $('.bold-test').html('<span class="last_bold">' + b + '</span>' + c)
+                });
+            </script>
+
         </head>
     </xsl:template>
 

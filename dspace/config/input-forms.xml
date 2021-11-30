@@ -130,7 +130,6 @@
     <name-map collection-handle="10023/9993" form-name="theses_form"/>
     <name-map collection-handle="10023/13169" form-name="theses_form"/>
     <name-map collection-handle="10023/19869" form-name="theses_form"/>
-    
 
     <!-- Form mapping for research collection -->
     <name-map collection-handle="10023/41" form-name="research_form"/>
@@ -451,11 +450,8 @@
           <repeatable>false</repeatable>
           <label>Title</label>
           <input-type>onebox</input-type>
-          <hint>
-            Enter the main title of the item. Please enter the title in sentence case, i.e. not using block capitals. 
-            For example, ‘The structure of mannitol’
-          </hint>
-          <required>You must enter a main title for this item. Please enter the title in sentence case, i.e. not using block capitals. For example, ‘The structure of mannitol’</required>
+          <hint>Enter the main title of the item. Please enter the title in sentence case, i.e. not using block capitals. For example, ‘The structure of mannitol’</hint>
+          <required>You must enter a main title for this item.</required>
         </field>
 
         <field>
@@ -515,10 +511,7 @@
           <repeatable>false</repeatable>
           <label>Additional Institutions</label>
           <input-type>onebox</input-type>
-          <hint>
-            Please use this box if you want to indicate any additional affiliations. 
-            (For example, a research institute in St Andrews, or another University.)
-          </hint>
+          <hint>Please use this box if you want to indicate any additional affiliations. (For example, a research institute in St Andrews, or another University.)</hint>
           <required></required>
         </field>
 
@@ -595,17 +588,6 @@
 
         <field>
           <dc-schema>dc</dc-schema>
-          <dc-element>identifier</dc-element>
-          <dc-qualifier>grantnumber</dc-qualifier>
-          <repeatable>true</repeatable>
-          <label>Grant numbers</label>
-          <input-type>onebox</input-type>
-          <hint>Enter the grant number(s) from your research funder(s) above</hint>
-          <required></required>
-        </field>
-
-        <field>
-          <dc-schema>dc</dc-schema>
           <dc-element>language</dc-element>
           <dc-qualifier>iso</dc-qualifier>
           <repeatable>false</repeatable>
@@ -651,7 +633,7 @@
           <repeatable>false</repeatable>
           <label>Number of pages</label>
           <input-type>onebox</input-type>
-          <hint>Please supply the number of pages from your PDF.</hint>
+          <hint>Please give the number of pages of the text you are submitting.</hint>
           <required></required>
         </field>
 
@@ -870,7 +852,7 @@
           <repeatable>true</repeatable>
           <label>Subject Keywords</label>
           <input-type>onebox</input-type>
-          <hint>Enter appropriate subject keywords or phrases.</hint>
+          <hint>Enter appropriate subject keywords or phrases above, one word or phrase per box.</hint>
           <required></required>
         </field>
 
