@@ -356,14 +356,17 @@
                 }(document, 'script', 'recommender-embed', 'fbca3d', {}));
             </script>
 
+            <!-- Script to format e-these submission form text []-->
             <script  type="text/javascript">
-                (function ()
+                window.onload = function ()
                 {
-                    var x = document.getElementByClassName('bold-test').textContent;
-                    var y = x.split(". ");
-                    document.getElementByClassName('bold-test').innerHTML = y[0] + "<b>" + y[1] + "</b>";
-                    console.log(y[0] + "<b>" + y[1] + "</b>")
-                });
+                    if(window.location.href.indexOf("10023/19869/submit/") > -1)
+                    {
+                        var plain-text-b = document.getElementsByClassName('bold-format');
+                        var bold-text = plain-text-b[0].textContent.split(". ");
+                        plain-text-b[0].innerHTML = bold-text[0] + ". <b>" + bold-text[1] + "</b>";
+                    }
+                };
             </script>
 
         </head>

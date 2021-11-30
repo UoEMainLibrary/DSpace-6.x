@@ -1379,7 +1379,7 @@
         <xsl:if test="./text() or ./node()">
             <xsl:choose>
                 <xsl:when test="contains(./text(), 'Please enter one word or phrase per box.') or contains(./node(), 'Please enter one word or phrase per box.')">
-                    <p class="help-block bold-test">
+                    <p class="help-block bold-format">
                         <xsl:apply-templates />
                     </p>
                 </xsl:when>
