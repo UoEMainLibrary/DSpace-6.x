@@ -954,11 +954,11 @@
 
 
 	<!-- org.dspace.app.xmlui.Submission.submit.LicenseStep -->
-	<message key="xmlui.Submission.submit.LicenseStep.head">Distribution License</message>
+	<message key="xmlui.Submission.submit.LicenseStep.head">Deposit Licence</message>
 	<message key="xmlui.Submission.submit.LicenseStep.info1"><strong>There is one last step:</strong> In order for DSpace to reproduce, translate and distribute your submission worldwide, you must agree to the following terms.</message>
-	<message key="xmlui.Submission.submit.LicenseStep.info2">Grant the standard distribution license by selecting 'I Grant the License'; and then click 'Complete Submission'.</message>
+	<message key="xmlui.Submission.submit.LicenseStep.info2">Grant the standard deposit licence by selecting 'I Grant the License'; and then click 'Complete Submission'.</message>
 	<message key="xmlui.Submission.submit.LicenseStep.info3">If you have questions regarding this license please contact the system administrators.</message>
-	<message key="xmlui.Submission.submit.LicenseStep.decision_label">Distribution license</message>
+	<message key="xmlui.Submission.submit.LicenseStep.decision_label">Deposit Licence</message>
 	<message key="xmlui.Submission.submit.LicenseStep.decision_checkbox">I Grant the License</message>
 	<message key="xmlui.Submission.submit.LicenseStep.decision_error">You must grant this license to complete your submission. If you are unable to grant this license at this time you may save your work and return later or remove the submission by clicking the 'Save &amp; Exit' button below.</message>
 
@@ -968,8 +968,18 @@
 	<message key="xmlui.Submission.submit.RemovedStep.go_submission">Go to the Submissions page</message>
 
 	<!-- org.dspace.app.xmlui.Submission.submit.CompletedStep -->
-	<message key="xmlui.Submission.submit.CompletedStep.head">Submission complete</message>
-	<message key="xmlui.Submission.submit.CompletedStep.info1">Your submission will now go through the review process for this collection. You will receive e-mail notification as soon as your submission has joined the collection, or if there is a problem with your submission. You may also check on the status of your submission by visiting your submissions page.</message>
+	<message key="xmlui.Submission.submit.CompletedStep.head1">Submission complete</message>
+	<message key="xmlui.Submission.submit.CompletedStep.head2">What happens next?</message>
+	<message key="xmlui.Submission.submit.CompletedStep.info1">Thank you for completing your thesis submission into the Repository.</message>
+	<message key="xmlui.Submission.submit.CompletedStep.info2">Your submission will now go through two sets of checks.</message>
+	<message key="xmlui.Submission.submit.CompletedStep.info3">The first set of checks will be done by the Registry Students Office (Postgraduates). These checks will include checking:</message>
+	<message key="xmlui.Submission.submit.CompletedStep.info4">Registry may need you to upload more information or files, or may have other questions for you. If they do, you will receive an email from the Repository email account requesting this information. If you need to contact Registry at any point during their checks, their email address is registry-pgr@st-andrews.ac.uk.</message>
+	<message key="xmlui.Submission.submit.CompletedStep.info5">Once Registry have completed their checks then you will receive a confirmation email to let you know that their stage has finished.</message>
+	<message key="xmlui.Submission.submit.CompletedStep.info6">The Library E-theses team will then begin their checking process on your submission. Their checks will focus on ensuring that all necessary files have been submitted.</message>
+	<message key="xmlui.Submission.submit.CompletedStep.info7">If you need to contact the E-theses team at any point during their checks, their email address is digirep@st-andrews.ac.uk.</message>
+	<message key="xmlui.Submission.submit.CompletedStep.info8">If you are asked to log in to the Repository again then you will probably need to revisit your Submissions Page. However, precise instructions and links will be given in any emails you receive from Registry or the Library.</message>
+	<message key="xmlui.Submission.submit.CompletedStep.list1">that your declaration is present; that your declaration is signed; that you have submitted an abstract; that your embargo request is correct.</message>
+	<!--<message key="xmlui.Submission.submit.CompletedStep.info1">Your submission will now go through the review process for this collection. You will receive e-mail notification as soon as your submission has joined the collection, or if there is a problem with your submission. You may also check on the status of your submission by visiting your submissions page.</message>-->
 	<message key="xmlui.Submission.submit.CompletedStep.go_submission">Go to the Submissions page</message>
 	<message key="xmlui.Submission.submit.CompletedStep.submit_again">Submit another item</message>
 

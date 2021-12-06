@@ -33,12 +33,30 @@ public class CompletedStep extends AbstractSubmissionStep
 {
 
 	/** Language Strings **/ 
-	protected static final Message T_head = 
-        message("xmlui.Submission.submit.CompletedStep.head"); 
+	protected static final Message T_head1 = 
+        message("xmlui.Submission.submit.CompletedStep.head1"); 
+    protected static final Message T_head2 = 
+        message("xmlui.Submission.submit.CompletedStep.head2"); 
 	protected static final Message T_info1 = 
         message("xmlui.Submission.submit.CompletedStep.info1"); 
-    protected static final Message T_go_submission = 
-        message("xmlui.Submission.submit.CompletedStep.go_submission");
+    protected static final Message T_info2 = 
+        message("xmlui.Submission.submit.CompletedStep.info2");
+    protected static final Message T_info3 = 
+        message("xmlui.Submission.submit.CompletedStep.info3");
+    protected static final Message T_info4 = 
+        message("xmlui.Submission.submit.CompletedStep.info4");
+    protected static final Message T_info5 = 
+        message("xmlui.Submission.submit.CompletedStep.info5");
+    protected static final Message T_info6 = 
+        message("xmlui.Submission.submit.CompletedStep.info6");
+    protected static final Message T_info7 = 
+        message("xmlui.Submission.submit.CompletedStep.info7");
+    protected static final Message T_info8 = 
+        message("xmlui.Submission.submit.CompletedStep.info8");
+    protected static final Message T_list1 = 
+        message("xmlui.Submission.submit.CompletedStep.list1");
+    /*protected static final Message T_go_submission = 
+        message("xmlui.Submission.submit.CompletedStep.go_submission");*/
 	protected static final Message T_submit_again = 
         message("xmlui.Submission.submit.CompletedStep.submit_again"); 
 
@@ -54,11 +72,25 @@ public class CompletedStep extends AbstractSubmissionStep
 	UIException, SQLException, IOException, AuthorizeException
 	{	
 		Division div = body.addInteractiveDivision("submit-complete",contextPath+"/handle/"+handle+"/submit", Division.METHOD_POST,"primary submission");
-		div.setHead(T_head);
-		
+		div.setHead(T_head1);		
 		div.addPara(T_info1);
-		
-		div.addPara().addXref(contextPath+"/submissions",T_go_submission);
+        
+        div.addPara(T_head2);
+        div.addPara(T_info2);
+
+        div.addPara(T_info3);
+        div.addPara(T_list1);
+        //div.addList(T_list1.toString(), "bulleted");
+
+        div.addPara(T_info4);
+        div.addPara(T_info5);
+
+        div.addPara(T_info6);
+        div.addPara(T_info7);
+
+        div.addPara(T_info8);
+
+		//div.addPara().addXref(contextPath+"/submissions",T_go_submission);
 	     
 	    div.addPara().addButton("submit_again").setValue(T_submit_again);
 	    div.addHidden("handle").setValue(handle);
