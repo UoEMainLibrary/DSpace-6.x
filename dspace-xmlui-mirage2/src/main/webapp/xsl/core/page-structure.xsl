@@ -362,27 +362,32 @@
                 {
                     if(window.location.href.indexOf("10023/19869/submit/") > -1)
                     {
-                        var plain_text = document.getElementsByClassName('bold-format');
-                        var bold_text = plain_text[0].textContent.split(". ");
-                        plain_text[0].innerHTML = bold_text[0] + ". <b>" + bold_text[1] + "</b>";
+                        if (document.getElementById('aspect_submission_StepTransformer_div_submit-describe').children.length > 0)
+                        {
+                            var plain_text = document.getElementsByClassName('bold-format');
+                            var bold_text = plain_text[0].textContent.split(". ");
+                            plain_text[0].innerHTML = bold_text[0] + ". <b>" + bold_text[1] + "</b>"
+                        }
                     }
                 };
             </script>
 
-            <!-- Script to format e-these submission complete styles -->
+            <!-- Script to format e-these submission complete styles 
+                    submission_div[2].innerHTML = "<li>" + submission_list[0].textContent + ";</li><li>" + submission_list[1].textContent + ";</li><li>" + submission_list[2].textContent + ";</li><li>" + submission_list[3].textContent + ";</li>";
+            -->
             <script>
                 window.onload = function ()
                 {
                     if(window.location.href.indexOf("10023/19869/submit/") > -1)
                     {
-                        if (document.getElementById('aspect_submission_submit_CompletedStep_div_submit-complete') != "undefined")
+                        if (document.getElementById('aspect_submission_submit_CompletedStep_div_submit-complete').children.length > 0)
                         {
                             var submission_div = document.getElementById('aspect_submission_submit_CompletedStep_div_submit-complete').children;
                             console.log(submission_div);
                             submission_div[2].innerHTML = "<b>" + submission_div[2].textContent + "</b>";
                             var submission_list = submission_div[5].textContent.split("; ");
                             console.log(submission_list);
-                            submission_div[2].innerHTML = "<ul><li>" + submission_list[0].textContent + ";</li><li>" + submission_list[1].textContent + ";</li><li>" + submission_list[2].textContent + ";</li><li>" + submission_list[3].textContent + ";</li></ul>"
+                            submission_div[2].replaceWith(ul);
                         }
                     }
                 };
