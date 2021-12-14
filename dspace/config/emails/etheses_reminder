@@ -5,32 +5,29 @@
 #
 Subject: Submission of Hardbound Copy of Thesis and CD: {0} – {1}
 
-<div>
-    <p>Dear {0},</p>
-    <br>
+<div style="font-family: 'Inknut Antiqua', serif; font-size: 16px;">
+    <p style="padding-bottom: 15px;">Dear {0},</p>
     <p>We are writing to inform you that the final copy of your thesis is due to be submitted by 12th August 2021.</p>
     <p>If you have not already done so, please complete a task entitled 'Preparing for submission of my Library Copies' in 
         <a href="https://mysaint.st-andrews.ac.uk/">MySaint.</a> The task will allow you to access your title page and declarations:
     </p>
     <ul>
-        <li>Log into MySaint at <a href="https://mysaint.st-andrews.ac.uk/">https://mysaint.st-andrews.ac.uk</a></li>
+        <li>Log into MySaint at<a href="https://mysaint.st-andrews.ac.uk/"> https://mysaint.st-andrews.ac.uk</a></li>
         <li>Go to 'My courses' workspace</li>
         <li>Go to 'My tasks' portlet</li>
         <li>The task will be available under the heading of 'Thesis preparation and examination (PGR)'</li>
     </ul>
-    <p white-space: pre-wrap;>We look forward to receiving the final copy of your thesis. 
-        With kind regards
-    </p>
+    <p>We look forward to receiving the final copy of your thesis.</p> 
+    <p>With kind regards</p>
 </div>
-<div>
+<div style="font-family: 'Inknut Antiqua', serif; font-size: 16px;">
     <p>Liliana</p>
-    <img src="">
-    <div>
-        <p white-space: pre-wrap;>
-            <b>Liliana Martins e Caneco 
-            Registry Officer</b>
-        </p>
-        <p>Academic Registry</p> 
-        <p>Tel: +44 (0) 1334 463084</p>
+    <img src="https://research-repository-test.st-andrews.ac.uk/themes/Mirage2/images/01-foundation-black-text.png" style="display: block; width: 50%; margin-left: -40px;">
+    <div style="color: #1766b4;">
+        <p style="margin: 0px; padding: 0px;"><b>Liliana Martins e Caneco</b></p>
+        <p style="margin: 0px; padding: 0px;"><b>Registry Officer</b></p>
+        <p style="margin: 0px; padding: 0px;">Academic Registry</p>
+        <p style="margin: 0px; padding: 0px;">University of St Andrews</p> 
+        <p style="margin: 0px; padding: 0px;">Tel: +44 (0) 1334 463084</p>
     </div>
 </div>

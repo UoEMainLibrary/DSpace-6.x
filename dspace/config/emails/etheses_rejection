@@ -1,41 +1,28 @@
-# E-mail sent to inform students to register for submitting to E-Theses
+# E-mail sent to remind students to submit to E-Theses
 #
 # Parameters: {0} Student Name
 #             {1} Student ID
+#             {2} Submission Title
 #
-Subject: Outcome email and Repository guidance ({0}, {1}) [Registry staff sends manually to {0} inviting them to register with Digital Repository]
+Subject: Repository: Submission <i>Returned for Clarification</i> ({0}, {1})
 
 <div style="font-family: 'Inknut Antiqua', serif; font-size: 16px;">
-    <p style="padding-bottom: 15px;">Dear {0},</p>
-    <p>Congratulations on the successful completion of your thesis.</p>
-    <p style="margin: 0px; padding: 0px;">Please find attached a letter from the Associate Provost Education for your information.</p> 
-    <p style="margin: 0px; padding: 0px; margin-top: -20px;">Should you have any queries regarding graduation, please contact the Graduation Office (<a  style="margin: 0px; padding: 0px" href="mailto:graduation@st-andrews.ac.uk">graduation@st-andrews.ac.uk</a>).</p>
-    <br>
-    <p style="font-size: 14px;">We now require you to make the submission of the final examined version of your thesis to the St Andrews Research Repository. Please follow these instructions.</p>
-    <p>REGISTRATION</p>
-    <p>Please go to the final task in MySaint in order to register with the St Andrews Research Repository.</p>
-    <p>Please enter:</p>
-    <ol>
-        <li>Your St Andrews username and password in the boxes at the top of the display.</li>
-        <li>A long-term contact email address.</li>
-        <li>Details of your school and department. (This enables us to assign your thesis to the correct repository collection after you’ve completed your submission).</li>
-        <li>Please click on the <b><u>Register</u></b> button which will send your registration details to the repository administrator.</li>
-    </ol>
-    <p>We will complete your registration and send confirmation to you as soon as we can, (usually within one working day). We will send this confirmation to your St Andrews email address unless you indicate an alternative, preferred contact email address.</p>
-    <p style="font-size: 18px;"><u>Please note that you will not be able to continue with the submission until you receive this confirmation, so</u></p>
-    <ol>
-        <li style="font-size: 18px;"><u>please log out of the St Andrews Research Repository after you have completed this initial registration.</u></p>
-    </ol>
-    <p>Once you have received acknowledgement of your registration you can login again, by entering your St Andrews Username and Password, in order to make your submission.</p>
-    <br>
-    <p>SUBMISSION</p>
-</div>
-<hr>
-<div style="font-family: 'Inknut Antiqua', serif; font-size: 16px;">
-    <p style="margin: 0px; padding: 0px;">Thank you,</p> 
-    <p style="margin: 0px; padding: 0px;">David Collins</p>
-    <p style="margin: 0px; padding: 0px;">Janet Aucock</p>
-    <p>St Andrews Research Repository</p>
+    <p>You submitted: 	{2}</p>
+    <p>To collection: 	Library Theses</p>
+    <p>Your submission has been returned for clarification by Name (XXX@st-andrews.ac.uk) for the following reason(s):</p>
+    <p style="text-transform:uppercase">FREE TEXT GIVING EXPLANATION FOR CLARIFICATION REQUEST WILL APPEAR HERE.</p>
+    <p><i>Please also ensure that:</i></p>
+    <ul>
+        <li><i>The terms of any embargo are correct in your declaration.</i></li>
+        <li><i>All signatures are present in the declaration.</i></li>
+        <li><i>The abstract is included in your thesis.</i></li>
+        <li><i>The title page is included in your thesis.</i></li>
+        <li><i>Your submitted PDF file(s) are unlocked.</i></li>
+        <li><i>All relevant theses files are ready to be uploaded.</i></li>
+    </ul>
+    <p>Your submission has not been deleted. You can access it from your "My Repository" page:</p>
+    <p><a href="https://research-repository-test.st-andrews.ac.uk/mydspace">https://research-repository-test.st-andrews.ac.uk/mydspace</a></p>
+    <p>Registry Student Office (Postgraduates)</p>
 </div>
 <hr>
 <div style="font-family: 'Inknut Antiqua', serif;">
