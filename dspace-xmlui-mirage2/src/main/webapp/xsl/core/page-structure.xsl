@@ -356,8 +356,14 @@
                 }(document, 'script', 'recommender-embed', 'fbca3d', {}));
             </script>
 
-            <!-- Script to format e-these submission form text in bold -->
-            <script  type="text/javascript">
+            <!-- Script to format e-these submission form text in bold 
+            var emb_para_text = embargo_text[0].textContent.split(". ");
+            <p>" + emb_desc_text[1] + "</p><p>" + emb_desc_text[3] + "</p>";
+            var node1 = document.createElement("P");
+                            node1.innerText = emb_desc_text[1];
+                            node1.appendChild(emb_p2);
+                            embargo_desc.appendChild(node1);-->
+            <script type="text/javascript">
                 window.onload = function ()
                 {
                     if(window.location.href.indexOf("10023/19869/submit/") > -1)
@@ -368,26 +374,69 @@
                             var bold_text = plain_text[0].textContent.split(". ");
                             plain_text[0].innerHTML = bold_text[0] + ". <b>" + bold_text[1] + "</b>";
                         }
+
+                        var embargo_text = document.getElementById('aspect_submission_StepTransformer_list_submit-upload-new');
+                        if(embargo_text !== null)
+                        {
+                            var emb_elems = embargo_text.children;
+
+                            var emb_file_block = emb_elems[1].children;
+                            var emb_file = emb_file_block[0].children;
+                            var emb_file_text = emb_file[2].textContent.split(". ");
+                            var file_p1 = "<p>" + emb_file_text[0] + ".</p>";
+                            var file_p2 = "<p>" + emb_file_text[1] + ".</p>";
+                            var file_p3 = "<p>" + emb_file_text[2] + "</p>";
+                            emb_file[2].innerHTML = file_p1 + file_p2 + file_p3;
+
+                            var emb_date_block = emb_elems[2].children;
+                            var emb_date = emb_date_block[0].children;
+                            var emb_date_text = emb_date[2].textContext.split(". ");
+                            var date_p1 = "<p>" + emb_date_text[0] + ".</p>";
+                            var date_p2 = "<p>" + emb_date_text[1] + ".</p>";
+                            var date_p3 = "<p>" + emb_date_text[2] + "</p>";
+                            emb_date[2].innerHTML = date_p1 + date_p2 + date_p3;
+                            
+                        }
+
+                        var submission_complete = document.getElementById('aspect_submission_submit_CompletedStep_div_submit-complete');
+                        if (submission_complete !== null)
+                        {
+                            var submission_div = document.getElementById('aspect_submission_submit_CompletedStep_div_submit-complete').children;
+                            var submission_list1 = submission_div[5].textContent;
+                            var submission_list2 = submission_div[6].textContent;
+                            var submission_list3 = submission_div[7].textContent;
+                            var submission_list4 = submission_div[8].textContent;
+                            submission_div[5].outerHTML = "<li>" + submission_list1 + "</li>"
+                            submission_div[6].outerHTML = "<li>" + submission_list2 + "</li>"
+                            submission_div[7].outerHTML = "<li>" + submission_list3 + "</li>"
+                            submission_div[8].outerHTML = "<li>" + submission_list4 + "</li>"
+                            submission_div[5].style.marginLeft = "20px";
+                            submission_div[6].style.marginLeft = "20px";
+                            submission_div[7].style.marginLeft = "20px";
+                            submission_div[8].style.marginLeft = "20px";
+                            submission_div[8].style.marginBottom = "10px";
+                        }
                     }
                 };
             </script>
 
             <!-- Script to format e-these submission complete styles 
-                    submission_div[2].innerHTML = "<li>" + submission_list[0].textContent + ";</li><li>" + submission_list[1].textContent + ";</li><li>" + submission_list[2].textContent + ";</li><li>" + submission_list[3].textContent + ";</li>";
+                    var submission_list1 = submission_div[5].textContent;
+                            var submission_list2 = submission_div[6].textContent;
+                            var submission_list3 = submission_div[7].textContent;
+                            var submission_list4 = submission_div[8].textContent;
+                            console.log(submission_list1 + " : " + submission_list2 + " : " + submission_list3 + " : " + submission_list4);
             
-            <script>
+            <script  type="text/javascript">
                 window.onload = function ()
                 {
                     if(window.location.href.indexOf("10023/19869/submit/") > -1)
                     {
-                        if (document.getElementById('aspect_submission_submit_CompletedStep_div_submit-complete') != "undefined")
+                        var submission_complete = document.getElementById('aspect_submission_submit_CompletedStep_div_submit-complete');
+                        if (submission_complete !== null)
                         {
                             var submission_div = document.getElementById('aspect_submission_submit_CompletedStep_div_submit-complete').children;
                             console.log(submission_div);
-                            submission_div[2].innerHTML = "<b>" + submission_div[2].textContent + "</b>";
-                            var submission_list = submission_div[5].textContent.split("; ");
-                            console.log(submission_list);
-                            submission_div[2].replaceWith(ul);
                         }
                     }
                 };

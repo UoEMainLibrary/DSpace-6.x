@@ -837,7 +837,7 @@
     <message key="xmlui.Submission.submit.AccessStep.column4">End Date</message>
     <message key="xmlui.Submission.submit.AccessStep.table_edit_button">Edit</message>
     <message key="xmlui.Submission.submit.AccessStep.table_delete_button">Remove</message>
-	<message key="xmlui.administrative.authorization.AccessStep.label_date_help">The first day from which access is allowed. Accepted format: yyyy, yyyy-mm, yyyy-mm-dd</message>
+	<message key="xmlui.administrative.authorization.AccessStep.label_date_help">Please fill in this field only if you have chosen to embargo your thesis. The end-date of your embargo is calculated by adding the length of your embargo to today's date. Simply type in your embargo end-date or click within the field to display the in-built calendar. This date will be the first day from which access to your uploaded files would be allowed. Please make a note of this date because we will contact you one month prior to it to ask whether your thesis could be released, or if you'd prefer to request an extension to the embargo.</message>
     <message key="xmlui.administrative.authorization.AccessStep.label_date_displayonly_help">The first day from which access is allowed. <b>This date cannot be modified on this form.</b> To set an embargo date for a bitstream, go to the <i>Item Status</i> tab, click <i>Authorizations...</i>, create or edit the bitstream's <i>READ</i> policy, and set the <i>Start Date</i> as desired.</message>
     <message key="xmlui.Submission.submit.AccessStep.review_policy_line">Name: {0}; action: {1}, group: {2}, start date: {3}, end date: {4}</message>
     <message key="xmlui.Submission.submit.AccessStep.review_public_item">The item will be searchable</message>
@@ -850,6 +850,13 @@
 
     <!-- org.dspace.app.xmlui.Submission.submit.UploadStep -->
 	<message key="xmlui.Submission.submit.UploadStep.head">Upload File(s)</message>
+	<message key="xmlui.Submission.submit.UploadStep.pre_file1">Before you upload:</message>
+	<message key="xmlui.Submission.submit.UploadStep.pre_file2">Have you named your files according to the repository's file-name conventions?</message>
+	<message key="xmlui.Submission.submit.UploadStep.pre_file3">Have you prepared at least two files; (1) a PDF of your thesis and (2) the file that you created your PDF from, (e.g., Microsoft Word, LaTeX, etc.)?  (<i>We need multiple files to digitally preserve your submission and provide maximum accessibility to your thesis.</i>)</message>
+	<message key="xmlui.Submission.submit.UploadStep.pre_file4"><i>Have you prepared any other versions of your thesis, e.g., redacted versions required because of copyright or embargo?</i></message>
+	<message key="xmlui.Submission.submit.UploadStep.pre_file5">See the Table of scenarios in the Thesis LibGuide for further information.</message>
+	<message key="xmlui.Submission.submit.UploadStep.pre_file6">If you have supplementary data, please upload it here.</message>
+	<message key="xmlui.Submission.submit.UploadStep.pre_file7">(<i>Underpinning</i> data is uploaded separately to Pure.  See the Research Data Management team's webpage for further information.)”</message>
 	<message key="xmlui.Submission.submit.UploadStep.file">File</message>
 	<message key="xmlui.Submission.submit.UploadStep.file_help">Please enter the full path of the file on your computer corresponding to your item. If you click "Browse...", a new window will allow you to select the file from your computer.</message>
 	<message key="xmlui.Submission.submit.UploadStep.file_error">The item must contain at least one file.</message>
@@ -886,7 +893,7 @@
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.virus_error">The file has not been uploaded as it appears to contain a virus. Please contact the system administrator.</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.virus_checker_error">A technical problem was encountered whilst attempting to scan the file for viruses. Please contact the system administrator.</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.description">File Description</message>
-    <message key="xmlui.Submission.submit.UploadWithEmbargoStep.description_help">Optionally, provide a brief description of the file, for example "<i>Main article</i>", or "<i>Experiment data readings</i>".</message>
+    <message key="xmlui.Submission.submit.UploadWithEmbargoStep.description_help">Please provide a brief description of the file, for example, "Complete version", “Redacted version”, "Supplementary data", or “Appendix”. A file description provides further information to aid in your file's digital preservation. For further examples of the preferred forms for uploaded files' descriptions please see the Table of scenarios in the Thesis LibGuide.</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.submit_upload">Upload file &amp; add another</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.head2">Files Uploaded</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.column0">Primary</message>
@@ -969,7 +976,7 @@
 
 	<!-- org.dspace.app.xmlui.Submission.submit.CompletedStep -->
 	<message key="xmlui.Submission.submit.CompletedStep.head1">Submission complete</message>
-	<message key="xmlui.Submission.submit.CompletedStep.head2">What happens next?</message>
+	<message key="xmlui.Submission.submit.CompletedStep.head2"><strong>What happens next?</strong></message>
 	<message key="xmlui.Submission.submit.CompletedStep.info1">Thank you for completing your thesis submission into the Repository.</message>
 	<message key="xmlui.Submission.submit.CompletedStep.info2">Your submission will now go through two sets of checks.</message>
 	<message key="xmlui.Submission.submit.CompletedStep.info3">The first set of checks will be done by the Registry Students Office (Postgraduates). These checks will include checking:</message>
@@ -978,7 +985,10 @@
 	<message key="xmlui.Submission.submit.CompletedStep.info6">The Library E-theses team will then begin their checking process on your submission. Their checks will focus on ensuring that all necessary files have been submitted.</message>
 	<message key="xmlui.Submission.submit.CompletedStep.info7">If you need to contact the E-theses team at any point during their checks, their email address is digirep@st-andrews.ac.uk.</message>
 	<message key="xmlui.Submission.submit.CompletedStep.info8">If you are asked to log in to the Repository again then you will probably need to revisit your Submissions Page. However, precise instructions and links will be given in any emails you receive from Registry or the Library.</message>
-	<message key="xmlui.Submission.submit.CompletedStep.list1">that your declaration is present; that your declaration is signed; that you have submitted an abstract; that your embargo request is correct.</message>
+	<message key="xmlui.Submission.submit.CompletedStep.list1">that your declaration is present;</message> 
+	<message key="xmlui.Submission.submit.CompletedStep.list2">that your declaration is signed;</message>
+	<message key="xmlui.Submission.submit.CompletedStep.list3">that you have submitted an abstract;</message>
+	<message key="xmlui.Submission.submit.CompletedStep.list4">that your embargo request is correct.</message>
 	<!--<message key="xmlui.Submission.submit.CompletedStep.info1">Your submission will now go through the review process for this collection. You will receive e-mail notification as soon as your submission has joined the collection, or if there is a problem with your submission. You may also check on the status of your submission by visiting your submissions page.</message>-->
 	<message key="xmlui.Submission.submit.CompletedStep.go_submission">Go to the Submissions page</message>
 	<message key="xmlui.Submission.submit.CompletedStep.submit_again">Submit another item</message>

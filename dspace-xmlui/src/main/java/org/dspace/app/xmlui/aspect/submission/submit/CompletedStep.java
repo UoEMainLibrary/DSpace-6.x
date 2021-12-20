@@ -55,6 +55,12 @@ public class CompletedStep extends AbstractSubmissionStep
         message("xmlui.Submission.submit.CompletedStep.info8");
     protected static final Message T_list1 = 
         message("xmlui.Submission.submit.CompletedStep.list1");
+    protected static final Message T_list2 = 
+        message("xmlui.Submission.submit.CompletedStep.list2");
+    protected static final Message T_list3 = 
+        message("xmlui.Submission.submit.CompletedStep.list3");
+    protected static final Message T_list4 = 
+        message("xmlui.Submission.submit.CompletedStep.list4");
     /*protected static final Message T_go_submission = 
         message("xmlui.Submission.submit.CompletedStep.go_submission");*/
 	protected static final Message T_submit_again = 
@@ -80,7 +86,9 @@ public class CompletedStep extends AbstractSubmissionStep
 
         div.addPara(T_info3);
         div.addPara(T_list1);
-        //div.addList(T_list1.toString(), "bulleted");
+        div.addPara(T_list2);
+        div.addPara(T_list3);
+        div.addPara(T_list4);
 
         div.addPara(T_info4);
         div.addPara(T_info5);

@@ -142,7 +142,7 @@ public class Email
         content = "";
         replyTo = null;
         charset = null;
-        subtype = "plain";
+        subtype = "html"; // Default changed to "html" rather than "plain" for e-theses emails
     }
 
     public void setSubtype(String subtype){

@@ -1383,6 +1383,11 @@
                         <xsl:apply-templates />
                     </p>
                 </xsl:when>
+                <xsl:when test="contains(./text(), 'Please fill in this field only if you have chosen to embargo your thesis.') or contains(./node(), 'Please fill in this field only if you have chosen to embargo your thesis.')">
+                    <p class="help-block list-format">
+                        <xsl:apply-templates />
+                    </p>
+                </xsl:when>
                 <xsl:otherwise>
                     <p class="help-block">
                             <xsl:apply-templates />

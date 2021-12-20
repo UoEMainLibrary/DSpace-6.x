@@ -6,12 +6,11 @@
 Subject: Outcome email and Repository guidance ({0}, {1}) [Registry staff sends manually to {0} inviting them to register with Digital Repository]
 
 <div style="font-family: 'Inknut Antiqua', serif; font-size: 16px;">
-    <p style="padding-bottom: 15px;">Dear {0},</p>
+    <p style="padding-bottom: 5px;">Dear {0},</p>
     <p>Congratulations on the successful completion of your thesis.</p>
     <p style="margin: 0px; padding: 0px;">Please find attached a letter from the Associate Provost Education for your information.</p> 
-    <p style="margin: 0px; padding: 0px; margin-top: -20px;">Should you have any queries regarding graduation, please contact the Graduation Office (<a  style="margin: 0px; padding: 0px" href="mailto:graduation@st-andrews.ac.uk">graduation@st-andrews.ac.uk</a>).</p>
-    <br>
-    <p style="font-size: 14px;">We now require you to make the submission of the final examined version of your thesis to the St Andrews Research Repository. Please follow these instructions.</p>
+    <p style="padding-bottom: 5px; margin: 0px; padding: 0px; margin-top: -20px;">Should you have any queries regarding graduation, please contact the Graduation Office (<a  style="margin: 0px; padding: 0px" href="mailto:graduation@st-andrews.ac.uk">graduation@st-andrews.ac.uk</a>).</p>
+    <p style="padding-bottom: 5px; font-size: 14px;">We now require you to make the submission of the final examined version of your thesis to the St Andrews Research Repository. Please follow these instructions.</p>
     <p>REGISTRATION</p>
     <p>Please go to the final task in MySaint in order to register with the St Andrews Research Repository.</p>
     <p>Please enter:</p>
@@ -26,15 +25,14 @@ Subject: Outcome email and Repository guidance ({0}, {1}) [Registry staff sends 
     <ol>
         <li style="font-size: 18px;"><u>please log out of the St Andrews Research Repository after you have completed this initial registration.</u></p>
     </ol>
-    <p>Once you have received acknowledgement of your registration you can login again, by entering your St Andrews Username and Password, in order to make your submission.</p>
-    <br>
+    <p style="padding-bottom: 5px;">Once you have received acknowledgement of your registration you can login again, by entering your St Andrews Username and Password, in order to make your submission.</p>
     <p>SUBMISSION</p>
 </div>
 <hr>
 <div style="font-family: 'Inknut Antiqua', serif; font-size: 16px;">
-    <p style="margin: 0px; padding: 0px;">Thank you,</p> 
-    <p style="margin: 0px; padding: 0px;">David Collins</p>
-    <p style="margin: 0px; padding: 0px;">Janet Aucock</p>
+    <p>Thank you,</p> 
+    <p>David Collins</p>
+    <p>Janet Aucock</p>
     <p>St Andrews Research Repository</p>
 </div>
 <hr>
