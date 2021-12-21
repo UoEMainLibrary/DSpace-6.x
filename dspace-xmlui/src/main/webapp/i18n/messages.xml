@@ -750,8 +750,8 @@
     <message key="xmlui.Submission.submit.progressbar.upload">Upload</message>
 	<message key="xmlui.Submission.submit.progressbar.verify">Review</message>
 	<message key="xmlui.Submission.submit.progressbar.creative-commons">Creative Commons</message>
-	<message key="xmlui.Submission.submit.progressbar.CClicense">CC License</message>
-    <message key="xmlui.Submission.submit.progressbar.license">License</message>
+	<message key="xmlui.Submission.submit.progressbar.CClicense">CC Licence</message>
+    <message key="xmlui.Submission.submit.progressbar.license">Licence</message>
 	<message key="xmlui.Submission.submit.progressbar.complete">Complete</message>
 
 	<!-- org.dspace.app.xmlui.Submission.submit.ResumeStep -->
@@ -949,25 +949,25 @@
 
 	<!-- org.dspace.app.xmlui.Submission.submit.CCLicenseStep -->
 	<message key="xmlui.Submission.submit.CCLicenseStep.ccws_error">An error occurred ... {0}</message>
-	<message key="xmlui.Submission.submit.CCLicenseStep.head">License Your Work</message>
-	<message key="xmlui.Submission.submit.CCLicenseStep.info1">If you wish, you may add a <a href="http://creativecommons.org/">Creative Commons</a> License to your item. <strong>Creative Commons licenses govern what people who read your work may then do with it.</strong></message>
-	<message key="xmlui.Submission.submit.CCLicenseStep.submit_choose_creative_commons">Choose a license</message>
-	<message key="xmlui.Submission.submit.CCLicenseStep.submit_to_creative_commons">Proceed to Creative Commons website to select a license</message>
-	<message key="xmlui.Submission.submit.CCLicenseStep.license">License Type</message>
-	<message key="xmlui.Submission.submit.CCLicenseStep.select_change">Select or modify your license ...</message>
-	<message key="xmlui.Submission.submit.CCLicenseStep.no_license">No Creative Commons License</message>
+	<message key="xmlui.Submission.submit.CCLicenseStep.head">Licence Your Work</message>
+	<message key="xmlui.Submission.submit.CCLicenseStep.info1">If you wish, you may add a <a href="http://creativecommons.org/">Creative Commons</a> Licence to your item. <strong>Creative Commons licences govern what people who read your work may then do with it.</strong></message>
+	<message key="xmlui.Submission.submit.CCLicenseStep.submit_choose_creative_commons">Choose a licence</message>
+	<message key="xmlui.Submission.submit.CCLicenseStep.submit_to_creative_commons">Proceed to Creative Commons website to select a licence</message>
+	<message key="xmlui.Submission.submit.CCLicenseStep.license">Licence Type</message>
+	<message key="xmlui.Submission.submit.CCLicenseStep.select_change">Select or modify your licence ...</message>
+	<message key="xmlui.Submission.submit.CCLicenseStep.no_license">No Creative Commons Licence</message>
 	<message key="xmlui.Submission.submit.CCLicenseStep.save_changes">You must click Next to save your changes.</message>
-	<message key="xmlui.Submission.submit.CCLicenseStep.error"><strong>ERROR</strong>: Creative Commons API not accessible.<br/>You may continue the submission but you will not be able to select a Creative Commons license.</message>
+	<message key="xmlui.Submission.submit.CCLicenseStep.error"><strong>ERROR</strong>: Creative Commons API not accessible.<br/>You may continue the submission but you will not be able to select a Creative Commons licence.</message>
 
 
 	<!-- org.dspace.app.xmlui.Submission.submit.LicenseStep -->
 	<message key="xmlui.Submission.submit.LicenseStep.head">Deposit Licence</message>
 	<message key="xmlui.Submission.submit.LicenseStep.info1"><strong>There is one last step:</strong> In order for DSpace to reproduce, translate and distribute your submission worldwide, you must agree to the following terms.</message>
-	<message key="xmlui.Submission.submit.LicenseStep.info2">Grant the standard deposit licence by selecting 'I Grant the License'; and then click 'Complete Submission'.</message>
-	<message key="xmlui.Submission.submit.LicenseStep.info3">If you have questions regarding this license please contact the system administrators.</message>
+	<message key="xmlui.Submission.submit.LicenseStep.info2">Grant the standard deposit licence by selecting 'I Grant the Licence'; and then click 'Complete Submission'.</message>
+	<message key="xmlui.Submission.submit.LicenseStep.info3">If you have questions regarding this licence please contact the system administrators.</message>
 	<message key="xmlui.Submission.submit.LicenseStep.decision_label">Deposit Licence</message>
-	<message key="xmlui.Submission.submit.LicenseStep.decision_checkbox">I Grant the License</message>
-	<message key="xmlui.Submission.submit.LicenseStep.decision_error">You must grant this license to complete your submission. If you are unable to grant this license at this time you may save your work and return later or remove the submission by clicking the 'Save &amp; Exit' button below.</message>
+	<message key="xmlui.Submission.submit.LicenseStep.decision_checkbox">I Grant the Licence</message>
+	<message key="xmlui.Submission.submit.LicenseStep.decision_error">You must grant this licence to complete your submission. If you are unable to grant this licence at this time you may save your work and return later or remove the submission by clicking the 'Save &amp; Exit' button below.</message>
 
 	<!-- org.dspace.app.xmlui.Submission.submit.RemovedStep -->
 	<message key="xmlui.Submission.submit.RemovedStep.head">Submission removed</message>
@@ -1440,7 +1440,7 @@
 	<message key="xmlui.administrative.authorization.EditItemPolicies.trail">Policies List</message>
 	<message key="xmlui.administrative.authorization.EditItemPolicies.main_head">Policies for Item {0} (ID={1})</message>
 	<message key="xmlui.administrative.authorization.EditItemPolicies.main_para1">With this editor you can view and alter the policies of an item, plus alter policies of individual item components: bundles and bitstreams. Briefly, an item is a container of bundles, and bundles are containers of bitstreams. Containers usually have ADD/REMOVE/READ/WRITE policies, while bitstreams only have READ/WRITE policies.</message>
-	<message key="xmlui.administrative.authorization.EditItemPolicies.main_para2">You will notice an extra bundle and bitstream for each item containing the license text for the item.</message>
+	<message key="xmlui.administrative.authorization.EditItemPolicies.main_para2">You will notice an extra bundle and bitstream for each item containing the licence text for the item.</message>
 	<message key="xmlui.administrative.authorization.EditItemPolicies.subhead_item">Item Policies</message>
 	<message key="xmlui.administrative.authorization.EditItemPolicies.subhead_bundle">Policies for Bundle {0} ({1})</message>
 	<message key="xmlui.administrative.authorization.EditItemPolicies.subhead_bitstream">Bitstream {0} ({1})</message>
@@ -1569,8 +1569,8 @@
 	<message key="xmlui.administrative.item.AddBitstreamForm.bundle.ORIGINAL">Content Files (default)</message>
 	<message key="xmlui.administrative.item.AddBitstreamForm.bundle.METADATA">Metadata Files</message>
 	<message key="xmlui.administrative.item.AddBitstreamForm.bundle.THUMBNAIL">Thumbnails</message>
-	<message key="xmlui.administrative.item.AddBitstreamForm.bundle.LICENSE">Licenses</message>
-	<message key="xmlui.administrative.item.AddBitstreamForm.bundle.CC-LICENSE">Creative Commons Licenses</message>
+	<message key="xmlui.administrative.item.AddBitstreamForm.bundle.LICENSE">Licences</message>
+	<message key="xmlui.administrative.item.AddBitstreamForm.bundle.CC-LICENSE">Creative Commons Licences</message>
 	<message key="xmlui.administrative.item.AddBitstreamForm.file_label">File</message>
 	<message key="xmlui.administrative.item.AddBitstreamForm.file_help">Please enter the name of the file on your computer corresponding to your item. If you click "Browse...", a new window will appear in which you can locate and select the file from your computer.</message>
 	<message key="xmlui.administrative.item.AddBitstreamForm.description_label">Description</message>
@@ -1865,7 +1865,7 @@
 	<message key="xmlui.administrative.collection.EditCollectionMetadataForm.label_introductory_text">Introductory text (HTML)</message>
 	<message key="xmlui.administrative.collection.EditCollectionMetadataForm.label_copyright_text">Copyright text (HTML)</message>
 	<message key="xmlui.administrative.collection.EditCollectionMetadataForm.label_side_bar_text">News (HTML)</message>
-	<message key="xmlui.administrative.collection.EditCollectionMetadataForm.label_license">License</message>
+	<message key="xmlui.administrative.collection.EditCollectionMetadataForm.label_license">Licence</message>
 	<message key="xmlui.administrative.collection.EditCollectionMetadataForm.label_provenance_description">Provenance</message>
 	<message key="xmlui.administrative.collection.EditCollectionMetadataForm.label_logo">Upload new logo</message>
 	<message key="xmlui.administrative.collection.EditCollectionMetadataForm.label_existing_logo">Current logo</message>
@@ -2260,7 +2260,7 @@
 	<message key="xmlui.dri2xhtml.structural.pagination-next">Next Page</message>
 
 	<message key="xmlui.dri2xhtml.structural.link_cc">Creative Commons</message>
-	<message key="xmlui.dri2xhtml.structural.link_original_license">Deposit License</message>
+	<message key="xmlui.dri2xhtml.structural.link_original_license">Deposit Licence</message>
 
 
 	<!-- DS-METS-1.0-MODS.xsl -->
@@ -2325,8 +2325,8 @@
 	<message key="xmlui.dri2xhtml.METS-1.0.size-megabytes">Mb</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.size-gigabytes">Gb</message>
 
-	<message key="xmlui.dri2xhtml.METS-1.0.license-text">The following license files are associated with this item:</message>
-    <message key="xmlui.dri2xhtml.METS-1.0.cc-license-text">Except where otherwise noted within the work, this item's license for re-use is described as </message>
+	<message key="xmlui.dri2xhtml.METS-1.0.license-text">The following licence files are associated with this item:</message>
+    <message key="xmlui.dri2xhtml.METS-1.0.cc-license-text">Except where otherwise noted within the work, this item's licence for re-use is described as </message>
 
 	<message key="xmlui.dri2xhtml.METS-1.0.collection-not-implemented">
 		The summaryView of a collection is not currently used or implemented. This can be fixed

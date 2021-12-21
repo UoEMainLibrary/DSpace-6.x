@@ -357,12 +357,11 @@
             </script>
 
             <!-- Script to format e-these submission form text in bold 
-            var emb_para_text = embargo_text[0].textContent.split(". ");
-            <p>" + emb_desc_text[1] + "</p><p>" + emb_desc_text[3] + "</p>";
-            var node1 = document.createElement("P");
-                            node1.innerText = emb_desc_text[1];
-                            node1.appendChild(emb_p2);
-                            embargo_desc.appendChild(node1);-->
+            var emb_date_text = emb_date[2].textContext.split(". ");
+                            var date_p1 = "<p>" + emb_date_text[0] + ".</p>";
+                            var date_p2 = "<p>" + emb_date_text[1] + ".</p>";
+                            var date_p3 = "<p>" + emb_date_text[2] + "</p>";
+                            emb_date[2].innerHTML = date_p1 + date_p2 + date_p3; -->
             <script type="text/javascript">
                 window.onload = function ()
                 {
@@ -390,10 +389,11 @@
 
                             var emb_date_block = emb_elems[2].children;
                             var emb_date = emb_date_block[0].children;
-                            var emb_date_text = emb_date[2].textContext.split(". ");
-                            var date_p1 = "<p>" + emb_date_text[0] + ".</p>";
-                            var date_p2 = "<p>" + emb_date_text[1] + ".</p>";
-                            var date_p3 = "<p>" + emb_date_text[2] + "</p>";
+                            var emb_date_text = emb_date[2].textContent.split(". ");
+                            console.log(emb_date_text);
+                            var date_p1 = "<p>" + emb_date[0] + ".</p>";
+                            var date_p2 = "<p>" + emb_date[1] + ".</p>";
+                            var date_p3 = "<p>" + emb_date[2] + ".</p>";
                             emb_date[2].innerHTML = date_p1 + date_p2 + date_p3;
                             
                         }

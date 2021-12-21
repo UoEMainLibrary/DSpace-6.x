@@ -99,6 +99,22 @@ public class UploadWithEmbargoStep extends UploadStep
     protected static final Message T_submit_remove = 
         message("xmlui.Submission.submit.UploadWithEmbargoStep.submit_remove");
 
+    /** Added for St Andrews customisation */
+    protected static final Message T_pre_file1 =
+        message("xmlui.Submission.submit.UploadStep.pre_file1");
+    protected static final Message T_pre_file2 =
+        message("xmlui.Submission.submit.UploadStep.pre_file2");
+    protected static final Message T_pre_file3 =
+        message("xmlui.Submission.submit.UploadStep.pre_file3");
+    protected static final Message T_pre_file4 =
+        message("xmlui.Submission.submit.UploadStep.pre_file4");
+    protected static final Message T_pre_file5 =
+        message("xmlui.Submission.submit.UploadStep.pre_file5");
+    protected static final Message T_pre_file6 =
+        message("xmlui.Submission.submit.UploadStep.pre_file6");
+    protected static final Message T_pre_file7 =
+        message("xmlui.Submission.submit.UploadStep.pre_file7");
+
     /**
      * Global reference to edit file page
      * (this is used when a user requests to edit a bitstream)
@@ -207,7 +223,9 @@ public class UploadWithEmbargoStep extends UploadStep
     	{
     		// Only add the upload capabilities for new item submissions
 	    	upload = div.addList("submit-upload-new", List.TYPE_FORM);
-	        upload.setHead(T_head);    
+	        upload.setHead(T_head); 
+
+            div.addPara(T_pre_file1);
 	        
 	        File file = upload.addItem().addFile("file");
 	        file.setLabel(T_file);

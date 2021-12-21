@@ -5,7 +5,10 @@
 #
 Subject: Outcome email and Repository guidance ({0}, {1}) [Registry staff sends manually to {0} inviting them to register with Digital Repository]
 
-<div style="font-family: 'Inknut Antiqua', serif; font-size: 16px;">
+<div>
+    <p style="font-size: 16px;">Congratulations on the successful completion of your thesis.</p>
+</div>
+<!--<div style="font-family: 'Inknut Antiqua', serif; font-size: 16px;">
     <p style="padding-bottom: 5px;">Dear {0},</p>
     <p>Congratulations on the successful completion of your thesis.</p>
     <p style="margin: 0px; padding: 0px;">Please find attached a letter from the Associate Provost Education for your information.</p> 
@@ -61,4 +64,4 @@ Subject: Outcome email and Repository guidance ({0}, {1}) [Registry staff sends 
     <p style="margin: 0px; padding: 0px; text-align: center; color: #44546A;">The University of St Andrews is a charity registered in Scotland: No SC013532</p> 
     <p style="margin: 0px; padding: 0px; text-align: center; color: #44546A;">The University of St Andrews is committed to sustainable practices and the preservation of the environment –</p>
     <p style="margin: 0px; padding: 0px; text-align: center; color: #44546A;">please do not print this email unless absolutely necessary.</p>
-</div>
+</div>-->
