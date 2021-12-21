@@ -231,7 +231,6 @@
 
             </a>
             <!--<xsl:comment><xsl:value-of select="dri:xref/node()"/></xsl:comment>-->
-
         </xsl:if>
     </xsl:template>
 

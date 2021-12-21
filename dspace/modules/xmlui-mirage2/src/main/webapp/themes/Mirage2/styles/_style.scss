@@ -60,6 +60,8 @@
   }
 }
 
+
+
 /* Our stuff - SDLC */
 
 .countriesMap  {
@@ -449,18 +451,8 @@ a.list-group-item:visited {
   color: #fff;
 }
 
-
 .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {
-	background-color: #f6ae64;
-	border-color: #f6ae64;
-	color: #fff;
-}
-
-.pad {
-  padding-top: 30px;
-}
-
-ul.variable li {
-  color: black;
-
+  background-color: #f6ae64;
+  border-color: #f6ae64;
+  color: #fff;
 }
