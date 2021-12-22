@@ -390,12 +390,36 @@
                             var emb_date_block = emb_elems[2].children;
                             var emb_date = emb_date_block[0].children;
                             var emb_date_text = emb_date[2].textContent.split(". ");
-                            console.log(emb_date_text);
-                            var date_p1 = "<p>" + emb_date[0] + ".</p>";
-                            var date_p2 = "<p>" + emb_date[1] + ".</p>";
-                            var date_p3 = "<p>" + emb_date[2] + ".</p>";
-                            emb_date[2].innerHTML = date_p1 + date_p2 + date_p3;
-                            
+                            var date_p1 = "<p>" + emb_date_text[0] + ".</p>";
+                            var date_p2 = "<p>" + emb_date_text[1] + ".</p>";
+                            var date_p3 = "<p>" + emb_date_text[2] + ".</p>";
+                            var date_p4 = "<p>" + "<b>" + emb_date_text[3] + ".</b>" + "</p>";
+                            var date_p5 = "<p>" + "<u>" + "<i>" + emb_date_text[4] + ".</i>" + "</u>" + "</p>";
+                            emb_date[2].innerHTML = date_p1 + date_p2 + date_p3 + date_p4 + date_p5;
+
+                            var emb_upload_block = emb_elems[3].children;
+                            var emb_upload = emb_upload_block[0].children;
+                            var emb_upload_text = emb_upload[1].textContent.split(". ");
+                            var upload_p1 = "<p>" + emb_upload_text[0] + ". " + emb_upload_text[1] + ".</p>";
+                            var upload_p2 = "<p>" + emb_upload_text[2] + ". " + emb_upload_text[3] + ".</p>";
+                            var upload_p3 = "<p>" + emb_upload_text[4] + ".</p>";
+                            var upload_p4 = "<p>" + emb_upload_text[5] + ".</p>";
+                            emb_upload[1].innerHTML = upload_p1 + upload_p2 + upload_p3 + upload_p4;
+                        }
+
+                        var embargo_edit = document.getElementById('aspect_submission_StepTransformer_div_submit-edit-file');
+                        if(embargo_edit !== null){
+                            var edit_elems = embargo_edit.children;
+                            var edit_sub_elems = edit_elems[3].children;
+                            var emb_edit_block = edit_sub_elems[2].children;
+                            var emb_edit = emb_edit_block[0].children;
+                            var emb_edit_text = emb_edit[2].textContent.split(". ");
+                            var edit_p1 = "<p>" + emb_edit_text[0] + ".</p>";
+                            var edit_p2 = "<p>" + emb_edit_text[1] + ".</p>";
+                            var edit_p3 = "<p>" + emb_edit_text[2] + ".</p>";
+                            var edit_p4 = "<p>" + "<b>" + emb_edit_text[3] + ".</b>" + "</p>";
+                            var edit_p5 = "<p>" + "<u>" + "<i>" + emb_edit_text[4] + ".</i>" + "</u>" + "</p>";
+                            emb_edit[2].innerHTML = edit_p1 + edit_p2 + edit_p3 + edit_p4 + edit_p5;
                         }
 
                         var submission_complete = document.getElementById('aspect_submission_submit_CompletedStep_div_submit-complete');

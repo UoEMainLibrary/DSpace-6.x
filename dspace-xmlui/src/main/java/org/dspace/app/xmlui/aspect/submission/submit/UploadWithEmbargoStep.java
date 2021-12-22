@@ -62,6 +62,8 @@ public class UploadWithEmbargoStep extends UploadStep
         message("xmlui.Submission.submit.UploadWithEmbargoStep.description_help");
     protected static final Message T_submit_upload = 
         message("xmlui.Submission.submit.UploadWithEmbargoStep.submit_upload");
+    protected static final Message T_submit_upload_text =
+        message("xmlui.Submission.submit.UploadStep.submit_upload_text");
     protected static final Message T_head2 = 
         message("xmlui.Submission.submit.UploadWithEmbargoStep.head2");
     protected static final Message T_column0 = 
@@ -98,6 +100,8 @@ public class UploadWithEmbargoStep extends UploadStep
         message("xmlui.Submission.submit.UploadWithEmbargoStep.checksum");
     protected static final Message T_submit_remove = 
         message("xmlui.Submission.submit.UploadWithEmbargoStep.submit_remove");
+    protected static final Message T_submit_remove_text = 
+        message("xmlui.Submission.submit.UploadWithEmbargoStep.submit_remove_text");
 
     /** Added for St Andrews customisation */
     protected static final Message T_pre_file1 =
@@ -271,6 +275,7 @@ public class UploadWithEmbargoStep extends UploadStep
 
 	        Button uploadSubmit = upload.addItem().addButton("submit_upload");
 	        uploadSubmit.setValue(T_submit_upload);
+            uploadSubmit.setHelp(T_submit_upload_text);
 
     	}
 
@@ -386,6 +391,7 @@ public class UploadWithEmbargoStep extends UploadStep
 		        actionRow.addCell();
 		        Button removeSeleceted = actionRow.addCell(null, null, 0, 6, null).addButton("submit_remove_selected");
 		        removeSeleceted.setValue(T_submit_remove);
+                removeSeleceted.setHelp();
 	        }
 	        
 	        upload = div.addList("submit-upload-new-part2", List.TYPE_FORM);
