@@ -65,8 +65,16 @@ public class AccessStepUtil extends AbstractDSpaceTransformer {
     protected static final Message T_table_submit_delete =message("xmlui.Submission.submit.AccessStep.table_delete_button");
 	protected static final Message T_policy = message("xmlui.Submission.submit.AccessStep.review_policy_line");
 
-    private static final Message T_label_date_help =
-            message("xmlui.administrative.authorization.AccessStep.label_date_help");
+    private static final Message T_label_date_help1 =
+            message("xmlui.administrative.authorization.AccessStep.label_date_help1");
+    private static final Message T_label_date_help2 =
+            message("xmlui.administrative.authorization.AccessStep.label_date_help2");
+    private static final Message T_label_date_help3 =
+            message("xmlui.administrative.authorization.AccessStep.label_date_help3");
+    private static final Message T_label_date_help4 =
+            message("xmlui.administrative.authorization.AccessStep.label_date_help4");
+    private static final Message T_label_date_help5 =
+            message("xmlui.administrative.authorization.AccessStep.label_date_help5");
     private static final Message T_label_date_displayonly_help =
             message("xmlui.administrative.authorization.AccessStep.label_date_displayonly_help");
 
@@ -181,7 +189,12 @@ public class AccessStepUtil extends AbstractDSpaceTransformer {
             // Date
             Text startDate = radiosAndDate.addText("embargo_until_date");
             startDate.setLabel("");
-            startDate.setHelp(T_label_date_help);
+            //startDate.setHelp(T_label_date_help);
+            form.addItem(T_label_date_help1);
+            form.addItem(T_label_date_help2);
+            form.addItem(T_label_date_help3);
+            form.addItem(T_label_date_help4);
+            form.addItem(T_label_date_help5);
             if (errorFlag == org.dspace.submit.step.AccessStep.STATUS_ERROR_FORMAT_DATE){
                 startDate.addError(T_error_date_format);
             }
@@ -226,7 +239,12 @@ public class AccessStepUtil extends AbstractDSpaceTransformer {
         if (dso != null) {
             populateEmbargoDetail(dso, startDate);
         }
-        startDate.setHelp(T_label_date_help);
+        //startDate.setHelp(T_label_date_help);
+        form.addItem(T_label_date_help1);
+        form.addItem(T_label_date_help2);
+        form.addItem(T_label_date_help3);
+        form.addItem(T_label_date_help4);
+        form.addItem(T_label_date_help5);
     }
 
     public void addTablePolicies(Division parent, DSpaceObject dso, Collection owningCollection) throws WingException, SQLException {

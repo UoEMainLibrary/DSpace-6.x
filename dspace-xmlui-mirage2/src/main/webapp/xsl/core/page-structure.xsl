@@ -357,23 +357,7 @@
             </script>
 
             <!-- Script to format e-these submission form text in bold 
-            var emb_date_text = emb_date[2].textContext.split(". ");
-                            var date_p1 = "<p>" + emb_date_text[0] + ".</p>";
-                            var date_p2 = "<p>" + emb_date_text[1] + ".</p>";
-                            var date_p3 = "<p>" + emb_date_text[2] + "</p>";
-                            emb_date[2].innerHTML = date_p1 + date_p2 + date_p3; -->
-            <script type="text/javascript">
-                window.onload = function ()
-                {
-                    if(window.location.href.indexOf("10023/19869/submit/") > -1)
-                    {
-                        var plain_text = document.getElementsByClassName('bold-format');
-                        if(plain_text.length > 0)
-                        {
-                            var bold_text = plain_text[0].textContent.split(". ");
-                            plain_text[0].innerHTML = bold_text[0] + ". <b>" + bold_text[1] + "</b>";
-                        }
-
+            /**
                         var embargo_text = document.getElementById('aspect_submission_StepTransformer_list_submit-upload-new');
                         if(embargo_text !== null)
                         {
@@ -420,6 +404,18 @@
                             var edit_p4 = "<p>" + "<b>" + emb_edit_text[3] + ".</b>" + "</p>";
                             var edit_p5 = "<p>" + "<u>" + "<i>" + emb_edit_text[4] + ".</i>" + "</u>" + "</p>";
                             emb_edit[2].innerHTML = edit_p1 + edit_p2 + edit_p3 + edit_p4 + edit_p5;
+                        }
+                        */ -->
+            <script type="text/javascript">
+                window.onload = function ()
+                {
+                    if(window.location.href.indexOf("10023/19869/submit/") > -1)
+                    {
+                        var plain_text = document.getElementsByClassName('bold-format');
+                        if(plain_text.length > 0)
+                        {
+                            var bold_text = plain_text[0].textContent.split(". ");
+                            plain_text[0].innerHTML = bold_text[0] + ". <b>" + bold_text[1] + "</b>";
                         }
 
                         var submission_complete = document.getElementById('aspect_submission_submit_CompletedStep_div_submit-complete');

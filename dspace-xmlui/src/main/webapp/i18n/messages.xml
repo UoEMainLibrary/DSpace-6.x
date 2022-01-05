@@ -837,9 +837,11 @@
     <message key="xmlui.Submission.submit.AccessStep.column4">End Date</message>
     <message key="xmlui.Submission.submit.AccessStep.table_edit_button">Edit</message>
     <message key="xmlui.Submission.submit.AccessStep.table_delete_button">Remove</message>
-	<message key="xmlui.administrative.authorization.AccessStep.label_date_help">Please fill in this field only if you have chosen to embargo your thesis. The end-date of your embargo is calculated by adding the length of your embargo to today's date. Simply type in your embargo end-date or click within the field to display the in-built calendar. This date will be the first day from which access to your uploaded files would be allowed. Please make a note of this date because we will contact you one month prior to it to ask whether your thesis could be released, or if you'd prefer to request an extension to the embargo.This date will be the first day from which access to your uploaded files would be allowed. 
-
-Please make a note of this date because we will contact you one month prior to it to ask whether your thesis could be released, or if you’d prefer to request an extension to the embargo.</message>
+	<message key="xmlui.administrative.authorization.AccessStep.label_date_help1">Please fill in this field only if you have chosen to embargo your thesis.</message>
+	<message key="xmlui.administrative.authorization.AccessStep.label_date_help2">The end-date of your embargo is calculated by adding the length of your embargo to today's date.</message>
+	<message key="xmlui.administrative.authorization.AccessStep.label_date_help3">Simply type in your embargo end-date or click within the field to display the in-built calendar.</message>
+	<message key="xmlui.administrative.authorization.AccessStep.label_date_help4"><strong>This date will be the first day from which access to your uploaded files would be allowed.</strong></message>
+	<message key="xmlui.administrative.authorization.AccessStep.label_date_help5"><u><i>Please make a note of this date because we will contact you one month prior to it to ask whether your thesis could be released, or if you'd prefer to request an extension to the embargo.</i></u></message>
     <message key="xmlui.administrative.authorization.AccessStep.label_date_displayonly_help">The first day from which access is allowed. <b>This date cannot be modified on this form.</b> To set an embargo date for a bitstream, go to the <i>Item Status</i> tab, click <i>Authorizations...</i>, create or edit the bitstream's <i>READ</i> policy, and set the <i>Start Date</i> as desired.</message>
     <message key="xmlui.Submission.submit.AccessStep.review_policy_line">Name: {0}; action: {1}, group: {2}, start date: {3}, end date: {4}</message>
     <message key="xmlui.Submission.submit.AccessStep.review_public_item">The item will be searchable</message>
@@ -885,7 +887,10 @@ Please make a note of this date because we will contact you one month prior to i
 	<message key="xmlui.Submission.submit.UploadStep.checksum">File checksum:</message>
 	<message key="xmlui.Submission.submit.UploadStep.submit_remove">Remove selected files</message>
 
-	<message key="xmlui.Submission.submit.UploadStep.submit_upload_text">Upload all the files and provide the file description and embargo dates for each separate file. Repeat the process as many times as you need to. (If you have more than 10 files of supplementary data, a zip file would be the best option. See the Thesis LibGuide for guidance on zipping files). Use the ‘<strong>Edit</strong>’ button beside each file to review your uploads, e.g., check that the file format has been recognised and, if necessary, to make corrections to file descriptions or embargo dates. Apply embargo date to all relevant files.</message>
+	<message key="xmlui.Submission.submit.UploadStep.submit_upload_text1">Upload all the files and provide the file description and embargo dates for each separate file. Repeat the process as many times as you need to.</message>
+	<message key="xmlui.Submission.submit.UploadStep.submit_upload_text2">(If you have more than 10 files of supplementary data, a zip file would be the best option. See the Thesis LibGuide for guidance on zipping files).</message>
+	<message key="xmlui.Submission.submit.UploadStep.submit_upload_text3">Use the '<strong>Edit</strong>' button beside each file to review your uploads, e.g., check that the file format has been recognised and, if necessary, to make corrections to file descriptions or embargo dates.</message>
+	<message key="xmlui.Submission.submit.UploadStep.submit_upload_text4">Apply embargo date to <strong>all</strong> relevant files.</message>
 
 
 
@@ -897,7 +902,9 @@ Please make a note of this date because we will contact you one month prior to i
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.virus_error">The file has not been uploaded as it appears to contain a virus. Please contact the system administrator.</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.virus_checker_error">A technical problem was encountered whilst attempting to scan the file for viruses. Please contact the system administrator.</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.description">File Description</message>
-    <message key="xmlui.Submission.submit.UploadWithEmbargoStep.description_help">Please provide a brief description of the file, for example, "Complete version", “Redacted version”, "Supplementary data", or “Appendix”. A file description provides further information to aid in your file's digital preservation. For further examples of the preferred forms for uploaded files' descriptions please see the Table of scenarios in the Thesis LibGuide.</message>
+    <message key="xmlui.Submission.submit.UploadWithEmbargoStep.description_help1">Please provide a brief description of the file, for example, "Complete version", “Redacted version”, "Supplementary data", or “Appendix”.</message>
+	<message key="xmlui.Submission.submit.UploadWithEmbargoStep.description_help2">A file description provides further information to aid in your file's digital preservation.</message>
+	<message key="xmlui.Submission.submit.UploadWithEmbargoStep.description_help3">For further examples of the preferred forms for uploaded files' descriptions please see the Table of scenarios in the Thesis LibGuide.</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.submit_upload">Upload file &amp; add another</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.head2">Files Uploaded</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.column0">Primary</message>
