@@ -854,7 +854,7 @@
 
     <!-- org.dspace.app.xmlui.Submission.submit.UploadStep -->
 	<message key="xmlui.Submission.submit.UploadStep.head">Upload File(s)</message>
-	<message key="xmlui.Submission.submit.UploadStep.pre_file1">Before you upload:</message>
+	<message key="xmlui.Submission.submit.UploadStep.pre_file1"><strong>Before you upload:</strong></message>
 	<message key="xmlui.Submission.submit.UploadStep.pre_file2">Have you named your files according to the repository's file-name conventions?</message>
 	<message key="xmlui.Submission.submit.UploadStep.pre_file3">Have you prepared at least two files; (1) a PDF of your thesis and (2) the file that you created your PDF from, (e.g., Microsoft Word, LaTeX, etc.)?  (<i>We need multiple files to digitally preserve your submission and provide maximum accessibility to your thesis.</i>)</message>
 	<message key="xmlui.Submission.submit.UploadStep.pre_file4"><i>Have you prepared any other versions of your thesis, e.g., redacted versions required because of copyright or embargo?</i></message>

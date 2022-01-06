@@ -495,9 +495,12 @@ ul.variable li {
 .ds-form-item.row {
   margin-bottom: 10px;
 }
-label.control-label {
+label.control-label, label.ds-form-label {
   margin-top: 30px;
 }
 #aspect_submission_StepTransformer_field_submit_upload {
   margin-top: 30px;
+}
+.help-block {
+  color: #2B2B2B!important;
 }

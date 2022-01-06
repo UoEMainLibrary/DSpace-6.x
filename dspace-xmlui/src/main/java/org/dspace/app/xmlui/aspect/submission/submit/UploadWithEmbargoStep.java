@@ -419,9 +419,8 @@ public class UploadWithEmbargoStep extends UploadStep
 
 	        }
 	        
+            div.addPara(T_submit_remove_text);
 	        upload = div.addList("submit-upload-new-part2", List.TYPE_FORM);
-
-            upload.addItem(T_submit_remove_text);
 
 		}
 

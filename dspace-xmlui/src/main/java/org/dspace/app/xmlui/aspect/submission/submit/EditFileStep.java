@@ -58,8 +58,12 @@ public class EditFileStep extends AbstractStep
         message("xmlui.Submission.submit.EditFileStep.file");
     protected static final Message T_description = 
         message("xmlui.Submission.submit.EditFileStep.description");
-    protected static final Message T_description_help = 
-        message("xmlui.Submission.submit.EditFileStep.description_help");
+    protected static final Message T_description_help1 = 
+        message("xmlui.Submission.submit.UploadWithEmbargoStep.description_help1");
+    protected static final Message T_description_help2 = 
+        message("xmlui.Submission.submit.UploadWithEmbargoStep.description_help2");
+    protected static final Message T_description_help3 = 
+        message("xmlui.Submission.submit.UploadWithEmbargoStep.description_help3");
     protected static final Message T_info1 = 
         message("xmlui.Submission.submit.EditFileStep.info1");
     protected static final Message T_format_detected = 
@@ -136,8 +140,11 @@ public class EditFileStep extends AbstractStep
         
         Text description = edit.addItem().addText("description");
         description.setLabel(T_description);
-        description.setHelp(T_description_help);
+        //description.setHelp(T_description_help);
         description.setValue(bitstream.getDescription());
+        edit.addItem(T_description_help1);
+        edit.addItem(T_description_help2);
+        edit.addItem(T_description_help3);
 
         // if AdvancedAccessPolicy=false: add simmpleFormEmbargo in UploadStep
         boolean isAdvancedFormEnabled= DSpaceServicesFactory.getInstance().getConfigurationService().getBooleanProperty("webui.submission.restrictstep.enableAdvancedForm", false);
@@ -149,7 +156,7 @@ public class EditFileStep extends AbstractStep
             asu.addReason(null, edit, errorFlag);
         }
         
-        edit.addItem(T_info1);
+        //edit.addItem(T_info1);
         if (guessedFormat != null)
         {
         	edit.addLabel(T_format_detected);

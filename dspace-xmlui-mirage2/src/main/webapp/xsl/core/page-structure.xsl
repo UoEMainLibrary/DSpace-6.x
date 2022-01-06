@@ -356,56 +356,12 @@
                 }(document, 'script', 'recommender-embed', 'fbca3d', {}));
             </script>
 
-            <!-- Script to format e-these submission form text in bold 
-            /**
-                        var embargo_text = document.getElementById('aspect_submission_StepTransformer_list_submit-upload-new');
-                        if(embargo_text !== null)
-                        {
-                            var emb_elems = embargo_text.children;
-
-                            var emb_file_block = emb_elems[1].children;
-                            var emb_file = emb_file_block[0].children;
-                            var emb_file_text = emb_file[2].textContent.split(". ");
-                            var file_p1 = "<p>" + emb_file_text[0] + ".</p>";
-                            var file_p2 = "<p>" + emb_file_text[1] + ".</p>";
-                            var file_p3 = "<p>" + emb_file_text[2] + "</p>";
-                            emb_file[2].innerHTML = file_p1 + file_p2 + file_p3;
-
-                            var emb_date_block = emb_elems[2].children;
-                            var emb_date = emb_date_block[0].children;
-                            var emb_date_text = emb_date[2].textContent.split(". ");
-                            var date_p1 = "<p>" + emb_date_text[0] + ".</p>";
-                            var date_p2 = "<p>" + emb_date_text[1] + ".</p>";
-                            var date_p3 = "<p>" + emb_date_text[2] + ".</p>";
-                            var date_p4 = "<p>" + "<b>" + emb_date_text[3] + ".</b>" + "</p>";
-                            var date_p5 = "<p>" + "<u>" + "<i>" + emb_date_text[4] + ".</i>" + "</u>" + "</p>";
-                            emb_date[2].innerHTML = date_p1 + date_p2 + date_p3 + date_p4 + date_p5;
-
-                            var emb_upload_block = emb_elems[3].children;
-                            var emb_upload = emb_upload_block[0].children;
-                            var emb_upload_text = emb_upload[1].textContent.split(". ");
-                            var upload_p1 = "<p>" + emb_upload_text[0] + ". " + emb_upload_text[1] + ".</p>";
-                            var upload_p2 = "<p>" + emb_upload_text[2] + ". " + emb_upload_text[3] + ".</p>";
-                            var upload_p3 = "<p>" + emb_upload_text[4] + ".</p>";
-                            var upload_p4 = "<p>" + emb_upload_text[5] + ".</p>";
-                            emb_upload[1].innerHTML = upload_p1 + upload_p2 + upload_p3 + upload_p4;
-                        }
-
-                        var embargo_edit = document.getElementById('aspect_submission_StepTransformer_div_submit-edit-file');
-                        if(embargo_edit !== null){
-                            var edit_elems = embargo_edit.children;
-                            var edit_sub_elems = edit_elems[3].children;
-                            var emb_edit_block = edit_sub_elems[2].children;
-                            var emb_edit = emb_edit_block[0].children;
-                            var emb_edit_text = emb_edit[2].textContent.split(". ");
-                            var edit_p1 = "<p>" + emb_edit_text[0] + ".</p>";
-                            var edit_p2 = "<p>" + emb_edit_text[1] + ".</p>";
-                            var edit_p3 = "<p>" + emb_edit_text[2] + ".</p>";
-                            var edit_p4 = "<p>" + "<b>" + emb_edit_text[3] + ".</b>" + "</p>";
-                            var edit_p5 = "<p>" + "<u>" + "<i>" + emb_edit_text[4] + ".</i>" + "</u>" + "</p>";
-                            emb_edit[2].innerHTML = edit_p1 + edit_p2 + edit_p3 + edit_p4 + edit_p5;
-                        }
-                        */ -->
+            <!-- Script to format e-these submission form text where it is unable in xml 
+            var submission_list1 = submission_div[5].textContent;
+                            var submission_list2 = submission_div[6].textContent;
+                            var submission_list3 = submission_div[7].textContent;
+                            var submission_list4 = submission_div[8].textContent;
+                            -->
             <script type="text/javascript">
                 window.onload = function ()
                 {
@@ -418,49 +374,67 @@
                             plain_text[0].innerHTML = bold_text[0] + ". <b>" + bold_text[1] + "</b>";
                         }
 
+                        var submit_upload = document.getElementById('aspect_submission_StepTransformer_list_submit-upload-new');
+                        if(submit_upload !== null)
+                        {
+                            var submit_children = submit_upload.children;
+
+                            var submit_hyperlink1 = submit_children[4].textContent;
+                            var hyperlink1_spl1 = submit_hyperlink1.split(/(?=Table)/);
+                            var hyperlink1_spl2 = hyperlink1_spl1[1].split(/(?=in)/);
+                            var hyperlink1_spl3 = hyperlink1_spl2[1].split(/(?=Thesis)/);
+                            var hyperlink1_spl4 = hyperlink1_spl3[1].split(/(?=for)/);
+                            var hyperlink1_linked = '<div class="control-group col-sm-12">'+hyperlink1_spl1[0]+'<a href="https://libguides.st-andrews.ac.uk/theses/preparing_for_submission">'+hyperlink1_spl2[0]+'</a>'+hyperlink1_spl3[0]+'<a href="https://libguides.st-andrews.ac.uk/theses">'+hyperlink1_spl4[0]+'</a>'+hyperlink1_spl4[1]+'information.</div>';
+                            submit_children[4].innerHTML = hyperlink1_linked;
+
+                            var submit_hyperlink2 = submit_children[11].textContent;
+                            var hyperlink2_spl1 = submit_hyperlink2.split(/(?=Table)/);
+                            var hyperlink2_spl2 = hyperlink2_spl1[1].split(/(?=in)/);
+                            var hyperlink2_spl3 = hyperlink2_spl2[1].split(/(?=Thesis)/);
+                            var hyperlink2_linked = '<div class="control-group col-sm-12">'+hyperlink2_spl1[0]+'<a href="https://libguides.st-andrews.ac.uk/theses/preparing_for_submission">'+hyperlink2_spl2[0]+'</a>'+hyperlink2_spl3[0]+'<a href="https://libguides.st-andrews.ac.uk/theses">'+hyperlink2_spl3[1]+'</a>'+'</div>';
+                            submit_children[11].innerHTML = hyperlink2_linked;
+
+                            var submit_hyperlink3 = submit_children[20].textContent;
+                            var hyperlink3_spl1 = submit_hyperlink3.split(/(?=Thesis)/);
+                            var hyperlink3_spl2 = hyperlink3_spl1[1].split(/(?=for)/);
+                            var hyperlink3_linked = '<div class="control-group col-sm-12">'+hyperlink3_spl1[0]+'<a href="https://libguides.st-andrews.ac.uk/theses">'+hyperlink3_spl2[0]+'</a>'+hyperlink3_spl2[1]+'</div>';
+                            submit_children[20].innerHTML = hyperlink3_linked;
+
+                        }
+
+                        var submit_edit = document.getElementById('aspect_submission_StepTransformer_list_submit-edit-file');
+                        if(submit_edit !== null)
+                        {
+
+                            var edit_children = submit_edit.children;
+
+                            var edit_hyperlink = edit_children[4].textContent;
+                            var hyperlinkE_spl1 = edit_hyperlink.split(/(?=Table)/);
+                            var hyperlinkE_spl2 = hyperlinkE_spl1[1].split(/(?=in)/);
+                            var hyperlinkE_spl3 = hyperlinkE_spl2[1].split(/(?=Thesis)/);
+                            var hyperlinkE_linked = '<div class="control-group col-sm-12">'+hyperlinkE_spl1[0]+'<a href="https://libguides.st-andrews.ac.uk/theses/preparing_for_submission">'+hyperlinkE_spl2[0]+'</a>'+hyperlinkE_spl3[0]+'<a href="https://libguides.st-andrews.ac.uk/theses">'+hyperlinkE_spl3[1]+'</a>'+'</div>';
+                            edit_children[4].innerHTML = hyperlinkE_linked;
+
+                        }
+
                         var submission_complete = document.getElementById('aspect_submission_submit_CompletedStep_div_submit-complete');
                         if (submission_complete !== null)
                         {
                             var submission_div = document.getElementById('aspect_submission_submit_CompletedStep_div_submit-complete').children;
-                            var submission_list1 = submission_div[5].textContent;
-                            var submission_list2 = submission_div[6].textContent;
-                            var submission_list3 = submission_div[7].textContent;
-                            var submission_list4 = submission_div[8].textContent;
-                            submission_div[5].outerHTML = "<li>" + submission_list1 + "</li>"
-                            submission_div[6].outerHTML = "<li>" + submission_list2 + "</li>"
-                            submission_div[7].outerHTML = "<li>" + submission_list3 + "</li>"
-                            submission_div[8].outerHTML = "<li>" + submission_list4 + "</li>"
+                            submission_div[5].outerHTML = "<li>" + submission_div[5].textContent + "</li>";
+                            submission_div[6].outerHTML = "<li>" + submission_div[6].textContent + "</li>";
+                            submission_div[7].outerHTML = "<li>" + submission_div[7].textContent + "</li>";
+                            submission_div[8].outerHTML = "<li>" + submission_div[8].textContent + "</li>";
                             submission_div[5].style.marginLeft = "20px";
                             submission_div[6].style.marginLeft = "20px";
                             submission_div[7].style.marginLeft = "20px";
                             submission_div[8].style.marginLeft = "20px";
                             submission_div[8].style.marginBottom = "10px";
                         }
+
                     }
                 };
             </script>
-
-            <!-- Script to format e-these submission complete styles 
-                    var submission_list1 = submission_div[5].textContent;
-                            var submission_list2 = submission_div[6].textContent;
-                            var submission_list3 = submission_div[7].textContent;
-                            var submission_list4 = submission_div[8].textContent;
-                            console.log(submission_list1 + " : " + submission_list2 + " : " + submission_list3 + " : " + submission_list4);
-            
-            <script  type="text/javascript">
-                window.onload = function ()
-                {
-                    if(window.location.href.indexOf("10023/19869/submit/") > -1)
-                    {
-                        var submission_complete = document.getElementById('aspect_submission_submit_CompletedStep_div_submit-complete');
-                        if (submission_complete !== null)
-                        {
-                            var submission_div = document.getElementById('aspect_submission_submit_CompletedStep_div_submit-complete').children;
-                            console.log(submission_div);
-                        }
-                    }
-                };
-            </script>-->
 
         </head>
     </xsl:template>
