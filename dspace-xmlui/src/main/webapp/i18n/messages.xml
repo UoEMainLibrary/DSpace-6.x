@@ -860,7 +860,7 @@
 	<message key="xmlui.Submission.submit.UploadStep.pre_file4"><i>Have you prepared any other versions of your thesis, e.g., redacted versions required because of copyright or embargo?</i></message>
 	<message key="xmlui.Submission.submit.UploadStep.pre_file5">See the Table of scenarios in the Thesis LibGuide for further information.</message>
 	<message key="xmlui.Submission.submit.UploadStep.pre_file6">If you have supplementary data, please upload it here.</message>
-	<message key="xmlui.Submission.submit.UploadStep.pre_file7">(<i>Underpinning</i> data is uploaded separately to Pure.  See the Research Data Management team's webpage for further information.)”</message>
+	<message key="xmlui.Submission.submit.UploadStep.pre_file7">(<i>Underpinning</i> data is uploaded separately to Pure.  See the Research Data Management team's webpage for further information.)</message>
 	<message key="xmlui.Submission.submit.UploadStep.file">File</message>
 	<message key="xmlui.Submission.submit.UploadStep.file_help">Please enter the full path of the file on your computer corresponding to your item. If you click "Browse...", a new window will allow you to select the file from your computer.</message>
 	<message key="xmlui.Submission.submit.UploadStep.file_error">The item must contain at least one file.</message>

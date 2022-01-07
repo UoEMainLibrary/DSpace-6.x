@@ -498,8 +498,14 @@ ul.variable li {
 label.control-label, label.ds-form-label {
   margin-top: 30px;
 }
+label.ds-form-label {
+  margin-top: 0px;
+}
 #aspect_submission_StepTransformer_field_submit_upload {
   margin-top: 30px;
+}
+#aspect_submission_StepTransformer_list_submit-edit-file legend{
+  margin-bottom: -20px!important;
 }
 .help-block {
   color: #2B2B2B!important;

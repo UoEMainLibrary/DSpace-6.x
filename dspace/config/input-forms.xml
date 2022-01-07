@@ -633,7 +633,7 @@
           <repeatable>false</repeatable>
           <label>Number of pages</label>
           <input-type>onebox</input-type>
-          <hint>Please give the number of pages of the text you are submitting.</hint>
+          <hint>Please supply the number of pages from your PDF.</hint>
           <required></required>
         </field>
 
