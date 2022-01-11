@@ -1010,23 +1010,24 @@ public class BasicWorkflowServiceImpl implements BasicWorkflowService
             try
             {
                 // Get the item title
-                String title = getItemTitle(wi);
+                //String title = getItemTitle(wi);
 
                 // Get the submitter's name
                 String submitter = getSubmitterName(wi);
 
                 // Get the collection
-                Collection coll = wi.getCollection();
+                //Collection coll = wi.getCollection();
 
                 String message = "";
 
                 for (EPerson anEpa : epa)
                 {
                     Locale supportedLocale = I18nUtil.getEPersonLocale(anEpa);
-                    Email email = Email.getEmail(I18nUtil.getEmailFilename(supportedLocale, "submit_task"));
-                    email.addArgument(title);
-                    email.addArgument(coll.getName());
+                    Email email = Email.getEmail(I18nUtil.getEmailFilename(supportedLocale, "etheses_complete"));
+                    //email.addArgument(title);
+                    //email.addArgument(coll.getName());
                     email.addArgument(submitter);
+                    email.addArgument("Student ID");
 
                     ResourceBundle messages = ResourceBundle.getBundle("Messages", supportedLocale);
                     switch (wi.getState())
@@ -1046,8 +1047,8 @@ public class BasicWorkflowServiceImpl implements BasicWorkflowService
 
                             break;
                     }
-                    email.addArgument(message);
-                    email.addArgument(getMyDSpaceLink());
+                    //email.addArgument(message);
+                    //email.addArgument(getMyDSpaceLink());
                     email.addRecipient(anEpa.getEmail());
                     email.send();
                 }

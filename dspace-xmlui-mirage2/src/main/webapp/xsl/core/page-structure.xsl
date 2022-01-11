@@ -356,17 +356,7 @@
                 }(document, 'script', 'recommender-embed', 'fbca3d', {}));
             </script>
 
-            <!-- Script to format e-these submission form text where it is unable in xml 
-                    var submit1 = submit_children[3].textContent+"/n "+submit_children[4].textContent;
-                    var submit2 = submit_children[5].textContent+"/n "+submit_children[6].textContent;
-                    submit_children[1].outerHTML = "<ul>"+"<li>"+submit_children[1].textContent+"</li>"+"<li>"+submit_children[2].textContent+"</li>"+"<li>"+submit1+"</li>"+"<li>"+submit2+"</li>"+"</ul>";
-                    submit_children[2].remove();
-                    submit_children[3].remove();
-                    submit_children[4].remove();
-                    submit_children[5].remove();
-
-                    information.
-            -->
+            <!-- Script to format e-these submission form text where it is unable in xml -->
             <script type="text/javascript">
                 window.onload = function ()
                 {
