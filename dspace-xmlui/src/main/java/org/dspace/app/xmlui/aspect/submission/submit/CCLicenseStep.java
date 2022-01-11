@@ -67,6 +67,8 @@ public class CCLicenseStep extends AbstractSubmissionStep
             message("xmlui.Submission.submit.CCLicenseStep.submit_choose_creative_commons");
     protected static final Message T_info1 = 
         message("xmlui.Submission.submit.CCLicenseStep.info1");
+	protected static final Message T_info2 = 
+        message("xmlui.Submission.submit.CCLicenseStep.info2");
     protected static final Message T_submit_to_creative_commons = 
         message("xmlui.Submission.submit.CCLicenseStep.submit_to_creative_commons");
         protected static final Message T_submit_issue_creative_commons =
@@ -129,6 +131,7 @@ public class CCLicenseStep extends AbstractSubmissionStep
 
 	    List list = div.addList("licenseclasslist", List.TYPE_FORM);
 	    list.addItem(T_info1);
+		list.addItem(T_info2);
 	    list.setHead(T_head);
 	    list.addItem().addHidden("button_required");
 	    Select selectList = list.addItem().addSelect("licenseclass_chooser");

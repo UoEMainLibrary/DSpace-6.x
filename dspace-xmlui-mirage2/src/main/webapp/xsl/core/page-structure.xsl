@@ -369,55 +369,6 @@
                             plain_text[0].innerHTML = bold_text[0] + ". <b>" + bold_text[1] + "</b>";
                         }
 
-                        var submit_upload = document.getElementById('aspect_submission_StepTransformer_list_submit-upload-new');
-                        if(submit_upload !== null)
-                        {
-                            var submit_children = submit_upload.children;
-
-                            var submit_hyperlink1 = submit_children[4].textContent;
-                            var hyperlink1_spl1 = submit_hyperlink1.split(/(?=Table)/);
-                            var hyperlink1_spl2 = hyperlink1_spl1[1].split(/(?=in)/);
-                            var hyperlink1_spl3 = hyperlink1_spl2[1].split(/(?=Thesis)/);
-                            var hyperlink1_spl4 = hyperlink1_spl3[1].split(/(?=for )/);
-                            var hyperlink1_linked = '<div class="control-group col-sm-12">'+hyperlink1_spl1[0]+'<a href="https://libguides.st-andrews.ac.uk/theses/preparing_for_submission">'+hyperlink1_spl2[0]+'</a>'+hyperlink1_spl3[0]+'<a href="https://libguides.st-andrews.ac.uk/theses">'+hyperlink1_spl4[0]+'</a>'+hyperlink1_spl4[1]+'</div>';
-                            submit_children[4].innerHTML = hyperlink1_linked;
-
-                            var submit_hyperlink2 = submit_children[6].textContent;
-                            var hyperlink2_spl1 = submit_hyperlink2.split(/(?=Research)/);
-                            var hyperlink2_spl2 = hyperlink2_spl1[1].split(/(?=for )/);
-                            var hyperlink2_linked = '<div class="control-group col-sm-12">'+hyperlink2_spl1[0]+'<a href="https://www.st-andrews.ac.uk/research/digitalresearch/researchdata/dataunderpinningtheses/">'+hyperlink2_spl2[0]+'</a>'+hyperlink2_spl2[1]+'</div>';
-                            submit_children[6].innerHTML = hyperlink2_linked;
-
-                            var submit_hyperlink3 = submit_children[11].textContent;
-                            var hyperlink3_spl1 = submit_hyperlink3.split(/(?=Table)/);
-                            var hyperlink3_spl2 = hyperlink3_spl1[1].split(/(?=in)/);
-                            var hyperlink3_spl3 = hyperlink3_spl2[1].split(/(?=Thesis)/);
-                            var hyperlink3_linked = '<div class="control-group col-sm-12">'+hyperlink3_spl1[0]+'<a href="https://libguides.st-andrews.ac.uk/theses/preparing_for_submission">'+hyperlink3_spl2[0]+'</a>'+hyperlink3_spl3[0]+'<a href="https://libguides.st-andrews.ac.uk/theses">'+hyperlink3_spl3[1]+'</a>'+'</div>';
-                            submit_children[11].innerHTML = hyperlink3_linked;
-
-                            var submit_hyperlink4 = submit_children[20].textContent;
-                            var hyperlink4_spl1 = submit_hyperlink4.split(/(?=Thesis)/);
-                            var hyperlink4_spl2 = hyperlink4_spl1[1].split(/(?=for)/);
-                            var hyperlink4_linked = '<div class="control-group col-sm-12">'+hyperlink4_spl1[0]+'<a href="https://libguides.st-andrews.ac.uk/theses">'+hyperlink4_spl2[0]+'</a>'+hyperlink4_spl2[1]+'</div>';
-                            submit_children[20].innerHTML = hyperlink4_linked;
-
-                        }
-
-                        var submit_edit = document.getElementById('aspect_submission_StepTransformer_list_submit-edit-file');
-                        if(submit_edit !== null)
-                        {
-
-                            var edit_children = submit_edit.children;
-
-                            var edit_hyperlink = edit_children[4].textContent;
-                            var hyperlinkE_spl1 = edit_hyperlink.split(/(?=Table)/);
-                            var hyperlinkE_spl2 = hyperlinkE_spl1[1].split(/(?=in)/);
-                            var hyperlinkE_spl3 = hyperlinkE_spl2[1].split(/(?=Thesis)/);
-                            var hyperlinkE_linked = '<div class="control-group col-sm-12">'+hyperlinkE_spl1[0]+'<a href="https://libguides.st-andrews.ac.uk/theses/preparing_for_submission">'+hyperlinkE_spl2[0]+'</a>'+hyperlinkE_spl3[0]+'<a href="https://libguides.st-andrews.ac.uk/theses">'+hyperlinkE_spl3[1]+'</a>'+'</div>';
-                            edit_children[4].innerHTML = hyperlinkE_linked;
-
-                        }
-
                         var submission_complete = document.getElementById('aspect_submission_submit_CompletedStep_div_submit-complete');
                         if (submission_complete !== null)
                         {
@@ -432,14 +383,6 @@
                             submission_div[7].style.marginLeft = "20px";
                             submission_div[8].style.marginLeft = "20px";
                             submission_div[8].style.marginBottom = "10px";
-
-                            var sumbit_complete1 = submission_div[9].textContent.split(/(?=registry)/);
-                            var complete_hyperlink1 = '<p class="ds-paragraph">'+sumbit_complete1[0]+'<a href="mailto:registry-pgr@st-andrews.ac.uk">'+sumbit_complete1[1]+'</a>'+'</p>';
-                            submission_div[9].innerHTML = complete_hyperlink1;
-
-                            var sumbit_complete2 = submission_div[12].textContent.split(/(?=digirep)/);
-                            var complete_hyperlink2 = '<p class="ds-paragraph">'+sumbit_complete2[0]+'<a href="mailto:digirep@st-andrews.ac.uk">'+sumbit_complete2[1]+'</a>'+'</p>';
-                            submission_div[12].innerHTML = complete_hyperlink2;
                         }
 
                     }

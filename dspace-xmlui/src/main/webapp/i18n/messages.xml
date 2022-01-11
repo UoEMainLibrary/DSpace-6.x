@@ -858,9 +858,9 @@
 	<message key="xmlui.Submission.submit.UploadStep.pre_file2">Have you named your files according to the repository's file-name conventions?</message>
 	<message key="xmlui.Submission.submit.UploadStep.pre_file3">Have you prepared at least two files; (1) a PDF of your thesis and (2) the file that you created your PDF from, (e.g., Microsoft Word, LaTeX, etc.)?  (<i>We need multiple files to digitally preserve your submission and provide maximum accessibility to your thesis.</i>)</message>
 	<message key="xmlui.Submission.submit.UploadStep.pre_file4"><i>Have you prepared any other versions of your thesis, e.g., redacted versions required because of copyright or embargo?</i></message>
-	<message key="xmlui.Submission.submit.UploadStep.pre_file5">See the Table of scenarios in the Thesis LibGuide for further information.</message>
+	<message key="xmlui.Submission.submit.UploadStep.pre_file5">See the <a href="https://libguides.st-andrews.ac.uk/theses/preparing_for_submission">Table of scenarios</a> in the <a href="https://libguides.st-andrews.ac.uk/theses">Thesis LibGuide</a> for further information.</message>
 	<message key="xmlui.Submission.submit.UploadStep.pre_file6">If you have supplementary data, please upload it here.</message>
-	<message key="xmlui.Submission.submit.UploadStep.pre_file7">(<i>Underpinning</i> data is uploaded separately to Pure.  See the Research Data Management team's webpage for further information.)</message>
+	<message key="xmlui.Submission.submit.UploadStep.pre_file7">(<i>Underpinning</i> data is uploaded separately to Pure.  See the <a href="https://www.st-andrews.ac.uk/research/digitalresearch/researchdata/dataunderpinningtheses/">Research Data Management team's webpage</a> for further information.)</message>
 	<message key="xmlui.Submission.submit.UploadStep.file">File</message>
 	<message key="xmlui.Submission.submit.UploadStep.file_help">Please enter the full path of the file on your computer corresponding to your item. If you click "Browse...", a new window will allow you to select the file from your computer.</message>
 	<message key="xmlui.Submission.submit.UploadStep.file_error">The item must contain at least one file.</message>
@@ -888,7 +888,7 @@
 	<message key="xmlui.Submission.submit.UploadStep.submit_remove">Remove selected files</message>
 
 	<message key="xmlui.Submission.submit.UploadStep.submit_upload_text1">Upload all the files and provide the file description and embargo dates for each separate file. Repeat the process as many times as you need to.</message>
-	<message key="xmlui.Submission.submit.UploadStep.submit_upload_text2">(If you have more than 10 files of supplementary data, a zip file would be the best option. See the Thesis LibGuide for guidance on zipping files).</message>
+	<message key="xmlui.Submission.submit.UploadStep.submit_upload_text2">(If you have more than 10 files of supplementary data, a zip file would be the best option. See the <a href="https://libguides.st-andrews.ac.uk/theses">Thesis LibGuide</a> for guidance on zipping files).</message>
 	<message key="xmlui.Submission.submit.UploadStep.submit_upload_text3">Use the '<strong>Edit</strong>' button beside each file to review your uploads, e.g., check that the file format has been recognised and, if necessary, to make corrections to file descriptions or embargo dates.</message>
 	<message key="xmlui.Submission.submit.UploadStep.submit_upload_text4">Apply embargo date to <strong>all</strong> relevant files.</message>
 
@@ -904,7 +904,7 @@
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.description">File Description</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.description_help1">Please provide a brief description of the file, for example, "Complete version", “Redacted version”, "Supplementary data", or “Appendix”.</message>
 	<message key="xmlui.Submission.submit.UploadWithEmbargoStep.description_help2">A file description provides further information to aid in your file's digital preservation.</message>
-	<message key="xmlui.Submission.submit.UploadWithEmbargoStep.description_help3">For further examples of the preferred forms for uploaded files' descriptions please see the Table of scenarios in the Thesis LibGuide.</message>
+	<message key="xmlui.Submission.submit.UploadWithEmbargoStep.description_help3">For further examples of the preferred forms for uploaded files' descriptions please see the <a href="https://libguides.st-andrews.ac.uk/theses/preparing_for_submission">Table of scenarios</a> in the <a href="https://libguides.st-andrews.ac.uk/theses">Thesis LibGuide</a>.</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.submit_upload">Upload file &amp; add another</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.head2">Files Uploaded</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.column0">Primary</message>
@@ -963,6 +963,7 @@
 	<message key="xmlui.Submission.submit.CCLicenseStep.ccws_error">An error occurred ... {0}</message>
 	<message key="xmlui.Submission.submit.CCLicenseStep.head">Licence Your Work</message>
 	<message key="xmlui.Submission.submit.CCLicenseStep.info1">If you wish, you may add a <a href="http://creativecommons.org/">Creative Commons</a> Licence to your item. <strong>Creative Commons licences govern what people who read your work may then do with it.</strong></message>
+	<message key="xmlui.Submission.submit.CCLicenseStep.info2">If you do decide to apply a Creative Commons licence, it will be applied to all of the files that you upload that will be made publicly available, <strong><u>from the time that they become publicly available</u></strong>.  This means that if you embargo any of your files, then any Creative Commons licence wouldn't apply to those files until after the embargo had ended.</message>
 	<message key="xmlui.Submission.submit.CCLicenseStep.submit_choose_creative_commons">Choose a licence</message>
 	<message key="xmlui.Submission.submit.CCLicenseStep.submit_to_creative_commons">Proceed to Creative Commons website to select a licence</message>
 	<message key="xmlui.Submission.submit.CCLicenseStep.license">Licence Type</message>
@@ -992,10 +993,10 @@
 	<message key="xmlui.Submission.submit.CompletedStep.info1">Thank you for completing your thesis submission into the Repository.</message>
 	<message key="xmlui.Submission.submit.CompletedStep.info2">Your submission will now go through two sets of checks.</message>
 	<message key="xmlui.Submission.submit.CompletedStep.info3">The first set of checks will be done by the Registry Students Office (Postgraduates). These checks will include checking:</message>
-	<message key="xmlui.Submission.submit.CompletedStep.info4">Registry may need you to upload more information or files, or may have other questions for you. If they do, you will receive an email from the Repository email account requesting this information. If you need to contact Registry at any point during their checks, their email address is registry-pgr@st-andrews.ac.uk.</message>
+	<message key="xmlui.Submission.submit.CompletedStep.info4">Registry may need you to upload more information or files, or may have other questions for you. If they do, you will receive an email from the Repository email account requesting this information. If you need to contact Registry at any point during their checks, their email address is <a href="mailto:registry-pgr@st-andrews.ac.uk">registry-pgr@st-andrews.ac.uk</a>.</message>
 	<message key="xmlui.Submission.submit.CompletedStep.info5">Once Registry have completed their checks then you will receive a confirmation email to let you know that their stage has finished.</message>
 	<message key="xmlui.Submission.submit.CompletedStep.info6">The Library E-theses team will then begin their checking process on your submission. Their checks will focus on ensuring that all necessary files have been submitted.</message>
-	<message key="xmlui.Submission.submit.CompletedStep.info7">If you need to contact the E-theses team at any point during their checks, their email address is digirep@st-andrews.ac.uk.</message>
+	<message key="xmlui.Submission.submit.CompletedStep.info7">If you need to contact the E-theses team at any point during their checks, their email address is <a href="mailto:digirep@st-andrews.ac.uk">digirep@st-andrews.ac.uk</a>.</message>
 	<message key="xmlui.Submission.submit.CompletedStep.info8">If you are asked to log in to the Repository again then you will probably need to revisit your Submissions Page. However, precise instructions and links will be given in any emails you receive from Registry or the Library.</message>
 	<message key="xmlui.Submission.submit.CompletedStep.list1">that your declaration is present;</message> 
 	<message key="xmlui.Submission.submit.CompletedStep.list2">that your declaration is signed;</message>

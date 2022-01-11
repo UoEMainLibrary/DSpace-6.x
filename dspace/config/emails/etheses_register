@@ -41,20 +41,24 @@ Subject: Outcome email and Repository guidance ({0}, {1}) [Registry staff sends 
 <hr>
 <div style="font-family: 'Inknut Antiqua', serif;">
     <img src="https://research-repository-test.st-andrews.ac.uk/themes/Mirage2/images/01-foundation-black-text.png" style="display: block; margin-left: auto; margin-right: auto; width: 50%;">
-    <div style="white-space: nowrap; margin-left: 15%; margin-right: 15%;">
-        <div style="display: inline-block; float: left; width: 49.8%; height: 165px; margin: auto; border-right: 1px solid;">
-            <p style="font-size: 14px; color: #44546A; margin-right: 25px;">For administrative queries:</p>
-            <p style="margin: 0px; padding: 0px; margin-top: 15px; margin-right: 25px; font-size: 18px;">Postgraduate Research</p>
-            <p style="margin: 0px; padding: 0px; font-size: 18px; margin-right: 25px;">Academic Registry</p>
-            <p style="margin: 0px; padding: 0px; margin-top: 15px; margin-right: 25px;">Tel: +44 (0) 1334 463084</p>
-            <p style="margin: 0px; padding: 0px; margin-right: 25px;">Email: <a href="mailto:researchpg-reg@st-andrews.ac.uk">researchpg-reg@st-andrews.ac.uk</a></p>
+    <div style="height: 100% width: 100%;">
+        <div style="display: inline-block; *display: inline; zoom: 1; vertical-align: top; height: 165px; width: 49.6%; border-right: 1px double; margin-right: 1px;">
+            <div style="float: right;"> 
+                <p style="font-size: 14px; color: #44546A; margin-right: 25px;">For administrative queries:</p>
+                <p style="margin: 0px; padding: 0px; margin-top: 15px; margin-right: 25px; font-size: 18px;">Postgraduate Research</p>
+                <p style="margin: 0px; padding: 0px; font-size: 18px; margin-right: 25px;">Academic Registry</p>
+                <p style="margin: 0px; padding: 0px; margin-top: 15px; margin-right: 25px;">Tel: +44 (0) 1334 463084</p>
+                <p style="margin: 0px; padding: 0px; margin-right: 25px;">Email: <a href="mailto:researchpg-reg@st-andrews.ac.uk">researchpg-reg@st-andrews.ac.uk</a></p>
+            </div>
         </div>
-        <div style="display: inline-block; float: right;  width: 49.8%; height: 165px; margin: auto; border-left: 1px solid;">
-            <p style="font-size: 14px; color: #44546A; margin-left: 25px;">For queries regarding the digital repository:</p>
-            <p style="margin: 0px; padding: 0px; margin-top: 15px; margin-left: 25px; font-size: 18px;">St Andrews Research Repository</p>
-            <p style="margin: 0px; padding: 0px; margin-top: 15px; margin-left: 25px;"><a href="https://research-repository.st-andrews.ac.uk/">https://research-repository.st-andrews.ac.uk/</a></p>
-            <p style="margin: 0px; padding: 0px; margin-top: 15px; margin-left: 25px;">Tel: +44 (0) 1334 462302/462299</p>
-            <p style="margin: 0px; padding: 0px; margin-left: 25px;">Email: <a href="mailto:digirep@st-andrews.ac.uk">digirep@st-andrews.ac.uk</a></p>
+        <div style="display: inline-block; *display: inline; zoom: 1; vertical-align: top; height: 165px; width: 49.6%; border-left: 1px double;">
+            <div style="float: left;">
+                <p style="font-size: 14px; color: #44546A; margin-left: 25px;">For queries regarding the digital repository:</p>
+                <p style="margin: 0px; padding: 0px; margin-top: 15px; margin-left: 25px; font-size: 18px;">St Andrews Research Repository</p>
+                <p style="margin: 0px; padding: 0px; margin-top: 15px; margin-left: 25px;"><a href="https://research-repository.st-andrews.ac.uk/">https://research-repository.st-andrews.ac.uk/</a></p>
+                <p style="margin: 0px; padding: 0px; margin-top: 15px; margin-left: 25px;">Tel: +44 (0) 1334 462302/462299</p>
+                <p style="margin: 0px; padding: 0px; margin-left: 25px;">Email: <a href="mailto:digirep@st-andrews.ac.uk">digirep@st-andrews.ac.uk</a></p>
+            </div>
         </div>
     </div>
 </div>

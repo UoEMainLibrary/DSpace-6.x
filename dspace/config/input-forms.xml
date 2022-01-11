@@ -611,7 +611,7 @@
           <label>Abstract</label>
           <input-type>textarea</input-type>
           <hint>Enter the abstract of the item above.</hint>
-          <required></required>
+          <required>You must enter an abstract for this item</required>
         </field>
 
         <field>
@@ -1116,6 +1116,10 @@
       <pair>
         <displayed-value>MPhil Master of Philosophy</displayed-value>
         <stored-value>MPhil Master of Philosophy</stored-value>
+      </pair>
+      <pair>
+        <displayed-value>MFA  Master of Fine Arts</displayed-value>
+        <stored-value>MFA  Master of Fine Arts</stored-value>
       </pair>
     </value-pairs>
 
