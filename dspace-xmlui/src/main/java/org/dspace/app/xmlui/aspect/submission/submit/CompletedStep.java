@@ -61,8 +61,8 @@ public class CompletedStep extends AbstractSubmissionStep
         message("xmlui.Submission.submit.CompletedStep.list3");
     protected static final Message T_list4 = 
         message("xmlui.Submission.submit.CompletedStep.list4");
-    /*protected static final Message T_go_submission = 
-        message("xmlui.Submission.submit.CompletedStep.go_submission");*/
+    protected static final Message T_go_submission = 
+        message("xmlui.Submission.submit.CompletedStep.go_submission");
 	protected static final Message T_submit_again = 
         message("xmlui.Submission.submit.CompletedStep.submit_again"); 
 
@@ -78,30 +78,42 @@ public class CompletedStep extends AbstractSubmissionStep
 	UIException, SQLException, IOException, AuthorizeException
 	{	
 		Division div = body.addInteractiveDivision("submit-complete",contextPath+"/handle/"+handle+"/submit", Division.METHOD_POST,"primary submission");
-		div.setHead(T_head1);		
-		div.addPara(T_info1);
-        
-        div.addPara(T_head2);
-        div.addPara(T_info2);
 
-        div.addPara(T_info3);
-        div.addPara(T_list1);
-        div.addPara(T_list2);
-        div.addPara(T_list3);
-        div.addPara(T_list4);
+        if (handle.equals("10023/19869"))
+        {
+            div.setHead(T_head1);		
+            div.addPara(T_info1);
+            
+            div.addPara(T_head2);
+            div.addPara(T_info2);
 
-        div.addPara(T_info4);
-        div.addPara(T_info5);
+            div.addPara(T_info3);
+            div.addPara(T_list1);
+            div.addPara(T_list2);
+            div.addPara(T_list3);
+            div.addPara(T_list4);
 
-        div.addPara(T_info6);
-        div.addPara(T_info7);
+            div.addPara(T_info4);
+            div.addPara(T_info5);
 
-        div.addPara(T_info8);
+            div.addPara(T_info6);
+            div.addPara(T_info7);
 
-		//div.addPara().addXref(contextPath+"/submissions",T_go_submission);
-	     
-	    //div.addPara().addButton("submit_again").setValue(T_submit_again);
-	    div.addHidden("handle").setValue(handle);
+            div.addPara(T_info8);
+
+            div.addHidden("handle").setValue(handle);
+        }
+        else
+        {
+            div.setHead(T_head1);
+		
+            div.addPara(T_info1);
+            
+            div.addPara().addXref(contextPath+"/submissions",T_go_submission);
+            
+            div.addPara().addButton("submit_again").setValue(T_submit_again);
+            div.addHidden("handle").setValue(handle);
+        }
 	}
     
     /** 

@@ -144,12 +144,12 @@ public class EditFileStep extends AbstractStep
         description.setValue(bitstream.getDescription());
         edit.addItem(T_description_help1);
         edit.addItem(T_description_help2);
-        edit.addItem(T_description_help3);
 
         // if AdvancedAccessPolicy=false: add simmpleFormEmbargo in UploadStep
         boolean isAdvancedFormEnabled= DSpaceServicesFactory.getInstance().getConfigurationService().getBooleanProperty("webui.submission.restrictstep.enableAdvancedForm", false);
         if(!isAdvancedFormEnabled){
             AccessStepUtil asu = new AccessStepUtil(context);
+            asu.getCollection(collection);
             // this step is possible only in case of AdvancedForm
             asu.addEmbargoDateSimpleForm(bitstream, edit, errorFlag);
             // Reason

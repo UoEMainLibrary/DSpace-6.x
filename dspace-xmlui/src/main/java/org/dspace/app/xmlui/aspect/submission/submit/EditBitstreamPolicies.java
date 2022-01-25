@@ -66,6 +66,7 @@ public class EditBitstreamPolicies extends AbstractStep
         addSubmissionProgressList(div);
 
         AccessStepUtil asu = new AccessStepUtil(context);
+        asu.getCollection(collection);
 
         // list Policies already added
         asu.addTablePolicies(div, submissionInfo.getBitstream(), collection);

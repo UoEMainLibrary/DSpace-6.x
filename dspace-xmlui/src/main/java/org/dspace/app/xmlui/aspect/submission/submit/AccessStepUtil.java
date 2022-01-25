@@ -65,6 +65,8 @@ public class AccessStepUtil extends AbstractDSpaceTransformer {
     protected static final Message T_table_submit_delete =message("xmlui.Submission.submit.AccessStep.table_delete_button");
 	protected static final Message T_policy = message("xmlui.Submission.submit.AccessStep.review_policy_line");
 
+    private static final Message T_label_date_help =
+            message("xmlui.administrative.authorization.AccessStep.label_date_help");
     private static final Message T_label_date_help1 =
             message("xmlui.administrative.authorization.AccessStep.label_date_help1");
     private static final Message T_label_date_help2 =
@@ -89,6 +91,9 @@ public class AccessStepUtil extends AbstractDSpaceTransformer {
     private String globalReason = null;
 
     private boolean isAdvancedFormEnabled=false;
+
+    //collection added for conditional form rendering
+    private Collection coll;
 
     public AccessStepUtil(Context c){
         isAdvancedFormEnabled=DSpaceServicesFactory.getInstance().getConfigurationService().getBooleanProperty("webui.submission.restrictstep.enableAdvancedForm", false);
@@ -189,12 +194,20 @@ public class AccessStepUtil extends AbstractDSpaceTransformer {
             // Date
             Text startDate = radiosAndDate.addText("embargo_until_date");
             startDate.setLabel("");
-            //startDate.setHelp(T_label_date_help);
-            form.addItem(T_label_date_help1);
-            form.addItem(T_label_date_help2);
-            form.addItem(T_label_date_help3);
-            form.addItem(T_label_date_help4);
-            form.addItem(T_label_date_help5);
+
+            if(coll.getHandle().equals("10023/19869"))
+            {
+                form.addItem(T_label_date_help1);
+                form.addItem(T_label_date_help2);
+                form.addItem(T_label_date_help3);
+                form.addItem(T_label_date_help4);
+                form.addItem(T_label_date_help5);
+            }
+            else
+            {
+                startDate.setHelp(T_label_date_help);
+            }
+            
             if (errorFlag == org.dspace.submit.step.AccessStep.STATUS_ERROR_FORMAT_DATE){
                 startDate.addError(T_error_date_format);
             }
@@ -239,15 +252,24 @@ public class AccessStepUtil extends AbstractDSpaceTransformer {
         if (dso != null) {
             populateEmbargoDetail(dso, startDate);
         }
-        //startDate.setHelp(T_label_date_help);
-        form.addItem(T_label_date_help1);
-        form.addItem(T_label_date_help2);
-        form.addItem(T_label_date_help3);
-        form.addItem(T_label_date_help4);
-        form.addItem(T_label_date_help5);
+
+        if(coll.getHandle().equals("10023/19869"))
+        {
+            form.addItem(T_label_date_help1);
+            form.addItem(T_label_date_help2);
+            form.addItem(T_label_date_help3);
+            form.addItem(T_label_date_help4);
+            form.addItem(T_label_date_help5);
+        }
+        else{
+            startDate.setHelp(T_label_date_help);
+        }
+
+        
     }
 
     public void addTablePolicies(Division parent, DSpaceObject dso, Collection owningCollection) throws WingException, SQLException {
+
 	    if (!isAdvancedFormEnabled) {
 		    return;
 	    }
@@ -325,6 +347,7 @@ public class AccessStepUtil extends AbstractDSpaceTransformer {
     }
 
 	public void addListPolicies(List parent, DSpaceObject dso, Collection owningCollection) throws WingException, SQLException {
+
 		if (!isAdvancedFormEnabled) {
 			return;
 		}
@@ -374,4 +397,8 @@ public class AccessStepUtil extends AbstractDSpaceTransformer {
 		}
 
 	}
+
+    public void getCollection(Collection c){
+        this.coll = c;
+    }
 }

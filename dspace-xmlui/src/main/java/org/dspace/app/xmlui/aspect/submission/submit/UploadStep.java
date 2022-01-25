@@ -233,18 +233,6 @@ public class UploadStep extends AbstractSubmissionStep
             upload = div.addList("submit-upload-new", List.TYPE_FORM);
             upload.setHead(T_head);
 
-            /*Text introduction = upload.addItem().addText("introduction");
-            introduction.setLabel(T_file);
-            introduction.setHelp(T_pre_file1);*/
-            div.addPara(T_pre_file1);
-            /*introduction.setHelp(T_pre_file2);
-            introduction.setHelp(T_pre_file3);
-            introduction.setHelp(T_pre_file4);
-            introduction.setHelp(T_pre_file5);
-            introduction.setHelp(T_pre_file6);
-            introduction.setHelp(T_pre_file7);*/
-            
-
             File file = upload.addItem().addFile("file");
             file.setLabel(T_file);
             file.setHelp(T_file_help);

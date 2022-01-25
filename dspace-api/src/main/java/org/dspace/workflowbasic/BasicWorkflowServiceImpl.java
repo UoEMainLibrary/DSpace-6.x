@@ -1025,17 +1025,26 @@ public class BasicWorkflowServiceImpl implements BasicWorkflowService
                     // Conditional added to send different emails based on collection
                     Email email;
                     Locale supportedLocale = I18nUtil.getEPersonLocale(anEpa);
-                    if(coll.getName() == "Library Theses"){
+                    if(coll.getName().equals("Library Theses"))
+                    {
+                        EPerson e = wi.getSubmitter();
                         email = Email.getEmail(I18nUtil.getEmailFilename(supportedLocale, "etheses_complete"));
-                        email.addArgument(submitter);
-                        email.addArgument("Student ID");
+                        email.addArgument(e.getFullName());
+                        email.addArgument(e.getNetid());
                     }
-                    else {
+                    else 
+                    {
                         email = Email.getEmail(I18nUtil.getEmailFilename(supportedLocale, "submit_task"));
                         email.addArgument(title);
                         email.addArgument(coll.getName());
                         email.addArgument(submitter);
                     }
+
+                    /*
+                    email = Email.getEmail(I18nUtil.getEmailFilename(supportedLocale, "etheses_complete"));
+                    email.addArgument(submitter);
+                    email.addArgument(coll.getName());
+                    */
 
                     ResourceBundle messages = ResourceBundle.getBundle("Messages", supportedLocale);
                     switch (wi.getState())
@@ -1057,7 +1066,7 @@ public class BasicWorkflowServiceImpl implements BasicWorkflowService
                     }
 
                     // Conditional added to send different emails based on collection
-                    if(coll.getName() == "Library These")
+                    if(coll.getName().equals("Library Theses"))
                     {
                         email.addRecipient(anEpa.getEmail());
                         email.send();
@@ -1068,6 +1077,10 @@ public class BasicWorkflowServiceImpl implements BasicWorkflowService
                         email.addRecipient(anEpa.getEmail());
                         email.send();
                     }
+                    /*
+                    email.addRecipient(anEpa.getEmail());
+                    email.send();
+                    */
                 }
             }
             catch (MessagingException e)
