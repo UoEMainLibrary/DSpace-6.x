@@ -58,7 +58,7 @@ public class EditBitstreamForm extends AbstractDSpaceTransformer
 	private static final Message T_primary_option_yes = message("xmlui.administrative.item.EditBitstreamForm.primary_option_yes");
 	private static final Message T_primary_option_no = message("xmlui.administrative.item.EditBitstreamForm.primary_option_no");
 	private static final Message T_description_label = message("xmlui.administrative.item.EditBitstreamForm.description_label");
-	private static final Message T_description_help = message("xmlui.administrative.item.EditBitstreamForm.description_help");
+	private static final Message T_description_help = message("xmlui.Submission.submit.UploadWithEmbargoStep.description_help");
 	private static final Message T_para1 = message("xmlui.administrative.item.EditBitstreamForm.para1");
 	private static final Message T_format_label = message("xmlui.administrative.item.EditBitstreamForm.format_label");
 	private static final Message T_format_default = message("xmlui.administrative.item.EditBitstreamForm.format_default");

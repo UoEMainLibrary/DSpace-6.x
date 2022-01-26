@@ -99,6 +99,7 @@ public class AccessStep extends AbstractSubmissionStep
         Division div = addMainDivision(body, collection);
 
         AccessStepUtil asu = new AccessStepUtil(context);
+        asu.getCollection(collection);
 
         List form = div.addList("submit-access-settings", List.TYPE_FORM);
         form.setHead(T_head);

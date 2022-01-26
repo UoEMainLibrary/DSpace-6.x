@@ -356,6 +356,39 @@
                 }(document, 'script', 'recommender-embed', 'fbca3d', {}));
             </script>
 
+            <!-- Script to format e-these submission form text where it is unable in xml -->
+            <script type="text/javascript">
+                window.onload = function ()
+                {
+                    if(window.location.href.indexOf("10023/19869/submit/") > -1)
+                    {
+                        var plain_text = document.getElementsByClassName('bold-format');
+                        if(plain_text.length > 0)
+                        {
+                            var bold_text = plain_text[0].textContent.split(". ");
+                            plain_text[0].innerHTML = bold_text[0] + ". <b>" + bold_text[1] + "</b>";
+                        }
+
+                        var submission_complete = document.getElementById('aspect_submission_submit_CompletedStep_div_submit-complete');
+                        if (submission_complete !== null)
+                        {
+                            var submission_div = document.getElementById('aspect_submission_submit_CompletedStep_div_submit-complete').children;
+
+                            submission_div[5].outerHTML = "<li>" + submission_div[5].textContent + "</li>";
+                            submission_div[6].outerHTML = "<li>" + submission_div[6].textContent + "</li>";
+                            submission_div[7].outerHTML = "<li>" + submission_div[7].textContent + "</li>";
+                            submission_div[8].outerHTML = "<li>" + submission_div[8].textContent + "</li>";
+                            submission_div[5].style.marginLeft = "20px";
+                            submission_div[6].style.marginLeft = "20px";
+                            submission_div[7].style.marginLeft = "20px";
+                            submission_div[8].style.marginLeft = "20px";
+                            submission_div[8].style.marginBottom = "10px";
+                        }
+
+                    }
+                };
+            </script>
+
         </head>
     </xsl:template>
 

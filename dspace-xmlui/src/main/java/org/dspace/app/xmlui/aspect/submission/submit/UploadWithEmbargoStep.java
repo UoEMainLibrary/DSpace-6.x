@@ -59,9 +59,25 @@ public class UploadWithEmbargoStep extends UploadStep
     protected static final Message T_description = 
         message("xmlui.Submission.submit.UploadWithEmbargoStep.description");
     protected static final Message T_description_help = 
-        message("xmlui.Submission.submit.UploadWithEmbargoStep.description_help");
+        message("xmlui.Submission.submit.UploadStep.description_help");
+    protected static final Message T_description_help1 = 
+        message("xmlui.Submission.submit.UploadWithEmbargoStep.description_help1");
+    protected static final Message T_description_help2 = 
+        message("xmlui.Submission.submit.UploadWithEmbargoStep.description_help2");
+    protected static final Message T_description_help3 = 
+        message("xmlui.Submission.submit.UploadWithEmbargoStep.description_help3");
     protected static final Message T_submit_upload = 
         message("xmlui.Submission.submit.UploadWithEmbargoStep.submit_upload");
+    protected static final Message T_submit_upload_text =
+        message("xmlui.Submission.submit.UploadStep.submit_upload_text");
+    protected static final Message T_submit_upload_text1 =
+        message("xmlui.Submission.submit.UploadStep.submit_upload_text1");
+    protected static final Message T_submit_upload_text2 =
+        message("xmlui.Submission.submit.UploadStep.submit_upload_text2");
+    protected static final Message T_submit_upload_text3 =
+        message("xmlui.Submission.submit.UploadStep.submit_upload_text3");
+    protected static final Message T_submit_upload_text4 =
+        message("xmlui.Submission.submit.UploadStep.submit_upload_text4");
     protected static final Message T_head2 = 
         message("xmlui.Submission.submit.UploadWithEmbargoStep.head2");
     protected static final Message T_column0 = 
@@ -98,6 +114,24 @@ public class UploadWithEmbargoStep extends UploadStep
         message("xmlui.Submission.submit.UploadWithEmbargoStep.checksum");
     protected static final Message T_submit_remove = 
         message("xmlui.Submission.submit.UploadWithEmbargoStep.submit_remove");
+    protected static final Message T_submit_remove_text = 
+        message("xmlui.Submission.submit.UploadWithEmbargoStep.submit_remove_text");
+
+    /** Added for St Andrews customisation */
+    protected static final Message T_pre_file1 =
+        message("xmlui.Submission.submit.UploadStep.pre_file1");
+    protected static final Message T_pre_file2 =
+        message("xmlui.Submission.submit.UploadStep.pre_file2");
+    protected static final Message T_pre_file3 =
+        message("xmlui.Submission.submit.UploadStep.pre_file3");
+    protected static final Message T_pre_file4 =
+        message("xmlui.Submission.submit.UploadStep.pre_file4");
+    protected static final Message T_pre_file5 =
+        message("xmlui.Submission.submit.UploadStep.pre_file5");
+    protected static final Message T_pre_file6 =
+        message("xmlui.Submission.submit.UploadStep.pre_file6");
+    protected static final Message T_pre_file7 =
+        message("xmlui.Submission.submit.UploadStep.pre_file7");
 
     /**
      * Global reference to edit file page
@@ -207,7 +241,16 @@ public class UploadWithEmbargoStep extends UploadStep
     	{
     		// Only add the upload capabilities for new item submissions
 	    	upload = div.addList("submit-upload-new", List.TYPE_FORM);
-	        upload.setHead(T_head);    
+	        upload.setHead(T_head); 
+
+            if(collection.getHandle().equals("10023/19869"))
+            {
+                upload.addItem(T_pre_file1);
+                upload.addItem(T_pre_file2);
+                upload.addItem(T_pre_file3);
+                upload.addItem(T_pre_file4);
+                upload.addItem(T_pre_file5);
+            }
 	        
 	        File file = upload.addItem().addFile("file");
 	        file.setLabel(T_file);
@@ -240,12 +283,22 @@ public class UploadWithEmbargoStep extends UploadStep
 	        	
 	        Text description = upload.addItem().addText("description");
 	        description.setLabel(T_description);
-	        description.setHelp(T_description_help);
+
+            if(collection.getHandle().equals("10023/19869"))
+            {
+                upload.addItem(T_description_help1);
+                upload.addItem(T_description_help2);
+            }
+            else
+            {
+	            description.setHelp(T_description_help);
+            }
 
 
             // if AdvancedAccessPolicy=false: add simpleForm in UploadWithEmbargoStep
             if(!isAdvancedFormEnabled){
                 AccessStepUtil asu = new AccessStepUtil(context);
+                asu.getCollection(collection);
                 // if the item is embargoed default value will be displayed.
                 asu.addEmbargoDateSimpleForm(item, upload, errorFlag);
                 asu.addReason(null, upload, errorFlag);
@@ -253,6 +306,18 @@ public class UploadWithEmbargoStep extends UploadStep
 
 	        Button uploadSubmit = upload.addItem().addButton("submit_upload");
 	        uploadSubmit.setValue(T_submit_upload);
+
+            if(collection.getHandle().equals("10023/19869"))
+            {
+                upload.addItem(T_submit_upload_text1);
+                upload.addItem(T_submit_upload_text2);
+                upload.addItem(T_submit_upload_text3);
+                upload.addItem(T_submit_upload_text4);
+            }
+            else
+            {
+                uploadSubmit.setHelp(T_submit_upload_text);
+            }
 
     	}
 
@@ -368,8 +433,13 @@ public class UploadWithEmbargoStep extends UploadStep
 		        actionRow.addCell();
 		        Button removeSeleceted = actionRow.addCell(null, null, 0, 6, null).addButton("submit_remove_selected");
 		        removeSeleceted.setValue(T_submit_remove);
+
 	        }
 	        
+            if(collection.getHandle().equals("10023/19869"))
+            {
+                div.addPara(T_submit_remove_text);
+            }
 	        upload = div.addList("submit-upload-new-part2", List.TYPE_FORM);
 
 		}
