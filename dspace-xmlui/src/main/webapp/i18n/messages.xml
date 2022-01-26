@@ -903,7 +903,7 @@
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.virus_checker_error">A technical problem was encountered whilst attempting to scan the file for viruses. Please contact the system administrator.</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.description">File Description</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.description_help1">Please provide a brief description of the file, for example, "Complete version", “Redacted version”, "Supplementary data", or “Appendix”.</message>
-	<message key="xmlui.Submission.submit.UploadWithEmbargoStep.description_help2">See the <a href="https://libguides.st-andrews.ac.uk/theses">Thesis LibGuide<a> for further examples of the preferred forms for file descriptions.</message>
+	<message key="xmlui.Submission.submit.UploadWithEmbargoStep.description_help2">See the <a href="https://libguides.st-andrews.ac.uk/theses">Thesis LibGuide</a> for further examples of the preferred forms for file descriptions.</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.submit_upload">Upload file &amp; add another</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.head2">Files Uploaded</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.column0">Primary</message>

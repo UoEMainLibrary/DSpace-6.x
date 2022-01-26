@@ -5,7 +5,7 @@
 #
 Subject: RE: Repository: Registration Notification ({0}, {1}) [Repository staff sends to student confirming the repository collection they can submit their thesis to, and giving guidance to help with the submission]
 
-<div style="font-family: 'Inknut Antiqua', serif; font-size: 16px;">
+<div style="font-family: Arial, sans-serif; font-size: 16px;">
     <p style="padding-bottom: 15px;">Dear {0},</p>
     <p>Thank you for your registration with St Andrews Research Repository. You have been authorised to submit into the <b>Library These</b>s collection. 
         Once your submission is complete, repository staff will move your submission to the appropriate collection.
@@ -14,7 +14,7 @@ Subject: RE: Repository: Registration Notification ({0}, {1}) [Repository staff 
         where you can log in again to the repository.
     </p>
     <ul>
-        <li>From the right-hand Browse menu, go to Submissions under ‘My Account’ where, having selected your collection from the drop-down menu, 
+        <li>From the right-hand Browse menu, go to Submissions under 'My Account' where, having selected your collection from the drop-down menu, 
             you can then make your submission.
         </li>
         <li>Please fill in as many details as you can about your thesis, including the abstract. Please also provide subject keywords to describe 
@@ -36,40 +36,37 @@ Subject: RE: Repository: Registration Notification ({0}, {1}) [Repository staff 
     <p>If you have any further questions, please do not hesitate to contact us again.</p>
     <br>
 <hr>
-<div style="font-family: 'Inknut Antiqua', serif; font-size: 16px;">
+<div style="font-family: Arial, sans-serif; font-size: 16px;">
     <p style="margin: 0px; padding: 0px;">Thank you,</p> 
     <p style="margin: 0px; padding: 0px;">David Collins</p>
     <p style="margin: 0px; padding: 0px;">Janet Aucock</p>
     <p>St Andrews Research Repository</p>
 </div>
 <hr>
-<div style="font-family: 'Inknut Antiqua', serif;">
-    <img src="https://research-repository-test.st-andrews.ac.uk/themes/Mirage2/images/01-foundation-black-text.png" style="display: block; margin-left: auto; margin-right: auto; width: 50%;">
-    <div style="height: 100% width: 100%;">
-        <div style="display: inline-block; *display: inline; zoom: 1; vertical-align: top; height: 165px; width: 49.6%; border-right: 1px double; margin-right: 1px;">
-            <div style="float: right;"> 
+<div style="font-family: Arial, sans-serif; text-align: centre;">
+    <p style="text-align: center;"><img src="https://research-repository.st-andrews.ac.uk/themes/Mirage2/images/01-foundation-black-text.png" style="display: block; margin-left: auto; margin-right: auto;"></p>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td align="right" valign="top" style="float: right; border-right: 1px solid; margin-right: 1px;">
                 <p style="font-size: 14px; color: #44546A; margin-right: 25px;">For administrative queries:</p>
                 <p style="margin: 0px; padding: 0px; margin-top: 15px; margin-right: 25px; font-size: 18px;">Postgraduate Research</p>
                 <p style="margin: 0px; padding: 0px; font-size: 18px; margin-right: 25px;">Academic Registry</p>
                 <p style="margin: 0px; padding: 0px; margin-top: 15px; margin-right: 25px;">Tel: +44 (0) 1334 463084</p>
                 <p style="margin: 0px; padding: 0px; margin-right: 25px;">Email: <a href="mailto:researchpg-reg@st-andrews.ac.uk">researchpg-reg@st-andrews.ac.uk</a></p>
-            </div>
-        </div>
-        <div style="display: inline-block; *display: inline; zoom: 1; vertical-align: top; height: 165px; width: 49.6%; border-left: 1px double;">
-            <div style="float: left;">
+            </td>
+            <td width="1px"></td>
+            <td align="left" valign="top" style="border-left: 1px solid;">
                 <p style="font-size: 14px; color: #44546A; margin-left: 25px;">For queries regarding the digital repository:</p>
                 <p style="margin: 0px; padding: 0px; margin-top: 15px; margin-left: 25px; font-size: 18px;">St Andrews Research Repository</p>
                 <p style="margin: 0px; padding: 0px; margin-top: 15px; margin-left: 25px;"><a href="https://research-repository.st-andrews.ac.uk/">https://research-repository.st-andrews.ac.uk/</a></p>
                 <p style="margin: 0px; padding: 0px; margin-top: 15px; margin-left: 25px;">Tel: +44 (0) 1334 462302/462299</p>
                 <p style="margin: 0px; padding: 0px; margin-left: 25px;">Email: <a href="mailto:digirep@st-andrews.ac.uk">digirep@st-andrews.ac.uk</a></p>
-            </div>
-        </div>
-    </div>
+            </td>
+        </tr>
+    </table>
 </div>
 <br>
-<div style="font-family: 'Inknut Antiqua', serif;">
+<div style="font-family: Arial, sans-serif;">
     <p style="font-size: 18px;  text-align: center; margin-top: 20%;">Walter Bower House, Eden Campus, Main Street, Guardbridge, Fife, KY16 0US</p>
     <p style="margin: 0px; padding: 0px; text-align: center; color: #44546A;">The University of St Andrews is a charity registered in Scotland: No SC013532</p> 
-    <p style="margin: 0px; padding: 0px; text-align: center; color: #44546A;">The University of St Andrews is committed to sustainable practices and the preservation of the environment –</p>
-    <p style="margin: 0px; padding: 0px; text-align: center; color: #44546A;">please do not print this email unless absolutely necessary.</p>
 </div>
