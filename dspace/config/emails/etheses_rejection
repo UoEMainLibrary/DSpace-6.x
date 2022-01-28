@@ -3,21 +3,23 @@
 # Parameters: {0} Student Name
 #             {1} Student ID
 #             {2} Submission Title
+#             {3} Rejector Name
+#             {4} Rejection Reason 1
 #
-Subject: Repository: Submission <i>Returned for Clarification</i> ({0}, {1})
+Subject: Repository: Submission Returned for Clarification ({0}, {1})
 
 <div style="font-family: Arial, sans-serif; font-size: 16px;">
     <p>You submitted: 	{2}</p>
     <p>To collection: 	Library Theses</p>
-    <p>Your submission has been returned for clarification by Name (XXX@st-andrews.ac.uk) for the following reason(s):</p>
-    <p style="text-transform:uppercase">FREE TEXT GIVING EXPLANATION FOR CLARIFICATION REQUEST WILL APPEAR HERE.</p>
+    <p>Your submission has been returned for clarification by Name ({3}) for the following reason(s):</p>
+    {4}
     <p><i>Please also ensure that:</i></p>
     <ul>
-        <li><i>The terms of any embargo are correct in your declaration.</i></li>
-        <li><i>All signatures are present in the declaration.</i></li>
-        <li><i>The abstract is included in your thesis.</i></li>
-        <li><i>The title page is included in your thesis.</i></li>
-        <li><i>Your submitted PDF file(s) are unlocked.</i></li>
+        <li style="margin-bottom: 10px;"><i>The terms of any embargo are correct in your declaration.</i></li>
+        <li style="margin-bottom: 10px;"><i>All signatures are present in the declaration.</i></li>
+        <li style="margin-bottom: 10px;"><i>The abstract is included in your thesis.</i></li>
+        <li style="margin-bottom: 10px;"><i>The title page is included in your thesis.</i></li>
+        <li style="margin-bottom: 10px;"><i>Your submitted PDF file(s) are unlocked.</i></li>
         <li><i>All relevant theses files are ready to be uploaded.</i></li>
     </ul>
     <p>Your submission has not been deleted. You can access it from your "My Repository" page:</p>
@@ -47,8 +49,7 @@ Subject: Repository: Submission <i>Returned for Clarification</i> ({0}, {1})
         </tr>
     </table>
 </div>
-<br>
 <div style="font-family: Arial, sans-serif;">
-    <p style="font-size: 18px;  text-align: center; margin-top: 20%;">Walter Bower House, Eden Campus, Main Street, Guardbridge, Fife, KY16 0US</p>
+    <p style="font-size: 18px;  text-align: center; margin-top: 50px;">Walter Bower House, Eden Campus, Main Street, Guardbridge, Fife, KY16 0US</p>
     <p style="margin: 0px; padding: 0px; text-align: center; color: #44546A;">The University of St Andrews is a charity registered in Scotland: No SC013532</p> 
 </div>
