@@ -386,6 +386,12 @@
                         }
 
                     }
+
+                    if(document.getElementById('aspect_workflow_RejectTaskStep_field_reason') !== null)
+                    {
+                        var textarea = "· We can't open your PDF to check the thesis full text\n· Signatures are not present in the declaration in your PDF\n· Your declaration is not complete\n· The embargo in your declaration does not match the embargo that we have on record for your thesis\n· The abstract is not included in the full text of your thesis\n· The title page is not included in the full text of your thesis value\n\nIn addition we have the following queries:\nOther free text from [Insert further feedback] appears here";
+                        document.getElementById('aspect_workflow_RejectTaskStep_field_reason').innerHTML = textarea;
+                    }
                 };
             </script>
 

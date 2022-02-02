@@ -53,6 +53,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 import java.util.UUID;
 
 public class BasicWorkflowServiceImpl implements BasicWorkflowService
@@ -1024,13 +1025,20 @@ public class BasicWorkflowServiceImpl implements BasicWorkflowService
                 {
                     // Conditional added to send different emails based on collection
                     Email email;
+                    /*Email email2;*/
+                    EPerson e;
                     Locale supportedLocale = I18nUtil.getEPersonLocale(anEpa);
                     if(coll.getName().equals("Library Theses"))
                     {
-                        EPerson e = wi.getSubmitter();
+                        e = wi.getSubmitter();
                         email = Email.getEmail(I18nUtil.getEmailFilename(supportedLocale, "etheses_complete"));
                         email.addArgument(e.getFullName());
                         email.addArgument(e.getNetid());
+
+                        /*email2.addArgument(e.getFullName());
+                        email2.addArgument(e.getNetid());
+                        email2.addArgument(title);*/
+
                     }
                     else 
                     {
@@ -1039,12 +1047,6 @@ public class BasicWorkflowServiceImpl implements BasicWorkflowService
                         email.addArgument(coll.getName());
                         email.addArgument(submitter);
                     }
-
-                    /*
-                    email = Email.getEmail(I18nUtil.getEmailFilename(supportedLocale, "etheses_complete"));
-                    email.addArgument(submitter);
-                    email.addArgument(coll.getName());
-                    */
 
                     ResourceBundle messages = ResourceBundle.getBundle("Messages", supportedLocale);
                     switch (wi.getState())
@@ -1069,18 +1071,18 @@ public class BasicWorkflowServiceImpl implements BasicWorkflowService
                     if(coll.getName().equals("Library Theses"))
                     {
                         email.addRecipient(anEpa.getEmail());
-                        email.send();
+
+                        /*email2.addRecipient(e.getEmail());*/
                     }
                     else {
                         email.addArgument(message);
                         email.addArgument(getMyDSpaceLink());
                         email.addRecipient(anEpa.getEmail());
-                        email.send();
                     }
-                    /*
-                    email.addRecipient(anEpa.getEmail());
+
                     email.send();
-                    */
+                    /*email2.send();*/
+
                 }
             }
             catch (MessagingException e)
@@ -1115,14 +1117,36 @@ public class BasicWorkflowServiceImpl implements BasicWorkflowService
             // Get rejector's name
             String rejector = getEPersonName(e);
             Locale supportedLocale = I18nUtil.getEPersonLocale(e);
-            Email email = Email.getEmail(I18nUtil.getEmailFilename(supportedLocale,"submit_reject"));
 
-            email.addRecipient(workflowItem.getSubmitter().getEmail());
-            email.addArgument(title);
-            email.addArgument(coll.getName());
-            email.addArgument(rejector);
-            email.addArgument(reason);
-            email.addArgument(getMyDSpaceLink());
+            Email email;
+
+            if(coll.getName().equals("Library Theses"))
+            {
+                email = Email.getEmail(I18nUtil.getEmailFilename(supportedLocale,"etheses_rejection"));
+                email.addRecipient(workflowItem.getSubmitter().getEmail());
+                email.addArgument(workflowItem.getSubmitter().getFullName());
+                email.addArgument(workflowItem.getSubmitter().getNetid());
+                email.addArgument(title);
+                email.addArgument(rejector);
+                // Processing to format textarea input from rejection
+                String line = "";
+                Scanner scanner = new Scanner(reason);
+                while (scanner.hasNextLine()) {
+                line += "<p>"+scanner.nextLine()+"</p>";
+                }
+                scanner.close();
+                email.addArgument(line);
+            }
+            else
+            {
+                email = Email.getEmail(I18nUtil.getEmailFilename(supportedLocale,"submit_reject"));
+                email.addRecipient(workflowItem.getSubmitter().getEmail());
+                email.addArgument(title);
+                email.addArgument(coll.getName());
+                email.addArgument(rejector);
+                email.addArgument(reason);
+                email.addArgument(getMyDSpaceLink());
+            }
 
             email.send();
         }

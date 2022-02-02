@@ -4,24 +4,22 @@
 #             {1} Student ID
 #             {2} Submission Title
 #             {3} Rejector Name
-#             {4} Rejection Reason 1
+#             {4} Rejection Reason
 #
 Subject: Repository: Submission Returned for Clarification ({0}, {1})
 
 <div style="font-family: Arial, sans-serif; font-size: 16px;">
     <p>You submitted: 	{2}</p>
     <p>To collection: 	Library Theses</p>
-    <p>Your submission has been returned for clarification by Name ({3}) for the following reason(s):</p>
+    <p><u>We are unable to accept the submission of your thesis in its present form. Your thesis will need to be re-submitted as it currently does not meet the regulations with regards to:</u></p>
     {4}
-    <p><i>Please also ensure that:</i></p>
-    <ul>
-        <li style="margin-bottom: 10px;"><i>The terms of any embargo are correct in your declaration.</i></li>
-        <li style="margin-bottom: 10px;"><i>All signatures are present in the declaration.</i></li>
-        <li style="margin-bottom: 10px;"><i>The abstract is included in your thesis.</i></li>
-        <li style="margin-bottom: 10px;"><i>The title page is included in your thesis.</i></li>
-        <li style="margin-bottom: 10px;"><i>Your submitted PDF file(s) are unlocked.</i></li>
-        <li><i>All relevant theses files are ready to be uploaded.</i></li>
-    </ul>
+    <!--<p><u>Please also ensure that:</u></p>
+        <li style="margin-bottom: 10px;"><i>Your submitted PDF is unlocked.</i></li>
+        <li style="margin-bottom: 10px;"><i>You have uploaded a copy of your thesis in the format in which it was created, (e.g., Word, LaTeX, etc.)</i></li>
+    </ul>-->
+    <p>Please ensure you address this as soon as possible and resubmit your thesis, using the same process.</p>
+    <p>For any queries, please contact <a href="mailto:registry-pgr@st-andrews.ac.uk">registry-pgr@st-andrews.ac.uk</a> to discuss this in more detail.</p>
+    <p style="margin-bottom: 20px;">Once you have addressed these issues then you will be able to return to your submission and make corrections by uploading/replacing files as necessary.</p>
     <p>Your submission has not been deleted. You can access it from your "My Repository" page:</p>
     <p><a href="https://research-repository-test.st-andrews.ac.uk/mydspace">https://research-repository-test.st-andrews.ac.uk/mydspace</a></p>
     <p>Registry Student Office (Postgraduates)</p>
