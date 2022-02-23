@@ -3,6 +3,8 @@
 # Parameters: {0} Student Name
 #             {1} Student ID
 #             {2} Title
+#             {3} Submitter
+#             {4} Description of task
 #
 
 Subject: Repository: You have a new task ({0}, {1})
@@ -12,9 +14,9 @@ Subject: Repository: You have a new task ({0}, {1})
 
     <p>Title:           {2}</p>
     <p>Collection:   	Library Theses</p> 
-    <p>Submitted by: 	{0}</p> 
+    <p>Submitted by: 	{3}</p> 
 
-    <p>It requires reviewing.</p>
+    <p>{4}</p>
 
     <p>To claim this task, please visit your "My Repository"</p> 
 
@@ -22,12 +24,14 @@ Subject: Repository: You have a new task ({0}, {1})
 
     <p>Many thanks!</p>
 
-    <p>Repository Team</p>
+    <p>David Collins</p>
+    <p>Janet Aucock</p>
+    <p>Library E-Theses Team</p>
 </div>
 <hr>
 <div style="font-family: Arial, sans-serif; text-align: center;">
 <p style="text-align: center;"><img src="https://research-repository.st-andrews.ac.uk/themes/Mirage2/images/01-foundation-black-text.png" style="display: block; margin-left: auto; margin-right: auto;"></p>
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="font-family: Arial, sans-serif;">
         <tr>
             <td align="right" valign="top" style="float: right; border-right: 1px solid; margin-right: 1px;">
                 <p style="font-size: 14px; color: #44546A; margin-right: 25px;">For administrative queries:</p>

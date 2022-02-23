@@ -842,7 +842,7 @@
 	<message key="xmlui.administrative.authorization.AccessStep.label_date_help2">The end-date of your embargo is calculated by adding the length of your embargo to today's date.</message>
 	<message key="xmlui.administrative.authorization.AccessStep.label_date_help3">Simply type in your embargo end-date or click within the field to display the in-built calendar.</message>
 	<message key="xmlui.administrative.authorization.AccessStep.label_date_help4"><strong>This date will be the first day from which access to your uploaded files would be allowed.</strong></message>
-	<message key="xmlui.administrative.authorization.AccessStep.label_date_help5"><u><i>Please make a note of this date because we will contact you one month prior to it to ask whether your thesis could be released, or if you'd prefer to request an extension to the embargo.</i></u></message>
+	<message key="xmlui.administrative.authorization.AccessStep.label_date_help5"><u><i>Please make a note of this important date because we will contact you one month prior to it to request your instructions about releasing the full text or extending the embargo.</i></u></message>
     <message key="xmlui.administrative.authorization.AccessStep.label_date_displayonly_help">The first day from which access is allowed. <b>This date cannot be modified on this form.</b> To set an embargo date for a bitstream, go to the <i>Item Status</i> tab, click <i>Authorizations...</i>, create or edit the bitstream's <i>READ</i> policy, and set the <i>Start Date</i> as desired.</message>
     <message key="xmlui.Submission.submit.AccessStep.review_policy_line">Name: {0}; action: {1}, group: {2}, start date: {3}, end date: {4}</message>
     <message key="xmlui.Submission.submit.AccessStep.review_public_item">The item will be searchable</message>
@@ -858,8 +858,8 @@
 	<message key="xmlui.Submission.submit.UploadStep.pre_file1"><strong>Before you upload:</strong></message>
 	<message key="xmlui.Submission.submit.UploadStep.pre_file2">Have you named your files according to the repository's <a href="https://libguides.st-andrews.ac.uk/theses/preparing_for_submission">file-name conventions</a>?</message>
 	<message key="xmlui.Submission.submit.UploadStep.pre_file3">Have you prepared at least two files; (1) a PDF of your thesis and (2) the file that you created your PDF from, (e.g., Microsoft Word, LaTeX, etc.)? Are there any other versions of your thesis that you need to upload e.g., redacted versions required because of copyright or embargo? (We need multiple files to digitally preserve your submission and provide maximum accessibility to your thesis.)</message>
-	<message key="xmlui.Submission.submit.UploadStep.pre_file4">See the <a href="https://libguides.st-andrews.ac.uk/theses/preparing_for_submission">Thesis LibGuide</a> for further information.</message>
-	<message key="xmlui.Submission.submit.UploadStep.pre_file5">If you have supplementary data, please upload it here. (Underpinning data should be uploaded separately to Pure.) See <a href="https://www.st-andrews.ac.uk/research/digitalresearch/researchdata/dataunderpinningtheses/">Research Data Management</a> for further information.</message>
+	<message key="xmlui.Submission.submit.UploadStep.pre_file4">See the <a href="https://libguides.st-andrews.ac.uk/theses/submit">Thesis LibGuide</a> for further information.</message>
+	<message key="xmlui.Submission.submit.UploadStep.pre_file5">If you have research data, see the <a href="https://www.st-andrews.ac.uk/research/support/open-research/research-data-management/data-underpinning-theses/">data underpinning theses guidance</a> for information and contact <a href="mailto:research-data@st-andrews.ac.uk">research-data@st-andrews.ac.uk</a> for questions.</message>
 	<message key="xmlui.Submission.submit.UploadStep.file">File</message>
 	<message key="xmlui.Submission.submit.UploadStep.file_help">Please enter the full path of the file on your computer corresponding to your item. If you click "Browse...", a new window will allow you to select the file from your computer.</message>
 	<message key="xmlui.Submission.submit.UploadStep.file_error">The item must contain at least one file.</message>
@@ -888,7 +888,7 @@
 
 	<message key="xmlui.Submission.submit.UploadStep.submit_upload_text">The first day from which access is allowed. Accepted format: yyyy, yyyy-mm, yyyy-mm-dd</message>
 	<message key="xmlui.Submission.submit.UploadStep.submit_upload_text1">Upload all the files and provide the file description and embargo dates for each separate file. Repeat the process as many times as you need to.</message>
-	<message key="xmlui.Submission.submit.UploadStep.submit_upload_text2">(If you have more than 10 files of supplementary data, a zip file would be the best option. See the <a href="https://libguides.st-andrews.ac.uk/theses">Thesis LibGuide</a> for guidance on zipping files).</message>
+	<message key="xmlui.Submission.submit.UploadStep.submit_upload_text2">(If you have more than 10 files of supplementary data, a zip file would be the best option. See the <a href="https://libguides.st-andrews.ac.uk/theses/submit">Thesis LibGuide</a> for guidance on zipping files).</message>
 	<message key="xmlui.Submission.submit.UploadStep.submit_upload_text3">Use the '<strong>Edit</strong>' button beside each file to review your uploads, e.g., check that the file format has been recognised and, if necessary, to make corrections to file descriptions or embargo dates.</message>
 	<message key="xmlui.Submission.submit.UploadStep.submit_upload_text4">Apply embargo date to <strong>all</strong> relevant files.</message>
 
@@ -903,7 +903,7 @@
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.virus_checker_error">A technical problem was encountered whilst attempting to scan the file for viruses. Please contact the system administrator.</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.description">File Description</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.description_help1">Please provide a brief description of the file, for example, "Complete version", “Redacted version”, "Supplementary data", or “Appendix”.</message>
-	<message key="xmlui.Submission.submit.UploadWithEmbargoStep.description_help2">See the <a href="https://libguides.st-andrews.ac.uk/theses">Thesis LibGuide</a> for further examples of the preferred forms for file descriptions.</message>
+	<message key="xmlui.Submission.submit.UploadWithEmbargoStep.description_help2">See the <a href="https://libguides.st-andrews.ac.uk/theses/submit">Thesis LibGuide</a> for further examples of the preferred forms for file descriptions.</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.submit_upload">Upload file &amp; add another</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.head2">Files Uploaded</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.column0">Primary</message>
@@ -921,7 +921,7 @@
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.submit_edit">Edit</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.checksum">File checksum:</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.submit_remove">Remove selected files</message>
-	<message key="xmlui.Submission.submit.UploadWithEmbargoStep.submit_remove_text">Once you have uploaded all your thesis files, and you are satisfied that all the details are correct, (i.e., the embargo dates, file descriptions, and file formats), then please click <strong>Next</strong> to continue.</message>
+	<message key="xmlui.Submission.submit.UploadWithEmbargoStep.submit_remove_text">Once you have uploaded all thesis files, and set correct file formats, descriptions and embargo dates, please click <strong>Next</strong> to continue.</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.submit_policy">Policies</message>
 
 
@@ -961,14 +961,14 @@
 	<!-- org.dspace.app.xmlui.Submission.submit.CCLicenseStep -->
 	<message key="xmlui.Submission.submit.CCLicenseStep.ccws_error">An error occurred ... {0}</message>
 	<message key="xmlui.Submission.submit.CCLicenseStep.head">Licence Your Work</message>
-	<message key="xmlui.Submission.submit.CCLicenseStep.info1">If you wish, you may add a <a href="http://creativecommons.org/">Creative Commons</a> Licence to your item. <strong>Creative Commons licences govern what people who read your work may then do with it.</strong></message>
+	<message key="xmlui.Submission.submit.CCLicenseStep.info1">If you wish, you may add a <a href="https://creativecommons.org/about/cclicenses/">Creative Commons</a> Licence to your item. <strong>Creative Commons licences govern what people who read your work may then do with it.</strong></message>
 	<message key="xmlui.Submission.submit.CCLicenseStep.info2">If you do decide to apply a Creative Commons licence, it will be applied to all of the files that you upload that will be made publicly available, <strong><u>from the time that they become publicly available</u></strong>.  This means that if you embargo any of your files, then any Creative Commons licence wouldn't apply to those files until after the embargo had ended.</message>
 	<message key="xmlui.Submission.submit.CCLicenseStep.submit_choose_creative_commons">Choose a licence</message>
 	<message key="xmlui.Submission.submit.CCLicenseStep.submit_to_creative_commons">Proceed to Creative Commons website to select a licence</message>
 	<message key="xmlui.Submission.submit.CCLicenseStep.license">Licence Type</message>
 	<message key="xmlui.Submission.submit.CCLicenseStep.select_change">Select or modify your licence ...</message>
 	<message key="xmlui.Submission.submit.CCLicenseStep.no_license">No Creative Commons Licence</message>
-	<message key="xmlui.Submission.submit.CCLicenseStep.save_changes">You must click Next to save your changes.</message>
+	<message key="xmlui.Submission.submit.CCLicenseStep.save_changes">You must click Next to save your changes. If you want confirmation of the specific Creative Commons licence you have applied or want to remove a licence or make changes, then you can return to this screen.  Either click on Previous when you get to the Deposit Licence screen or navigate back by clicking on CC Licence from the green coloured tabs at the top of the screen.</message>
 	<message key="xmlui.Submission.submit.CCLicenseStep.error"><strong>ERROR</strong>: Creative Commons API not accessible.<br/>You may continue the submission but you will not be able to select a Creative Commons licence.</message>
 
 
@@ -991,16 +991,16 @@
 	<message key="xmlui.Submission.submit.CompletedStep.head2"><strong>What happens next?</strong></message>
 	<message key="xmlui.Submission.submit.CompletedStep.info1">Thank you for completing your submission into the Repository.</message>
 	<message key="xmlui.Submission.submit.CompletedStep.info2">Your submission will now go through two sets of checks.</message>
-	<message key="xmlui.Submission.submit.CompletedStep.info3">The first set of checks will be done by the Registry Students Office (Postgraduates). These checks will include checking:</message>
+	<message key="xmlui.Submission.submit.CompletedStep.info3">The first set of checks will be done by the Registry Student Office (Postgraduates). These checks will include checking:</message>
 	<message key="xmlui.Submission.submit.CompletedStep.info4">Registry may need you to upload more information or files, or may have other questions for you. If they do, you will receive an email from the Repository email account requesting this information. If you need to contact Registry at any point during their checks, their email address is <a href="mailto:registry-pgr@st-andrews.ac.uk">registry-pgr@st-andrews.ac.uk</a>.</message>
 	<message key="xmlui.Submission.submit.CompletedStep.info5">Once Registry have completed their checks then you will receive a confirmation email to let you know that their stage has finished.</message>
-	<message key="xmlui.Submission.submit.CompletedStep.info6">The Library E-theses team will then begin their checking process on your submission. Their checks will focus on ensuring that all necessary files have been submitted.</message>
-	<message key="xmlui.Submission.submit.CompletedStep.info7">If you need to contact the E-theses team at any point during their checks, their email address is <a href="mailto:digirep@st-andrews.ac.uk">digirep@st-andrews.ac.uk</a>.</message>
-	<message key="xmlui.Submission.submit.CompletedStep.info8">If you are asked to log in to the Repository again then you will probably need to revisit your Submissions Page. However, precise instructions and links will be given in any emails you receive from Registry or the Library.</message>
-	<message key="xmlui.Submission.submit.CompletedStep.list1">that your declaration is present;</message> 
-	<message key="xmlui.Submission.submit.CompletedStep.list2">that your declaration is signed;</message>
-	<message key="xmlui.Submission.submit.CompletedStep.list3">that you have submitted an abstract;</message>
-	<message key="xmlui.Submission.submit.CompletedStep.list4">that your embargo request is correct.</message>
+	<message key="xmlui.Submission.submit.CompletedStep.info6">The Library E-Theses Team will then begin their checking process on your submission. Their checks will focus on ensuring that all necessary files have been submitted.</message>
+	<message key="xmlui.Submission.submit.CompletedStep.info7">If you need to contact the E-Theses Team at any point during their checks, their email address is <a href="mailto:digirep@st-andrews.ac.uk">digirep@st-andrews.ac.uk</a>.</message>
+	<message key="xmlui.Submission.submit.CompletedStep.info8">If you are asked to log in to the Repository again then you will need to revisit your Submissions Page. Precise instructions and links will be given in any emails you receive from Registry or the Library</message>
+	<message key="xmlui.Submission.submit.CompletedStep.list1"> that your declaration is present;</message> 
+	<message key="xmlui.Submission.submit.CompletedStep.list2"> that your declaration is signed;</message>
+	<message key="xmlui.Submission.submit.CompletedStep.list3"> that you have submitted an abstract;</message>
+	<message key="xmlui.Submission.submit.CompletedStep.list4"> that your embargo request is correct.</message>
 	<!--<message key="xmlui.Submission.submit.CompletedStep.info1">Your submission will now go through the review process for this collection. You will receive e-mail notification as soon as your submission has joined the collection, or if there is a problem with your submission. You may also check on the status of your submission by visiting your submissions page.</message>-->
 	<message key="xmlui.Submission.submit.CompletedStep.go_submission">Go to the Submissions page</message>
 	<message key="xmlui.Submission.submit.CompletedStep.submit_again">Submit another item</message>
@@ -1023,8 +1023,8 @@
 	<message key="xmlui.Submission.workflow.PerformTaskStep.return_submit">Return task to pool</message>
 
 	<!-- org.dspace.app.xmlui.Submission.workflow.RejectTaskStep -->
-	<message key="xmlui.Submission.workflow.RejectTaskStep.info1">Please enter your reason for rejecting the submission into the box below, indicating whether the submitter may fix a problem and resubmit.</message>
-	<message key="xmlui.Submission.workflow.RejectTaskStep.reason">Reason</message>
+	<message key="xmlui.Submission.workflow.RejectTaskStep.info1">Please enter your reason(s) for rejecting the submission into the box below.  Some standard reasons are provided and you can edit these in the box and remove any that do not apply.  You also have a free text area that you can edit or remove.   All the on-screen text that remains in this box after your edits will be reproduced on the rejection email that is sent to the submitter.</message>
+	<message key="xmlui.Submission.workflow.RejectTaskStep.reason">Reasons for rejection</message>
 	<message key="xmlui.Submission.workflow.RejectTaskStep.reason_required">The reason field is required</message>
 	<message key="xmlui.Submission.workflow.RejectTaskStep.submit_reject">Reject item</message>
 

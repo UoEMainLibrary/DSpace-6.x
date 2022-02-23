@@ -497,7 +497,17 @@ public class XmlWorkflowServiceImpl implements XmlWorkflowService {
             EPerson ep = item.getSubmitter();
             // Get the Locale
             Locale supportedLocale = I18nUtil.getEPersonLocale(ep);
-            Email email = Email.getEmail(I18nUtil.getEmailFilename(supportedLocale, "submit_archive"));
+            // Blank email
+            Email email;
+
+            if(coll.getName().equals("Library Theses"))
+            {
+                email = Email.getEmail(I18nUtil.getEmailFilename(supportedLocale, "etheses_complete"));
+            }
+            else
+            {
+                email = Email.getEmail(I18nUtil.getEmailFilename(supportedLocale, "submit_archive"));
+            }
 
             // Get the item handle to email to user
             String handle = handleService.findHandle(context, item);
@@ -516,9 +526,23 @@ public class XmlWorkflowServiceImpl implements XmlWorkflowService {
             }
 
             email.addRecipient(ep.getEmail());
-            email.addArgument(title);
-            email.addArgument(coll.getName());
-            email.addArgument(handleService.getCanonicalForm(handle));
+
+            if(coll.getName().equals("Library Theses"))
+            {
+                email.addArgument(ep.getFullName());
+                email.addArgument(ep.getNetid());
+                email.addArgument(title);
+                email.addArgument(handleService.getCanonicalForm(handle));
+                email.addRecipientCC("registry-pgr@st-andrews.ac.uk");
+                email.addRecipientCC("research-data@st-andrews.ac.uk");
+                email.addRecipientCC("digirep@st-andrews.ac.uk");
+            }
+            else{
+                
+                email.addArgument(title);
+                email.addArgument(coll.getName());
+                email.addArgument(handleService.getCanonicalForm(handle));
+            }
 
             email.send();
         }

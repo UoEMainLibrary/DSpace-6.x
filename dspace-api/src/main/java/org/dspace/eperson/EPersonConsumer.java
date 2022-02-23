@@ -81,6 +81,12 @@ public class EPersonConsumer implements Consumer
                             EPerson eperson = ePersonService.find(context, id);
                             Email adminEmail = Email.getEmail(I18nUtil.getEmailFilename(context.getCurrentLocale(), "registration_notify"));
                             adminEmail.addRecipient(notifyRecipient);
+                            adminEmail.setSubject("plain"); // ensure email is plain text format
+
+                            // Additional email recipients for Registry and Postgraduate Reseach
+                            adminEmail.addRecipient("digirep@st-andrews.ac.uk");
+                            adminEmail.addRecipient("registry-pgr@st-andrews.ac.uk");
+                            adminEmail.addRecipient("research-data@st-andrews.ac.uk");
 
                             adminEmail.addArgument(ConfigurationManager.getProperty("dspace.name"));
                             adminEmail.addArgument(ConfigurationManager.getProperty("dspace.url"));
