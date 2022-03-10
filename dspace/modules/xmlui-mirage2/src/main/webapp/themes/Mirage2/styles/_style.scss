@@ -19,16 +19,17 @@
 
 @include selection {
     color: white;
-    background: cornflowerblue;
+    background: #4fb4e5;
+
 }
 
 .publication-records-modal, .publication-records-modal ul {
   list-style-type: none;
-  padding-left: 0px;
+  padding-left: 0;
 }
 
 .publication-records-import-btn {
-  margin: 5px 0px 15px 0px;
+  margin: 5px 0 15px 0;
 }
 
 .bold {
@@ -58,4 +59,459 @@
   #aspect_submission_StepTransformer_item_publication-title{
     margin-bottom:5px;
   }
+}
+
+
+// Our stuff - SDLC
+
+.countriesMap  {
+  padding-top: 80px;
+}
+
+body {
+  background-color: #fff;
+  /*color: #444444;*/
+  color: #2B2B2B;
+  font-family: "PT Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.42857;
+}
+
+a {
+  /*color: #0088cc;*/
+  color: #007AB8;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #428bca;
+}
+
+a:hover,
+a:focus {
+  color: #428bca;
+  text-decoration: none;
+}
+
+/* header */
+
+h1.sta-title {
+  margin-top: 50px;
+  font-family: Georgia,serif;
+}
+
+.sta-title a {
+  border-radius: 0;
+  font-size: 32px;
+  font-weight: normal;
+  margin-bottom: 0;
+  margin-left: -300%;
+  padding: 6px 40px 6px 300%;
+  position: relative;
+  background-color: #0088cc !important;
+  color: #fff;
+  line-height: 1.33;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  -moz-user-select: none;
+  background-image: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.sta-title a:hover {
+  background-color: #005580 !important;
+  text-decoration: none;
+}
+
+.sta-title .oblique {
+  border-bottom: 66px solid #fff;
+  border-left: 26px solid transparent;
+  height: 0;
+  position: absolute;
+  right: -1px;
+  top: -2px;
+  width: 0;
+}
+
+.sta-header-logos {
+  padding-right: 0;
+}
+
+.sta-header-logos a {
+  margin-top: 16px;
+  margin-right: 37px;
+}
+
+@media (max-width: 768px) and (min-width: 320px){
+  .sta-header-logos a {
+    margin-right: 0;
+  }
+}
+
+.sta-header-logos a img {
+  height: 96px;
+}
+/*
+.image_mobile{
+  display:none;
+}*/
+
+/*@media (max-width: 1024px) and (min-width: 640px) {
+  .image_full img {
+    height: 96px;
+  }
+
+}*/
+/*
+@media (max-width: 640px) and (min-width: 320px){
+  .image_full{
+    display:none;
+  }
+
+  .image_mobile{
+    display:block;
+  }
+}
+*/
+
+sta-header div.container {
+  padding-right: 0;
+}
+
+header .navbar-default {
+  background-color: #007AB8;
+}
+
+.sta-navbar {
+  /*background-color: #0088cc;*/
+  padding-left: 0;
+}
+
+.sta-navbar-content {
+  padding: 0;
+}
+
+.breadcrumb {
+  background: none;
+  margin-bottom: 0;
+  padding: 15px;
+}
+
+.breadcrumb a {
+  color: #ccc;
+}
+
+.breadcrumb li {
+  color: #fff;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+.breadcrumb > .active {
+  color: #fff;
+}
+
+ul.sta-lg-dropdown {
+  margin-right: -15px;
+}
+
+header ul.sta-lg-dropdown > li > a:hover,
+header ul.sta-lg-dropdown > li > a:focus {
+  background-color: #005580 !important;
+}
+
+/* facets */
+
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+  background-color: #007AB8;
+  border-color: #0086cf;
+}
+
+a.list-group-item,
+a.list-group-item:visited {
+  color: #555;
+}
+
+/* btns */
+
+.btn-primary {
+  background-color: #007AB8;
+  border-color: #0086cf;
+  color: #fff;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {
+  background-color: #005580;
+  border-color: #005580;
+  color: #fff;
+}
+
+/* footer */
+
+footer > .container,
+footer .row > div {
+  border: none;
+  padding: 10px;
+}
+
+.sta-footer {
+  color: #aaa;
+  padding: 0;
+  font-size: 16px;
+}
+
+.sta-footer-top-content {
+  background-color: #202024;
+  border-top: 5px solid #6a6a6b;
+  width: 100%;
+}
+
+.sta-footer-bottom-content {
+  background-color: #1a1a1d;
+  border-top: 1px solid #252529;
+  width: 100%;
+}
+
+.sta-footer a:link,
+.sta-footer a:visited {
+  color: #59b5e3;
+  font-weight: bold;
+}
+
+.footer-block {
+  padding: 10px;
+}
+
+.sta-footer h3 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.sta-footer-bottom ul li {
+  display: inline;
+  list-style-type: none;
+  margin: 0 10px 0 0;
+  padding: 0;
+}
+
+ul#footer-links,
+ul#social {
+  padding-left: 0;
+}
+
+#oaweek {
+  margin-left: 60px;
+  margin-top: 5px;
+}
+
+.item-summary-view-metadata h5 {
+  font-weight: 600;
+}
+
+p.copyright-text {
+  font-style: italic;
+}
+
+// next two from https://github.com/J4bbi/DSpace-sdlc/commit/51a3418d702cdf135346eaaab4ca22c66007ae36
+
+div.ds-search-link {
+  text-align: right;
+  margin-top: 2px;
+}
+ div.simple-item-view-rights-uri {
+  margin-top: -25px;
+}
+
+#aspect_eperson_LoginChooser_list_ldap-login .control-label.required::after,
+#aspect_eperson_LoginChooser_div_login_header .control-label.required::after{
+    content: "";
+}
+
+#aspect_discovery_SimpleSearch_div_search-results .ds-artifact-item {
+    margin-bottom: 30px;
+}
+
+#aspect_discovery_SimpleSearch_div_search-results .ds-artifact-item .publication-type	{
+    color: #999
+}
+
+.ds-artifact-item {
+  margin-bottom: 20px;
+}
+
+.word-wrap {
+  word-wrap: break-word;
+}
+
+.detailtable {
+    margin-bottom: 0 !important;
+}
+ .pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
+    background-color: #005580;
+    border-color: #005580;
+}
+ .cc-license-new {
+    margin-bottom: 15px;
+}
+
+.cc-item {
+    margin-top: 10px;
+}
+
+.publication-type small {
+    font-size: 13.5px;
+}
+
+#aspect_submission_Submissions_div_new-submission a {
+    -moz-user-select: none;
+    background-image: none;
+    /*border: 1px solid transparent;*/
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857;
+    margin-bottom: 0;
+    padding: 6px 12px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    background-color: #005580;
+    border-color: #ccc;
+    color: #fff;
+}
+
+div #aspect_submission_Submissions_div_new-submission p a:last-child {
+    float: right;
+}
+
+.thumbnail {
+    float: left;
+    padding-left: 15px;
+}
+
+.file-list {
+  margin-bottom: 15px;
+}
+
+/* responsiveness */
+
+@media (max-width: 575px) {
+  .sta-title a {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 400px) {
+  .sta-title a {
+    font-size: 18px;
+  }
+   h2 {
+    font-size: 24px;
+  }
+}
+
+/* Custom button styles */
+button#aspect_submission_submit_ResumeStep_field_submit_resume, button#aspect_eperson_LoginChooser_field_submit_save {
+  color: white !important;
+  background: #0088ca !important;
+}
+button#aspect_submission_submit_ResumeStep_field_submit_resume:hover, button#aspect_eperson_LoginChooser_field_submit_save:hover {
+  background-color: #005580 !important;
+}
+
+// CORE Recommender Styles \\
+/*.coreRecommenderContainer {
+  display: none;
+}*/
+.panel-group {
+  border: solid #0088cb 1px;
+  border-radius: 6px;
+}
+.panel-default {
+  border-color: #0088cb;
+}
+.panel-default>.panel-heading:hover {
+  background-color: rgb(116, 168, 242);
+  text-decoration: none;
+}
+.panel-title {
+  color: #fff;
+  font-size: 15px;
+}
+.panel-title:hover {
+  color: #fff;
+}
+#panel-dropdown:hover {
+  text-decoration: none!important;
+}
+.panel-title::after,
+#panel-dropdown[aria-expanded="false"]>.panel-title::after {
+  content: "▼";
+}
+#panel-dropdown[aria-expanded="true"]>.panel-title::after {
+  content: "▲";
+}
+.panel-default>.panel-heading {
+  color: #fff;
+  background-color: #0088cb;
+}
+#coreRecommenderOutput {
+  width: 100%!important;
+}
+#general a {
+  display: none!important;
+}
+#general::after {
+  content: 'Other Repositories';
+  position: relative;
+  display: inline-block;
+  padding: 10px 15px;
+  margin-right: 2px;
+  line-height: 1.42857143;
+  border: 1px solid #ddd;
+  border-radius: 4px 4px 0 0;
+  color: #045d8a;
+  text-decoration: none;
+}
+#general:hover,
+#general:focus,
+#general::after:hover,
+#general::after:focus {
+  cursor: pointer!important;
+  text-decoration: none!important;
+  background-color: #eee!important;
+  color: #045d8a!important;
+  outline: 0!important;
+}
+
+.pad {
+  padding-top: 30px;
+}
+
+ul.variable li {
+  color: black;
+}
+
+.ds-form-item.row {
+  margin-bottom: 10px;
+}
+label.control-label, label.ds-form-label {
+  margin-top: 30px;
+}
+#aspect_submission_StepTransformer_field_submit_upload {
+  margin-top: 30px;
+}
+#aspect_submission_StepTransformer_list_submit-edit-file legend{
+  margin-bottom: -20px!important;
+}
+.help-block {
+  color: #2B2B2B!important;
 }

@@ -124,9 +124,9 @@ public class Submissions extends AbstractDSpaceTransformer
         div.setHead(T_head);
 
         this.addWorkflowTasks(div);
-//        this.addUnfinishedSubmissions(div);
+        this.addUnfinishedSubmissions(div);
         this.addSubmissionsInWorkflow(div);
-//        this.addPreviousSubmissions(div);
+        this.addPreviousSubmissions(div);
     }
 
     private void addWorkflowTasksDiv(Division division) throws SQLException, WingException, AuthorizeException, IOException {
@@ -186,7 +186,7 @@ public class Submissions extends AbstractDSpaceTransformer
                     String submitterName = submitter.getFullName();
                     String submitterEmail = submitter.getEmail();
 
-    //        		Message state = getWorkflowStateMessage(owned);
+                    //	Message state = getWorkflowStateMessage(owned);
 
                     boolean taskHasPool = step.getUserSelectionMethod().getProcessingAction().usesTaskPool();
                     if(taskHasPool){
@@ -218,7 +218,8 @@ public class Submissions extends AbstractDSpaceTransformer
                         row.addCell().addXref(url,T_untitled);
 
                     // Submitted too
-                    row.addCell().addXref(url,collectionName);
+                    //row.addCell().addXref(url,collectionName);
+                    row.addCell().addContent(collectionName);
 
                     // Submitted by
                     Cell cell = row.addCell();
@@ -277,7 +278,7 @@ public class Submissions extends AbstractDSpaceTransformer
                     String submitterName = submitter.getFullName();
                     String submitterEmail = submitter.getEmail();
 
-    //        		Message state = getWorkflowStateMessage(pooled);
+                    //	Message state = getWorkflowStateMessage(pooled);
 
 
                     Row row = table.addRow();
@@ -287,7 +288,7 @@ public class Submissions extends AbstractDSpaceTransformer
                     claimTask.addOption(item.getID());
 
                     // The task description
-//                    row.addCell().addXref(url,message("xmlui.Submission.Submissions.claimAction"));
+                    // row.addCell().addXref(url,message("xmlui.Submission.Submissions.claimAction"));
                     row.addCell().addXref(url,message("xmlui.XMLWorkflow." + wf.getID() + "." + stepID + "." + actionID));
 
                     // The item description
@@ -303,7 +304,8 @@ public class Submissions extends AbstractDSpaceTransformer
                         row.addCell().addXref(url,T_untitled);
 
                     // Submitted too
-                    row.addCell().addXref(url,collectionName);
+                    //row.addCell().addXref(url,collectionName);
+                    row.addCell().addContent(collectionName);
 
                     // Submitted by
                     Cell cell = row.addCell();

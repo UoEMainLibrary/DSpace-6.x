@@ -109,6 +109,8 @@ public interface GroupDAO extends DSpaceObjectDAO<Group>, DSpaceObjectLegacySupp
      */
     List<Group> findByNameLike(Context context, String groupName, int offset, int limit) throws SQLException;
 
+    List<Group> findByNameLikeManage(Context context, String groupName, int offset, int limit) throws SQLException;
+
     /**
      * Count the number of groups that have a name that contains the given string
      * @param context The DSpace context

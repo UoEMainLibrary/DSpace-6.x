@@ -152,9 +152,14 @@
                 <xsl:if test="dim:field[@element='date' and @qualifier='issued']">
 	                <span class="publisher-date h4">  <small>
 	                    <xsl:text>(</xsl:text>
-	                    <xsl:if test="dim:field[@element='publisher']">
+                        <xsl:if test="dim:field[@element='publisher'][not(@qualifier)]">
 	                        <span class="publisher">
-	                            <xsl:copy-of select="dim:field[@element='publisher']/node()"/>
+                                <xsl:for-each select="dim:field[@element='publisher'][not(@qualifier)]">
+                                    <xsl:copy-of select="node()"/>
+                                    <xsl:if test="count(following-sibling::dim:field[@element='publisher'][not(@qualifier)]) != 0">
+                                        <xsl:text> </xsl:text>
+                                    </xsl:if>
+                                </xsl:for-each>
 	                        </span>
 	                        <xsl:text>, </xsl:text>
 	                    </xsl:if>
@@ -163,6 +168,17 @@
 	                    </span>
 	                    <xsl:text>)</xsl:text>
                         </small></span>
+                </xsl:if>
+                <xsl:if test="dim:field[@element='type'][not(@qualifier)]">
+                    <span class="publication-type h4"><small>
+                        <xsl:text> - </xsl:text>
+                        <xsl:for-each select="dim:field[@element='type'][not(@qualifier)]">
+                            <xsl:copy-of select="node()"/>
+                            <xsl:if test="count(following-sibling::dim:field[@element='type'][not(@qualifier)]) != 0">
+                                <xsl:text> </xsl:text>
+                            </xsl:if>
+                        </xsl:for-each>
+                    </small></span>
                 </xsl:if>
             </div>
             <xsl:if test="dim:field[@element = 'description' and @qualifier='abstract']">
@@ -304,12 +320,17 @@
                         </xsl:choose>
                     </span>
                     <xsl:text> </xsl:text>
-                    <xsl:if test="dim:field[@element='date' and @qualifier='issued'] or dim:field[@element='publisher']">
+                    <xsl:if test="dim:field[@element='date' and @qualifier='issued'] or dim:field[@element='publisher'][not(@qualifier)]">
                         <span class="publisher-date">
                             <xsl:text>(</xsl:text>
-                            <xsl:if test="dim:field[@element='publisher']">
+                            <xsl:if test="dim:field[@element='publisher'][not(@qualifier)]">
                                 <span class="publisher">
-                                    <xsl:copy-of select="dim:field[@element='publisher']/node()"/>
+                                    <xsl:for-each select="dim:field[@element='publisher'][not(@qualifier)]">
+                                        <xsl:copy-of select="node()"/>
+                                        <xsl:if test="count(following-sibling::dim:field[@element='publisher'][not(@qualifier)]) != 0">
+                                            <xsl:text> </xsl:text>
+                                        </xsl:if>
+                                    </xsl:for-each>
                                 </span>
                                 <xsl:text>, </xsl:text>
                             </xsl:if>
@@ -318,6 +339,17 @@
                             </span>
                             <xsl:text>)</xsl:text>
                         </span>
+                    </xsl:if>
+                    <xsl:if test="dim:field[@element='type'][not(@qualifier)]">
+                        <span class="publication-type h4"><small>
+                            <xsl:text> - </xsl:text>
+                            <xsl:for-each select="dim:field[@element='type'][not(@qualifier)]">
+                                <xsl:copy-of select="node()"/>
+                                <xsl:if test="count(following-sibling::dim:field[@element='type'][not(@qualifier)]) != 0">
+                                    <xsl:text> </xsl:text>
+                                </xsl:if>
+                            </xsl:for-each>
+                        </small></span>
                     </xsl:if>
                 </div>
             </div>

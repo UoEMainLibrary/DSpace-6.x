@@ -274,6 +274,7 @@ public interface GroupService extends DSpaceObjectService<Group>, DSpaceObjectLe
      * @throws SQLException if error
      */
     public List<Group> search(Context context, String groupIdentifier, int offset, int limit) throws SQLException;
+    public List<Group> searchManage(Context context, String groupIdentifier, int offset, int limit) throws SQLException;
 
     /**
      * Returns the total number of groups returned by a specific query, without the overhead

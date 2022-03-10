@@ -80,6 +80,7 @@ public class EditPolicyStep extends AbstractStep
             div.addHidden("bitstream_id").setValue(bitstream.getID().toString());
 
         AccessStepUtil asu = new AccessStepUtil(context);
+        asu.getCollection(collection);
 
         asu.addListGroups(String.valueOf(resourcePolicy.getGroup()), edit, errorFlag, collection);
 

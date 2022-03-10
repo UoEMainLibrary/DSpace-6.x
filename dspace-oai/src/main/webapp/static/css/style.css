@@ -10,6 +10,16 @@ pre {
     line-height: 0.8;
 }
 
+.word-break {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
+
+
 .xmlverb-element-name     { color: #990000 }
 .xmlverb-element-nsprefix { color: #666600 }
 .xmlverb-attr-name        { color: #660000 }

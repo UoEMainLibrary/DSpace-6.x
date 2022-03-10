@@ -71,7 +71,9 @@ public class Submissions extends AbstractDSpaceTransformer
     protected static final Message T_s_info2b = 
         message("xmlui.Submission.Submissions.submit_info2b"); 
     protected static final Message T_s_info2c = 
-        message("xmlui.Submission.Submissions.submit_info2c"); 
+        message("xmlui.Submission.Submissions.submit_info2c");
+    protected static final Message T_s_help =
+        message("xmlui.Submission.Submissions.submit_help");
     protected static final Message T_s_column1 = 
         message("xmlui.Submission.Submissions.submit_column1"); 
     protected static final Message T_s_column2 = 
@@ -118,8 +120,8 @@ public class Submissions extends AbstractDSpaceTransformer
         pageMeta.addMetadata("title").addContent(T_title);
         pageMeta.addMetadata("javascript", "static").addContent("static/js/workflow-multiSelect.js");
 
-            pageMeta.addTrailLink(contextPath + "/",T_dspace_home);
-            pageMeta.addTrailLink(null,T_trail);
+            pageMeta.addTrailLink(contextPath + "/", T_dspace_home);
+            pageMeta.addTrailLink(null, T_trail);
 	}
 
     @Override
@@ -141,9 +143,10 @@ public class Submissions extends AbstractDSpaceTransformer
         Division div = body.addInteractiveDivision("submissions", contextPath+"/submissions", Division.METHOD_POST,"primary");
         div.setHead(T_head);
 
-//        this.addWorkflowTasksDiv(div);
+        this.addNewSubmissionButtonDiv(div);
+        this.addWorkflowTasksDiv(div);
         this.addUnfinishedSubmissions(div);
-//        this.addSubmissionsInWorkflowDiv(div);
+        this.addSubmissionsInWorkflowDiv(div);
         this.addPreviousSubmissions(div, displayAll);
 
         context.setMode(originalMode);
@@ -155,11 +158,26 @@ public class Submissions extends AbstractDSpaceTransformer
      * 
      * If the user doesn't have any workflows then don't do anything.
      * 
-     * @param division The division to add the two queues too.
+     * @param division The division to add the two queues to.
      */
     private void addWorkflowTasksDiv(Division division) throws SQLException, WingException, AuthorizeException, IOException {
     	division.addDivision("workflow-tasks");
         }
+
+    /**
+     * If the user has any workflow tasks, either assigned to them or in an
+     * available pool of tasks, then build two tables listing each of these queues.
+     *
+     * If the user doesn't have any workflows then don't do anything.
+     *
+     * @param division The division to add the new button to.
+     */
+    private void addNewSubmissionButtonDiv(Division division) throws SQLException, WingException, AuthorizeException, IOException {
+        Division newsubmission = division.addDivision("new-submission");
+        Para p = newsubmission.addPara();
+        p.addXref(contextPath+"/submit",T_s_info1b);
+        p.addXref("https://libguides.st-andrews.ac.uk/theses/submit",T_s_help);
+    }
 
     /**
      * There are two options:  the user has some unfinished submissions 
@@ -254,7 +272,8 @@ public class Submissions extends AbstractDSpaceTransformer
                 }
                 else
                     row.addCell().addXref(url,T_untitled);
-                row.addCell().addXref(url,collectionName);
+                //row.addCell().addXref(url,collectionName);
+                row.addCell().addContent(collectionName);
                 Cell cell = row.addCell();
                 cell.addContent(T_email);
                 cell.addXref("mailto:"+submitterEmail,submitterName);
@@ -301,7 +320,8 @@ public class Submissions extends AbstractDSpaceTransformer
             {
                 row.addCell().addXref(url, T_untitled);
             }
-            row.addCell().addXref(url,collectionName);
+            //row.addCell().addXref(url,collectionName);
+            row.addCell().addContent(collectionName);
             Cell cell = row.addCell();
             cell.addContent(T_email);
             cell.addXref("mailto:"+submitterEmail,submitterName);
@@ -348,7 +368,8 @@ public class Submissions extends AbstractDSpaceTransformer
             limit = -1;
         } else {
             //Set a default limit of 50
-            limit = 50;
+            // limit set to 5, St Andrews customisation
+            limit = 5;
         }
         Iterator<Item> subs = itemService.findBySubmitterDateSorted(context, context.getCurrentUser(), limit);
 
@@ -377,7 +398,7 @@ public class Submissions extends AbstractDSpaceTransformer
         header.addCellContent(T_c_column3); // COLLECTION NAME (LINKED)
 
         //Limit to showing just 50 archived submissions, unless overridden
-        //(This is a saftey measure for Admins who may have submitted 
+        //(This is a safety measure for Admins who may have submitted
         // thousands of items under their account via bulk ingest tools, etc.)
         int count = 0;
 
@@ -391,7 +412,7 @@ public class Submissions extends AbstractDSpaceTransformer
                 break;
 
             Item published = i.next();
-            String collUrl = contextPath+"/handle/"+published.getOwningCollection().getHandle();
+            //String collUrl = contextPath+"/handle/"+published.getOwningCollection().getHandle();
             String itemUrl = contextPath+"/handle/"+published.getHandle();
             java.util.List<MetadataValue> titles = itemService.getMetadata(published, "dc", "title", null, Item.ANY);
             String collectionName = published.getOwningCollection().getName();
@@ -423,7 +444,8 @@ public class Submissions extends AbstractDSpaceTransformer
                 row.addCell().addXref(itemUrl,T_untitled);
 
             // Owning Collection
-            row.addCell().addXref(collUrl,collectionName);
+            //row.addCell().addXref(collUrl,collectionName);
+            row.addCell().addContent(collectionName);
         }//end while
 
         //Display limit text & link to allow user to override this default limit

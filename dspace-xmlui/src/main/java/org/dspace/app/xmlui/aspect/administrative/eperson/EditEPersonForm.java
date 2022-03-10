@@ -85,6 +85,9 @@ public class EditEPersonForm extends AbstractDSpaceTransformer
 	
 	private static final Message T_error_lname =
 		message("xmlui.administrative.eperson.EditEPersonForm.error_lname");
+
+	private static final Message T_error_netid =
+		message("xmlui.administrative.eperson.EditEPersonForm.error_netid");
 	
 	private static final Message T_req_certs =
 		message("xmlui.administrative.eperson.EditEPersonForm.req_certs");
@@ -135,12 +138,21 @@ public class EditEPersonForm extends AbstractDSpaceTransformer
 	
     private static final Message T_email_address = 
     	message("xmlui.EPerson.EditProfile.email_address");
+
+	private static final Message T_alt_email_address = 
+    	message("xmlui.EPerson.EditProfile.alt_email");
     
     private static final Message T_first_name = 
     	message("xmlui.EPerson.EditProfile.first_name");
     
     private static final Message T_last_name = 
     	message("xmlui.EPerson.EditProfile.last_name");
+
+    private static final Message T_net_id =
+		message("xmlui.EPerson.EditProfile.net_id");
+
+	private static final Message T_student_id =
+		message("xmlui.EPerson.EditProfile.student_id");
     
     private static final Message T_telephone =
     	message("xmlui.EPerson.EditProfile.telephone");
@@ -188,8 +200,11 @@ public class EditEPersonForm extends AbstractDSpaceTransformer
         }
 		
 		String emailValue = eperson.getEmail();
+		String altEmailValue = eperson.getAltEmail();
 		String firstValue = eperson.getFirstName();
 		String lastValue  = eperson.getLastName();
+		String netIDValue  = eperson.getNetid();
+		String studentIDValue  = eperson.getStudentId();
 		String phoneValue = ePersonService.getMetadata(eperson, "phone");
 		boolean canLogInValue = eperson.canLogIn();
 		boolean certificatValue = eperson.getRequireCertificate();
@@ -199,6 +214,10 @@ public class EditEPersonForm extends AbstractDSpaceTransformer
         {
             emailValue = request.getParameter("email_address");
         }
+		if (request.getParameter("alt_email") != null)
+        {
+            emailValue = request.getParameter("alt_email");
+        }
 		if (request.getParameter("first_name") != null)
         {
             firstValue = request.getParameter("first_name");
@@ -207,6 +226,14 @@ public class EditEPersonForm extends AbstractDSpaceTransformer
         {
             lastValue = request.getParameter("last_name");
         }
+		if (request.getParameter("net_id") != null)
+		{
+			netIDValue = request.getParameter("net_id");
+		}
+		if (request.getParameter("student_id") != null)
+		{
+			netIDValue = request.getParameter("student_id");
+		}
 		if (request.getParameter("phone") != null)
         {
             phoneValue = request.getParameter("phone");
@@ -248,6 +275,19 @@ public class EditEPersonForm extends AbstractDSpaceTransformer
         	identity.addLabel(T_email_address);
         	identity.addItem(emailValue);
         }
+
+		// alt email
+		if (admin)
+        {
+	        Text altEmail = identity.addItem().addText("alt_email");
+	        altEmail.setLabel(T_alt_email_address);
+	        altEmail.setValue(altEmailValue);
+        }
+        else
+        {
+        	identity.addLabel(T_alt_email_address);
+        	identity.addItem(altEmailValue);
+        }
         
         if (admin)
         {
@@ -282,8 +322,39 @@ public class EditEPersonForm extends AbstractDSpaceTransformer
         	identity.addLabel(T_last_name);
         	identity.addItem(lastValue);
         }
-        
-        if (admin)
+
+		if (admin)
+		{
+			Text netID = identity.addItem().addText("net_id");
+			netID.setRequired();
+			netID.setLabel(T_net_id);
+			netID.setValue(netIDValue);
+			if (errors.contains("net_id"))
+			{
+				netID.addError(T_error_netid);
+			}
+		}
+		else
+		{
+			identity.addLabel(T_net_id);
+			identity.addItem(netIDValue);
+		}
+
+		// student id
+		if (admin)
+		{
+			Text studentID = identity.addItem().addText("student_id");
+			studentID.setLabel(T_student_id);
+			studentID.setValue(studentIDValue);
+		}
+		else
+		{
+			identity.addLabel(T_student_id);
+			identity.addItem(studentIDValue);
+		}
+
+
+		if (admin)
         {
 	        Text phone = identity.addItem().addText("phone");
 	        phone.setLabel(T_telephone);

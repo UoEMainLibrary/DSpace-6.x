@@ -685,7 +685,6 @@
             <xsl:text>1.6.4</xsl:text>
         </xsl:variable>
 
-
         <script type="text/javascript" src="{concat($scheme, 'ajax.googleapis.com/ajax/libs/jquery/', $jqueryVersion ,'/jquery.min.js')}">&#160;</script>
 
         <xsl:variable name="localJQuerySrc">
@@ -793,6 +792,9 @@
             window.orcid.contextPath= '</xsl:text><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/><xsl:text>';</xsl:text>
             <xsl:text>window.orcid.themePath= '</xsl:text><xsl:value-of select="$theme-path"/><xsl:text>';</xsl:text>
         </script>
+
+        <!-- Add Altmetrics JS -->
+        <!-- <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script> -->
 
     </xsl:template>
     

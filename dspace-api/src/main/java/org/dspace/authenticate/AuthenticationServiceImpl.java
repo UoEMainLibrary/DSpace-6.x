@@ -101,7 +101,8 @@ public class AuthenticationServiceImpl implements AuthenticationService
                             boolean implicitOnly)
     {
         // better is lowest, so start with the highest.
-        int bestRet = AuthenticationMethod.BAD_ARGS;
+        //int bestRet = AuthenticationMethod.BAD_ARGS;
+        int bestRet = AuthenticationMethod.NO_SCHOOL;
 
         // return on first success, otherwise "best" outcome.
         for (AuthenticationMethod aMethodStack : getAuthenticationMethodStack()) {

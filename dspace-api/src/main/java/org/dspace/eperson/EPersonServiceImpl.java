@@ -134,6 +134,27 @@ public class EPersonServiceImpl extends DSpaceObjectServiceImpl<EPerson> impleme
     }
 
     @Override
+    public List<EPerson> searchOrderByLastActive(Context context, String query, int offset, int limit) throws SQLException {
+        try {
+            List<EPerson> ePerson = new ArrayList<>();
+            EPerson person = find(context, UUID.fromString(query));
+            if(person != null)
+            {
+                ePerson.add(person);
+            }
+            return ePerson;
+        } catch(IllegalArgumentException e) {
+            MetadataField firstNameField = metadataFieldService.findByElement(context, "eperson", "firstname", null);
+            MetadataField lastNameField = metadataFieldService.findByElement(context, "eperson", "lastname", null);
+            if (StringUtils.isBlank(query))
+            {
+                query = null;
+            }
+            return ePersonDAO.searchOrderByLastActive(context, query, Arrays.asList(firstNameField, lastNameField), Arrays.asList(firstNameField, lastNameField), offset, limit);
+        }
+    }
+
+    @Override
     public int searchResultCount(Context context, String query) throws SQLException {
         MetadataField firstNameField = metadataFieldService.findByElement(context, "eperson", "firstname", null);
         MetadataField lastNameField = metadataFieldService.findByElement(context, "eperson", "lastname", null);

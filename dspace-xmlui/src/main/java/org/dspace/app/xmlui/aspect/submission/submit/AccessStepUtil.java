@@ -67,6 +67,16 @@ public class AccessStepUtil extends AbstractDSpaceTransformer {
 
     private static final Message T_label_date_help =
             message("xmlui.administrative.authorization.AccessStep.label_date_help");
+    private static final Message T_label_date_help1 =
+            message("xmlui.administrative.authorization.AccessStep.label_date_help1");
+    private static final Message T_label_date_help2 =
+            message("xmlui.administrative.authorization.AccessStep.label_date_help2");
+    private static final Message T_label_date_help3 =
+            message("xmlui.administrative.authorization.AccessStep.label_date_help3");
+    private static final Message T_label_date_help4 =
+            message("xmlui.administrative.authorization.AccessStep.label_date_help4");
+    private static final Message T_label_date_help5 =
+            message("xmlui.administrative.authorization.AccessStep.label_date_help5");
     private static final Message T_label_date_displayonly_help =
             message("xmlui.administrative.authorization.AccessStep.label_date_displayonly_help");
 
@@ -81,6 +91,9 @@ public class AccessStepUtil extends AbstractDSpaceTransformer {
     private String globalReason = null;
 
     private boolean isAdvancedFormEnabled=false;
+
+    //collection added for conditional form rendering
+    private Collection coll;
 
     public AccessStepUtil(Context c){
         isAdvancedFormEnabled=DSpaceServicesFactory.getInstance().getConfigurationService().getBooleanProperty("webui.submission.restrictstep.enableAdvancedForm", false);
@@ -100,6 +113,10 @@ public class AccessStepUtil extends AbstractDSpaceTransformer {
     }
 
     public void addReason(String reason_, List form, int errorFlag) throws WingException {
+        /*
+         DO NOT WANT EMBARGO YET
+
+
         TextArea reason = form.addItem("reason", null).addTextArea("reason");
         reason.setLabel(T_reason);
 	    reason.setHelp(T_reason_help);
@@ -111,7 +128,7 @@ public class AccessStepUtil extends AbstractDSpaceTransformer {
         else{
             if(reason_!=null && errorFlag != org.dspace.submit.step.AccessStep.STATUS_COMPLETE)
                 reason.setValue(reason_);
-        }
+        }*/
     }
 
     public void addListGroups(String groupID, List form, int errorFlag, Collection owningCollection) throws WingException, SQLException {
@@ -177,7 +194,23 @@ public class AccessStepUtil extends AbstractDSpaceTransformer {
             // Date
             Text startDate = radiosAndDate.addText("embargo_until_date");
             startDate.setLabel("");
-            startDate.setHelp(T_label_date_help);
+
+            if(coll.getName().equals("Library Theses"))
+            {
+                form.addItem(T_label_date_help1);
+                form.addItem(T_label_date_help2);
+                form.addItem(T_label_date_help3);
+                form.addItem(T_label_date_help4);
+                form.addItem(T_label_date_help5);
+            }
+            else if (coll.getName() == null){
+                startDate.setHelp(T_label_date_help);
+            }
+            else
+            {
+                startDate.setHelp(T_label_date_help);
+            }
+            
             if (errorFlag == org.dspace.submit.step.AccessStep.STATUS_ERROR_FORMAT_DATE){
                 startDate.addError(T_error_date_format);
             }
@@ -222,10 +255,26 @@ public class AccessStepUtil extends AbstractDSpaceTransformer {
         if (dso != null) {
             populateEmbargoDetail(dso, startDate);
         }
-        startDate.setHelp(T_label_date_help);
+
+        if(coll.getName().equals("Library Theses"))
+        {
+            form.addItem(T_label_date_help1);
+            form.addItem(T_label_date_help2);
+            form.addItem(T_label_date_help3);
+            form.addItem(T_label_date_help4);
+            form.addItem(T_label_date_help5);
+        }
+        else if (coll.getName() == null){
+            startDate.setHelp(T_label_date_help);
+        }
+        else
+        {
+            startDate.setHelp(T_label_date_help);
+        }
     }
 
     public void addTablePolicies(Division parent, DSpaceObject dso, Collection owningCollection) throws WingException, SQLException {
+
 	    if (!isAdvancedFormEnabled) {
 		    return;
 	    }
@@ -303,6 +352,7 @@ public class AccessStepUtil extends AbstractDSpaceTransformer {
     }
 
 	public void addListPolicies(List parent, DSpaceObject dso, Collection owningCollection) throws WingException, SQLException {
+
 		if (!isAdvancedFormEnabled) {
 			return;
 		}
@@ -352,4 +402,8 @@ public class AccessStepUtil extends AbstractDSpaceTransformer {
 		}
 
 	}
+
+    public void getCollection(Collection c){
+        this.coll = c;
+    }
 }

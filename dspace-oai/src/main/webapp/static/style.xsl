@@ -693,7 +693,7 @@
 
     <!-- text nodes -->
     <xsl:template match="text()" mode="xmlverb">
-        <span class="xmlverb-text">
+        <span class="xmlverb-text word-break">
             <xsl:call-template name="preformatted-output">
                 <xsl:with-param name="text">
                     <xsl:call-template name="html-replace-entities">

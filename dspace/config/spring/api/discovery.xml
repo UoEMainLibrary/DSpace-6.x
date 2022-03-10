@@ -97,8 +97,8 @@
         <!--Which sidebar facets are to be displayed-->
         <property name="sidebarFacets">
             <list>
-                <ref bean="searchFilterAuthor" />
-                <ref bean="searchFilterSubject" />
+                <ref bean="searchFilterName" />
+                <!--<ref bean="searchFilterSubject" />-->
                 <ref bean="searchFilterIssued" />
 		        <ref bean="searchFilterContentInOriginalBundle"/>
             </list>
@@ -109,9 +109,12 @@
         <property name="searchFilters">
             <list>
                 <ref bean="searchFilterTitle" />
-                <ref bean="searchFilterAuthor" />
-                <ref bean="searchFilterSubject" />
+                <ref bean="searchFilterName" />
+                <!--<ref bean="searchFilterSubject" />-->
+                <ref bean="searchFilterType" />
                 <ref bean="searchFilterIssued" />
+                <ref bean="searchFilterClassification" />
+                <ref bean="searchFilterSponsor" />
 		        <ref bean="searchFilterContentInOriginalBundle"/>
                 <ref bean="searchFilterFileNameInOriginalBundle" />
                 <ref bean="searchFilterFileDescriptionInOriginalBundle" />
@@ -143,7 +146,7 @@
             <bean class="org.dspace.discovery.configuration.DiscoveryRecentSubmissionsConfiguration">
                 <property name="metadataSortField" value="dc.date.accessioned" />
                 <property name="type" value="date"/>
-                <property name="max" value="20"/>
+                <property name="max" value="5"/>
                 <!-- If enabled the collection home page will not display metadata but show a pageable list of recent submissions -->
                 <property name="useAsHomePage" value="false"/>
             </bean>
@@ -187,8 +190,10 @@
                     <list>
                         <value>dc.title</value>
                         <value>dc.contributor.author</value>
+                        <value>dc.contributor.sponsor</value>
                         <value>dc.creator</value>
                         <value>dc.subject</value>
+                        <value>dc.type</value>
                     </list>
                 </property>
                 <!--The minimum number of matching terms across the metadata fields above before an item is found as related -->
@@ -209,8 +214,9 @@
         <!--Which sidebar facets are to be displayed (same as defaultConfiguration above)-->
         <property name="sidebarFacets">
             <list>
-                <ref bean="searchFilterAuthor" />
-                <ref bean="searchFilterSubject" />
+                <ref bean="searchFilterName" />
+                <!--<ref bean="searchFilterSubject" />-->
+                <ref bean="searchFilterType" />
                 <ref bean="searchFilterIssued" />
 		        <ref bean="searchFilterContentInOriginalBundle"/>
             </list>
@@ -221,9 +227,12 @@
         <property name="searchFilters">
             <list>
                 <ref bean="searchFilterTitle" />
-                <ref bean="searchFilterAuthor" />
-                <ref bean="searchFilterSubject" />
+                <ref bean="searchFilterName" />
+                <!--<ref bean="searchFilterSubject" />-->
+                <ref bean="searchFilterType" />
                 <ref bean="searchFilterIssued" />
+                <ref bean="searchFilterClassification" />
+                <ref bean="searchFilterSponsor" />
 		        <ref bean="searchFilterContentInOriginalBundle"/>
                 <ref bean="searchFilterFileNameInOriginalBundle" />
                 <ref bean="searchFilterFileDescriptionInOriginalBundle" />
@@ -288,25 +297,25 @@
     <!--TagCloud configuration bean for homepage discovery configuration-->
     <bean id="homepageTagCloudFacetConfiguration" class="org.dspace.discovery.configuration.TagCloudFacetConfiguration">
         <!-- Actual configuration of the tagcloud (colors, sorting, etc.) -->
-        <property name="tagCloudConfiguration" ref="tagCloudConfiguration"/>
+        <!--<property name="tagCloudConfiguration" ref="tagCloudConfiguration"/>-->
         <!-- List of tagclouds to appear, one for every search filter, one after the other -->
-        <property name="tagCloudFacets">
+        <!--<property name="tagCloudFacets">
             <list>
                 <ref bean="searchFilterSubject" />
             </list>
-        </property>
+        </property>-->
     </bean>
     
      <!--TagCloud configuration bean for default discovery configuration-->
     <bean id="defaultTagCloudFacetConfiguration" class="org.dspace.discovery.configuration.TagCloudFacetConfiguration">
         <!-- Actual configuration of the tagcloud (colors, sorting, etc.) -->
-        <property name="tagCloudConfiguration" ref="tagCloudConfiguration"/>
+        <!--<property name="tagCloudConfiguration" ref="tagCloudConfiguration"/>-->
         <!-- List of tagclouds to appear, one for every search filter, one after the other -->
-        <property name="tagCloudFacets">
+        <!--<property name="tagCloudFacets">
             <list>
                 <ref bean="searchFilterSubject" />
             </list>
-        </property>
+        </property>-->
     </bean>
     
     <bean id="tagCloudConfiguration" class="org.dspace.discovery.configuration.TagCloudConfiguration">
@@ -394,22 +403,74 @@
                 <value>dc.creator</value>
             </list>
         </property>
-        <property name="facetLimit" value="10"/>
+        <property name="facetLimit" value="5"/>
         <property name="sortOrderSidebar" value="COUNT"/>
         <property name="sortOrderFilterPage" value="COUNT"/>
     </bean>
 
-    <bean id="searchFilterSubject" class="org.dspace.discovery.configuration.HierarchicalSidebarFacetConfiguration">
+    <bean id="searchFilterName" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="author"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.contributor.author</value>
+                <value>dc.contributor.advisor</value>
+                <value>dc.creator</value>
+            </list>
+        </property>
+        <property name="facetLimit" value="5"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+
+    <bean id="searchFilterSponsor" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="sponsor"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.contributor.sponsor</value>
+            </list>
+        </property>
+        <property name="facetLimit" value="5"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+
+    <!--<bean id="searchFilterSubject" class="org.dspace.discovery.configuration.HierarchicalSidebarFacetConfiguration">
         <property name="indexFieldName" value="subject"/>
         <property name="metadataFields">
             <list>
-                <value>dc.subject.*</value>
+                <value>dc.subject</value>
+                <value>dc.subject.lcsh</value>
             </list>
         </property>
         <property name="facetLimit" value="10"/>
         <property name="sortOrderSidebar" value="COUNT"/>
         <property name="sortOrderFilterPage" value="COUNT"/>
         <property name="splitter" value="::"/>
+    </bean>-->
+
+    <bean id="searchFilterClassification" class="org.dspace.discovery.configuration.HierarchicalSidebarFacetConfiguration">
+        <property name="indexFieldName" value="subject"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.subject.lcc</value>
+            </list>
+        </property>
+        <property name="facetLimit" value="5"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+        <property name="splitter" value="::"/>
+    </bean>
+
+    <bean id="searchFilterType" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="type"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.type</value>
+            </list>
+        </property>
+        <property name="facetLimit" value="5"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
     </bean>
 
     <bean id="searchFilterIssued" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">

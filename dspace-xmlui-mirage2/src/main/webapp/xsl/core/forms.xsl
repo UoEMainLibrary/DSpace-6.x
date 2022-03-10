@@ -1377,9 +1377,23 @@
     <xsl:template match="dri:help" mode="help">
         <!--Only create the <span> if there is content in the <dri:help> node-->
         <xsl:if test="./text() or ./node()">
-            <p class="help-block">
-                <xsl:apply-templates />
-            </p>
+            <xsl:choose>
+                <xsl:when test="contains(./text(), 'Please enter one word or phrase per box.') or contains(./node(), 'Please enter one word or phrase per box.')">
+                    <p class="help-block bold-format">
+                        <xsl:apply-templates />
+                    </p>
+                </xsl:when>
+                <xsl:when test="contains(./text(), 'Please fill in this field only if you have chosen to embargo your thesis.') or contains(./node(), 'Please fill in this field only if you have chosen to embargo your thesis.')">
+                    <p class="help-block list-format">
+                        <xsl:apply-templates />
+                    </p>
+                </xsl:when>
+                <xsl:otherwise>
+                    <p class="help-block">
+                            <xsl:apply-templates />
+                    </p>
+                </xsl:otherwise>
+            </xsl:choose>
         </xsl:if>
     </xsl:template>
 

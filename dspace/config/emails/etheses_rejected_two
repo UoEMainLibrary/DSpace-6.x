@@ -1,0 +1,61 @@
+# E-mail sent to remind students to submit to E-Theses
+#
+# Parameters: {0} Student Name
+#             {1} Student ID
+#             {2} Submission Title
+#             {3} Rejector Name
+#             {4} Rejection Reason
+#
+Subject: Repository: Submission Returned for Clarification ({0}, {1})
+
+<div style="font-family: Arial, sans-serif; font-size: 16px;">
+    <p>You submitted: 	{2}</p>
+    <p style="margin-bottom: 15px;">To collection: 	Library Theses</p>
+    <p>Your submission has been returned for clarification for the following reason(s):</p>
+    <p style="margin-bottom: 15px;"><strong>********</strong></p>
+    <div style="margin-bottom: 15px;">{4}</div>
+    <p style="margin-bottom: 15px;"><strong>********</strong></p>
+    <p>Please ensure you address this as soon as possible and resubmit your thesis, using the same process.</p>
+    <p>For any queries, please contact <a href="mailto:digirep@st-andrews.ac.uk">digirep@st-andrews.ac.uk</a> to discuss this in more detail<p>
+    <p><strong>How to resubmit to the Repository</strong></p>
+    <p>You can return to your submission to edit the metadata and to replace/remove/upload full text files. We advise you to have all the information you need, e.g., versions of new full text files, ready in advance of going back to do the resubmission.</p>
+    <ul style="margin-bottom: 25px;">
+        <li>Go to <a href="https://research-repository-test.st-andrews.ac.uk/submissions">https://research-repository-test.st-andrews.ac.uk/submissions</a>.</li>
+        <li>On the Submissions &amp; Workflow tasks page click on the title of your submission.</li>
+        <li>On the Item Submission page scroll to the bottom of the page and click on Resume.</li>
+        <li>On the following Item Submission pages make the changes that are required.</li>
+        <li>Once you have made all your changes then click on the Next button to navigate to the last page in the submission process.</li>
+        <li>You will need to Grant the Deposit Licence again and then click on Complete the Submission to resubmit.</li>
+        <li>If at any time you need to suspend the resubmission then you can click on Save & Exit. On the next screen you can then choose to save your submission to work on later.</li>
+    </ul>
+    <p>David Collins</p>
+    <p>Janet Aucock</p>
+    <p>Library E-Theses Team</p>
+</div>
+<hr>
+<div style="font-family: Arial, sans-serif; text-align: center;">
+<p style="text-align: center;"><img src="https://research-repository.st-andrews.ac.uk/themes/Mirage2/images/01-foundation-black-text.png" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="font-family: Arial, sans-serif;">
+        <tr>
+            <td align="right" valign="top" style="float: right; border-right: 1px solid; margin-right: 1px;">
+                <p style="font-size: 14px; color: #44546A; margin-right: 25px;">For administrative queries:</p>
+                <p style="margin: 0px; padding: 0px; margin-top: 15px; margin-right: 25px; font-size: 18px;">Postgraduate Research</p>
+                <p style="margin: 0px; padding: 0px; font-size: 18px; margin-right: 25px;">Academic Registry</p>
+                <p style="margin: 0px; padding: 0px; margin-top: 15px; margin-right: 25px;">Tel: +44 (0) 1334 463084</p>
+                <p style="margin: 0px; padding: 0px; margin-right: 25px;">Email: <a href="mailto:registry-pgr@st-andrews.ac.uk">registry-pgr@st-andrews.ac.uk</a></p>
+            </td>
+            <td width="1px"></td>
+            <td align="left" valign="top" style="border-left: 1px solid;">
+                <p style="font-size: 14px; margin-left: 25px;">For queries regarding the digital repository:</p>
+                <p style="margin: 0px; padding: 0px; margin-top: 15px; margin-left: 25px; font-size: 18px;">St Andrews Research Repository</p>
+                <p style="margin: 0px; padding: 0px; margin-top: 15px; margin-left: 25px;"><a href="https://research-repository.st-andrews.ac.uk/">https://research-repository.st-andrews.ac.uk/</a></p>
+                <p style="margin: 0px; padding: 0px; margin-top: 15px; margin-left: 25px;">Tel: +44 (0) 1334 462302/462299</p>
+                <p style="margin: 0px; padding: 0px; margin-left: 25px;">Email: <a href="mailto:digirep@st-andrews.ac.uk">digirep@st-andrews.ac.uk</a></p>
+            </td>
+        </tr>
+    </table>
+</div>
+<div style="font-family: Arial, sans-serif;">
+    <p style="font-size: 18px;  text-align: center; margin-top: 50px;">Walter Bower House, Eden Campus, Main Street, Guardbridge, Fife, KY16 0US</p>
+    <p style="margin: 0px; padding: 0px; text-align: center; color: #44546A;">The University of St Andrews is a charity registered in Scotland: No SC013532</p> 
+</div>

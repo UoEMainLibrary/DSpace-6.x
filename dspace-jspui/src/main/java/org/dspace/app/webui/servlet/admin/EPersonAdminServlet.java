@@ -206,7 +206,7 @@ public class EPersonAdminServlet extends DSpaceServlet
                 }
             }
             else
-            {
+            {                
                 // no change to email
                 if (netid != null)
                 {

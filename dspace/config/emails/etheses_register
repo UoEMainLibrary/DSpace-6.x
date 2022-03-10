@@ -1,0 +1,67 @@
+# E-mail sent to inform students to register for submitting to E-Theses
+#
+# Parameters: {0} Student Name
+#             {1} Student ID
+#
+Subject: Outcome email and Repository guidance ({0}, {1}) [Registry staff sends manually to {0} inviting them to register with Digital Repository]
+
+<div>
+    <p style="font-size: 16px;">Congratulations on the successful completion of your thesis.</p>
+</div>
+<div style="font-family: Arial, sans-serif; font-size: 16px;">
+    <p style="padding-bottom: 5px;">Dear {0},</p>
+    <p>Congratulations on the successful completion of your thesis.</p>
+    <p style="margin: 0px; padding: 0px;">Please find attached a letter from the Associate Provost Education for your information.</p> 
+    <p style="padding-bottom: 5px; margin: 0px; padding: 0px; margin-top: -20px;">Should you have any queries regarding graduation, please contact the Graduation Office (<a  style="margin: 0px; padding: 0px" href="mailto:graduation@st-andrews.ac.uk">graduation@st-andrews.ac.uk</a>).</p>
+    <p style="padding-bottom: 5px; font-size: 14px;">We now require you to make the submission of the final examined version of your thesis to the St Andrews Research Repository. Please follow these instructions.</p>
+    <p>REGISTRATION</p>
+    <p>Please go to the final task in MySaint in order to register with the St Andrews Research Repository.</p>
+    <p>Please enter:</p>
+    <ol>
+        <li>Your St Andrews username and password in the boxes at the top of the display.</li>
+        <li>A long-term contact email address.</li>
+        <li>Details of your school and department. (This enables us to assign your thesis to the correct repository collection after you’ve completed your submission).</li>
+        <li>Please click on the <b><u>Register</u></b> button which will send your registration details to the repository administrator.</li>
+    </ol>
+    <p>We will complete your registration and send confirmation to you as soon as we can, (usually within one working day). We will send this confirmation to your St Andrews email address unless you indicate an alternative, preferred contact email address.</p>
+    <p style="font-size: 18px;"><u>Please note that you will not be able to continue with the submission until you receive this confirmation, so</u></p>
+    <ol>
+        <li style="font-size: 18px;"><u>please log out of the St Andrews Research Repository after you have completed this initial registration.</u></p>
+    </ol>
+    <p style="padding-bottom: 5px;">Once you have received acknowledgement of your registration you can login again, by entering your St Andrews Username and Password, in order to make your submission.</p>
+    <p>SUBMISSION</p>
+</div>
+<hr>
+<div style="font-family: Arial, sans-serif; font-size: 16px;">
+    <p>Thank you,</p> 
+    <p>David Collins</p>
+    <p>Janet Aucock</p>
+    <p>St Andrews Research Repository</p>
+</div>
+<hr>
+<div style="font-family: Arial, sans-serif; text-align: centre;">
+<p style="text-align: center;"><img src="https://research-repository.st-andrews.ac.uk/themes/Mirage2/images/01-foundation-black-text.png" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="font-family: Arial, sans-serif;">
+        <tr>
+            <td align="right" valign="top" style="float: right; border-right: 1px solid; margin-right: 1px;">
+                <p style="font-size: 14px; margin-right: 25px;">For administrative queries:</p>
+                <p style="margin: 0px; padding: 0px; margin-top: 15px; margin-right: 25px; font-size: 18px;">Postgraduate Research</p>
+                <p style="margin: 0px; padding: 0px; font-size: 18px; margin-right: 25px;">Academic Registry</p>
+                <p style="margin: 0px; padding: 0px; margin-top: 15px; margin-right: 25px;">Tel: +44 (0) 1334 463084</p>
+                <p style="margin: 0px; padding: 0px; margin-right: 25px;">Email: <a href="mailto:registry-pgr@st-andrews.ac.uk">registry-pgr@st-andrews.ac.uk</a></p>
+            </td>
+            <td width="1px"></td>
+            <td align="left" valign="top" style="border-left: 1px solid;">
+                <p style="font-size: 14px; margin-left: 25px;">For queries regarding the digital repository:</p>
+                <p style="margin: 0px; padding: 0px; margin-top: 15px; margin-left: 25px; font-size: 18px;">St Andrews Research Repository</p>
+                <p style="margin: 0px; padding: 0px; margin-top: 15px; margin-left: 25px;"><a href="https://research-repository.st-andrews.ac.uk/">https://research-repository.st-andrews.ac.uk/</a></p>
+                <p style="margin: 0px; padding: 0px; margin-top: 15px; margin-left: 25px;">Tel: +44 (0) 1334 462302/462299</p>
+                <p style="margin: 0px; padding: 0px; margin-left: 25px;">Email: <a href="mailto:digirep@st-andrews.ac.uk">digirep@st-andrews.ac.uk</a></p>
+            </td>
+        </tr>
+    </table>
+</div>
+<div style="font-family: Arial, sans-serif;">
+    <p style="font-size: 18px;  text-align: center; margin-top: 50px;">Walter Bower House, Eden Campus, Main Street, Guardbridge, Fife, KY16 0US</p>
+    <p style="margin: 0px; padding: 0px; text-align: center;">The University of St Andrews is a charity registered in Scotland: No SC013532</p> 
+</div>

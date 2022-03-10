@@ -95,6 +95,9 @@ public interface EPersonService extends DSpaceObjectService<EPerson>, DSpaceObje
     public List<EPerson> search(Context context, String query, int offset, int limit)
             throws SQLException;
 
+    public List<EPerson> searchOrderByLastActive(Context context, String query, int offset, int limit)
+            throws SQLException;
+
     /**
      * Returns the total number of epeople returned by a specific query, without the overhead
      * of creating the EPerson objects to store the results.

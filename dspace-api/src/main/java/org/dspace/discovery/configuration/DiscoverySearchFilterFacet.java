@@ -16,7 +16,7 @@ package org.dspace.discovery.configuration;
  */
 public class DiscoverySearchFilterFacet extends DiscoverySearchFilter {
 
-    private static final int DEFAULT_FACET_LIMIT = 10;
+    private static final int DEFAULT_FACET_LIMIT = 5;
     private int facetLimit = -1;
     private DiscoveryConfigurationParameters.SORT sortOrderSidebar = DiscoveryConfigurationParameters.SORT.COUNT;
     private DiscoveryConfigurationParameters.SORT sortOrderFilterPage = DiscoveryConfigurationParameters.SORT.COUNT;

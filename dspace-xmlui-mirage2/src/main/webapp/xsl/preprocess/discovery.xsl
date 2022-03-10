@@ -75,10 +75,10 @@
             </xsl:attribute>
             <div rend="clearfix">
                 <p rend="pull-right">
-                    <xref target="#" rend="show-advanced-filters">
+                    <xref target="#" rend="show-advanced-filters hidden">
                         <i18n:text>xmlui.mirage2.discovery.showAdvancedFilters</i18n:text>
                     </xref>
-                    <xref target="#" rend="hide-advanced-filters hidden">
+                    <xref target="#" rend="hide-advanced-filters">
                         <i18n:text>xmlui.mirage2.discovery.hideAdvancedFilters</i18n:text>
                     </xref>
                 </p>
@@ -93,7 +93,7 @@
             <xsl:call-template name="copy-attributes"/>
             <xsl:attribute name="rend">
                 <xsl:value-of select="@rend"/>
-                <xsl:text> hidden</xsl:text>
+                <xsl:text></xsl:text>
             </xsl:attribute>
             <xsl:apply-templates/>
         </div>

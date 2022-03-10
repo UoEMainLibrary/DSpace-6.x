@@ -157,14 +157,15 @@
         <div class="row ds-artifact-item ">
 
             <!--Generates thumbnails (if present)-->
-            <div class="col-sm-3 hidden-xs">
+            <!--<div class="col-sm-3 hidden-xs">
                 <xsl:apply-templates select="$metsDoc/mets:METS/mets:fileSec" mode="artifact-preview">
                     <xsl:with-param name="href" select="concat($context-path, '/handle/', $handle)"/>
                 </xsl:apply-templates>
             </div>
 
 
-            <div class="col-sm-9 artifact-description">
+            <div class="col-sm-9 artifact-description">-->
+            <div class="col-sm-12 artifact-description">
                 <xsl:element name="a">
                     <xsl:attribute name="href">
                         <xsl:choose>
@@ -247,7 +248,12 @@
                             <xsl:text>(</xsl:text>
                             <xsl:if test="dri:list[@n=(concat($handle, ':dc.publisher'))]">
                                 <span class="publisher">
-                                    <xsl:apply-templates select="dri:list[@n=(concat($handle, ':dc.publisher'))]/dri:item"/>
+                                    <xsl:for-each select="dri:list[@n=(concat($handle, ':dc.publisher'))]/dri:item">
+                                        <xsl:apply-templates select="."/>
+                                        <xsl:if test="count(following-sibling::dri:item) != 0">
+                                            <xsl:text> </xsl:text>
+                                        </xsl:if>
+                                    </xsl:for-each>
                                 </span>
                                 <xsl:text>, </xsl:text>
                             </xsl:if>
@@ -257,6 +263,18 @@
                             </span>
                             <xsl:text>)</xsl:text>
                             </small></span>
+                    </xsl:if>
+                    <xsl:if test="dri:list[@n=(concat($handle, ':dc.type'))]">
+                        <xsl:text> - </xsl:text>
+                        <span class="publication-type"><small>
+                            <xsl:for-each select="dri:list[@n=(concat($handle, ':dc.type'))]/dri:item">
+                                <xsl:apply-templates select="."/>
+                                <xsl:if test="count(following-sibling::dri:item) != 0">
+                                    <xsl:text> </xsl:text>
+                                </xsl:if>
+                            </xsl:for-each>
+                        </small></span>
+                        <!--<xsl:text>, </xsl:text>-->
                     </xsl:if>
                     <xsl:choose>
                         <xsl:when test="dri:list[@n=(concat($handle, ':dc.description.abstract'))]/dri:item/dri:hi">
@@ -290,7 +308,8 @@
     </xsl:template>
 
     <xsl:template match="dri:div[@id='aspect.discovery.SimpleSearch.div.discovery-filters-wrapper']/dri:head">
-        <h3 class="ds-div-head discovery-filters-wrapper-head hidden">
+        <!--<h3 class="ds-div-head discovery-filters-wrapper-head hidden">-->
+        <h3 class="ds-div-head discovery-filters-wrapper-head">
             <xsl:apply-templates/>
         </h3>
     </xsl:template>
@@ -386,6 +405,16 @@
     </xsl:template>
 
     <xsl:template match="dri:table[@id='aspect.discovery.SimpleSearch.table.discovery-filters']/dri:row">
+        <xsl:variable name="display-value">
+            <xsl:choose>
+                <xsl:when test="dri:cell/dri:field[@rend = 'discovery-filter-display-value']/dri:value">
+                    <xsl:value-of select="stringescapeutils:escapeEcmaScript(dri:cell/dri:field[@rend = 'discovery-filter-display-value']/dri:value)"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="stringescapeutils:escapeEcmaScript(dri:cell/dri:field[@rend = 'discovery-filter-input']/dri:value)"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
         <script type="text/javascript">
             <xsl:text>
                 if (!window.DSpace) {
@@ -401,6 +430,7 @@
                     type: '</xsl:text><xsl:value-of select="stringescapeutils:escapeEcmaScript(dri:cell/dri:field[starts-with(@n, 'filtertype')]/dri:value/@option)"/><xsl:text>',
                     relational_operator: '</xsl:text><xsl:value-of select="stringescapeutils:escapeEcmaScript(dri:cell/dri:field[starts-with(@n, 'filter_relational_operator')]/dri:value/@option)"/><xsl:text>',
                     query: '</xsl:text><xsl:value-of select="stringescapeutils:escapeEcmaScript(dri:cell/dri:field[@rend = 'discovery-filter-input']/dri:value)"/><xsl:text>',
+                    display_value: '</xsl:text><xsl:value-of select="$display-value"/><xsl:text>'
                 });
             </xsl:text>
         </script>

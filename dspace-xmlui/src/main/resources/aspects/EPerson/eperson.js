@@ -376,8 +376,9 @@ function updateInformation(eperson)
 	// Get the parameters from the form
 	var lastName = cocoon.request.getParameter("last_name");
 	var firstName = cocoon.request.getParameter("first_name");
+	var netID = cocoon.request.getParameter("net_id");
 	var phone = cocoon.request.getParameter("phone");
-        var language = cocoon.request.getParameter("language");
+    var language = cocoon.request.getParameter("language");
 
     // first, check that each parameter is filled in before setting anything.
 	var idx = 0;
@@ -392,7 +393,12 @@ function updateInformation(eperson)
 	{
 	    errors[idx++] = "last_name";
 	}
-	
+
+	if (netID == null || netID.equals(""))
+    {
+        errors[idx++] = "net_id";
+    }
+
 	if (idx > 0) 
 	{
 	    // There were errors
@@ -401,6 +407,7 @@ function updateInformation(eperson)
 	
 	eperson.setFirstName(getDSContext(), firstName);
 	eperson.setLastName(getDSContext(), lastName);
+	eperson.setNetid(netID);
 	
     getEPersonService().setMetadata(getDSContext(), eperson, "phone", phone);
     eperson.setLanguage(getDSContext(), language);

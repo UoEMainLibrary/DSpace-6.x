@@ -26,10 +26,6 @@
         });
     }
 
-
-
-
-
     function getAdvancedFiltersTemplate() {
         if (!advanced_filters_template) {
             advanced_filters_template = DSpace.getTemplate('discovery_advanced_filters');
@@ -87,6 +83,12 @@
             query: query
         };
         replaceFilter(filter);
+        // 12-03-19
+        // Showfilters is a function added way back to toggle 'advanced filters's visibility
+        // Here, in updateFilterValue it gets called whenever onchange in the text input is fired
+        // this meant that every time the value is changed the display animation is reenacted
+        // updateFilterValues is only called on text input change so I don't understand why it's here to begin with
+        // showFilters();
     }
 
     function replaceFilter(filter) {
@@ -114,6 +116,13 @@
             }
         }
         calculateFilterIndices();
+    }
+
+    function removeFilters() {
+            //console.log("in remove filters");
+            DSpace.discovery.orig_filters.splice(0, DSpace.discovery.orig_filters.length);
+            DSpace.discovery.filters.splice(0, DSpace.discovery.filters.length);
+            calculateFilterIndices();
     }
 
     function renderAdvancedFilterSection() {
@@ -222,9 +231,11 @@
         });
 
         $('#aspect_discovery_SimpleSearch_field_submit_reset_filter').click(function() {
+            removeFilters();
             restoreOriginalFilters();
             calculateFilterIndices();
             renderAdvancedFilterSection();
+            showFilters();
             return false;
         });
 
@@ -283,6 +294,16 @@
 
     function restoreOriginalFilters() {
         DSpace.discovery.filters = DSpace.discovery.orig_filters.slice(0);
+    }
+
+    function showFilters() {
+            //console.log("in showFilters");
+            var wrapper = $('#aspect_discovery_SimpleSearch_div_discovery-filters-wrapper');
+            wrapper.parent().find('.discovery-filters-wrapper-head').hide().removeClass('hidden').fadeIn(200);
+            wrapper.hide().removeClass('hidden').slideDown(200);
+            $(this).addClass('hidden');
+            $('.hide-advanced-filters').removeClass('hidden');
+            $('.show-advanced-filters').addClass('hidden');
     }
 
 })(jQuery);

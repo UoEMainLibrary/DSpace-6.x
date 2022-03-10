@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.cocoon.environment.ObjectModelHelper;
 import org.apache.cocoon.environment.Request;
+import org.apache.log4j.Logger;
 import org.dspace.app.xmlui.utils.UIException;
 import org.dspace.app.xmlui.aspect.submission.AbstractSubmissionStep;
 import org.dspace.app.xmlui.wing.Message;
@@ -57,6 +58,8 @@ import org.xml.sax.SAXException;
  */
 public class CCLicenseStep extends AbstractSubmissionStep
 {
+	/** log4j logger */
+	private static Logger log = Logger.getLogger(CCLicenseStep.class);
 	/** Language Strings **/
     protected static final Message T_head = 
         message("xmlui.Submission.submit.CCLicenseStep.head");
@@ -64,17 +67,20 @@ public class CCLicenseStep extends AbstractSubmissionStep
             message("xmlui.Submission.submit.CCLicenseStep.submit_choose_creative_commons");
     protected static final Message T_info1 = 
         message("xmlui.Submission.submit.CCLicenseStep.info1");
+	protected static final Message T_info2 = 
+        message("xmlui.Submission.submit.CCLicenseStep.info2");
     protected static final Message T_submit_to_creative_commons = 
         message("xmlui.Submission.submit.CCLicenseStep.submit_to_creative_commons");
         protected static final Message T_submit_issue_creative_commons =
             message("xmlui.Submission.submit.CCLicenseStep.submit_issue_creative_commons");
     protected static final Message T_license = 
         message("xmlui.Submission.submit.CCLicenseStep.license");
-        protected static final Message T_submit_remove = message("xmlui.Submission.submit.CCLicenseStep.submit_remove");
-        protected static final Message T_no_license    = message("xmlui.Submission.submit.CCLicenseStep.no_license");
-        protected static final Message T_select_change = message("xmlui.Submission.submit.CCLicenseStep.select_change");
-        protected static final Message T_save_changes  = message("xmlui.Submission.submit.CCLicenseStep.save_changes");
-        protected static final Message T_ccws_error  = message("xmlui.Submission.submit.CCLicenseStep.ccws_error");
+	protected static final Message T_submit_remove = message("xmlui.Submission.submit.CCLicenseStep.submit_remove");
+	protected static final Message T_no_license    = message("xmlui.Submission.submit.CCLicenseStep.no_license");
+	protected static final Message T_select_change = message("xmlui.Submission.submit.CCLicenseStep.select_change");
+	protected static final Message T_save_changes  = message("xmlui.Submission.submit.CCLicenseStep.save_changes");
+	protected static final Message T_ccws_error  = message("xmlui.Submission.submit.CCLicenseStep.ccws_error");
+	protected static final Message T_error = message("xmlui.Submission.submit.CCLicenseStep.error");
 
     /** CC specific variables */
     private String ccLocale;
@@ -120,27 +126,47 @@ public class CCLicenseStep extends AbstractSubmissionStep
         
 	    // output the license selection options
 	    String selectedLicense = request.getParameter("licenseclass_chooser");
+
+		log.debug("Selected license is " + selectedLicense);
+
 	    List list = div.addList("licenseclasslist", List.TYPE_FORM);
 	    list.addItem(T_info1);
+		list.addItem(T_info2);
 	    list.setHead(T_head);
 	    list.addItem().addHidden("button_required");
 	    Select selectList = list.addItem().addSelect("licenseclass_chooser");
 	    selectList.setLabel(T_license);
 	    selectList.setEvtBehavior("submitOnChange");
-	    Iterator<CCLicense> iterator = cclookup.getLicenses(ccLocale).iterator();
+		java.util.Collection<CCLicense> licenses = cclookup.getLicenses(ccLocale);
 	    // build select List - first choice always 'choose a license', last always 'No license'
 	    selectList.addOption(T_select_change.getKey(), T_select_change);
+
+		// If the user selects 'no license' then make sure it is flagged as 'selected' in the html
+		if (selectedLicense != null && selectedLicense.equals(T_no_license.getKey()))
+		{
+			selectList.setOptionSelected(T_no_license.getKey());
+		}
+
 	    if(T_select_change.getKey().equals(selectedLicense)) {
 	    	selectList.setOptionSelected(T_select_change.getKey());
 	    }
-	    while (iterator.hasNext()) {
-	        CCLicense cclicense = iterator.next();
-	        selectList.addOption(cclicense.getLicenseId(), cclicense.getLicenseName());
-            if (selectedLicense != null && selectedLicense.equals(cclicense.getLicenseId()))
-        	{
-            	selectList.setOptionSelected(cclicense.getLicenseId());
-        	}
-	    }
+
+		if(licenses != null) {
+			Iterator<CCLicense> iterator = licenses.iterator();
+			while (iterator.hasNext()) {
+				CCLicense cclicense = iterator.next();
+				selectList.addOption(cclicense.getLicenseId(), cclicense.getLicenseName());
+				if (selectedLicense != null && selectedLicense.equals(cclicense.getLicenseId())) {
+					selectList.setOptionSelected(cclicense.getLicenseId());
+				}
+			}
+		}
+		else {
+			div.addPara(T_error);
+			log.error("Could not retrieve CC licenses.");
+
+		}
+
 	    selectList.addOption(T_no_license.getKey(), T_no_license);
 	    if(T_no_license.getKey().equals(selectedLicense)) {
 	    	selectList.setOptionSelected(T_no_license.getKey());
@@ -152,27 +178,27 @@ public class CCLicenseStep extends AbstractSubmissionStep
 	    	} 
 	    	else 
 	    	{
-		    Iterator outerIterator = cclookup.getLicenseFields(selectedLicense, ccLocale).iterator();
-		    while (outerIterator.hasNext()) 
-		    {
-			CCLicenseField cclicensefield = (CCLicenseField)outerIterator.next();
-			if (cclicensefield.getId().equals("jurisdiction"))  
-			    continue;
-			    List edit = div.addList("selectlist", List.TYPE_SIMPLE, "horizontalVanilla");
-			    edit.addItem(cclicensefield.getLabel());
-			    edit.addItem().addFigure(contextPath + "/themes/Reference/images/information.png", "javascript:void(0)", cclicensefield.getDescription(), "information");
-			    List subList = div.addList("sublist", List.TYPE_SIMPLE, "horizontalVanilla");
-			    Radio radio  = subList.addItem().addRadio(cclicensefield.getId() + "_chooser");
-			    radio.setRequired();
-			    Iterator fieldMapIterator = cclicensefield.getEnum().entrySet().iterator();
-			    while (fieldMapIterator.hasNext()) 
-			    {
-			        Map.Entry pairs = (Map.Entry)fieldMapIterator.next();
-				String key      = (String) pairs.getKey();
-				String value 	= (String) pairs.getValue();
-				radio.addOption(key, value);
-			    }
-				div.addSimpleHTMLFragment(true, "&#160;");
+				Iterator outerIterator = cclookup.getLicenseFields(selectedLicense, ccLocale).iterator();
+				while (outerIterator.hasNext())
+				{
+					CCLicenseField cclicensefield = (CCLicenseField)outerIterator.next();
+					if (cclicensefield.getId().equals("jurisdiction"))
+						continue;
+					List edit = div.addList("selectlist", List.TYPE_SIMPLE, "horizontalVanilla");
+					edit.addItem(cclicensefield.getLabel());
+					edit.addItem().addFigure(contextPath + "/themes/Reference/images/information.png", "javascript:void(0)", cclicensefield.getDescription(), "information");
+					List subList = div.addList("sublist", List.TYPE_SIMPLE, "horizontalVanilla");
+					Radio radio  = subList.addItem().addRadio(cclicensefield.getId() + "_chooser");
+					radio.setRequired();
+					Iterator fieldMapIterator = cclicensefield.getEnum().entrySet().iterator();
+					while (fieldMapIterator.hasNext())
+					{
+						Map.Entry pairs = (Map.Entry)fieldMapIterator.next();
+						String key      = (String) pairs.getKey();
+						String value 	= (String) pairs.getValue();
+						radio.addOption(key, value);
+					}
+					div.addSimpleHTMLFragment(true, "&#160;");
 			}
 		    }
         	}    
@@ -193,10 +219,11 @@ public class CCLicenseStep extends AbstractSubmissionStep
 			    session.removeAttribute("ccError");
 			    session.removeAttribute("isFieldRequired");
 			} 
-			else if (session.getAttribute("inProgress") != null && ((String)session.getAttribute("inProgress")).equals("TRUE")) 
+			/*else if (session.getAttribute("inProgress") != null && ((String)session.getAttribute("inProgress")).equals("TRUE")) 
 			{
 				statusList.addItem().addHighlight("italic").addContent(T_save_changes);
-			}
+			}*/
+			statusList.addItem().addHighlight("italic").addContent(T_save_changes);
 		}
         addControlButtons(statusList);
         

@@ -146,6 +146,8 @@ public abstract class AbstractHibernateDSODAO<T extends DSpaceObject> extends Ab
             for (int i = 0; i < columnSortFields.size(); i++) {
                 String sortField = columnSortFields.get(i);
                 query.append(sortField);
+                String dir = direction.size() > i ? " " + direction.get(i) : "";
+                query.append(dir);
                 if(i != columnSortFields.size() -1)
                 {
                     query.append(",");

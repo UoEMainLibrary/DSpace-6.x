@@ -387,7 +387,7 @@ public class CCLookup {
 		String text = null;
 		try {
 			JDOMXPath xp_LicenseName = new JDOMXPath("//result/license-name");
-			text =  ((Element)xp_LicenseName.selectSingleNode(this.license_doc)).getText();
+			text = "Creative Commons " + ((Element)xp_LicenseName.selectSingleNode(this.license_doc)).getText();
 		}
 		catch (Exception e) {
 			log.warn(e.getMessage());

@@ -74,6 +74,21 @@ public class UploadStep extends AbstractSubmissionStep
     protected static final Message T_upload_error =
             message("xmlui.Submission.submit.UploadStep.upload_error");
 
+    protected static final Message T_pre_file1 =
+            message("xmlui.Submission.submit.UploadStep.pre_file1");
+    protected static final Message T_pre_file2 =
+            message("xmlui.Submission.submit.UploadStep.pre_file2");
+    protected static final Message T_pre_file3 =
+            message("xmlui.Submission.submit.UploadStep.pre_file3");
+    protected static final Message T_pre_file4 =
+            message("xmlui.Submission.submit.UploadStep.pre_file4");
+    protected static final Message T_pre_file5 =
+            message("xmlui.Submission.submit.UploadStep.pre_file5");
+    protected static final Message T_pre_file6 =
+            message("xmlui.Submission.submit.UploadStep.pre_file6");
+    protected static final Message T_pre_file7 =
+            message("xmlui.Submission.submit.UploadStep.pre_file7");
+            
     protected static final Message T_virus_checker_error =
             message("xmlui.Submission.submit.UploadStep.virus_checker_error");
     protected static final Message T_virus_error =
@@ -347,12 +362,12 @@ public class UploadStep extends AbstractSubmissionStep
                 Button edit = row.addCell().addButton("submit_edit_"+id);
                 edit.setValue(T_submit_edit);
 
-                Row checksumRow = summary.addRow();
+                /*Row checksumRow = summary.addRow();
                 checksumRow.addCell();
                 Cell checksumCell = checksumRow.addCell(null, null, 0, 6, null);
                 checksumCell.addHighlight("bold").addContent(T_checksum);
                 checksumCell.addContent(" ");
-                checksumCell.addContent(algorithm + ":" + checksum);
+                checksumCell.addContent(algorithm + ":" + checksum);*/
             }
 
             if (!disableFileEditing)
