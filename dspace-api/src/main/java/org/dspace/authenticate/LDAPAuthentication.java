@@ -284,7 +284,8 @@ public class LDAPAuthentication
                 log.info(LogManager.getHeader(context,
                                 "autoregister", "netid=" + netid));
 
-                String email = ldap.ldapEmail;
+                String netidEmail = ldap.ldapEmail;
+                String altEmail = ldap.ldapEmail;
 
                 //  Commented out by me (Robin). This should be validated elsewhere.
                 // Check if we were able to determine an email address from LDAP
@@ -297,22 +298,24 @@ public class LDAPAuthentication
 
                 if (request.getParameter("customemail") != null && StringUtils.isNotEmpty(request.getParameter("customemail")))
                 {
-                    email = request.getParameter("customemail");
+                    altEmail = request.getParameter("customemail");
                 }
-                else if ((StringUtils.isEmpty(email)) &&
+
+                /*if ((StringUtils.isEmpty(email)) &&
                         (StringUtils.isNotEmpty(ConfigurationManager.getProperty("authentication-ldap", "netid_email_domain")))) {
-                    email = netid + ConfigurationManager.getProperty("authentication-ldap", "netid_email_domain");
+                    //netidEmail = netid + ConfigurationManager.getProperty("authentication-ldap", "netid_email_domain");
+                    netidEmail = netid + "@st-andrews.ac.uk";
                 }
-                /*else
+                else
                 {
-                    email = netid;
+                    netidEmail = netid + ConfigurationManager.getProperty("authentication-ldap", "netid_email_domain");
                 }*/
 
-                if (StringUtils.isNotEmpty(email))
+                if (StringUtils.isNotEmpty(altEmail))
                 {
                     try
                     {
-                        eperson = ePersonService.findByEmail(context, email);
+                        eperson = ePersonService.findByEmail(context, altEmail);
                         if (eperson!=null)
                         {
                             log.info(LogManager.getHeader(context,
@@ -338,9 +341,13 @@ public class LDAPAuthentication
                                 {
                                     context.turnOffAuthorisationSystem();
                                     eperson = ePersonService.create(context);
-                                    if (StringUtils.isNotEmpty(email))
+                                    if (StringUtils.isNotEmpty(netidEmail))
                                     {
-                                        eperson.setEmail(email);
+                                        eperson.setEmail(netidEmail);
+                                    }
+                                    if (StringUtils.isNotEmpty(altEmail))
+                                    {
+                                        eperson.setAltEmail(altEmail);
                                     }
                                     if (StringUtils.isNotEmpty(ldap.ldapGivenName))
                                     {

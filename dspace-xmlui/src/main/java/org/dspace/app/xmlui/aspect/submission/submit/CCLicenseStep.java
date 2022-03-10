@@ -219,10 +219,11 @@ public class CCLicenseStep extends AbstractSubmissionStep
 			    session.removeAttribute("ccError");
 			    session.removeAttribute("isFieldRequired");
 			} 
-			else if (session.getAttribute("inProgress") != null && ((String)session.getAttribute("inProgress")).equals("TRUE")) 
+			/*else if (session.getAttribute("inProgress") != null && ((String)session.getAttribute("inProgress")).equals("TRUE")) 
 			{
 				statusList.addItem().addHighlight("italic").addContent(T_save_changes);
-			}
+			}*/
+			statusList.addItem().addHighlight("italic").addContent(T_save_changes);
 		}
         addControlButtons(statusList);
         

@@ -530,7 +530,7 @@ public class XmlWorkflowServiceImpl implements XmlWorkflowService {
             if(coll.getName().equals("Library Theses"))
             {
                 email.addArgument(ep.getFullName());
-                email.addArgument(ep.getNetid());
+                email.addArgument(ep.getStudentId());
                 email.addArgument(title);
                 email.addArgument(handleService.getCanonicalForm(handle));
                 email.addRecipientCC("registry-pgr@st-andrews.ac.uk");

@@ -845,16 +845,26 @@ public class BasicWorkflowServiceImpl implements BasicWorkflowService
 
             if(coll.getName().equals("Library Theses"))
             {
+                email.setSubtype("html");
                 email.addArgument(ep.getFullName());
-                email.addArgument(ep.getNetid());
+                if (ep.getStudentId() != null ){
+                    email.addArgument(ep.getStudentId());
+                }
+                else{
+                    email.addArgument("No student id available");
+                }
                 email.addArgument(title);
                 email.addArgument(handleService.getCanonicalForm(handle));
                 email.addRecipient(ep.getEmail());
+                if (ep.getAltEmail() != null){
+                    email.addRecipient(ep.getAltEmail());
+                }
                 email.addRecipientCC(DIGIREPEMAIL);
                 email.addRecipientCC(REGISTRYEMAIL);
                 email.addRecipientCC(RESEARCHEMAIL);
             }
             else{
+                email.setSubtype("plain");
                 email.addRecipient(ep.getEmail());
                 email.addArgument(title);
                 email.addArgument(coll.getName());
@@ -1063,7 +1073,12 @@ public class BasicWorkflowServiceImpl implements BasicWorkflowService
                         email = Email.getEmail(I18nUtil.getEmailFilename(supportedLocale, "etheses_task"));
                         email.setSubtype("html"); // ensure html format
                         email.addArgument(e.getFullName());
-                        email.addArgument(e.getNetid());
+                        if (e.getStudentId() != null ){
+                            email.addArgument(e.getStudentId());
+                        }
+                        else{
+                            email.addArgument("No Student ID");
+                        }
                         email.addArgument(title);
                         email.addArgument(submitter);
                     }
@@ -1073,10 +1088,31 @@ public class BasicWorkflowServiceImpl implements BasicWorkflowService
                         email = Email.getEmail(I18nUtil.getEmailFilename(supportedLocale, "etheses_accepted"));
                         email.setSubtype("html"); // ensure html format
                         email.addArgument(e.getFullName());
-                        email.addArgument(e.getNetid());
+                        if (e.getStudentId() != null ){
+                            email.addArgument(e.getStudentId());
+                        }
+                        else{
+                            email.addArgument("No Student ID");
+                        }
+                    }
+                    else if (coll.getName().equals("Library Theses") && wi.getState() == WFSTATE_STEP3POOL)
+                    {
+                        e = wi.getSubmitter();
+                        email = Email.getEmail(I18nUtil.getEmailFilename(supportedLocale, "etheses_task"));
+                        email.setSubtype("html"); // ensure html format
+                        email.addArgument(e.getFullName());
+                        if (e.getStudentId() != null ){
+                            email.addArgument(e.getStudentId());
+                        }
+                        else{
+                            email.addArgument("No Student ID");
+                        }
+                        email.addArgument(title);
+                        email.addArgument(submitter);
                     }
                     else 
                     {
+                        e = wi.getSubmitter();
                         email = Email.getEmail(I18nUtil.getEmailFilename(supportedLocale, "submit_task"));
                         email.setSubtype("plain"); // ensure plain text format
                         email.addArgument(title);
@@ -1107,7 +1143,6 @@ public class BasicWorkflowServiceImpl implements BasicWorkflowService
                     if(coll.getName().equals("Library Theses") && wi.getState() == WFSTATE_STEP1POOL)
                     {
                         email.addArgument(message);
-                        email.addRecipient(anEpa.getEmail());
                         email.addRecipient(DIGIREPEMAIL);
                         email.addRecipient(REGISTRYEMAIL);
                         email.addRecipient(RESEARCHEMAIL);
@@ -1118,9 +1153,21 @@ public class BasicWorkflowServiceImpl implements BasicWorkflowService
                     {
                         e = wi.getSubmitter();
                         email.addRecipient(e.getEmail());
+                        if (e.getAltEmail() != null){
+                            email.addRecipient(e.getAltEmail());
+                        }
                         email.addRecipientCC(DIGIREPEMAIL);
                         email.addRecipientCC(REGISTRYEMAIL);
                         email.addRecipientCC(RESEARCHEMAIL);
+
+                        count++;
+                    }
+                    else if (coll.getName().equals("Library Theses") && wi.getState() == WFSTATE_STEP3POOL)
+                    {
+                        email.addArgument(message);
+                        email.addRecipient(DIGIREPEMAIL);
+                        email.addRecipient(REGISTRYEMAIL);
+                        email.addRecipient(RESEARCHEMAIL);
 
                         count++;
                     }
@@ -1177,25 +1224,29 @@ public class BasicWorkflowServiceImpl implements BasicWorkflowService
             {
                 // Sets rejected template for workflow steps 1 & 2
                 String template = "";
-                
-                log.info("WORKFLOW STEP: "+workflowItem.getState());
-
-                switch (workflowItem.getState())
-                {
-                    case WFSTATE_STEP1:
-                        template += "etheses_rejected_one";
-                        break;
-
-                    case WFSTATE_STEP3:
-                        template += "etheses_rejected_one";
-                        break;
+                if(workflowItem.getState() == WFSTATE_STEP1){
+                    template += "etheses_rejected_one";
+                }
+                if(workflowItem.getState() == WFSTATE_STEP2){
+                    template += "etheses_rejected_two";
                 }
 
                 email = Email.getEmail(I18nUtil.getEmailFilename(supportedLocale,template));
                 email.setSubtype("html"); // ensure html format
                 email.addRecipient(workflowItem.getSubmitter().getEmail());
+                if (workflowItem.getSubmitter().getAltEmail() != null){
+                    email.addRecipient(workflowItem.getSubmitter().getAltEmail());
+                }
+                email.addRecipientCC(DIGIREPEMAIL);
+                email.addRecipientCC(REGISTRYEMAIL);
+                email.addRecipientCC(RESEARCHEMAIL);
                 email.addArgument(workflowItem.getSubmitter().getFullName());
-                email.addArgument(workflowItem.getSubmitter().getNetid());
+                if (workflowItem.getSubmitter().getStudentId() != null ){
+                    email.addArgument(workflowItem.getSubmitter().getStudentId());
+                }
+                else{
+                    email.addArgument("No student id available");
+                }
                 email.addArgument(title);
                 email.addArgument(rejector);
                 // Processing to format textarea input from rejection

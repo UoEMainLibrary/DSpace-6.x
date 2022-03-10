@@ -203,6 +203,9 @@ public class AccessStepUtil extends AbstractDSpaceTransformer {
                 form.addItem(T_label_date_help4);
                 form.addItem(T_label_date_help5);
             }
+            else if (coll.getName() == null){
+                startDate.setHelp(T_label_date_help);
+            }
             else
             {
                 startDate.setHelp(T_label_date_help);
@@ -261,11 +264,13 @@ public class AccessStepUtil extends AbstractDSpaceTransformer {
             form.addItem(T_label_date_help4);
             form.addItem(T_label_date_help5);
         }
-        else{
+        else if (coll.getName() == null){
             startDate.setHelp(T_label_date_help);
         }
-
-        
+        else
+        {
+            startDate.setHelp(T_label_date_help);
+        }
     }
 
     public void addTablePolicies(Division parent, DSpaceObject dso, Collection owningCollection) throws WingException, SQLException {

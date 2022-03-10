@@ -176,7 +176,7 @@ public class Submissions extends AbstractDSpaceTransformer
         Division newsubmission = division.addDivision("new-submission");
         Para p = newsubmission.addPara();
         p.addXref(contextPath+"/submit",T_s_info1b);
-        p.addXref(contextPath+"/themes/Mirage2/images/Depositing an electronic thesis - Gradskills March 2015.pptx",T_s_help);
+        p.addXref("https://libguides.st-andrews.ac.uk/theses/submit",T_s_help);
     }
 
     /**

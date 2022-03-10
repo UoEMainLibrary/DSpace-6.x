@@ -588,6 +588,17 @@
 
         <field>
           <dc-schema>dc</dc-schema>
+          <dc-element>identifier</dc-element>
+          <dc-qualifier>grantnumber</dc-qualifier>
+          <repeatable>true</repeatable>
+          <label>Grant numbers</label>
+          <input-type>onebox</input-type>
+          <hint>Enter the grant number(s) from your research funder(s) above</hint>
+          <required></required>
+        </field>
+
+        <field>
+          <dc-schema>dc</dc-schema>
           <dc-element>language</dc-element>
           <dc-qualifier>iso</dc-qualifier>
           <repeatable>false</repeatable>

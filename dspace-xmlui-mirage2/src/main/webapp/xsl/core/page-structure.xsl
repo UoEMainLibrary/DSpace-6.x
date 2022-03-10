@@ -335,7 +335,7 @@
             </script>-->
 
             <!-- CORE Recommender JS -->
-            <script>
+            <!-- <script>
                 (function (d, s, idScript, idRec, userInput) {
                     var coreAddress = 'https://core.ac.uk/';
                     var js, fjs = d.getElementsByTagName(s)[0];
@@ -354,7 +354,7 @@
                     link.setAttribute('href', coreAddress + 'recommender/embed-default-style.css');
                     d.getElementsByTagName('head')[0].appendChild(link);
                 }(document, 'script', 'recommender-embed', 'fbca3d', {}));
-            </script>
+            </script> -->
 
             <!-- Script to format e-these submission form text where it is unable in xml -->
             <script type="text/javascript">

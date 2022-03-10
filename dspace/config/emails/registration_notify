@@ -5,20 +5,23 @@
 #             {2} Name:
 #             {3} NetID:
 #             {4} Email:
-#             {5} Registration Date:
-#             {6} Users Department and/or School:
+#             {5} Alternative Email
+#             {6} Registration Date:
+#             {7} Users Department and/or School:
+#             {8} Student ID
 #
 # See org.dspace.core.Email for information on the format of this file.
 #
-Subject: Repository: Registration Notification ({2},{3})
+Subject: Repository: Registration Notification ({2},{8})
 
 A new user has registered on St Andrews Research Repository at https://research-repository.st-andrews.ac.uk: 
 
 Name:                           {2}
 NetID:                          {3}
 Email:                          {4}
-Date:                           {5}
-Users Department and/or School: {6}
+Alternative Email:              {5}
+Date:                           {6}
+Users Department and/or School: {7}
 
 David Collins 
 Janet Aucock 
