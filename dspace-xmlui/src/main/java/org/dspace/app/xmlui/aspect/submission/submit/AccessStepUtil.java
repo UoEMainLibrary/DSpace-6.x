@@ -194,7 +194,7 @@ public class AccessStepUtil extends AbstractDSpaceTransformer {
             // Date
             Text startDate = radiosAndDate.addText("embargo_until_date");
             startDate.setLabel("");
-
+/*
             if(coll.getHandle().equals("10023/19869"))
             {
                 form.addItem(T_label_date_help1);
@@ -207,7 +207,10 @@ public class AccessStepUtil extends AbstractDSpaceTransformer {
             {
                 startDate.setHelp(T_label_date_help);
             }
-            
+*/
+		
+	    startDate.setHelp(T_label_date_help);	
+		
             if (errorFlag == org.dspace.submit.step.AccessStep.STATUS_ERROR_FORMAT_DATE){
                 startDate.addError(T_error_date_format);
             }
@@ -252,7 +255,7 @@ public class AccessStepUtil extends AbstractDSpaceTransformer {
         if (dso != null) {
             populateEmbargoDetail(dso, startDate);
         }
-
+/*
         if(coll.getHandle().equals("10023/19869"))
         {
             form.addItem(T_label_date_help1);
@@ -264,7 +267,8 @@ public class AccessStepUtil extends AbstractDSpaceTransformer {
         else{
             startDate.setHelp(T_label_date_help);
         }
-
+*/
+	    startDate.setHelp(T_label_date_help);
         
     }
 
