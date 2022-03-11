@@ -284,7 +284,7 @@ public class UploadWithEmbargoStep extends UploadStep
 	        Text description = upload.addItem().addText("description");
 	        description.setLabel(T_description);
 
-            if(collection.getHandle().equals("10023/19869"))
+            if(collection.getName().equals("Library Theses"))
             {
                 upload.addItem(T_description_help1);
                 upload.addItem(T_description_help2);
@@ -307,7 +307,7 @@ public class UploadWithEmbargoStep extends UploadStep
 	        Button uploadSubmit = upload.addItem().addButton("submit_upload");
 	        uploadSubmit.setValue(T_submit_upload);
 
-            if(collection.getHandle().equals("10023/19869"))
+            if(collection.getName().equals("Library Theses"))
             {
                 upload.addItem(T_submit_upload_text1);
                 upload.addItem(T_submit_upload_text2);

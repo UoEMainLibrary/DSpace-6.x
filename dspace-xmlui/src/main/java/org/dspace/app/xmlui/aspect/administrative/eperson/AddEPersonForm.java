@@ -91,19 +91,25 @@ public class AddEPersonForm extends AbstractDSpaceTransformer
 	/** Language string used from other aspects: */    
 		
 	private static final Message T_email_address = 
-        message("xmlui.EPerson.EditProfile.email_address");
+    	message("xmlui.EPerson.EditProfile.email_address");
+
+	private static final Message T_alt_email_address = 
+    	message("xmlui.EPerson.EditProfile.alt_email");
     
     private static final Message T_first_name = 
-        message("xmlui.EPerson.EditProfile.first_name");
+    	message("xmlui.EPerson.EditProfile.first_name");
     
     private static final Message T_last_name = 
-        message("xmlui.EPerson.EditProfile.last_name");
+    	message("xmlui.EPerson.EditProfile.last_name");
 
-	private static final Message T_net_id =
+    private static final Message T_net_id =
 		message("xmlui.EPerson.EditProfile.net_id");
+
+	private static final Message T_student_id =
+		message("xmlui.EPerson.EditProfile.student_id");
     
     private static final Message T_telephone =
-        message("xmlui.EPerson.EditProfile.telephone");
+    	message("xmlui.EPerson.EditProfile.telephone");
     
     	
 	public void addPageMeta(PageMeta pageMeta) throws WingException
@@ -131,9 +137,11 @@ public class AddEPersonForm extends AbstractDSpaceTransformer
 		}
 	
 		String emailValue = request.getParameter("email_address");
+		String altEmailValue = request.getParameter("alt_email");
 		String firstValue = request.getParameter("first_name");
 		String lastValue  = request.getParameter("last_name");
 		String netIDValue = request.getParameter("net_id");
+		String studentIDValue  = request.getParameter("student_id");
 		String phoneValue = request.getParameter("phone");
 		boolean canLogInValue    = (request.getParameter("can_log_in") == null)  ? false : true;
 		boolean certificateValue = (request.getParameter("certificate") == null) ? false : true;
@@ -164,6 +172,12 @@ public class AddEPersonForm extends AbstractDSpaceTransformer
         else if (errors.contains("email_address")) {
         	email.addError(T_error_email);
         }
+
+		// alt email
+		Text altEmail = identity.addItem().addText("email_address");
+        altEmail.setAutofocus("autofocus");
+        altEmail.setLabel(T_alt_email_address);
+        altEmail.setValue(altEmailValue);
         
         Text firstName = identity.addItem().addText("first_name");
         firstName.setRequired();
@@ -188,6 +202,12 @@ public class AddEPersonForm extends AbstractDSpaceTransformer
 		if (errors.contains("net_id")) {
 			netID.addError(T_error_netid);
 		}
+
+		// student id
+		Text studentID = identity.addItem().addText("student_id");
+		studentID.setRequired();
+		studentID.setLabel(T_student_id);
+		studentID.setValue(studentIDValue);
         
         Text phone = identity.addItem().addText("phone");
         phone.setLabel(T_telephone);

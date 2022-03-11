@@ -418,6 +418,14 @@ div #aspect_submission_Submissions_div_new-submission p a:last-child {
   }
 }
 
+/* Custom button styles */
+button#aspect_submission_submit_ResumeStep_field_submit_resume, button#aspect_eperson_LoginChooser_field_submit_save {
+  color: white !important;
+  background: #0088ca !important;
+}
+button#aspect_submission_submit_ResumeStep_field_submit_resume:hover, button#aspect_eperson_LoginChooser_field_submit_save:hover {
+  background-color: #005580 !important;
+}
 
 // CORE Recommender Styles \\
 /*.coreRecommenderContainer {

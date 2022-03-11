@@ -114,6 +114,8 @@ public class Email
 
     /** The recipients */
     private List<String> recipients;
+    /** The recipients */
+    private List<String> recipientsCC;
 
     /** Reply to field, if any */
     private String replyTo;
@@ -136,13 +138,14 @@ public class Email
     {
         arguments = new ArrayList<Object>(50);
         recipients = new ArrayList<String>(50);
+        recipientsCC = new ArrayList<String>(50);
         attachments = new ArrayList<FileAttachment>(10);
         moreAttachments = new ArrayList<InputStreamAttachment>(10);
         subject = "";
         content = "";
         replyTo = null;
         charset = null;
-        subtype = "html"; // Default changed to "html" rather than "plain" for e-theses emails
+        subtype = "plain";
     }
 
     public void setSubtype(String subtype){
@@ -158,6 +161,11 @@ public class Email
     public void addRecipient(String email)
     {
         recipients.add(email);
+    }
+
+    public void addRecipientCC(String email)
+    {
+        recipientsCC.add(email);
     }
 
     /**
@@ -229,6 +237,7 @@ public class Email
     {
         arguments = new ArrayList<Object>(50);
         recipients = new ArrayList<String>(50);
+        recipientsCC = new ArrayList<String>(50);
         attachments = new ArrayList<FileAttachment>(10);
         moreAttachments = new ArrayList<InputStreamAttachment>(10);
         replyTo = null;
@@ -269,6 +278,14 @@ public class Email
         {
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(
                     i.next()));
+        }
+
+        Iterator<String> iC = recipientsCC.iterator();
+
+        while (iC.hasNext())
+        {
+            message.addRecipient(Message.RecipientType.CC, new InternetAddress(
+                    iC.next()));
         }
 
         // Format the mail message

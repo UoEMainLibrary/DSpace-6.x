@@ -3,20 +3,27 @@
 # Parameters: {0} Student Name
 #             {1} Student ID
 #             {2} Title
-#             {3} Handle
+#             {3} Submitter
+#             {4} Description of task
 #
 
-Subject: Repository: Submission Approved and Archived ({0}, {1})
+Subject: Repository: You have a new task ({0}, {1})
 
 <div style="font-family: Arial, sans-serif; font-size: 16px;">
-    <p style="margin-bottom: 15px;">Hello</p>
-    <p style="margin-bottom: 15px;">We are pleased to let you know that your thesis is now accepted and archived into the St Andrews Research Repository. Metadata including the title, your abstract and full text are now publicly available (subject to any embargo which has been approved)</p>
-    <p style="margin-bottom: 20px;">You submitted: 	{2}</p>
-    <p style="margin-bottom: 20px;">To collection: 	Library Theses</p>
-    <p style="margin-bottom: 15px;">Your thesis has been assigned this persistent repository identifier:</p>
-    <p style="margin-bottom: 15px;">{3}</p>
-    <p>This is one of the identifiers you will be able to use to cite your thesis.  We will be in touch again soon to confirm the DOI of your thesis to you.  In addition, we will confirm details of any embargoes that you have, to both you and your supervisor(s), and confirm the end dates of those embargoes. We will also confirm the Repository collection(s) to which your thesis has been assigned.</p>
-    <p style="margin-bottom: 25px;">For any queries, please contact <a href="digirep@st-andrews.ac.uk">digirep@st-andrews.ac.uk</a></p>
+    <p>A new item has been submitted:</p>
+
+    <p>Title:           {2}</p>
+    <p>Collection:   	Library Theses</p> 
+    <p>Submitted by: 	{3}</p> 
+
+    <p>{4}</p>
+
+    <p>To claim this task, please visit your "My Repository"</p> 
+
+    <p>page:  <a href="http://research-repository.st-andrews.ac.uk/mydspace">http://research-repository.st-andrews.ac.uk/mydspace</a></p>
+
+    <p>Many thanks!</p>
+
     <p>David Collins</p>
     <p>Janet Aucock</p>
     <p>Library E-Theses Team</p>

@@ -2,21 +2,32 @@
 #
 # Parameters: {0} Student Name
 #             {1} Student ID
-#             {2} Title
-#             {3} Handle
+#             {2} Submission Title
+#             {3} Rejector Name
+#             {4} Rejection Reason
 #
-
-Subject: Repository: Submission Approved and Archived ({0}, {1})
+Subject: Repository: Submission Returned for Clarification ({0}, {1})
 
 <div style="font-family: Arial, sans-serif; font-size: 16px;">
-    <p style="margin-bottom: 15px;">Hello</p>
-    <p style="margin-bottom: 15px;">We are pleased to let you know that your thesis is now accepted and archived into the St Andrews Research Repository. Metadata including the title, your abstract and full text are now publicly available (subject to any embargo which has been approved)</p>
-    <p style="margin-bottom: 20px;">You submitted: 	{2}</p>
-    <p style="margin-bottom: 20px;">To collection: 	Library Theses</p>
-    <p style="margin-bottom: 15px;">Your thesis has been assigned this persistent repository identifier:</p>
-    <p style="margin-bottom: 15px;">{3}</p>
-    <p>This is one of the identifiers you will be able to use to cite your thesis.  We will be in touch again soon to confirm the DOI of your thesis to you.  In addition, we will confirm details of any embargoes that you have, to both you and your supervisor(s), and confirm the end dates of those embargoes. We will also confirm the Repository collection(s) to which your thesis has been assigned.</p>
-    <p style="margin-bottom: 25px;">For any queries, please contact <a href="digirep@st-andrews.ac.uk">digirep@st-andrews.ac.uk</a></p>
+    <p>You submitted: 	{2}</p>
+    <p style="margin-bottom: 15px;">To collection: 	Library Theses</p>
+    <p>Your submission has been returned for clarification for the following reason(s):</p>
+    <p style="margin-bottom: 15px;"><strong>********</strong></p>
+    <div style="margin-bottom: 15px;">{4}</div>
+    <p style="margin-bottom: 15px;"><strong>********</strong></p>
+    <p>Please ensure you address this as soon as possible and resubmit your thesis, using the same process.</p>
+    <p>For any queries, please contact <a href="mailto:digirep@st-andrews.ac.uk">digirep@st-andrews.ac.uk</a> to discuss this in more detail<p>
+    <p><strong>How to resubmit to the Repository</strong></p>
+    <p>You can return to your submission to edit the metadata and to replace/remove/upload full text files. We advise you to have all the information you need, e.g., versions of new full text files, ready in advance of going back to do the resubmission.</p>
+    <ul style="margin-bottom: 25px;">
+        <li>Go to <a href="https://research-repository-test.st-andrews.ac.uk/submissions">https://research-repository-test.st-andrews.ac.uk/submissions</a>.</li>
+        <li>On the Submissions &amp; Workflow tasks page click on the title of your submission.</li>
+        <li>On the Item Submission page scroll to the bottom of the page and click on Resume.</li>
+        <li>On the following Item Submission pages make the changes that are required.</li>
+        <li>Once you have made all your changes then click on the Next button to navigate to the last page in the submission process.</li>
+        <li>You will need to Grant the Deposit Licence again and then click on Complete the Submission to resubmit.</li>
+        <li>If at any time you need to suspend the resubmission then you can click on Save & Exit. On the next screen you can then choose to save your submission to work on later.</li>
+    </ul>
     <p>David Collins</p>
     <p>Janet Aucock</p>
     <p>Library E-Theses Team</p>
