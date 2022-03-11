@@ -389,8 +389,12 @@
 
                     if(document.getElementById('aspect_workflow_RejectTaskStep_field_reason') !== null)
                     {
-                        var textarea = "· We can't open your PDF to check the thesis full text. Please replace the PDF with a file that we can open\n· Signatures are not present in the declaration in your PDF. Please add the signatures and replace the PDF\n· Your declaration is not complete. Please complete the declaration and replace the PDF\n\n· The embargo in your declaration does not match the embargo that we have on record for your thesis. Please correct the embargo in your declaration and replace the PDF\n· The abstract is not included in the full text of your thesis. Please add the abstract and replace the PDF\n· The title page is not included in the full text of your thesis. Please add the title page and replace the PDF\n\nWe also have the following queries:\nInsert extra free text here if you want to use this section. Otherwise delete both lines in this free text section to remove this section completely from the email to the submitter";
-                        document.getElementById('aspect_workflow_RejectTaskStep_field_reason').innerHTML = textarea;
+                        var x = document.getElementById('simple-item-view-type').children;
+
+                        if(x[1].includes('Thesis')){
+                            var textarea = "· We can't open your PDF to check the thesis full text. Please replace the PDF with a file that we can open\n· Signatures are not present in the declaration in your PDF. Please add the signatures and replace the PDF\n· Your declaration is not complete. Please complete the declaration and replace the PDF\n\n· The embargo in your declaration does not match the embargo that we have on record for your thesis. Please correct the embargo in your declaration and replace the PDF\n· The abstract is not included in the full text of your thesis. Please add the abstract and replace the PDF\n· The title page is not included in the full text of your thesis. Please add the title page and replace the PDF\n\nWe also have the following queries:\nInsert extra free text here if you want to use this section. Otherwise delete both lines in this free text section to remove this section completely from the email to the submitter";
+                            document.getElementById('aspect_workflow_RejectTaskStep_field_reason').innerHTML = textarea;
+                        }
                     }
                 };
             </script>
