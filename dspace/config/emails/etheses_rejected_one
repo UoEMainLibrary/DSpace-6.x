@@ -1,4 +1,4 @@
-# E-mail sent to remind students to submit to E-Theses
+# E-mail sent to request students to review their submission
 #
 # Parameters: {0} Student Name
 #             {1} Student ID
