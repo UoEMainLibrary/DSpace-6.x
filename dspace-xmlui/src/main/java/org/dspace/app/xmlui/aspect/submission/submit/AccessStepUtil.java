@@ -194,8 +194,7 @@ public class AccessStepUtil extends AbstractDSpaceTransformer {
             // Date
             Text startDate = radiosAndDate.addText("embargo_until_date");
             startDate.setLabel("");
-
-
+          
             if(coll != null && coll.getName().equals("Library Theses"))
             {
                 form.addItem(T_label_date_help1);
@@ -208,8 +207,7 @@ public class AccessStepUtil extends AbstractDSpaceTransformer {
             {
                 startDate.setHelp(T_label_date_help);
             }
-
-            
+          
             if (errorFlag == org.dspace.submit.step.AccessStep.STATUS_ERROR_FORMAT_DATE){
                 startDate.addError(T_error_date_format);
             }
@@ -254,7 +252,7 @@ public class AccessStepUtil extends AbstractDSpaceTransformer {
         if (dso != null) {
             populateEmbargoDetail(dso, startDate);
         }
-
+      
         if(coll != null && coll.getName().equals("Library Theses"))
         {
             form.addItem(T_label_date_help1);
