@@ -2,7 +2,6 @@
 
 import subprocess
 import csv
-import shutil
 from tempfile import NamedTemporaryFile
 
 collections  = {
@@ -205,6 +204,7 @@ collections  = {
     'University of Aberdeen.Planetary Sciences':'2164/684',
     'University of Aberdeen.PolicyGrid II':'2164/674',
     'University of Aberdeen.Politics':'2164/577',
+    'University of Aberdeen.Politics and International Studies':'2164/577',
     'University of Aberdeen.Principal':'2164/705',
     'University of Aberdeen.Professional Learning PGT':'2164/13629',
     'University of Aberdeen.Professional Services':'2164/705',
@@ -245,59 +245,171 @@ collections  = {
     'University of Aberdeen.Vice Principals':'2164/705',
     'University of Aberdeen.Centre for Planning & Environmental Management':'2164/688',
 }
+
+dctypes = {
+    'dc.contributor.advisor',
+    'dc.contributor.author',
+    'dc.contributor.author[]',
+    'dc.contributor.author[en]',
+    'dc.contributor.composer',
+    'dc.contributor.editor',
+    'dc.contributor.illustrator',
+    'dc.contributor.institution',
+    'dc.contributor.institution[en]',
+    'dc.contributor.inventor',
+    'dc.date.accessioned',
+    'dc.date.accessioned[]',
+    'dc.date.available',
+    'dc.date.available[]',
+    'dc.date.embargoedUntil',
+    'dc.date.embargoedUntil[]',
+    'dc.date.issued',
+    'dc.date.issued[]',
+    'dc.description',
+    'dc.description.abstract[en]',
+    'dc.description.provenance',
+    'dc.description.provenance[en]',
+    'dc.description.sponsorship[en]',
+    'dc.description.status',
+    'dc.description.status[en]',
+    'dc.description.version',
+    'dc.description.version[en]',
+    'dc.description[en]',
+    'dc.format.extent',
+    'dc.format.extent[en]',
+    'dc.format.medium[en]',
+    'dc.format.mimetype',
+    'dc.format.type',
+    'dc.format.type[en]',
+    'dc.format[en]',
+    'dc.identifier',
+    'dc.identifier.citation',
+    'dc.identifier.citation[en]',
+    'dc.identifier.doi',
+    'dc.identifier.doi[]',
+    'dc.identifier.doi[en]',
+    'dc.identifier.isbn',
+    'dc.identifier.iss',
+    'dc.identifier.iss[en]',
+    'dc.identifier.issn',
+    'dc.identifier.issn[]',
+    'dc.identifier.other',
+    'dc.identifier.other[]',
+    'dc.identifier.other[en]',
+    'dc.identifier.uri',
+    'dc.identifier.uri[]',
+    'dc.identifier.uri[en]',
+    'dc.identifier.url[en]',
+    'dc.identifier.vol',
+    'dc.language.iso',
+    'dc.language.iso[]',
+    'dc.language.iso[en]',
+    'dc.publisher',
+    'dc.publisher[en]',
+    'dc.relation.ispartof',
+    'dc.relation.ispartof[en]',
+    'dc.relation.ispartofseries',
+    'dc.relation.ispartofseries[en]',
+    'dc.rights',
+    'dc.rights[en]',
+    'dc.source.uri[en]',
+    'dc.subject',
+    'dc.subject.lcc',
+    'dc.subject.lcc[en]',
+    'dc.subject.lcsh[en]',
+    'dc.subject[en]',
+    'dc.title.alternative[en]',
+    'dc.title[en]',
+    'dc.type',
+    'dc.type[en]'
+}
+
+#list_of_exemptions = []
+
 # Export metadata csv
 def export_metadata():
-    #subprocess.Popen(["../dspace/bin/dspace metadata-export -a -f test_file.csv -i 2164/553"], shell = True).wait()
-    print('Metadata exported')
+    print('Exporting metadata')
     print('--------------------------------')
+    subprocess.Popen(["../dspace/bin/dspace metadata-export -a -f all_research_export.csv -i 2164/705"], shell = True).wait()
     update_metadata()
 
 # Update csv metadata
 def update_metadata():
 
-    with open('test_file.csv', 'r') as csv_file:
+    with open('all_research_export.csv', 'r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
-        headers = csv_reader.fieldnames
-        #print(headers)
+
         try:        
-            with open('new_file.csv', 'w') as new_file:
+            with open('all_research_import.csv', 'w', newline='') as new_file:
                 
-                csv_writer = csv.DictWriter(new_file, fieldnames=headers)
+                csv_writer = csv.DictWriter(new_file, fieldnames=['id','collection'],extrasaction='ignore')
                 csv_writer.writeheader()
                 
                 for line in csv_reader:
                     try:
                         inst_full = line['dc.contributor.institution[en]']
-                        if "||" not in inst_full:
-                            handle = getHandle(inst_full)
-                        else:
-                            inst_split = inst_full.split("|", 2)
-                            institution = inst_split[2]
-                            if "||" in institution:
-                                #print(institution)
-                                inst_resplit = institution.split("|", 2)
-                                handle = getHandle(inst_resplit[2])
+                        print(line['dc.title[en]'])
+                        print(line['dc.contributor.institution[en]'])
+                        print('----------------------------------')
+                        if not inst_full == "":
+                            if "||" not in inst_full:
+                                try:
+                                    handle = collections[institution]
+                                except:
+                                    handle = ""
+                                    #list_of_exemptions.append(line['dc.identifier.uri'])
                             else:
-                                handle = getHandle(inst_split[2])
-                        print('Item: ' + line['dc.title[en]'])
-                        print('ID: ' + line['id'])
-                        print('Owning collection: ' + line['collection'])
-                        print ('Updated sub collection: ' + handle)
-                        print('--------------------------------')
-                        line['collection'] = line['collection'] + '||' + handle
+                                last_char_index = inst_full.rfind("||")
+                                last_string = inst_full[last_char_index:len(inst_full)]
+                                institution = last_string.replace("||","")
+
+                                try:
+                                    handle = collections[institution]
+                                except:
+                                    handle = ""
+                                    #list_of_exemptions.append(line['dc.identifier.uri'])
+                                    
+                        #print('Item: ' + line['dc.title[en]'])
+                        #print('ID: ' + line['id'])
+                        #print('Owning collection: ' + line['collection'])
+                        #print ('Updated sub collection: ' + handle)
+                        
+                        if handle == "2164/705":
+                            handle = ""
+                            
+                        if not handle == "":
+                            line['collection'] = line['collection'] + '||' + handle
+                        else:
+                            line['collection'] = line['collection']                            
+                        
                         #print(line['collection'])
+                        #print('--------------------------------')
+                            
+                        for dc in dctypes:
+                            if line[dc] != None:
+                                del line[dc]
+                                    
                     except ValueError:
                             print('dc.contributor.institution does not contain a value')
                     csv_writer.writerow(line)
+
+                #with open('list_of_uri.txt', 'w') as f:
+                #    for uri in list_of_exemptions:
+                #        f.write(uri)
+                #        f.write('\n')
+                #print('\n'.join(map(str, list_of_exemptions)))
                 
         except IOError:
             print('Failed to open csv file')
+    #import_metadata()
+
+def import_metadata():
+    print('Importing metatdata')
+    print('--------------------------------')
+    subprocess.Popen(['../dspace/bin/dspace metadata-import -e bparkes@ed.ac.uk -f /home/lib/dspace/pure-mapping/all_research_import.csv -s'], shell = True)
 
 def getHandle(institution):
     return collections[institution]
 
-export_metadata()
-#update_metadata()
-
-# Import updated metadata csv
-#subprocess.Popen(["../dspace/bin/dspace metadata-import -f test_file.csv -e dspace@lac-sdlc-sta-test.is.ed.ac.uk -w -n -t"], shell = True)
+#export_metadata()
+update_metadata()
