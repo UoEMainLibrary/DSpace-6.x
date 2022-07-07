@@ -751,19 +751,19 @@
 
                     <div class="col-xs-7 col-sm-7 hidden-xs footer-links">
                         <ul class="footer-links-list">
-                            <li><a href="/page/privacy" target="_blank">Privacy &amp; Cookies</a></li>
-                            <li><a href="/page/takedown" target="_blank">Takedown Policy</a></li>
-                            <li><a href="/page/accessibility" target="_blank">Accessibility</a></li>
-                            <li><a href="/page/policies" target="_blank" rel="license">Policies</a></li>
+                            <li><a href="https://www.rbge.org.uk/collections/research-scotland/privacy-and-cookies/" target="_blank">Privacy &amp; Cookies</a></li>
+                            <li><a href="https://www.rbge.org.uk/collections/research-scotland/takedown-policy/" target="_blank">Takedown Policy</a></li>
+                            <li><a href="https://www.rbge.org.uk/collections/research-scotland/accessibility/" target="_blank">Accessibility</a></li>
+                            <li><a href="https://www.rbge.org.uk/collections/research-scotland/" target="_blank" rel="license">Policies</a></li>
                             <li><a href="mailto:info@ResearchScotland.ac.uk">Contact</a></li>
                         </ul>
                     </div>
                     <div class="col-xs-7 col-sm-7 visible-xs footer-links">
                         <div class="small-footer-links">
-                            <a href="/page/privacy" target="_blank">Privacy &amp;amp; Cookies</a><br />
-                            <a href="/page/takedown" target="_blank">Takedown Policy</a><br />
-                            <a href="/page/accessibility" target="_blank">Accessibility</a><br />
-                            <a href="/page/policies" target="_blank">Policies</a><br />
+                            <a href="https://www.rbge.org.uk/collections/research-scotland/privacy-and-cookies/" target="_blank">Privacy &amp;amp; Cookies</a><br />
+                            <a href="https://www.rbge.org.uk/collections/research-scotland/takedown-policy/" target="_blank">Takedown Policy</a><br />
+                            <a href="https://www.rbge.org.uk/collections/research-scotland/accessibility/" target="_blank">Accessibility</a><br />
+                            <a href="https://www.rbge.org.uk/collections/research-scotland/" target="_blank">Policies</a><br />
                             <a href="mailto:info@ResearchScotland.ac.uk" target="_blank">Contact</a><br />
                         </div>
                     </div>
