@@ -5,15 +5,54 @@ import subprocess
 import csv
 
 communities  = {
-    #'2164/329',
-    #'2164/330'
-    #'2164/331'
-    #'2164/318'
+    '2164/352',
+    '2164/329',
+    '2164/330',
+    '2164/331'
     '2164/705'
 }
 
 dctypes = {
-    'dc.contributor.author','dc.contributor.editor','dc.contributor.institution[en]','dc.contributor.inventor','dc.date.accessioned','dc.date.accessioned[]','dc.date.available','dc.date.available[]','dc.date.embargoedUntil','dc.date.issued','dc.description.provenance','dc.description.provenance[en]','dc.description.status[en]','dc.description.version[en]','dc.description[en]','dc.format.extent','dc.format.extent[en]','dc.identifier','dc.identifier.citation[en]','dc.identifier.doi','dc.identifier.isbn','dc.identifier.issn','dc.identifier.other','dc.identifier.uri','dc.identifier.uri[]','dc.identifier.uri[en]','dc.identifier.url[en]','dc.language.iso','dc.publisher','dc.relation.ispartof[en]','dc.relation.ispartofseries[en]','dc.rights[en]','dc.subject.lcc[en]','dc.subject[en]','dc.title.alternative[en]','dc.title[en]','dc.type[en]'
+    'dc.contributor.author',
+    'dc.contributor.composer',
+    'dc.contributor.editor',
+    'dc.contributor.institution[en]',
+    'dc.date.accessioned',
+    'dc.date.accessioned[]',
+    'dc.date.available',
+    'dc.date.embargoedUntil',
+    'dc.date.issued',
+    'dc.description.abstract[en]',
+    'dc.description.provenance',
+    'dc.description.provenance[en]',
+    'dc.description.sponsorship[en]',
+    'dc.description.status[en]',
+    'dc.description.version[en]',
+    'dc.description[en]',
+    'dc.format.extent',
+    'dc.format.extent[en]',
+    'dc.format.mimetype',
+    'dc.identifier.citation[en]',
+    'dc.identifier.doi',
+    'dc.identifier.isbn',
+    'dc.identifier.issn',
+    'dc.identifier.other',
+    'dc.identifier.other[en]',
+    'dc.identifier.uri',
+    'dc.identifier.uri[]',
+    'dc.identifier.uri[en]',
+    'dc.language.iso[en]',
+    'dc.publisher',
+    'dc.publisher[en]',
+    'dc.relation.ispartof[en]',
+    'dc.relation.ispartofseries[en]',
+    'dc.rights[en]',
+    'dc.subject.lcc[en]',
+    'dc.subject.lcsh[en]',
+    'dc.subject[en]',
+    'dc.title.alternative[en]',
+    'dc.title[en]',
+    'dc.type[en]'
 }
 # Export metadata csv
 def export_metadata():
@@ -69,6 +108,7 @@ def update_metadata():
                                 
                             for dc in dctypes:
                                 if line[dc] != None:
+                                    print(line[dc])
                                     del line[dc]
                             
                         except ValueError:
