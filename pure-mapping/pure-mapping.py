@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from datetime import datetime
 import subprocess
 import csv
 import logging
@@ -328,75 +329,82 @@ logging.basicConfig(filename="log.txt", level=logging.DEBUG)
 
 # Export metadata csv
 def export_metadata():
-    print('Exporting metadata')
-    print('--------------------------------')
-    # Trigger internal DSpace export metadata script
-    subprocess.Popen(["../dspace/bin/dspace metadata-export -a -f all_research_export.csv -i 2164/705"], shell = True).wait()
+    logging.info(datetime.now().strftime("%d-%b-%Y (%H:%M:%S)")+': Beginning export of All Research collection')
+    try:
+        # Trigger internal DSpace export metadata script
+        subprocess.Popen(["../dspace/bin/dspace metadata-export -a -f all_research_export.csv -i 2164/705"], shell = True).wait()
+    except subprocess.CalledProcessError as e:
+        logging.error(e.output)
+        
     update_metadata()
 
 # Update csv metadata
 def update_metadata():
-    # Open csv export of All Research
-    with open('all_research_export.csv', 'r') as csv_file:
-        csv_reader = csv.DictReader(csv_file) 
-        
-        # Create new import csv  
-        with open('collection_update_import.csv', 'w', newline='') as new_file:
-            # Set column headers for import csv
-            csv_writer = csv.DictWriter(new_file, fieldnames=['id','collection'],extrasaction='ignore')
-            csv_writer.writeheader()
+    try:
+        # Open csv export of All Research
+        with open('all_research_export.csv', 'r') as csv_file:
+            csv_reader = csv.DictReader(csv_file) 
             
-            # Loop through items in All Research csv
-            for line in csv_reader:
-                
-                # List for holding individual items new collection handles
-                item_cols = []
-                # Extract instution names string for an individual item
-                inst_full = line['dc.contributor.institution[en]']
-                # Split the institution names into a list
-                inst_split = inst_full.split('||')
-                # Loop through institution names list and retreive collection handles
-                for inst in inst_split:
-                    try:
-                        handle = collections[inst]
-                    except Exception:
-                        # Ignore if institution is not present in list
-                        pass
-                    # Add collection handle if it is not present in items collection list
-                    if handle not in item_cols and not handle == "2164/706":
-                        item_cols.append(handle)
+            try:
+                # Create new import csv  
+                with open('collection_update_import.csv', 'w', newline='') as new_file:
+                    # Set column headers for import csv
+                    csv_writer = csv.DictWriter(new_file, fieldnames=['id','collection'],extrasaction='ignore')
+                    csv_writer.writeheader()
+                    
+                    # Loop through items in All Research csv
+                    for line in csv_reader:
                         
-                # Extract current collection handles for an individual item
-                hndls_full = line['collection']
-                # Split the current collection handles into a list
-                hndls_split = hndls_full.split('||')
+                        # List for holding individual items new collection handles
+                        item_cols = []
+                        # Extract instution names string for an individual item
+                        inst_full = line['dc.contributor.institution[en]']
+                        # Split the institution names into a list
+                        inst_split = inst_full.split('||')
+                        # Loop through institution names list and retreive collection handles
+                        for inst in inst_split:
+                            try:
+                                handle = collections[inst]
+                            except Exception:
+                                # Ignore if institution is not present in list
+                                pass
+                            # Add collection handle if it is not present in items collection list
+                            if handle not in item_cols and not handle == "2164/706":
+                                item_cols.append(handle)
+                                
+                        # Extract current collection handles for an individual item
+                        hndls_full = line['collection']
+                        # Split the current collection handles into a list
+                        hndls_split = hndls_full.split('||')
+                        
+                        # Loop through items collection list and append all new handles to current collection metadata
+                        for new_handle in item_cols:
+                            # Check new handles are not already present in the items collection metadata
+                            if new_handle not in hndls_split:
+                                line['collection'] = line['collection'] + '||' + new_handle
+                                
+                        logging.info(datetime.now().strftime("%d-%b-%Y (%H:%M:%S)")+'\nItem: ' + line['id']+'\nTitle: '+line['dc.title[en]']+'\nMapped to Collections: '+line['collection']+'\n-----------------------------------------------------------')
+                        
+                        # Remove all metadata columns other than the heders defined above
+                        for dc in dctypes:
+                            if line[dc] != None:
+                                del line[dc]
+                                    
+                        # Write updated data to import csv
+                        csv_writer.writerow(line)
+            except IOError:
+                logging.error(datetime.now().strftime("%d-%b-%Y (%H:%M:%S)")+': Failed to create updated collections csv')
                 
-                # Loop through items collection list and append all new handles to current collection metadata
-                for new_handle in item_cols:
-                    # Check new handles are not already present in the items collection metadata
-                    if new_handle not in hndls_split:
-                        line['collection'] = line['collection'] + '||' + new_handle
-                
-                if line['id'] == '1437731f-6479-4191-80b4-d252b67cc549':        
-                    print('Item: ' + line['id'])
-                    #logging.info('Item: ' + line['dc.title[en]'])
-                    print('Collections: '+line['collection'])
-                    print('--------------------------------')
-                
-                # Remove all metadata columns other than the heders defined above
-                for dc in dctypes:
-                    if line[dc] != None:
-                        del line[dc]
-                            
-                # Write updated data to import csv
-                csv_writer.writerow(line)
+    except IOError:
+        logging.error(datetime.now().strftime("%d-%b-%Y (%H:%M:%S)")+': Failed to open All Research export csv')
+        
     import_metadata()
 
 def import_metadata():
-    #print('Importing metatdata')
-    #print('--------------------------------')
-    # Trigger internal DSpace import metadata script
-    subprocess.Popen(['../dspace/bin/dspace metadata-import -e bparkes@ed.ac.uk -f /home/lib/dspace/pure-mapping/collection_update_import.csv -s'], shell = True)
+    try:
+        # Trigger internal DSpace import metadata script
+        subprocess.Popen(['../dspace/bin/dspace metadata-import -e bparkes@ed.ac.uk -f /home/lib/dspace/pure-mapping/collection_update_import.csv -s'], shell = True)
+    except subprocess.CalledProcessError as e:
+        logging.error(e.output)
 
-#export_metadata()
-update_metadata()
+export_metadata()
