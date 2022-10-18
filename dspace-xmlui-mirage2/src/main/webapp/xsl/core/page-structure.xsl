@@ -821,14 +821,14 @@
 
                     <h2>Feedback and contact information</h2>
                     <p>If you need information on this website in a different format, including accessible PDF, large print, audio recording or braille please contact:</p>
-                    <p>Email: <a href="mailto:open.access@hw.ac.uk"></a>open.access@hw.ac.uk</p>
+                    <p>Email: <a href="mailto:open.access@hw.ac.uk">open.access@hw.ac.uk</a></p>
                     <p>Email: <a href="mailto:lddt@mlist.is.ed.ac.uk">lddt@mlist.is.ed.ac.uk</a></p>
                     <p>British Sign Language (BSL) users can contact us via <a href="http://contactscotland-bsl.org/">contactSCOTLAND-BSL</a>, the on-line BSL interpreting service</p>
                     <p>We'll consider your request and get back to you in 5 working days.</p>
 
                     <h2>Reporting accessibility problems with this website</h2>
                     <p>We are always looking to improve the accessibility of this website. If you find any problems not listed on this page, or think we're not meeting accessibility requirements, please contact:</p>
-                    <p>Email: <a href="mailto:open.access@hw.ac.uk"></a>open.access@hw.ac.uk</p>
+                    <p>Email: <a href="mailto:open.access@hw.ac.uk">open.access@hw.ac.uk</a></p>
                     <p>Email: <a href="mailto:lddt@mlist.is.ed.ac.uk">lddt@mlist.is.ed.ac.uk</a></p>
                     <p>British Sign Language (BSL) users can contact us via <a href="http://contactscotland-bsl.org/">contactSCOTLAND-BSL</a>, the on-line BSL interpreting service</p>
                     <p>We'll consider your request and get back to you in 5 working days.</p>
@@ -922,6 +922,11 @@
                     </ul>
                     <ul>
                         <li>Screen readers are not able to identify some parts of the page</li>
+                        <ul>
+                            <li><u><a href="https://www.w3.org/TR/WCAG21/#4.1.2 - Name, Role, Value">4.1.2 - Name, Role, Value</a></u></li>
+                        </ul>
+                    </ul>
+                    <ul>
                         <li>There are PDF's that are not currently accessible</li>
                         <ul>
                             <li><u><a href="https://www.w3.org/TR/WCAG21/#4.1.2 - Name, Role, Value">4.1.2 - Name, Role, Value</a></u></li>
