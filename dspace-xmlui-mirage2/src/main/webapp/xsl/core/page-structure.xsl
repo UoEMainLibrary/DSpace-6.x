@@ -682,7 +682,7 @@
                             <li><a href="/page/about" target="_blank">About</a></li>
                             <li><a rel="license" href="//www.hw.ac.uk/about/policies/terms-conditions.htm" target="_blank">Copyright</a></li>
                             <!--<li><a href="//www.hw.ac.uk/about/policies/accessibility.htm" target="_blank">Accessibility</a></li>-->
-                            <li><a href="/page/accessibility" target="_blank">Accessibility</a></li>
+                            <li><a href="/page/accessibility" target="">Accessibility</a></li>
                             <li><a href="//www.hw.ac.uk/about/policies.htm" target="_blank">Policies</a></li>
                             <li><a href="//www.hw.ac.uk/about/policies/cookies.htm" target="_blank">Privacy &amp; Cookies</a></li>
                             <li><a href="/feedback">Feedback</a></li>
@@ -692,7 +692,7 @@
                         <div class="small-footer-links">
                             <a href="/page/about" target="_blank">About</a>
                             <a rel="license" href="//www.hw.ac.uk/about/policies/terms-conditions.htm" target="_blank">Copyright</a><br />
-                            <a href="/page/accessibility" target="_blank">Accessibility</a>
+                            <a href="/page/accessibility" target="">Accessibility</a>
                             <a href="//www.hw.ac.uk/about/policies.htm" target="_blank">Policies</a><br />
                             <a href="//www.hw.ac.uk/about/policies/cookies.htm" target="_blank">Privacy &amp; Cookies</a><br />
                             <a href="//www.hw.ac.uk/is/contactvisit-us.htm" target="_blank">Feedback</a><br />
@@ -780,8 +780,7 @@
                     </div>
                 </xsl:when>
 
-                <!-- 21/09/2020
-                     HM Added static accessibility statement page -->
+                <!-- 21/09/2020 HM Added static accessibility statement page -->
                 <xsl:when test="starts-with($request-uri, 'page/accessibility')">
                     <h1>Accessibility statement for <a href="https://www.ros.hw.ac.uk/">ROS Theses Repository</a></h1>
                     <p><strong>Website accessibility statement in line with Public Sector Body (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018</strong></p>
@@ -822,14 +821,14 @@
                     <h2>Feedback and contact information</h2>
                     <p>If you need information on this website in a different format, including accessible PDF, large print, audio recording or braille please contact:</p>
                     <p>Email: <a href="mailto:open.access@hw.ac.uk">open.access@hw.ac.uk</a></p>
-                    <p>Email: <a href="mailto:lddt@mlist.is.ed.ac.uk">lddt@mlist.is.ed.ac.uk</a></p>
+                    <p>Phone: +44 (0)131 451 3577</p>
                     <p>British Sign Language (BSL) users can contact us via <a href="http://contactscotland-bsl.org/">contactSCOTLAND-BSL</a>, the on-line BSL interpreting service</p>
                     <p>We'll consider your request and get back to you in 5 working days.</p>
 
                     <h2>Reporting accessibility problems with this website</h2>
                     <p>We are always looking to improve the accessibility of this website. If you find any problems not listed on this page, or think we're not meeting accessibility requirements, please contact:</p>
                     <p>Email: <a href="mailto:open.access@hw.ac.uk">open.access@hw.ac.uk</a></p>
-                    <p>Email: <a href="mailto:lddt@mlist.is.ed.ac.uk">lddt@mlist.is.ed.ac.uk</a></p>
+                    <p>Phone: +44 (0)131 451 3577</p>
                     <p>British Sign Language (BSL) users can contact us via <a href="http://contactscotland-bsl.org/">contactSCOTLAND-BSL</a>, the on-line BSL interpreting service</p>
                     <p>We'll consider your request and get back to you in 5 working days.</p>
 
