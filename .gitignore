@@ -39,3 +39,6 @@ META-INF/
 
 ##Mac noise
 .DS_Store
+
+# Ignore botstream api files
+/bitstream-api/EGIS-Dissertation-Files_13-6-22
