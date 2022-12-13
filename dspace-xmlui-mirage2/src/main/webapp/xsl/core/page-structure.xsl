@@ -1022,7 +1022,6 @@
                             <h2>Change Log</h2>
                             <p>Since our first evaluation and statement which was based on automated testing we have been doing extensive manual testing including with a range of assistive technology to ensure we have a clear picture of the accessibility issues and how best to resolve them.</p>
 
-
                         </div>
                     </div>
                 </xsl:when>
