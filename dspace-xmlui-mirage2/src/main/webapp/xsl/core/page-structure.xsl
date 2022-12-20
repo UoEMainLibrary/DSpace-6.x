@@ -283,7 +283,7 @@
             <xsl:variable name="page_title" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='title'][last()]" />
             <title>
                 <xsl:choose>
-                    <xsl:when test="starts-with($request-uri, 'page/accessibility')">
+                    <xsl:when test="starts-with($request-uri, 'accessibility')">
                         Accessibility Statement
                     </xsl:when>
                     <xsl:when test="not($page_title)">
@@ -818,7 +818,7 @@
 
                         <p>To find out how you can benefit from open access to research, see our <a href="//www.st-andrews.ac.uk/library/services/researchsupport/openaccess/" title="University of St Andrews Library Open Access web pages" target="_blank">library web pages</a> and <a href="//univstandrews-oaresearch.blogspot.co.uk/" title="Open Access Blog" target="_blank">Open Access blog</a>. For open access help contact: <a href="mailto:openaccess@st-andrews.ac.uk">openaccess@st-andrews.ac.uk</a>.</p>
                         <h3>Accessibility</h3>
-                        <p>Read our <a href="/page/accessibility" title="Accessibility statement">Accessibility statement</a>.</p>
+                        <p>Read our <a href="/accessibility" title="Accessibility statement">Accessibility statement</a>.</p>
                         </div>
                     <div class="col-md-3 footer-block">
                         <h3>How to submit research papers</h3>
@@ -901,7 +901,7 @@
 
             <!-- Check for the custom pages -->
             <xsl:choose>
-                <xsl:when test="starts-with($request-uri, 'page/accessibility')">
+                <xsl:when test="starts-with($request-uri, 'accessibility')">
                     <div class="hero-unit">
                         <h1>Accessibility statement for the <a href="https://research-repository.st-andrews.ac.uk/">St. Andrews Research Repository</a></h1>
                         <p><strong>Website accessibility statement in line with Public Sector Body (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018</strong></p>
