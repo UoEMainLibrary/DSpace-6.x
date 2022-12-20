@@ -944,1007 +944,212 @@
                 <xsl:when test="starts-with($request-uri, 'page/accessibility')">
                     <div class="hero-unit">
                         <h1>Accessibility statement for <a href="https://aura.abdn.ac.uk/">AURA - Aberdeen University Research Archive</a></h1>
-                        <p>Website accessibility statement in line with Public Sector Body (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018</p>
-                        <p><a href="https://aura.abdn.ac.uk/">AURA - Aberdeen University Research Archive</a> - <a href="https://aura.abdn.ac.uk/">https://aura.abdn.ac.uk/</a> is a website hosted by the University of Edinburgh Library on behalf of Aberdeen University. It provides access to the full text of selected research outputs of Aberdeen University.</p>
-                        <p>We want as many people as possible to be able to use our website. For example this means you should be able to:</p>
+                        <p><strong>Website accessibility statement in line with Public Sector Body (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018</strong></p>
+                        <p>This accessibility statement applies to “<a href="https://aura.abdn.ac.uk/">AURA - Aberdeen University Research Archive</a>” - <a href="https://aura.abdn.ac.uk/">https://aura.abdn.ac.uk/</a></p>
+                        <p>This website is maintained by the Digital Library team, Library and University Collections, the University of Edinburgh on behalf of the Aberdeen University Research Archive. We want as many people as possible to be able to use this application. For example, that means you should be able to:</p>
                         <ul>
-                            <li>change colours, contrast levels and fonts.</li>
-                            <li>experience no time limits to content</li>
+                            <li>Using your browser settings, change colours, contrast levels and fonts</li>
+                            <li>zoom in up to 200% without the text spilling off the screen</li>
                             <li>navigate most of the website using just a keyboard</li>
-                            <li>magnify up to 200%</li>
+                            <li>navigate most of the website using speech recognition software such as Dragon Naturally Speaking</li>
+                            <li>listen to most of the website using a screen reader (including the most recent versions of Job Access with Speech (JAWS)</li>
+                            <li>Experience no time limits when using the site</li>
+                            <li>There is no flashing, scrolling or moving text</li>
                         </ul>
-                        <p>We’ve also made the website text as simple as possible to understand.</p>
+                        <p>We've also made the website text as simple as possible to understand.</p>
+
                         <h2>Customising the website</h2>
-                        <p>AbilityNet has advice on making your device easier to use if you have a disability.</p>
+                        <p>AbilityNet has advice on making your device easier to use if you have a disability. This is an external site with suggestions to make your computer more accessible:</p>
                         <p><a href="https://mcmw.abilitynet.org.uk/">AbilityNet - My computer my way</a></p>
-                        <p>With a few simple steps you can customise the appearance of our website to make it easier to read and navigate.</p>
+                        <p>With a few simple steps you can customise the appearance of our website using your browser settings to make it easier to read and navigate:</p>
                         <p><a href="https://www.ed.ac.uk/about/website/accessibility/customising-site">Additional information on how to customise our website appearance</a></p>
-                        <p>If you are a member of the University staff or a student you can use the free Sensus Access accessible document conversion service.</p>
+                        <p>If you are a member of University staff or a student, you can use the free SensusAccess accessible document conversion service:</p>
                         <p><a href="https://www.ed.ac.uk/student-disability-service/staff/supporting-students/accessible-technology">SenusAccess Information</a></p>
+
                         <h2>How accessible this website is</h2>
                         <p>We know some parts of this website are not fully accessible:</p>
                         <ul>
-                            <li>some parts may not be fully compatible with screen readers</li>
-                            <li>some colour contrasts do not meet recommended guidance</li>
-                            <li>the default language of each page may not be identified</li>
-                            <li>entering data or selecting a form control does not always have predictable effects</li>
+                            <li>Tabbing highlights sometimes obscure the content they are highlighting</li>
+                            <li>It can be hard to tell where you have tabbed to using keyboard navigation</li>
+                            <li>Data entry does not alert users to information entered incorrect format and error messages are in a small font with a poor colour contrast</li>
+                            <li>Not all colour contrasts meet the recommended levels</li>
+                            <li>Not all non-text content has appropriate alternative text</li>
+                            <li>No 'skip to main content' button is present throughout the website</li>
+                            <li>The website is not fully compatible with mobile accessibility functionality (Android, iOS)</li>
+                            <li>Some PDF's are not fully accessible</li>
+                            <li>Not all non-text items have alt text</li>
+                            <li>Links are not correctly formatted hypertext links</li>
+                            <li>Not all touch targets are a minimum of 9mm by 9mm </li>
                         </ul>
-                        <h3>Feedback and contact information</h3>
-                        <p>If you need information on this website in a different format like accessible PDF, large print, audio recording or braille please contact the website team by contacting us:</p>
-                        <p>By using the IS Helpline online contact form</p>
-                        <p><a href="https://www.ishelpline.ed.ac.uk/forms/">IS Helpline contact form</a></p>
-                        <p>Or phoning</p>
-                        <p>+44 (0)131 651 5151</p>
-                        <p>Or email</p>
-                        <p><a href="mailto:information.systems@ed.ac.uk">Information.systems@ed.ac.uk</a></p>
-                        <p>We’ll consider your request and get back to you in 5 working days.</p>
+
+                        <h2>Feedback and contact information</h2>
+                        <p>If you need information on this website in a different format, including accessible PDF, large print, audio recording or braille please contact:</p>
+                        <p>Email: <a href="mailto:library@abdn.ac.uk">library@abdn.ac.uk</a></p>
+                        <p>Phone: +44 (0)1224 273330</p>
+                        <p>British Sign Language (BSL) users can contact us via Contact Scotland BSL, the on-line BSL interpreting service</p>
+                        <p><a href="http://contactscotland-bsl.org/">Contact Scotland BSL</a></p>
+                        <p>We'll consider your request and get back to you in 5 working days.</p>
+
                         <h2>Reporting accessibility problems with this website</h2>
-                        <p>We’re always looking to improve the accessibility of this website. If you find any problems not listed on this page or think we’re not meeting accessibility requirements please let us know by contacting:</p>
-                        <p>By using the IS Helpline online contact form</p>
-                        <p><a href="https://www.ishelpline.ed.ac.uk/forms/">IS Helpline contact form</a></p>
-                        <p>Or phoning</p>
-                        <p>+44 (0)131 651 5151</p>
-                        <p>Or email</p>
-                        <p><a href="mailto:information.systems@ed.ac.uk">Information.systems@ed.ac.uk</a></p>
-                        <p>We’ll consider your request and get back to you in 5 working days.</p>
+                        <p>We are always looking to improve the accessibility of this website. If you find any problems not listed on this page, or think we're not meeting accessibility requirements, please contact:</p>
+                        <p>Email: <a href="mailto:library@abdn.ac.uk">library@abdn.ac.uk</a></p>
+                        <p>Phone: +44 (0)1224 273330</p>
+                        <p>British Sign Language (BSL) users can contact us via Contact Scotland BSL, the on-line BSL interpreting service</p>
+                        <p><a href="http://contactscotland-bsl.org/">Contact Scotland BSL</a></p>
+                        <p>We'll consider your request and get back to you in 5 working days.</p>
+
                         <h2>Enforcement procedure</h2>
-                        <p>The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ‘accessibility regulations’). If you’re not happy with how we respond to your complaint please contact the Equality Advisory and Support Service (EASS) directly.</p>
+                        <p>The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the 'accessibility regulations'). If you're not happy with how we respond to your complaint please contact the Equality Advisory and Support Service (EASS) directly:</p>
                         <p><a href="https://www.equalityadvisoryservice.com/">Contact details for the Equality Advisory and Support Service (EASS)</a></p>
                         <p>The government has produced information on how to report accessibility issues:</p>
                         <p><a href="https://www.gov.uk/reporting-accessibility-problem-public-sector-website">Reporting an accessibility problem on a public sector website</a></p>
+
                         <h2>Contacting us by phone using British Sign Language</h2>
-                        <h3>British Sign Language service</h3>
-                        <p>British Sign Language Scotland runs a service for British Sign Language users and all of Scotland’s public bodies using video relay. This enables sign language users to contact public bodies and vice versa. The service operates from 8am to 12 midnight, 7 days a week.</p>
+                        <p>British Sign Language service Contact Scotland BSL runs a service for British Sign Language users and all of Scotland's public bodies using video relay. This enables sign language users to contact public bodies and vice versa. The service operates 24 hours a day, 7 days a week.</p>
                         <p><a href="https://contactscotland-bsl.org/">British Sign Language Scotland service details</a></p>
-                        <h2>Technical information about this website’s accessibility</h2>
-                        <p>The University of Edinburgh is committed to making its websites accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.</p>
-                        <h3>Compliance Status</h3>
-                        <p>This website is partially compliant with the Web Content Accessibility Guidelines 2.1 AA standard, due to the non-compliances listed below</p>
+
+                        <h2>Technical information about this website's accessibility</h2>
+                        <p>The University of Edinburgh is committed to making its websites and applications accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.</p>
+                        <p>This website is partially compliant with the Web Content Accessibility Guidelines (WCAG) 2.1 AA standard, due to the non-compliances listed below.</p>
                         <p>The full guidelines are available at</p>
-                        <p><a href="https://www.w3.org/TR/WCAG21/">Web Content Accessibility Guidelines version 2.1</a></p>
-                        <h3>Non accessible content</h3>
+                        <p><a href="https://www.w3.org/TR/WCAG21/">Web Content Accessibility Guidelines (WCAG) 2.1 AA standard</a></p>
+
+                        <h2>Non accessible content</h2>
                         <p>The content listed below is non-accessible for the following reasons.</p>
-                        <p>The following items to not comply with the WCAG 2.1 AA success criteria</p>
+                        <p>Noncompliance with the accessibility regulations.</p>
+                        <p>The following items to not comply with the WCAG 2.1 AA success criteria:</p>
                         <ul>
-                            <li>Not all non-text content that is presented to the user has a text alternative</li>
+                            <li>Some non-text content does not have text alternatives</li>
                             <ul>
-                                <li><u><a href="https://www.w3.org/TR/WCAG21/#non-text-content">1.1 - Non-text Content</a></u></li>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#non-text-content">1.1.1 - Non-text Content</a></u></li>
                             </ul>
                         </ul>
                         <ul>
-                            <li>Not all page content is compatible with assistive technologies.</li>
+                            <li>Heading levels are skipped on various pages</li>
                             <ul>
-                                <li><u><a href="https://www.w3.org/TR/WCAG21/#info-and-relationships">3.1 - Info and Relationships</a></u></li>
-                                <li><u><a href="https://www.w3.org/TR/WCAG21/#parsing">1.1 - Parsing</a></u></li>
-                                <li><u><a href="https://www.w3.org/TR/WCAG21/#name-role-value">1.2 - Name, Role Value</a></u></li>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#info-and-relationships">1.3.1 - Info and Relationships</a></u></li>
                             </ul>
                         </ul>
                         <ul>
-                            <li>It is not always clear to tell where you have navigated to when you are using a keyboard</li>
+                            <li>Layout tables are present in the footer</li>
                             <ul>
-                                <li><u><a href="https://www.w3.org/TR/WCAG21/#focus-visible">4.7 - Focus Visible</a></u></li>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#non-text-content">1.3.2 - Meaningful Sequence</a></u></li>
                             </ul>
                         </ul>
                         <ul>
-                            <li>Some colour contrasts do not meet recommended guidance.</li>
+                            <li>There may not be sufficient colour contrast between font and background colours, there are issues where text size is very small</li>
                             <ul>
-                                <li><u><a href="https://www.w3.org/TR/WCAG21/#contrast-minimum">4.3 - Contrast (Minimum)</a></u></li>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#visual-audio-contrast-contrast">1.4.3 - Contrast (Minimum)</a></u></li>
                             </ul>
                         </ul>
                         <ul>
-                            <li>The default language of each page may not be identified.</li>
+                            <li>Not all foreground and background colours can be selected by the user</li>
                             <ul>
-                                <li><u><a href="https://www.w3.org/TR/WCAG21/#language-of-page">1.1 - Language of Page</a></u></li>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#visual-presentation">1.4.8 - Visual Presentation (Level AAA)</a></u></li>
                             </ul>
                         </ul>
                         <ul>
-                            <li>Entering data or selecting a form control does not always have predictable effects.</li>
+                            <li>Not all the content reflows when the page is magnified above 200%</li>
                             <ul>
-                                <li><u><a href="https://www.w3.org/TR/WCAG21/#on-input">2.2 - On Input</a></u></li>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#reflow">1.4.10 - Reflow</a></u></li>
                             </ul>
                         </ul>
-                        <p>A complete solution or significant improvement will be in place by April 2022 where the issues are within our control.</p>
-                        <h3>Disproportionate burden</h3>
+                        <ul>
+                            <li>Tooltips are not present for all icons and images</li>
+                            <ul>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#content-on-hover-or-focus">1.4.13 - Content on Hover or Focus</a></u></li>
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>There is no 'skip to main content' option available throughout the website</li>
+                            <ul>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#bypass-blocks">2.4.1 - Bypass Blocks</a></u></li>
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>There are unformatted links presnt that don't determine the purpose of the link</li>
+                            <ul>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#link-purpose-in-context">2.4.4 - Link Purpose (In Context)</a></u></li>
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>There are missing heading levels</li>
+                            <ul>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#headings-and-labels">2.4.6 - Headings and Labels</a></u></li>
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>It is not always clear where you have tabbed too</li>
+                            <ul>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#focus-visible">2.4.6 - Focus Visible</a></u></li>
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>There are missing labels present in the website so fail to describe the purpose of the input form</li>
+                            <ul>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#labels-or-instructions">3.3.2 - Labels or Instruction</a></u></li>
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>Error suggestions or corrections are not always displayed</li>
+                            <ul>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#error-suggestion">3.3.3 - Error Suggestionn</a></u></li>
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>Voice recognition software was unable to identify some parts of the page</li>
+                            <ul>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#parsing">4.1.1 - Parsing</a></u></li>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#name-role-value">4.1.2 - Name, Role, Value</a></u></li>
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>There are PDF's that are not currently accessible</li>
+                            <ul>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#parsing">4.1.1 - Parsing</a></u></li>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#name-role-value">4.1.2 - Name, Role, Value</a></u></li>
+                            </ul>
+                        </ul>
+                        <p>Unless specified otherwise, a complete solution, or significant improvement, will be in place by November 2023. At this time, we believe all items are within our control.</p>
+
+                        <h2>Disproportionate burden</h2>
                         <p>We are not currently claiming that any accessibility problems would be a disproportionate burden to fix.</p>
-                        <h3>Content that is not within the Scope of the Accessibility Regulations</h3>
-                        <p>At this time we are not claiming any material is out of scope.</p>
+
+                        <h2>Content that is not within the Scope of the Accessibility Regulations</h2>
+                        <p>At this time, we do not believe that any content is outside the scope of the accessibility regulations.</p>
+
                         <h2>What we're doing to improve accessibility</h2>
-                        <p>We will continue to work with our in house developers to address these issues and deliver a solution or suitable workaround and correct issues directly where they are under our control.</p>
-                        <p>We will continue to monitor accessibility and will carry out further accessibility testing if significant changes are made to the user interface or if a service user raises an issue, and plan to resolve the issues that are within our control by April 2022. We plan to manual review the accessibility of the site and make improvements and update this statement before April 2022.Where we are unable to resolve an issue or where an issue is out with our control we will ensure reasonable adjustments are put in place to ensure no user is disadvantaged.</p>
-                        <h3>Information Services and accessibility</h3>
-                        <p>Information Services (IS) has further information on accessibility including assistive technology, creating accessible documents, and services IS provides for disabled users.</p>
-                        <p><a href="https://www.ed.ac.uk/information-services/help-consultancy/accessibility">Assistive technology, creating accessible documents, and services IS provides for disabled users</a></p>
+                        <p>We will continue to address and make adequate improvements to the accessibility issues highlighted. Unless specified otherwise, a complete solution or significant improvement will be in place by November 2023.</p>
+                        <p>While we are in the process of resolving these accessibility issues we will ensure reasonable adjustments are in place to make sure no user is disadvantaged. As changes are made, we will continue to review accessibility and retest the accessibility of this website.</p>
+                        <p>We are planning to upgrade the site to the most recent release of the system architecture before the end of 2023 which includes improvements to the current accessibility requirements. During this upgrade improving the other accessibility issues highlighted will be a key component of the development process.</p>
+
                         <h2>Preparation of this accessibility statement</h2>
-                        <p><strong>This statement was prepared on 4<sup>th</sup> October 2021. It was last reviewed on 4<sup>th</sup> October 2021.</strong></p>
-                        <p>This website was last tested on 10th September 2020. The test was carried out by The University Library and University Collections Digital Library team using the automated LittleForest tool. The website is scheduled for manual testing by April 2022.</p>
-                        <p>We did not use sample pages for testing - all pages were run through LittleForest.</p>
-                        <p>Little Forrest claims it tests the following WCAG criteria either partially or wholly</p>
-                        <table width="0">
-                            <tbody>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>A</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>1.1.1</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Non-text Content</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>A</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>1.2.1</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Audio-only and Video-only (Prerecorded)</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>A</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>1.2.2</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Captions (Prerecorded)</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>A</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>1.2.3</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Audio Description or Media Alternative (Prerecorded)</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>A</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>1.3.1</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Info and Relationships</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>A</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>1.3.2</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Meaningful Sequence</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>A</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>1.3.3</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Sensory Characteristics</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>A</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>1.4.1</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Use of Color</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>A</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>1.4.2</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Audio Control</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>A</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>2.1.1</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Keyboard</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>A</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>2.1.2</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>No Keyboard Trap</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>A</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>2.2.1</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Timing Adjustable</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>A</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>2.2.2</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Pause, Stop, Hide</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>A</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>2.3.1</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Three Flashes or Below Threshold</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>A</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>2.4.1</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Bypass Blocks</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>A</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>2.4.2</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Page Titled</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>A</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>2.4.3</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Focus Order</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>A</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>2.4.4</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Link Purpose (In Context)</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>A</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>3.1.1</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Language of Page</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>A</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>3.2.1</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>On Focus</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>A</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>3.2.2</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>On Input</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>A</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>3.3.1</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Error Identification</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>A</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>3.3.2</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Labels or Instructions</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>A</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>4.4.1</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Parsing</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.0</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>A</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>4.4.2</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Name, Role, Value</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>1.2.4</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Captions (Live)</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>1.2.5</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Audio Description (Prerecorded)</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>1.4.3</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Contrast (Minimum)</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>1.4.4</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Resize Text</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>1.4.5</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Images of Text</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>2.4.5</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Multiple Ways</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>2.4.6</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Headings and Labels</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>2.4.7</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Focus Visible</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>3.1.2</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Language of Parts</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>3.2.3</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Consistent Navigation</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>3.2.4</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Consistent Identification</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>3.3.3</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Error Suggestion</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>3.3.4</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Error Prevention (Legal, Financial, Data)</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AAA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>1.2.6</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Sign Language (Prerecorded)</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AAA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>1.2.7</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Extended Audio Description (Prerecorded)</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AAA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>1.2.8</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Media Alternative (Prerecorded)</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AAA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>1.2.9</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Audio-only (Live)</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AAA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>1.4.6</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Contrast (Enhanced)</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AAA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>1.4.7</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Low or No Background Audio</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AAA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>1.4.8</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Visual Presentation</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AAA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>1.4.9</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Images of Text (No Exception)</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AAA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>2.1.3</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Keyboard (No Exception)</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AAA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>2.2.3</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>No Timing</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AAA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>2.2.4</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Interruptions</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AAA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>2.2.5</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Re-authenticating</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AAA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>2.3.2</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Three Flashes</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AAA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>2.4.8</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Location</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AAA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>2.4.9</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Link Purpose (Link Only)</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AAA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>2.4.10</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Section Headings</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AAA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>3.1.3</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Unusual Words</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AAA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>3.1.4</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Abbreviations</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AAA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>3.1.5</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Reading</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AAA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>3.1.6</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Pronunciation</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AAA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>3.2.5</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Change on Request</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AAA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>3.3.5</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Help</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AAA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>3.3.6</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Error Prevention (All)</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>1.3.4</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Orientation</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="73">
-                                        <p>WCAG 2.1</p>
-                                    </td>
-                                    <td width="49">
-                                        <p>AA</p>
-                                    </td>
-                                    <td width="76">
-                                        <p>1.3.5</p>
-                                    </td>
-                                    <td width="250">
-                                        <p>Identify Input Purpose</p>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <p>This statement was first prepared on 4th October 2021. It was last reviewed on 21st December 2022.</p>
+                        <p>This website was first tested on 10th September 2020 and was last tested on 17th July 2022. The test was carried out by The University Library and University Collections Digital Library Development team using the automated <a href="https://wave.webaim.org/">Wave WEBAIM</a> tool and <a href="https://littleforest.co.uk/">Little Forest</a> testing.</p>
+                        <p>This website was last tested by the Digital Library team, Library and University Collections, University of Edinburgh on the 17th July 2022 following on from previous automated testing of the system the previous year. This was primarily using the Google Chrome (100.0.4896.127), Mozilla Firefox (91.8.0esr), Internet Explorer (11.0) and Microsoft Edge (100.0.1185.39) browsers for comparative purposes.</p>
+                        <p>Recent world-wide usage levels survey for different screen readers and browsers shows that Chrome, Mozilla Firefox and Microsoft Edge are increasing in popularity and Google Chrome is now the favoured browser for screen readers:</p>
+                        <p><a href="https://webaim.org/projects/screenreadersurvey9/">WebAIM: Screen Reader User Survey</a></p>
+                        <p>The aforementioned three browsers have been used in certain questions for reasons of breadth and variety.</p>
+                        <p>We ran automated testing using <a href="https://wave.webaim.org/">Wave WEBAIM</a> and then manual testing that included:</p>
+                        <ul>
+                            <li>Spell check functionality;</li>
+                            <li>Scaling using different resolutions and reflow;</li>
+                            <li>Options to customise the interface (magnification, font, background colour, etc);</li>
+                            <li>Keyboard navigation and keyboard traps;</li>
+                            <li>Data validation;</li>
+                            <li>Warning of links opening in new tab or window;</li>
+                            <li>Information conveyed in the colour or sound only;</li>
+                            <li>Flashing, moving or scrolling text;</li>
+                            <li>Operability if JavaScript is disabled;</li>
+                            <li>Use with screen reading software (for example JAWS);</li>
+                            <li>Assistive software (TextHelp Read and Write, Windows Magnifier, ZoomText, Dragon Naturally Speaking, TalkBack and VoiceOver);</li>
+                            <li>Tooltips and text alternatives for any non-text content;</li>
+                            <li>Time limits;</li>
+                            <li>Compatibility with mobile accessibility functionality (Android and iOS).</li>
+                        </ul>
+
+                        <h2>Change Log</h2>
+                        <p>Since our first evaluation and statement which was based on automated testing we have been doing extensive manual testing including with a range of assistive technology to ensure we have a clear picture of the accessibility issues and how best to resolve them.</p>
                     </div>
                 </xsl:when>
                 <!-- Otherwise use default handling of body -->
