@@ -285,7 +285,7 @@
             <xsl:variable name="page_title" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='title'][last()]" />
             <title>
                 <xsl:choose>
-                    <xsl:when test="starts-with($request-uri, 'page/accessibility')">
+                    <xsl:when test="starts-with($request-uri, 'accessibility')">
                         Accessibility Statement
                     </xsl:when>
                     <xsl:when test="not($page_title)">
@@ -861,7 +861,7 @@
             </li>
             <li>
                 <a>
-                    <xsl:attribute name="href"><xsl:text>/page/accessibility</xsl:text></xsl:attribute>
+                    <xsl:attribute name="href"><xsl:text>/accessibility</xsl:text></xsl:attribute>
                     <xsl:attribute name="title"><xsl:text>Accessibility Statement</xsl:text></xsl:attribute>
                     <xsl:text>Accessibility</xsl:text>
                 </a>
@@ -941,7 +941,7 @@
 
             <!-- Check for the custom pages -->
             <xsl:choose>
-                <xsl:when test="starts-with($request-uri, 'page/accessibility')">
+                <xsl:when test="starts-with($request-uri, 'accessibility')">
                     <div class="hero-unit">
                         <h1>Accessibility statement for <a href="https://aura.abdn.ac.uk/">AURA - Aberdeen University Research Archive</a></h1>
                         <p><strong>Website accessibility statement in line with Public Sector Body (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018</strong></p>
