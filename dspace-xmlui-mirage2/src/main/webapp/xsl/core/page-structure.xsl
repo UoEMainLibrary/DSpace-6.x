@@ -905,16 +905,14 @@
                     <div class="hero-unit">
                         <h1>Accessibility statement for the <a href="https://research-repository.st-andrews.ac.uk/">St. Andrews Research Repository</a></h1>
                         <p><strong>Website accessibility statement in line with Public Sector Body (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018</strong></p>
-                        <p>This accessibility statement applies to “<a href="https://research-repository.st-andrews.ac.uk/">St. Andrews Univeristy Research Repository</a>” - <a href="https://research-repository.st-andrews.ac.uk/">https://research-repository.st-andrews.ac.uk/</a></p>
+                        <p>This accessibility statement applies to <a href="https://research-repository.st-andrews.ac.uk/">St. Andrews Univeristy Research Repository</a> - <a href="https://research-repository.st-andrews.ac.uk/">https://research-repository.st-andrews.ac.uk/</a></p>
                         <p>This website is maintained by the Digital Library team, Library and University Collections, the University of Edinburgh on behalf of the St. Andrews Research Repository. We want as many people as possible to be able to use this application. For example, that means you should be able to:</p>
                         <ul>
-                            <li>Using your browser settings, change colours, contrast levels and fonts</li>
-                            <li>zoom in up to 200% without the text spilling off the screen</li>
-                            <li>navigate most of the website using just a keyboard</li>
-                            <li>navigate most of the website using speech recognition software such as Dragon Naturally Speaking</li>
-                            <li>listen to most of the website using a screen reader (including the most recent versions of Job Access with Speech (JAWS)</li>
-                            <li>Experience no time limits when using the site</li>
-                            <li>There is no flashing, scrolling or moving text</li>
+                            <li>using your browser settings, change colours, contrast levels and fonts;</li>
+                            <li>zoom in up to 200% without the text spilling off the screen;</li>
+                            <li>navigate most of the website using just a keyboard;</li>
+                            <li>listen to most of the website using a screen reader (including the most recent versions of Job Access with Speech (JAWS);</li>
+                            <li>experience no time limits when using the site there is no flashing, scrolling or moving text.</li>
                         </ul>
                         <p>We've also made the website text as simple as possible to understand.</p>
 
@@ -929,17 +927,17 @@
                         <h2>How accessible this website is</h2>
                         <p>We know some parts of this website are not fully accessible:</p>
                         <ul>
-                            <li>Tabbing highlights sometimes obscure the content they are highlighting</li>
-                            <li>It can be hard to tell where you have tabbed to using keyboard navigation</li>
-                            <li>Data entry does not alert users to information entered incorrect format and error messages are in a small font with a poor colour contrast</li>
-                            <li>Not all colour contrasts meet the recommended levels</li>
-                            <li>Not all non-text content has appropriate alternative text</li>
-                            <li>No 'skip to main content' button is present throughout the website</li>
-                            <li>The website is not fully compatible with mobile accessibility functionality (Android, iOS)</li>
-                            <li>Some PDF's are not fully accessible</li>
-                            <li>Not all non-text items have alt text</li>
-                            <li>Links are not correctly formatted hypertext links</li>
-                            <li>Not all touch targets are a minimum of 9mm by 9mm </li>
+                            <li>The website is not fully compatible with voice recognition assistive technology on all browsers;</li>
+                            <li>It is not possible to tab through all the content on all browsers;</li>
+                            <li>Tab highlighting can obscure the actual content;</li>
+                            <li>Data entry and validation is not fully robust;</li>
+                            <li>Not all hyperlinks are formatted correctly;</li>
+                            <li>Not all colour contrasts meet the Web Content Accessibility Guidelines (WCAG) 2.1 AA standard;</li>
+                            <li>Not all non-text content has appropriate alternative text;</li>
+                            <li>No 'skip to main content' button is present throughout the website;</li>
+                            <li>The website is not fully compatible with mobile accessibility functionality (Android, iOS);</li>
+                            <li>Some PDF documents are not fully accessible;</li>
+                            <li>Not all touch targets are a minimum of 9mm by 9mm.</li>
                         </ul>
 
                         <h2>Feedback and contact information</h2>
@@ -985,13 +983,7 @@
                             </ul>
                         </ul>
                         <ul>
-                            <li>Heading levels are skipped on various pages</li>
-                            <ul>
-                                <li><u><a href="https://www.w3.org/TR/WCAG21/#info-and-relationships">1.3.1 - Info and Relationships</a></u></li>
-                            </ul>
-                        </ul>
-                        <ul>
-                            <li>There is an orphaned form label present</li>
+                            <li>There are missing form labels</li>
                             <ul>
                                 <li><u><a href="https://www.w3.org/TR/WCAG21/#info-and-relationships">1.3.1 - Info and Relationships</a></u></li>
                             </ul>
@@ -1027,13 +1019,7 @@
                             </ul>
                         </ul>
                         <ul>
-                            <li>There are unformatted links presnt that don't determine the purpose of the link</li>
-                            <ul>
-                                <li><u><a href="https://www.w3.org/TR/WCAG21/#link-purpose-in-context">2.4.4 - Link Purpose (In Context)</a></u></li>
-                            </ul>
-                        </ul>
-                        <ul>
-                            <li>There are empty buttons and empty links present throughout the website</li>
+                            <li>The purpose of each link can not be determined from the text alone</li>
                             <ul>
                                 <li><u><a href="https://www.w3.org/TR/WCAG21/#link-purpose-in-context">2.4.4 - Link Purpose (In Context)</a></u></li>
                             </ul>
@@ -1045,15 +1031,21 @@
                             </ul>
                         </ul>
                         <ul>
-                            <li>It is not always clear where you have tabbed too</li>
+                            <li>Visual information to identify user interface components, such as keyboard focus, do not always have a sufficient contrast ratio</li>
                             <ul>
                                 <li><u><a href="https://www.w3.org/TR/WCAG21/#focus-visible">2.4.6 - Focus Visible</a></u></li>
                             </ul>
                         </ul>
                         <ul>
+                            <li>There are missing labels present in the website that fail to describe the purpose of the input form</li>
+                            <ul>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#labels-or-instructions">3.3.2 - Labels or Instruction</a></u></li>
+                            </ul>
+                        </ul>
+                        <ul>
                             <li>Error suggestions or corrections are not always displayed</li>
                             <ul>
-                                <li><u><a href="https://www.w3.org/TR/WCAG21/#error-suggestion">3.3.3 - Error Suggestionn</a></u></li>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#error-suggestion">3.3.3 - Error Suggestion</a></u></li>
                             </ul>
                         </ul>
                         <ul>
@@ -1070,7 +1062,7 @@
                                 <li><u><a href="https://www.w3.org/TR/WCAG21/#name-role-value">4.1.2 - Name, Role, Value</a></u></li>
                             </ul>
                         </ul>
-                        <p>Unless specified otherwise, a complete solution, or significant improvement, will be in place by November 2023. At this time, we believe all items are within our control.</p>
+                        <p>Unless specified otherwise, a complete solution, or significant improvement, will be in place by December 2023. At this time, we believe all items are within our control.</p>
 
                         <h2>Disproportionate burden</h2>
                         <p>We are not currently claiming that any accessibility problems would be a disproportionate burden to fix.</p>
@@ -1079,13 +1071,13 @@
                         <p>At this time, we do not believe that any content is outside the scope of the accessibility regulations.</p>
 
                         <h2>What we're doing to improve accessibility</h2>
-                        <p>We will continue to address and make adequate improvements to the accessibility issues highlighted. Unless specified otherwise, a complete solution or significant improvement will be in place by November 2023.</p>
+                        <p>We will continue to address and make adequate improvements to the accessibility issues highlighted. Unless specified otherwise, a complete solution or significant improvement will be in place by December 2023.</p>
                         <p>While we are in the process of resolving these accessibility issues we will ensure reasonable adjustments are in place to make sure no user is disadvantaged. As changes are made, we will continue to review accessibility and retest the accessibility of this website.</p>
                         <p>We are planning to upgrade the site to the most recent release of the system architecture before the end of 2023 which includes improvements to the current accessibility requirements. During this upgrade improving the other accessibility issues highlighted will be a key component of the development process.</p>
 
                         <h2>Preparation of this accessibility statement</h2>
-                        <p>This statement was first prepared on 4th October 2021. It was last reviewed on 23rd December 2022.</p>
-                        <p>This website was first tested on 4th October 2021 and was last tested on 9th August 2022. The test was carried out by The University Library and University Collections Digital Library Development team using the automated <a href="https://wave.webaim.org/">Wave WEBAIM</a> tool and <a href="https://littleforest.co.uk/">Little Forest</a> testing. The website is scheduled for manual testing by August 2023.</p>
+                        <p>This statement was first prepared on 4th October 2021. It was last reviewed on 9th January 2023.</p>
+                        <p>This website was first tested on 4th October 2021 and was last tested on 9th August 2022. The test was carried out by The University Library and University of Edinburgh Collections Digital Library Development team using the automated <a href="https://wave.webaim.org/">Wave WEBAIM</a> tool and <a href="https://littleforest.co.uk/">Little Forest</a> testing.</p>
                         <p>This website was last tested by the Digital Library team, Library and University Collections, University of Edinburgh on the 9th August 2022 following on from previous automated testing of the system the previous year. This was primarily using the Google Chrome (100.0.4896.127), Mozilla Firefox (91.8.0esr), Internet Explorer (11.0) and Microsoft Edge (100.0.1185.39) browsers for comparative purposes.</p>
                         <p>Recent world-wide usage levels survey for different screen readers and browsers shows that Chrome, Mozilla Firefox and Microsoft Edge are increasing in popularity and Google Chrome is now the favoured browser for screen readers:</p>
                         <p><a href="https://webaim.org/projects/screenreadersurvey9/">WebAIM: Screen Reader User Survey</a></p>
