@@ -872,17 +872,17 @@
                         <h2>How accessible this website is</h2>
                         <p>We know some parts of this website are not fully accessible:</p>
                         <ul>
-                            <li>Tabbing highlights sometimes obscure the content they are highlighting</li>
-                            <li>It can be hard to tell where you have tabbed to using keyboard navigation</li>
-                            <li>Data entry does not alert users to information entered incorrect format and error messages are in a small font with a poor colour contrast</li>
-                            <li>Not all colour contrasts meet the recommended levels</li>
-                            <li>Not all non-text content has appropriate alternative text</li>
-                            <li>No 'skip to main content' button is present throughout the website</li>
-                            <li>The website is not fully compatible with mobile accessibility functionality (Android, iOS)</li>
-                            <li>Some PDF's are not fully accessible</li>
-                            <li>Not all non-text items have alt text</li>
-                            <li>Links are not correctly formatted hypertext links</li>
-                            <li>Not all touch targets are a minimum of 9mm by 9mm </li>
+                            <li>The website is not fully compatible with Dragon Naturally Speaking on all browsers;</li>
+                            <li>It is not possible to tab through all the content on all browsers;</li>
+                            <li>Tab highlighting can obscure the actual content;</li>
+                            <li>Data entry and validation is not fully robust;</li>
+                            <li>Not all hyperlinks are formatted correctly;</li>
+                            <li>Not all colour contrasts meet the Web Content Accessibility Guidelines (WCAG) 2.1 AA standard;</li>
+                            <li>Not all non-text content has appropriate alternative text;</li>
+                            <li>No 'skip to main content' button is present throughout the website;</li>
+                            <li>The website is not fully compatible with mobile accessibility functionality (Android, iOS);</li>
+                            <li>Some PDF documents are not fully accessible;</li>
+                            <li>Not all touch targets are a minimum of 9mm by 9mm.</li>
                         </ul>
 
                         <h2>Feedback and contact information</h2>
