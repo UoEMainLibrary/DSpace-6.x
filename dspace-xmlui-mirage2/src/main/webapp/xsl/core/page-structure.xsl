@@ -848,7 +848,7 @@
                     <div class="hero-unit">
                         <h1>Accessibility statement for the <a href="https://eresearch.qmu.ac.uk/">Queen Margaret University, eResearch Repository</a></h1>
                         <p><strong>Website accessibility statement in line with Public Sector Body (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018</strong></p>
-                        <p>This accessibility statement applies to the “<a href="https://eresearch.qmu.ac.uk/">Queen Margaret University, eResearch Repository</a>” - <a href="https://eresearch.qmu.ac.u">https://eresearch.qmu.ac.uk/</a></p>
+                        <p>This accessibility statement applies to the <a href="https://eresearch.qmu.ac.uk/">Queen Margaret University, eResearch Repository</a> - <a href="https://eresearch.qmu.ac.u">https://eresearch.qmu.ac.uk/</a></p>
                         <p>This website is maintained by the Digital Library team, Library and University Collections, the University of Edinburgh on behalf of Queen Margaret University. We want as many people as possible to be able to use this application. For example, that means you should be able to:</p>
                         <ul>
                             <li>Using your browser settings, change colours, contrast levels and fonts</li>
