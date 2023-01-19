@@ -948,13 +948,14 @@
                         <p>This accessibility statement applies to “<a href="https://aura.abdn.ac.uk/">AURA - Aberdeen University Research Archive</a>” - <a href="https://aura.abdn.ac.uk/">https://aura.abdn.ac.uk/</a></p>
                         <p>This website is maintained by the Digital Library team, Library and University Collections, the University of Edinburgh on behalf of the Aberdeen University Research Archive. We want as many people as possible to be able to use this application. For example, that means you should be able to:</p>
                         <ul>
-                            <li>Using your browser settings, change colours, contrast levels and fonts</li>
-                            <li>zoom in up to 200% without the text spilling off the screen</li>
-                            <li>navigate most of the website using just a keyboard</li>
-                            <li>navigate most of the website using speech recognition software such as Dragon Naturally Speaking</li>
-                            <li>listen to most of the website using a screen reader (including the most recent versions of Job Access with Speech (JAWS)</li>
-                            <li>Experience no time limits when using the site</li>
-                            <li>There is no flashing, scrolling or moving text</li>
+                            <li>using your browser settings, customise the site via change colours, contrast levels and fonts;</li>
+                            <li>zoom in up to 200% without the text spilling off the screen;</li>
+                            <li>navigate most of the website using just a keyboard;</li>
+                            <li>navigate most of the website using speech recognition software such as Dragon Naturally Speaking;</li>
+                            <li>listen to most of the website using a screen reader (including the most recent versions of Job Access with Speech (JAWS);</li>
+                            <li>no information will be conveyed by colour or sound;</li>
+                            <li>Experience no time limits when using the site;</li>
+                            <li>There is no flashing, scrolling or moving text.</li>
                         </ul>
                         <p>We've also made the website text as simple as possible to understand.</p>
 
