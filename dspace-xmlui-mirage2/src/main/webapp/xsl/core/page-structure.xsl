@@ -851,13 +851,14 @@
                         <p>This accessibility statement applies to the <a href="https://eresearch.qmu.ac.uk/">Queen Margaret University, eResearch Repository</a> - <a href="https://eresearch.qmu.ac.u">https://eresearch.qmu.ac.uk/</a></p>
                         <p>This website is maintained by the Digital Library team, Library and University Collections, the University of Edinburgh on behalf of Queen Margaret University. We want as many people as possible to be able to use this application. For example, that means you should be able to:</p>
                         <ul>
-                            <li>Using your browser settings, change colours, contrast levels and fonts</li>
-                            <li>zoom in up to 200% without the text spilling off the screen</li>
-                            <li>navigate most of the website using just a keyboard</li>
-                            <li>navigate most of the website using speech recognition software such as Dragon Naturally Speaking</li>
-                            <li>listen to most of the website using a screen reader (including the most recent versions of Job Access with Speech (JAWS)</li>
-                            <li>Experience no time limits when using the site</li>
-                            <li>There is no flashing, scrolling or moving text</li>
+                            <li>using your browser settings, customise the site via change colours, contrast levels and fonts;</li>
+                            <li>zoom in up to 200% without the text spilling off the screen;</li>
+                            <li>navigate most of the website using just a keyboard;</li>
+                            <li>navigate most of the website using speech recognition software such as Dragon Naturally Speaking;</li>
+                            <li>listen to most of the website using a screen reader (including the most recent versions of Job Access with Speech (JAWS);</li>
+                            <li>no information will be conveyed by colour or sound;</li>
+                            <li>Experience no time limits when using the site;</li>
+                            <li>There is no flashing, scrolling or moving text.</li>
                         </ul>
                         <p>We've also made the website text as simple as possible to understand.</p>
 
@@ -872,14 +873,13 @@
                         <h2>How accessible this website is</h2>
                         <p>We know some parts of this website are not fully accessible:</p>
                         <ul>
-                            <li>The website is not fully compatible with Dragon Naturally Speaking on all browsers;</li>
-                            <li>It is not possible to tab through all the content on all browsers;</li>
-                            <li>Tab highlighting can obscure the actual content;</li>
-                            <li>Data entry and validation is not fully robust;</li>
-                            <li>Not all hyperlinks are formatted correctly;</li>
-                            <li>Not all colour contrasts meet the Web Content Accessibility Guidelines (WCAG) 2.1 AA standard;</li>
+                            <li>The website is not 100% compatible with speech to text assistive technologies, including Dragon NaturallySpeaking;</li>
                             <li>Not all non-text content has appropriate alternative text;</li>
-                            <li>No 'skip to main content' button is present throughout the website;</li>
+                            <li>Tabbing outlines can sometimes obscure the content they are highlighting;</li>
+                            <li>Data entry and validation is not fully robust;</li>
+                            <li>Not all links contain correctly formatted hypertext;</li>
+                            <li>Not all colour contrasts necessarily meet the recommended levels;</li>
+                            <li>A 'skip to main content' option is not present throughout the website;</li>
                             <li>The website is not fully compatible with mobile accessibility functionality (Android, iOS);</li>
                             <li>Some PDF documents are not fully accessible;</li>
                             <li>Not all touch targets are a minimum of 9mm by 9mm.</li>
@@ -995,23 +995,23 @@
                                 <li><u><a href="https://www.w3.org/TR/WCAG21/#name-role-value">4.1.2 - Name, Role, Value</a></u></li>
                             </ul>
                         </ul>
-                        <p>Unless specified otherwise, a complete solution, or significant improvement, will be in place by December 2023. At this time we believe all items are within our control.</p>
+                        <p>Unless specified otherwise, a complete solution, or significant improvement, will be in place by December 2023. At this time, we believe all items are within our control.</p>
 
                         <h2>Disproportionate burden</h2>
-                        <p>We are not currently claiming that any accessibility problems would be a disproportionate burden to fix.</p>
+                        <p>At this time, we are not claiming any disproportionate burden.</p>
 
                         <h2>Content that is not within the Scope of the Accessibility Regulations</h2>
                         <p>At this time, we do not believe that any content is outside the scope of the accessibility regulations.</p>
 
                         <h2>What we're doing to improve accessibility</h2>
-                        <p>We will continue to address and make adequate improvements to the accessibility issues highlighted. Unless specified otherwise, a complete solution or significant improvement will be in place by November 2023.</p>
+                        <p>We will continue to address and make adequate improvements to the accessibility issues highlighted. Unless specified otherwise, a complete solution or significant improvement will be in place by December 2023.</p>
                         <p>While we are in the process of resolving these accessibility issues we will ensure reasonable adjustments are in place to make sure no user is disadvantaged. As changes are made, we will continue to review accessibility and retest the accessibility of this website.</p>
                         <p>We are planning to upgrade the site to the most recent release of the system architecture before the end of 2023 which includes improvements to the current accessibility requirements. During this upgrade improving the other accessibility issues highlighted will be a key component of the development process.</p>
 
                         <h2>Preparation of this accessibility statement</h2>
-                        <p>This statement was first prepared on 23rd September 2021. It was last reviewed on 6th December 2022.</p>
-                        <p>This website was last tested on 9th August 2022. The test was carried out by The University Library and University Collections Digital Library Development team using the automated <a href="https://wave.webaim.org/">Wave WEBAIM</a> and <a href="https://littleforest.co.uk/">Little Forest</a> testing tools.</p>
-                        <p>This website was last tested by the Library and University Collections Digital Library team, University of Edinburgh in July 2022 following on from previous automated testing of the system the previous year. This was primarily using the Google Chrome (100.0.4896.127), Mozilla Firefox (91.8.0esr), Internet Explorer (11.0) and Microsoft Edge (100.0.1185.39) browsers for comparative purposes.</p>
+                        <p>This statement was first prepared on 23rd September 2021. It was last reviewed on 18th January 2023.</p>
+                        <p>This website was first tested in September 2020 and last tested on 9th August 2022. The test was carried out by The University of Edinburgh, Library and University Collections, Digital Library Development team using the automated <a href="https://wave.webaim.org/">Wave WEBAIM</a> and <a href="https://littleforest.co.uk/">Little Forest</a> testing tools.</p>
+                        <p>This website was last tested by the Library and University Collections, Digital Library Development team, University of Edinburgh in August 2022 following on from previous automated testing of the system the previous year. This was primarily using the Google Chrome (100.0.4896.127), Mozilla Firefox (91.8.0esr), Internet Explorer (11.0) and Microsoft Edge (100.0.1185.39) browsers for comparative purposes.</p>
                         <p>Recent world-wide usage levels survey for different screen readers and browsers shows that Chrome, Mozilla Firefox and Microsoft Edge are increasing in popularity and Google Chrome is now the favoured browser for screen readers:</p>
                         <p><a href="https://webaim.org/projects/screenreadersurvey9/">WebAIM: Screen Reader User Survey</a></p>
                         <p>The aforementioned three browsers have been used in certain questions for reasons of breadth and variety.</p>
