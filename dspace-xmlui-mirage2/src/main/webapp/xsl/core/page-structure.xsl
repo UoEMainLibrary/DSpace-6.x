@@ -85,49 +85,9 @@
                                 test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='framing'][@qualifier='popup']">
                             <xsl:apply-templates select="dri:body/*"/>
                         </xsl:when>
-                        <xsl:when test="starts-with($request-uri, 'page/policy')">
-                            <xsl:call-template name="buildHeader"/>
-                            <xsl:call-template name="buildTrail"/>
-                            <!--javascript-disabled warning, will be invisible if javascript is enabled-->
-                            <div id="no-js-warning-wrapper" class="hidden">
-                                <div id="no-js-warning">
-                                    <div class="notice failure">
-                                        <xsl:text>JavaScript is disabled for your browser. Some features of this site may not work without it.</xsl:text>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div id="main-container" class="container">
-                                <div class="policy-container">
-
-                                <div class="row row-offcanvas row-offcanvas-right">
-                                    <div class="horizontal-slider clearfix">
-                                        <div class="col-xs-12 col-sm-12 col-md-9 main-content">
-                                            <xsl:apply-templates select="*[not(self::dri:options)]"/>
-
-                                            <div class="visible-xs visible-sm">
-                                                <xsl:call-template name="buildFooter"/>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-                                            <xsl:apply-templates select="dri:options"/>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                </div>
-
-                                <!--
-                            The footer div, dropping whatever extra information is needed on the page. It will
-                            most likely be something similar in structure to the currently given example. -->
-                            <div class="hidden-xs hidden-sm">
-                            <xsl:call-template name="buildFooter"/>
-                             </div>
-                         </div>
-                        </xsl:when>
                         <xsl:otherwise>
                             <xsl:call-template name="buildHeader"/>
-                            <xsl:call-template name="buildTrail"/>
+                            <!-- <xsl:call-template name="buildTrail"/> -->
                             <!--javascript-disabled warning, will be invisible if javascript is enabled-->
                             <div id="no-js-warning-wrapper" class="hidden">
                                 <div id="no-js-warning">
@@ -137,31 +97,37 @@
                                 </div>
                             </div>
 
-                            <div id="main-container" class="container">
+                            <div id="main-container-wrapper" class="main-container-wrapper">
+                                <div id="main-container" class="container">
 
-                                <div class="row row-offcanvas row-offcanvas-right">
-                                    <div class="horizontal-slider clearfix">
-                                        <div class="col-xs-12 col-sm-12 col-md-9 main-content">
-                                            <xsl:apply-templates select="*[not(self::dri:options)]"/>
+                                    <div class="row row-offcanvas row-offcanvas-right">
+                                        <div class="horizontal-slider clearfix">
+                                            <div class="col-xs-12 col-sm-12 col-md-9 main-content">
+                                                <xsl:apply-templates select="*[not(self::dri:options)]"/>
 
-                                            <div class="visible-xs visible-sm">
-                                                <xsl:call-template name="buildFooter"/>
+                                                <!--<div class="visible-xs visible-sm">
+                                                    <xsl:call-template name="buildFooter"/>
+                                                </div>-->
                                             </div>
-                                        </div>
-                                        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-                                            <xsl:apply-templates select="dri:options"/>
-                                        </div>
+                                            <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+                                                <xsl:apply-templates select="dri:options"/>
+                                            </div>
 
+                                        </div>
                                     </div>
                                 </div>
 
-                                <!--
-                            The footer div, dropping whatever extra information is needed on the page. It will
-                            most likely be something similar in structure to the currently given example. -->
-                            <div class="hidden-xs hidden-sm">
-                            <xsl:call-template name="buildFooter"/>
-                             </div>
-                         </div>
+                                        <!--
+                                    The footer div, dropping whatever extra information is needed on the page. It will
+                                    most likely be something similar in structure to the currently given example. -->
+                                    <!--<div class="visible-xs visible-sm visible-md visible-lg">
+                                        <xsl:call-template name="buildFooter"/>
+                                     </div>-->
+                                    <xsl:call-template name="buildFooter"/>
+
+                                    <div class="clearfix"></div>
+
+                            </div>
 
 
                         </xsl:otherwise>
@@ -197,7 +163,7 @@
             <link rel="shortcut icon">
                 <xsl:attribute name="href">
                     <xsl:value-of select="$theme-path"/>
-                    <xsl:text>images/favicon.ico</xsl:text>
+                    <xsl:text>images/abe-favicon.ico</xsl:text>
                 </xsl:attribute>
             </link>
             <link rel="apple-touch-icon">
@@ -319,11 +285,8 @@
             <xsl:variable name="page_title" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='title'][last()]" />
             <title>
                 <xsl:choose>
-                    <xsl:when test="starts-with($request-uri, 'page/accessibility')">
-                        Accessibility statement
-                    </xsl:when>
-                    <xsl:when test="starts-with($request-uri, 'page/policy')">
-                            <xsl:text>Queen Margaret University Repository Policies</xsl:text>
+                    <xsl:when test="starts-with($request-uri, 'accessibility')">
+                        Accessibility Statement
                     </xsl:when>
                     <xsl:when test="not($page_title)">
                         <xsl:text>  </xsl:text>
@@ -371,153 +334,176 @@
     <xsl:template name="buildHeader">
 
 
-        <header>
-            <div class="navbar navbar-default navbar-static-top" role="navigation">
-                <div class="container">
-                    <div class="navbar-header">
+        <header class="abe-header">
 
-                        <button type="button" class="navbar-toggle" data-toggle="offcanvas">
-                            <span class="sr-only">
-                                <i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text>
-                            </span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
+            <div class="container">
+                <div class="row">
 
-                        <a href="{$context-path}/" class="navbar-brand" title="Back to homepage">
-                            <img src="{$theme-path}images/eResearch-logo.svg" alt="Queen Margaret University logo" />
+                    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                        <a title="University of Aberdeen" href="https://www.abdn.ac.uk/" class="navbar-brand" target="_blank">
+                            <img alt="University of Aberdeen" title="University of Aberdeen" src="{$theme-path}images/unilogo3.gif" class="abe-logo" />
                         </a>
-
-
-                        <div class="navbar-header pull-right visible-xs hidden-sm hidden-md hidden-lg">
-                        <ul class="nav nav-pills pull-left ">
-
-                            <xsl:if test="count(/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='supportedLocale']) &gt; 1">
-                                <li id="ds-language-selection-xs" class="dropdown">
-                                    <xsl:variable name="active-locale" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='currentLocale']"/>
-                                    <button id="language-dropdown-toggle-xs" href="#" role="button" class="dropdown-toggle navbar-toggle navbar-link" data-toggle="dropdown">
-                                        <b class="visible-xs glyphicon glyphicon-globe" aria-hidden="true"/>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="language-dropdown-toggle-xs" data-no-collapse="true">
-                                        <xsl:for-each
-                                                select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='page'][@qualifier='supportedLocale']">
-                                            <xsl:variable name="locale" select="."/>
-                                            <li role="presentation">
-                                                <xsl:if test="$locale = $active-locale">
-                                                    <xsl:attribute name="class">
-                                                        <xsl:text>disabled</xsl:text>
-                                                    </xsl:attribute>
-                                                </xsl:if>
-                                                <a>
-                                                    <xsl:attribute name="href">
-                                                        <xsl:value-of select="$current-uri"/>
-                                                        <xsl:text>?locale-attribute=</xsl:text>
-                                                        <xsl:value-of select="$locale"/>
-                                                    </xsl:attribute>
-                                                    <xsl:value-of
-                                                            select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='supportedLocale'][@qualifier=$locale]"/>
-                                                </a>
-                                            </li>
-                                        </xsl:for-each>
-                                    </ul>
-                                </li>
-                            </xsl:if>
-
-                            <xsl:choose>
-                                <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
-                                    <li class="dropdown">
-                                        <button class="dropdown-toggle navbar-toggle navbar-link" id="user-dropdown-toggle-xs" href="#" role="button" data-toggle="dropdown" aria-label="Login" title="Login">
-                                            <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
-                                        </button>
-                                        <ul class="dropdown-menu pull-right" role="menu"
-                                            aria-labelledby="user-dropdown-toggle-xs" data-no-collapse="true">
-                                            <li>
-                                                <a href="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='url']}">
-                                                    <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='logoutURL']}">
-                                                    <i18n:text>xmlui.dri2xhtml.structural.logout</i18n:text>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <li>
-                                        <form style="display: inline" action="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='loginURL']}" method="get">
-                                            <button class="navbar-toggle navbar-link" aria-label="Navigation menu" title="Navigation menu">
-                                            <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
-                                            </button>
-                                        </form>
-                                    </li>
-                                </xsl:otherwise>
-                            </xsl:choose>
-                        </ul>
-                              </div>
                     </div>
+                    <div class="col-lg-9 header-title hidden-xs hidden-sm">
+                        <h1 class="hidden-xs hidden-sm">
+                            <!--<a href="{$context-path}/" title="AURA - Aberdeen University Research Archive">-->
+                                AURA - Aberdeen University Research Archive
+                            <!--</a>-->
+                        </h1>
+                    </div>
+                </div>
 
-                    <div class="navbar-header pull-right hidden-xs">
-                        <ul class="nav navbar-nav pull-left">
-                              <xsl:call-template name="languageSelection"/>
-                        </ul>
-                        <ul class="nav navbar-nav pull-left">
-                            <xsl:choose>
-                                <xsl:when test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
-                                    <li class="dropdown">
-                                        <a id="user-dropdown-toggle" href="#" role="button" class="dropdown-toggle"
-                                           data-toggle="dropdown">
-                                            <span class="hidden-xs">
-                                                <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='firstName']"/>
-                                                <xsl:text> </xsl:text>
-                                                <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='lastName']"/>
-                                                &#160;
-                                                <b class="caret"/>
-                                            </span>
-                                        </a>
-                                        <ul class="dropdown-menu pull-right" role="menu"
-                                            aria-labelledby="user-dropdown-toggle" data-no-collapse="true">
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="trail-wrapper">
+                <div class="navbar navbar-default navbar-static-top" role="navigation">
+                    <div class="container abe-navbar">
+                        <div class="col-xs-12 col-sm-12 col-md-12 abe-navbar-content">
+                            <div class="navbar-header col-md-9">
+
+                                <button type="button" class="navbar-toggle" data-toggle="offcanvas">
+                                    <span class="sr-only">
+                                        <i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text>
+                                    </span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <!-- breadcrumbs -->
+                                <div class="pull-left">
+                                    <xsl:choose>
+                                        <xsl:when test="count(/dri:document/dri:meta/dri:pageMeta/dri:trail) > 1">
+                                            <div class="breadcrumb dropdown visible-xs visible-sm">
+                                                <a id="trail-dropdown-toggle" href="#" role="button" class="dropdown-toggle"
+                                                   data-toggle="dropdown">
+                                                    <xsl:variable name="last-node"
+                                                                  select="/dri:document/dri:meta/dri:pageMeta/dri:trail[last()]"/>
+                                                    <xsl:choose>
+                                                        <xsl:when test="$last-node/i18n:*">
+                                                            <xsl:apply-templates select="$last-node/*"/>
+                                                        </xsl:when>
+                                                        <xsl:otherwise>
+                                                            <xsl:apply-templates select="$last-node/text()"/>
+                                                        </xsl:otherwise>
+                                                    </xsl:choose>
+                                                    <xsl:text>&#160;</xsl:text>
+                                                    <b class="caret"/>
+                                                </a>
+                                                <ul class="dropdown-menu" role="menu" aria-labelledby="trail-dropdown-toggle">
+                                                    <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"
+                                                                         mode="dropdown"/>
+                                                </ul>
+                                            </div>
+                                            <div class="abe-lg-breadcrumb visible-lg hidden-md hidden-xs hidden-sm">
+                                                <ul class="breadcrumb">
+                                                    <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
+                                                </ul>
+                                            </div>
+                                            <div class="abe-md-breadcrumb hidden-lg visible-md hidden-xs hidden-sm">
+                                                <ul class="breadcrumb">
+                                                    <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
+                                                </ul>
+                                            </div>
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                            <ul class="breadcrumb">
+                                                <xsl:apply-templates select="/dri:document/dri:meta/dri:pageMeta/dri:trail"/>
+                                            </ul>
+                                        </xsl:otherwise>
+                                    </xsl:choose>
+                                </div>
+                                <!-- extra small screen size icons -->
+                                <div class="navbar-header pull-right visible-xs hidden-sm hidden-md hidden-lg">
+                                    <ul class="nav nav-pills pull-right">
+                                        <!--xsl:call-template name="languageSelection-xs"/-->
+
+                                        <!--<xsl:choose>-->
+                                            <xsl:if test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
+                                                <li class="dropdown">
+                                                    <button class="dropdown-toggle navbar-toggle navbar-link" id="user-dropdown-toggle-xs" href="#" role="button"  data-toggle="dropdown">
+                                                        <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
+                                                    </button>
+                                                    <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="user-dropdown-toggle-xs" data-no-collapse="true">
+                                                        <li>
+                                                            <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='url']}">
+                                                                <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='logoutURL']}">
+                                                                <i18n:text>xmlui.dri2xhtml.structural.logout</i18n:text>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </xsl:if>
+                                            <!--<xsl:otherwise>
+                                                <li>
+                                                    <form style="display: inline" action="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='loginURL']}" method="get">
+                                                        <button class="navbar-toggle navbar-link">
+                                                            <b class="visible-xs glyphicon glyphicon-user" aria-hidden="true"/>
+                                                        </button>
+                                                    </form>
+                                                </li>
+                                            </xsl:otherwise>
+                                        </xsl:choose>-->
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- all but extra small screen size dropdown -->
+                            <div class="navbar-header pull-right hidden-xs">
+                                <button data-toggle="offcanvas" class="navbar-toggle visible-sm" type="button">
+                                    <span class="sr-only"><i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <!--ul class="nav navbar-nav pull-right">
+                                    <xsl:call-template name="languageSelection"/>
+                                </ul-->
+                                <ul class="nav navbar-nav pull-right abe-lg-dropdown">
+                                    <!--<xsl:choose>-->
+                                        <xsl:if test="/dri:document/dri:meta/dri:userMeta/@authenticated = 'yes'">
+                                            <li class="dropdown">
+                                                <a id="user-dropdown-toggle" href="#" role="button" class="dropdown-toggle"
+                                                   data-toggle="dropdown">
+                                                    <span class="hidden-xs">
+                                                        <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='firstName']"/>
+                                                        <xsl:text> </xsl:text>
+                                                        <xsl:value-of select="/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='lastName']"/>
+                                                        &#160;
+                                                        <b class="caret"/>
+                                                    </span>
+                                                </a>
+                                                <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="user-dropdown-toggle" data-no-collapse="true">
+                                                    <li>
+                                                        <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='url']}">
+                                                            <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='logoutURL']}">
+                                                            <i18n:text>xmlui.dri2xhtml.structural.logout</i18n:text>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </xsl:if>
+                                        <!--<xsl:otherwise>
                                             <li>
-                                                <a href="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='url']}">
-                                                    <i18n:text>xmlui.EPerson.Navigation.profile</i18n:text>
+                                                <a href="{/dri:document/dri:meta/dri:userMeta/dri:metadata[@element='identifier' and @qualifier='loginURL']}">
+                                                    <span class="hidden-xs">
+                                                        <i18n:text>xmlui.dri2xhtml.structural.login</i18n:text>
+                                                    </span>
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a href="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='logoutURL']}">
-                                                    <i18n:text>xmlui.dri2xhtml.structural.logout</i18n:text>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <li>
-                                        <a href="{/dri:document/dri:meta/dri:userMeta/
-                            dri:metadata[@element='identifier' and @qualifier='loginURL']}">
-                                            <span class="hidden-xs">
-                                                <i18n:text>xmlui.dri2xhtml.structural.login</i18n:text>
-                                            </span>
-                                        </a>
-                                    </li>
-                                </xsl:otherwise>
-                            </xsl:choose>
-                        </ul>
+                                        </xsl:otherwise>
+                                    </xsl:choose>-->
+                                </ul>
 
-                        <button data-toggle="offcanvas" class="navbar-toggle visible-sm" type="button">
-                            <span class="sr-only"><i18n:text>xmlui.mirage2.page-structure.toggleNavigation</i18n:text></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -668,7 +654,6 @@
             <div class="col-sm-3 col-xs-12">
                 <a rel="license"
                    href="{$ccLicenseUri}"
-                   alt="{$ccLicenseName}"
                    title="{$ccLicenseName}"
                         >
                     <xsl:call-template name="cc-logo">
@@ -740,85 +725,197 @@
 
     <!-- Like the header, the footer contains various miscellaneous text, links, and image placeholders -->
     <xsl:template name="buildFooter">
-        <footer>
-                <div class="row">
-                    <hr/>
-                    <div class="col-xs-7 col-sm-8">
-                        <div>
-                            <a target="_blank" href="https://eresearch.qmu.ac.uk/">Queen Margaret University: Research Repositories</a>
-                        </div>
-                        <div class="hidden-print">
-                            <a>
-                                <xsl:attribute name="href">
-                                    <xsl:value-of
-                                            select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
-                                    <xsl:text>/page/accessibility</xsl:text>
-                                </xsl:attribute>
-                                Accessibility Statement
-                            </a>
-                            <xsl:text> | </xsl:text>
-                            <a>
-                                <xsl:attribute name="href">
-                                    <xsl:value-of
-                                            select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
-                                    <xsl:text>/page/policy</xsl:text>
-                                </xsl:attribute>
-                                <i18n:text>xmlui.mirage2.page-structure.policy</i18n:text>
-                            </a>
-                            <xsl:text> | </xsl:text>
-                            <a>
-                                <xsl:attribute name="href">
-                                    <xsl:value-of
-                                            select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
-                                    <xsl:text>/contact</xsl:text>
-                                </xsl:attribute>
-                                <i18n:text>xmlui.dri2xhtml.structural.contact-link</i18n:text>
-                            </a>
-                            <xsl:text> | </xsl:text>
-                            <a>
-                                <xsl:attribute name="href">
-                                    <xsl:value-of
-                                            select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
-                                    <xsl:text>/feedback</xsl:text>
-                                </xsl:attribute>
-                                <i18n:text>xmlui.dri2xhtml.structural.feedback-link</i18n:text>
-                            </a>
-                            <xsl:text> | </xsl:text>
-                            <a>
-                                <xsl:attribute name="href">
-                                    <xsl:value-of
-                                            select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
-                                    <xsl:text>/htmlmap</xsl:text>
-                                </xsl:attribute>
-                                <xsl:text>HTML Sitemap</xsl:text>
-                            </a>
+        <footer class="abe-footer">
+            <div id="page_footer_wrapper" class="container">
+                <div id="page_footer_container">
+                    <div id="page_footer">
+                        <div id="page_footer_links_wrapper">
+                            <div id="page_footer_links_container" class="col-md-12 col-sm-12 col-xs-12">
+                                <div id="page_footer_links_left" class="col-md-3 col-sm-12 col-xs-12">
+                                    <a>
+                                        <xsl:attribute name="href"><xsl:text>#</xsl:text></xsl:attribute>
+                                        <xsl:attribute name="title"><xsl:text>Top of page</xsl:text></xsl:attribute>
+                                        <xsl:attribute name="class"><xsl:text>top_of_page</xsl:text></xsl:attribute>
+                                        <xsl:text>Top of Page</xsl:text>
+                                    </a>
+                                </div>
+                                <div class="visible-lg visible-md hidden-sm hidden-xs">
+                                    <div id="page_footer_links_right" class="col-md-9">
+                                        <xsl:call-template name="buildFooterLinks"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="page_footer_left" class="col-md-7 col-sm-8 col-xs-12">
 
+                                <table>
+
+                                    <tr>
+                                        <td class="tl">&#160;</td>
+                                        <td class="top">&#160;</td>
+                                        <td class="tr">&#160;</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">&#160;</td>
+                                        <td class="middle">
+                                            <div style="float:left; width:190px;">
+                                                <a>
+                                                    <xsl:attribute name="href"><xsl:text>https://www.abdn.ac.uk/library/</xsl:text></xsl:attribute>
+                                                    <xsl:attribute name="title"><xsl:text>Library, Special Collections and Museums home page</xsl:text></xsl:attribute>
+                                                    <img src="{$theme-path}images/unilogo3.gif" alt="Library, Special Collections and Museums logo" title="Library, Special Collections and Museums logo" />
+                                                </a>
+                                            </div>
+                                            <div style="float:left;">
+                                                <b>The Sir Duncan Rice Library</b><br />
+                                                University of Aberdeen<br />
+                                                Bedford Road<br />
+                                                Aberdeen<br />
+                                                AB24 3AA<br /><br />
+                                                Tel: +44 (0)1224 273330<br />
+                                                Email: <a>
+                                                <xsl:attribute name="href"><xsl:text>mailto:library@abdn.ac.uk</xsl:text></xsl:attribute>
+                                                <xsl:attribute name="title"><xsl:text>Email Library, Special Collections and Museums</xsl:text></xsl:attribute>
+                                                <xsl:text>library@abdn.ac.uk</xsl:text>
+                                            </a>
+                                            </div>
+                                        </td>
+                                        <td class="right">&#160;</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bl">&#160;</td>
+                                        <td class="bottom">&#160;</td>
+                                        <td class="br">&#160;</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="visible-lg visible-md hidden-sm hidden-xs">
+                                <div class="col-md-5 page_footer_right">
+
+                                    <p>Share and keep up to date</p>
+                                    <!--
+                                    Thanks to Rogie King/Komodo Media for the lovely icons
+                                    http://www.komodomedia.com/blog/2009/06/social-network-icon-pack/
+                                    -->
+                                    <p>
+                                        <a>
+                                            <xsl:attribute name="href"><xsl:text>https://www.facebook.com/biblio.teque?fref=ts</xsl:text></xsl:attribute>
+                                            <img src="{$theme-path}images/facebook_32.png" alt="Facebook" title="Facebook" class="png" />
+                                        </a>
+                                        <a>
+                                            <xsl:attribute name="href"><xsl:text>http://twitter.com/aberdeenunilib/</xsl:text></xsl:attribute>
+                                            <img src="{$theme-path}images/twitter_32.png" alt="Twitter" title="Facebook" class="png" />
+                                        </a>
+                                        <a>
+                                            <xsl:attribute name="href"><xsl:text>http://aberdeenunilib.wordpress.com</xsl:text></xsl:attribute>
+                                            <img src="{$theme-path}images/wordpress_32.png" alt="Wordpress" title="Facebook" class="png" />
+                                        </a>
+                                        <!--<a>
+                                            <xsl:attribute name="href"><xsl:text>https://www.abdn.ac.uk/library/rss-feeds/</xsl:text></xsl:attribute>
+                                            <img src="{$theme-path}images/rss_32.png" alt="RSS" class="png" />
+                                        </a>
+                                        <a>
+                                            <xsl:attribute name="href"><xsl:text>http://www.flickr.com/photos/40724639@N06/sets/72157621652644365/</xsl:text></xsl:attribute>
+                                            <img src="{$theme-path}images/flickr_32.png" alt="Flickr" class="png" />
+                                        </a>
+                                        <a>
+                                            <xsl:attribute name="href"><xsl:text>http://www.youtube.com/user/UoALibrary/</xsl:text></xsl:attribute>
+                                            <img src="{$theme-path}images/youtube_32.png" alt="YouTube" class="png" />
+                                        </a>-->
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="hidden-lg hidden-md visible-sm visible-xs">
+                                <div class="col-md-6 col-sm-4 col-xs-12 page_footer_right">
+                                    <xsl:call-template name="buildFooterLinks"/>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-xs-5 col-sm-4 hidden-print">
-                        <div class="pull-right">
-                            
-                        </div>
-
-                    </div>
+                    <div id="page_footer_curves"></div>
                 </div>
+            </div>
+            <br class="clear"/>
 
-            <!--
-
-            August 24 2020 - HM
-            HTML sitemap link made visible for accessibility purpose
-            -->
             <!--Invisible link to HTML sitemap (for search engines) -->
-                <!--<a>
+            <a class="hidden">
+                <xsl:attribute name="href">
+                    <xsl:value-of
+                            select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
+                    <xsl:text>/htmlmap</xsl:text>
+                </xsl:attribute>
+                <xsl:text>&#160;</xsl:text>
+            </a>
+            <p>&#160;</p>
+        </footer>
+    </xsl:template>
+
+
+    <!-- Footer links -->
+    <xsl:template name="buildFooterLinks">
+        <ul>
+            <li>
+                <a>
+                    <xsl:attribute name="href"><xsl:text>/</xsl:text></xsl:attribute>
+                    <xsl:attribute name="title"><xsl:text>AURA Home</xsl:text></xsl:attribute>
+                    <xsl:text>AURA Home</xsl:text>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <xsl:attribute name="href"><xsl:text>/accessibility</xsl:text></xsl:attribute>
+                    <xsl:attribute name="title"><xsl:text>Accessibility Statement</xsl:text></xsl:attribute>
+                    <xsl:text>Accessibility</xsl:text>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <xsl:attribute name="href"><xsl:text>https://www.abdn.ac.uk/pure</xsl:text></xsl:attribute>
+                    <xsl:attribute name="title"><xsl:text>PURE</xsl:text></xsl:attribute>
+                    <xsl:attribute name="target"><xsl:text>_blank</xsl:text></xsl:attribute>
+                    <xsl:text>PURE</xsl:text>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <xsl:attribute name="href"><xsl:text>https://abdn.primo.exlibrisgroup.com/discovery/collectionDiscovery?vid=44ABE_INST:44ABE_VU1&amp;collectionId=81151714170005941</xsl:text></xsl:attribute>
+                    <xsl:attribute name="title"><xsl:text>Digital Resources</xsl:text></xsl:attribute>
+                    <xsl:attribute name="target"><xsl:text>_blank</xsl:text></xsl:attribute>
+                    <xsl:text>Digital Resources</xsl:text>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <xsl:attribute name="href"><xsl:text>https://www.abdn.ac.uk/library</xsl:text></xsl:attribute>
+                    <xsl:attribute name="title"><xsl:text>Library, Special Collections &#160; Museums</xsl:text></xsl:attribute>
+                    <xsl:attribute name="target"><xsl:text>_blank</xsl:text></xsl:attribute>
+                    <xsl:text>Library, Special Collections &amp; Museums</xsl:text>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <xsl:attribute name="href"><xsl:text>https://www.abdn.ac.uk/it/service-portfolio/sc-systems-aura.php#repository-takedown</xsl:text></xsl:attribute>
+                    <xsl:attribute name="title"><xsl:text>Take-Down Notice</xsl:text></xsl:attribute>
+                    <xsl:attribute name="target"><xsl:text>_blank</xsl:text></xsl:attribute>
+                    <xsl:text>Take-Down Notice</xsl:text>
+                </a>
+            </li>
+            <li>
+                <a>
                     <xsl:attribute name="href">
                         <xsl:value-of
                                 select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"/>
-                        <xsl:text>/htmlmap</xsl:text>
+                        <xsl:text>/feedback</xsl:text>
                     </xsl:attribute>
-                    <xsl:text>&#160;</xsl:text>
-                </a>-->
-            <p>&#160;</p>
-        </footer>
+                    <i18n:text>xmlui.dri2xhtml.structural.feedback-link</i18n:text>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <xsl:attribute name="href"><xsl:text>mailto:aura-manager@abdn.ac.uk</xsl:text></xsl:attribute>
+                    <xsl:attribute name="title"><xsl:text>Contact Us</xsl:text></xsl:attribute>
+                    <xsl:text>Contact Us</xsl:text>
+                </a>
+            </li>
+        </ul>
     </xsl:template>
 
 
@@ -844,12 +941,12 @@
 
             <!-- Check for the custom pages -->
             <xsl:choose>
-                <xsl:when test="starts-with($request-uri, 'page/accessibility')">
+                <xsl:when test="starts-with($request-uri, 'accessibility')">
                     <div class="hero-unit">
-                        <h1>Accessibility statement for the <a href="https://eresearch.qmu.ac.uk/">Queen Margaret University, eResearch Repository</a></h1>
+                        <h1>Accessibility statement for <a href="https://aura.abdn.ac.uk/">AURA - Aberdeen University Research Archive</a></h1>
                         <p><strong>Website accessibility statement in line with Public Sector Body (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018</strong></p>
-                        <p>This accessibility statement applies to the <a href="https://eresearch.qmu.ac.uk/">Queen Margaret University, eResearch Repository</a> - <a href="https://eresearch.qmu.ac.u">https://eresearch.qmu.ac.uk/</a></p>
-                        <p>This website is maintained by the Digital Library team, Library and University Collections, the University of Edinburgh on behalf of Queen Margaret University. We want as many people as possible to be able to use this application. For example, that means you should be able to:</p>
+                        <p>This accessibility statement applies to <a href="https://aura.abdn.ac.uk/">AURA - Aberdeen University Research Archive</a> - <a href="https://aura.abdn.ac.uk/">https://aura.abdn.ac.uk/</a></p>
+                        <p>This website is maintained by the Digital Library team, Library and University Collections, the University of Edinburgh on behalf of the Aberdeen University Research Archive. We want as many people as possible to be able to use this application. For example, that means you should be able to:</p>
                         <ul>
                             <li>using your browser settings, customise the site via change colours, contrast levels and fonts;</li>
                             <li>zoom in up to 200% without the text spilling off the screen;</li>
@@ -887,16 +984,16 @@
 
                         <h2>Feedback and contact information</h2>
                         <p>If you need information on this website in a different format, including accessible PDF, large print, audio recording or braille please contact:</p>
-                        <p>Email: <a href="mailto:EResearch@qmu.ac.uk">EResearch@qmu.ac.uk</a></p>
-                        <p>Phone: +44 (0)131 474 0000</p>
+                        <p>Email: <a href="mailto:library@abdn.ac.uk">library@abdn.ac.uk</a></p>
+                        <p>Phone: +44 (0)1224 273330</p>
                         <p>British Sign Language (BSL) users can contact us via Contact Scotland BSL, the on-line BSL interpreting service</p>
                         <p><a href="http://contactscotland-bsl.org/">Contact Scotland BSL</a></p>
                         <p>We'll consider your request and get back to you in 5 working days.</p>
 
                         <h2>Reporting accessibility problems with this website</h2>
                         <p>We are always looking to improve the accessibility of this website. If you find any problems not listed on this page, or think we're not meeting accessibility requirements, please contact:</p>
-                        <p>Email: <a href="mailto:EResearch@qmu.ac.uk">EResearch@qmu.ac.uk</a></p>
-                        <p>Phone: +44 (0)131 474 0000</p>
+                        <p>Email: <a href="mailto:library@abdn.ac.uk">library@abdn.ac.uk</a></p>
+                        <p>Phone: +44 (0)1224 273330</p>
                         <p>British Sign Language (BSL) users can contact us via Contact Scotland BSL, the on-line BSL interpreting service</p>
                         <p><a href="http://contactscotland-bsl.org/">Contact Scotland BSL</a></p>
                         <p>We'll consider your request and get back to you in 5 working days.</p>
@@ -922,15 +1019,33 @@
                         <p>Noncompliance with the accessibility regulations.</p>
                         <p>The following items to not comply with the WCAG 2.1 AA success criteria:</p>
                         <ul>
-                            <li>Some non-text content does not have text alternatives.</li>
+                            <li>Some non-text content does not have text alternatives</li>
                             <ul>
                                 <li><u><a href="https://www.w3.org/TR/WCAG21/#non-text-content">1.1.1 - Non-text Content</a></u></li>
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>Heading levels are skipped on various pages</li>
+                            <ul>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#info-and-relationships">1.3.1 - Info and Relationships</a></u></li>
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>Layout tables are present in the footer</li>
+                            <ul>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#non-text-content">1.3.2 - Meaningful Sequence</a></u></li>
                             </ul>
                         </ul>
                         <ul>
                             <li>There may not be sufficient colour contrast between font and background colours, there are issues where text size is very small</li>
                             <ul>
                                 <li><u><a href="https://www.w3.org/TR/WCAG21/#visual-audio-contrast-contrast">1.4.3 - Contrast (Minimum)</a></u></li>
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>Not all foreground and background colours can be selected by the user</li>
+                            <ul>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#visual-presentation">1.4.8 - Visual Presentation (Level AAA)</a></u></li>
                             </ul>
                         </ul>
                         <ul>
@@ -952,6 +1067,12 @@
                             </ul>
                         </ul>
                         <ul>
+                            <li>There are unformatted links presnt that don't determine the purpose of the link</li>
+                            <ul>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#link-purpose-in-context">2.4.4 - Link Purpose (In Context)</a></u></li>
+                            </ul>
+                        </ul>
+                        <ul>
                             <li>There are missing heading levels</li>
                             <ul>
                                 <li><u><a href="https://www.w3.org/TR/WCAG21/#headings-and-labels">2.4.6 - Headings and Labels</a></u></li>
@@ -960,13 +1081,7 @@
                         <ul>
                             <li>It is not always clear where you have tabbed too</li>
                             <ul>
-                                <li><u><a href="https://www.w3.org/TR/WCAG21/#focus-visible">2.4.7 - Focus Visible</a></u></li>
-                            </ul>
-                        </ul>
-                        <ul>
-                            <li>There is unformatted links present that don't determine the purpose of the link</li>
-                            <ul>
-                                <li><u><a href="https://www.w3.org/TR/WCAG21/#link-purpose-link-only">2.4.9 - Link Purpose (Link Only)</a></u></li>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#focus-visible">2.4.6 - Focus Visible</a></u></li>
                             </ul>
                         </ul>
                         <ul>
@@ -974,7 +1089,7 @@
                             <ul>
                                 <li><u><a href="https://www.w3.org/TR/WCAG21/#labels-or-instructions">3.3.2 - Labels or Instruction</a></u></li>
                             </ul>
-                        </ul>   
+                        </ul>
                         <ul>
                             <li>Error suggestions or corrections are not always displayed</li>
                             <ul>
@@ -995,10 +1110,10 @@
                                 <li><u><a href="https://www.w3.org/TR/WCAG21/#name-role-value">4.1.2 - Name, Role, Value</a></u></li>
                             </ul>
                         </ul>
-                        <p>Unless specified otherwise, a complete solution, or significant improvement, will be in place by December 2023. At this time, we believe all items are within our control.</p>
+                        <p>Unless specified otherwise, a complete solution, or significant improvement, will be in place by November 2023. At this time, we believe all items are within our control.</p>
 
                         <h2>Disproportionate burden</h2>
-                        <p>At this time, we are not claiming any disproportionate burden.</p>
+                        <p>We are not currently claiming that any accessibility problems would be a disproportionate burden to fix.</p>
 
                         <h2>Content that is not within the Scope of the Accessibility Regulations</h2>
                         <p>At this time, we do not believe that any content is outside the scope of the accessibility regulations.</p>
@@ -1037,218 +1152,6 @@
                         <p>Since our first evaluation and statement which was based on automated testing we have been doing extensive manual testing including with a range of assistive technology to ensure we have a clear picture of the accessibility issues and how best to resolve them.</p>
                     </div>
                 </xsl:when>
-                <xsl:when test="starts-with($request-uri, 'page/policy')">
-                        <div class="hero-unit">
-                            <h1>Queen Margaret University Repository Policies</h1>
-
-                            <h3>Contents</h3>
-                            <ul class="contents-ul">
-                                <li class="contents-li">Open Access Archiving Policy</li>
-                                <li class="contents-li">eResearch Publications Repository: Submission Policy</li>
-                                <li class="contents-li">eResearch Publications Repository: Content Policy</li>
-                                <li class="contents-li">QMU Repositories: Data Policy</li>
-                                <li class="contents-li">QMU Repositories: Metadata Policy</li>
-                                <li class="contents-li">QMU Repositories: Preservation Policy</li>
-                                <li class="contents-li">Definitions</li>
-                            </ul>
-
-                            <h2 id="section1">Open Access Archiving Policy</h2>
-                            <ol>
-                                <li>It is our policy to maximise the visibility, usage and impact of our research output by maximising online access to it for all would-be users and researchers worldwide.
-                                    <ul class="policy-ul-one">
-                                        <li>It is also our policy to minimise the effort that each of us has to expend in order to provide open online access to our research output</li>
-                                        <li>With all our research output accessible online we will be able to respond to the research assessment and other administrative initiatives with minimal input and effort from individual staff.</li>
-                                    </ul>
-                                </li>
-                                <li>We have accordingly adopted the policy that all peer-reviewed research outputs are to be archived in the institutional repository - QMU's eResearch publications repository: <a href="https://eresearch.qmu.ac.uk/"><strong>https://eresearch.qmu.ac.uk/</strong></a>
-                                    <p>It is encouraged that those outputs not yet peer-reviewed, along with other unpublished work, are also archived in the repository as appropriate. The repository will clearly describe the status of all outputs. This archive forms the official record of the institution's research publications.</p>
-                                </li>
-                                <li>Our policy is compatible with publishers' copyright agreements as follows:
-                                    <ul class="policy-ul-one">
-                                        <li>The copyright for the un-refereed <strong>preprint<a href="#footnote1">[1]</a></strong> resides entirely with the author before it is submitted for peer-reviewed publication, hence it can be self-archived irrespective of the copyright policy of the journal to which it is eventually submitted</li>
-                                        <li>The copyright for the peer-reviewed <strong>postprint<a href="#footnote2">[2]</a></strong> will depend on the wording of the copyright agreement which the author signs with the publisher</li>
-                                        <li>Many publishers will allow the peer-reviewed postprint to be archived. The copyright transfer agreement will either specify this right explicitly or the author can inquire about it directly. If you are uncertain about the terms of your agreement, a directory of journal self-archiving policies is available on the JISC SHERPA/RoMEO website: <a href="https://www.sherpa.ac.uk/romeo">https://www.sherpa.ac.uk/romeo</a>
-                                        <p>Wherever possible, you are advised to modify your copyright agreement so that it does not disallow archiving</p></li>
-                                        <li>In the rare case where you have signed a very restrictive copyright transfer form in which you have agreed explicitly <strong>not</strong> 
-                                            to self-archive the peer-reviewed postprint, you are encouraged to archive, alongside your already-archived preprint, a "corrigenda" file, 
-                                            listing the substantive changes the user would need to make in order to turn the un-refereed preprint into the refereed postprint
-                                        </li>
-                                        <li>Copyright agreements may state that <strong>eprints<a href="#footnote3">[3]</a></strong> can be archived on your personal homepage. As far as publishers are concerned, 
-                                            the institutional repository is a part of the institutions infrastructure for your personal homepage.
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>We do not require you to archive the full text of books or research monographs. It is sufficient to archive the items bibliographic details 
-                                    along with the usual metadata.
-                                </li>
-                                <li>Some journals still maintain submission policies which state that a preprint will not be considered for publication if it has been previously 
-                                    'publicised' by making it accessible online. Unlike copyright transfer agreements, such policies are not a matter of law. If you have concerns 
-                                    about submitting an archived paper to a journal which still maintains such a restrictive submission policy, please discuss it with the 
-                                    institutional repository named contact.
-                                </li>
-                            </ol>
-
-                            <h2 id="section2">eResearch Publications Repository: Submission Policy</h2>
-                            <p>This section relates to depositors, quality and copyright.</p>
-                            <ol class="policy-ol-indent">
-                                <li>Items may only be deposited by accredited members of the institution, or their delegated agents.</li>
-                                <li>Eligible depositors must deposit full texts of all their publications, as per QMUs Open Access Archiving Policy (as above). 
-                                    Depositors may delay making full texts publicly visible to comply with publishers' embargo periods.</li>
-                                <li>The repositories administrator only vets items for the eligibility of authors/depositors, relevance to the scope of eResearch, 
-                                    valid layout and format, and the exclusion of spam.
-                                </li>
-                                <li>The validity and authenticity of the content of submissions is the sole responsibility of the author(s)/depositor(s).</li>
-                                <li>Items may be deposited at any time, but will not be made publicly visible until any publishers' or funders' embargo periods have expired.</li>
-                                <li>Any copyright violations are entirely the responsibility of the author(s)/depositor(s).</li>
-                                <li>If QMU receives proof of copyright violation, the relevant item(s) will be removed immediately.</li>
-                            </ol>
-
-                            <h2 id="section3">eResearch Publications Repository: Content Policy</h2>
-                            <p>This section relates to the types of documents held in the eResearch publications repository</p>
-                            <ol>
-                                <li>Automatic inclusion
-                                    <ul class="policy-ul-two">
-                                        <li>Peer-reviewed journal articles</li>
-                                        <li>Books and book chapters (<strong>not</strong> textbooks, technical chapters or teaching materials)</li>
-                                        <li>Conference proceedings with papers</li>
-                                        <li>Government reports, where open access is permissible</li>
-                                        <li>Working papers, where open access is permissible</li>
-                                        <li>Editorials, including guest editorials, in prestigious journals</li>
-                                        <li>Practice as research<a href="#footnote4">[4]</a></li>
-                                        <li>Items In Press but not items submitted for review.</li>
-                                    </ul>
-                                </li>
-                                <li>Academic staff may self-deposit documents of the types described above and Library staff will perform final quality control checks on 
-                                    records created for each item before making items visible externally. Academic staff may also send documents or article references, etc. 
-                                    to the Library's eResearch Team (email: <a href="mailto:eResearch@qmu.ac.uk"><strong>eResearch@qmu.ac.uk</strong></a>) for record creation
-                                    and upload to the repository. Library staff will use services such as JISC Publications Router alerts (which includes items identified 
-                                    by QMU affiliation in services such as Scopus, Web of Science, etc.) to identify material published by QMU staff for inclusion in eResearch.
-                                </li>
-                                <li>Automatic exclusion
-                                    <ul class="policy-ul-two">
-                                        <li>Textbooks, technical chapters or teaching materials</li>
-                                        <li>Abstracts</li>
-                                        <li>Newspaper reviews</li>
-                                        <li>Talks presented at other HEIs</li>
-                                        <li>Other types of material not considered research outputs</li>
-                                    </ul>
-                                </li>
-                            </ol>
-                            <p>Exceptionally, if a member of academic staff believes an individual output demonstrates quality or specific merit then it should be forwarded, 
-                                in the first instance, to the relevant QMU School or Research Centre Lead who will decide whether the material is suitable for inclusion in 
-                                eResearch. If the Research Lead recommends that an item should be included in eResearch, they should inform the member of staff who will then 
-                                either self-deposit or send the document to the Library's eResearch Team (email: <a href="mailto:eResearch@qmu.ac.uk">
-                                <strong>eResearch@qmu.ac.uk</strong></a>) for deposit as described above.
-                            </p>
-                            <ol start="4">
-                                <li>Items are individually tagged with their version type and date, and their publication status.</li>
-                            </ol>
-
-                            <h2 id="section4">QMU Repositories: Data Policy</h2>
-                            <p>This policy relates to full-text and other full data items deposited in QMUs eData repository. Access to some or all full items may be controlled.</p>
-                            <ol>
-                                <li>Anyone may access full items free of charge.</li>
-                                <li>Copies of full items can generally be:
-                                    <ul>
-                                        <li>reproduced, displayed or performed, and given to third parties in any format or medium for personal research or study, educational, 
-                                            or not-for-profit purposes without prior permission or charge, provided:
-                                            <ul class="policy-ul-two">
-                                                <li>author(s), title(s) and full bibliographic details are provided</li>
-                                                <li>hyperlink(s) and/or URL(s) are provided for original metadata page(s)</li>
-                                                <li>content is not changed in any way.</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>Full items may not be sold commercially in any format or medium without formal permission of the copyright holders.</li>
-                                <li>Some full items are tagged individually with different rights, permissions and conditions to comply with restrictions or licensing conditions, 
-                                    such as publisher embargoes, Creative Commons licenses, etc.
-                                </li>
-                            </ol>
-                            <p>This repository is <strong>not </strong>the publisher; it is merely the online archive.</p>
-                            <p>Acknowledgement of QMU repositories is appreciated but not mandatory.</p>
-
-                            <h2 id="section5">QMU Repositories: Metadata Policy</h2>
-                            <p>This policy relates to information describing items deposited in the repositories.</p>
-                            <ol>
-                                <li>Anyone may access the metadata free of charge.</li>
-                                <li>The metadata may be re-used in any medium without prior permission for not-for-profit purposes, provided:
-                                    <ul>
-                                        <li>an identifier or a link to the original metadata record are given</li>
-                                        <li>QMU Repositories are acknowledged.</li>
-                                    </ul>
-                                </li>
-                                <li>The metadata must not be re-used in any medium for commercial purposes without formal permission from QMU.</li>
-                            </ol>
-
-                            <h2 id="section6">QMU Repositories: Preservation Policy</h2>
-                            <ol class="policy-ol-final">
-                                <li>Items authored while affiliated with QMU will be retained indefinitely. Items published outwith QMU may be withdrawn and deleted from the repository when the author leaves QMU.</li>
-                                <li>QMU will try to ensure continued readability and accessibility of its repositories
-                                    <ul>
-                                        <li>items will be migrated to new file formats where necessary.</li>
-                                        <li>where possible, software emulations will be provided to access un-migrated formats.</li>
-                                    </ul>
-                                </li>
-                                <li>The repository and its files are backed up nightly by the repository hosts, University of Edinburgh.</li>
-                                <li>Original bitstreams are retained for all items, in addition to any upgraded formats.</li>
-                                <li>Items may not normally be removed from QMU repositories.</li>
-                                <li>Acceptable reasons for withdrawal include:
-                                    <ul>
-                                        <li>proven copyright violation or plagiarism</li>
-                                        <li>legal requirements and proven violations</li>
-                                        <li>national security</li>
-                                        <li>falsified research.</li>
-                                    </ul>
-                                </li>
-                            <p>Proven falsified or fraudulent research or any publication(s)/article(s) submitted and proven to be produced as a result of any form of 
-                                professional misconduct may be withdrawn from the repositories, in accordance with the <strong>QMU Code of Research Practice</strong> 
-                                (see: section 15. Research Misconduct) available at: 
-                                <a href="https://www.qmu.ac.uk/research-and-knowledge-exchange/strategy-and-policy/research-ethics-and-governance/">
-                                https://www.qmu.ac.uk/research-and-knowledge-exchange/strategy-and-policy/research-ethics-and-governance/</a>
-                            </p>
-                                <li>Withdrawn items will be deleted entirely from the repository.</li>
-                                <li>Withdrawn items' identifiers/URLs will not be retained.</li>
-                                <li>Changes to deposited items are <strong>not permitted.</strong></li>
-                                <li><em>Errata </em>and <em>corrigenda </em>lists may be included with the original record if required.</li>
-                                <li>If necessary, an updated version may be deposited
-                                    <ul  class="policy-ul-one">
-                                        <li>the earlier version may be withdrawn from public view</li>
-                                        <li>the original URL will be linked to the latest version.</li>
-                                    </ul>
-                                </li>
-                                <li>In the event of QMU repositories being closed down, the database will be transferred to another appropriate archive.</li>
-                            </ol>
-
-                            <!-- FOOTNOTES -->
-                            <div class="policy-footer">
-                                <h3 id="section7">Definitions</h3>
-                                <p id="footnote1" class="policy-footer-p">[1] A postprint (often known as accepted version, author accepted manuscript (AAM), author's final version, etc.) 
-                                    is the version of an output that:
-                                    <ul class="policy-footer-ul">
-                                        <li>has been accepted for publication.</li>
-                                        <li>has been peer-reviewed.</li>
-                                        <li>but has generally not yet had the publisher's layout and typesetting applied.</li>
-                                    </ul>
-                                </p>
-                                <p class="policy-footer-p">This can often be a Word version of a publication but some publishers work with templates from the submission stage, so it 
-                                    is important that authors retain all versions of outputs until confirmation of acceptance has been received.
-                                </p>
-                                <p id="footnote2" class="policy-footer-p">[2] A preprint is the pre-refereed and unpublished version of the paper that has been submitted for publication 
-                                    and has not yet been peer-reviewed and may also be known as an accepted version, author accepted manuscript (AAM) or author's 
-                                    final version, etc.
-                                </p>
-                                <p id="footnote3" class="policy-footer-p">[3] An eprint is a digital version of a research document (usually a journal article, but could also be a thesis, 
-                                    conference paper, book chapter, or a book) that is accessible online.
-                                </p>
-                                <p id="footnote4" class="policy-footer-p">[4] Practice as research is a research method in the arts in which the practice of an art is the research process, 
-                                    and the performance, art, or other media item is the research output.
-                                    (Definition from NELSON, R. 2013. Introduction: The What, Where, When and Why of ‘Practice as Research’. In: R. NELSON (ed.) 
-                                    Practice as Research in the Arts. London: Palgrave Macmillan, pp. 3-22.)
-                                </p>
-                            </div>
-                        </div>
-                    </xsl:when>
                 <!-- Otherwise use default handling of body -->
                 <xsl:otherwise>
                     <xsl:apply-templates />
@@ -1342,20 +1245,6 @@
         </xsl:if>
 
         <xsl:call-template name="addJavascript-google-analytics" />
-
-        <xsl:if test="/dri:document/dri:body/dri:div[@id='aspect.eperson.StartRegistration.div.register']">
-            <script src='https://www.google.com/recaptcha/api.js'>&#160;</script>
-            <!--<script type="text/javascript">
-                <xsl:attribute name="src">
-                    <xsl:value-of select="concat($theme-path, 'js/add_user_captcha.js')"/>
-                </xsl:attribute>
-            </script>-->
-            <script type="text/javascript">
-                add_captcha();
-            </script>
-
-        </xsl:if>
-
     </xsl:template>
 
     <xsl:template name="addJavascript-google-analytics">
