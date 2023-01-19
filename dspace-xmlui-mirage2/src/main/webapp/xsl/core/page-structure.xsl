@@ -945,7 +945,7 @@
                     <div class="hero-unit">
                         <h1>Accessibility statement for <a href="https://aura.abdn.ac.uk/">AURA - Aberdeen University Research Archive</a></h1>
                         <p><strong>Website accessibility statement in line with Public Sector Body (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018</strong></p>
-                        <p>This accessibility statement applies to “<a href="https://aura.abdn.ac.uk/">AURA - Aberdeen University Research Archive</a>” - <a href="https://aura.abdn.ac.uk/">https://aura.abdn.ac.uk/</a></p>
+                        <p>This accessibility statement applies to <a href="https://aura.abdn.ac.uk/">AURA - Aberdeen University Research Archive</a> - <a href="https://aura.abdn.ac.uk/">https://aura.abdn.ac.uk/</a></p>
                         <p>This website is maintained by the Digital Library team, Library and University Collections, the University of Edinburgh on behalf of the Aberdeen University Research Archive. We want as many people as possible to be able to use this application. For example, that means you should be able to:</p>
                         <ul>
                             <li>using your browser settings, customise the site via change colours, contrast levels and fonts;</li>
