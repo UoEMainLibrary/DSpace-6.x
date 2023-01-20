@@ -951,11 +951,9 @@
                             <li>using your browser settings, customise the site via change colours, contrast levels and fonts;</li>
                             <li>zoom in up to 200% without the text spilling off the screen;</li>
                             <li>navigate most of the website using just a keyboard;</li>
-                            <li>navigate most of the website using speech recognition software such as Dragon Naturally Speaking;</li>
                             <li>listen to most of the website using a screen reader (including the most recent versions of Job Access with Speech (JAWS);</li>
                             <li>no information will be conveyed by colour or sound;</li>
-                            <li>Experience no time limits when using the site;</li>
-                            <li>There is no flashing, scrolling or moving text.</li>
+                            <li>experience no time limits when using the website or encounter flashing, scrolling or moving text.</li>
                         </ul>
                         <p>We've also made the website text as simple as possible to understand.</p>
 
@@ -970,12 +968,12 @@
                         <h2>How accessible this website is</h2>
                         <p>We know some parts of this website are not fully accessible:</p>
                         <ul>
-                            <li>The website is not 100% compatible with speech to text assistive technologies, including Dragon NaturallySpeaking;</li>
+                            <li>The website is not 100% compatible with voice recognition assistive technology on all browsers;</li>
                             <li>Not all non-text content has appropriate alternative text;</li>
                             <li>Tabbing outlines can sometimes obscure the content they are highlighting;</li>
                             <li>Data entry and validation is not fully robust;</li>
                             <li>Not all links contain correctly formatted hypertext;</li>
-                            <li>Not all colour contrasts necessarily meet the recommended levels;</li>
+                            <li>Not all colour contrasts meet the Web Content Accessibility Guidelines (WCAG) 2.1 AA standard;</li>
                             <li>A 'skip to main content' option is not present throughout the website;</li>
                             <li>The website is not fully compatible with mobile accessibility functionality (Android, iOS);</li>
                             <li>Some PDF documents are not fully accessible;</li>
@@ -1067,6 +1065,12 @@
                             </ul>
                         </ul>
                         <ul>
+                            <li>The purpose of each link can not be determined from the text alone</li>
+                            <ul>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#link-purpose-in-context">2.4.4 - Link Purpose (In Context)</a></u></li>
+                            </ul>
+                        </ul>
+                        <ul>
                             <li>There are missing heading levels</li>
                             <ul>
                                 <li><u><a href="https://www.w3.org/TR/WCAG21/#headings-and-labels">2.4.6 - Headings and Labels</a></u></li>
@@ -1075,13 +1079,13 @@
                         <ul>
                             <li>Visual information to identify user interface components, such as keyboard focus, do not always have a sufficient contrast ratio</li>
                             <ul>
-                                <li><u><a href="https://www.w3.org/TR/WCAG21/#focus-visible">2.4.6 - Focus Visible</a></u></li>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#focus-visible">2.4.7 - Focus Visible</a></u></li>
                             </ul>
                         </ul>
                         <ul>
-                            <li>There are unformatted links present that do not determine the purpose of the item in question</li>
+                            <li>There are missing labels present in the website that fail to describe the purpose of the input form</li>
                             <ul>
-                                <li><u><a href="https://www.w3.org/TR/WCAG21/#link-purpose-link-only">2.4.9 - Link Purpose (Link Only) </a></u></li>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#labels-or-instructions">3.3.2 - Labels or Instruction</a></u></li>
                             </ul>
                         </ul>
                         <ul>
@@ -1098,7 +1102,7 @@
                             </ul>
                         </ul>
                         <ul>
-                            <li>There are PDF's that are not currently accessible</li>
+                            <li>There are portable document format (PDF) files that are not currently accessible</li>
                             <ul>
                                 <li><u><a href="https://www.w3.org/TR/WCAG21/#parsing">4.1.1 - Parsing</a></u></li>
                                 <li><u><a href="https://www.w3.org/TR/WCAG21/#name-role-value">4.1.2 - Name, Role, Value</a></u></li>
