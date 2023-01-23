@@ -846,10 +846,10 @@
             <xsl:choose>
                 <xsl:when test="starts-with($request-uri, 'page/accessibility')">
                     <div class="hero-unit">
-                        <h1>Accessibility statement for <a href="https://aura.abdn.ac.uk/">AURA - Aberdeen University Research Archive</a></h1>
+                        <h1>Accessibility statement for the <a href="https://eresearch.qmu.ac.uk/">Queen Margaret University, eResearch Repository</a></h1>
                         <p><strong>Website accessibility statement in line with Public Sector Body (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018</strong></p>
-                        <p>This accessibility statement applies to <a href="https://aura.abdn.ac.uk/">AURA - Aberdeen University Research Archive</a> - <a href="https://aura.abdn.ac.uk/">https://aura.abdn.ac.uk/</a></p>
-                        <p>This website is maintained by the Digital Library team, Library and University Collections, the University of Edinburgh on behalf of the Aberdeen University Research Archive. We want as many people as possible to be able to use this application. For example, that means you should be able to:</p>
+                        <p>This accessibility statement applies to the <a href="https://eresearch.qmu.ac.uk/">Queen Margaret University, eResearch Repository</a> - <a href="https://eresearch.qmu.ac.u">https://eresearch.qmu.ac.uk/</a></p>
+                        <p>This website is maintained by the Digital Library team, Library and University Collections, the University of Edinburgh on behalf of Queen Margaret University. We want as many people as possible to be able to use this application. For example, that means you should be able to:</p>
                         <ul>
                             <li>using your browser settings, customise the site via change colours, contrast levels and fonts;</li>
                             <li>zoom in up to 200% without the text spilling off the screen;</li>
@@ -887,16 +887,16 @@
 
                         <h2>Feedback and contact information</h2>
                         <p>If you need information on this website in a different format, including accessible PDF, large print, audio recording or braille please contact:</p>
-                        <p>Email: <a href="mailto:library@abdn.ac.uk">library@abdn.ac.uk</a></p>
-                        <p>Phone: +44 (0)1224 273330</p>
+                        <p>Email: <a href="mailto:EResearch@qmu.ac.uk">EResearch@qmu.ac.uk</a></p>
+                        <p>Phone: +44 (0)131 474 0000</p>
                         <p>British Sign Language (BSL) users can contact us via Contact Scotland BSL, the on-line BSL interpreting service</p>
                         <p><a href="http://contactscotland-bsl.org/">Contact Scotland BSL</a></p>
                         <p>We'll consider your request and get back to you in 5 working days.</p>
 
                         <h2>Reporting accessibility problems with this website</h2>
                         <p>We are always looking to improve the accessibility of this website. If you find any problems not listed on this page, or think we're not meeting accessibility requirements, please contact:</p>
-                        <p>Email: <a href="mailto:library@abdn.ac.uk">library@abdn.ac.uk</a></p>
-                        <p>Phone: +44 (0)1224 273330</p>
+                        <p>Email: <a href="mailto:EResearch@qmu.ac.uk">EResearch@qmu.ac.uk</a></p>
+                        <p>Phone: +44 (0)131 474 0000</p>
                         <p>British Sign Language (BSL) users can contact us via Contact Scotland BSL, the on-line BSL interpreting service</p>
                         <p><a href="http://contactscotland-bsl.org/">Contact Scotland BSL</a></p>
                         <p>We'll consider your request and get back to you in 5 working days.</p>
@@ -922,33 +922,15 @@
                         <p>Noncompliance with the accessibility regulations.</p>
                         <p>The following items to not comply with the WCAG 2.1 AA success criteria:</p>
                         <ul>
-                            <li>Some non-text content does not have text alternatives</li>
+                            <li>Some non-text content does not have text alternatives.</li>
                             <ul>
                                 <li><u><a href="https://www.w3.org/TR/WCAG21/#non-text-content">1.1.1 - Non-text Content</a></u></li>
-                            </ul>
-                        </ul>
-                        <ul>
-                            <li>Heading levels are skipped on various pages</li>
-                            <ul>
-                                <li><u><a href="https://www.w3.org/TR/WCAG21/#info-and-relationships">1.3.1 - Info and Relationships</a></u></li>
-                            </ul>
-                        </ul>
-                        <ul>
-                            <li>Layout tables are present in the footer</li>
-                            <ul>
-                                <li><u><a href="https://www.w3.org/TR/WCAG21/#non-text-content">1.3.2 - Meaningful Sequence</a></u></li>
                             </ul>
                         </ul>
                         <ul>
                             <li>There may not be sufficient colour contrast between font and background colours, there are issues where text size is very small</li>
                             <ul>
                                 <li><u><a href="https://www.w3.org/TR/WCAG21/#visual-audio-contrast-contrast">1.4.3 - Contrast (Minimum)</a></u></li>
-                            </ul>
-                        </ul>
-                        <ul>
-                            <li>Not all foreground and background colours can be selected by the user</li>
-                            <ul>
-                                <li><u><a href="https://www.w3.org/TR/WCAG21/#visual-presentation">1.4.8 - Visual Presentation (Level AAA)</a></u></li>
                             </ul>
                         </ul>
                         <ul>
@@ -970,12 +952,6 @@
                             </ul>
                         </ul>
                         <ul>
-                            <li>There are unformatted links presnt that don't determine the purpose of the link</li>
-                            <ul>
-                                <li><u><a href="https://www.w3.org/TR/WCAG21/#link-purpose-in-context">2.4.4 - Link Purpose (In Context)</a></u></li>
-                            </ul>
-                        </ul>
-                        <ul>
                             <li>There are missing heading levels</li>
                             <ul>
                                 <li><u><a href="https://www.w3.org/TR/WCAG21/#headings-and-labels">2.4.6 - Headings and Labels</a></u></li>
@@ -984,7 +960,13 @@
                         <ul>
                             <li>It is not always clear where you have tabbed too</li>
                             <ul>
-                                <li><u><a href="https://www.w3.org/TR/WCAG21/#focus-visible">2.4.6 - Focus Visible</a></u></li>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#focus-visible">2.4.7 - Focus Visible</a></u></li>
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>There is unformatted links present that don't determine the purpose of the link</li>
+                            <ul>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#link-purpose-link-only">2.4.9 - Link Purpose (Link Only)</a></u></li>
                             </ul>
                         </ul>
                         <ul>
@@ -992,7 +974,7 @@
                             <ul>
                                 <li><u><a href="https://www.w3.org/TR/WCAG21/#labels-or-instructions">3.3.2 - Labels or Instruction</a></u></li>
                             </ul>
-                        </ul>
+                        </ul>   
                         <ul>
                             <li>Error suggestions or corrections are not always displayed</li>
                             <ul>
@@ -1013,10 +995,10 @@
                                 <li><u><a href="https://www.w3.org/TR/WCAG21/#name-role-value">4.1.2 - Name, Role, Value</a></u></li>
                             </ul>
                         </ul>
-                        <p>Unless specified otherwise, a complete solution, or significant improvement, will be in place by November 2023. At this time, we believe all items are within our control.</p>
+                        <p>Unless specified otherwise, a complete solution, or significant improvement, will be in place by December 2023. At this time, we believe all items are within our control.</p>
 
                         <h2>Disproportionate burden</h2>
-                        <p>We are not currently claiming that any accessibility problems would be a disproportionate burden to fix.</p>
+                        <p>At this time, we are not claiming any disproportionate burden.</p>
 
                         <h2>Content that is not within the Scope of the Accessibility Regulations</h2>
                         <p>At this time, we do not believe that any content is outside the scope of the accessibility regulations.</p>
