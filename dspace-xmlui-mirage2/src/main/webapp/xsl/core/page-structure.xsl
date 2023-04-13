@@ -733,7 +733,7 @@
                         <div class="copyright-content">
                             <address itemtype="https://schema.org/Organization" itemscope="">
                                 <strong><xsl:text>&#169;</xsl:text> <span itemprop="name">Research Scotland Consortium</span></strong><br />
-                                    c/o RGBE <span itemtype="http://schema.org/PostalAddress" itemscope="" itemprop="address">
+                                    c/o RBGE <span itemtype="http://schema.org/PostalAddress" itemscope="" itemprop="address">
                                     <span itemprop="streetAddress">20a Inverleith Row</span><br />
                                     <span itemprop="postalCode">EH3 5LR</span><br />
                                     <span itemprop="addressLocality">Edinburgh</span>,
