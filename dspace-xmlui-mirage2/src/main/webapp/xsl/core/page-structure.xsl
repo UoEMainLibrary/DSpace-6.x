@@ -279,15 +279,10 @@
             <xsl:variable name="page_title" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='title'][last()]" />
             <title>
                 <xsl:choose>
-                    <!-- Step 1 - Accessibility Statement -->
-                    <xsl:when test="starts-with($request-uri, 'page/accessibility')">
-                        <xsl:text>Accessibility Statement</xsl:text>
-                    </xsl:when>
-                    <!-- Step 1 - Accessibility Statement -->
                     <xsl:when test="starts-with($request-uri, 'page/about')">
                         <i18n:text>xmlui.mirage2.static.about.trail</i18n:text>
                     </xsl:when>
-                    <xsl:when test="starts-with($request-uri, 'page/accessibility')">
+                    <xsl:when test="starts-with($request-uri, 'accessibility')">
                         <i18n:text>xmlui.mirage2.static.accessibility.trail</i18n:text>
                     </xsl:when>
                     <xsl:when test="starts-with($request-uri, 'page/takedown')">
@@ -738,7 +733,7 @@
                         <div class="copyright-content">
                             <address itemtype="https://schema.org/Organization" itemscope="">
                                 <strong><xsl:text>&#169;</xsl:text> <span itemprop="name">Research Scotland Consortium</span></strong><br />
-                                    c/o RGBE <span itemtype="http://schema.org/PostalAddress" itemscope="" itemprop="address">
+                                    c/o RBGE <span itemtype="http://schema.org/PostalAddress" itemscope="" itemprop="address">
                                     <span itemprop="streetAddress">20a Inverleith Row</span><br />
                                     <span itemprop="postalCode">EH3 5LR</span><br />
                                     <span itemprop="addressLocality">Edinburgh</span>,
@@ -756,41 +751,19 @@
 
                     <div class="col-xs-7 col-sm-7 hidden-xs footer-links">
                         <ul class="footer-links-list">
-                            <li><a href="/page/privacy" target="_blank">Privacy &amp; Cookies</a></li>
-                            <li><a href="/page/takedown" target="_blank">Takedown Policy</a></li>
-                            <!-- Step 2 - Accessibility Statemnt -->
-                            <li>
-                                <a>
-                                    <xsl:attribute name="href">
-                                        <xsl:value-of
-                                            select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"
-                                            />
-                                            <xsl:text>/page/accessibility</xsl:text>
-                                    </xsl:attribute>
-                                    Accessibility Statement
-                                </a>
-                            </li>
-                            <!-- Step 2 - Accessibility Statemnt -->
-                            <li><a href="/page/policies" target="_blank" rel="license">Policies</a></li>
+                            <li><a href="https://www.rbge.org.uk/collections/research-scotland/privacy-and-cookies/" target="_blank">Privacy &amp; Cookies</a></li>
+                            <li><a href="https://www.rbge.org.uk/collections/research-scotland/takedown-policy/" target="_blank">Takedown Policy</a></li>
+                            <li><a href="/accessibility">Accessibility</a></li>
+                            <li><a href="https://www.rbge.org.uk/collections/research-scotland/" target="_blank" rel="license">Policies</a></li>
                             <li><a href="mailto:info@ResearchScotland.ac.uk">Contact</a></li>
                         </ul>
                     </div>
                     <div class="col-xs-7 col-sm-7 visible-xs footer-links">
                         <div class="small-footer-links">
-                            <a href="/page/privacy" target="_blank">Privacy &amp; Cookies</a><br />
-                            <a href="/page/takedown" target="_blank">Takedown Policy</a><br />
-                            <!-- Step 3 - Accessibility Statemnt -->
-                            <a>
-                                <xsl:attribute name="href">
-                                    <xsl:value-of
-                                        select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='contextPath'][not(@qualifier)]"
-                                        />
-                                        <xsl:text>/page/accessibility</xsl:text>
-                                </xsl:attribute>
-                                Accessibility Statement
-                            </a><br />
-                            <!-- Step 3 - Accessibility Statemnt -->
-                            <a href="/page/policies" target="_blank">Policies</a><br />
+                            <a href="https://www.rbge.org.uk/collections/research-scotland/privacy-and-cookies/" target="_blank">Privacy &amp;amp; Cookies</a><br />
+                            <a href="https://www.rbge.org.uk/collections/research-scotland/takedown-policy/" target="_blank">Takedown Policy</a><br />
+                            <a href="/accessibility">Accessibility</a><br />
+                            <a href="https://www.rbge.org.uk/collections/research-scotland/" target="_blank">Policies</a><br />
                             <a href="mailto:info@ResearchScotland.ac.uk" target="_blank">Contact</a><br />
                         </div>
                     </div>
@@ -830,583 +803,200 @@
 
             <!-- Check for the custom pages -->
             <xsl:choose>
-                <!-- Step 4 - Accessibility Statement -->
-                <xsl:when test="starts-with($request-uri, 'page/accessibility')">
-                    <div>
-                        <h2>Accessibility statement for Research Scotland</h2>
-                        <p>
-                            Website accessibility statement in line with Public Sector Body (Websites and Mobile Applications) (No. 2)
-                            Accessibility Regulations 2018
-                        </p>
-                        <p>
-                            Research Scotland(<a href="https://research-scotland.ac.uk/">https://research-scotland.ac.uk/</a>) provides permanent access to digital research outputs
-                            from Scottish Government funded and affiliated research organisations. This service is hosted by the
-                            University of Edinburgh on behalf of Research Scotland.
-                        </p>
-                        <p>
-                            Further developments are needed in order to deliver improved access to online collections for users to not
-                            just view but also engage with the University's content. This is especially pertinent in the current hybrid
-                            learning environment we find ourselves. 
-                            We want as many people as possible to be able to use “Research Scotland” For example, this means you should
-                            be able to:
-                        </p>
-                        <ul>
-                            <li>change colours, contrast levels and fonts</li>
-                            <li>experience no time limits to content</li>
-                            <li>magnify the content up to 200%</li>
-                            <li>navigate most of the website using just a keyboard</li>
-                            <li>listen to most of the website using a screen reader (including the most recent versions of JAWS, NVDA and VoiceOver)</li>
-                        </ul>
-                        <p>We’ve also made the website text as simple as possible to understand.</p>
-
-                        <h2> Customising the website </h2>
-                        <p>
-                            AbilityNet has advice on making your device easier to use if you have a disability.<br></br>
-                            <a href="https://mcmw.abilitynet.org.uk/">AbilityNet - My computer my way</a> <br></br>
-                            <br></br>
-                            With a few simple steps you can customise the appearance of our website to make it easier to read and navigate.<br></br>
-                            <a href="https://www.ed.ac.uk/about/website/accessibility/customising-site">Additional information on how to customise our website appearance</a><br></br>
-                            <br></br>
-                            If you are a member of the University staff or a student you can use the free Sensus Access accessible document conversion service.<br></br>
-                            <a href="https://www.ed.ac.uk/student-disability-service/staff/supporting-students/accessible-technology">SenusAccess Information</a><br></br>
-                        </p>
-
-                        <h2>How accessible this website is </h2>
-                        <p>
-                            We know some parts of this website are not fully accessible: 
-                        </p>
-                        <ul>
-                            <li>Some non-text content does not have text alternatives</li>
-                            <li>Some parts may not be fully compatible with screen readers</li>
-                            <li>Some colour contrasts do not meet recommended guidance</li>
-                            <li>The default language of each page may not be identified</li>
-                        </ul>
-
-                        <h2> What to do if you cannot access parts of this website </h2>
-                        <p>
-                          If you need information on this website in a different format like accessible PDF, large print, audio recording or braille please contact the website
-                          team by contacting us: <br></br>
-                          <br></br>
-                          By using the IS Helpline online contact form:<br></br>
-                          <a href="https://www.ishelpline.ed.ac.uk/forms/">IS Helpline contact form</a> <br></br>
-                          <br></br>
-                          Or phoning: <br></br>
-                          &#x260E; +44 (0)131 651 5151 <br></br>
-                          <br></br>
-                          We’ll consider your request and get back to you in 5 working days.
-                        </p>
-
-                        <h2>Reporting accessibility problems with this website</h2>
-                        <p>
-                          We’re always looking to improve the accessibility of this website. If you find any problems not listed on this page or think we’re not meeting
-                          accessibility requirements please let us know by contacting: <br></br>
-                          <br></br>
-                          By using the IS Helpline online contact form:<br></br>
-                          <a href="https://www.ishelpline.ed.ac.uk/forms/">IS Helpline contact form</a> <br></br>
-                          <br></br>
-                          Or phoning: <br></br>
-                          &#x260E; +44 (0)131 651 5151 <br></br>
-                          <br></br>
-                          Or email: <br></br>
-                          <a href="mailtou:Information.systems@ed.ac.uk">Information.systems@ed.ac.uk</a> <br></br>
-                          <br></br>
-                          We’ll consider your request and get back to you in 5 working days.
-                        </p>
-
-                        <h2> Enforcement procedure </h2>
-                        <p>
-                          The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2)
-                          Accessibility Regulations 2018 (the ‘accessibility regulations’). <br></br>
-                          <br></br>
-                          If you’re not happy with how we respond to your complaint please contact the Equality Advisory and Support Service (EASS) directly:<br></br>
-                          <a href="https://www.equalityadvisoryservice.com/">Contact details for the Equality Advisory and Support Service (EASS)</a> <br></br>
-                          <br></br>
-                          The government has produced information on how to report accessibility issues: <br></br>
-                          <a href="https://www.gov.uk/reporting-accessibility-problem-public-sector-website">Reporting an accessibility problem on a public sector website</a> <br></br>
-                        </p>
-                        <h2> Contacting us by phone using British Sign Language </h2>
-                        <p>
-                          British Sign Language Scotland runs a service for British Sign Language users and all of Scotland’s public bodies using video relay.
-                          This enables sign language users to contact public bodies and vice versa. <br></br>
-                          The service operates from 8am to 12 midnight, 7 days a week. <br></br>
-                          <br></br>
-                          <a href="https://contactscotland-bsl.org/">British Sign Language Scotland service details</a> <br></br>
-                        </p>
-
-                        <h2> Technical information about this website’s accessibility</h2>
-                        <p>
-                          <strong>Website's Accessibility</strong><br></br>
-                          The University of Edinburgh is committed to making its websites accessible, in accordance with the Public Sector
-                          Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.<br></br>
-                          <br></br>
-
-                          <strong>Compliance Status</strong><br></br>
-                          This website is partially compliant with the Web Content Accessibility Guidelines 2.1 AA standard, due to the non-compliances listed below.<br></br>
-                          <br></br>
-
-                          <strong> Non accessible content </strong><br></br>
-                          The content listed below is non-accessible for the following reasons. <br></br>
-                          The following items to not comply with the WCAG 2.1 AA success criteria :
-                        </p>
-                          <ul>
-                            <li>
-                              Not all information, structure, and relationships conveyed through presentation can be programmatically
-                              determined or are available in text<br></br>
-                              <a href="https://www.w3.org/TR/WCAG21/#info-and-relationships">1.3.1 - Info and Relationships</a>
-                            </li>
-                            <li> Some colour contrasts do not meet recommended guidance<br></br>
-                              <a href="https://www.w3.org/TR/WCAG21/#contrast-enhanced">1.4.6 – Contrast (Enhanced)</a>
-                            </li>
-                            <li> The default language of each page may not be identified<br></br>
-                              <a href="https://www.w3.org/TR/WCAG21/#language-of-page">3.1.1 – Language of Page</a>
-                            </li>
-                            <li>
-                              Some parts may not be fully compatible with screen readers<br></br>
-                              <a href="https://www.w3.org/TR/WCAG21/#parsing">4.1.1 - Parsing</a> <br></br>
-                              <a href="https://www.w3.org/TR/WCAG21/#name-role-value">4.1.2 – Name, Role, Value</a>
-                            </li>
-                          </ul>
-                          <p>
-                            The full guidelines are available at:<br></br>
-                            <a href="https://www.w3.org/TR/WCAG21/">Web Content Accessibility Guidelines version 2.1</a>
-                          </p>
-                          <p>
-                            <strong> Disproportionate burden </strong> <br></br>
-                            We are not currently claiming that any accessibility problems would be a disproportionate burden to fix. <br></br>
-                            <br></br>
-                            <strong>Content that's not within the scope of the accessibility regulations</strong><br></br>
-                            At this time we are not claiming any material is out of scope.<br></br>
-                            <br></br>
-                            <strong>Information Services and accessibility</strong><br></br>
-                            Information Services (IS) has further information on accessibility including assistive technology, creating accessible
-                            documents, and services IS provides for disabled users.<br></br>
-                            <a href="https://www.ed.ac.uk/information-services/help-consultancy/accessibility">Assistive technology, creating accessible documents, and services IS provides for disabled users.</a>
-                          </p>
-
-                          <h2>What we're doing to improve accessibility</h2>
-                          <p>
-                            We will continue to work with our in house developers and the external host supplier to address these issues and deliver a solution or suitable
-                            workaround and correct issues directly where they are under our control.<br></br>
-                            <br></br>
-                            We will continue to monitor accessibility and will carry out further accessibility testing if significant changes are made to the user
-                            interface or if a service user raises an issue. <br></br>
-                            We plan to conduct manual testing and update the accessibility statement by March 2022.To plan to resolve the issues that are within our control
-                            by March 2022.<br></br>
-                            This statement was prepared on 18th January 2022. It was last reviewed on 18th January 2022. <br></br>
-                            This website was last tested on 18th January 2022 The test was carried out by The University Library and University Collections Digital Library
-                            team using the automated LittleForest tool and manual testing.<br></br>
-                            <br></br>
-                            We did not use sample pages for testing - all pages were run through LittleForest. <br></br>
-                            <br></br>
-                            Little Forrest claims it tests the following WCAG criteria either partially or wholly: <br></br>
-                          </p>
-                            <table style="width:100%">
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>A</td>
-                                <td>1.1.1</td>
-                                <td>Non-text Content</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>A</td>
-                                <td>1.2.1</td>
-                                <td>Audio-only and Video-only (Prerecorded)</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>A</td>
-                                <td>1.2.2</td>
-                                <td>Captions (Prerecorded)</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>A</td>
-                                <td>1.2.3</td>
-                                <td>Audio Description or Media Alternative (Prerecorded)</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>A</td>
-                                <td>1.3.1</td>
-                                <td>Info and Relationships</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>A</td>
-                                <td>1.3.2</td>
-                                <td>Meaningful Sequence</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>A</td>
-                                <td>1.3.3</td>
-                                <td>Sensory Characteristics</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>A</td>
-                                <td>1.4.1</td>
-                                <td>Use of Color</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>A</td>
-                                <td>1.4.2</td>
-                                <td>Audio Control</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>A</td>
-                                <td>2.1.1</td>
-                                <td>Keyboard</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>A</td>
-                                <td>2.1.2 </td>
-                                <td>No Keyboard Trap </td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>A</td>
-                                <td>2.2.1 </td>
-                                <td>Timing Adjustable</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>A</td>
-                                <td>2.2.2</td>
-                                <td>Pause, Stop, Hide</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>A</td>
-                                <td>2.3.1  </td>
-                                <td>Three Flashes or Below Threshold</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>A</td>
-                                <td>2.4.1 </td>
-                                <td>Bypass Blocks</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>A</td>
-                                <td>2.4.2 </td>
-                                <td>Page Titled</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>A</td>
-                                <td>2.4.3  </td>
-                                <td>Focus Order </td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>A</td>
-                                <td>2.4.2 </td>
-                                <td>Page Titled</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>A</td>
-                                <td>2.4.4   </td>
-                                <td>Link Purpose (In Context) </td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>A</td>
-                                <td>3.1.1</td>
-                                <td>Language of Page</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>A</td>
-                                <td>3.2.1</td>
-                                <td>On Focus</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>A</td>
-                                <td>3.2.2</td>
-                                <td>On Input</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>A</td>
-                                <td>3.3.1</td>
-                                <td>Error Identification</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>A</td>
-                                <td>3.3.1</td>
-                                <td>Error Identification</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>A</td>
-                                <td>3.3.2</td>
-                                <td>Labels or Instructions</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>A</td>
-                                <td>4.4.1</td>
-                                <td>Parsing</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>A</td>
-                                <td>4.4.2</td>
-                                <td>Name, Role, Value</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>AA</td>
-                                <td>1.2.4</td>
-                                <td>Captions (Live)</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>AA</td>
-                                <td>1.2.5</td>
-                                <td>Audio Description (Prerecorded)</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>AA</td>
-                                <td>1.4.3</td>
-                                <td>Contrast (Minimum)</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>AA</td>
-                                <td>1.4.4</td>
-                                <td>Resize Text</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>AA</td>
-                                <td>1.4.5</td>
-                                <td>Images of Text</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>AA</td>
-                                <td>2.4.5 </td>
-                                <td>Multiple Ways</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>AA</td>
-                                <td>2.4.6</td>
-                                <td>Headings and Labels</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>AA</td>
-                                <td>2.4.7</td>
-                                <td>Focus Visible</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>AA</td>
-                                <td>3.1.2</td>
-                                <td>Language of Parts</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>AA</td>
-                                <td>3.2.3</td>
-                                <td>Consistent Navigation</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>AA</td>
-                                <td>3.2.4</td>
-                                <td>Consistent Identification</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>AA</td>
-                                <td>3.3.3</td>
-                                <td>Error Suggestion</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>AA</td>
-                                <td>3.3.4</td>
-                                <td>Error Prevention (Legal, Financial, Data)</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>AA</td>
-                                <td>1.2.6</td>
-                                <td>Sign Language (Prerecorded)</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>AAA</td>
-                                <td>1.2.7</td>
-                                <td>Extended Audio Description (Prerecorded)</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>AAA</td>
-                                <td>1.2.8</td>
-                                <td>Media Alternative (Prerecorded)</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>AAA</td>
-                                <td>1.2.9</td>
-                                <td>Audio-only (Live) </td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>AAA</td>
-                                <td>1.4.6</td>
-                                <td>Contrast (Enhanced)</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>AAA</td>
-                                <td>1.4.7</td>
-                                <td>Low or No Background Audio</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>AAA</td>
-                                <td>1.4.8</td>
-                                <td>Visual Presentation</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>AAA</td>
-                                <td>1.4.9</td>
-                                <td>Images of Text (No Exception)</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>AAA</td>
-                                <td>2.1.3</td>
-                                <td>Keyboard (No Exception)</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>AAA</td>
-                                <td>2.2.3</td>
-                                <td>No Timing</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>AAA</td>
-                                <td>2.2.3</td>
-                                <td>No Timing</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>AAA</td>
-                                <td>2.2.4</td>
-                                <td>Interruptions </td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>AAA</td>
-                                <td>2.2.5</td>
-                                <td>Re-authenticating</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>AAA</td>
-                                <td>2.3.2</td>
-                                <td>Three Flashes</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>AAA</td>
-                                <td>2.4.8</td>
-                                <td>Location</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>AAA</td>
-                                <td>2.4.9</td>
-                                <td>Link Purpose (Link Only)</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>AAA</td>
-                                <td>2.4.10</td>
-                                <td>Section Headings</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>AAA</td>
-                                <td>3.1.3</td>
-                                <td>Unusual Words</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>AAA</td>
-                                <td>3.1.4</td>
-                                <td>Abbreviations</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>AAA</td>
-                                <td>3.1.5</td>
-                                <td>Reading</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>AAA</td>
-                                <td>3.1.6</td>
-                                <td>Pronunciation</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>AAA</td>
-                                <td>3.2.5</td>
-                                <td>Change on Request</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>AAA</td>
-                                <td>3.3.5</td>
-                                <td>Help</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>AAA</td>
-                                <td>3.3.6</td>
-                                <td>Error Prevention (All)</td>
-                              </tr>
-                              <tr style="background-color: #F2F2F2;">
-                                <td>WCAG 2.1</td>
-                                <td>AA</td>
-                                <td>1.3.4</td>
-                                <td>Orientation</td>
-                              </tr>
-                              <tr>
-                                <td>WCAG 2.1</td>
-                                <td>AAA</td>
-                                <td>1.3.5</td>
-                                <td>Identify Input Purpose</td>
-                              </tr>
-                          </table>
-                    </div>
-                </xsl:when>
-                <!-- Step 4 - Accessibility Statement -->
-
                 <xsl:when test="starts-with($request-uri, 'page/about')">
                     <div class="hero-unit">
                         <h1><i18n:text>xmlui.mirage2.static.about.title</i18n:text></h1>
                         <p><i18n:text>xmlui.mirage2.static.about.content</i18n:text></p>
                     </div>
+                </xsl:when>
+
+                <!--<xsl:when test="starts-with($request-uri, 'accessibility')">
+                    <div class="hero-unit">
+                        <h1><i18n:text>xmlui.mirage2.static.accessibility.title</i18n:text></h1>
+                        <p><i18n:text>xmlui.mirage2.static.accessibility.content</i18n:text></p>
+                    </div>
+                </xsl:when>-->
+
+                <xsl:when test="starts-with($request-uri, 'accessibility')">
+                    <h1>Accessibility statement for <a href="https://research-scotland.ac.uk/">Research Scotland</a></h1>
+                    <p><strong>Website accessibility statement in line with Public Sector Body (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018</strong></p>
+                    <p>This accessibility statement applies to the “<a href="https://research-scotland.ac.uk/">Research Scotland</a>” - <a href="https://research-scotland.ac.uk/">https://research-scotland.ac.uk/</a></p>
+                    <p>This website is hosted by the Digital Library Department, University of Edinburgh on behalf of Heriot Watt University.  It contains full-text copies of all Heriot-Watt University PhD theses awarded from 2009 onwards. We want as many people as possible to be able to use this application. For example, that means you should be able to:</p>
+                    <ul>
+                        <li>Using your browser settings, change colours, contrast levels and fonts</li>
+                        <li>zoom in up to 200% without the text spilling off the screen</li>
+                        <li>navigate most of the website using just a keyboard</li>
+                        <li>navigate most of the website using speech recognition software such as Dragon Naturally Speaking</li>
+                        <li>listen to most of the website using a screen reader (including the most recent versions of Job Access with Speech (JAWS)</li>
+                        <li>Experience no time limits when using the site</li>
+                        <li>There is no flashing, scrolling or moving text</li>
+                    </ul>
+                    <p>We've also made the website text as simple as possible to understand.</p>
+
+                    <h2>Customising the website</h2>
+                    <p>AbilityNet has advice on making your device easier to use if you have a disability. This is an external site with suggestions to make your computer more accessible:</p>
+                    <p><a href="https://mcmw.abilitynet.org.uk/">AbilityNet - My computer my way</a></p>
+                    <p>With a few simple steps you can customise the appearance of our website using your browser settings to make it easier to read and navigate:</p>
+                    <p><a href="https://www.ed.ac.uk/about/website/accessibility/customising-site">Additional information on how to customise our website appearance</a></p>
+                    <p>If you are a member of University staff or a student, you can use the free SensusAccess accessible document conversion service:</p>
+                    <p><a href="https://www.ed.ac.uk/student-disability-service/staff/supporting-students/accessible-technology">SenusAccess Information</a></p>
+                    <h2>How accessible this website is</h2>
+                    <p>We know some parts of this website are not fully accessible:</p>
+                    <ul>
+                        <li>The website is not fully compatible with assistive technologies (JAWS, TextHelp, Dragon Naturally Speaking)</li>
+                        <li>It is not possible to tab through all the content on all browsers</li>
+                        <li>Tabbing highlights sometimes obscure the content they are highlighting</li>
+                        <li>Data entry and validation is not fully robust</li>
+                        <li>Not all hyperlinks are formatted correctly formatted hypertext</li>
+                        <li>Not all colour contrasts meet the recommended levels</li>
+                        <li>Not all non-text content has appropriate alternative text</li>
+                        <li>No 'skip to main content' button is present throughout the website</li>
+                        <li>The website is not fully compatible with mobile accessibility functionality (Android, iOS)</li>
+                        <li>Some PDF's are not fully accessible</li>
+                        <li>Not all non-text items have alt text</li>
+                        <li>Links are not correctly formatted hypertext links</li>
+                        <li>Not all touch targets are a minimum of 9mm by 9mm </li>
+                    </ul>
+
+                    <h2>Feedback and contact information</h2>
+                    <p>If you need information on this website in a different format, including accessible PDF, large print, audio recording or braille please contact:</p>
+                    <p>Email: <a href="mailto:info@ResearchScotland.ac.uk">info@ResearchScotland.ac.uk</a></p>
+                    <p>Phone: +44 (0)131 248 2850</p>
+                    <p>British Sign Language (BSL) users can contact us via <a href="http://contactscotland-bsl.org/">contactSCOTLAND-BSL</a>, the on-line BSL interpreting service</p>
+                    <p>We'll consider your request and get back to you in 5 working days.</p>
+
+                    <h2>Reporting accessibility problems with this website</h2>
+                    <p>We are always looking to improve the accessibility of this website. If you find any problems not listed on this page, or think we're not meeting accessibility requirements, please contact:</p>
+                    <p>Email: <a href="mailto:info@ResearchScotland.ac.uk">info@ResearchScotland.ac.uk</a></p>
+                    <p>Phone: +44 (0)131 248 2850</p>
+                    <p>British Sign Language (BSL) users can contact us via <a href="http://contactscotland-bsl.org/">contactSCOTLAND-BSL</a>, the on-line BSL interpreting service</p>
+                    <p>We'll consider your request and get back to you in 5 working days.</p>
+
+                    <h2>Enforcement procedure</h2>
+                    <p>The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ‘accessibility regulations’). If you’re not happy with how we respond to your complaint please contact the Equality Advisory and Support Service (EASS) directly:</p>
+                    <p><a href="https://www.equalityadvisoryservice.com/">Contact details for the Equality Advisory and Support Service (EASS)</a></p>
+                    <p>The government has produced information on how to report accessibility issues:</p>
+                    <p><a href="https://www.gov.uk/reporting-accessibility-problem-public-sector-website">Reporting an accessibility problem on a public sector website</a></p>
+
+                    <h2>Contacting us by phone using British Sign Language</h2>
+                    <p>British Sign Language service Contact Scotland BSL runs a service for British Sign Language users and all of Scotland’s public bodies using video relay. This enables sign language users to contact public bodies and vice versa. The service operates 24 hours a day, 7 days a week.</p>
+                    <p><a href="https://contactscotland-bsl.org/">British Sign Language Scotland service details</a></p>
+
+                    <h2>Technical information about this website's accessibility</h2>
+                    <p>The University of Edinburgh is committed to making its websites and applications accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.</p>
+                    <p>This website is partially compliant with the Web Content Accessibility Guidelines (WCAG) 2.1 AA standard, due to the non-compliances listed below.</p>
+                    <p>The full guidelines are available at</p>
+                    <p><a href="https://www.w3.org/TR/WCAG21/">Web Content Accessibility Guidelines (WCAG) 2.1 AA standard</a></p>
+
+                    <h2>Non accessible content</h2>
+                    <p>The content listed below is non-accessible for the following reasons.</p>
+                    <p>Noncompliance with the accessibility regulations.</p>
+                    <p>The following items to not comply with the WCAG 2.1 AA success criteria:</p>
+                    <ul>
+                        <li>Some non-text content does not have text alternatives.</li>
+                        <ul>
+                            <li><u><a href="https://www.w3.org/TR/WCAG21/#non-text-content">1.1.1 Non-text Content</a></u></li>
+                        </ul>
+                    </ul>
+                    <ul>
+                        <li>There may not be sufficient colour contrast between font and background colours, there are issues where text size is very small</li>
+                        <ul>
+                            <li><u><a href="https://www.w3.org/TR/WCAG21/#visual-audio-contrast-contrast">1.4.3 - Contrast (Minimum)</a></u></li>
+                        </ul>
+                    </ul>
+                    <ul>
+                        <li>There is justified text present. (Note this is a WCAG 2.1 AAA criteria)</li>
+                        <ul>
+                            <li><u><a href="https://www.w3.org/TR/WCAG21/#visual-presentation">1.4.8 Visual Presentation (AAA)</a></u></li>
+                        </ul>
+                    </ul>
+                    <ul>
+                        <li>Not all the content reflows when the page is magnified above 200%</li>
+                        <ul>
+                            <li><u><a href="https://www.w3.org/TR/WCAG21/#reflow">1.4.10 - Reflow</a></u></li>
+                        </ul>
+                    </ul>
+                    <ul>
+                        <li>There is no 'skip to main content' option available throughout the website</li>
+                        <ul>
+                            <li><u><a href="https://www.w3.org/TR/WCAG21/#bypass-blocks">2.4.1 - Bypass Blocks</a></u></li>
+                        </ul>
+                    </ul>
+                    <ul>
+                        <li>There is unformatted links present that don't determine the purpose of the link</li>
+                        <ul>
+                            <li><u><a href="https://www.w3.org/TR/WCAG21/#link-purpose-in-context">2.4.4 Link Purpose (In Context)</a></u></li>
+                        </ul>
+                    </ul>
+                    <ul>
+                        <li>It is not always clear where you have tabbed too</li>
+                        <ul>
+                            <li><u><a href="https://www.w3.org/TR/WCAG21/#focus-visible">2.4.7 Focus Visible</a></u></li>
+                        </ul>
+                    </ul>
+                    <ul>
+                        <li>There missing labels present in the website so fail to describe the purpose of the input form</li>
+                        <ul>
+                            <li><u><a href="https://www.w3.org/TR/WCAG21/#labels-or-instructions">3.3.2 Labels or Instruction</a></u></li>
+                        </ul>
+                    </ul>
+                    <ul>
+                        <li>Error suggestions or corrections are not always displayed</li>
+                        <ul>
+                            <li><u><a href="https://www.w3.org/TR/WCAG21/#error-suggestion">3.3.3 Error Suggestionn</a></u></li>
+                        </ul>
+                    </ul>
+                    <ul>
+                        <li>Screen readers are not able to identify some parts of the page</li>
+                        <ul>
+                            <li><u><a href="https://www.w3.org/TR/WCAG21/#parsing">4.1.1 Parsing</a></u></li>
+                            <li><u><a href="https://www.w3.org/TR/WCAG21/#name-role-value">4.1.2 - Name, Role, Value</a></u></li>
+                        </ul>
+                    </ul>
+                    <ul>
+                        <li>There are PDF's that are not currently accessible</li>
+                        <ul>
+                            <li><u><a href="https://www.w3.org/TR/WCAG21/#parsing">4.1.1 Parsing</a></u></li>
+                            <li><u><a href="https://www.w3.org/TR/WCAG21/#name-role-value">4.1.2 - Name, Role, Value</a></u></li>
+                        </ul>
+                    </ul>
+                    <p>Unless specified otherwise, a complete solution, or significant improvement, will be in place by October 2023.</p>
+
+                    <h2>Disproportionate burden</h2>
+                    <p>We are not currently claiming that any accessibility problems would be a disproportionate burden to fix.</p>
+
+                    <h2>Content that is not within the Scope of the Accessibility Regulations</h2>
+                    <p>At this time, we do not believe that any content is outside the scope of the accessibility regulations.</p>
+
+                    <h2>What we're doing to improve accessibility</h2>
+                    <p>Since our first evaluation and statement which was based on automated testing we have been doing extensive manual testing including with a range of assistive technology to ensure we have a clear picture of the accessibility issues and how best to resolve them. We will continue to address and make adequate improvements to the accessibility issues highlighted. Unless specified otherwise, a complete solution or significant improvement will be in place by July 2023.</p>
+                    <p>While we are in the process of resolving these accessibility issues we will ensure reasonable adjustments are in place to make sure no user is disadvantaged. As changes are made, we will continue to review accessibility and retest the accessibility of this website.</p>
+                    <p>We are planning to upgrade the site to the most recent release of the system architecture before the end of 2023 which includes improvements to the current accessibility requirements. During this upgrade improving the other accessibility issues highlighted will be a component of the development process.</p>
+
+                    <h2>Preparation of this accessibility statement</h2>
+                    <p>This statement was first prepared on 15th November 2022. It was last reviewed on 16th November 2022.</p>
+                    <p>This website was last tested on 9th July 2022. The test was carried out by The University Library and University Collections Digital Library Development team using the automated WAVE WebAIM tool and manual testing. The website is scheduled for manual testing by July 2023.</p>
+                    <p>This website was last tested by the Library and University Collections Digital Library team, University of Edinburgh in July 2022 following on from previous automated testing of the system the previous year. This was primarily using the Google Chrome (100.0.4896.127), Mozilla Firefox (91.8.0esr), Internet Explorer (11.0) and Microsoft Edge (100.0.1185.39) browsers for comparative purposes.</p>
+                    <p>A more recent world-wide usage levels survey for different screen readers and browsers shows that Chrome, Mozilla Firefox and Microsoft Edge are increasing in popularity and is now the favoured browser for screen readers:</p>
+                    <p><a href="https://webaim.org/projects/screenreadersurvey9/">WebAIM: Screen Reader User Survey</a></p>
+                    <p>The aforementioned three browsers have been used in certain questions for reasons of breadth and variety.</p>
+                    <p>We ran automated testing using <a href="https://wave.webaim.org/">Wave WEBAIM</a> and then manual testing that included:</p>
+                    <ul>
+                        <li>Spell check functionality;</li>
+                        <li>Scaling using different resolutions and reflow;</li>
+                        <li>Options to customise the interface (magnification, font, background colour, etc);</li>
+                        <li>Keyboard navigation and keyboard traps;</li>
+                        <li>Data validation;</li>
+                        <li>Warning of links opening in new tab or window;</li>
+                        <li>Information conveyed in the colour or sound only;</li>
+                        <li>Flashing, moving or scrolling text;</li>
+                        <li>Operability if JavaScript is disabled;</li>
+                        <li>Use with screen reading software (for example JAWS);</li>
+                        <li>Assistive software (TextHelp Read and Write, Windows Magnifier, ZoomText, Dragon Naturally Speaking, TalkBack and VoiceOver);</li>
+                        <li>Tooltips and text alternatives for any non-text content;</li>
+                        <li>Time limits;</li>
+                        <li>Compatibility with mobile accessibility functionality (Android and iOS).</li>
+                    </ul>
                 </xsl:when>
 
                 <xsl:when test="starts-with($request-uri, 'page/takedown')">
@@ -1528,15 +1118,17 @@
     <xsl:template name="addJavascript-google-analytics">
         <!-- Add a google analytics script if the key is present -->
         <xsl:if test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='google'][@qualifier='analytics']">
-            <script><xsl:text>
-                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        <script>
+            <xsl:attribute name="async">true</xsl:attribute>
+            <xsl:attribute name="src"><xsl:text>https://www.googletagmanager.com/gtag/js?id=</xsl:text><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='google'][@qualifier='analytics']"/></xsl:attribute>
+        </script>
+        <script><xsl:text>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-                ga('create', '</xsl:text><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='google'][@qualifier='analytics']"/><xsl:text>', '</xsl:text><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='serverName']"/><xsl:text>');
-                ga('send', 'pageview');
-            </xsl:text></script>
+            gtag('config', '</xsl:text><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='google'][@qualifier='analytics']"/><xsl:text>');</xsl:text>
+        </script>        
         </xsl:if>
     </xsl:template>
 
