@@ -283,7 +283,7 @@
             <xsl:variable name="page_title" select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='title'][last()]" />
             <title>
                 <xsl:choose>
-                    <xsl:when test="starts-with($request-uri, 'accessibility')">
+                    <xsl:when test="starts-with($request-uri, 'page/accessibility')">
                         Accessibility Statement
                     </xsl:when>
                     <xsl:when test="not($page_title)">
@@ -324,18 +324,10 @@
             </xsl:if>
 
             <!-- Add Altmetrics JS -->
-            <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
-            <!--<script type='text/javascript'>
-                $(function() 
-                {
-                    alert('test');
-                    //if($('.altmetric-embed')[0].html() === ""){ $($('.altmetric-embed')[0]).parent().hide(); }
-                    //if($('.altmetric-embed')[1].html() === ""){ $($('.altmetric-embed')[1]).parent().hide(); }
-                });
-            </script>-->
+            <!--<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>-->
 
             <!-- CORE Recommender JS -->
-            <!-- <script>
+            <!--<script>
                 (function (d, s, idScript, idRec, userInput) {
                     var coreAddress = 'https://core.ac.uk/';
                     var js, fjs = d.getElementsByTagName(s)[0];
@@ -354,49 +346,17 @@
                     link.setAttribute('href', coreAddress + 'recommender/embed-default-style.css');
                     d.getElementsByTagName('head')[0].appendChild(link);
                 }(document, 'script', 'recommender-embed', 'fbca3d', {}));
-            </script> -->
+            </script>-->
 
-            <!-- Script to format e-these submission form text where it is unable in xml -->
-            <script type="text/javascript">
-                window.onload = function ()
+            <script  type="text/javascript">
+                $(function()
                 {
-                    if(window.location.href.indexOf("10023/19869/submit/") > -1)
-                    {
-                        var plain_text = document.getElementsByClassName('bold-format');
-                        if(plain_text.length > 0)
-                        {
-                            var bold_text = plain_text[0].textContent.split(". ");
-                            plain_text[0].innerHTML = bold_text[0] + ". <b>" + bold_text[1] + "</b>";
-                        }
+                    var a = $('.bold-test').text();
+                    var b = a.slice(0, a.indexOf('. '));
+                    var c = a.slice(a.indexOf('. '), a.length);
 
-                        var submission_complete = document.getElementById('aspect_submission_submit_CompletedStep_div_submit-complete');
-                        if (submission_complete !== null)
-                        {
-                            var submission_div = document.getElementById('aspect_submission_submit_CompletedStep_div_submit-complete').children;
-
-                            submission_div[5].outerHTML = "<li>" + submission_div[5].textContent + "</li>";
-                            submission_div[6].outerHTML = "<li>" + submission_div[6].textContent + "</li>";
-                            submission_div[7].outerHTML = "<li>" + submission_div[7].textContent + "</li>";
-                            submission_div[8].outerHTML = "<li>" + submission_div[8].textContent + "</li>";
-                            submission_div[5].style.marginLeft = "20px";
-                            submission_div[6].style.marginLeft = "20px";
-                            submission_div[7].style.marginLeft = "20px";
-                            submission_div[8].style.marginLeft = "20px";
-                            submission_div[8].style.marginBottom = "10px";
-                        }
-
-                    }
-
-                    if(document.getElementById('aspect_workflow_RejectTaskStep_field_reason') !== null)
-                    {
-                        var x = document.getElementById('simple-item-view-type').children;
-
-                        if(x[1].textContent.includes('Thesis')){
-                            var textarea = "· We can't open your PDF to check the thesis full text. Please replace the PDF with a file that we can open\n· Signatures are not present in the declaration in your PDF. Please add the signatures and replace the PDF\n· Your declaration is not complete. Please complete the declaration and replace the PDF\n\n· The embargo in your declaration does not match the embargo that we have on record for your thesis. Please correct the embargo in your declaration and replace the PDF\n· The abstract is not included in the full text of your thesis. Please add the abstract and replace the PDF\n· The title page is not included in the full text of your thesis. Please add the title page and replace the PDF\n\nWe also have the following queries:\nInsert extra free text here if you want to use this section. Otherwise delete both lines in this free text section to remove this section completely from the email to the submitter";
-                            document.getElementById('aspect_workflow_RejectTaskStep_field_reason').innerHTML = textarea;
-                        }
-                    }
-                };
+                    $('.bold-test').html('<span class="last_bold">' + b + '</span>' + c)
+                });
             </script>
 
         </head>
@@ -818,7 +778,7 @@
 
                         <p>To find out how you can benefit from open access to research, see our <a href="//www.st-andrews.ac.uk/library/services/researchsupport/openaccess/" title="University of St Andrews Library Open Access web pages" target="_blank">library web pages</a> and <a href="//univstandrews-oaresearch.blogspot.co.uk/" title="Open Access Blog" target="_blank">Open Access blog</a>. For open access help contact: <a href="mailto:openaccess@st-andrews.ac.uk">openaccess@st-andrews.ac.uk</a>.</p>
                         <h3>Accessibility</h3>
-                        <p>Read our <a href="/accessibility" title="Accessibility statement">Accessibility statement</a>.</p>
+                        <p>Read our <a href="/page/accessibility" title="Accessibility statement">Accessibility statement</a>.</p>
                         </div>
                     <div class="col-md-3 footer-block">
                         <h3>How to submit research papers</h3>
@@ -826,7 +786,7 @@
                     </div>
                     <div class="col-md-3 footer-block">
                         <h3>Electronic thesis deposit</h3>
-                        <p>Help with <a href="https://libguides.st-andrews.ac.uk/theses" target="_blank" title="Help with electronic theses deposit">deposit</a>.</p>
+                        <p>Help with <a href="https://libguides.st-andrews.ac.uk/c.php?g=669998&amp;p=4756152" target="_blank" title="Help with electronic theses deposit">deposit</a>.</p>
                         <h3>Repository help</h3>
                         <p>For repository help contact: <a href="mailto:Digital-Repository@st-andrews.ac.uk" title="Email address for St Andrews Research Repository">Digital-Repository@st-andrews.ac.uk</a>.</p>
                         <p><a href="/feedback" title="For sharing feedback about the St Andrews Research Repository">Give Feedback</a></p>
@@ -901,7 +861,7 @@
 
             <!-- Check for the custom pages -->
             <xsl:choose>
-                <xsl:when test="starts-with($request-uri, 'accessibility')">
+                <xsl:when test="starts-with($request-uri, 'page/accessibility')">
                     <div class="hero-unit">
                         <h1>Accessibility statement for the <a href="https://research-repository.st-andrews.ac.uk/">St. Andrews Research Repository</a></h1>
                         <p><strong>Website accessibility statement in line with Public Sector Body (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018</strong></p>
@@ -1200,30 +1160,22 @@
     </xsl:template>
 
     <xsl:template name="addJavascript-google-analytics">
-        <!-- Add a google analytics script if the key is present -->
-        <xsl:if test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='google'][@qualifier='analytics']">
-            <script><xsl:text>
-                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-                ga('create', '</xsl:text><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='google'][@qualifier='analytics']"/><xsl:text>', '</xsl:text><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='serverName']"/><xsl:text>');
-                ga('send', 'pageview');
-            </xsl:text></script>
-        </xsl:if>
-
+	<!-- Add a google analytics script if the key is present -->
+    	<xsl:if test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='google'][@qualifier='analytics']">
         <script>
-            <xsl:text>
-                $(function() 
-                {
-                    if($('.altmet-handle').html() === ""){ $('.altmet-handle-head').hide(); }
-                    if($('.altmet-doi').html() === ""){ $('.altmet-doi-head').hide(); }
-                });
-            </xsl:text>
+            <xsl:attribute name="async">true</xsl:attribute>
+            <xsl:attribute name="src"><xsl:text>https://www.googletagmanager.com/gtag/js?id=</xsl:text><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='google'][@qualifier='analytics']"/></xsl:attribute>
         </script>
+        <script><xsl:text>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-    </xsl:template>
+            gtag('config', '</xsl:text><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='google'][@qualifier='analytics']"/><xsl:text>');</xsl:text>
+        </script>
+    </xsl:if>
+</xsl:template>
+
 
     <!--The Language Selection
         Uses a page metadata curRequestURI which was introduced by in /xmlui-mirage2/src/main/webapp/themes/Mirage2/sitemap.xmap-->
