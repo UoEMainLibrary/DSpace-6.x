@@ -1,0 +1,26 @@
+# Workflow task email message
+#
+# {0}  Title of submission
+# {1}  Name of collection
+# {2}  submitter's name
+# {3}  Description of task
+# {4}  link to 'my DSpace' page 
+# {5}  Student Name
+# {6}  Student ID
+#
+Subject: Repository: You have a new task ({5}{6})
+
+A new item has been submitted:
+
+Title:        {0}
+Collection:   {1}
+Submitted by: {2}
+
+{3}
+
+To claim this task, please visit your "My Repository"
+page:  {4}
+
+Many thanks!
+
+Repository Team

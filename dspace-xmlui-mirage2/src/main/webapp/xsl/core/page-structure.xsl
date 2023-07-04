@@ -348,6 +348,17 @@
                 }(document, 'script', 'recommender-embed', 'fbca3d', {}));
             </script>-->
 
+            <script  type="text/javascript">
+                $(function()
+                {
+                    var a = $('.bold-test').text();
+                    var b = a.slice(0, a.indexOf('. '));
+                    var c = a.slice(a.indexOf('. '), a.length);
+
+                    $('.bold-test').html('<span class="last_bold">' + b + '</span>' + c)
+                });
+            </script>
+
         </head>
     </xsl:template>
 
@@ -852,116 +863,205 @@
             <xsl:choose>
                 <xsl:when test="starts-with($request-uri, 'page/accessibility')">
                     <div class="hero-unit">
-                        <h1 id="d.en.106512" class="page-heading">Accessibility statement for the Research repository</h1>
-                        <div id="d.en.106513">
-                            <p>This statement applies to content published on the <a href="https://research-repository.st-andrews.ac.uk">https://research-repository.st-andrews.ac.uk</a> domain, run by the University of St Andrews. It does not apply to content on any other st-andrews.ac.uk domain or subdomains.</p>
-                            <p>We want as many people as possible to be able to use this website. For example, that means you should be able to:</p>
+                        <h1>Accessibility statement for the <a href="https://research-repository.st-andrews.ac.uk/">St. Andrews Research Repository</a></h1>
+                        <p><strong>Website accessibility statement in line with Public Sector Body (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018</strong></p>
+                        <p>This accessibility statement applies to <a href="https://research-repository.st-andrews.ac.uk/">St. Andrews Univeristy Research Repository</a> - <a href="https://research-repository.st-andrews.ac.uk/">https://research-repository.st-andrews.ac.uk/</a></p>
+                        <p>This website is maintained by the Digital Library team, Library and University Collections, the University of Edinburgh on behalf of the St. Andrews Research Repository. We want as many people as possible to be able to use this application. For example, that means you should be able to:</p>
+                        <ul>
+                            <li>using your browser settings, change colours, contrast levels and fonts;</li>
+                            <li>zoom in up to 200% without the text spilling off the screen;</li>
+                            <li>navigate most of the website using just a keyboard;</li>
+                            <li>listen to most of the website using a screen reader (including the most recent versions of Job Access with Speech (JAWS);</li>
+                            <li>experience no time limits when using the site there is no flashing, scrolling or moving text.</li>
+                        </ul>
+                        <p>We've also made the website text as simple as possible to understand.</p>
+
+                        <h2>Customising the website</h2>
+                        <p>AbilityNet has advice on making your device easier to use if you have a disability. This is an external site with suggestions to make your computer more accessible:</p>
+                        <p><a href="https://mcmw.abilitynet.org.uk/">AbilityNet - My computer my way</a></p>
+                        <p>With a few simple steps you can customise the appearance of our website using your browser settings to make it easier to read and navigate:</p>
+                        <p><a href="https://www.ed.ac.uk/about/website/accessibility/customising-site">Additional information on how to customise our website appearance</a></p>
+                        <p>If you are a member of University staff or a student, you can use the free SensusAccess accessible document conversion service:</p>
+                        <p><a href="https://www.ed.ac.uk/student-disability-service/staff/supporting-students/accessible-technology">SenusAccess Information</a></p>
+
+                        <h2>How accessible this website is</h2>
+                        <p>We know some parts of this website are not fully accessible:</p>
+                        <ul>
+                            <li>The website is not fully compatible with voice recognition assistive technology on all browsers;</li>
+                            <li>It is not possible to tab through all the content on all browsers;</li>
+                            <li>Tab highlighting can obscure the actual content;</li>
+                            <li>Data entry and validation is not fully robust;</li>
+                            <li>Not all hyperlinks are formatted correctly;</li>
+                            <li>Not all colour contrasts meet the Web Content Accessibility Guidelines (WCAG) 2.1 AA standard;</li>
+                            <li>Not all non-text content has appropriate alternative text;</li>
+                            <li>No 'skip to main content' button is present throughout the website;</li>
+                            <li>The website is not fully compatible with mobile accessibility functionality (Android, iOS);</li>
+                            <li>Some PDF documents are not fully accessible;</li>
+                            <li>Not all touch targets are a minimum of 9mm by 9mm.</li>
+                        </ul>
+
+                        <h2>Feedback and contact information</h2>
+                        <p>If you need information on this website in a different format, including accessible PDF, large print, audio recording or braille please contact:</p>
+                        <p>Email: <a href="mailto:itservicedesk@st-andrews.ac.uk">itservicedesk@st-andrews.ac.uk</a></p>
+                        <p>Phone: +44 (0)1334 46 3333</p>
+                        <p>British Sign Language (BSL) users can contact us via Contact Scotland BSL, the on-line BSL interpreting service</p>
+                        <p><a href="http://contactscotland-bsl.org/">Contact Scotland BSL</a></p>
+                        <p>We'll consider your request and get back to you in 5 working days.</p>
+
+                        <h2>Reporting accessibility problems with this website</h2>
+                        <p>We are always looking to improve the accessibility of this website. If you find any problems not listed on this page, or think we're not meeting accessibility requirements, please contact:</p>
+                        <p>Email: <a href="mailto:itservicedesk@st-andrews.ac.uk">itservicedesk@st-andrews.ac.uk</a></p>
+                        <p>Phone: +44 (0)1334 46 3333</p>
+                        <p>British Sign Language (BSL) users can contact us via Contact Scotland BSL, the on-line BSL interpreting service</p>
+                        <p><a href="http://contactscotland-bsl.org/">Contact Scotland BSL</a></p>
+                        <p>We'll consider your request and get back to you in 5 working days.</p>
+
+                        <h2>Enforcement procedure</h2>
+                        <p>The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the 'accessibility regulations'). If you're not happy with how we respond to your complaint please contact the Equality Advisory and Support Service (EASS) directly:</p>
+                        <p><a href="https://www.equalityadvisoryservice.com/">Contact details for the Equality Advisory and Support Service (EASS)</a></p>
+                        <p>The government has produced information on how to report accessibility issues:</p>
+                        <p><a href="https://www.gov.uk/reporting-accessibility-problem-public-sector-website">Reporting an accessibility problem on a public sector website</a></p>
+
+                        <h2>Contacting us by phone using British Sign Language</h2>
+                        <p>British Sign Language service Contact Scotland BSL runs a service for British Sign Language users and all of Scotland's public bodies using video relay. This enables sign language users to contact public bodies and vice versa. The service operates 24 hours a day, 7 days a week.</p>
+                        <p><a href="https://contactscotland-bsl.org/">British Sign Language Scotland service details</a></p>
+
+                        <h2>Technical information about this website's accessibility</h2>
+                        <p>The University of Edinburgh is committed to making its websites and applications accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.</p>
+                        <p>This website is partially compliant with the Web Content Accessibility Guidelines (WCAG) 2.1 AA standard, due to the non-compliances listed below.</p>
+                        <p>The full guidelines are available at</p>
+                        <p><a href="https://www.w3.org/TR/WCAG21/">Web Content Accessibility Guidelines (WCAG) 2.1 AA standard</a></p>
+
+                        <h2>Non accessible content</h2>
+                        <p>The content listed below is non-accessible for the following reasons.</p>
+                        <p>Noncompliance with the accessibility regulations.</p>
+                        <p>The following items to not comply with the WCAG 2.1 AA success criteria:</p>
+                        <ul>
+                            <li>Some non-text content does not have text alternatives</li>
                             <ul>
-                                <li>change colours, contrast levels and fonts</li>
-                                <li>zoom in up to 300% without the text spilling off the screen</li>
-                                <li>navigate most of the website using just a keyboard</li>
-                                <li>navigate most of the website using speech recognition software</li>
-                                <li>listen to most of the website using a screen reader (including the most recent versions of JAWS, NVDA and VoiceOver).</li>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#non-text-content">1.1.1 - Non-text Content</a></u></li>
                             </ul>
-                            <p>We’ve also made the website text as simple as possible to understand.</p>
-                            <p><a href="https://mcmw.abilitynet.org.uk/">AbilityNet</a> has advice on making your device easier to use if you have a disability.</p>
-                            <p>You can also explore some of our recommendations for tools that can <a href="https://www.st-andrews.ac.uk/students/advice/disabilities/student-study-toolkit/">make your online experience better</a>.</p>
-                        </div>
-                        <div id="d.en.106514">
-                            <h2>How accessible this website is</h2>
-                            <p>The Research Repository is currently not fully compliant with accessibility legislation. We are working with the software supplier and website host, Edinburgh University, to fix the issues. </p>
-                            <p>Some areas of inaccessibility include:</p>
+                        </ul>
+                        <ul>
+                            <li>There are missing form labels</li>
                             <ul>
-                                <li>Some pages have poor colour contrast.</li>
-                                <li>Some of our online forms are missing descriptions for screen readers.</li>
-                                <li>Some links are only identifiable by colour.</li>
-                                <li>Some link text is used to go to multiple destinations.</li>
-                                <li>Some form elements are not grouped, making keyboard navigation harder.</li>
-                                <li>Some metadata elements have an invalid language.</li>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#info-and-relationships">1.3.1 - Info and Relationships</a></u></li>
                             </ul>
-                        </div>
-                        <div id="d.en.106515">
-                            <h2>Feedback and contact information</h2>
-                            <p>If you need information on this website in a different format like accessible PDF, large print, easy read, audio recording or braille:</p>
+                        </ul>
+                        <ul>
+                            <li>There may not be sufficient colour contrast between font and background colours, there are issues where text size is very small</li>
                             <ul>
-                                <li>email: <a href="mailto:itservicedesk@st-andrews.ac.uk">itservicedesk@st-andrews.ac.uk</a> </li>
-                                <li>phone: +44 (0)1334 46 3333</li>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#visual-audio-contrast-contrast">1.4.3 - Contrast (Minimum)</a></u></li>
                             </ul>
-                        </div>
-                        <div id="d.en.106516">
-                            <h2>Reporting accessibility problems with this website</h2>
-                            <p>We’re always looking to improve the accessibility of this website. If you find any problems that aren’t listed on this page or think we’re not meeting accessibility requirements, contact IT Service Desk:</p>
+                        </ul>
+                        <ul>
+                            <li>Not all foreground and background colours can be selected by the user</li>
                             <ul>
-                                <li>email: <a href="mailto:itservicedesk@st-andrews.ac.uk">itservicedesk@st-andrews.ac.uk</a></li>
-                                <li>phone: +44 (0)1334 46 3333</li>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#visual-presentation">1.4.8 - Visual Presentation (Level AAA)</a></u></li>
                             </ul>
-                        </div>
-                        <div id="d.en.106517">
-                            <h2>Enforcement procedure</h2>
-                            <p>The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ‘accessibility regulations’). If you’re not happy with how we respond to your complaint, contact the <a href="https://www.equalityadvisoryservice.com/">Equality Advisory and Support Service (EASS)</a>.</p>
-                        </div>
-                        <div id="d.en.106518">
-                            <h2>Contacting us by phone or visiting us in person</h2>
-                            <p>We have induction loops in main lecture venues, and we have portable loops that may be set up if requested in advance. We also have a Roger pen to assist visitors who use hearing aids.</p>
-                            <p>We can provide a text relay service for people who are Deaf, deaf, hearing impaired or have a speech impediment who are contacting us by phone.</p>
-                            <p>British Sign Language (BSL) users can contact us via the online BSL Video Relay Interpreting service from <a href="https://contactscotland-bsl.org/">Contact Scotland BSL</a>. We will also endeavour to arrange a BSL interpreter for visiting individuals that need that support, but this should be requested in advance as availability is limited.</p>
-                            <p>Find out how to <a href="https://www.st-andrews.ac.uk/contact/">contact the University</a>. </p>
-                        </div>
-                        <div id="d.en.106519">
-                            <h2>Technical information about this website’s accessibility</h2>
-                            <p>The University of St Andrews is committed to making its website accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.</p>
-                            <h2>Compliance status</h2>
-                            <p>This website is partially compliant with the <a href="https://www.w3.org/TR/WCAG21/">Web Content Accessibility Guidelines (WCAG) version 2.1</a> AA standard due to the non-compliances and exemptions listed below.</p>
-                        </div>
-                        <div id="d.en.106520">
-                            <h2>Non-accessible content</h2>
-                            <h4>Forms and interactive elements</h4>
-                            <p>There are forms and interactive elements such as carousels which do not meet multiple AA success criteria. We are working with the software supplier, Edinburgh University, to fix these issues,  including, but not limited to:</p>
+                        </ul>
+                        <ul>
+                            <li>Not all the content reflows when the page is magnified above 200%</li>
                             <ul>
-                                <li>Orientation (1.3.4)</li>
-                                <li>Colour contrast (1.4.3)</li>
-                                <li>Resize text (1.4.4)</li>
-                                <li>Reflow (1.4.10)</li>
-                                <li>Non-text contrast (1.4.11)</li>
-                                <li>Text spacing (1.4.12)</li>
-                                <li>Headings and labels (2.4.6)</li>
-                                <li>Focus visible (2.4.7)</li>
-                                <li>Consistent navigation (3.2.3)</li>
-                                <li>Error suggestion (3.3.3)</li>
-                                <li>Grouping (1.3.1)</li>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#reflow">1.4.10 - Reflow</a></u></li>
                             </ul>
-                            <h4>Contrast Issues</h4>
-                            <p>Some pages contain elements with low contrast between the element and its background. This can cause text to be difficult to read, especially for those with low vision, poor eyesight, or colour blindness (Success criterion 1.4.3 Contrast - minimum).</p>
-                            <p>We are working with the software supplier, Edinburgh University, to fix this issue.</p>
-                            <h4>Issues with focus indicator</h4>
-                            <p>Some elements may not always display effective focus indication when interacting with elements (Success criterion 2.4.7 Focus visible).</p>
-                            <p>We are working with the software supplier, Edinburgh University, to fix this issue.</p>
-                            <h4>Link text used for multiple different destinations</h4>
-                            <p>The same link text is used for links going to different destinations. Users might not know the difference if they are not somehow explained (Success criterion 2.4.4 Link Purpose (In Context)).</p>
-                            <p>We are working with the software supplier, Edinburgh University, to fix this issue. </p>
-                            <h4>Incorrect or missing labels</h4>
-                            <p>There are some label and aria-labelledby tags that are not referencing the correct field. There are also some missing labels. This fails success criterium 1.1.1 Non-text Content.</p>
-                            <p>We are working with the software supplier, Edinburgh University, to fix this issue.</p>
-                            <h4>Input field has no description</h4>
-                            <p>Input fields should always have a description that is explicitly associated with the field to make sure that users of assistive technologies will also know what the field is for. The Research Repository site has multiple IDs with the same value, failing criterium 1.3.1 Info and Relationships.</p>
-                            <p>We are working with the software supplier, Edinburgh University, to fix this issue.</p>
-                            <h4 class="media-content">Metadata language</h4>
-                            <p>The value for the language attribute is not set to a valid language code for use in metadata on a record page.</p>
-                            <p>We are working with the software supplier, Edinburgh University, to fix this issue.</p>
-                        </div>
-                        <div id="d.en.106521">
-                            <h2>What we’re doing to improve accessibility</h2>
-                            <p>We recognise that some content on Research Repository is not fully accessible, but the University is committed to improving this through:</p>
+                        </ul>
+                        <ul>
+                            <li>Tooltips are not present for all icons and images</li>
                             <ul>
-                                <li>Working with the software supplier, Edinburgh University, on ensuring full compliance.</li>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#content-on-hover-or-focus">1.4.13 - Content on Hover or Focus</a></u></li>
                             </ul>
-                        </div>
-                        <div id="d.en.106522">
-                            <h2>Preparation of this accessibility statement</h2>
-                            <p>This statement was prepared on Monday 04 October 2021. It was last reviewed on Monday 04 October 2021.</p>
-                            <p>Research Repository is tested on a regular basis, using accessibility tool provided by Siteimprove. This tool tests a sample of web pages and provides a report on accessibility issues. </p>
-                            <p>Issues are prioritised according to the severity of the impact it may cause, the number of people that may be impacted and the time involved in resolving the issue.</p>
-                        </div>
+                        </ul>
+                        <ul>
+                            <li>There is no 'skip to main content' option available throughout the website</li>
+                            <ul>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#bypass-blocks">2.4.1 - Bypass Blocks</a></u></li>
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>The purpose of each link can not be determined from the text alone</li>
+                            <ul>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#link-purpose-in-context">2.4.4 - Link Purpose (In Context)</a></u></li>
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>There are missing heading levels</li>
+                            <ul>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#headings-and-labels">2.4.6 - Headings and Labels</a></u></li>
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>Visual information to identify user interface components, such as keyboard focus, do not always have a sufficient contrast ratio</li>
+                            <ul>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#focus-visible">2.4.6 - Focus Visible</a></u></li>
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>There are missing labels present in the website that fail to describe the purpose of the input form</li>
+                            <ul>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#labels-or-instructions">3.3.2 - Labels or Instruction</a></u></li>
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>Error suggestions or corrections are not always displayed</li>
+                            <ul>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#error-suggestion">3.3.3 - Error Suggestion</a></u></li>
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>Voice recognition software was unable to identify some parts of the page</li>
+                            <ul>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#parsing">4.1.1 - Parsing</a></u></li>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#name-role-value">4.1.2 - Name, Role, Value</a></u></li>
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>There are PDF's that are not currently accessible</li>
+                            <ul>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#parsing">4.1.1 - Parsing</a></u></li>
+                                <li><u><a href="https://www.w3.org/TR/WCAG21/#name-role-value">4.1.2 - Name, Role, Value</a></u></li>
+                            </ul>
+                        </ul>
+                        <p>Unless specified otherwise, a complete solution, or significant improvement, will be in place by December 2023. At this time, we believe all items are within our control.</p>
+
+                        <h2>Disproportionate burden</h2>
+                        <p>We are not currently claiming that any accessibility problems would be a disproportionate burden to fix.</p>
+
+                        <h2>Content that is not within the Scope of the Accessibility Regulations</h2>
+                        <p>At this time, we do not believe that any content is outside the scope of the accessibility regulations.</p>
+
+                        <h2>What we're doing to improve accessibility</h2>
+                        <p>We will continue to address and make adequate improvements to the accessibility issues highlighted. Unless specified otherwise, a complete solution or significant improvement will be in place by December 2023.</p>
+                        <p>While we are in the process of resolving these accessibility issues we will ensure reasonable adjustments are in place to make sure no user is disadvantaged. As changes are made, we will continue to review accessibility and retest the accessibility of this website.</p>
+                        <p>We are planning to upgrade the site to the most recent release of the system architecture before the end of 2023 which includes improvements to the current accessibility requirements. During this upgrade improving the other accessibility issues highlighted will be a key component of the development process.</p>
+
+                        <h2>Preparation of this accessibility statement</h2>
+                        <p>This statement was first prepared on 4th October 2021. It was last reviewed on 9th January 2023.</p>
+                        <p>This website was first tested on 4th October 2021 and was last tested on 9th August 2022. The test was carried out by The University Library and University of Edinburgh Collections Digital Library Development team using the automated <a href="https://wave.webaim.org/">Wave WEBAIM</a> tool and <a href="https://littleforest.co.uk/">Little Forest</a> testing.</p>
+                        <p>This website was last tested by the Digital Library team, Library and University Collections, University of Edinburgh on the 9th August 2022 following on from previous automated testing of the system the previous year. This was primarily using the Google Chrome (100.0.4896.127), Mozilla Firefox (91.8.0esr), Internet Explorer (11.0) and Microsoft Edge (100.0.1185.39) browsers for comparative purposes.</p>
+                        <p>Recent world-wide usage levels survey for different screen readers and browsers shows that Chrome, Mozilla Firefox and Microsoft Edge are increasing in popularity and Google Chrome is now the favoured browser for screen readers:</p>
+                        <p><a href="https://webaim.org/projects/screenreadersurvey9/">WebAIM: Screen Reader User Survey</a></p>
+                        <p>The aforementioned three browsers have been used in certain questions for reasons of breadth and variety.</p>
+                        <p>We ran automated testing using <a href="https://wave.webaim.org/">Wave WEBAIM</a> and then manual testing that included:</p>
+                        <ul>
+                            <li>Spell check functionality;</li>
+                            <li>Scaling using different resolutions and reflow;</li>
+                            <li>Options to customise the interface (magnification, font, background colour, etc);</li>
+                            <li>Keyboard navigation and keyboard traps;</li>
+                            <li>Data validation;</li>
+                            <li>Warning of links opening in new tab or window;</li>
+                            <li>Information conveyed in the colour or sound only;</li>
+                            <li>Flashing, moving or scrolling text;</li>
+                            <li>Operability if JavaScript is disabled;</li>
+                            <li>Use with screen reading software (for example JAWS);</li>
+                            <li>Assistive software (TextHelp Read and Write, Windows Magnifier, ZoomText, Dragon Naturally Speaking, TalkBack and VoiceOver);</li>
+                            <li>Tooltips and text alternatives for any non-text content;</li>
+                            <li>Time limits;</li>
+                            <li>Compatibility with mobile accessibility functionality (Android and iOS).</li>
+                        </ul>
+
+                        <h2>Change Log</h2>
+                        <p>Since our first evaluation and statement which was based on automated testing we have been doing extensive manual testing including with a range of assistive technology to ensure we have a clear picture of the accessibility issues and how best to resolve them.</p>
                     </div>
                 </xsl:when>
                 <!-- Otherwise use default handling of body -->
