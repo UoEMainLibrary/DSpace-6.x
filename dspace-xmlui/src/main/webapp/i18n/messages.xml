@@ -327,11 +327,10 @@
     <message key="xmlui.ArtifactBrowser.StatisticsViewer.report.title">Statistical Summary</message>
 
     <message key="xmlui.ArtifactBrowser.StatisticsViewer.no_report.title">No reports currently available</message>
-    <message key="xmlui.ArtifactBrowser.StatisticsViewer.no_report.text">There are currently no reports available for this service.  Please check back later.</message>
 
     <!-- Authentication messages used for bitstream authentication -->
 	<message key="xmlui.BitstreamReader.auth_header">The file is restricted</message>
-	<message key="xmlui.BitstreamReader.auth_message">The file you are attempting to access is a restricted file and requires credentials to view. Please login below to access the file.</message>
+	<message key="xmlui.BitstreamReader.auth_message">The file you are attempting to access is a restricted file and <strong>only administrators are able to view.</strong></message>
 
 	<!-- Export Archive download messages -->
 	<message key="xmlui.ItemExportDownloadReader.auth_header">This export archive is restricted.</message>
@@ -471,9 +470,11 @@
 	<message key="xmlui.EPerson.EditProfile.head_update">Update Profile</message>
 	<message key="xmlui.EPerson.EditProfile.head_create">Create Profile</message>
 	<message key="xmlui.EPerson.EditProfile.email_address">Email Address</message>
+	<message key="xmlui.EPerson.EditProfile.alt_email">Alternative Email Address</message>
 	<message key="xmlui.EPerson.EditProfile.first_name">First Name</message>
 	<message key="xmlui.EPerson.EditProfile.last_name">Last Name</message>
 	<message key="xmlui.EPerson.EditProfile.net_id">LDAP NetID</message>
+	<message key="xmlui.EPerson.EditProfile.student_id">Student ID</message>
 	<message key="xmlui.EPerson.EditProfile.telephone">Contact Telephone</message>
 	<message key="xmlui.EPerson.EditProfile.Language">Language</message>
 	<message key="xmlui.EPerson.EditProfile.subscriptions">Subscriptions</message>
@@ -538,12 +539,12 @@
 	<message key="xmlui.EPerson.LDAPLogin.trail">Sign in</message>
 	<message key="xmlui.EPerson.LDAPLogin.head1">Sign in to St Andrews Research Repository</message>
 	<message key="xmlui.EPerson.LDAPLogin.head2">Registered Users</message>
-	<message key="xmlui.EPerson.LDAPLogin.para1">Enter your St Andrews Username and Password to make a new submission or complete a partial submission. Then click on the Sign in button.</message>
+	<message key="xmlui.EPerson.LDAPLogin.para1">Previously Registered Users ONLY. If you have already registered, enter your St Andrews Username and Password to login and make a new submission or complete a partial submission. <strong>To Register, see instructions below.</strong>.</message>
 	<message key="xmlui.EPerson.LDAPLogin.username">User Name</message>
 	<message key="xmlui.EPerson.LDAPLogin.error_bad_login">The user name and/or password supplied were not valid.</message>
 	<message key="xmlui.EPerson.LDAPLogin.password">Password</message>
-	<message key="xmlui.EPerson.LDAPLogin.submit">Sign in</message>
-	<message key="xmlui.EPerson.LDAPLogin.head3">New Registrations Only</message>
+	<message key="xmlui.EPerson.LDAPLogin.submit">Login</message>
+	<message key="xmlui.EPerson.LDAPLogin.head3">New Registrations</message>
 	<message key="xmlui.EPerson.LDAPLogin.para2"><strong>To register</strong> with the St Andrews Research Repository to submit an electronic thesis please enter your St Andrews Username and Password in the boxes above and give any preferred current contact email address and details of your school and department in the boxes below.</message>
 	<message key="xmlui.EPerson.LDAPLogin.para3"><strong>Please click on the Register button</strong> which will send your registration details to the Repository Administrator. We will complete your registration and send confirmation to you as soon as we can. We will send the confirmation to your St Andrews email address unless you indicate a preferred contact email.</message>
 	<message key="xmlui.EPerson.LDAPLogin.para4">Please note that you will not be able to make a submission until you receive this confirmation, so please log out of the St Andrews Research Repository after you have completed this initial registration.</message>
@@ -559,14 +560,14 @@
 	<message key="xmlui.EPerson.LoginChooser.trail">Sign in</message>
 	<message key="xmlui.EPerson.LoginChooser.head1">Sign in to St Andrews Research Repository</message>
 	<message key="xmlui.EPerson.LoginChooser.head2">Registered Users</message>
-	<message key="xmlui.EPerson.LoginChooser.para1">Enter your St Andrews Username and Password to make a new submission or complete a partial submission. Then click on the Sign in button.</message>
+	<message key="xmlui.EPerson.LoginChooser.para1">Previously Registered Users ONLY. If you have already registered, enter your St Andrews Username and Password to login and make a new submission or complete a partial submission. <strong>To Register, see instructions below.</strong>.</message>
 	<message key="xmlui.EPerson.LoginChooser.username">User Name</message>
 	<message key="xmlui.EPerson.LoginChooser.error_bad_login">The user name and/or password supplied were not valid.</message>
 	<message key="xmlui.EPerson.LoginChooser.password">Password</message>
-	<message key="xmlui.EPerson.LoginChooser.submit">Sign in</message>
-	<message key="xmlui.EPerson.LoginChooser.head3">New Registrations Only</message>
-	<message key="xmlui.EPerson.LoginChooser.para2"><strong>To register</strong> with the St Andrews Research Repository to submit an electronic thesis please enter your St Andrews Username and give any preferred current contact email address and details of your school and department in the fields below.</message>
-	<message key="xmlui.EPerson.LoginChooser.para3"><strong>Please click on the Register button</strong> which will send your registration details to the Repository Administrator. We will complete your registration and send confirmation to you as soon as we can. We will send the confirmation to your St Andrews email address unless you indicate a preferred contact email.</message>
+	<message key="xmlui.EPerson.LoginChooser.submit">Login</message>
+	<message key="xmlui.EPerson.LoginChooser.head3">New Registrations</message>
+	<message key="xmlui.EPerson.LoginChooser.para2"><strong>To register</strong> with the St Andrews Research Repository to submit an electronic thesis please enter your standard St Andrews Username and Password in the boxes above, give any preferred current contact email address and details of your school and department in the fields below.</message>
+	<message key="xmlui.EPerson.LoginChooser.para3"><strong>Please click on the white Register button</strong> at the very bottom which will send your registration details to the Repository Administrator. We will complete your registration and send confirmation to you as soon as we can. We will send the confirmation to your St Andrews email address unless you indicate a preferred contact email.</message>
 	<message key="xmlui.EPerson.LoginChooser.para4">Please note that you will not be able to make a submission until you receive this confirmation, so please log out of the St Andrews Research Repository after you have completed this initial registration.</message>
 	<message key="xmlui.EPerson.LoginChooser.para5"><strong>Once you have received acknowledgement</strong> of your registration you can login again using your St Andrews Username and Password to make your submission.</message>
 	<message key="xmlui.EPerson.LoginChooser.email">Preferred contact email(Optional)</message>
@@ -705,9 +706,9 @@
 	<message key="xmlui.Submission.Submissions.submit_info1b">start a new submission</message>
 	<message key="xmlui.Submission.Submissions.submit_info1c">The submission process includes describing the item and uploading the file(s) comprising it. Each community or collection may set its own submission policy.</message>
 	<message key="xmlui.Submission.Submissions.submit_head2">Unfinished submissions</message>
-	<message key="xmlui.Submission.Submissions.submit_info2a">These are incomplete item submissions. You may also </message>
+	<message key="xmlui.Submission.Submissions.submit_info2a">These are incomplete item submissions. Click on the title so you can resume submission. You may also </message>
 	<message key="xmlui.Submission.Submissions.submit_info2b">start another submission</message>
-	<message key="xmlui.Submission.Submissions.submit_info2c">.</message>
+	<message key="xmlui.Submission.Submissions.submit_info2c"> but please do not do this unless we have specifically asked you to do so.</message>
 	<message key="xmlui.Submission.Submissions.submit_info2d">Start new submission</message>
     <message key="xmlui.Submission.Submissions.submit_help">Submissions help</message>
 	<message key="xmlui.Submission.Submissions.submit_column1"></message>
@@ -720,7 +721,7 @@
 	<message key="xmlui.Submission.Submissions.submit_submit_remove">Remove selected submissions</message>
 	<!-- Same transformer, inprogress section -->
 	<message key="xmlui.Submission.Submissions.progress_head1">Submissions being reviewed</message>
-	<message key="xmlui.Submission.Submissions.progress_info1">These are your completed submissions which are currently being reviewed by collection curators.</message>
+	<message key="xmlui.Submission.Submissions.progress_info1">These are your completed submissions which are currently being reviewed and checked.</message>
 	<message key="xmlui.Submission.Submissions.progress_column1">Title</message>
 	<message key="xmlui.Submission.Submissions.progress_column2">Collection</message>
 	<message key="xmlui.Submission.Submissions.progress_column3">Status</message>
@@ -750,8 +751,8 @@
     <message key="xmlui.Submission.submit.progressbar.upload">Upload</message>
 	<message key="xmlui.Submission.submit.progressbar.verify">Review</message>
 	<message key="xmlui.Submission.submit.progressbar.creative-commons">Creative Commons</message>
-	<message key="xmlui.Submission.submit.progressbar.CClicense">CC License</message>
-    <message key="xmlui.Submission.submit.progressbar.license">License</message>
+	<message key="xmlui.Submission.submit.progressbar.CClicense">CC Licence</message>
+    <message key="xmlui.Submission.submit.progressbar.license">Licence</message>
 	<message key="xmlui.Submission.submit.progressbar.complete">Complete</message>
 
 	<!-- org.dspace.app.xmlui.Submission.submit.ResumeStep -->
@@ -838,6 +839,11 @@
     <message key="xmlui.Submission.submit.AccessStep.table_edit_button">Edit</message>
     <message key="xmlui.Submission.submit.AccessStep.table_delete_button">Remove</message>
 	<message key="xmlui.administrative.authorization.AccessStep.label_date_help">The first day from which access is allowed. Accepted format: yyyy, yyyy-mm, yyyy-mm-dd</message>
+	<message key="xmlui.administrative.authorization.AccessStep.label_date_help1">Please fill in this field only if you have chosen to embargo your thesis.</message>
+	<message key="xmlui.administrative.authorization.AccessStep.label_date_help2">The end-date of your embargo is calculated by adding the length of your embargo to today's date.</message>
+	<message key="xmlui.administrative.authorization.AccessStep.label_date_help3">Simply type in your embargo end-date or click within the field to display the in-built calendar.</message>
+	<message key="xmlui.administrative.authorization.AccessStep.label_date_help4"><strong>This date will be the first day from which access to your uploaded files would be allowed.</strong></message>
+	<message key="xmlui.administrative.authorization.AccessStep.label_date_help5"><u><i>Please make a note of this important date because we will contact you one month prior to it to request your instructions about releasing the full text or extending the embargo.</i></u></message>
     <message key="xmlui.administrative.authorization.AccessStep.label_date_displayonly_help">The first day from which access is allowed. <b>This date cannot be modified on this form.</b> To set an embargo date for a bitstream, go to the <i>Item Status</i> tab, click <i>Authorizations...</i>, create or edit the bitstream's <i>READ</i> policy, and set the <i>Start Date</i> as desired.</message>
     <message key="xmlui.Submission.submit.AccessStep.review_policy_line">Name: {0}; action: {1}, group: {2}, start date: {3}, end date: {4}</message>
     <message key="xmlui.Submission.submit.AccessStep.review_public_item">The item will be searchable</message>
@@ -850,6 +856,11 @@
 
     <!-- org.dspace.app.xmlui.Submission.submit.UploadStep -->
 	<message key="xmlui.Submission.submit.UploadStep.head">Upload File(s)</message>
+	<message key="xmlui.Submission.submit.UploadStep.pre_file1"><strong>Before you upload:</strong></message>
+	<message key="xmlui.Submission.submit.UploadStep.pre_file2">Have you named your files according to the repository's <a href="https://libguides.st-andrews.ac.uk/theses/preparing_for_submission">file-name conventions</a>?</message>
+	<message key="xmlui.Submission.submit.UploadStep.pre_file3">Have you prepared at least two files; (1) a PDF of your thesis and (2) the file that you created your PDF from, (e.g., Microsoft Word, LaTeX, etc.)? Are there any other versions of your thesis that you need to upload e.g., redacted versions required because of copyright or embargo? (We need multiple files to digitally preserve your submission and provide maximum accessibility to your thesis.)</message>
+	<message key="xmlui.Submission.submit.UploadStep.pre_file4">See the <a href="https://libguides.st-andrews.ac.uk/theses/submit">Thesis LibGuide</a> for further information.</message>
+	<message key="xmlui.Submission.submit.UploadStep.pre_file5">If you have research data, see the <a href="https://www.st-andrews.ac.uk/research/support/open-research/research-data-management/data-underpinning-theses/">data underpinning theses guidance</a> for information and contact <a href="mailto:research-data@st-andrews.ac.uk">research-data@st-andrews.ac.uk</a> for questions.</message>
 	<message key="xmlui.Submission.submit.UploadStep.file">File</message>
 	<message key="xmlui.Submission.submit.UploadStep.file_help">Please enter the full path of the file on your computer corresponding to your item. If you click "Browse...", a new window will allow you to select the file from your computer.</message>
 	<message key="xmlui.Submission.submit.UploadStep.file_error">The item must contain at least one file.</message>
@@ -876,6 +887,12 @@
 	<message key="xmlui.Submission.submit.UploadStep.checksum">File checksum:</message>
 	<message key="xmlui.Submission.submit.UploadStep.submit_remove">Remove selected files</message>
 
+	<message key="xmlui.Submission.submit.UploadStep.submit_upload_text">The first day from which access is allowed. Accepted format: yyyy, yyyy-mm, yyyy-mm-dd</message>
+	<message key="xmlui.Submission.submit.UploadStep.submit_upload_text1">Upload all the files and provide the file description and embargo dates for each separate file. Repeat the process as many times as you need to.</message>
+	<message key="xmlui.Submission.submit.UploadStep.submit_upload_text2">(If you have more than 10 files of supplementary data, a zip file would be the best option. See the <a href="https://libguides.st-andrews.ac.uk/theses/submit">Thesis LibGuide</a> for guidance on zipping files).</message>
+	<message key="xmlui.Submission.submit.UploadStep.submit_upload_text3">Use the '<strong>Edit</strong>' button beside each file to review your uploads, e.g., check that the file format has been recognised and, if necessary, to make corrections to file descriptions or embargo dates.</message>
+	<message key="xmlui.Submission.submit.UploadStep.submit_upload_text4">Apply embargo date to <strong>all</strong> relevant files.</message>
+
 
 
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.head">Upload File(s)</message>
@@ -886,7 +903,8 @@
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.virus_error">The file has not been uploaded as it appears to contain a virus. Please contact the system administrator.</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.virus_checker_error">A technical problem was encountered whilst attempting to scan the file for viruses. Please contact the system administrator.</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.description">File Description</message>
-    <message key="xmlui.Submission.submit.UploadWithEmbargoStep.description_help">Optionally, provide a brief description of the file, for example "<i>Main article</i>", or "<i>Experiment data readings</i>".</message>
+    <message key="xmlui.Submission.submit.UploadWithEmbargoStep.description_help1">Please provide a brief description of the file, for example, "Complete version", “Redacted version”, "Supplementary data", or “Appendix”.</message>
+	<message key="xmlui.Submission.submit.UploadWithEmbargoStep.description_help2">See the <a href="https://libguides.st-andrews.ac.uk/theses/submit">Thesis LibGuide</a> for further examples of the preferred forms for file descriptions.</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.submit_upload">Upload file &amp; add another</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.head2">Files Uploaded</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.column0">Primary</message>
@@ -904,6 +922,7 @@
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.submit_edit">Edit</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.checksum">File checksum:</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.submit_remove">Remove selected files</message>
+	<message key="xmlui.Submission.submit.UploadWithEmbargoStep.submit_remove_text">Once you have uploaded all thesis files, and set correct file formats, descriptions and embargo dates, please click <strong>Next</strong> to continue.</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.submit_policy">Policies</message>
 
 
@@ -913,12 +932,12 @@
 	<message key="xmlui.Submission.submit.EditFileStep.description">File Description</message>
 	<message key="xmlui.Submission.submit.EditFileStep.description_help">Optionally, provide a brief description of the contents; for example, "<i>Main article</i>", or "<i>Experiment data readings</i>".</message>
 	<message key="xmlui.Submission.submit.EditFileStep.info1">Select the format of the file from the list below, for example "<i>Adobe PDF</i>" or "<i>Microsoft Word</i>." <strong>If the format is not in the list</strong>, please describe it in the input box below the list.</message>
-	<message key="xmlui.Submission.submit.EditFileStep.format_detected">Detected Format</message>
-	<message key="xmlui.Submission.submit.EditFileStep.format_selected">Selected Format</message>
+	<message key="xmlui.Submission.submit.EditFileStep.format_detected">Detected File Format</message>
+	<message key="xmlui.Submission.submit.EditFileStep.format_selected">Selected File Format</message>
 	<message key="xmlui.Submission.submit.EditFileStep.format_default">Format not in list</message>
-	<message key="xmlui.Submission.submit.EditFileStep.info2">If the format is not in the above list, <strong>select "format not in list" above</strong> and describe the file's format in the box below.</message>
+	<message key="xmlui.Submission.submit.EditFileStep.info2">If there is a <strong>Detected Format</strong> given above for your file, please check that it is correct.  If it’s not correct, or if the <strong>Selected Format</strong> above is given as, ‘Format not in list’, then please describe the file’s format in the <strong>Other Format</strong> box below.</message>
 	<message key="xmlui.Submission.submit.EditFileStep.format_user">Other Format</message>
-	<message key="xmlui.Submission.submit.EditFileStep.format_user_help">The application's name you used to create the file, and the version number (for example, "<i>ACMESoft SuperApp version 1.5</i>").</message>
+	<message key="xmlui.Submission.submit.EditFileStep.format_user_help">Please enter the name of the application that you used to create the file, and the version number, (e.g., "Opus 1.3.1”).</message>
 
     <!-- org.dspace.app.xmlui.Submission.submit.EditBitstreamPolicies -->
     <message key="xmlui.Submission.submit.EditBitstreamPolicies.head">Bitstream Access</message>
@@ -942,25 +961,26 @@
 
 	<!-- org.dspace.app.xmlui.Submission.submit.CCLicenseStep -->
 	<message key="xmlui.Submission.submit.CCLicenseStep.ccws_error">An error occurred ... {0}</message>
-	<message key="xmlui.Submission.submit.CCLicenseStep.head">License Your Work</message>
-	<message key="xmlui.Submission.submit.CCLicenseStep.info1">If you wish, you may add a <a href="http://creativecommons.org/">Creative Commons</a> License to your item. <strong>Creative Commons licenses govern what people who read your work may then do with it.</strong></message>
-	<message key="xmlui.Submission.submit.CCLicenseStep.submit_choose_creative_commons">Choose a license</message>
-	<message key="xmlui.Submission.submit.CCLicenseStep.submit_to_creative_commons">Proceed to Creative Commons website to select a license</message>
-	<message key="xmlui.Submission.submit.CCLicenseStep.license">License Type</message>
-	<message key="xmlui.Submission.submit.CCLicenseStep.select_change">Select or modify your license ...</message>
-	<message key="xmlui.Submission.submit.CCLicenseStep.no_license">No Creative Commons License</message>
-	<message key="xmlui.Submission.submit.CCLicenseStep.save_changes">You must click Next to save your changes.</message>
-	<message key="xmlui.Submission.submit.CCLicenseStep.error"><strong>ERROR</strong>: Creative Commons API not accessible.<br/>You may continue the submission but you will not be able to select a Creative Commons license.</message>
+	<message key="xmlui.Submission.submit.CCLicenseStep.head">Licence Your Work</message>
+	<message key="xmlui.Submission.submit.CCLicenseStep.info1">If you wish, you may add a <a href="https://creativecommons.org/about/cclicenses/">Creative Commons</a> Licence to your item. <strong>Creative Commons licences govern what people who read your work may then do with it.</strong></message>
+	<message key="xmlui.Submission.submit.CCLicenseStep.info2">If you do decide to apply a Creative Commons licence, it will be applied to all of the files that you upload that will be made publicly available, <strong><u>from the time that they become publicly available</u></strong>.  This means that if you embargo any of your files, then any Creative Commons licence wouldn't apply to those files until after the embargo had ended.</message>
+	<message key="xmlui.Submission.submit.CCLicenseStep.submit_choose_creative_commons">Choose a licence</message>
+	<message key="xmlui.Submission.submit.CCLicenseStep.submit_to_creative_commons">Proceed to Creative Commons website to select a licence</message>
+	<message key="xmlui.Submission.submit.CCLicenseStep.license">Licence Type</message>
+	<message key="xmlui.Submission.submit.CCLicenseStep.select_change">Select or modify your licence ...</message>
+	<message key="xmlui.Submission.submit.CCLicenseStep.no_license">No Creative Commons Licence</message>
+	<message key="xmlui.Submission.submit.CCLicenseStep.save_changes">You must click Next to save your changes. If you want confirmation of the specific Creative Commons licence you have applied or want to remove a licence or make changes, then you can return to this screen.  Either click on Previous when you get to the Deposit Licence screen or navigate back by clicking on CC Licence from the green coloured tabs at the top of the screen.</message>
+	<message key="xmlui.Submission.submit.CCLicenseStep.error"><strong>ERROR</strong>: Creative Commons API not accessible.<br/>You may continue the submission but you will not be able to select a Creative Commons licence.</message>
 
 
 	<!-- org.dspace.app.xmlui.Submission.submit.LicenseStep -->
-	<message key="xmlui.Submission.submit.LicenseStep.head">Distribution License</message>
+	<message key="xmlui.Submission.submit.LicenseStep.head">Deposit Licence</message>
 	<message key="xmlui.Submission.submit.LicenseStep.info1"><strong>There is one last step:</strong> In order for DSpace to reproduce, translate and distribute your submission worldwide, you must agree to the following terms.</message>
-	<message key="xmlui.Submission.submit.LicenseStep.info2">Grant the standard distribution license by selecting 'I Grant the License'; and then click 'Complete Submission'.</message>
-	<message key="xmlui.Submission.submit.LicenseStep.info3">If you have questions regarding this license please contact the system administrators.</message>
-	<message key="xmlui.Submission.submit.LicenseStep.decision_label">Distribution license</message>
-	<message key="xmlui.Submission.submit.LicenseStep.decision_checkbox">I Grant the License</message>
-	<message key="xmlui.Submission.submit.LicenseStep.decision_error">You must grant this license to complete your submission. If you are unable to grant this license at this time you may save your work and return later or remove the submission by clicking the 'Save &amp; Exit' button below.</message>
+	<message key="xmlui.Submission.submit.LicenseStep.info2">Grant the standard deposit licence by selecting 'I Grant the Licence'; and then click 'Complete Submission'.</message>
+	<message key="xmlui.Submission.submit.LicenseStep.info3">If you have questions regarding this licence please contact the system administrators.</message>
+	<message key="xmlui.Submission.submit.LicenseStep.decision_label">Deposit Licence</message>
+	<message key="xmlui.Submission.submit.LicenseStep.decision_checkbox">I Grant the Licence</message>
+	<message key="xmlui.Submission.submit.LicenseStep.decision_error">You must grant this licence to complete your submission. If you are unable to grant this licence at this time you may save your work and return later or remove the submission by clicking the 'Save &amp; Exit' button below.</message>
 
 	<!-- org.dspace.app.xmlui.Submission.submit.RemovedStep -->
 	<message key="xmlui.Submission.submit.RemovedStep.head">Submission removed</message>
@@ -968,8 +988,21 @@
 	<message key="xmlui.Submission.submit.RemovedStep.go_submission">Go to the Submissions page</message>
 
 	<!-- org.dspace.app.xmlui.Submission.submit.CompletedStep -->
-	<message key="xmlui.Submission.submit.CompletedStep.head">Submission complete</message>
-	<message key="xmlui.Submission.submit.CompletedStep.info1">Your submission will now go through the review process for this collection. You will receive e-mail notification as soon as your submission has joined the collection, or if there is a problem with your submission. You may also check on the status of your submission by visiting your submissions page.</message>
+	<message key="xmlui.Submission.submit.CompletedStep.head1">Submission complete</message>
+	<message key="xmlui.Submission.submit.CompletedStep.head2"><strong>What happens next?</strong></message>
+	<message key="xmlui.Submission.submit.CompletedStep.info1">Thank you for completing your submission into the Repository.</message>
+	<message key="xmlui.Submission.submit.CompletedStep.info2">Your submission will now go through two sets of checks.</message>
+	<message key="xmlui.Submission.submit.CompletedStep.info3">The first set of checks will be done by the Registry Student Office (Postgraduates). These checks will include checking:</message>
+	<message key="xmlui.Submission.submit.CompletedStep.info4">Registry may need you to upload more information or files, or may have other questions for you. If they do, you will receive an email from the Repository email account requesting this information. If you need to contact Registry at any point during their checks, their email address is <a href="mailto:registry-pgr@st-andrews.ac.uk">registry-pgr@st-andrews.ac.uk</a>.</message>
+	<message key="xmlui.Submission.submit.CompletedStep.info5">Once Registry have completed their checks then you will receive a confirmation email to let you know that their stage has finished.</message>
+	<message key="xmlui.Submission.submit.CompletedStep.info6">The Library E-Theses Team will then begin their checking process on your submission. Their checks will focus on ensuring that all necessary files have been submitted.</message>
+	<message key="xmlui.Submission.submit.CompletedStep.info7">If you need to contact the E-Theses Team at any point during their checks, their email address is <a href="mailto:digirep@st-andrews.ac.uk">digirep@st-andrews.ac.uk</a>.</message>
+	<message key="xmlui.Submission.submit.CompletedStep.info8">If you are asked to log in to the Repository again then you will need to revisit your Submissions Page. Precise instructions and links will be given in any emails you receive from Registry or the Library</message>
+	<message key="xmlui.Submission.submit.CompletedStep.list1"> that your declaration is present;</message> 
+	<message key="xmlui.Submission.submit.CompletedStep.list2"> that your declaration is signed;</message>
+	<message key="xmlui.Submission.submit.CompletedStep.list3"> that you have submitted an abstract;</message>
+	<message key="xmlui.Submission.submit.CompletedStep.list4"> that your embargo request is correct.</message>
+	<!--<message key="xmlui.Submission.submit.CompletedStep.info1">Your submission will now go through the review process for this collection. You will receive e-mail notification as soon as your submission has joined the collection, or if there is a problem with your submission. You may also check on the status of your submission by visiting your submissions page.</message>-->
 	<message key="xmlui.Submission.submit.CompletedStep.go_submission">Go to the Submissions page</message>
 	<message key="xmlui.Submission.submit.CompletedStep.submit_again">Submit another item</message>
 
@@ -991,8 +1024,8 @@
 	<message key="xmlui.Submission.workflow.PerformTaskStep.return_submit">Return task to pool</message>
 
 	<!-- org.dspace.app.xmlui.Submission.workflow.RejectTaskStep -->
-	<message key="xmlui.Submission.workflow.RejectTaskStep.info1">Please enter your reason for rejecting the submission into the box below, indicating whether the submitter may fix a problem and resubmit.</message>
-	<message key="xmlui.Submission.workflow.RejectTaskStep.reason">Reason</message>
+	<message key="xmlui.Submission.workflow.RejectTaskStep.info1">Please enter your reason(s) for rejecting the submission into the box below.  Some standard reasons are provided and you can edit these in the box and remove any that do not apply.  You also have a free text area that you can edit or remove.   All the on-screen text that remains in this box after your edits will be reproduced on the rejection email that is sent to the submitter.</message>
+	<message key="xmlui.Submission.workflow.RejectTaskStep.reason">Reasons for rejection</message>
 	<message key="xmlui.Submission.workflow.RejectTaskStep.reason_required">The reason field is required</message>
 	<message key="xmlui.Submission.workflow.RejectTaskStep.submit_reject">Reject item</message>
 
@@ -1420,7 +1453,7 @@
 	<message key="xmlui.administrative.authorization.EditItemPolicies.trail">Policies List</message>
 	<message key="xmlui.administrative.authorization.EditItemPolicies.main_head">Policies for Item {0} (ID={1})</message>
 	<message key="xmlui.administrative.authorization.EditItemPolicies.main_para1">With this editor you can view and alter the policies of an item, plus alter policies of individual item components: bundles and bitstreams. Briefly, an item is a container of bundles, and bundles are containers of bitstreams. Containers usually have ADD/REMOVE/READ/WRITE policies, while bitstreams only have READ/WRITE policies.</message>
-	<message key="xmlui.administrative.authorization.EditItemPolicies.main_para2">You will notice an extra bundle and bitstream for each item containing the license text for the item.</message>
+	<message key="xmlui.administrative.authorization.EditItemPolicies.main_para2">You will notice an extra bundle and bitstream for each item containing the licence text for the item.</message>
 	<message key="xmlui.administrative.authorization.EditItemPolicies.subhead_item">Item Policies</message>
 	<message key="xmlui.administrative.authorization.EditItemPolicies.subhead_bundle">Policies for Bundle {0} ({1})</message>
 	<message key="xmlui.administrative.authorization.EditItemPolicies.subhead_bitstream">Bitstream {0} ({1})</message>
@@ -1549,8 +1582,8 @@
 	<message key="xmlui.administrative.item.AddBitstreamForm.bundle.ORIGINAL">Content Files (default)</message>
 	<message key="xmlui.administrative.item.AddBitstreamForm.bundle.METADATA">Metadata Files</message>
 	<message key="xmlui.administrative.item.AddBitstreamForm.bundle.THUMBNAIL">Thumbnails</message>
-	<message key="xmlui.administrative.item.AddBitstreamForm.bundle.LICENSE">Licenses</message>
-	<message key="xmlui.administrative.item.AddBitstreamForm.bundle.CC-LICENSE">Creative Commons Licenses</message>
+	<message key="xmlui.administrative.item.AddBitstreamForm.bundle.LICENSE">Licences</message>
+	<message key="xmlui.administrative.item.AddBitstreamForm.bundle.CC-LICENSE">Creative Commons Licences</message>
 	<message key="xmlui.administrative.item.AddBitstreamForm.file_label">File</message>
 	<message key="xmlui.administrative.item.AddBitstreamForm.file_help">Please enter the name of the file on your computer corresponding to your item. If you click "Browse...", a new window will appear in which you can locate and select the file from your computer.</message>
 	<message key="xmlui.administrative.item.AddBitstreamForm.description_label">Description</message>
@@ -1604,9 +1637,9 @@
 	<message key="xmlui.administrative.item.EditBitstreamForm.description_label">Description</message>
 	<message key="xmlui.administrative.item.EditBitstreamForm.description_help">Optionally, provide a brief description of the file, for example "<i>Main article</i>", or "<i>Experiment data readings</i>"."</message>
 	<message key="xmlui.administrative.item.EditBitstreamForm.para1">Select the format of the file from the list below, for example "<i>Adobe PDF</i>" or "<i>Microsoft Word</i>", <b>OR</b> if the format is not in the list, please describe it in the box below.</message>
-	<message key="xmlui.administrative.item.EditBitstreamForm.format_label">Selected Format</message>
+	<message key="xmlui.administrative.item.EditBitstreamForm.format_label">Selected File Format</message>
 	<message key="xmlui.administrative.item.EditBitstreamForm.format_default">Format not in list</message>
-	<message key="xmlui.administrative.item.EditBitstreamForm.para2">If the format is not in the above list, <strong>select "format not in list" above</strong> and describe it in the field below.</message>
+	<message key="xmlui.administrative.item.EditBitstreamForm.para2">If there is a <strong>Detected Format</strong> given above for your file, please check that it is correct.  If it’s not correct, or if the <strong>Selected Format</strong> above is given as, ‘Format not in list’, then please describe the file’s format in the <strong>Other Format</strong> box below.</message>
 	<message key="xmlui.administrative.item.EditBitstreamForm.user_label">Other Format</message>
 	<message key="xmlui.administrative.item.EditBitstreamForm.user_help">The application you used to create the file, and the version number (for example, "<i>ACMESoft SuperApp version 1.5</i>").</message>
     <message key="xmlui.administrative.item.EditBitstreamForm.name_label">Filename</message>
@@ -1845,7 +1878,7 @@
 	<message key="xmlui.administrative.collection.EditCollectionMetadataForm.label_introductory_text">Introductory text (HTML)</message>
 	<message key="xmlui.administrative.collection.EditCollectionMetadataForm.label_copyright_text">Copyright text (HTML)</message>
 	<message key="xmlui.administrative.collection.EditCollectionMetadataForm.label_side_bar_text">News (HTML)</message>
-	<message key="xmlui.administrative.collection.EditCollectionMetadataForm.label_license">License</message>
+	<message key="xmlui.administrative.collection.EditCollectionMetadataForm.label_license">Licence</message>
 	<message key="xmlui.administrative.collection.EditCollectionMetadataForm.label_provenance_description">Provenance</message>
 	<message key="xmlui.administrative.collection.EditCollectionMetadataForm.label_logo">Upload new logo</message>
 	<message key="xmlui.administrative.collection.EditCollectionMetadataForm.label_existing_logo">Current logo</message>
@@ -2227,7 +2260,7 @@
 
 	<message key="xmlui.dri2xhtml.structural.profile">Profile: </message>
 	<message key="xmlui.dri2xhtml.structural.logout">Logout</message>
-	<message key="xmlui.dri2xhtml.structural.login">Login</message>
+	<message key="xmlui.dri2xhtml.structural.login">Register / Login</message>
 
 	<message key="xmlui.dri2xhtml.structural.search">Search Repository</message>
 	<message key="xmlui.dri2xhtml.structural.search-advanced">Advanced Search</message>
@@ -2240,7 +2273,7 @@
 	<message key="xmlui.dri2xhtml.structural.pagination-next">Next Page</message>
 
 	<message key="xmlui.dri2xhtml.structural.link_cc">Creative Commons</message>
-	<message key="xmlui.dri2xhtml.structural.link_original_license">Deposit License</message>
+	<message key="xmlui.dri2xhtml.structural.link_original_license">Deposit Licence</message>
 
 
 	<!-- DS-METS-1.0-MODS.xsl -->
@@ -2305,8 +2338,8 @@
 	<message key="xmlui.dri2xhtml.METS-1.0.size-megabytes">Mb</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.size-gigabytes">Gb</message>
 
-	<message key="xmlui.dri2xhtml.METS-1.0.license-text">The following license files are associated with this item:</message>
-    <message key="xmlui.dri2xhtml.METS-1.0.cc-license-text">Except where otherwise noted within the work, this item's license for re-use is described as </message>
+	<message key="xmlui.dri2xhtml.METS-1.0.license-text">The following licence files are associated with this item:</message>
+    <message key="xmlui.dri2xhtml.METS-1.0.cc-license-text">Except where otherwise noted within the work, this item's licence for re-use is described as </message>
 
 	<message key="xmlui.dri2xhtml.METS-1.0.collection-not-implemented">
 		The summaryView of a collection is not currently used or implemented. This can be fixed
