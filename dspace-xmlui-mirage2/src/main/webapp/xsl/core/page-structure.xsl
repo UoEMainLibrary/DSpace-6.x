@@ -998,20 +998,20 @@
                         <p>Unless specified otherwise, a complete solution, or significant improvement, will be in place by December 2023. At this time, we believe all items are within our control.</p>
 
                         <h2>Disproportionate burden</h2>
-                        <p>We are not currently claiming that any accessibility problems would be a disproportionate burden to fix.</p>
+                        <p>At this time, we are not claiming any disproportionate burden.</p>
 
                         <h2>Content that is not within the Scope of the Accessibility Regulations</h2>
                         <p>At this time, we do not believe that any content is outside the scope of the accessibility regulations.</p>
 
                         <h2>What we're doing to improve accessibility</h2>
                         <p>We will continue to address and make adequate improvements to the accessibility issues highlighted. Unless specified otherwise, a complete solution or significant improvement will be in place by December 2023.</p>
-                        <p>While we are in the process of resolving these accessibility issues, we will ensure reasonable adjustments are in place to make sure no user is disadvantaged. As changes are made, we will continue to review accessibility and retest the accessibility of this website.</p>
+                        <p>While we are in the process of resolving these accessibility issues we will ensure reasonable adjustments are in place to make sure no user is disadvantaged. As changes are made, we will continue to review accessibility and retest the accessibility of this website.</p>
                         <p>We are planning to upgrade the site to the most recent release of the system architecture before the end of 2023 which includes improvements to the current accessibility requirements. During this upgrade improving the other accessibility issues highlighted will be a key component of the development process.</p>
 
                         <h2>Preparation of this accessibility statement</h2>
                         <p>This statement was first prepared on 23rd September 2021. It was last reviewed on 18th January 2023.</p>
-                        <p>This website was last tested on 9th September 2020 and last tested on 6th July 2022. The test was carried out by The University of Edinburgh, Library and University Collections, Digital Library Development team using the automated <a href="https://wave.webaim.org/">Wave WEBAIM</a> and <a href="https://littleforest.co.uk/">Little Forest</a> testing tools.</p>
-                        <p>This website was last tested by the Library and University Collections Digital Library team, University of Edinburgh in July 2022 (following on from previous automated testing of the system the previous year). This was primarily using the Google Chrome (100.0.4896.127), Mozilla Firefox (91.8.0esr), Internet Explorer (11.0) and Microsoft Edge (100.0.1185.39) browsers for comparative purposes.</p>
+                        <p>This website was first tested in September 2020 and last tested on 9th August 2022. The test was carried out by The University of Edinburgh, Library and University Collections, Digital Library Development team using the automated <a href="https://wave.webaim.org/">Wave WEBAIM</a> and <a href="https://littleforest.co.uk/">Little Forest</a> testing tools.</p>
+                        <p>This website was last tested by the Library and University Collections, Digital Library Development team, University of Edinburgh in August 2022 following on from previous automated testing of the system the previous year. This was primarily using the Google Chrome (100.0.4896.127), Mozilla Firefox (91.8.0esr), Internet Explorer (11.0) and Microsoft Edge (100.0.1185.39) browsers for comparative purposes.</p>
                         <p>Recent world-wide usage levels survey for different screen readers and browsers shows that Chrome, Mozilla Firefox and Microsoft Edge are increasing in popularity and Google Chrome is now the favoured browser for screen readers:</p>
                         <p><a href="https://webaim.org/projects/screenreadersurvey9/">WebAIM: Screen Reader User Survey</a></p>
                         <p>The aforementioned three browsers have been used in certain questions for reasons of breadth and variety.</p>
@@ -1361,15 +1361,17 @@
     <xsl:template name="addJavascript-google-analytics">
         <!-- Add a google analytics script if the key is present -->
         <xsl:if test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='google'][@qualifier='analytics']">
+            <script>
+                <xsl:attribute name="async">true</xsl:attribute>
+                <xsl:attribute name="src"><xsl:text>https://www.googletagmanager.com/gtag/js?id=</xsl:text><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='google'][@qualifier='analytics']"/></xsl:attribute>
+            </script>
             <script><xsl:text>
-                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
 
-                ga('create', '</xsl:text><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='google'][@qualifier='analytics']"/><xsl:text>', '</xsl:text><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='serverName']"/><xsl:text>');
-                ga('send', 'pageview');
-            </xsl:text></script>
+                gtag('config', '</xsl:text><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='google'][@qualifier='analytics']"/><xsl:text>');</xsl:text>
+            </script>
         </xsl:if>
     </xsl:template>
 
