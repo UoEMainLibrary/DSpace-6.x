@@ -196,16 +196,6 @@ public class EPerson extends DSpaceObject implements DSpaceObjectLegacySupport
     }
 
     /**
-     * Get the e-person's alt email address
-     * 
-     * @return their email address (or null if the column is an SQL NULL)
-     */
-    public String getAltEmail()
-    {
-        return altEmail;
-    }
-
-    /**
      * Set the EPerson's email
      * 
      * @param s
@@ -215,6 +205,16 @@ public class EPerson extends DSpaceObject implements DSpaceObjectLegacySupport
     {
         this.email = StringUtils.lowerCase(s);
         setModified();
+    }
+
+    /**
+     * Get the e-person's alt email address
+     * 
+     * @return their email address (or null if the column is an SQL NULL)
+     */
+    public String getAltEmail()
+    {
+        return altEmail;
     }
 
     /**

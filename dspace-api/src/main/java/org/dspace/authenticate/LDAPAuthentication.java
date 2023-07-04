@@ -299,17 +299,7 @@ public class LDAPAuthentication
                 if (request.getParameter("customemail") != null && StringUtils.isNotEmpty(request.getParameter("customemail")))
                 {
                     altEmail = request.getParameter("customemail");
-                }
-
-                /*if ((StringUtils.isEmpty(email)) &&
-                        (StringUtils.isNotEmpty(ConfigurationManager.getProperty("authentication-ldap", "netid_email_domain")))) {
-                    //netidEmail = netid + ConfigurationManager.getProperty("authentication-ldap", "netid_email_domain");
-                    netidEmail = netid + "@st-andrews.ac.uk";
-                }
-                else
-                {
-                    netidEmail = netid + ConfigurationManager.getProperty("authentication-ldap", "netid_email_domain");
-                }*/
+                }   
 
                 if (StringUtils.isNotEmpty(altEmail))
                 {

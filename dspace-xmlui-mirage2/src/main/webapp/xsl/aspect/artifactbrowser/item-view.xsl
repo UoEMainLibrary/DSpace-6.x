@@ -528,7 +528,7 @@
 
     <xsl:template name="itemSummaryView-DIM-type">
         <xsl:if test="dim:field[@element='type']">
-            <div class="simple-item-view-type item-page-field-wrapper table">
+            <div class="simple-item-view-type item-page-field-wrapper table" id="simple-item-view-type">
                 <h5><i18n:text>xmlui.dri2xhtml.METS-1.0.item-type</i18n:text></h5>
                 <div>
                     <xsl:for-each select="dim:field[@element='type'][not(@qualifier)]">
