@@ -894,29 +894,6 @@
         </div>
     </xsl:template>
 
-    <!--<xsl:template name="itemAltmetricsDonut">
-        <xsl:if test="dim:field[@element='identifier' and @qualifier='uri' and descendant::text()]">
-            <h5 class="altmet-handle-head">
-                <i18n:text>xmlui.dri2xhtml.METS-1.0.item-altmetrics-handle</i18n:text>
-            </h5>
-            <div class='altmetric-embed altmet-handle' data-badge-type='donut' data-hide-less-than='1'>
-                <xsl:attribute name="data-handle">
-                    <xsl:value-of select="substring(dim:field[@element='identifier' and @qualifier='uri' and descendant::text()],23)"/>
-                </xsl:attribute>
-            </div>
-        </xsl:if>
-        <xsl:if test="dim:field[@element='identifier' and @qualifier='doi' and descendant::text()]">
-            <h5 class="altmet-doi-head">
-                <i18n:text>xmlui.dri2xhtml.METS-1.0.item-altmetrics-doi</i18n:text>
-            </h5>
-            <div class='altmetric-embed altmet-doi' data-badge-type='donut' data-hide-less-than='1'>
-                <xsl:attribute name="data-doi">
-                    <xsl:value-of select="substring(dim:field[@element='identifier' and @qualifier='doi' and descendant::text()],17)"/>
-                </xsl:attribute>
-            </div>
-        </xsl:if>
-    </xsl:template>-->
-
     <xsl:template name="itemSummaryView-collections">
         <xsl:if test="$document//dri:referenceSet[@id='aspect.artifactbrowser.ItemViewer.referenceSet.collection-viewer']">
             <div class="simple-item-view-collections item-page-field-wrapper table">
