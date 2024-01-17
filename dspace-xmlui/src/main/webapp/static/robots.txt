@@ -113,6 +113,21 @@ Disallow: /
 User-agent: Download Ninja
 Disallow: /
 
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
 # Misbehaving: requests much too fast:
 User-agent: fast
 Disallow: /
