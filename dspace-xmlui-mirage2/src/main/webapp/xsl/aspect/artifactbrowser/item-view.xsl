@@ -496,12 +496,26 @@
                 <h5><i18n:text>xmlui.dri2xhtml.METS-1.0.item-doi</i18n:text></h5>
                 <span>
                     <xsl:for-each select="dim:field[@element='identifier' and @qualifier='doi']">
-                        <a>
-                            <xsl:attribute name="href">
-                                <xsl:copy-of select="./node()"/>
-                            </xsl:attribute>
-                            <xsl:copy-of select="./node()"/>
-                        </a>
+                    <xsl:variable name="doi" select="./node()"></xsl:variable>
+                        <xsl:variable name="doiprefix"><xsl:text>https://doi.org/</xsl:text></xsl:variable>
+                        <xsl:choose>
+                            <xsl:when test="starts-with($doi, 'http')">
+                                <a>
+                                    <xsl:attribute name="href">
+                                        <xsl:copy-of select="$doi"/>
+                                    </xsl:attribute>
+                                    <xsl:copy-of select="$doi"/>
+                                </a>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <a>
+                                    <xsl:attribute name="href">
+                                        <xsl:copy-of select="$doiprefix"/><xsl:copy-of select="$doi"/>
+                                    </xsl:attribute>
+                                    <xsl:copy-of select="$doiprefix"/><xsl:copy-of select="$doi"/>
+                                </a>
+                            </xsl:otherwise>
+                        </xsl:choose>
                         <xsl:if test="count(following-sibling::dim:field[@element='identifier' and @qualifier='doi']) != 0">
                             <br/>
                         </xsl:if>
