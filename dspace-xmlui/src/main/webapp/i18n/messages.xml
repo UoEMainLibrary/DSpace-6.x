@@ -146,6 +146,9 @@
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.subject.column_heading">Subject</message>
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.type.column_heading">Publication Type</message>
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.sponsor.column_heading">Sponsor</message>
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.name.column_heading">Authors Name</message>
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.names.column_heading">Authors Name</message>
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.classification.column_heading">Classification</message>
 
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.metadata.author">Browsing {0} by Author {1}</message>
 	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.author">Browsing {0} by Author</message>
@@ -171,7 +174,10 @@
 
   <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.metadata.sponsor">Browsing {0} by Sponsor {1}</message>
   <message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.sponsor">Browsing {0} by Sponsor</message>
-
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.metadata.classification">Browsing {0} by Classification {1}</message>
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.classification">Browsing {0} by Classification</message>
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.title.metadata.names">Browsing {0} by Name {1}</message>
+	<message key="xmlui.ArtifactBrowser.ConfigurableBrowse.trail.metadata.names">Browsing {0} by Name</message>
 
 	<!-- org.dspace.app.xmlui.administrative.WithdrawnItems.java -->
 	<message key="xmlui.Administrative.WithdrawnItems.title.item.title">Withdrawn Items by Title</message>
@@ -203,6 +209,7 @@
 	<message key="xmlui.ArtifactBrowser.CollectionViewer.browse_dates">Dates</message>
 	<message key="xmlui.ArtifactBrowser.CollectionViewer.advanced_search_link">Advanced Search</message>
 	<message key="xmlui.ArtifactBrowser.CollectionViewer.head_recent_submissions">Recent Submissions</message>
+	<message key="xmlui.ArtifactBrowser.CollectionViewer.browse_classifications">Classifications</message>
 
 	<!-- org.dspace.app.xmlui.artifactbrowser.CommunityBrowser.java -->
 	<message key="xmlui.ArtifactBrowser.CommunityBrowser.title">Community List</message>
@@ -271,9 +278,11 @@
 	<message key="xmlui.ArtifactBrowser.Navigation.browse_dateissued">By Issue Date</message>
 	<message key="xmlui.ArtifactBrowser.Navigation.browse_dateaccessioned">By Submit Date</message>
 	<message key="xmlui.ArtifactBrowser.Navigation.browse_type">Publication Type</message>
-  <message key="xmlui.ArtifactBrowser.Navigation.browse_sponsor">Sponsor</message>
+	<message key="xmlui.ArtifactBrowser.Navigation.browse_sponsor">Sponsor</message>
 	<message key="xmlui.ArtifactBrowser.Navigation.head_this_collection">This Collection</message>
 	<message key="xmlui.ArtifactBrowser.Navigation.head_this_community">This Community</message>
+	<message key="xmlui.ArtifactBrowser.Navigation.browse_names">Names</message>
+	<message key="xmlui.ArtifactBrowser.Navigation.browse_classification">Classification</message>
 
 	<!-- org.dspace.app.xmlui.artifactbrowser.SimpleSearch.java -->
         <!-- Note: As of DSpace 6.0, org.dspace.app.xmlui.aspect.artifactbrowser.SimpleSearch has been removed. -->
