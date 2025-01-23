@@ -1,19 +1,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-   <modelVersion>4.0.0</modelVersion>
-   <groupId>org.dspace</groupId>
-   <artifactId>dspace-xmlui</artifactId>
-   <packaging>war</packaging>
-   <name>DSpace XML-UI (Manakin)</name>
-   <description>
-      DSpace web-based user interface based upon Apache Cocoon.
-   </description>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.dspace</groupId>
+    <artifactId>dspace-xmlui</artifactId>
+    <packaging>war</packaging>
+    <name>DSpace XML-UI (Manakin)</name>
+    <description>
+        DSpace web-based user interface based upon Apache Cocoon.
+    </description>
 
-   <parent>
-      <groupId>org.dspace</groupId>
-      <artifactId>dspace-parent</artifactId>
-      <version>6.3</version>
-      <relativePath>..</relativePath>
-   </parent>
+    <parent>
+        <groupId>org.dspace</groupId>
+        <artifactId>dspace-parent</artifactId>
+        <version>6.3</version>
+        <relativePath>..</relativePath>
+    </parent>
 
     <properties>
         <!-- This is the path to the root [dspace-src] directory. -->
