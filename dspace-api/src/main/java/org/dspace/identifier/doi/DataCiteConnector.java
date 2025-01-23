@@ -43,6 +43,7 @@ import org.dspace.core.Context;
 import org.dspace.core.factory.CoreServiceFactory;
 import org.dspace.handle.service.HandleService;
 import org.dspace.identifier.DOI;
+import org.dspace.identifier.doi.DataCiteConnector.DataCiteResponse;
 import org.dspace.services.ConfigurationService;
 import org.jdom.Document;
 import org.jdom.Element;
@@ -385,13 +386,40 @@ public class DataCiteConnector implements DOIConnector {
             // sent to DataCite. So we add it to the XML we'll send to DataCite
             // and we'll add it to the DSO after successful registration.
             root = addDOI(doi, root);
-        } else if (!metadataDOI.equals(doi.substring(DOI.SCHEME.length()))) {
+        } else if (!metadataDOI.equals(doi.substring(DOI.SCHEME.length()))) 
+        {
+            // Copied from DATASHARE - start
+            // Code to display XML  when metadataDOI and doi.substring(DOI.SCHEME.length()) don't match
+            try {
+                log.info("metadataDOI: " + metadataDOI);
+                log.info("doi.substring(DOI.SCHEME.length()): " + doi.substring(DOI.SCHEME.length()));
+                Format format = Format.getCompactFormat();
+                format.setEncoding("UTF-8");
+                XMLOutputter xout = new XMLOutputter(format);
+                log.info("XML for when metadataDOI and DOI don't match:\n" + xout.outputString(root));
+            } catch(Exception e) {
+                log.info("Cannot display XML when metadataDOI and doi don't match " + e.toString());
+            }
+            // Copied from DATASHARE - end
+
             log.error("While reserving a DOI, the " + "crosswalk to generate the metadata used another DOI than "
                     + "the DOI we're reserving. Cannot reserve DOI " + doi + " for "
                     + dSpaceObjectService.getTypeText(dso) + " " + dso.getID() + ".");
             throw new IllegalStateException("An internal error occured while "
                     + "generating the metadata. Unable to reserve doi, see logs " + "for further information.");
         }
+
+        // Copied from DATASHARE - start
+        // Code to display XML to be sent to Datacite
+        try {
+            Format format = Format.getCompactFormat();
+            format.setEncoding("UTF-8");
+            XMLOutputter xout = new XMLOutputter(format);
+            log.info("XML sent to Datacite to reserve or update DOI:\n" + xout.outputString(root));
+        } catch(Exception e) {
+          log.info("Cannot display XML sent to Datacite " + e.toString());
+        }
+        // Copied from 6DATASHARE - end
 
         // send metadata as post to mds/metadata
         DataCiteResponse resp = this.sendMetadataPostRequest(doi, root);

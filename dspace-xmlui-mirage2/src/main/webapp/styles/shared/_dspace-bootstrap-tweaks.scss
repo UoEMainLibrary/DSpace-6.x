@@ -5,7 +5,7 @@
  *
  * http://www.dspace.org/license/
  */
-ul.ds-simple-list.vocabulary ul {
+ ul.ds-simple-list.vocabulary ul {
     list-style: none;
 }
 
@@ -144,4 +144,11 @@ p.pre {
   -ms-word-break:   break-all;
   word-break:       break-all;
   word-wrap:        break-word;
+}
+
+// Workaround for glyphicon encoding issue with some SASS processors
+// like Ruby sass ~3.4.x, node-sass, and dart-sass.
+// See: https://github.com/twbs/bootstrap-sass/issues/919
+.breadcrumb > li + li:before {
+  content: "/\00a0";
 }
