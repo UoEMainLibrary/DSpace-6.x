@@ -9,9 +9,9 @@
                  metadata following the DataCite Schema for the Publication and
                  Citation of Research Data, Version 3.1
 -->
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:dspace="http://www.dspace.org/xmlns/dspace/dim"
-                xmlns="http://datacite.org/schema/kernel-3"
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+                xmlns:dspace="http://www.dspace.org/xmlns/dspace/dim" 
+                xmlns="http://datacite.org/schema/kernel-4" 
                 version="2.0">
     
     <!-- CONFIGURATION -->
@@ -25,9 +25,9 @@
     <!-- The base url of DataCite resolver see: https://support.datacite.org/docs/datacite-doi-display-guidelines -->
     <xsl:variable name="baseurl" select="'https://doi.org/'" />
     <!-- We need the prefix to determine DOIs that were minted by ourself. -->
-    <xsl:param name="prefix">10.5072/dspace-</xsl:param>
+    <xsl:param name="prefix">10.17630/sta</xsl:param>
     <!-- The content of the following parameter will be used as element publisher. -->
-    <xsl:param name="publisher">My University</xsl:param>
+    <xsl:param name="publisher">University of St Andrews</xsl:param>
     <!-- The content of the following variable will be used as element contributor with contributorType datamanager. -->
     <xsl:param name="datamanager"><xsl:value-of select="$publisher" /></xsl:param>
     <!-- The content of the following variable will be used as element contributor with contributorType hostingInstitution. -->
@@ -49,9 +49,7 @@
             properties are in the metadata of the item to export.
             The classe named above respects this.
         -->
-        <resource xmlns="http://datacite.org/schema/kernel-3"
-                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:schemaLocation="http://datacite.org/schema/kernel-3 http://schema.datacite.org/meta/kernel-3/metadata.xsd">
+        <resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 https://schema.datacite.org/meta/kernel-4.4/metadata.xsd">
 
             <!--
                 MANDATORY PROPERTIES
