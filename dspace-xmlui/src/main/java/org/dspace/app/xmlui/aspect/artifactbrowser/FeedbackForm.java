@@ -35,92 +35,92 @@ import org.xml.sax.SAXException;
  */
 public class FeedbackForm extends AbstractDSpaceTransformer implements CacheableProcessingComponent
 {
-    // /** Language Strings */
-    // private static final Message T_title =
-    //     message("xmlui.ArtifactBrowser.FeedbackForm.title");
+    /** Language Strings */
+    private static final Message T_title =
+        message("xmlui.ArtifactBrowser.FeedbackForm.title");
     
-    // private static final Message T_dspace_home =
-    //     message("xmlui.general.dspace_home");
+    private static final Message T_dspace_home =
+        message("xmlui.general.dspace_home");
     
-    // private static final Message T_trail =
-    //     message("xmlui.ArtifactBrowser.FeedbackForm.trail");
+    private static final Message T_trail =
+        message("xmlui.ArtifactBrowser.FeedbackForm.trail");
     
-    // private static final Message T_head = 
-    //     message("xmlui.ArtifactBrowser.FeedbackForm.head");
+    private static final Message T_head = 
+        message("xmlui.ArtifactBrowser.FeedbackForm.head");
     
-    // private static final Message T_para1 =
-    //     message("xmlui.ArtifactBrowser.FeedbackForm.para1");
+    private static final Message T_para1 =
+        message("xmlui.ArtifactBrowser.FeedbackForm.para1");
     
-    // private static final Message T_email =
-    //     message("xmlui.ArtifactBrowser.FeedbackForm.email");
+    private static final Message T_email =
+        message("xmlui.ArtifactBrowser.FeedbackForm.email");
 
-    // private static final Message T_email_help =
-    //     message("xmlui.ArtifactBrowser.FeedbackForm.email_help");
+    private static final Message T_email_help =
+        message("xmlui.ArtifactBrowser.FeedbackForm.email_help");
     
-    // private static final Message T_comments = 
-    //     message("xmlui.ArtifactBrowser.FeedbackForm.comments");
+    private static final Message T_comments = 
+        message("xmlui.ArtifactBrowser.FeedbackForm.comments");
     
-    // private static final Message T_submit =
-    //     message("xmlui.ArtifactBrowser.FeedbackForm.submit");
+    private static final Message T_submit =
+        message("xmlui.ArtifactBrowser.FeedbackForm.submit");
     
-    // /**
-    //  * Generate the unique caching key.
-    //  * This key must be unique inside the space of this component.
-    //  */
-    // public Serializable getKey() {
+    /**
+     * Generate the unique caching key.
+     * This key must be unique inside the space of this component.
+     */
+    public Serializable getKey() {
         
-    //     String email = parameters.getParameter("email","");
-    //     String comments = parameters.getParameter("comments","");
-    //     String page = parameters.getParameter("page","unknown");
+        String email = parameters.getParameter("email","");
+        String comments = parameters.getParameter("comments","");
+        String page = parameters.getParameter("page","unknown");
         
-    //    return HashUtil.hash(email + "-" + comments + "-" + page);
-    // }
+       return HashUtil.hash(email + "-" + comments + "-" + page);
+    }
 
-    // /**
-    //  * Generate the cache validity object.
-    //  */
-    // public SourceValidity getValidity() 
-    // {
-    //     return NOPValidity.SHARED_INSTANCE;
-    // }
+    /**
+     * Generate the cache validity object.
+     */
+    public SourceValidity getValidity() 
+    {
+        return NOPValidity.SHARED_INSTANCE;
+    }
     
     
-    // public void addPageMeta(PageMeta pageMeta) throws SAXException,
-    //         WingException, UIException, SQLException, IOException,
-    //         AuthorizeException
-    // {       
-    //     pageMeta.addMetadata("title").addContent(T_title);
+    public void addPageMeta(PageMeta pageMeta) throws SAXException,
+            WingException, UIException, SQLException, IOException,
+            AuthorizeException
+    {       
+        // pageMeta.addMetadata("title").addContent(T_title);
  
-    //     pageMeta.addTrailLink(contextPath + "/",T_dspace_home);
-    //     pageMeta.addTrail().addContent(T_trail);
-    // }
+        // pageMeta.addTrailLink(contextPath + "/",T_dspace_home);
+        // pageMeta.addTrail().addContent(T_trail);
+    }
 
-    // public void addBody(Body body) throws SAXException, WingException,
-    //         UIException, SQLException, IOException, AuthorizeException
-    // {
+    public void addBody(Body body) throws SAXException, WingException,
+            UIException, SQLException, IOException, AuthorizeException
+    {
 
-    //     // Build the item viewer division.
-    //     Division feedback = body.addInteractiveDivision("feedback-form",
-    //             contextPath+"/feedback",Division.METHOD_POST,"primary");
+        // // Build the item viewer division.
+        // Division feedback = body.addInteractiveDivision("feedback-form",
+        //         contextPath+"/feedback",Division.METHOD_POST,"primary");
         
-    //     feedback.setHead(T_head);
+        // feedback.setHead(T_head);
         
-    //     feedback.addPara(T_para1);
+        // feedback.addPara(T_para1);
         
-    //     List form = feedback.addList("form",List.TYPE_FORM);
+        // List form = feedback.addList("form",List.TYPE_FORM);
         
-    //     Text email = form.addItem().addText("email");
-    //     email.setAutofocus("autofocus");
-    //     email.setLabel(T_email);
-    //     email.setHelp(T_email_help);
-    //     email.setValue(parameters.getParameter("email",""));
+        // Text email = form.addItem().addText("email");
+        // email.setAutofocus("autofocus");
+        // email.setLabel(T_email);
+        // email.setHelp(T_email_help);
+        // email.setValue(parameters.getParameter("email",""));
         
-    //     TextArea comments = form.addItem().addTextArea("comments");
-    //     comments.setLabel(T_comments);
-    //     comments.setValue(parameters.getParameter("comments",""));
+        // TextArea comments = form.addItem().addTextArea("comments");
+        // comments.setLabel(T_comments);
+        // comments.setValue(parameters.getParameter("comments",""));
         
-    //     form.addItem().addButton("submit").setValue(T_submit);
+        // form.addItem().addButton("submit").setValue(T_submit);
         
-    //     feedback.addHidden("page").setValue(parameters.getParameter("page","unknown"));
-    // }
+        // feedback.addHidden("page").setValue(parameters.getParameter("page","unknown"));
+    }
 }
