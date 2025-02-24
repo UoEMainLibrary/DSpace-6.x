@@ -825,7 +825,7 @@
                         <p>Help with <a href="https://libguides.st-andrews.ac.uk/c.php?g=669998&amp;p=4756152" target="_blank" title="Help with electronic theses deposit">deposit</a>.</p>
                         <h3>Repository help</h3>
                         <p>For repository help contact: <a href="mailto:Digital-Repository@st-andrews.ac.uk" title="Email address for St Andrews Research Repository">Digital-Repository@st-andrews.ac.uk</a>.</p>
-                        <p><a href="/feedback" title="For sharing feedback about the St Andrews Research Repository">Give Feedback</a></p>
+                        <!-- <p><a href="/feedback" title="For sharing feedback about the St Andrews Research Repository">Give Feedback</a></p> -->
                     </div>
                     <div class="col-md-3 footer-block">
                         <h3>Cookie policy</h3>

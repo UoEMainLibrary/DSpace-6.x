@@ -286,6 +286,8 @@ public class LDAPAuthentication
 
                 String email = ldap.ldapEmail;
 
+                String netidEmail = ldapEmail;
+
                 //  Commented out by me (Robin). This should be validated elsewhere.
                 // Check if we were able to determine an email address from LDAP
                 if(request.getParameter("school") == null || StringUtils.isEmpty(request.getParameter("school")))
@@ -307,6 +309,10 @@ public class LDAPAuthentication
                 {
                     email = netid;
                 }*/
+                if (request.getParameter("customemail") != null && StringUtils.isNotEmpty(request.getParameter("customemail")))
+                {
+                    altEmail = request.getParameter("customemail");
+                }
 
                 if (StringUtils.isNotEmpty(email))
                 {
@@ -342,6 +348,12 @@ public class LDAPAuthentication
                                     {
                                         eperson.setEmail(email);
                                     }
+
+                                    if (StringUtils.isNotEmpty(altEmail))
+                                    {
+                                        eperson.setAltmail(altEmail);
+                                    }
+
                                     if (StringUtils.isNotEmpty(ldap.ldapGivenName))
                                     {
                                         eperson.setFirstName(context, ldap.ldapGivenName);
@@ -398,6 +410,11 @@ public class LDAPAuthentication
                     {
                         context.restoreAuthSystemState();
                     }
+                }
+
+                if (StringUtils.isNotEmpty(netidEmail))
+                {
+                    eperson.setEmail(netidEmail);
                 }
             }
         }

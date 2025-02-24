@@ -167,6 +167,7 @@ public class FlowEPersonUtils {
 		boolean login = (request.getParameter("can_log_in") != null) ? true : false;
 		boolean certificate = (request.getParameter("certificate") != null) ? true : false;
 		
+		String studentID = request.getParameter("student_id");
 		
 		// If we have errors, the form needs to be resubmitted to fix those problems
 	    if (StringUtils.isEmpty(email))
@@ -226,6 +227,12 @@ public class FlowEPersonUtils {
             if (originalPhone == null || !originalPhone.equals(phone)) {
 				ePersonService.setMetadata(context, personModified, "phone", phone);
         	}
+
+			String originalStudentID = personModified.getStudentId();
+			if ( originalStudentID == null || !originalStudentID.equals(studentID)) {
+				personModified.setStudentId(studentID);
+			}
+			
         	personModified.setCanLogIn(login);
         	personModified.setRequireCertificate(certificate);
         	
