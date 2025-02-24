@@ -286,7 +286,9 @@ public class LDAPAuthentication
 
                 String email = ldap.ldapEmail;
 
-                String netidEmail = ldapEmail;
+                String netidEmail = ldap.ldapEmail;
+
+                String altEmail = null;
 
                 //  Commented out by me (Robin). This should be validated elsewhere.
                 // Check if we were able to determine an email address from LDAP
@@ -351,7 +353,7 @@ public class LDAPAuthentication
 
                                     if (StringUtils.isNotEmpty(altEmail))
                                     {
-                                        eperson.setAltmail(altEmail);
+                                        eperson.setAltEmail(altEmail);
                                     }
 
                                     if (StringUtils.isNotEmpty(ldap.ldapGivenName))
@@ -458,6 +460,8 @@ public class LDAPAuthentication
         {
             // The resultant DN
             String resultDN;
+
+            String ldapEmail = null;
 
             // The search scope to use (default to 0)
             int ldap_search_scope_value = 0;
