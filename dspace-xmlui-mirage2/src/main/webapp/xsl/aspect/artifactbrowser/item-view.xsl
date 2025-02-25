@@ -145,7 +145,7 @@
                     <xsl:if test="$ds_item_view_toggle_url != ''">
                     <xsl:call-template name="itemSummaryView-show-full"/>
                     </xsl:if>
-                    <!--<xsl:call-template name="itemAltmetricsDonut"/>-->
+                    <xsl:call-template name="itemAltmetricsDonut"/>
                 </div>
                 <div class="col-sm-8">
                     <xsl:call-template name="itemSummaryView-DIM-abstract"/>
@@ -165,24 +165,6 @@
                     <xsl:call-template name="itemSummaryView-DIM-URI"/>
                 </div>
             </div>
-            <!--<div class="coreRecommenderContainer">
-                <div class="panel-group">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                        <a id="panel-dropdown" data-toggle="collapse" href="#collapse1">
-                            <h4 class="panel-title">
-                                If this paper interests you, you may also like these outputs
-                            </h4>
-                        </a>
-                        </div>
-                        <div id="collapse1" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div id="coreRecommenderOutput"></div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </div>-->
         </div>
     </xsl:template>
 
@@ -546,7 +528,7 @@
 
     <xsl:template name="itemSummaryView-DIM-type">
         <xsl:if test="dim:field[@element='type']">
-            <div class="simple-item-view-type item-page-field-wrapper table">
+            <div class="simple-item-view-type item-page-field-wrapper table" id="simple-item-view-type">
                 <h5><i18n:text>xmlui.dri2xhtml.METS-1.0.item-type</i18n:text></h5>
                 <div>
                     <xsl:for-each select="dim:field[@element='type'][not(@qualifier)]">
@@ -892,6 +874,29 @@
                 <i18n:text>xmlui.ArtifactBrowser.ItemViewer.show_full</i18n:text>
             </a>
         </div>
+    </xsl:template>
+
+    <xsl:template name="itemAltmetricsDonut">
+        <xsl:if test="dim:field[@element='identifier' and @qualifier='uri' and descendant::text()]">
+            <h5 class="altmet-handle-head">
+                <i18n:text>xmlui.dri2xhtml.METS-1.0.item-altmetrics-handle</i18n:text>
+            </h5>
+            <div class='altmetric-embed altmet-handle' data-badge-type='donut' data-hide-less-than='1'>
+                <xsl:attribute name="data-handle">
+                    <xsl:value-of select="substring(dim:field[@element='identifier' and @qualifier='uri' and descendant::text()],23)"/>
+                </xsl:attribute>
+            </div>
+        </xsl:if>
+        <xsl:if test="dim:field[@element='identifier' and @qualifier='doi' and descendant::text()]">
+            <h5 class="altmet-doi-head">
+                <i18n:text>xmlui.dri2xhtml.METS-1.0.item-altmetrics-doi</i18n:text>
+            </h5>
+            <div class='altmetric-embed altmet-doi' data-badge-type='donut' data-hide-less-than='1'>
+                <xsl:attribute name="data-doi">
+                    <xsl:value-of select="substring(dim:field[@element='identifier' and @qualifier='doi' and descendant::text()],17)"/>
+                </xsl:attribute>
+            </div>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template name="itemSummaryView-collections">

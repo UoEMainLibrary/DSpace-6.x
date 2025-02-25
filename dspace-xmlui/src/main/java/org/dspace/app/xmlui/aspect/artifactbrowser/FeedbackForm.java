@@ -89,38 +89,38 @@ public class FeedbackForm extends AbstractDSpaceTransformer implements Cacheable
             WingException, UIException, SQLException, IOException,
             AuthorizeException
     {       
-        pageMeta.addMetadata("title").addContent(T_title);
+        // pageMeta.addMetadata("title").addContent(T_title);
  
-        pageMeta.addTrailLink(contextPath + "/",T_dspace_home);
-        pageMeta.addTrail().addContent(T_trail);
+        // pageMeta.addTrailLink(contextPath + "/",T_dspace_home);
+        // pageMeta.addTrail().addContent(T_trail);
     }
 
     public void addBody(Body body) throws SAXException, WingException,
             UIException, SQLException, IOException, AuthorizeException
     {
 
-        // Build the item viewer division.
-        Division feedback = body.addInteractiveDivision("feedback-form",
-                contextPath+"/feedback",Division.METHOD_POST,"primary");
+        // // Build the item viewer division.
+        // Division feedback = body.addInteractiveDivision("feedback-form",
+        //         contextPath+"/feedback",Division.METHOD_POST,"primary");
         
-        feedback.setHead(T_head);
+        // feedback.setHead(T_head);
         
-        feedback.addPara(T_para1);
+        // feedback.addPara(T_para1);
         
-        List form = feedback.addList("form",List.TYPE_FORM);
+        // List form = feedback.addList("form",List.TYPE_FORM);
         
-        Text email = form.addItem().addText("email");
-        email.setAutofocus("autofocus");
-        email.setLabel(T_email);
-        email.setHelp(T_email_help);
-        email.setValue(parameters.getParameter("email",""));
+        // Text email = form.addItem().addText("email");
+        // email.setAutofocus("autofocus");
+        // email.setLabel(T_email);
+        // email.setHelp(T_email_help);
+        // email.setValue(parameters.getParameter("email",""));
         
-        TextArea comments = form.addItem().addTextArea("comments");
-        comments.setLabel(T_comments);
-        comments.setValue(parameters.getParameter("comments",""));
+        // TextArea comments = form.addItem().addTextArea("comments");
+        // comments.setLabel(T_comments);
+        // comments.setValue(parameters.getParameter("comments",""));
         
-        form.addItem().addButton("submit").setValue(T_submit);
+        // form.addItem().addButton("submit").setValue(T_submit);
         
-        feedback.addHidden("page").setValue(parameters.getParameter("page","unknown"));
+        // feedback.addHidden("page").setValue(parameters.getParameter("page","unknown"));
     }
 }

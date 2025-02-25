@@ -260,6 +260,7 @@ public class AccountServiceImpl implements AccountService
         Locale locale = context.getCurrentLocale();
         Email bean = Email.getEmail(I18nUtil.getEmailFilename(locale, isRegister ? "register"
                 : "change_password"));
+        bean.setSubtype("plain"); // Default email format changed to "html" - resetting to "plain" for account service emails
         bean.addRecipient(email);
         bean.addArgument(specialLink);
         bean.send();

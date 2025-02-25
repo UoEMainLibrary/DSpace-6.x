@@ -114,6 +114,8 @@ public class Email
 
     /** The recipients */
     private List<String> recipients;
+    /** The recipients */
+    private List<String> recipientsCC;
 
     /** Reply to field, if any */
     private String replyTo;
@@ -124,6 +126,9 @@ public class Email
     /** The character set this message will be sent in */
     private String charset;
 
+    /** The subtype represents whether the email will be plain text or HTML */
+    private String subtype;
+
     private static final Logger log = Logger.getLogger(Email.class);
 
     /**
@@ -133,12 +138,18 @@ public class Email
     {
         arguments = new ArrayList<Object>(50);
         recipients = new ArrayList<String>(50);
+        recipientsCC = new ArrayList<String>(50);
         attachments = new ArrayList<FileAttachment>(10);
         moreAttachments = new ArrayList<InputStreamAttachment>(10);
         subject = "";
         content = "";
         replyTo = null;
         charset = null;
+        subtype = "plain";
+    }
+
+    public void setSubtype(String subtype){
+        this.subtype = subtype;
     }
 
     /**
@@ -150,6 +161,11 @@ public class Email
     public void addRecipient(String email)
     {
         recipients.add(email);
+    }
+
+    public void addRecipientCC(String email)
+    {
+        recipientsCC.add(email);
     }
 
     /**
@@ -221,6 +237,7 @@ public class Email
     {
         arguments = new ArrayList<Object>(50);
         recipients = new ArrayList<String>(50);
+        recipientsCC = new ArrayList<String>(50);
         attachments = new ArrayList<FileAttachment>(10);
         moreAttachments = new ArrayList<InputStreamAttachment>(10);
         replyTo = null;
@@ -263,6 +280,14 @@ public class Email
                     i.next()));
         }
 
+        Iterator<String> iC = recipientsCC.iterator();
+
+        while (iC.hasNext())
+        {
+            message.addRecipient(Message.RecipientType.CC, new InternetAddress(
+                    iC.next()));
+        }
+
         // Format the mail message
         Object[] args = arguments.toArray();
         String fullMessage = MessageFormat.format(content, args);
@@ -288,11 +313,13 @@ public class Email
             // If a character set has been specified, or a default exists
             if (charset != null)
             {
-                message.setText(fullMessage, charset);
+                //message.setText(fullMessage, charset);
+                message.setText(fullMessage, charset, subtype);
             }
             else
             {
-                message.setText(fullMessage);
+                //message.setText(fullMessage);
+                message.setText(fullMessage,null, subtype);
             }
         }
         else{

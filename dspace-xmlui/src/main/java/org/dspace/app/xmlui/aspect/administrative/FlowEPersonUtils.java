@@ -160,9 +160,11 @@ public class FlowEPersonUtils {
 		
 		// Get all our request parameters
 		String email = request.getParameter("email_address");
+		String altEmail = request.getParameter("alt_email");
 		String first = request.getParameter("first_name");
 		String last  = request.getParameter("last_name");
 		String netID = request.getParameter("net_id");
+		String studentID = request.getParameter("student_id");
 		String phone = request.getParameter("phone");
 		boolean login = (request.getParameter("can_log_in") != null) ? true : false;
 		boolean certificate = (request.getParameter("certificate") != null) ? true : false;
@@ -210,6 +212,11 @@ public class FlowEPersonUtils {
         			return result;
         		}
         	}
+			// alt email
+			String originalAltEmail = personModified.getAltEmail();
+            if (originalAltEmail == null || !originalAltEmail.equals(altEmail)) {
+        		personModified.setAltEmail(altEmail);
+        	}
         	String originalFirstName = personModified.getFirstName();
             if (originalFirstName == null || !originalFirstName.equals(first)) {
         		personModified.setFirstName(context, first);
@@ -221,6 +228,11 @@ public class FlowEPersonUtils {
 			String originalNetID = personModified.getNetid();
 			if (originalNetID == null || !originalNetID.equals(netID)) {
 				personModified.setNetid(netID);
+			}
+			// student id
+			String originalStudentID = personModified.getStudentId();
+			if (originalStudentID == null || !originalStudentID.equals(studentID)) {
+				personModified.setStudentId(studentID);
 			}
         	String originalPhone = ePersonService.getMetadata(personModified, "phone");
             if (originalPhone == null || !originalPhone.equals(phone)) {

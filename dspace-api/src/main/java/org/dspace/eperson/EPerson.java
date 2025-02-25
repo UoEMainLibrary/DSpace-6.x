@@ -43,6 +43,9 @@ public class EPerson extends DSpaceObject implements DSpaceObjectLegacySupport
     @Column(name="netid", length = 64)
     private String netid;
 
+    @Column(name="student_id", length = 32)
+    private String studentId;
+
     @Column(name="last_active")
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastActive;
@@ -52,6 +55,9 @@ public class EPerson extends DSpaceObject implements DSpaceObjectLegacySupport
 
     @Column(name="email", unique=true, length = 64)
     private String email;
+
+    @Column(name="alt_email", unique=true, length = 64)
+    private String altEmail;
 
     @Column(name="require_certificate")
     private boolean requireCertificate = false;
@@ -190,6 +196,16 @@ public class EPerson extends DSpaceObject implements DSpaceObjectLegacySupport
     }
 
     /**
+     * Get the e-person's alt email address
+     * 
+     * @return their email address (or null if the column is an SQL NULL)
+     */
+    public String getAltEmail()
+    {
+        return altEmail;
+    }
+
+    /**
      * Set the EPerson's email
      * 
      * @param s
@@ -198,6 +214,18 @@ public class EPerson extends DSpaceObject implements DSpaceObjectLegacySupport
     public void setEmail(String s)
     {
         this.email = StringUtils.lowerCase(s);
+        setModified();
+    }
+
+    /**
+     * Set the EPerson's student email
+     * 
+     * @param s
+     *            the new email
+     */
+    public void setAltEmail(String s)
+    {
+        this.altEmail = StringUtils.lowerCase(s);
         setModified();
     }
 
@@ -219,6 +247,27 @@ public class EPerson extends DSpaceObject implements DSpaceObjectLegacySupport
      */
     public void setNetid(String netid) {
         this.netid = netid;
+        setModified();
+    }
+
+    /**
+     * Get the e-person's student ID
+     * 
+     * @return their netid (DB constraints ensure it's never NULL)
+     */
+    public String getStudentId()
+    {
+        return studentId;
+    }
+
+    /**
+     * Set the EPerson's student ID
+     * 
+     * @param studentId
+     *            the new netid
+     */
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
         setModified();
     }
 
