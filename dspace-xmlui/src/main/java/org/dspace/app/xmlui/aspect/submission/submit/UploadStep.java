@@ -74,6 +74,21 @@ public class UploadStep extends AbstractSubmissionStep
     protected static final Message T_upload_error =
             message("xmlui.Submission.submit.UploadStep.upload_error");
 
+    protected static final Message T_pre_file1 =
+            message("xmlui.Submission.submit.UploadStep.pre_file1");
+    protected static final Message T_pre_file2 =
+            message("xmlui.Submission.submit.UploadStep.pre_file2");
+    protected static final Message T_pre_file3 =
+            message("xmlui.Submission.submit.UploadStep.pre_file3");
+    protected static final Message T_pre_file4 =
+            message("xmlui.Submission.submit.UploadStep.pre_file4");
+    protected static final Message T_pre_file5 =
+            message("xmlui.Submission.submit.UploadStep.pre_file5");
+    protected static final Message T_pre_file6 =
+            message("xmlui.Submission.submit.UploadStep.pre_file6");
+    protected static final Message T_pre_file7 =
+            message("xmlui.Submission.submit.UploadStep.pre_file7");
+            
     protected static final Message T_virus_checker_error =
             message("xmlui.Submission.submit.UploadStep.virus_checker_error");
     protected static final Message T_virus_error =

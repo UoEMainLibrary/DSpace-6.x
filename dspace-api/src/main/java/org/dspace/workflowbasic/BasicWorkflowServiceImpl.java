@@ -1150,9 +1150,7 @@ public class BasicWorkflowServiceImpl implements BasicWorkflowService
                     if(coll.getName().equals("Library Theses") && wi.getState() == WFSTATE_STEP1POOL)
                     {
                         email.addArgument(message);
-                        email.addRecipient(DIGIREPEMAIL);
-                        email.addRecipient(REGISTRYEMAIL);
-                        email.addRecipient(RESEARCHEMAIL);
+                        email.addRecipient(DIGIREPEMAIL + ", " + REGISTRYEMAIL + ", " + RESEARCHEMAIL);
 
                         count++;
                     }
