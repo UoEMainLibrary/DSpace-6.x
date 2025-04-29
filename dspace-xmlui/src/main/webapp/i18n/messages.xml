@@ -2276,8 +2276,11 @@
 	<message key="xmlui.dri2xhtml.METS-1.0.header-qdc-elements">Dublin Core elements</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.header-qdc-terms">Dublin Core terms</message>
 
-        <message key="xmlui.dri2xhtml.METS-1.0.blocked">Blocked</message>
+    <message key="xmlui.dri2xhtml.METS-1.0.blocked">Blocked</message>
 
+	<!-- Custom -->
+	<message key="xmlui.dri2xhtml.METS-1.0.item-publication">Publication</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-url">URL</message>
 
 	<!-- Special pioneer model related text, wherever it might end up -->
 	<message key="xmlui.dri2xhtml.pioneer.preview">Preview</message>
